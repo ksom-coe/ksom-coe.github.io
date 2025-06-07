@@ -66,9 +66,7 @@
                 </a>
                 <div class="flex flex-col ml-2">
                     <p class="dept-title">Kerala School of Mathematics</p>
-                    <p class="university-name text-sm font-medium">
-                        <!-- Removed the long university name text as requested -->
-                    </p>
+                    <!-- Removed the long university name text from header as requested -->
                 </div>
             </div>
 
@@ -109,25 +107,24 @@
     <section class="hero-section">
         <div class="container hero-content !text-left !items-end !justify-start !pt-0 !pb-12">
             <h2 class="!mb-2">Kerala School of Mathematics</h2>
-            <p class="!mb-0 max-w-2xl">An autonomous institution established as a joint venture of the Science and Technology Department, Government of Kerala,
-                and the Department of Atomic Energy, Government of India</p>
+            <p class="!mb-0 max-w-2xl">An autonomous institution established as a joint venture of the Science and Technology Department, Government of Kerala, and the Department of Atomic Energy, Government of India</p>
             <a href="#programmes" class="btn-primary mt-8">Explore Programmes</a>
         </div>
     </section>
 
     <!-- Main Content -->
     <main class="main-content">
-        <div class="container">
+        <div class="container main-content-grid">
             <!-- Welcome Section -->
             <section class="about-us-section" id="about-us">
-                <div class="container flex-col md:flex-row items-center gap-8">
+                <div class="flex-col md:flex-row items-center gap-8">
                     <div class="image-column md:w-1/2">
                         <img src="../Images/KSoMCampus.jpg" alt="KSoM Campus View" class="rounded-lg shadow-lg">
                     </div>
                     <div class="text-column md:w-1/2 text-center md:text-left">
                         <h2 class="section-title !text-left !mb-6 !pb-4 md:!mx-0 !mx-auto">Welcome to Kerala School of Mathematics</h2>
-                        <p>The Kerala School of Mathematics (KSoM) is an initiative by the Government of Kerala to foster high-level research and advanced education in mathematics. Located in Kozhikode, KSoM aims to be a leading center for mathematical sciences, attracting talent from across the nation and beyond.</p>
-                        <p>Our mission is to create a vibrant academic environment that promotes cutting-edge research, nurtures young mathematicians, and contributes significantly to the global mathematical community.</p>
+                        <p>Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.</p>
+                        <p>The main objective of Kerala School of Mathematics is conduct of high quality Mathematical Research. Our mission is to create a vibrant academic environment that promotes cutting-edge research, nurtures young mathematicians, and contributes significantly to the global mathematical community.</p>
                         <a href="#" class="view-all-link">Read More About Us &rarr;</a>
                     </div>
                 </div>
@@ -214,9 +211,11 @@
                     </div>
                 </div>
             </section>
+        </div>
 
-            <!-- Research Section (now after News & Events) -->
-            <section class="research-section mb-16" id="research">
+        <!-- Research Section (now after News & Events) -->
+        <section class="research-section mb-16" id="research">
+            <div class="container">
                 <h2 class="section-title">Research Areas at KSoM</h2>
                 <div class="grid content-cards-grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     <!-- Complex Analysis Card -->
@@ -264,10 +263,12 @@
                         </div>
                     </a>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Programmes Section -->
-            <section class="programmes-section mb-16" id="programmes">
+        <!-- Programmes Section -->
+        <section class="programmes-section mb-16" id="programmes">
+            <div class="container">
                 <h2 class="section-title">Our Programmes</h2>
                 <div class="grid content-cards-grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     <!-- Integrated M.Sc. - Ph.D. Programme Card -->
@@ -315,10 +316,12 @@
                         </div>
                     </a>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- MSc Slideshow Section - Renamed to Programme Highlights -->
-            <section class="slideshow-section" id="programme-highlights">
+        <!-- MSc Slideshow Section - Renamed to Programme Highlights -->
+        <section class="slideshow-section" id="programme-highlights">
+            <div class="container">
                 <h2 class="section-title">Highlights of Our Academic Environment</h2>
                 <div class="slideshow-container">
                     <div class="msc-slide active">
@@ -357,8 +360,8 @@
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer Content (This section would typically be dynamically included from footer.html) -->
