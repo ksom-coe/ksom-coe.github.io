@@ -202,7 +202,367 @@ a:hover, a:focus-visible {
 /* ==========================================================================
    6. Components (Header, Nav, Hero, etc.)
    ========================================================================== */
-/* header, nav, hero, footer — same as in your uploaded CSS — omitted here for brevity */
+
+/* --------------------------------------------------------------------------
+   6.1 Header
+   -------------------------------------------------------------------------- */
+.site-header {
+    background-color: var(--ias-blue);
+    color: var(--white);
+    padding: var(--spacing-5) 0; /* MODIFIED: Increased padding for better proportion */
+    position: sticky; /* Make header sticky */
+    top: 0;
+    z-index: var(--z-sticky);
+    box-shadow: var(--shadow-md);
+}
+
+.site-header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping for smaller viewports if needed */
+}
+
+.site-branding {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3); /* Space between logo and titles */
+}
+
+.site-logo-link {
+     display: flex;
+     align-items: center;
+     text-decoration: none;
+     color: inherit;
+}
+.site-logo-link:hover, .site-logo-link:focus-visible {
+    text-decoration: none; /* No underline for logo link */
+    opacity: 0.9;
+}
+
+.site-logo-img {
+    width: var(--spacing-12);  /* MODIFIED: Increased logo size */
+    height: var(--spacing-12); /* MODIFIED: Increased logo size */
+    border-radius: var(--border-radius-full);
+    background-color: var(--white); /* Add a white background if logo is transparent */
+    padding: var(--spacing-0-5); /* Small padding if logo needs breathing room */
+}
+
+.site-title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.dept-title {
+    font-size: var(--font-size-lg);
+    white-space: nowrap;
+    color: var(--gray-300); /* Subtler color for department title */
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3); /* Gap between nav, search, mobile button */
+}
+
+/* Search Form in Header */
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-form input[type="text"] {
+    padding: var(--spacing-2) var(--spacing-3);
+    border: 1px solid var(--gray-400);
+    border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm);
+    font-size: var(--font-size-sm);
+    background-color: var(--white);
+    color: var(--gray-800);
+    max-width: 150px; /* Limit width */
+    transition: border-color var(--transition-fast);
+}
+.search-form input[type="text"]:focus {
+    border-color: var(--ias-teal);
+    outline: none;
+}
+
+.search-form button {
+    padding: var(--spacing-2) var(--spacing-3);
+    border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    line-height: 1.21; /* To match input height */
+}
+
+
+/* --------------------------------------------------------------------------
+   6.2 Navigation (Desktop & Mobile)
+   -------------------------------------------------------------------------- */
+
+/* Desktop Navigation */
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-1); /* Reduced gap for tighter nav */
+}
+
+.main-nav a { /* Applies to top-level links */
+    color: var(--white);
+    text-decoration: none;
+    padding: var(--spacing-2) var(--spacing-3);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    display: block;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible,
+.main-nav li.relative.dropdown > a[aria-expanded="true"] { /* Highlight active dropdown toggle */
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    text-decoration: none;
+}
+
+/* Desktop Dropdown Menu */
+.main-nav .dropdown-menu {
+    position: absolute;
+    left: 0;
+    top: calc(100% + var(--spacing-1)); /* Position below parent with a small gap */
+    background-color: var(--ias-blue); /* Consistent with header */
+    color: var(--white);
+    min-width: 220px;
+    z-index: var(--z-dropdown);
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+    padding: var(--spacing-2) 0; /* Vertical padding for the menu itself */
+    box-shadow: var(--shadow-lg);
+    opacity: 0; /* CORRECTED: Hidden by default */
+    visibility: hidden; /* CORRECTED: Hidden by default */
+    transform: translateY(var(--spacing-2)); /* Start slightly lower for animation */
+    transition: opacity var(--transition-medium) ease-out,
+                visibility var(--transition-medium) ease-out, /* Ensure visibility is transitioned */
+                transform var(--transition-medium) ease-out;
+    pointer-events: none; /* Prevent interaction when hidden */
+}
+
+.main-nav .dropdown-menu.show {
+    opacity: 1; /* CORRECTED: Show */
+    visibility: visible; /* CORRECTED: Show */
+    transform: translateY(0);
+    pointer-events: auto; /* Allow interaction when shown */
+}
+
+.main-nav .dropdown-menu li a {
+    padding: var(--spacing-2) var(--spacing-4); /* Padding for dropdown items */
+    display: block;
+    color: var(--white);
+    white-space: nowrap;
+    font-size: var(--font-size-sm);
+    font-weight: normal; /* Normal weight for dropdown items */
+    border-radius: 0; /* No border radius for individual items */
+}
+
+.main-nav .dropdown-menu li a:hover,
+.main-nav .dropdown-menu li a:focus-visible {
+    background-color: var(--ias-teal);
+    color: var(--white);
+}
+
+/* Mobile Menu Button */
+.mobile-menu-button {
+    color: var(--white);
+    padding: var(--spacing-2);
+    border-radius: var(--border-radius-sm);
+    transition: background-color var(--transition-fast);
+}
+.mobile-menu-button:hover, .mobile-menu-button:focus-visible {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.mobile-menu-button svg {
+    width: var(--spacing-6); /* 24px */
+    height: var(--spacing-6); /* 24px */
+}
+
+
+/* Mobile Navigation Panel */
+.mobile-nav {
+    background-color: var(--ias-blue); /* Match header */
+    color: var(--white);
+    padding-top: var(--spacing-4);
+    padding-bottom: var(--spacing-4);
+    border-top: 1px solid var(--ias-teal); /* Separator from header */
+    box-shadow: var(--shadow-md);
+}
+
+.mobile-nav.mobile-menu-hidden {
+    display: none;
+}
+.mobile-nav.mobile-menu-visible {
+    display: block;
+}
+
+.mobile-nav ul {
+    list-style: none;
+}
+.mobile-nav ul li a { /* Top level mobile nav links */
+    display: block;
+    padding: var(--spacing-3) var(--spacing-4);
+    color: var(--white);
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+    transition: background-color var(--transition-fast);
+}
+.mobile-nav ul li:last-child a {
+    border-bottom: none;
+}
+.mobile-nav ul li a:hover,
+.mobile-nav ul li a:focus-visible {
+    background-color: var(--ias-teal);
+    text-decoration: none;
+}
+
+/* Mobile Navigation Dropdowns */
+.mobile-nav .mobile-dropdown > a {
+    display: flex; /* Allows for an icon/arrow if added */
+    justify-content: space-between;
+    align-items: center;
+}
+/* Add an indicator for dropdowns (optional, requires adding span/svg in HTML) */
+/* .mobile-nav .mobile-dropdown > a::after { content: ' ▼'; font-size: 0.8em; } */
+/* .mobile-nav .mobile-dropdown.open > a::after { content: ' ▲'; } */
+
+
+.mobile-nav .mobile-dropdown > ul {
+    display: none; /* CORRECTED: Hidden by default */
+    list-style: none;
+    padding-left: 0; /* No extra indent, items will be indented */
+    background-color: rgba(0, 0, 0, 0.1); /* Slightly darker bg for submenu */
+    margin-top: 0; /* Remove margin */
+}
+
+.mobile-nav .mobile-dropdown.open > ul {
+    display: block; /* CORRECTED: Show when parent li has .open */
+}
+
+.mobile-nav .mobile-dropdown ul li a {
+    padding: var(--spacing-2-5) var(--spacing-4) var(--spacing-2-5) var(--spacing-8); /* Indent submenu items */
+    font-size: var(--font-size-sm);
+    font-weight: normal;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Fainter separator for sub-items */
+}
+.mobile-nav .mobile-dropdown ul li:last-child a {
+    border-bottom: none;
+}
+
+
+/* --------------------------------------------------------------------------
+   6.3 Hero Section
+   -------------------------------------------------------------------------- */
+.hero-section {
+    background-image: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.7)), url('MathDepartment.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    padding: var(--spacing-16) 0; /* Generous padding */
+    text-align: center;
+}
+
+.hero-dept-name {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    text-shadow: var(--shadow-text);
+}
+
+
+/* --------------------------------------------------------------------------
+   6.4 Main Content
+   -------------------------------------------------------------------------- */
+.main-content {
+    padding-top: var(--spacing-8);
+    padding-bottom: var(--spacing-8);
+}
+
+/* Event Cards */
+.event-card {
+    background-color: var(--white);
+    padding: var(--spacing-4);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--transition-medium);
+    margin-bottom: var(--spacing-4); /* Space between cards */
+}
+.event-card:hover {
+    box-shadow: var(--shadow-md);
+}
+.event-card a { text-decoration: none; color: inherit; }
+.event-card a:hover .event-title { color: var(--ias-teal); }
+
+.event-title {
+    font-size: var(--font-size-lg); /* Slightly smaller for card titles */
+    color: var(--ias-blue);
+    margin-bottom: var(--spacing-1);
+}
+.event-card p {
+    margin-bottom: var(--spacing-1);
+    font-size: var(--font-size-sm);
+}
+.event-card .text-gray-600 { color: var(--gray-600); }
+.event-card .text-gray-700 { color: var(--gray-700); }
+
+/* Prose for article content */
+.prose h2 { margin-top: var(--spacing-8); }
+.prose p { line-height: 1.7; font-size: var(--font-size-base); }
+.prose a { text-decoration: underline; }
+.prose a:hover { color: var(--ias-teal); }
+
+/* News Items */
+.news-item {
+    background-color: var(--white);
+    border: 1px solid var(--gray-200);
+}
+.news-item h3 { font-size: var(--font-size-xl); }
+
+
+/* --------------------------------------------------------------------------
+   6.5 Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+    padding: var(--spacing-8) 0;
+    font-size: var(--font-size-sm);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-8);
+    margin-bottom: var(--spacing-8);
+}
+
+.site-footer h4 {
+    font-family: var(--font-heading); /* Use heading font for footer titles */
+    font-size: var(--font-size-lg);
+    color: var(--gray-300); /* Lighter color for titles on dark bg */
+    margin-bottom: var(--spacing-3);
+}
+
+.site-footer p, .site-footer ul li {
+    margin-bottom: var(--spacing-2);
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-4);
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Lighter border on dark bg */
+    color: var(--gray-400); /* Lighter text for copyright */
+}
 
 /* ==========================================================================
    7. Utilities
