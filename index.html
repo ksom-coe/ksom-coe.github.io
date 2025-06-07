@@ -16,14 +16,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
-    <!-- Google Fonts (Inter from the provided head) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts (Inter, Lora, Playfair Display for overall site consistency) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
     <!-- Main CSS (Updated path to ../style.css) -->
     <link rel="stylesheet" href="../style.css" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="ksom-logo.png">
+    <!-- Preload KSoM specific images for performance -->
+    <link rel="preload" href="ksom-logo.png" as="image">
+    <link rel="preload" href="ksom-logo-footer.png" as="image">
+    <!-- Placeholder for hero image. Replace with actual image later -->
+    <link rel="preload" href="https://placehold.co/1920x600/003366/ffffff?text=KSoM+Hero+Image" as="image">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/fontawesome.min.css">
@@ -61,7 +66,30 @@
     </script>
     <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-    <!-- Inline Table Styling -->
+    <!-- Structured Data (Adapted for KSoM as an Organization) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Kerala School of Mathematics",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kunnamangalam, Kozhikode",
+        "addressRegion": "Kerala",
+        "postalCode": "673571",
+        "addressCountry": "India"
+      },
+      "url": "ksom.res.in",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-495-2809000",
+        "email": "ksom@ksom.res.in",
+        "contactType": "general"
+      }
+    }
+    </script>
+
+    <!-- Inline Table Styling (from the provided head) -->
     <style>
       .responsive-table-container {
         overflow-x: auto;
@@ -83,101 +111,327 @@
         color: #1a202c;
       }
     </style>
+
+    <!-- No-JavaScript Fallback Styles (adapted from original uploaded index.html) -->
+    <noscript>
+        <style>
+            /* Styles for when JavaScript is disabled */
+            /* Show desktop nav and hide mobile nav elements */
+            .main-nav { display: block !important; }
+            .mobile-nav, .mobile-menu-button { display: none !important; }
+            /* Ensure desktop dropdowns are visible on hover without JS */
+            .dropdown:hover .dropdown-menu {
+                display: block !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: translateY(0) !important; /* Ensure no transform */
+                pointer-events: auto !important; /* Ensure clickable */
+            }
+             /* Ensure mobile nav submenus are visible without JS (if mobile nav was somehow visible) */
+            .mobile-nav ul ul { display: block !important; }
+             /* Ensure full content is visible if JS is disabled */
+            .collapsible-extra { display: block !important; } /* Use a generic class for collapsible sections */
+        </style>
+    </noscript>
 </head>
 <body class="bg-white text-gray-900">
     <!-- Header Section (Content to be included by server-side include or build tool) -->
+    <!-- Note: The header.html file contains the navigation bar and its responsive behavior. -->
+    <!-- The JavaScript at the end of this body ensures mobile menu functionality if header.html doesn't include it. -->
+    <!-- The paths for header.html and footer.html are relative to the current file's location. -->
+    <!-- If header.html and footer.html are in the same directory as index.html, change "../header.html" to "header.html". -->
+    <!-- As per the last instruction, they are referenced as ../header.html, implying they are in the parent directory. -->
     <!--#include virtual="../header.html" -->
 
     <!-- Main Content Area -->
-    <main class="container mx-auto px-4 py-8">
+    <main class="main-content">
         <!-- Hero Section -->
-        <section class="text-center mb-12">
-            <h1 class="text-4xl font-bold mb-4">Welcome to the Kerala School of Mathematics</h1>
-            <p class="text-lg text-gray-700">
-                An autonomous institution established as a joint venture of the Science and Technology Department, Government of Kerala, and the Department of Atomic Energy, Government of India.
-            </p>
+        <section class="hero-section bg-cover bg-center text-white py-20 md:py-32" style="background-image: url('https://placehold.co/1920x600/003366/ffffff?text=KSoM+Hero+Image');">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-3xl md:text-5xl font-heading font-bold mb-4">Welcome to the Kerala School of Mathematics</h1>
+                <p class="text-lg md:text-2xl font-primary mb-8 max-w-3xl mx-auto">An autonomous institution established as a joint venture of the Science and Technology Department, Government of Kerala, and the Department of Atomic Energy, Government of India.</p>
+                <a href="/about.html" class="inline-block bg-ias-teal hover:bg-opacity-90 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out">
+                    Learn More About Us
+                </a>
+            </div>
         </section>
 
-        <!-- About Section -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold mb-4">About KSoM</h2>
-            <p class="text-gray-700">
-                The Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics, established in 2009 as a joint venture of the Department of Atomic Energy (DAE) and the Kerala State Council for Science, Technology and Environment (KSCSTE). The institute aims to provide a platform for excellent mathematicians from India and abroad to engage in high-quality research and academic activities.
-            </p>
+        <!-- About Section - Integrated into cards/main flow -->
+        <section class="py-12 md:py-20 bg-gray-100">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <h2 class="text-3xl font-heading font-bold text-center mb-8">About KSoM</h2>
+                <div class="prose max-w-none text-lg leading-relaxed text-gray-700">
+                    <p class="mb-4">The Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics, established in 2009 as a joint venture of the Department of Atomic Energy (DAE) and the Kerala State Council for Science, Technology and Environment (KSCSTE). The institute aims to provide a platform for excellent mathematicians from India and abroad to engage in high-quality research and academic activities.</p>
+                </div>
+            </div>
         </section>
 
-        <!-- Programs Section -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold mb-4">Academic Programs</h2>
-            <ul class="list-disc list-inside text-gray-700">
-                <li>
-                    <strong>Integrated MSc-PhD Program:</strong> An advanced training program at the postgraduate level, offering a seamless transition from Master's to Doctoral studies in Mathematics.
-                </li>
-                <li>
-                    <strong>Ph.D. Program:</strong> A research-intensive program aimed at fostering original contributions to various fields of Mathematics.
-                </li>
-                <li>
-                    <strong>Post-Doctoral Fellowships:</strong> Opportunities for young researchers to engage in independent research across diverse areas of Mathematics.
-                </li>
-            </ul>
+
+        <!-- Key Areas/Programmes/News Highlights Section - with Clickable Cards -->
+        <section class="py-12 md:py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-heading font-bold text-center mb-12">Explore KSoM</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Academic Programs Card -->
+                    <div class="card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+                        <h3 class="text-xl font-semibold mb-3 text-ias-blue">Academic Programs</h3>
+                        <ul class="list-disc list-inside text-gray-700 mb-4">
+                            <li><strong>Integrated MSc-PhD Program:</strong> Advanced training at postgraduate level.</li>
+                            <li><strong>Ph.D. Program:</strong> Research-intensive program for original contributions.</li>
+                            <li><strong>Post-Doctoral Fellowships:</strong> Opportunities for young researchers.</li>
+                        </ul>
+                        <a href="/programmes/phd.html" class="text-ias-teal hover:underline font-medium flex items-center">
+                            View Programmes
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Research Areas Card -->
+                    <div class="card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+                        <h3 class="text-xl font-semibold mb-3 text-ias-blue">Research Areas</h3>
+                        <p class="text-gray-700 mb-4">KSoM hosts research groups in various subfields of Mathematics, including:</p>
+                        <ul class="list-disc list-inside text-gray-700 mb-4">
+                            <li>Analytic Number Theory</li>
+                            <li>Algebra</li>
+                            <li>Geometry</li>
+                            <li>Topology</li>
+                            <li>Mathematical Physics</li>
+                            <li>Applied Mathematics</li>
+                        </ul>
+                        <a href="/research.html" class="text-ias-teal hover:underline font-medium flex items-center">
+                            Explore Research
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- People Card -->
+                    <div class="card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+                        <h3 class="text-xl font-semibold mb-3 text-ias-blue">Our People</h3>
+                        <p class="text-gray-700 mb-4">Meet our distinguished faculty, visiting scholars, and talented students who form the vibrant community at KSoM.</p>
+                        <a href="/people.html" class="text-ias-teal hover:underline font-medium flex items-center">
+                            Meet the Team
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Publications Card -->
+                    <div class="card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+                        <h3 class="text-xl font-semibold mb-3 text-ias-blue">Publications</h3>
+                        <p class="text-gray-700 mb-4">Explore the scholarly output of our faculty and researchers, including preprints, journal articles, and books.</p>
+                        <a href="/publications.html" class="text-ias-teal hover:underline font-medium flex items-center">
+                            Browse Publications
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Resources Card -->
+                    <div class="card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+                        <h3 class="text-xl font-semibold mb-3 text-ias-blue">Resources</h3>
+                        <p class="text-gray-700 mb-4">Access valuable resources including library, computational facilities, and lecture notes for our community.</p>
+                        <a href="/resources.html" class="text-ias-teal hover:underline font-medium flex items-center">
+                            Access Resources
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Contact Card -->
+                    <div class="card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+                        <h3 class="text-xl font-semibold mb-3 text-ias-blue">Contact Us</h3>
+                        <p class="text-gray-700 mb-4">Reach out to us for admissions, collaborations, or general inquiries.</p>
+                        <a href="/contact.html" class="text-ias-teal hover:underline font-medium flex items-center">
+                            Get in Touch
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Research Areas Section -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold mb-4">Research Areas</h2>
-            <p class="text-gray-700">
-                KSoM hosts research groups in various subfields of Mathematics, including:
-            </p>
-            <ul class="list-disc list-inside text-gray-700">
-                <li>Analytic Number Theory</li>
-                <li>Algebra</li>
-                <li>Geometry</li>
-                <li>Topology</li>
-                <li>Mathematical Physics</li>
-                <li>Applied Mathematics</li>
-            </ul>
+        <!-- Latest News & Events Section -->
+        <section class="py-12 md:py-20 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-heading font-bold text-center mb-12">Latest News & Events</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- News Column -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6 text-ias-blue">News</h3>
+                        <div class="space-y-6">
+                            <!-- News Item 1 (from previous content) -->
+                            <div class="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
+                                <p class="text-sm text-gray-500 mb-1">June 5, 2025</p>
+                                <h4 class="font-semibold text-lg mb-2"><a href="#" class="hover:text-ias-teal">Distinguished Professor Dr. Elara Vance Joins KSoM Faculty</a></h4>
+                                <p class="text-gray-700 text-base">We are delighted to announce that Dr. Elara Vance, a renowned expert in Algebraic Geometry, has joined the Kerala School of Mathematics as a full professor...</p>
+                                <a href="#" class="text-ias-teal hover:underline text-sm mt-2 block">Read More</a>
+                            </div>
+                            <!-- News Item 2 (from previous content) -->
+                            <div class="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
+                                <p class="text-sm text-gray-500 mb-1">May 20, 2025</p>
+                                <h4 class="font-semibold text-lg mb-2"><a href="#" class="hover:text-ias-teal">KSoM Hosts Successful Workshop on Combinatorial Theory</a></h4>
+                                <p class="text-gray-700 text-base">The recent workshop on Combinatorial Theory attracted participants from across the globe, featuring insightful lectures and vibrant discussions...</p>
+                                <a href="#" class="text-ias-teal hover:underline text-sm mt-2 block">Read More</a>
+                            </div>
+                            <div class="text-right mt-6">
+                                <a href="/news.html" class="inline-block bg-ias-teal hover:bg-opacity-90 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out">
+                                    View All News
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Events Column -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6 text-ias-blue">Events</h3>
+                        <div class="space-y-6">
+                            <!-- Event Item 1 (from previous content) -->
+                            <div class="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
+                                <p class="text-sm text-gray-500 mb-1">June 15, 2025 | 10:00 AM</p>
+                                <h4 class="font-semibold text-lg mb-2"><a href="#" class="hover:text-ias-teal">Weekly Research Seminar: "Advances in Number Theory"</a></h4>
+                                <p class="text-gray-700 text-base">Dr. Kiran Kumar (IIT Bombay) will deliver a talk on recent breakthroughs in analytic number theory. Open to all interested in mathematics.</p>
+                                <a href="#" class="text-ias-teal hover:underline text-sm mt-2 block">Event Details</a>
+                            </div>
+                            <!-- Event Item 2 (from previous content) -->
+                            <div class="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
+                                <p class="text-sm text-gray-500 mb-1">July 1-3, 2025</p>
+                                <h4 class="font-semibold text-lg mb-2"><a href="#" class="hover:text-ias-teal">International Conference on Discrete Mathematics</a></h4>
+                                <p class="text-gray-700 text-base">KSoM will host a three-day international conference featuring plenary talks, invited sessions, and contributed papers.</p>
+                                <a href="#" class="text-ias-teal hover:underline text-sm mt-2 block">Conference Website</a>
+                            </div>
+                            <div class="text-right mt-6">
+                                <a href="/events.html" class="inline-block bg-ias-teal hover:bg-opacity-90 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out">
+                                    View All Events
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Events Section -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold mb-4">Upcoming Events</h2>
-            <ul class="list-disc list-inside text-gray-700">
-                <li>
-                    <strong>Recruitment of Accounts Officer:</strong> June 3, 2025
-                </li>
-                <li>
-                    <strong>Recruitment of Registrar:</strong> June 3, 2025
-                </li>
-                <li>
-                    <strong>KSoM-PhD Admissions 2025 Advertisement:</strong> May 7, 2025
-                </li>
-                <li>
-                    <strong>Visiting Assistant Professor Position:</strong> March 4, 2025
-                </li>
-                <li>
-                    <strong>NBHM Doctoral and Master's Scholarship Schemes 2025:</strong> December 10, 2024
-                </li>
-                <li>
-                    <strong>Integrated MSc-PhD Program Admissions 2025:</strong> December 5, 2024
-                </li>
-            </ul>
+        <!-- Current "Upcoming Events" content (from last prompt) - Moved here for reference, can be integrated into "Latest News & Events" or kept separate -->
+        <section class="py-12 md:py-20 bg-gray-50">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <h2 class="text-3xl font-heading font-bold text-center mb-8">Important Announcements / Deadlines</h2>
+                <ul class="list-disc list-inside text-gray-700 text-lg space-y-2">
+                    <li><strong>Recruitment of Accounts Officer:</strong> June 3, 2025</li>
+                    <li><strong>Recruitment of Registrar:</strong> June 3, 2025</li>
+                    <li><strong>KSoM-PhD Admissions 2025 Advertisement:</strong> May 7, 2025</li>
+                    <li><strong>Visiting Assistant Professor Position:</strong> March 4, 2025</li>
+                    <li><strong>NBHM Doctoral and Master's Scholarship Schemes 2025:</strong> December 10, 2024</li>
+                    <li><strong>Integrated MSc-PhD Program Admissions 2025:</strong> December 5, 2024</li>
+                </ul>
+            </div>
         </section>
 
         <!-- Contact Section -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold mb-4">Contact Us</h2>
-            <p class="text-gray-700">
-                Kerala School of Mathematics<br />
-                Kunnamangalam P.O., Kozhikode - 673571<br />
-                Kerala, India<br />
-                Phone: +91-495-2809000<br />
-                Fax: +91-495-2809001<br />
-                Email: <a href="mailto:ksom@ksom.res.in" class="text-blue-500 hover:underline">ksom@ksom.res.in</a>
-            </p>
+        <section class="mb-12 py-12 md:py-20 bg-white">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <h2 class="text-3xl font-heading font-bold text-center mb-8">Contact Us</h2>
+                <p class="text-gray-700 text-lg text-center leading-relaxed">
+                    Kerala School of Mathematics<br />
+                    Kunnamangalam P.O., Kozhikode - 673571<br />
+                    Kerala, India<br />
+                    Phone: +91-495-2809000<br />
+                    Fax: +91-495-2809001<br />
+                    Email: <a href="mailto:ksom@ksom.res.in" class="text-blue-500 hover:underline">ksom@ksom.res.in</a>
+                </p>
+            </div>
         </section>
     </main>
 
     <!-- Footer Section (Content to be included by server-side include or build tool) -->
     <!--#include virtual="../footer.html" -->
+
+    <!-- JavaScript for Mobile Menu and Desktop Dropdown (from header.html) -->
+    <!-- This script assumes that the header.html does not embed its own script for mobile menu functionality, -->
+    <!-- and thus needs to be included here to ensure the interactive elements work. -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const button = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const desktopNav = document.getElementById('desktop-nav'); // Assuming this ID exists in header.html
+        // Check if desktopNav exists before querying children
+        let navItems = [];
+        if (desktopNav) {
+            navItems = desktopNav.querySelectorAll('#nav-items > li > a');
+        }
+
+
+        // Populate mobile nav with desktop nav items if mobileMenu exists
+        if (mobileMenu) {
+            const ul = document.createElement('ul');
+            ul.classList.add('mobile-nav-list');
+            navItems.forEach(item => {
+              const li = document.createElement('li');
+              const a = item.cloneNode(true); // Clone the anchor tag
+              li.appendChild(a);
+
+              // Handle dropdowns for mobile: find nested ul and append
+              const parentLi = item.closest('li');
+              if (parentLi && parentLi.classList.contains('dropdown')) {
+                const dropdownMenu = parentLi.querySelector('.dropdown-menu');
+                if (dropdownMenu) {
+                  const mobileSubMenu = document.createElement('ul');
+                  mobileSubMenu.classList.add('mobile-submenu', 'hidden'); // Hidden by default
+                  Array.from(dropdownMenu.children).forEach(subItem => {
+                    const subLi = document.createElement('li');
+                    const subA = subItem.querySelector('a').cloneNode(true);
+                    subLi.appendChild(subA);
+                    mobileSubMenu.appendChild(subLi);
+                  });
+                  li.appendChild(mobileSubMenu);
+
+                  // Add toggle functionality for mobile dropdown
+                  a.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent default link behavior
+                    mobileSubMenu.classList.toggle('hidden');
+                    a.classList.toggle('active'); // Optional: Add an active class to indicate expanded state
+                  });
+                }
+              }
+              a.classList.add('block', 'py-3', 'px-4', 'text-white');
+              ul.appendChild(li);
+            });
+            mobileMenu.appendChild(ul);
+        }
+
+
+        // Toggle mobile menu
+        if (button && mobileMenu) {
+            button.addEventListener('click', () => {
+              const expanded = button.getAttribute('aria-expanded') === 'true';
+              button.setAttribute('aria-expanded', String(!expanded));
+              mobileMenu.classList.toggle('mobile-menu-hidden');
+              mobileMenu.classList.toggle('mobile-menu-visible');
+            });
+
+            // Hide menu on outside click
+            document.addEventListener('click', function (e) {
+              const isClickInside = button.contains(e.target) || mobileMenu.contains(e.target);
+              if (!isClickInside && mobileMenu.classList.contains('mobile-menu-visible')) {
+                mobileMenu.classList.remove('mobile-menu-visible');
+                mobileMenu.classList.add('mobile-menu-hidden');
+                button.setAttribute('aria-expanded', 'false');
+              }
+            });
+        }
+
+
+        // Desktop dropdown hover support
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+          const link = dropdown.querySelector('a');
+          const menu = dropdown.querySelector('.dropdown-menu');
+          if (menu) {
+            dropdown.addEventListener('mouseenter', () => {
+              menu.classList.add('show');
+              link.setAttribute('aria-expanded', 'true');
+            });
+            dropdown.addEventListener('mouseleave', () => {
+              menu.classList.remove('show');
+              link.setAttribute('aria-expanded', 'false');
+            });
+          }
+        });
+      });
+    </script>
 </body>
 </html>
