@@ -1,451 +1,717 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kerala School of Mathematics (KSoM)</title>
-  <meta name="description" content="Official website of the Kerala School of Mathematics, Kozhikode." />
-  <link rel="icon" type="image/png" href="Images/ksom-logo.png" />
-  <!-- Updated Google Fonts: Inter for body, Playfair Display for headings -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* Custom CSS variables for fonts */
-    :root {
-      --font-primary: 'Inter', sans-serif; /* New primary font */
-      --font-heading: 'Playfair Display', serif; /* Heading font remains Playfair Display */
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official website of the Kerala School of Mathematics (KSoM)">
+    <title>Kerala School of Mathematics (KSoM)</title>
+    <link rel="icon" type="image/png" href="https://placehold.co/64x64/003366/ffffff?text=KSoM">
+    <!-- Preload the KSoM logo -->
+    <link rel="preload" href="images/ksom-logo.png" as="image">
+    <!-- Preload the actual KSoM Campus image -->
+    <link rel="preload" href="images/KSoMCampus.jpg" as="image">
+    <!-- Preload placeholder images for programmes -->
+    <link rel="preload" href="https://placehold.co/800x450/005080/ffffff?text=KSoM+Program+1" as="image">
+    <link rel="preload" href="https://placehold.co/800x450/006090/ffffff?text=KSoM+Program+2" as="image">
+    <link rel="preload" href="https://placehold.co/800x450/0070A0/ffffff?text=KSoM+Program+3" as="image">
+    <link rel="preload" href="https://placehold.co/800x450/0080B0/ffffff?text=KSoM+Program+4" as="image">
+    <link rel="preload" href="https://placehold.co/800x450/0090C0/ffffff?text=KSoM+Program+5" as="image">
 
-    /* Apply primary font to body */
-    body {
-      font-family: var(--font-primary);
-    }
+    <!-- Google Fonts Preload -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/lora/v32/0QI-MX1D_JO_P-z_VA.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvEIDcmoIrZvjTeKhpO_mdGvIDP1tB.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    /* Apply heading font to headings */
-    h1, h2, h3, h4, h5, h6 {
-      font-family: var(--font-heading);
-    }
+    <!-- Link to external style.css -->
+    <link rel="stylesheet" href="style.css">
 
-    /* Custom styles for mobile dropdowns to override default Tailwind hidden behavior */
-    .mobile-dropdown ul {
-      display: none; /* Hidden by default */
-    }
-    .mobile-dropdown.active ul {
-      display: block; /* Show when active */
-    }
-    .mobile-dropdown > a {
-      display: block;
-      padding: var(--spacing-sm) var(--spacing-md);
-      color: var(--ias-blue);
-      text-decoration: none;
-      transition: color var(--transition-fast);
-    }
-    .mobile-dropdown > a:hover {
-      color: var(--ias-teal);
-      text-decoration: underline;
-    }
-    .mobile-dropdown ul li a {
-      padding: 0.5rem 1.5rem; /* Indent submenu items */
-      display: block;
-      color: var(--ias-dark);
-    }
-    .mobile-dropdown ul li a:hover {
-      background-color: #f0f0f0;
-    }
-
-    /* Adjust SVG text for smaller screens if needed */
-    @media (max-width: 640px) {
-      .ksom-logo-text {
-        font-size: 16px; /* Smaller font size for logo text on small screens */
-      }
-      .ksom-logo-subtitle {
-        font-size: 10px; /* Smaller font size for logo subtitle on small screens */
-      }
-      .ksom-math-formula {
-        font-size: 16px; /* Smaller font size for math formula on small screens */
-      }
-    }
-
-    /* Styles for Research Cards */
-    .research-card {
-      transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-      position: relative; /* Establish stacking context */
-      z-index: 1; /* Default z-index */
-      will-change: transform, box-shadow; /* Hint to browser for optimization */
-    }
-
-    .research-card-content {
-      max-height: 8rem; /* Show initial snippet, adjust as needed */
-      overflow: hidden;
-      transition: max-height 0.5s ease-in-out;
-      will-change: max-height; /* Hint to browser for optimization */
-    }
-
-    /* Apply hover effect directly to the research-card */
-    .research-card:hover {
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
-      transform: translateY(-8px); /* More pronounced lift effect */
-      z-index: 10; /* Bring hovered card to front */
-    }
-
-    .research-card:hover .research-card-content {
-      max-height: 1000px; /* Use a large pixel value to ensure full content display */
-    }
-
-    .research-card .read-more-link {
-        color: var(--ias-teal);
-        text-decoration: none;
-        transition: text-decoration 0.3s ease-in-out;
-    }
-
-    .research-card:hover .read-more-link {
-        text-decoration: underline;
-    }
-  </style>
-</head>
-<body class="font-sans bg-gray-100 text-gray-900">
-
-<header class="site-header bg-white shadow sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center py-4">
-      <a href="/" class="flex items-center space-x-3">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="background:#f0f8ff" class="h-10 sm:h-12 w-auto">
-          <defs>
-            <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#0a3d62"/>
-              <stop offset="100%" stop-color="#1e5f8a"/>
-            </linearGradient>
-            <filter id="shadow" x="0" y="0" width="200%" height="200%">
-              <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
-              <feOffset dx="5" dy="5" result="offsetblur"/>
-              <feMerge>
-                <feMergeNode/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
-            <path id="elephant" d="M80,320 C70,300 60,280 70,250 C80,220 100,210 120,210 C150,210 170,230 180,250 C190,270 190,290 180,310 C170,330 150,340 130,340 C110,340 90,340 80,320 Z M140,250 C140,240 150,230 160,230 C170,230 180,240 180,250 C180,260 170,270 160,270 C150,270 140,260 140,250 Z"/>
-          </defs>
-
-          <g fill="none" stroke="#d4e6f1" stroke-width="0.5">
-            <path d="M50,50 Q250,100 450,50 T250,450 T50,50"/>
-            <path d="M450,50 Q250,100 50,450 T250,150 T450,50"/>
-            <circle cx="250" cy="250" r="150" stroke-dasharray="5,5"/>
-            <path d="M100,100 L400,400 M400,100 L100,400"/>
-          </g>
-
-          <g transform="translate(250,250)" filter="url(#shadow)">
-            <g transform="translate(-180,0)">
-              <path d="M-50,-80 L-50,80" stroke="url(#mainGradient)" stroke-width="12"/>
-              <path d="M-50,0 L20,80" stroke="url(#mainGradient)" stroke-width="12"/>
-              <path d="M-50,0 L20,-80" stroke="url(#mainGradient)" stroke-width="12"/>
-              <path d="M-60,-100 Q-30,-110 0,-100 T60,-80" stroke="#e74c3c" stroke-width="4" fill="none"/>
-            </g>
-
-            <g transform="translate(-60,0)">
-              <path d="M-40,-80 Q0,-100 40,-80 L40,-60 Q0,-40 -40,-60 Z" fill="url(#mainGradient)"/>
-              <path d="M-40,80 Q0,100 40,80 L40,60 Q0,40 -40,60 Z" fill="url(#mainGradient)"/>
-              <path d="M-40,-60 L-40,60" stroke="#f39c12" stroke-width="4"/>
-              <g transform="translate(0,-30)">
-                <circle r="5" fill="#e74c3c"/>
-                <circle cx="0" cy="20" r="5" fill="#e74c3c"/>
-                <circle cx="0" cy="40" r="5" fill="#e74c3c"/>
-              </g>
-            </g>
-
-            <g transform="translate(60,0)">
-              <circle r="40" fill="none" stroke="url(#mainGradient)" stroke-width="12"/>
-              <circle cx="0" cy="0" r="25" fill="#f0f8ff" stroke="#0a3d62" stroke-width="2">
-                <animate attributeName="r" values="25;30;25" dur="4s" repeatCount="indefinite"/>
-              </circle>
-              <path d="M-15,-15 L15,15 M-15,15 L15,-15" stroke="#e74c3c" stroke-width="3"/>
-            </g>
-
-            <g transform="translate(180,0)">
-              <path d="M-40,-80 L-40,80" stroke="url(#mainGradient)" stroke-width="12"/>
-              <path d="M40,-80 L40,80" stroke="url(#mainGradient)" stroke-width="12"/>
-              <path d="M-40,-80 Q0,-40 40,-80" stroke="url(#mainGradient)" stroke-width="12" fill="none"/>
-              <use xlink:href="#elephant" transform="scale(0.4) translate(-200,-500)" fill="#0a3d62"/>
-            </g>
-          </g>
-
-          <use xlink:href="#elephant" transform="translate(250,420) scale(1.2)" fill="#0a3d62" opacity="0.8">
-            <animateTransform attributeName="transform" type="translate" values="250,420; 255,420; 250,420" dur="6s" repeatCount="indefinite"/>
-          </use>
-
-          <!-- Apply Cambria Math for the formula, as it's specialized -->
-          <text x="250" y="260" text-anchor="middle" font-family="Cambria Math" font-size="24" fill="#0a3d62" class="ksom-math-formula">
-            f(z) = e^{iπ} + 1
-          </text>
-
-          <!-- Apply Playfair Display for the main logo text -->
-          <text x="250" y="380" text-anchor="middle" font-family="'Playfair Display', serif" font-size="28" fill="#0a3d62" font-weight="bold" class="ksom-logo-text">
-            KERALA SCHOOL OF MATHEMATICS
-          </text>
-        </svg>
-        <div class="text-left">
-          <p class="text-base sm:text-lg font-bold text-gray-800 leading-none" style="font-family: 'Inter', sans-serif;">Kerala School of Mathematics</p>
-          <p class="text-xs sm:text-sm text-gray-500 leading-none ksom-logo-subtitle" style="font-family: 'Inter', sans-serif;">Kozhikode, Kerala</p>
-        </div>
-      </a>
-      <nav id="main-menu" class="hidden md:flex space-x-6 text-sm font-medium text-gray-700"></nav>
-      <button id="mobile-menu-button" class="md:hidden focus:outline-none p-2 rounded-md">
-        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-    </div>
-  </div>
-  <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
-    <nav id="mobile-menu-container" class="px-4 py-4 space-y-2 text-sm font-medium text-gray-700"></nav>
-  </div>
-  <script>
-    const menuItems = [
-      { title: 'About', url: '/about.html' },
-      { title: 'People', url: '/people.html', submenu: [
-        { title: 'Faculty', url: '/people/faculty.html' },
-        { title: 'Research Scholars', url: '/people/researchscholars.html' },
-        { title: 'Students', url: '/people/students.html' },
-        { title: 'Staff', url: '/people/staff.html' },
-        { title: 'Alumni', url: '/people/alumni.html' },
-      ] },
-      { title: 'Programs', url: '/programs.html', submenu: [
-        { title: 'Doctoral Studies', url: '/programs/phd.html' },
-        { title: 'MSc Programme', url: '/programs/msc.html' },
-      ] },
-      { title: 'Events', url: '/events.html', submenu: [
-        { title: 'Seminars', url: '/events/seminars.html' },
-        { title: 'Colloquiums', url: '/events/colloquiums.html' },
-        { title: 'Programs', url: '/events/programs.html' },
-        { title: 'Conferences & Workshops', url: '/events/conferences.html' },
-      ] },
-      { title: 'Research', url: '/research.html' },
-      { title: 'Publications', url: '/publications.html' },
-      { title: 'Contact', url: '/contact.html' },
-    ];
-    const mainMenu = document.getElementById('main-menu');
-    const mobileMenuContainer = document.getElementById('mobile-menu-container');
-
-    // Function to populate menus
-    function populateMenus() {
-      mainMenu.innerHTML = ''; // Clear existing content
-      mobileMenuContainer.innerHTML = ''; // Clear existing content
-
-      menuItems.forEach(item => {
-        // Desktop menu
-        if (!item.submenu) {
-          const link = `<a href="${item.url}" class="hover:text-ias-teal px-3 py-2 rounded-md">${item.title}</a>`;
-          mainMenu.insertAdjacentHTML('beforeend', link);
-        } else {
-          const dropdown = document.createElement('div');
-          dropdown.classList.add('relative', 'group');
-          dropdown.innerHTML = `
-            <div class="relative">
-              <button class="hover:text-ias-teal px-3 py-2 rounded-md">${item.title}</button>
-              <div class="absolute left-0 mt-2 w-48 bg-white border rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10 py-1">
-                ${item.submenu.map(sub => `<a href="${sub.url}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">${sub.title}</a>`).join('')}
-              </div>
-            </div>`;
-          mainMenu.appendChild(dropdown);
-        }
-
-        // Mobile menu
-        if (!item.submenu) {
-          mobileMenuContainer.insertAdjacentHTML('beforeend', `<a href="${item.url}" class="block px-4 py-2 hover:bg-gray-100 rounded-md">${item.title}</a>`);
-        } else {
-          const mobileDropdown = document.createElement('div');
-          mobileDropdown.classList.add('mobile-dropdown');
-          mobileDropdown.innerHTML = `
-            <a href="#" role="button" aria-haspopup="true" aria-expanded="false" class="px-4 py-2 hover:bg-gray-100 rounded-md flex justify-between items-center">
-              ${item.title}
-              <svg class="w-4 h-4 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-            </a>
-            <ul class="ml-4 border-l border-gray-200">
-              ${item.submenu.map(sub => `<li><a href="${sub.url}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">${sub.title}</a></li>`).join('')}
-            </ul>`;
-          mobileMenuContainer.appendChild(mobileDropdown);
-
-          // Add click listener for mobile dropdown toggle
-          const dropdownToggle = mobileDropdown.querySelector('a[role="button"]');
-          dropdownToggle.addEventListener('click', (e) => {
-            e.preventDefault();
-            mobileDropdown.classList.toggle('active');
-            const svgIcon = dropdownToggle.querySelector('svg');
-            if (mobileDropdown.classList.contains('active')) {
-              svgIcon.style.transform = 'rotate(180deg)';
-              dropdownToggle.setAttribute('aria-expanded', 'true');
-            } else {
-              svgIcon.style.transform = 'rotate(0deg)';
-              dropdownToggle.setAttribute('aria-expanded', 'false');
+    <noscript>
+        <style>
+            /* Styles for when JavaScript is disabled */
+            /* Show desktop nav and hide mobile nav elements */
+            .main-nav { display: block !important; }
+            .mobile-nav, .mobile-menu-button { display: none !important; }
+            /* Ensure desktop dropdowns are visible on hover without JS */
+            .dropdown:hover .dropdown-menu {
+                display: block !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: translateY(0) !important; /* Ensure no transform */
+                pointer-events: auto !important; /* Ensure clickable */
             }
-          });
+             /* Ensure mobile nav submenus are visible without JS (if mobile nav was somehow visible) */
+            .mobile-nav ul ul { display: block !important; }
+             /* Ensure full content is visible if JS is disabled */
+            .collapsible-extra { display: block !important; } /* Use a generic class for collapsible sections */
+            /* Slideshow fallback for No-JS - show first image */
+            .slideshow-container .msc-slide { display: none; }
+            .slideshow-container .msc-slide:first-child { display: block; opacity: 1; }
+        </style>
+    </noscript>
+    <style>
+        /* Styles for expandable cards (research topics and programmes) */
+        .expandable-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            margin-bottom: var(--spacing-6);
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast); /* Add hover effect */
+            display: flex; /* Make it a flex container */
+            flex-direction: column; /* Stack children vertically */
+            height: 100%; /* Ensure it fills grid cell height */
+            align-self: start; /* Prevents grid items from stretching vertically to match tallest sibling */
         }
-      });
-    }
 
-    // Populate menus on load
-    populateMenus();
+        .expandable-card:hover { /* Add hover effect to the entire card */
+            transform: translateY(-3px); /* Slightly lift on hover */
+            box-shadow: var(--shadow-lg); /* Larger shadow on hover */
+        }
 
-    // Mobile menu toggle logic
-    const menuToggle = document.getElementById('mobile-menu-button');
-    const mobileNav = document.getElementById('mobile-menu');
+        .expandable-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-5) var(--spacing-6);
+            cursor: pointer;
+            background-color: var(--ias-light-blue);
+            border-bottom: 1px solid var(--gray-200);
+            transition: background-color var(--transition-fast);
+            flex-shrink: 0; /* Prevent header from shrinking */
+        }
 
-    menuToggle.addEventListener('click', () => {
-      mobileNav.classList.toggle('hidden');
-      // Change icon based on menu state
-      const icon = menuToggle.querySelector('svg path');
-      if (mobileNav.classList.contains('hidden')) {
-        icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hamburger icon
-      } else {
-        icon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // Close icon (X)
-      }
-    });
+        .expandable-card-header:hover {
+            background-color: var(--gray-200);
+        }
 
-    // Close mobile menu when a link is clicked
-    mobileMenuContainer.addEventListener('click', (e) => {
-      if (e.target.tagName === 'A' && !e.target.closest('.mobile-dropdown')) {
-        mobileNav.classList.add('hidden');
-        menuToggle.querySelector('svg path').setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
-      }
-    });
+        .expandable-card-header h3 {
+            margin-bottom: 0;
+            color: var(--ias-blue);
+            font-size: var(--font-size-xl);
+            /* Prevent underline on hover */
+            text-decoration: none !important;
+        }
 
-  </script>
-</header>
-<section class="hero-section text-white text-center bg-cover bg-center py-16 sm:py-20 md:py-24" style="background-image: url('Images/ksom-campus.jpg');">
-  <div class="container px-4">
-    <h1 class="text-3xl sm:text-4xl md:text-5xl font-heading mb-4 drop-shadow">Kerala School of Mathematics</h1>
-    <p class="text-base sm:text-lg max-w-2xl mx-auto drop-shadow">Fostering Excellence in Mathematical Research and Education in Kerala</p>
-  </div>
-</section>
+        /* Prevent underline on hover for other text elements within expandable cards */
+        .expandable-card:hover .expandable-card-header h3,
+        .expandable-card:focus-visible .expandable-card-header h3,
+        .expandable-card:hover .expandable-card-content p,
+        .expandable-card:focus-visible .expandable-card-content p {
+            text-decoration: none !important;
+        }
 
-<main class="main-content container py-8 sm:py-12 md:py-16">
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
-    <div>
-      <h2 class="text-xl sm:text-2xl font-heading mb-4 sm:mb-6">News & Announcements</h2>
-      <article class="content-card bg-white p-4 rounded-lg shadow mb-4">
-        <h3 class="text-lg font-semibold">MSc Admissions 2025–2027 Open</h3>
-        <p class="text-sm mt-2 text-gray-700">Applications are invited for the upcoming M.Sc. Mathematics batch at KSoM. Last date: May 15, 2025.</p>
-      </article>
-      <article class="content-card bg-white p-4 rounded-lg shadow">
-        <h3 class="text-lg font-semibold">KSoM Declared Centre of Excellence</h3>
-        <p class="text-sm mt-2 text-gray-700">The Government of Kerala elevates KSoM’s academic status via GO-MS-3-2025-SandTD.</p>
-      </article>
-    </div>
-    <div>
-      <h2 class="text-xl sm:text-2xl font-heading mb-4 sm:mb-6">Academic Programs</h2>
-      <article class="content-card bg-white p-4 rounded-lg shadow mb-4">
-        <h3 class="text-xl font-semibold">Ph.D. Program</h3>
-        <p class="text-sm mt-2 text-gray-700">Rigorous doctoral training in areas such as Harmonic Analysis, Operator Algebras, and Spectral Theory.</p>
-      </article>
-      <article class="content-card bg-white p-4 rounded-lg shadow">
-        <h3 class="text-xl font-semibold">M.Sc. Mathematics</h3>
-        <p class="text-sm mt-2 text-gray-700">Two-year postgraduate program with strong foundations and research opportunities.</p>
-      </article>
-    </div>
-    <div>
-      <h2 class="text-xl sm:text-2xl font-heading mb-4 sm:mb-6">Events & Seminars</h2>
-      <article class="event-card bg-white p-4 rounded-lg shadow mb-4">
-        <h3 class="text-lg font-semibold">SWIM@KSoM 2025</h3>
-        <p class="text-sm text-gray-600">May 5–9, 2025</p>
-        <p class="text-sm mt-1 text-gray-700">Annual Summer Workshop in Mathematics hosted at KSoM.</p>
-      </article>
-      <article class="event-card bg-white p-4 rounded-lg shadow">
-        <h3 class="text-lg font-semibold">INSIGHTS Seminar</h3>
-        <p class="text-sm text-gray-600">March 17, 2025</p>
-        <p class="text-sm mt-1 text-gray-700">Student talk on Green’s function by Fathimathu Rafneesha T.</p>
-      </article>
-    </div>
-  </div>
 
-  <section class="mt-12">
-    <h2 class="text-2xl sm:text-3xl font-heading text-ias-blue mb-6">Research Groups</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Complex Analysis Card -->
-      <a href="https://ksom-office.github.io/research/complex%20analysis" class="research-card block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
-        <h3 class="text-xl font-semibold text-ias-blue mb-2">Complex Analysis</h3>
-        <div class="research-card-content text-gray-700 text-sm">
-          <p>Complex Analysis: Several Complex Variables has emerged as one of the most dynamic areas of modern mathematics, experiencing remarkable growth through the pioneering work of Cartan, Oka, Kohn, Hörmander, Fefferman, Catlin, and Bell, among others. The field's strength lies in its deep interconnections with algebra, differential geometry, partial differential equations, algebraic geometry, and Banach algebras, creating a rich tapestry of cross-fertilization that has driven major advances across all these disciplines. At Kerala School of Mathematics, our research group is currently focused on investigating the impact of Hörmander's estimates on various properties of the Bers domain (Teichmüller space) and exploring the profound implications of the remarkable fact that the Kobayashi metric is isometric to the Teichmüller metric. This research sits at the fascinating intersection of complex analysis, Teichmüller theory, and differential geometry, contributing to our understanding of intrinsic metrics on complex spaces and their geometric significance.</p>
+        .expandable-card-toggle-icon {
+            transition: transform var(--transition-fast);
+        }
+
+        .expandable-card-toggle-icon.rotated {
+            transform: rotate(90deg);
+        }
+
+        .expandable-card-content {
+            padding: var(--spacing-0) var(--spacing-6); /* Start with padding 0, then expand */
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--transition-medium) ease-in-out, padding var(--transition-medium) ease-in-out;
+            flex-grow: 1; /* Allow content to grow and push 'Read More' to bottom if not expanded */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Push content to top, link to bottom */
+        }
+
+        .expandable-card-content.expanded {
+            max-height: 500px; /* Large enough to accommodate content */
+            padding: var(--spacing-5) var(--spacing-6);
+        }
+
+        .expandable-card-content p {
+            margin-bottom: var(--spacing-4); /* Consistent paragraph spacing */
+        }
+
+        .expandable-card-content .view-all-link {
+            text-align: right; /* Align "Read More" link to the right */
+            margin-top: auto; /* Push to the bottom */
+            display: block;
+            /* Ensure the specific link still underlines on its own hover */
+            text-decoration: none; /* Reset default link underline if any */
+        }
+
+        .expandable-card-content .view-all-link:hover,
+        .expandable-card-content .view-all-link:focus-visible {
+            text-decoration: underline !important; /* Re-apply underline for the specific link */
+        }
+
+
+        /* Adjustments for Programme cards images within expandable-card */
+        .expandable-card .program-card-image {
+            object-fit: cover;
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius-md);
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            flex-shrink: 0; /* Prevent image from shrinking */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header Content (This section would typically be dynamically included from header.html) -->
+    <!-- For local development, you might manually copy the content of header.html here, -->
+    <!-- or use a build tool/server-side include for production. -->
+    <header class="site-header">
+        <div class="container site-header-inner">
+            <!-- Logo and Institution Branding -->
+            <div class="site-branding">
+                <a href="/" class="site-logo-link">
+                    <img src="images/ksom-logo.png" alt="Kerala School of Mathematics Logo" class="site-logo-img" />
+                </a>
+                <div class="flex flex-col ml-2">
+                    <p class="dept-title">Kerala School of Mathematics</p>
+                    <p class="university-name text-sm font-medium">
+                        An autonomous institution established as a joint venture of the Science and Technology Department, Government of Kerala,<br class="hidden md:block">
+                        and the Department of Atomic Energy, Government of India
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Side: Navigation + Toggle -->
+            <div class="header-right">
+                <!-- Desktop Nav -->
+                <nav id="desktop-nav" class="main-nav hidden md:block" aria-label="Main Navigation">
+                    <ul id="nav-items">
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/research.html">Research</a></li>
+                        <li class="relative dropdown">
+                            <a href="#" aria-haspopup="true" aria-expanded="false">Programmes</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/programmes/phd.html">Ph.D. Programme</a></li>
+                                <li><a href="/programmes/msc.html">M.Sc. Programme</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/people.html">People</a></li>
+                        <li><a href="/events.html">Events</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="mobile-menu-button md:hidden" aria-label="Toggle mobile menu" aria-controls="mobile-menu" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
         </div>
-        <p class="text-right text-ias-teal text-xs mt-2 read-more-link">Read More</p>
-      </a>
 
-      <!-- Braid Groups and Mapping Class Groups Card -->
-      <a href="https://ksom-office.github.io/research/non-commutativegeometry" class="research-card block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
-        <h3 class="text-xl font-semibold text-ias-blue mb-2">Braid Groups and Mapping Class Groups</h3>
-        <div class="research-card-content text-gray-700 text-sm">
-          <p>Braid groups and mapping class groups represent fundamental objects at the intersection of algebraic topology, geometric group theory, and low-dimensional topology, with profound connections to algebraic geometry, representation theory, and mathematical physics. These groups, first systematically studied by Artin and later developed through the work of Birman, Morita, Ivanov, and others, have revealed deep structural properties that continue to drive contemporary research across multiple mathematical disciplines. At Kerala School of Mathematics, our research group focuses on investigating the intricate relationships between braid groups and mapping class groups, with particular emphasis on liftability problems and the Birman-Hilden property, which characterize when homeomorphisms of surfaces can be extended to homeomorphisms of handlebodies. Central to our current investigations is the study of unitary representations of braid groups, exploring their classification, irreducibility properties, and connections to quantum invariants, thereby contributing to the rich interplay between geometric group theory, representation theory, and quantum topology.</p>
+        <!-- Mobile Navigation Placeholder -->
+        <div id="mobile-menu" class="mobile-nav mobile-menu-hidden container" aria-label="Mobile Navigation">
+            <!-- JS will populate this with cloned nav -->
         </div>
-        <p class="text-right text-ias-teal text-xs mt-2 read-more-link">Read More</p>
-      </a>
+    </header>
 
-      <!-- Non-commutative Functional Analysis Card -->
-      <a href="https://ksom-office.github.io/research/harmonicanalysis" class="research-card block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
-        <h3 class="text-xl font-semibold text-ias-blue mb-2">Non-commutative Functional Analysis</h3>
-        <div class="research-card-content text-gray-700 text-sm">
-          <p>Non-commutative functional analysis has emerged as a central paradigm in modern mathematics, extending classical functional analysis to the quantum realm through the systematic study of operator algebras, operator spaces, and their geometric properties. This field, pioneered by von Neumann, Murray, and later advanced by Effros, Ruan, Pisier, and Paulsen, provides the mathematical foundation for quantum mechanics while revealing deep connections between functional analysis, harmonic analysis, and quantum information theory. The theory of operator spaces, which captures the "matrix structure" of operators through completely bounded maps and complete contractions, has revolutionized our understanding of non-commutative phenomena and led to profound developments in approximation theory, convexity, and geometric functional analysis. At Kerala School of Mathematics, our research group actively investigates quantum aspects of approximation and convexity within the framework of operator spaces and operator systems in C*-algebras, exploring problems related to the completely bounded approximation property, quantum convexity, matricial ranges, and the structure theory of operator systems. This research contributes to the growing interface between abstract functional analysis and quantum information theory, with applications ranging from quantum error correction to the classification of quantum channels and the geometric analysis of quantum states.</p>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <h2>Advancing Mathematical Sciences in Kerala</h2>
+            <p>Welcome to the Kerala School of Mathematics, an autonomous institution dedicated to excellence in mathematical research and education.</p>
+            <a href="#programmes" class="btn-primary">Explore Programmes</a>
         </div>
-        <p class="text-right text-ias-teal text-xs mt-2 read-more-link">Read More</p>
-      </a>
+    </section>
 
-      <!-- Harmonic Analysis Card -->
-      <a href="https://ksom-office.github.io/research/AnalyticNumberTheory" class="research-card block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
-        <h3 class="text-xl font-semibold text-ias-blue mb-2">Harmonic Analysis</h3>
-        <div class="research-card-content text-gray-700 text-sm">
-          <p>Harmonic analysis, particularly in the context of nilpotent Lie groups and time-frequency analysis, represents a vibrant area of mathematical research that bridges classical Fourier analysis with modern operator theory and partial differential equations. This field has experienced significant development through the work of mathematicians studying the Heisenberg group, twisted convolution operators, modulation spaces, and their applications to nonlinear dispersive equations. At Kerala School of Mathematics, our research group focuses on several interconnected themes including the theory of modulation spaces and their invariance properties, Fourier multipliers and twisted convolution operators with particular emphasis on Lp-Lq boundedness, maximal functions along hypersurfaces and their regularity properties, and the analysis of nonlinear Schrödinger equations involving twisted Laplacians and special Hermite operators. Central to our investigations is the development of Hardy-Sobolev inequalities in non-commutative settings, the study of Fourier integral operators and their local smoothing properties, and the exploration of spherical maximal operators on symmetric spaces, contributing to the rich interplay between harmonic analysis, geometric analysis, and mathematical physics while advancing our understanding of oscillatory integrals and their applications to dispersive partial differential equations.</p>
-        </div>
-        <p class="text-right text-ias-teal text-xs mt-2 read-more-link">Read More</p>
-      </a>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Welcome Section -->
+            <section class="about-us-section" id="about-us">
+                <div class="container flex-col md:flex-row items-center gap-8">
+                    <div class="image-column md:w-1/2">
+                        <img src="images/KSoMCampus.jpg" alt="KSoM Campus View" class="rounded-lg shadow-lg">
+                    </div>
+                    <div class="text-column md:w-1/2 text-center md:text-left">
+                        <h2 class="section-title !text-left !mb-6 !pb-4 md:!mx-0 !mx-auto">Welcome to Kerala School of Mathematics</h2>
+                        <p>The Kerala School of Mathematics (KSoM) is an initiative by the Government of Kerala to foster high-level research and advanced education in mathematics. Located in Kozhikode, KSoM aims to be a leading center for mathematical sciences, attracting talent from across the nation and beyond.</p>
+                        <p>Our mission is to create a vibrant academic environment that promotes cutting-edge research, nurtures young mathematicians, and contributes significantly to the global mathematical community.</p>
+                        <a href="#" class="view-all-link">Read More About Us &rarr;</a>
+                    </div>
+                </div>
+            </section>
 
-      <!-- Analytic Number Theory Card -->
-      <a href="#" class="research-card block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
-        <h3 class="text-xl font-semibold text-ias-blue mb-2">Analytic Number Theory</h3>
-        <div class="research-card-content text-gray-700 text-sm">
-          <p>Analytic number theory stands as one of the most profound and challenging areas of modern mathematics, employing sophisticated analytical techniques to unlock the mysteries of prime numbers, multiplicative functions, and special values of L-functions. This field has witnessed remarkable developments through the contributions of Euler, Riemann, Hardy, Littlewood, and contemporary mathematicians who have advanced our understanding of the distribution of primes and the arithmetic structure of integers. At Kerala School of Mathematics, our research group focuses on several interconnected areas including the theory of multiple zeta values and their generalizations, particularly multiple Apéry-like sums and their combinatorial and analytical properties, explicit averages of multiplicative functions with emphasis on going beyond classical main term estimates and exploring refined asymptotic behaviors, Möbius sums with coprimality conditions and their tail behaviors, and additive number theory including chromatic generalizations of classical results such as Lagrange's four squares theorem. Central to our investigations is the study of the Beurling-Selberg function and its applications to prime number theory, the analysis of double tails and structural properties of multiple zeta values, and the development of new techniques for obtaining explicit bounds and averages in multiplicative number theory, contributing to the rich interplay between analytic methods, combinatorial structures, and the deep arithmetic properties of integers.</p>
-        </div>
-        <p class="text-right text-ias-teal text-xs mt-2 read-more-link">Read More</p>
-      </a>
-    </div>
-  </section>
-</main>
+            <!-- Research Section -->
+            <section class="research-section mb-16" id="research">
+                <h2 class="section-title">Research Areas at KSoM</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Complex Analysis Card -->
+                    <div class="expandable-card">
+                        <div class="expandable-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="complex-analysis-content">
+                            <h3>Complex Analysis</h3>
+                            <svg class="expandable-card-toggle-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                        <div id="complex-analysis-content" class="expandable-card-content">
+                            <p>Several Complex Variables has emerged as one of the most dynamic areas of modern mathematics, experiencing remarkable growth through the pioneering work of Cartan, Oka, Kohn, Hörmander, Fefferman, Catlin, and Bell, among others. The field's strength lies in its deep interconnections with algebra, differential geometry, partial differential equations, algebraic geometry, and Banach algebras, creating a rich tapestry of cross-fertilization that has driven major advances across all these disciplines. At Kerala School of Mathematics, our research group is currently focused on investigating the impact of Hörmander's estimates on various properties of the Bers domain (Teichmüller space) and exploring the profound implications of the remarkable fact that the Kobayashi metric is isometric to the Teichmüller metric. This research sits at the fascinating intersection of complex analysis, Teichmüller theory, and differential geometry, contributing to our understanding of intrinsic metrics on complex spaces and their geometric significance.</p>
+                            <a href="https://ksom-office.github.io/research/complex%20analysis" class="view-all-link mt-4">Read More &rarr;</a>
+                        </div>
+                    </div>
 
-<footer class="site-footer bg-gray-900 text-gray-300 text-sm py-8 sm:py-10">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 text-center md:text-left">
-      <div class="mb-6 md:mb-0">
-        <h4 class="text-white text-base font-semibold mb-4">Contact Us</h4>
-        <p>Kerala School of Mathematics</p>
-        <p>Kunnamangalam P.O., Kozhikode, Kerala</p>
-        <p>Pin: 673571, India</p>
-        <p>Email: <a href="mailto:ksomoffice@gmail.com" class="text-ias-teal hover:underline">ksomoffice@gmail.com</a></p>
-        <p>Phone: +91 495 2809000</p>
-      </div>
-      <div class="mb-6 md:mb-0">
-        <h4 class="text-white text-base font-semibold mb-4">Quick Links</h4>
-        <ul class="space-y-2">
-          <li><a href="https://ksom.res.in" class="hover:underline">KSoM Home</a></li>
-          <li><a href="/programs.html" class="hover:underline">Academic Programs</a></li>
-          <li><a href="/events.html" class="hover:underline">Events</a></li>
-          <li><a href="/publications.html" class="hover:underline">Publications</a></li>
-          <li><a href="/contact.html" class="hover:underline">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-white text-base font-semibold mb-4">Follow Us</h4>
-        <div class="flex space-x-4 justify-center md:justify-start">
-          <a href="#" class="hover:text-white" aria-label="Facebook">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.5 9.95v-7.05H8v-2.9h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.5v1.8H17l-.5 2.9h-2.1V22A10 10 0 0022 12z" /></svg>
-          </a>
-          <a href="#" class="hover:text-white" aria-label="Twitter">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" /></svg>
-          </a>
+                    <!-- Braid Groups and Mapping Class Groups Card -->
+                    <div class="expandable-card">
+                        <div class="expandable-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="braid-groups-content">
+                            <h3>Braid Groups and Mapping Class Groups</h3>
+                            <svg class="expandable-card-toggle-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                        <div id="braid-groups-content" class="expandable-card-content">
+                            <p>Braid groups and mapping class groups represent fundamental objects at the intersection of algebraic topology, geometric group theory, and low-dimensional topology, with profound connections to algebraic geometry, representation theory, and mathematical physics. These groups, first systematically studied by Artin and later developed through the work of Birman, Morita, Ivanov, and others, have revealed deep structural properties that continue to drive contemporary research across multiple mathematical disciplines. At Kerala School of Mathematics, our research group focuses on investigating the intricate relationships between braid groups and mapping class groups, with particular emphasis on liftability problems and the Birman-Hilden property, which characterize when homeomorphisms of surfaces can be extended to homeomorphisms of handlebodies. Central to our current investigations is the study of unitary representations of braid groups, exploring their classification, irreducibility properties, and connections to quantum invariants, thereby contributing to the rich interplay between geometric group theory, representation theory, and quantum topology.</p>
+                            <a href="#" class="view-all-link mt-4">Read More &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Non-commutative Functional Analysis Card -->
+                    <div class="expandable-card">
+                        <div class="expandable-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="non-commutative-content">
+                            <h3>Non-commutative Functional Analysis</h3>
+                            <svg class="expandable-card-toggle-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                        <div id="non-commutative-content" class="expandable-card-content">
+                            <p>Non-commutative functional analysis has emerged as a central paradigm in modern mathematics, extending classical functional analysis to the quantum realm through the systematic study of operator algebras, operator spaces, and their geometric properties. This field, pioneered by von Neumann, Murray, and later advanced by Effros, Ruan, Pisier, and Paulsen, provides the mathematical foundation for quantum mechanics while revealing deep connections between functional analysis, harmonic analysis, and quantum information theory. The theory of operator spaces, which captures the "matrix structure" of operators through completely bounded maps and complete contractions, has revolutionized our understanding of non-commutative phenomena and led to profound developments in approximation theory, convexity, and geometric functional analysis. At Kerala School of Mathematics, our research group actively investigates quantum aspects of approximation and convexity within the framework of operator spaces and operator systems in C*-algebras, exploring problems related to the completely bounded approximation property, quantum convexity, matricial ranges, and the structure theory of operator systems. This research contributes to the growing interface between abstract functional analysis and quantum information theory, with applications ranging from quantum error correction to the classification of quantum channels and the geometric analysis of quantum states.</p>
+                            <a href="https://ksom-office.github.io/research/non-commutativegeometry" class="view-all-link mt-4">Read More &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Harmonic Analysis Card -->
+                    <div class="expandable-card">
+                        <div class="expandable-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="harmonic-analysis-content">
+                            <h3>Harmonic Analysis</h3>
+                            <svg class="expandable-card-toggle-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                        <div id="harmonic-analysis-content" class="expandable-card-content">
+                            <p>Harmonic analysis, particularly in the context of nilpotent Lie groups and time-frequency analysis, represents a vibrant area of mathematical research that bridges classical Fourier analysis with modern operator theory and partial differential equations. This field has experienced significant development through the work of mathematicians studying the Heisenberg group, twisted convolution operators, modulation spaces, and their applications to nonlinear dispersive equations. At Kerala School of Mathematics, our research group focuses on several interconnected themes including the theory of modulation spaces and their invariance properties, Fourier multipliers and twisted convolution operators with particular emphasis on Lp-Lq boundedness, maximal functions along hypersurfaces and their regularity properties, and the analysis of nonlinear Schrödinger equations involving twisted Laplacians and special Hermite operators. Central to our investigations is the development of Hardy-Sobolev inequalities in non-commutative settings, the study of Fourier integral operators and their local smoothing properties, and the exploration of spherical maximal operators on symmetric spaces, contributing to the rich interplay between harmonic analysis, geometric analysis, and mathematical physics while advancing our understanding of oscillatory integrals and their applications to dispersive partial differential equations.</p>
+                            <a href="https://ksom-office.github.io/research/harmonicanalysis" class="view-all-link mt-4">Read More &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Analytic Number Theory Card -->
+                    <div class="expandable-card">
+                        <div class="expandable-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="number-theory-content">
+                            <h3>Analytic Number Theory</h3>
+                            <svg class="expandable-card-toggle-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                        <div id="number-theory-content" class="expandable-card-content">
+                            <p>Analytic number theory stands as one of the most profound and challenging areas of modern mathematics, employing sophisticated analytical techniques to unlock the mysteries of prime numbers, multiplicative functions, and special values of L-functions. This field has witnessed remarkable developments through the contributions of Euler, Riemann, Hardy, Littlewood, and contemporary mathematicians who have advanced our understanding of the distribution of primes and the arithmetic structure of integers. At Kerala School of Mathematics, our research group focuses on several interconnected areas including the theory of multiple zeta values and their generalizations, particularly multiple Apéry-like sums and their combinatorial and analytical properties, explicit averages of multiplicative functions with emphasis on going beyond classical main term estimates and exploring refined asymptotic behaviors, Möbius sums with coprimality conditions and their tail behaviors, and additive number theory including chromatic generalizations of classical results such as Lagrange's four squares theorem. Central to our investigations is the study of the Beurling-Selberg function and its applications to prime number theory, the analysis of double tails and structural properties of multiple zeta values, and the development of new techniques for obtaining explicit bounds and averages in multiplicative number theory, contributing to the rich interplay between analytic methods, combinatorial structures, and the deep arithmetic properties of integers.</p>
+                            <a href="https://ksom-office.github.io/research/AnalyticNumberTheory" class="view-all-link mt-4">Read More &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- News & Events Section -->
+            <section class="news-events-section mb-16" id="news-events">
+                <h2 class="section-title">Latest Updates & Events</h2>
+                <div class="news-events-grid">
+                    <!-- News Section -->
+                    <div class="news-section">
+                        <h3>Latest News</h3>
+                        <ul class="news-list">
+                            <li class="news-item">
+                                <div class="date">
+                                    <span class="day">01</span>
+                                    <span class="month">Jun</span>
+                                </div>
+                                <div class="news-content">
+                                    <h4>New Research Grant Awarded to Dr. Arya Menon</h4>
+                                    <p>Dr. Arya Menon receives prestigious grant for her work on Algebraic Topology.</p>
+                                </div>
+                            </li>
+                            <li class="news-item">
+                                <div class="date">
+                                    <span class="day">25</span>
+                                    <span class="month">May</span>
+                                </div>
+                                <div class="news-content">
+                                    <h4>Admission Portal Opens for Ph.D. Programme 2025</h4>
+                                    <p>Applications are now open for the upcoming Ph.D. admissions. Apply by July 15.</p>
+                                </div>
+                            </li>
+                            <li class="news-item">
+                                <div class="date">
+                                    <span class="day">10</span>
+                                    <span class="month">May</span>
+                                </div>
+                                <div class="news-content">
+                                    <h4>International Conference on Pure and Applied Mathematics Concludes</h4>
+                                    <p>KSoM successfully hosted a five-day international conference with participants from over 20 countries.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="#" class="view-all-link">View All News &rarr;</a>
+                    </div>
+
+                    <!-- Events Section -->
+                    <div class="events-section">
+                        <h3>Upcoming Events</h3>
+                        <ul class="event-list">
+                            <li class="event-card">
+                                <div class="date-box">
+                                    <span class="day">15</span>
+                                    <span class="month">Jul</span>
+                                </div>
+                                <div class="event-content">
+                                    <h4>Guest Lecture: Dr. Ravi Kumar (IIT Bombay)</h4>
+                                    <p>Topic: Advances in Number Theory. Time: 10:00 AM, KSoM Auditorium.</p>
+                                </div>
+                            </li>
+                            <li class="event-card">
+                                <div class="date-box">
+                                    <span class="day">01</span>
+                                    <span class="month">Aug</span>
+                                </div>
+                                <div class="event-content">
+                                    <h4>Workshop on Cryptography and its Applications</h4>
+                                    <p>A week-long workshop for research scholars and faculty. Registration open.</p>
+                                </div>
+                            </li>
+                            <li class="event-card">
+                                <div class="date-box">
+                                    <span class="day">20</span>
+                                    <span class="month">Aug</span>
+                                </div>
+                                <div class="event-content">
+                                    <h4>Ph.D. Entrance Examination</h4>
+                                    <p>The annual entrance examination for Ph.D. admissions will be conducted on campus.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="#" class="view-all-link">View All Events &rarr;</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Programmes Section -->
+            <section class="programmes-section mb-16" id="programmes">
+                <h2 class="section-title">Our Programmes</h2>
+                <div class="grid content-cards-grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    <!-- Integrated M.Sc. - Ph.D. Programme Card -->
+                    <div class="expandable-card">
+                        <img src="https://placehold.co/600x338/005080/ffffff?text=Integrated+MSc-PhD" alt="Integrated MSc-PhD Programme" class="program-card-image">
+                        <div class="expandable-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="integrated-msc-phd-content">
+                            <h3>Integrated M.Sc. - Ph.D. Programme</h3>
+                            <svg class="expandable-card-toggle-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                        <div id="integrated-msc-phd-content" class="expandable-card-content">
+                            <p>A rigorous programme designed for students passionate about advanced mathematical research, leading to both a Master's and a Ph.D. degree. This program emphasizes a strong foundation in core mathematical disciplines, followed by in-depth research opportunities under the guidance of distinguished faculty members. Students will engage in advanced coursework, seminars, and thesis research, preparing them for careers in academia, research institutions, and industry.</p>
+                            <a href="/programmes/integrated-msc-phd.html" class="view-all-link mt-4">Learn More &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Ph.D. in Mathematics Card -->
+                    <div class="expandable-card">
+                        <img src="https://placehold.co/600x338/006090/ffffff?text=PhD+in+Mathematics" alt="PhD in Mathematics Programme" class="program-card-image">
+                        <div class="expandable-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="phd-math-content">
+                            <h3>Ph.D. in Mathematics</h3>
+                            <svg class="expandable-card-toggle-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                        <div id="phd-math-content" class="expandable-card-content">
+                            <p>Our doctoral programme offers deep specialization in various branches of mathematics, mentored by leading experts in the field. The Ph.D. curriculum is designed to cultivate independent research skills and critical thinking, enabling students to contribute original work to their chosen mathematical area. Research interests span pure mathematics, applied mathematics, and interdisciplinary fields, with access to state-of-the-art resources and a collaborative research environment.</p>
+                            <a href="/programmes/phd.html" class="view-all-link mt-4">Learn More &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Postdoctoral Fellowships Card -->
+                    <div class="expandable-card">
+                        <img src="https://placehold.co/600x338/0070A0/ffffff?text=Postdoctoral+Fellowships" alt="Postdoctoral Fellowships" class="program-card-image">
+                        <div class="expandable-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="postdoc-content">
+                            <h3>Postdoctoral Fellowships</h3>
+                            <svg class="expandable-card-toggle-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                        <div id="postdoc-content" class="expandable-card-content">
+                            <p>Opportunities for young researchers to pursue independent research and collaborate with KSoM faculty. Our postdoctoral program aims to provide a stimulating environment for recent Ph.D. graduates to develop their research programs, publish their findings, and participate in academic life through seminars, workshops, and teaching opportunities. Fellows are encouraged to engage in interdisciplinary collaborations and to contribute to the intellectual vibrancy of the school.</p>
+                            <a href="/programmes/postdoctoral.html" class="view-all-link mt-4">Learn More &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Visiting Programmes Card -->
+                    <div class="expandable-card">
+                        <img src="https://placehold.co/600x338/0080B0/ffffff?text=Visiting+Programmes" alt="Visiting Programmes" class="program-card-image">
+                        <div class="expandable-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="visiting-programmes-content">
+                            <h3>Visiting Programmes</h3>
+                            <svg class="expandable-card-toggle-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                        <div id="visiting-programmes-content" class="expandable-card-content">
+                            <p>Short-term and long-term visiting positions for academics and researchers to engage with KSoM's vibrant research environment. These programs are designed to foster collaborations, facilitate knowledge exchange, and provide a platform for scholars to work on their research projects in a supportive and intellectually rich setting. Visitors can participate in ongoing research groups, deliver lectures, and contribute to the academic discourse at KSoM.</p>
+                            <a href="/programmes/visiting.html" class="view-all-link mt-4">Learn More &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Workshops and Conferences Card -->
+                    <div class="expandable-card">
+                        <img src="https://placehold.co/600x338/0090C0/ffffff?text=Workshops+and+Conferences" alt="Workshops and Conferences" class="program-card-image">
+                        <div class="expandable-card-header" tabindex="0" role="button" aria-expanded="false" aria-controls="workshops-conferences-content">
+                            <h3>Workshops and Conferences</h3>
+                            <svg class="expandable-card-toggle-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                        <div id="workshops-conferences-content" class="expandable-card-content">
+                            <p>KSoM regularly hosts national and international workshops, conferences, and lecture series on diverse mathematical topics. These events bring together leading experts, young researchers, and students to discuss cutting-edge advancements, foster new collaborations, and promote the exchange of ideas across various fields of mathematics. The school provides an ideal venue for such gatherings, with excellent facilities and a stimulating academic atmosphere.</p>
+                            <a href="/events.html#workshops-conferences" class="view-all-link mt-4">View Schedule &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MSc Slideshow Section - Renamed to Programme Highlights -->
+            <section class="slideshow-section" id="programme-highlights">
+                <h2 class="section-title">Highlights of Our Academic Environment</h2>
+                <div class="slideshow-container">
+                    <div class="msc-slide active">
+                        <img src="https://placehold.co/800x450/005080/ffffff?text=KSoM+Research+Labs" alt="KSoM Research Labs">
+                        <div class="slide-caption">
+                            <h3>State-of-the-Art Research Facilities</h3>
+                            <p>Access to modern computing clusters and a vast digital library supporting cutting-edge research.</p>
+                        </div>
+                    </div>
+                    <div class="msc-slide">
+                        <img src="https://placehold.co/800x450/006090/ffffff?text=KSoM+Faculty" alt="KSoM Faculty">
+                        <div class="slide-caption">
+                            <h3>Renowned Faculty Mentorship</h3>
+                            <p>Learn and collaborate with internationally recognized mathematicians.</p>
+                        </div>
+                    </div>
+                    <div class="msc-slide">
+                        <img src="https://placehold.co/800x450/0070A0/ffffff?text=KSoM+Student+Life" alt="KSoM Student Life">
+                        <div class="slide-caption">
+                            <h3>Vibrant Student Community</h3>
+                            <p>Engage in stimulating discussions, seminars, and extracurricular activities.</p>
+                        </div>
+                    </div>
+                    <div class="msc-slide">
+                        <img src="https://placehold.co/800x450/0080B0/ffffff?text=KSoM+Collaborations" alt="KSoM Collaborations">
+                        <div class="slide-caption">
+                            <h3>International Collaborations</h3>
+                            <p>Opportunities for joint research and exchange programmes with leading institutions worldwide.</p>
+                        </div>
+                    </div>
+                    <div class="msc-slide">
+                        <img src="https://placehold.co/800x450/0090C0/ffffff?text=KSoM+Campus+Life" alt="KSoM Campus Life">
+                        <div class="slide-caption">
+                            <h3>Serene Campus Environment</h3>
+                            <p>A conducive atmosphere for deep study and intellectual growth in picturesque Kozhikode.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-      </div>
-    </div>
-    <div class="mt-8 text-center text-gray-500">
-      <p>&copy; <span id="year"></span> Kerala School of Mathematics. All rights reserved.</p>
-    </div>
-  </div>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-</footer>
+    </main>
+
+    <!-- Footer Content (This section would typically be dynamically included from footer.html) -->
+    <!-- For local development, you might manually copy the content of footer.html here, -->
+    <!-- or use a build tool/server-side include for production. -->
+    <footer class="site-footer" id="contact">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <h4>About KSoM</h4>
+                <p>The Kerala School of Mathematics is a premier institution in India dedicated to promoting advanced studies and research in mathematical sciences.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#programmes">Programmes</a></li>
+                    <li><a href="#news-events">News & Events</a></li>
+                    <li><a href="#">Admissions</a></li>
+                    <li><a href="#">Faculty</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Kerala School of Mathematics (KSoM)<br>
+                Kunnamangalam, Kozhikode, Kerala 673571</p>
+                <p>Email: <a href="mailto:info@ksom.ac.in">info@ksom.ac.in</a></p>
+                <p>Phone: <a href="tel:+914952809000">+91-495-2809000</a></p>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <!-- Placeholder for social media icons -->
+                <div class="flex gap-4 mt-2">
+                    <a href="#" class="text-white hover:text-ias-teal" aria-label="KSoM on Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 .27-2.5h-1c-1.2 0-2 .52-2 2.8v1.7H8v4h3.5v8H20V13.5h-6z"/></svg>
+                    </a>
+                    <a href="#" class="text-white hover:text-ias-teal" aria-label="KSoM on X (Twitter)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 6c-.84.37-1.74.62-2.67.73.96-.58 1.7-1.5 2.04-2.6.93.06 1.83-.28 2.67-.73-.97 1.25-2.2 2.15-3.56 2.62C18.12 5.16 16.52 4 14.7 4c-3.54 0-6.41 2.87-6.41 6.41 0 .5.05.98.15 1.45C8.04 16.14 4.54 12.64 2.1 9.4c-.55 1.05-.86 2.27-.86 3.56 0 2.22 1.13 4.18 2.84 5.33-.81-.02-1.57-.25-2.24-.62v.08c0 3.09 2.2 5.65 5.13 6.22-.53.15-1.09.23-1.66.23-.41 0-.8-.04-1.18-.11.81 2.54 3.17 4.38 5.97 4.43-2.12 1.66-4.79 2.66-7.7 2.66-.5 0-.99-.03-1.47-.08C2.5 22.08 6.55 24 11 24c5.99 0 9.27-4.96 9.27-9.27 0-.14-.01-.27-.01-.4.63-.45 1.17-.99 1.6-1.6z"/></svg>
+                    </a>
+                    <a href="#" class="text-white hover:text-ias-teal" aria-label="KSoM on LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Kerala School of Mathematics. All rights reserved. Designed and Maintained by KSoM Web Team.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Header and Slideshow -->
+    <script>
+        // --- Header Mobile Menu and Dropdown Script ---
+        document.addEventListener("DOMContentLoaded", function () {
+            const desktopNav = document.getElementById('nav-items');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const button = document.getElementById('mobile-menu-button');
+
+            // Clone the nav items from desktop to mobile
+            const mobileNav = document.createElement('nav');
+            mobileNav.setAttribute('aria-label', 'Mobile Navigation'); // Add aria-label for accessibility
+            const ul = desktopNav.cloneNode(true);
+            ul.classList.remove('flex', 'space-x-4');
+
+            // Remove dropdowns for mobile version — or customize if needed later
+            ul.querySelectorAll('.dropdown').forEach(drop => {
+                drop.querySelectorAll('.dropdown-menu').forEach(menu => menu.remove());
+            });
+
+            ul.querySelectorAll('a').forEach(a => {
+                a.classList.add('block', 'py-3', 'px-4', 'text-white');
+            });
+
+            mobileNav.appendChild(ul);
+            mobileMenu.appendChild(mobileNav);
+
+            // Toggle mobile menu
+            button.addEventListener('click', () => {
+                const expanded = button.getAttribute('aria-expanded') === 'true';
+                button.setAttribute('aria-expanded', String(!expanded));
+                mobileMenu.classList.toggle('mobile-menu-hidden');
+                mobileMenu.classList.toggle('mobile-menu-visible');
+            });
+
+            // Hide menu on outside click
+            document.addEventListener('click', function (e) {
+                const isClickInside = button.contains(e.target) || mobileMenu.contains(e.target);
+                if (!isClickInside && mobileMenu.classList.contains('mobile-menu-visible')) {
+                    mobileMenu.classList.remove('mobile-menu-visible');
+                    mobileMenu.classList.add('mobile-menu-hidden');
+                    button.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Desktop dropdown hover support
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                const link = dropdown.querySelector('a');
+                const menu = dropdown.querySelector('.dropdown-menu');
+                if (menu) {
+                    dropdown.addEventListener('mouseenter', () => {
+                        menu.classList.add('show');
+                        link.setAttribute('aria-expanded', 'true');
+                    });
+                    dropdown.addEventListener('mouseleave', () => {
+                        menu.classList.remove('show');
+                        link.setAttribute('aria-expanded', 'false');
+                    });
+                }
+            });
+        });
+
+        // --- Generalized Slideshow Script ---
+        const slideshowConfigs = {
+            'programme-highlights': {
+                containerSelector: '.slideshow-container',
+                slideSelector: '.msc-slide',
+                interval: 7000,
+            }
+        };
+
+        function initSlideshow(config) {
+            const container = document.querySelector(config.containerSelector);
+            if (!container) {
+                console.warn(`Slideshow container not found: ${config.containerSelector}`);
+                return;
+            }
+
+            let slides = container.querySelectorAll(config.slideSelector);
+            if (slides.length === 0) {
+                console.warn(`No slides found for slideshow: ${config.slideSelector}`);
+                return;
+            }
+
+            let currentIndex = 0;
+            let timer = null;
+
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[index].classList.add('active');
+            }
+
+            function startLoop() {
+                // Clear any existing timer to prevent duplicates
+                if (timer) clearInterval(timer);
+
+                timer = setInterval(() => {
+                    currentIndex++;
+                    if (currentIndex >= slides.length) {
+                        currentIndex = 0;
+                    }
+                    showSlide(currentIndex);
+                }, config.interval);
+            }
+
+            // Initial display and start loop
+            showSlide(currentIndex);
+            startLoop();
+
+            // Optional: Add hover/focus pause/resume for accessibility and better UX
+            container.addEventListener('mouseenter', () => clearInterval(timer));
+            container.addEventListener('mouseleave', () => startLoop());
+            container.addEventListener('focusin', () => clearInterval(timer)); // For keyboard navigation
+            container.addEventListener('focusout', () => startLoop());
+        }
+
+        // Initialize Programme Highlights slideshow on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initSlideshow(slideshowConfigs['programme-highlights']);
+        });
+
+        // --- Expandable Cards Script (for Research and Programmes) ---
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('.expandable-card-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling; // The content div
+                    const icon = header.querySelector('.expandable-card-toggle-icon'); // The SVG icon
+
+                    // Close any currently open cards, unless it's the one being clicked
+                    document.querySelectorAll('.expandable-card-content.expanded').forEach(openContent => {
+                        if (openContent !== content) {
+                            openContent.classList.remove('expanded');
+                            openContent.previousElementSibling.querySelector('.expandable-card-toggle-icon').classList.remove('rotated');
+                            openContent.previousElementSibling.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+
+                    // Toggle the clicked card
+                    if (content.classList.contains('expanded')) {
+                        // Collapse the card
+                        content.classList.remove('expanded');
+                        icon.classList.remove('rotated');
+                        header.setAttribute('aria-expanded', 'false');
+                    } else {
+                        // Expand the card
+                        content.classList.add('expanded');
+                        icon.classList.add('rotated');
+                        header.setAttribute('aria-expanded', 'true');
+                    }
+                });
+
+                // Handle keyboard accessibility for expandable card headers
+                header.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') { // Spacebar or Enter key
+                        e.preventDefault(); // Prevent default scroll for spacebar
+                        header.click(); // Simulate a click
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
