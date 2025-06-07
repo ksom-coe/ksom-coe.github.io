@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Official website of the Kerala School of Mathematics, an autonomous institution dedicated to fundamental research and advanced education in mathematics.">
+    <title>Kerala School of Mathematics</title>
+
+    <!-- SEO Meta Tags for KSoM -->
+    <meta name="keywords" content="Kerala School of Mathematics, KSoM, Mathematics, Research, Education, India, Kozhikode, Algebraic Geometry, Number Theory, Topology, Mathematical Physics">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Kerala School of Mathematics">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- Google Fonts (Inter from the provided head) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Main CSS (Updated path to ../style.css) -->
+    <link rel="stylesheet" href="../style.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="ksom-logo.png">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/solid.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com" defer></script>
+
+    <!-- MathJax Configuration -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true,
+          packages: ['base', 'ams']
+        },
+        options: {
+          ignoreHtmlClass: 'tex2jax_ignore',
+          processHtmlClass: 'tex2jax_process',
+          renderActions: {
+            addMenu: [0, '', ''],
+            checkLoading: [0, '', '']
+          }
+        },
+        startup: {
+          pageReady() {
+            return MathJax.startup.defaultPageReady().then(function () {
+              document.body.classList.add('mathjax-loaded');
+            });
+          }
+        },
+        loader: { load: ['[tex]/ams'] }
+      };
+    </script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Inline Table Styling -->
+    <style>
+      .responsive-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .report-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .report-table th, .report-table td {
+        border: 1px solid #e2e8f0;
+        padding: 0.75rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      .report-table th {
+        background-color: #f8fafc;
+        font-weight: 600;
+        color: #1a202c;
+      }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Header Section (Content to be included by server-side include or build tool) -->
+    <!--#include virtual="../header.html" -->
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <section class="text-center mb-12">
+            <h1 class="text-4xl font-bold mb-4">Welcome to the Kerala School of Mathematics</h1>
+            <p class="text-lg text-gray-700">
+                An autonomous institution established as a joint venture of the Science and Technology Department, Government of Kerala, and the Department of Atomic Energy, Government of India.
+            </p>
+        </section>
+
+        <!-- About Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">About KSoM</h2>
+            <p class="text-gray-700">
+                The Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics, established in 2009 as a joint venture of the Department of Atomic Energy (DAE) and the Kerala State Council for Science, Technology and Environment (KSCSTE). The institute aims to provide a platform for excellent mathematicians from India and abroad to engage in high-quality research and academic activities.
+            </p>
+        </section>
+
+        <!-- Programs Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Academic Programs</h2>
+            <ul class="list-disc list-inside text-gray-700">
+                <li>
+                    <strong>Integrated MSc-PhD Program:</strong> An advanced training program at the postgraduate level, offering a seamless transition from Master's to Doctoral studies in Mathematics.
+                </li>
+                <li>
+                    <strong>Ph.D. Program:</strong> A research-intensive program aimed at fostering original contributions to various fields of Mathematics.
+                </li>
+                <li>
+                    <strong>Post-Doctoral Fellowships:</strong> Opportunities for young researchers to engage in independent research across diverse areas of Mathematics.
+                </li>
+            </ul>
+        </section>
+
+        <!-- Research Areas Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Research Areas</h2>
+            <p class="text-gray-700">
+                KSoM hosts research groups in various subfields of Mathematics, including:
+            </p>
+            <ul class="list-disc list-inside text-gray-700">
+                <li>Analytic Number Theory</li>
+                <li>Algebra</li>
+                <li>Geometry</li>
+                <li>Topology</li>
+                <li>Mathematical Physics</li>
+                <li>Applied Mathematics</li>
+            </ul>
+        </section>
+
+        <!-- Events Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Upcoming Events</h2>
+            <ul class="list-disc list-inside text-gray-700">
+                <li>
+                    <strong>Recruitment of Accounts Officer:</strong> June 3, 2025
+                </li>
+                <li>
+                    <strong>Recruitment of Registrar:</strong> June 3, 2025
+                </li>
+                <li>
+                    <strong>KSoM-PhD Admissions 2025 Advertisement:</strong> May 7, 2025
+                </li>
+                <li>
+                    <strong>Visiting Assistant Professor Position:</strong> March 4, 2025
+                </li>
+                <li>
+                    <strong>NBHM Doctoral and Master's Scholarship Schemes 2025:</strong> December 10, 2024
+                </li>
+                <li>
+                    <strong>Integrated MSc-PhD Program Admissions 2025:</strong> December 5, 2024
+                </li>
+            </ul>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Contact Us</h2>
+            <p class="text-gray-700">
+                Kerala School of Mathematics<br />
+                Kunnamangalam P.O., Kozhikode - 673571<br />
+                Kerala, India<br />
+                Phone: +91-495-2809000<br />
+                Fax: +91-495-2809001<br />
+                Email: <a href="mailto:ksom@ksom.res.in" class="text-blue-500 hover:underline">ksom@ksom.res.in</a>
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer Section (Content to be included by server-side include or build tool) -->
+    <!--#include virtual="../footer.html" -->
+</body>
+</html>
