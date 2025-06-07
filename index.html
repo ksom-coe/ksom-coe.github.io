@@ -92,14 +92,30 @@
 
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-button" class="mobile-menu-button md:hidden" aria-label="Toggle mobile menu" aria-controls="mobile-menu" aria-expanded="false">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                    ☰ <!-- Hamburger icon -->
                 </button>
             </div>
         </div>
 
         <!-- Mobile Navigation Placeholder -->
-        <div id="mobile-menu" class="mobile-nav mobile-menu-hidden container" aria-label="Mobile Navigation">
-            <!-- JS will populate this with cloned nav -->
+        <div id="mobile-menu" class="mobile-nav container" aria-label="Mobile Navigation">
+            <button id="mobile-close-button" class="absolute top-4 right-4 text-white text-2xl" aria-label="Close mobile menu">×</button>
+            <nav aria-label="Mobile Navigation">
+                <ul class="mt-12">
+                    <li><a href="/about.html" class="block py-3">About</a></li>
+                    <li><a href="/research.html" class="block py-3">Research</a></li>
+                    <li class="relative">
+                        <a href="#" class="block py-3" aria-expanded="false">Programmes</a>
+                        <ul class="pl-4 hidden">
+                            <li><a href="/programmes/phd.html" class="block py-2">Ph.D. Programme</a></li>
+                            <li><a href="/programmes/msc.html" class="block py-2">M.Sc. Programme</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/people.html" class="block py-3">People</a></li>
+                    <li><a href="/events.html" class="block py-3">Events</a></li>
+                    <li><a href="/contact.html" class="block py-3">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
@@ -118,7 +134,7 @@
             <!-- Welcome Section (Column 1) -->
             <section class="about-us-section" id="about-us">
                 <div class="text-column text-center md:text-left">
-                    <h2 class="section-title !text-left !mb-6 !pb-4 md:!mx-0 !mx-auto">Welcome to Kerala School of Mathematics</h2>
+                    <h2 class="section-title !text-left !mb-6 !pb-4 md:!mx-0 !mx-auto">About Us</h2>
                     <p>Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.</p>
                     <p>The main objective of Kerala School of Mathematics is conduct of high quality Mathematical Research. Our mission is to create a vibrant academic environment that promotes cutting-edge research, nurtures young mathematicians, and contributes significantly to the global mathematical community.</p>
                     <a href="#" class="view-all-link">Read More About Us &rarr;</a>
@@ -406,55 +422,85 @@
         document.addEventListener("DOMContentLoaded", function () {
             const desktopNav = document.getElementById('nav-items');
             const mobileMenu = document.getElementById('mobile-menu');
-            const button = document.getElementById('mobile-menu-button');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileCloseButton = document.getElementById('mobile-close-button');
 
             // Clone the nav items from desktop to mobile
-            const mobileNav = document.createElement('nav');
-            mobileNav.setAttribute('aria-label', 'Mobile Navigation'); // Add aria-label for accessibility
-            const ul = desktopNav.cloneNode(true);
-            ul.classList.remove('flex', 'space-x-4');
+            const mobileNavElement = mobileMenu.querySelector('nav ul');
+            // Clear existing content in mobileNavElement to prevent duplication if script runs multiple times
+            if (mobileNavElement) {
+                mobileNavElement.innerHTML = '';
+            }
 
-            // Remove dropdowns for mobile version — or customize if needed later
-            ul.querySelectorAll('.dropdown').forEach(drop => {
-                drop.querySelectorAll('.dropdown-menu').forEach(menu => menu.remove());
-            });
+            const clonedUl = desktopNav.cloneNode(true);
+            clonedUl.classList.remove('flex', 'space-x-4'); // Remove desktop flex classes
 
-            ul.querySelectorAll('a').forEach(a => {
-                a.classList.add('block', 'py-3', 'px-4', 'text-white');
-            });
+            // Adjust cloned items for mobile styling
+            clonedUl.querySelectorAll('li').forEach(li => {
+                const anchor = li.querySelector('a');
+                if (anchor) {
+                    anchor.classList.add('block', 'py-3', 'px-4', 'text-white'); // Add common mobile link styles
+                }
 
-            mobileNav.appendChild(ul);
-            mobileMenu.appendChild(mobileNav);
+                const dropdownMenu = li.querySelector('.dropdown-menu');
+                if (dropdownMenu) {
+                    // Convert dropdown for mobile
+                    const dropdownLink = anchor; // The 'Programmes' link
+                    dropdownLink.setAttribute('aria-expanded', 'false'); // Initial state for mobile dropdown
+                    dropdownLink.nextElementSibling.classList.add('hidden'); // Hide mobile sub-menu initially
+                    dropdownMenu.classList.remove('dropdown-menu', 'show'); // Remove desktop dropdown classes
+                    dropdownMenu.classList.add('pl-4'); // Add padding for nested mobile menu
 
-            // Toggle mobile menu
-            button.addEventListener('click', () => {
-                const expanded = button.getAttribute('aria-expanded') === 'true';
-                button.setAttribute('aria-expanded', String(!expanded));
-                mobileMenu.classList.toggle('mobile-menu-hidden');
-                mobileMenu.classList.toggle('mobile-menu-visible');
-            });
-
-            // Hide menu on outside click
-            document.addEventListener('click', function (e) {
-                const isClickInside = button.contains(e.target) || mobileMenu.contains(e.target);
-                if (!isClickInside && mobileMenu.classList.contains('mobile-menu-visible')) {
-                    mobileMenu.classList.remove('mobile-menu-visible');
-                    mobileMenu.classList.add('mobile-menu-hidden');
-                    button.setAttribute('aria-expanded', 'false');
+                    // Add click listener for mobile dropdown toggle
+                    dropdownLink.addEventListener('click', function(e) {
+                        e.preventDefault(); // Prevent default link behavior
+                        const expanded = this.getAttribute('aria-expanded') === 'true';
+                        this.setAttribute('aria-expanded', String(!expanded));
+                        this.nextElementSibling.classList.toggle('hidden');
+                    });
                 }
             });
 
-            // Desktop dropdown hover support
+            // Append cloned and modified items to the mobile menu's nav
+            if (mobileNavElement) {
+                mobileNavElement.appendChild(clonedUl);
+            }
+            
+
+            // Toggle mobile menu
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.add('mobile-menu-visible');
+                mobileMenuButton.setAttribute('aria-expanded', 'true');
+            });
+
+            // Close mobile menu
+            mobileCloseButton.addEventListener('click', () => {
+                mobileMenu.classList.remove('mobile-menu-visible');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+            });
+
+            // Hide menu on outside click (only if it's currently visible)
+            document.addEventListener('click', function (e) {
+                const isClickInsideButton = mobileMenuButton.contains(e.target);
+                const isClickInsideMenu = mobileMenu.contains(e.target);
+
+                if (!isClickInsideButton && !isClickInsideMenu && mobileMenu.classList.contains('mobile-menu-visible')) {
+                    mobileMenu.classList.remove('mobile-menu-visible');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Desktop dropdown hover support (CSS handles most, this is for ARIA)
             document.querySelectorAll('.dropdown').forEach(dropdown => {
                 const link = dropdown.querySelector('a');
                 const menu = dropdown.querySelector('.dropdown-menu');
                 if (menu) {
                     dropdown.addEventListener('mouseenter', () => {
-                        menu.classList.add('show');
+                        // menu.classList.add('show'); // CSS handles visibility now
                         link.setAttribute('aria-expanded', 'true');
                     });
                     dropdown.addEventListener('mouseleave', () => {
-                        menu.classList.remove('show');
+                        // menu.classList.remove('show'); // CSS handles visibility now
                         link.setAttribute('aria-expanded', 'false');
                     });
                 }
