@@ -390,7 +390,6 @@ a:hover, a:focus-visible {
     pointer-events: auto;
 }
 
-
 /* Update mobile menu button styles */
 .mobile-menu-button {
     display: block; /* Show by default on mobile */
@@ -407,6 +406,10 @@ a:hover, a:focus-visible {
 @media (min-width: 768px) {
     .mobile-menu-button {
         display: none;
+    }
+    /* Fix for Desktop Navigation Bar */
+    .main-nav {
+        display: block !important;
     }
 }
 
@@ -561,7 +564,7 @@ a:hover, a:focus-visible {
     margin-bottom: var(--spacing-12);
     position: relative;
     padding-bottom: var(--spacing-4);
-    font-size: 2rem !important; /* Adjusted base font size for section titles */
+    font-size: 1.75rem !important; /* Reduced from 2rem */
 }
 
 .section-title::after {
@@ -985,7 +988,7 @@ a:hover, a:focus-visible {
 
     /* Specific title font size for section titles on medium screens */
     .section-title {
-        font-size: 2.5rem !important; /* Adjusted for tablets */
+        font-size: 2rem !important; /* Reduced from 2.5rem */
     }
 
     /* Adjust text alignment for about-us-section on larger screens */
@@ -1038,7 +1041,7 @@ a:hover, a:focus-visible {
 
     /* Specific title font size for section titles on large screens */
     .section-title {
-        font-size: 3rem !important; /* Adjusted for desktops */
+        font-size: 2.25rem !important; /* Reduced from 3rem */
     }
 }
 
