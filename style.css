@@ -12,7 +12,6 @@
        6.4 Main Content (Cards, Prose, News)
        6.5 Footer
    7. Utilities
-       7.1 New Utility Classes for Header
    8. Media Queries
    9. Accessibility
    10. Enhancements: Dark Mode, Animations
@@ -49,8 +48,8 @@
     --font-size-lg: 1.125rem;  /* 18px */
     --font-size-xl: 1.25rem;  /* 20px */
     --font-size-2xl: 1.5rem;  /* 24px */
-    --font-size-3xl: 1.875rem; /* 30px */
-    --font-size-4xl: 2.25rem; /* 36px */
+    --font-size-3xl: 1.875rem; /* 30px - Used for section titles */
+    --font-size-4xl: 2.25rem; /* 36px - Used for main hero title */
 
     /* Spacing Scale (based on 4px grid) */
     --spacing-0: 0;
@@ -122,7 +121,7 @@ body {
     background-color: var(--gray-100);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden; /* Prevent horizontal scrollbars */
+    overflow-x: hidden; /* Prevent horizontal scrollbars for main layout */
 }
 
 img, svg, video, canvas, audio, iframe, embed, object {
@@ -177,8 +176,15 @@ a:hover, a:focus-visible {
     text-decoration-color: var(--ias-teal);
 }
 
+/* Ensure clickable cards do NOT get underline on hover/focus */
+.content-card:hover,
+.content-card:focus-visible,
+.event-card:hover,
+.event-card:focus-visible {
+    text-decoration: none !important;
+}
+
 /* Ensure text elements inside clickable cards do NOT get underline on hover/focus */
-/* Added more specific selectors and targeted the card link itself */
 .content-card:hover h3,
 .content-card:hover p,
 .content-card:hover span,
@@ -192,16 +198,7 @@ a:hover, a:focus-visible {
      text-decoration: none !important; /* Use !important to override potential inherited styles */
 }
 
- /* Ensure the card link itself doesn't get an underline */
- .content-card:hover,
- .content-card:focus-visible,
- .event-card:hover,
- .event-card:focus-visible {
-     text-decoration: none !important;
- }
-
-
- /* Re-add underline for specific elements inside if needed, like 'Apply now' span */
+/* Re-add underline for specific elements inside if needed, like 'Read More' or 'Apply now' span */
 .content-card span.text-ias-teal:hover,
 .content-card span.text-ias-teal:focus-visible {
     text-decoration: underline !important; /* Use !important to ensure it applies */
@@ -292,15 +289,13 @@ a:hover, a:focus-visible {
     display: flex;
     justify-content: space-between; /* Keeps logo left, nav right */
     align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .site-header .site-branding {
     display: flex;
     align-items: center;
     flex-shrink: 0;
-    /* Add max-width to site-branding to prevent it from pushing navigation too much */
-    /* This will allow text to wrap if it's too long, or limit its overall horizontal space */
-    /* Adjusted in media queries for better responsiveness */
 }
 
 .site-header .site-logo-img {
@@ -387,7 +382,7 @@ a:hover, a:focus-visible {
     z-index: var(--z-dropdown);
 }
 
-/* Use .show class for JavaScript-driven dropdown visibility */
+/* Use .show class for JavaScript-driven dropdown visibility (for mobile or if preferred over pure CSS :hover) */
 .dropdown-menu.show {
     opacity: 1;
     visibility: visible;
@@ -423,26 +418,22 @@ a:hover, a:focus-visible {
 /* New mobile nav classes for JS toggle */
 .mobile-nav {
     position: fixed;
-    top: var(--spacing-16); /* Start below header */
+    top: 0; /* Align to top of viewport */
     left: 0;
     width: 100%;
-    height: calc(100% - var(--spacing-16)); /* Fill remaining height */
+    height: 100%; /* Fill entire viewport height */
     background-color: var(--ias-blue);
     color: var(--white);
     z-index: var(--z-modal);
     overflow-y: auto;
     padding: var(--spacing-4);
-    transition: transform var(--transition-medium) ease-out;
-}
-
-.mobile-nav.mobile-menu-hidden {
     transform: translateX(100%); /* Start off-screen */
+    transition: transform var(--transition-medium) ease-out;
 }
 
 .mobile-nav.mobile-menu-visible {
     transform: translateX(0); /* Slide in */
 }
-
 
 .mobile-nav ul {
     list-style: none;
@@ -471,8 +462,7 @@ a:hover, a:focus-visible {
    -------------------------------------------------------------------------- */
 .hero-section {
     position: relative;
-    /* Update background image to the local file */
-    background-image: url('images/KSoMCampus.jpg');
+    background-image: url('../Images/KSoMCampus.jpg');
     background-size: cover;
     background-position: center;
     color: var(--white);
@@ -559,7 +549,7 @@ a:hover, a:focus-visible {
     border-radius: var(--border-radius-full);
 }
 
-/* General Content Cards */
+/* General Content Cards (for Programme and News/Events) */
 .content-card {
     background-color: var(--white);
     border-radius: var(--border-radius-lg);
@@ -569,12 +559,15 @@ a:hover, a:focus-visible {
     display: flex;
     flex-direction: column;
     height: 100%; /* Ensure cards fill grid cell height */
+    align-self: start; /* Prevents grid items from stretching vertically to match tallest sibling */
+    text-decoration: none !important; /* Ensure card link itself doesn't underline */
 }
 
 .content-card:hover,
 .content-card:focus-visible {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
+    text-decoration: none !important; /* Ensure card link itself doesn't underline on hover */
 }
 
 .content-card img.cover {
@@ -600,14 +593,29 @@ a:hover, a:focus-visible {
     font-size: var(--font-size-xl);
     margin-bottom: var(--spacing-2);
     color: var(--ias-blue);
+    /* No explicit background or padding here for compact heading */
 }
 
-.content-card .card-content p {
-    font-size: var(--font-size-base);
+/* New style for truncated paragraph within content cards */
+.content-card .truncated-description {
+    max-height: 4.5em; /* Approximately 3 lines of text (1.5em line-height * 3 lines) */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+    transition: max-height 0.3s ease-in-out; /* Smooth transition for expansion */
+    margin-bottom: var(--spacing-4); /* Consistent spacing below description */
     color: var(--gray-700);
-    margin-bottom: var(--spacing-4);
-    flex-grow: 1; /* Allow text to take available space */
 }
+
+.content-card:hover .truncated-description,
+.content-card:focus-within .truncated-description {
+    max-height: 500px; /* Large enough to show full content */
+    -webkit-line-clamp: unset; /* Remove line clamping on hover/focus */
+    overflow: visible;
+}
+
 
 .content-card .card-content .text-ias-teal {
     color: var(--ias-teal);
@@ -720,8 +728,7 @@ a:hover, a:focus-visible {
 }
 
 .about-us-section .image-column img {
-    /* Update image src to the local file */
-    content: url('images/KSoMCampus.jpg'); /* Use content for image replacement in CSS */
+    content: url('../Images/KSoMCampus.jpg'); /* Use content for image replacement in CSS */
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-lg);
 }
@@ -740,7 +747,7 @@ a:hover, a:focus-visible {
     line-height: 1.7;
 }
 
-/* MSc Slideshow Section */
+/* Programme Highlights Slideshow Section */
 .slideshow-section {
     margin-bottom: var(--spacing-16);
     background-color: var(--ias-blue);
@@ -919,9 +926,9 @@ a:hover, a:focus-visible {
         padding-right: var(--spacing-6);
     }
 
-    h1 { font-size: var(--font-size-4xl); }
-    h2 { font-size: var(--font-size-3xl); }
-    h3 { font-size: var(--font-size-2xl); }
+    h1 { font-size: var(--font-size-4xl); } /* ~36px */
+    h2 { font-size: var(--font-size-3xl); } /* ~30px */
+    h3 { font-size: var(--font-size-2xl); } /* ~24px */
 
     .hero-section {
         padding: var(--spacing-24) 0;
@@ -982,6 +989,11 @@ a:hover, a:focus-visible {
         flex: 1;
         text-align: left; /* Align text left within its column */
     }
+
+    /* Grid for content cards on medium desktops (2 columns) */
+    .content-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* Large devices (desktops, 1024px and up) */
@@ -1003,6 +1015,7 @@ a:hover, a:focus-visible {
         gap: var(--spacing-8);
     }
 
+    /* Grid for content cards on large desktops (3 columns) */
     .content-cards-grid {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -1124,6 +1137,7 @@ a:hover, a:focus-visible {
         color: var(--ias-teal);
     }
     .content-card p,
+    .content-card .truncated-description, /* Added for dark mode */
     .about-us-section p {
         color: var(--gray-300);
     }
@@ -1174,54 +1188,4 @@ a:hover, a:focus-visible {
         transition-duration: 0.01ms !important;
         transition-delay: 0ms !important;
     }
-}
-
-/* Styles for expandable cards (research topics) */
-.research-card {
-    background-color: var(--white);
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-md);
-    overflow: hidden;
-    margin-bottom: var(--spacing-6);
-}
-
-.research-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-5) var(--spacing-6);
-    cursor: pointer;
-    background-color: var(--ias-light-blue);
-    border-bottom: 1px solid var(--gray-200);
-    transition: background-color var(--transition-fast);
-}
-
-.research-card-header:hover {
-    background-color: var(--gray-200);
-}
-
-.research-card-header h3 {
-    margin-bottom: 0;
-    color: var(--ias-blue);
-    font-size: var(--font-size-xl);
-}
-
-.research-card-toggle-icon {
-    transition: transform var(--transition-fast);
-}
-
-.research-card-toggle-icon.rotated {
-    transform: rotate(90deg);
-}
-
-.research-card-content {
-    padding: var(--spacing-0) var(--spacing-6); /* Start with padding 0, then expand */
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height var(--transition-medium) ease-in-out, padding var(--transition-medium) ease-in-out;
-}
-
-.research-card-content.expanded {
-    max-height: 500px; /* Large enough to accommodate content */
-    padding: var(--spacing-5) var(--spacing-6);
 }
