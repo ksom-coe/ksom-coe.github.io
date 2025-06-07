@@ -1,0 +1,110 @@
+<header class="site-header">
+  <div class="container site-header-inner">
+    <!-- Logo and Institution Branding -->
+    <div class="site-branding">
+      <a href="/" class="site-logo-link">
+        <img src="ksom-logo.png" alt="Kerala School of Mathematics Logo" class="site-logo-img" />
+      </a>
+      <div class="flex flex-col ml-2">
+        <p class="dept-title">Kerala School of Mathematics</p>
+        <p class="university-name text-sm font-medium" style="color: var(--gray-300);">
+          An autonomous institution established as a joint venture of the Science and Technology Department, Government of Kerala,<br class="hidden md:block">
+          and the Department of Atomic Energy, Government of India
+        </p>
+      </div>
+    </div>
+
+    <!-- Right Side: Navigation + Toggle -->
+    <div class="header-right">
+      <!-- Desktop Nav -->
+      <nav id="desktop-nav" class="main-nav hidden md:block" aria-label="Main Navigation">
+        <ul id="nav-items">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/research.html">Research</a></li>
+          <li class="relative dropdown">
+            <a href="#" aria-haspopup="true" aria-expanded="false">Programmes</a>
+            <ul class="dropdown-menu">
+              <li><a href="/programmes/phd.html">Ph.D. Programme</a></li>
+              <li><a href="/programmes/msc.html">M.Sc. Programme</a></li>
+            </ul>
+          </li>
+          <li><a href="/people.html">People</a></li>
+          <li><a href="/events.html">Events</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="mobile-menu-button md:hidden" aria-label="Toggle mobile menu" aria-controls="mobile-menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Placeholder -->
+  <div id="mobile-menu" class="mobile-nav mobile-menu-hidden container" aria-label="Mobile Navigation">
+    <!-- JS will populate this with cloned nav -->
+  </div>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const desktopNav = document.getElementById('nav-items');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const button = document.getElementById('mobile-menu-button');
+
+    // Clone the nav items from desktop to mobile
+    const mobileNav = document.createElement('nav');
+    const ul = desktopNav.cloneNode(true);
+    ul.classList.remove('flex', 'space-x-4');
+
+    // Remove dropdowns for mobile version — or customize if needed later
+    ul.querySelectorAll('.dropdown').forEach(drop => {
+      drop.querySelectorAll('.dropdown-menu').forEach(menu => menu.remove());
+    });
+
+    ul.querySelectorAll('a').forEach(a => {
+      a.classList.add('block', 'py-3', 'px-4', 'text-white');
+    });
+
+    mobileNav.appendChild(ul);
+    mobileMenu.appendChild(mobileNav);
+
+    // Toggle mobile menu
+    button.addEventListener('click', () => {
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!expanded));
+      mobileMenu.classList.toggle('mobile-menu-hidden');
+      mobileMenu.classList.toggle('mobile-menu-visible');
+    });
+
+    // Hide menu on outside click
+    document.addEventListener('click', function (e) {
+      const isClickInside = button.contains(e.target) || mobileMenu.contains(e.target);
+      if (!isClickInside && mobileMenu.classList.contains('mobile-menu-visible')) {
+        mobileMenu.classList.remove('mobile-menu-visible');
+        mobileMenu.classList.add('mobile-menu-hidden');
+        button.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Desktop dropdown hover support
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+      const link = dropdown.querySelector('a');
+      const menu = dropdown.querySelector('.dropdown-menu');
+      if (menu) {
+        dropdown.addEventListener('mouseenter', () => {
+          menu.classList.add('show');
+          link.setAttribute('aria-expanded', 'true');
+        });
+        dropdown.addEventListener('mouseleave', () => {
+          menu.classList.remove('show');
+          link.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  });
+</script>
