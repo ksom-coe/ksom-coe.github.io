@@ -1,118 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Official website of the Kerala School of Mathematics, an autonomous institution dedicated to fundamental research and advanced education in mathematics.">
-    <title>Kerala School of Mathematics</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official website of the Kerala School of Mathematics (KSoM)">
+    <title>Kerala School of Mathematics (KSoM)</title>
+    <link rel="icon" type="image/png" href="https://placehold.co/64x64/003366/ffffff?text=KSoM">
+    <link rel="preload" href="https://placehold.co/64x64/003366/ffffff?text=KSoM" as="image">
+    <link rel="preload" href="https://placehold.co/1200x600/003366/ffffff?text=KSoM+Campus" as="image">
+    <!-- Preload placeholder images for programmes -->
+    <link rel="preload" href="https://placehold.co/800x450/005080/ffffff?text=KSoM+Program+1" as="image">
+    <link rel="preload" href="https://placehold.co/800x450/006090/ffffff?text=KSoM+Program+2" as="image">
+    <link rel="preload" href="https://placehold.co/800x450/0070A0/ffffff?text=KSoM+Program+3" as="image">
+    <link rel="preload" href="https://placehold.co/800x450/0080B0/ffffff?text=KSoM+Program+4" as="image">
+    <link rel="preload" href="https://placehold.co/800x450/0090C0/ffffff?text=KSoM+Program+5" as="image">
 
-    <!-- SEO Meta Tags for KSoM -->
-    <meta name="keywords" content="Kerala School of Mathematics, KSoM, Mathematics, Research, Education, India, Kozhikode, Algebraic Geometry, Number Theory, Topology, Mathematical Physics">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Kerala School of Mathematics">
+    <link rel="preload" href="https://fonts.gstatic.com/s/lora/v32/0QI-MX1D_JO_P-z_VA.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvEIDcmoIrZvjTeKhpO_mdGvIDP1tB.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Preconnect for Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-
-    <!-- Google Fonts (Inter, Lora, Playfair Display for overall site consistency) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-
-    <!-- Main CSS (Updated path to ../style.css) -->
-    <link rel="stylesheet" href="../style.css" />
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="ksom-logo.png">
-    <!-- Preload KSoM specific images for performance -->
-    <link rel="preload" href="ksom-logo.png" as="image">
-    <link rel="preload" href="ksom-logo-footer.png" as="image">
-    <!-- Placeholder for hero image. Replace with actual image later -->
-    <link rel="preload" href="https://placehold.co/1920x600/003366/ffffff?text=KSoM+Hero+Image" as="image">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/fontawesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/solid.min.css">
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com" defer></script>
-
-    <!-- MathJax Configuration -->
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']],
-          processEscapes: true,
-          packages: ['base', 'ams']
-        },
-        options: {
-          ignoreHtmlClass: 'tex2jax_ignore',
-          processHtmlClass: 'tex2jax_process',
-          renderActions: {
-            addMenu: [0, '', ''],
-            checkLoading: [0, '', '']
-          }
-        },
-        startup: {
-          pageReady() {
-            return MathJax.startup.defaultPageReady().then(function () {
-              document.body.classList.add('mathjax-loaded');
-            });
-          }
-        },
-        loader: { load: ['[tex]/ams'] }
-      };
-    </script>
-    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-    <!-- Structured Data (Adapted for KSoM as an Organization) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "EducationalOrganization",
-      "name": "Kerala School of Mathematics",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Kunnamangalam, Kozhikode",
-        "addressRegion": "Kerala",
-        "postalCode": "673571",
-        "addressCountry": "India"
-      },
-      "url": "ksom.res.in",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+91-495-2809000",
-        "email": "ksom@ksom.res.in",
-        "contactType": "general"
-      }
-    }
-    </script>
-
-    <!-- Inline Table Styling (from the provided head) -->
-    <style>
-      .responsive-table-container {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-      }
-      .report-table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-      .report-table th, .report-table td {
-        border: 1px solid #e2e8f0;
-        padding: 0.75rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      .report-table th {
-        background-color: #f8fafc;
-        font-weight: 600;
-        color: #1a202c;
-      }
-    </style>
-
-    <!-- No-JavaScript Fallback Styles (adapted from original uploaded index.html) -->
     <noscript>
         <style>
             /* Styles for when JavaScript is disabled */
@@ -131,403 +38,1602 @@
             .mobile-nav ul ul { display: block !important; }
              /* Ensure full content is visible if JS is disabled */
             .collapsible-extra { display: block !important; } /* Use a generic class for collapsible sections */
+            /* Slideshow fallback for No-JS - show first image */
+            .slideshow-container .msc-slide { display: none; }
+            .slideshow-container .msc-slide:first-child { display: block; opacity: 1; }
         </style>
     </noscript>
+    <style>
+        /* ==========================================================================
+           TABLE OF CONTENTS
+           1. CSS Variables (Custom Properties)
+           2. Base Styles
+           3. Typography
+           4. Layout Components
+           5. Color Themes
+           6. Components
+               6.1 Header
+               6.2 Navigation (Desktop & Mobile)
+               6.3 Hero Section
+               6.4 Main Content (Cards, Prose, News)
+               6.5 Footer
+           7. Utilities
+           8. Media Queries
+           9. Accessibility
+           10. Enhancements: Dark Mode, Animations
+           ========================================================================== */
+
+        /* ==========================================================================
+           1. CSS Variables (Custom Properties)
+           ========================================================================== */
+        :root {
+            /* Colors */
+            --ias-blue: #003366; /* Deep blue */
+            --ias-light-blue: #f0f0f0; /* Light gray for backgrounds */
+            --ias-teal: #008080; /* Teal for accents and hover states */
+            --ias-gold: #8a6100; /* Darker gold for text, WCAG AA on white */
+            --white: #ffffff;
+            --black: #000000;
+            --gray-100: #f8f9fa; /* Slightly off-white for body background */
+            --gray-200: #e9ecef; /* Light gray for borders, dividers */
+            --gray-300: #dee2e6;
+            --gray-400: #ced4da;
+            --gray-500: #adb5bd; /* Medium gray for secondary text */
+            --gray-600: #6c757d; /* Darker gray for text */
+            --gray-700: #495057; /* Even darker gray */
+            --gray-800: #343a40; /* Primary text color */
+            --gray-900: #212529; /* Very dark gray / soft black */
+            --red-600: #dc2626;
+
+            /* Typography */
+            --font-primary: 'Lora', Georgia, serif;
+            --font-heading: 'Playfair Display', 'Times New Roman', serif;
+            --font-size-xs: 0.75rem;   /* 12px */
+            --font-size-sm: 0.875rem; /* 14px */
+            --font-size-base: 1rem;    /* 16px */
+            --font-size-lg: 1.125rem;  /* 18px */
+            --font-size-xl: 1.25rem;  /* 20px */
+            --font-size-2xl: 1.5rem;  /* 24px */
+            --font-size-3xl: 1.875rem; /* 30px */
+            --font-size-4xl: 2.25rem; /* 36px */
+
+            /* Spacing Scale (based on 4px grid) */
+            --spacing-0: 0;
+            --spacing-px: 1px;
+            --spacing-0-5: 0.125rem; /* 2px */
+            --spacing-1: 0.25rem;   /* 4px */
+            --spacing-1-5: 0.375rem; /* 6px */
+            --spacing-2: 0.5rem;    /* 8px */
+            --spacing-2-5: 0.625rem; /* 10px */
+            --spacing-3: 0.75rem;   /* 12px */
+            --spacing-3-5: 0.875rem; /* 14px */
+            --spacing-4: 1rem;      /* 16px */
+            --spacing-5: 1.25rem;   /* 20px */
+            --spacing-6: 1.5rem;    /* 24px */
+            --spacing-8: 2rem;      /* 32px */
+            --spacing-10: 2.5rem;   /* 40px */
+            --spacing-12: 3rem;     /* 48px */
+            --spacing-16: 4rem;     /* 64px */
+            --spacing-20: 5rem;     /* 80px */
+            --spacing-24: 6rem;     /* 96px */
+
+            /* Layout */
+            --container-max-width: 1200px;
+            --border-radius-sm: 0.25rem; /* 4px */
+            --border-radius-md: 0.5rem;  /* 8px */
+            --border-radius-lg: 1rem;    /* 16px */
+            --border-radius-full: 9999px;
+
+            /* Transitions */
+            --transition-fast: 0.15s ease-in-out;
+            --transition-medium: 0.3s ease-in-out;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-text: 1px 1px 3px rgba(0, 0, 0, 0.3);
+
+            /* Z-index Scale */
+            --z-base: 1;
+            --z-dropdown: 1000; /* Ensure dropdowns are above other content */
+            --z-sticky: 1020;
+            --z-fixed: 1030;
+            --z-modal-backdrop: 1040;
+            --z-modal: 1050;
+            --z-tooltip: 1070;
+        }
+
+        /* ==========================================================================
+           2. Base Styles
+           ========================================================================== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 100%; /* Base font size for rem calculation */
+            line-height: 1.5; /* Default line height */
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--gray-800);
+            background-color: var(--gray-100);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden; /* Prevent horizontal scrollbars */
+        }
+
+        img, svg, video, canvas, audio, iframe, embed, object {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        button {
+            background: none;
+            color: inherit;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+        }
+
+        /* ==========================================================================
+           3. Typography
+           ========================================================================== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700; /* Bolder headings */
+            line-height: 1.3; /* Tighter line height for headings */
+            margin-bottom: var(--spacing-4); /* Default bottom margin for headings */
+            color: var(--ias-blue); /* Default heading color */
+        }
+
+        h1 { font-size: var(--font-size-4xl); } /* ~36px */
+        h2 { font-size: var(--font-size-3xl); } /* ~30px */
+        h3 { font-size: var(--font-size-2xl); } /* ~24px */
+        h4 { font-size: var(--font-size-xl); }  /* ~20px */
+        h5 { font-size: var(--font-size-lg); }  /* ~18px */
+        h6 { font-size: var(--font-size-base); }/* ~16px */
+
+        p {
+            margin-bottom: var(--spacing-4); /* Consistent paragraph spacing */
+        }
+
+        /* General link styles */
+        a {
+            color: var(--ias-blue);
+            text-decoration: none; /* Remove default underline */
+            transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+        }
+
+        /* Add underline back only on hover/focus for general links */
+        a:hover, a:focus-visible {
+            color: var(--ias-teal);
+            text-decoration: underline;
+            text-decoration-color: var(--ias-teal);
+        }
+
+        /* Ensure text elements inside clickable cards do NOT get underline on hover/focus */
+        /* Added more specific selectors and targeted the card link itself */
+        .content-card:hover h3,
+        .content-card:hover p,
+        .content-card:hover span,
+        .content-card:focus-visible h3,
+        .content-card:focus-visible p,
+        .content-card:focus-visible span,
+        .event-card:hover h3,
+        .event-card:hover p,
+        .event-card:focus-visible h3,
+        .event-card:focus-visible p {
+             text-decoration: none !important; /* Use !important to override potential inherited styles */
+        }
+
+         /* Ensure the card link itself doesn't get an underline */
+         .content-card:hover,
+         .content-card:focus-visible,
+         .event-card:hover,
+         .event-card:focus-visible {
+             text-decoration: none !important;
+         }
+
+
+         /* Re-add underline for specific elements inside if needed, like 'Apply now' span */
+        .content-card span.text-ias-teal:hover,
+        .content-card span.text-ias-teal:focus-visible {
+            text-decoration: underline !important; /* Use !important to ensure it applies */
+        }
+
+
+        /* ==========================================================================
+           4. Layout Components
+           ========================================================================== */
+        .container {
+            width: 100%;
+            max-width: var(--container-max-width);
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: var(--spacing-4); /* Default horizontal padding */
+            padding-right: var(--spacing-4);
+        }
+
+        /* Grid utilities (simple version, can be expanded) */
+        .grid {
+            display: grid;
+        }
+
+        .grid-cols-1 {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+
+        .gap-8 {
+            gap: var(--spacing-8);
+        }
+
+
+        /* ==========================================================================
+           5. Color Themes & Backgrounds
+           ========================================================================== */
+        .ias-blue-bg {
+            background-color: var(--ias-blue);
+            color: var(--white);
+        }
+
+        .ias-blue-bg a {
+            color: var(--gray-200); /* Lighter links on dark blue bg */
+        }
+
+        .ias-blue-bg a:hover,
+        .ias-blue-bg a:focus-visible {
+            color: var(--white);
+            text-decoration-color: var(--white);
+        }
+
+        .ias-light-blue-bg {
+            background-color: var(--ias-light-blue);
+            color: var(--gray-800);
+        }
+
+        .ias-teal-bg {
+            background-color: var(--ias-teal);
+            color: var(--white);
+        }
+
+        .ias-teal-bg:hover {
+            background-color: #006666; /* Darken teal on hover for buttons */
+        }
+
+        .ias-gold-text {
+            color: var(--ias-gold);
+        }
+
+        /* ==========================================================================
+           6. Components
+           ========================================================================== */
+
+        /* --------------------------------------------------------------------------
+           6.1 Header
+           -------------------------------------------------------------------------- */
+        .site-header {
+            background-color: var(--white);
+            color: var(--gray-800);
+            padding: var(--spacing-5) 0;
+            position: sticky;
+            top: 0;
+            z-index: var(--z-sticky);
+            box-shadow: var(--shadow-md);
+        }
+
+        .site-header .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-header .logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0; /* Prevent logo from shrinking */
+        }
+
+        .site-header .logo img {
+            height: 64px; /* Adjust height as needed */
+            width: auto;
+            margin-right: var(--spacing-4);
+            border-radius: var(--border-radius-sm);
+        }
+
+        .site-header .logo-text h1 {
+            font-size: var(--font-size-xl);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--ias-blue);
+            margin-bottom: var(--spacing-0-5);
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+
+        .site-header .logo-text p {
+            font-size: var(--font-size-sm);
+            color: var(--gray-600);
+            margin-bottom: 0;
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+
+        /* --------------------------------------------------------------------------
+           6.2 Navigation (Desktop & Mobile)
+           -------------------------------------------------------------------------- */
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: var(--spacing-6); /* Space between main nav items */
+        }
+
+        .main-nav ul li a {
+            padding: var(--spacing-2) var(--spacing-0);
+            display: block;
+            font-weight: 600;
+            color: var(--gray-700);
+            position: relative;
+        }
+
+        .main-nav ul li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--ias-teal);
+            transition: width var(--transition-fast);
+        }
+
+        .main-nav ul li a:hover::after,
+        .main-nav ul li a:focus-visible::after {
+            width: 100%;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            box-shadow: var(--shadow-md);
+            border-radius: var(--border-radius-md);
+            min-width: 200px;
+            list-style: none;
+            padding: var(--spacing-2) 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(var(--spacing-2));
+            transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
+            z-index: var(--z-dropdown);
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown:focus-within .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto; /* Allow interaction */
+        }
+
+        .dropdown-menu li a {
+            padding: var(--spacing-2) var(--spacing-4);
+            color: var(--gray-700);
+            white-space: nowrap;
+            transition: background-color var(--transition-fast), color var(--transition-fast);
+        }
+
+        .dropdown-menu li a:hover,
+        .dropdown-menu li a:focus-visible {
+            background-color: var(--ias-light-blue);
+            color: var(--ias-blue);
+            text-decoration: none; /* Remove underline on hover within dropdown */
+        }
+
+        /* Mobile navigation */
+        .mobile-menu-button {
+            display: none; /* Hidden by default, shown on small screens */
+            background-color: var(--ias-blue);
+            color: var(--white);
+            padding: var(--spacing-2) var(--spacing-4);
+            border-radius: var(--border-radius-md);
+            font-size: var(--font-size-xl);
+            z-index: var(--z-fixed); /* Ensure it's above content */
+        }
+
+        .mobile-nav {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--ias-blue);
+            color: var(--white);
+            z-index: var(--z-modal);
+            overflow-y: auto;
+            padding: var(--spacing-16) var(--spacing-4) var(--spacing-8); /* Adjust padding for header */
+            transform: translateX(100%); /* Start off-screen */
+            transition: transform var(--transition-medium) ease-out;
+        }
+
+        .mobile-nav.open {
+            transform: translateX(0); /* Slide in */
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-4);
+        }
+
+        .mobile-nav ul li a {
+            display: block;
+            padding: var(--spacing-3) var(--spacing-4);
+            color: var(--white);
+            font-size: var(--font-size-lg);
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-nav ul li a:hover,
+        .mobile-nav ul li a:focus-visible {
+            background-color: rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+        }
+
+        .mobile-nav .close-button {
+            position: absolute;
+            top: var(--spacing-4);
+            right: var(--spacing-4);
+            background: none;
+            border: none;
+            font-size: var(--font-size-3xl);
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        .mobile-nav .dropdown-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background: none;
+            border: none;
+            padding: var(--spacing-3) var(--spacing-4);
+            color: var(--white);
+            font-size: var(--font-size-lg);
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-nav .dropdown-toggle.active {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-nav .dropdown-toggle svg {
+            transition: transform var(--transition-fast);
+        }
+
+        .mobile-nav .dropdown-toggle.active svg {
+            transform: rotate(90deg);
+        }
+
+        .mobile-nav .dropdown-submenu {
+            list-style: none;
+            background-color: rgba(0, 0, 0, 0.1);
+            padding-left: var(--spacing-8);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--transition-medium) ease-in-out;
+        }
+
+        .mobile-nav .dropdown-submenu.open {
+            max-height: 500px; /* Arbitrary large value to allow content to show */
+        }
+
+        .mobile-nav .dropdown-submenu li a {
+            padding: var(--spacing-2) var(--spacing-4);
+            font-size: var(--font-size-base);
+            border-bottom: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* --------------------------------------------------------------------------
+           6.3 Hero Section
+           -------------------------------------------------------------------------- */
+        .hero-section {
+            position: relative;
+            background-image: url('https://placehold.co/1200x600/003366/ffffff?text=KSoM+Campus');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: var(--spacing-20) 0;
+            text-align: center;
+            margin-bottom: var(--spacing-16);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden; /* Ensure content stays within rounded corners */
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            z-index: 1;
+        }
+
+        .hero-section .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-section h2 {
+            font-size: var(--font-size-4xl);
+            color: var(--white);
+            margin-bottom: var(--spacing-4);
+            text-shadow: var(--shadow-text);
+        }
+
+        .hero-section p {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-8);
+            text-shadow: var(--shadow-text);
+        }
+
+        .hero-section .btn-primary {
+            display: inline-block;
+            background-color: var(--ias-teal);
+            color: var(--white);
+            padding: var(--spacing-3) var(--spacing-8);
+            border-radius: var(--border-radius-full);
+            font-weight: 600;
+            transition: background-color var(--transition-fast), transform var(--transition-fast);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero-section .btn-primary:hover,
+        .hero-section .btn-primary:focus-visible {
+            background-color: #006666; /* Darker teal */
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* --------------------------------------------------------------------------
+           6.4 Main Content (Cards, Prose, News)
+           -------------------------------------------------------------------------- */
+        .main-content {
+            padding-top: var(--spacing-8);
+            padding-bottom: var(--spacing-16);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-12);
+            position: relative;
+            padding-bottom: var(--spacing-4);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--ias-teal);
+            border-radius: var(--border-radius-full);
+        }
+
+        /* General Content Cards */
+        .content-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Ensure cards fill grid cell height */
+        }
+
+        .content-card:hover,
+        .content-card:focus-visible {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .content-card img.cover {
+            object-fit: cover;
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius-md); /* Apply border-radius to the image */
+            /* Ensure the image fills the top part of the card */
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .content-card .card-content {
+            padding: var(--spacing-6);
+            flex-grow: 1; /* Allows content to push footer to bottom */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .content-card .card-content h3 {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-2);
+            color: var(--ias-blue);
+        }
+
+        .content-card .card-content p {
+            font-size: var(--font-size-base);
+            color: var(--gray-700);
+            margin-bottom: var(--spacing-4);
+            flex-grow: 1; /* Allow text to take available space */
+        }
+
+        .content-card .card-content .text-ias-teal {
+            color: var(--ias-teal);
+            font-weight: 600;
+            display: inline-block;
+            margin-top: var(--spacing-2);
+        }
+
+
+        /* News & Events Section */
+        .news-events-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: var(--spacing-8);
+            margin-bottom: var(--spacing-16);
+        }
+
+        .news-section, .events-section {
+            background-color: var(--white);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: var(--spacing-6);
+        }
+
+        .news-section h3, .events-section h3 {
+            font-size: var(--font-size-2xl);
+            text-align: center;
+            margin-bottom: var(--spacing-6);
+            color: var(--ias-blue);
+        }
+
+        .news-list, .event-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .news-item, .event-card {
+            border-bottom: 1px solid var(--gray-200);
+            padding: var(--spacing-4) 0;
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-4);
+        }
+
+        .news-item:last-child, .event-card:last-child {
+            border-bottom: none;
+        }
+
+        .news-item .date, .event-card .date-box {
+            flex-shrink: 0;
+            text-align: center;
+            width: 70px; /* Fixed width for date box */
+            background-color: var(--ias-light-blue);
+            padding: var(--spacing-2);
+            border-radius: var(--border-radius-sm);
+            color: var(--ias-blue);
+            font-weight: 600;
+            border: 1px solid var(--gray-300);
+        }
+
+        .news-item .date .day, .event-card .date-box .day {
+            font-size: var(--font-size-2xl);
+            line-height: 1;
+            margin-bottom: var(--spacing-0-5);
+        }
+
+        .news-item .date .month, .event-card .date-box .month {
+            font-size: var(--font-size-sm);
+            text-transform: uppercase;
+        }
+
+        .news-item .news-content, .event-card .event-content {
+            flex-grow: 1;
+        }
+
+        .news-item .news-content h4, .event-card .event-content h4 {
+            font-size: var(--font-size-lg);
+            color: var(--ias-blue);
+            margin-bottom: var(--spacing-1);
+        }
+
+        .news-item .news-content p, .event-card .event-content p {
+            font-size: var(--font-size-sm);
+            color: var(--gray-600);
+            margin-bottom: 0;
+        }
+
+        .view-all-link {
+            display: block;
+            text-align: center;
+            margin-top: var(--spacing-6);
+            font-weight: 600;
+        }
+
+        /* About Us Section */
+        .about-us-section {
+            padding: var(--spacing-16) 0;
+            margin-bottom: var(--spacing-16);
+            background-color: var(--white);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        .about-us-section .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-8);
+        }
+
+        .about-us-section .image-column img {
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-us-section .text-column {
+            text-align: center;
+        }
+
+        .about-us-section h2 {
+            margin-bottom: var(--spacing-6);
+        }
+
+        .about-us-section p {
+            font-size: var(--font-size-lg);
+            color: var(--gray-700);
+            line-height: 1.7;
+        }
+
+        /* MSc Slideshow Section */
+        .slideshow-section {
+            margin-bottom: var(--spacing-16);
+            background-color: var(--ias-blue);
+            padding: var(--spacing-16) 0;
+            color: var(--white);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .slideshow-section .section-title h2 {
+            color: var(--white);
+        }
+        .slideshow-section .section-title::after {
+            background-color: var(--ias-teal);
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 900px;
+            margin: var(--spacing-8) auto;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            background-color: var(--black); /* Fallback for images */
+            aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+            display: flex; /* Use flexbox to center content */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .msc-slide {
+            display: none; /* Hidden by default */
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out; /* Smooth fade effect */
+        }
+
+        .msc-slide.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .msc-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the container */
+        }
+
+        .msc-slide .slide-caption {
+            position: absolute;
+            bottom: var(--spacing-4);
+            left: var(--spacing-4);
+            right: var(--spacing-4);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: var(--white);
+            padding: var(--spacing-3);
+            border-radius: var(--border-radius-sm);
+            font-size: var(--font-size-base);
+            text-align: left;
+            z-index: 10;
+        }
+
+        /* --------------------------------------------------------------------------
+           6.5 Footer
+           -------------------------------------------------------------------------- */
+        .site-footer {
+            background-color: var(--ias-blue);
+            color: var(--gray-200);
+            padding: var(--spacing-12) 0 var(--spacing-8);
+            font-size: var(--font-size-sm);
+        }
+
+        .site-footer .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: var(--spacing-8);
+        }
+
+        .site-footer h4 {
+            color: var(--white);
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .site-footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .site-footer ul li {
+            margin-bottom: var(--spacing-2);
+        }
+
+        .site-footer ul li a {
+            color: var(--gray-300);
+            transition: color var(--transition-fast);
+        }
+
+        .site-footer ul li a:hover,
+        .site-footer ul li a:focus-visible {
+            color: var(--white);
+            text-decoration: underline;
+            text-decoration-color: var(--white);
+        }
+
+        .site-footer .footer-contact p {
+            margin-bottom: var(--spacing-2);
+        }
+
+        .site-footer .footer-contact a {
+            color: var(--gray-300);
+        }
+
+        .site-footer .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: var(--spacing-8);
+            padding-top: var(--spacing-6);
+            text-align: center;
+            font-size: var(--font-size-xs);
+            color: var(--gray-400);
+        }
+
+        /* ==========================================================================
+           7. Utilities
+           ========================================================================== */
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        .text-right { text-align: right; }
+        .mt-8 { margin-top: var(--spacing-8); }
+        .mb-4 { margin-bottom: var(--spacing-4); }
+        .mb-8 { margin-bottom: var(--spacing-8); }
+        .py-8 { padding-top: var(--spacing-8); padding-bottom: var(--spacing-8); }
+        .py-12 { padding-top: var(--spacing-12); padding-bottom: var(--spacing-12); }
+        .py-16 { padding-top: var(--spacing-16); padding-bottom: var(--spacing-16); }
+        .px-4 { padding-left: var(--spacing-4); padding-right: var(--spacing-4); }
+        .rounded-lg { border-radius: var(--border-radius-lg); }
+        .shadow-md { box-shadow: var(--shadow-md); }
+        .bg-white { background-color: var(--white); }
+        .text-ias-blue { color: var(--ias-blue); }
+        .text-gray-700 { color: var(--gray-700); }
+        .font-semibold { font-weight: 600; }
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .gap-6 { gap: var(--spacing-6); }
+        .hidden { display: none !important; }
+        .relative { position: relative; }
+
+        /* Visually hidden for accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* --------------------------------------------------------------------------
+           8. Media Queries
+           -------------------------------------------------------------------------- */
+
+        /* Small devices (phones, 640px and up) */
+        @media (min-width: 640px) {
+            .container {
+                padding-left: var(--spacing-6);
+                padding-right: var(--spacing-6);
+            }
+
+            h1 { font-size: var(--font-size-4xl); }
+            h2 { font-size: var(--font-size-3xl); }
+            h3 { font-size: var(--font-size-2xl); }
+
+            .hero-section {
+                padding: var(--spacing-24) 0;
+            }
+
+            .news-events-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .site-footer .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Medium devices (tablets, 768px and up) */
+        @media (min-width: 768px) {
+            .site-header .logo img {
+                height: 72px; /* Slightly larger logo on tablets */
+            }
+            .site-header .logo-text h1 {
+                font-size: var(--font-size-2xl);
+            }
+            .site-header .logo-text p {
+                font-size: var(--font-size-base);
+            }
+
+            .mobile-menu-button {
+                display: none; /* Hide button on larger screens */
+            }
+            .main-nav {
+                display: block !important; /* Always show desktop nav on tablets+ */
+            }
+            .mobile-nav {
+                display: none !important; /* Hide mobile nav on tablets+ */
+            }
+
+            .hero-section h2 {
+                font-size: var(--font-size-4xl);
+            }
+            .hero-section p {
+                font-size: var(--font-size-xl);
+            }
+
+            .about-us-section .container {
+                flex-direction: row; /* Side-by-side columns */
+                text-align: left;
+            }
+
+            .about-us-section .image-column {
+                flex: 1;
+            }
+            .about-us-section .text-column {
+                flex: 1;
+                text-align: left; /* Align text left within its column */
+            }
+        }
+
+        /* Large devices (desktops, 1024px and up) */
+        @media (min-width: 1024px) {
+            .container {
+                padding-left: var(--spacing-8);
+                padding-right: var(--spacing-8);
+            }
+
+            .site-header .logo img {
+                height: 80px; /* Larger logo on desktops */
+            }
+
+            .main-nav ul {
+                gap: var(--spacing-8);
+            }
+
+            .content-cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .news-events-grid {
+                grid-template-columns: 2fr 1fr; /* News wider than events */
+            }
+
+            .site-footer .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .footer-contact {
+                grid-column: span 2; /* Contact info spans two columns */
+            }
+        }
+
+        /* Extra large devices (large desktops, 1280px and up) */
+        @media (min-width: 1280px) {
+            .container {
+                padding-left: var(--spacing-10);
+                padding-right: var(--spacing-10);
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background-color: var(--white);
+                color: var(--black);
+                font-size: 12pt;
+            }
+            .site-header, .mobile-menu-button, .search-form, .hero-section, .site-footer {
+                display: none !important;
+            }
+            .site-footer .footer-contact {
+                display: block !important;
+                color: black;
+            }
+            .main-content {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            a {
+                color: var(--black);
+                text-decoration: underline;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                color: var(--black);
+                page-break-after: avoid;
+            }
+            .event-card, .news-item {
+                box-shadow: none;
+                border: 1px solid var(--gray-300);
+                page-break-inside: avoid;
+            }
+            img {
+                max-width: 300px !important;
+            }
+        }
+
+        /* =========================================================================
+           10. Dark Mode & Animations
+           ========================================================================== */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: var(--gray-900);
+                color: var(--gray-200);
+            }
+            .site-header {
+                background-color: var(--gray-800);
+                color: var(--gray-100);
+            }
+            .site-header .logo-text h1 {
+                color: var(--ias-teal);
+            }
+            .site-header .logo-text p {
+                color: var(--gray-400);
+            }
+            .main-nav ul li a {
+                color: var(--gray-300);
+            }
+            .main-nav ul li a:hover,
+            .main-nav ul li a:focus-visible {
+                color: var(--white);
+            }
+            .dropdown-menu {
+                background-color: var(--gray-800);
+            }
+            .dropdown-menu li a {
+                color: var(--gray-300);
+            }
+            .dropdown-menu li a:hover,
+            .dropdown-menu li a:focus-visible {
+                background-color: var(--gray-700);
+                color: var(--white);
+            }
+            .hero-section::before {
+                background-color: rgba(0, 0, 0, 0.7);
+            }
+            .content-card,
+            .news-section,
+            .events-section,
+            .about-us-section {
+                background-color: var(--gray-800);
+                color: var(--gray-200);
+            }
+            .content-card h3,
+            .news-section h3,
+            .events-section h3,
+            .about-us-section h2 {
+                color: var(--ias-teal);
+            }
+            .content-card p,
+            .about-us-section p {
+                color: var(--gray-300);
+            }
+            .news-item, .event-card {
+                border-bottom-color: var(--gray-700);
+            }
+            .news-item .date, .event-card .date-box {
+                background-color: var(--gray-700);
+                color: var(--gray-100);
+                border-color: var(--gray-600);
+            }
+            .news-item .news-content h4, .event-card .event-content h4 {
+                color: var(--gray-100);
+            }
+            .news-item .news-content p, .event-card .event-content p {
+                color: var(--gray-400);
+            }
+            .site-footer {
+                background-color: var(--gray-900);
+                color: var(--gray-500);
+            }
+            .site-footer h4 {
+                color: var(--gray-200);
+            }
+            .site-footer ul li a {
+                color: var(--gray-400);
+            }
+            .site-footer ul li a:hover,
+            .site-footer ul li a:focus-visible {
+                color: var(--white);
+            }
+            .site-footer .footer-bottom {
+                border-top-color: var(--gray-700);
+                color: var(--gray-600);
+            }
+        }
+
+        /* Reduced motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                transition-delay: 0ms !important;
+            }
+        }
+
+    </style>
 </head>
-<body class="bg-white text-gray-900">
-    <!-- Header Section (Content from header.html) -->
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header -->
     <header class="site-header">
-      <div class="container site-header-inner">
-        <!-- Logo and Institution Branding -->
-        <div class="site-branding">
-          <a href="/" class="site-logo-link">
-            <img src="ksom-logo.png" alt="Kerala School of Mathematics Logo" class="site-logo-img" />
-          </a>
-          <div class="flex flex-col ml-2">
-            <p class="dept-title">Kerala School of Mathematics</p>
-            <p class="university-name text-sm font-medium" style="color: var(--gray-300);">
-              An autonomous institution established as a joint venture of the Science and Technology Department, Government of Kerala,<br class="hidden md:block">
-              and the Department of Atomic Energy, Government of India
-            </p>
-          </div>
-        </div>
-
-        <!-- Right Side: Navigation + Toggle -->
-        <div class="header-right">
-          <!-- Desktop Nav -->
-          <nav id="desktop-nav" class="main-nav hidden md:block" aria-label="Main Navigation">
-            <ul id="nav-items">
-              <li><a href="/about.html">About</a></li>
-              <li><a href="/research.html">Research</a></li>
-              <li class="relative dropdown">
-                <a href="#" aria-haspopup="true" aria-expanded="false">Programmes</a>
-                <ul class="dropdown-menu">
-                  <li><a href="/programmes/phd.html">Ph.D. Programme</a></li>
-                  <li><a href="/programmes/msc.html">M.Sc. Programme</a></li>
+        <div class="container header-content">
+            <a href="#" class="logo" aria-label="Kerala School of Mathematics Home">
+                <img src="https://placehold.co/64x64/003366/ffffff?text=KSoM" alt="KSoM Logo">
+                <div class="logo-text">
+                    <h1>Kerala School of Mathematics</h1>
+                    <p>Government of Kerala</p>
+                </div>
+            </a>
+            <nav class="main-nav hidden md:block" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#programmes">Programmes</a></li>
+                    <li class="dropdown">
+                        <a href="#">Academics <span class="ml-1">&#9662;</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Faculty</a></li>
+                            <li><a href="#">Courses Offered</a></li>
+                            <li><a href="#">Research Areas</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#admissions">Admissions</a></li>
+                    <li><a href="#news-events">News & Events</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
                 </ul>
-              </li>
-              <li><a href="/people.html">People</a></li>
-              <li><a href="/events.html">Events</a></li>
-              <li><a href="/contact.html">Contact</a></li>
-              <li><a href="/resources.html">Resources</a></li>
-            </ul>
-          </nav>
-
-          <!-- Mobile Menu Button -->
-          <button class="mobile-menu-button md:hidden" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle mobile menu">
-            <svg class="hamburger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            <svg class="close-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
+            </nav>
+            <button class="mobile-menu-button md:hidden" aria-label="Open Mobile Menu" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
         </div>
-      </div>
-
-      <!-- Mobile Navigation (hidden by default) -->
-      <nav id="mobile-menu" class="mobile-nav mobile-menu-hidden md:hidden" aria-label="Mobile Navigation">
-        <!-- Content will be dynamically populated by JS -->
-      </nav>
     </header>
 
-    <!-- Main Content Area -->
-    <main class="main-content">
-        <!-- Hero Section -->
-        <section class="hero-section bg-cover bg-center text-white py-20 md:py-32" style="background-image: url('https://placehold.co/1920x600/003366/ffffff?text=KSoM+Hero+Image');">
-            <div class="container mx-auto px-4 text-center">
-                <h1 class="text-3xl md:text-5xl font-heading font-bold mb-4">Welcome to the Kerala School of Mathematics</h1>
-                <p class="text-lg md:text-2xl font-primary mb-8 max-w-3xl mx-auto">An autonomous institution established as a joint venture of the Science and Technology Department, Government of Kerala, and the Department of Atomic Energy, Government of India.</p>
-                <a href="/about.html" class="inline-block bg-ias-teal hover:bg-opacity-90 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out">
-                    Learn More About Us
-                </a>
-            </div>
-        </section>
-
-        <!-- About Section - Integrated into cards/main flow -->
-        <section class="py-12 md:py-20 bg-gray-100">
-            <div class="container mx-auto px-4 max-w-4xl">
-                <h2 class="text-3xl font-heading font-bold text-center mb-8">About KSoM</h2>
-                <div class="prose max-w-none text-lg leading-relaxed text-gray-700">
-                    <p class="mb-4">The Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics, established in 2009 as a joint venture of the Department of Atomic Energy (DAE) and the Kerala State Council for Science, Technology and Environment (KSCSTE). The institute aims to provide a platform for excellent mathematicians from India and abroad to engage in high-quality research and academic activities.</p>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Key Areas/Programmes/News Highlights Section - with Clickable Cards -->
-        <section class="py-12 md:py-20 bg-white">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-heading font-bold text-center mb-12">Explore KSoM</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Academic Programs Card -->
-                    <div class="card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-                        <h3 class="text-xl font-semibold mb-3 text-ias-blue">Academic Programs</h3>
-                        <ul class="list-disc list-inside text-gray-700 mb-4">
-                            <li><strong>Integrated MSc-PhD Program:</strong> Advanced training at postgraduate level.</li>
-                            <li><strong>Ph.D. Program:</strong> Research-intensive program for original contributions.</li>
-                            <li><strong>Post-Doctoral Fellowships:</strong> Opportunities for young researchers.</li>
-                        </ul>
-                        <a href="/programmes/phd.html" class="text-ias-teal hover:underline font-medium flex items-center">
-                            View Programmes
-                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </a>
-                    </div>
-
-                    <!-- Research Areas Card -->
-                    <div class="card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-                        <h3 class="text-xl font-semibold mb-3 text-ias-blue">Research Areas</h3>
-                        <p class="text-gray-700 mb-4">KSoM hosts research groups in various subfields of Mathematics, including:</p>
-                        <ul class="list-disc list-inside text-gray-700 mb-4">
-                            <li>Analytic Number Theory</li>
-                            <li>Algebra</li>
-                            <li>Geometry</li>
-                            <li>Topology</li>
-                            <li>Mathematical Physics</li>
-                            <li>Applied Mathematics</li>
-                        </ul>
-                        <a href="/research.html" class="text-ias-teal hover:underline font-medium flex items-center">
-                            Explore Research
-                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </a>
-                    </div>
-
-                    <!-- People Card -->
-                    <div class="card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-                        <h3 class="text-xl font-semibold mb-3 text-ias-blue">Our People</h3>
-                        <p class="text-gray-700 mb-4">Meet our distinguished faculty, visiting scholars, and talented students who form the vibrant community at KSoM.</p>
-                        <a href="/people.html" class="text-ias-teal hover:underline font-medium flex items-center">
-                            Meet the Team
-                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </a>
-                    </div>
-
-                    <!-- Publications Card -->
-                    <div class="card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-                        <h3 class="text-xl font-semibold mb-3 text-ias-blue">Publications</h3>
-                        <p class="text-gray-700 mb-4">Explore the scholarly output of our faculty and researchers, including preprints, journal articles, and books.</p>
-                        <a href="/publications.html" class="text-ias-teal hover:underline font-medium flex items-center">
-                            Browse Publications
-                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </a>
-                    </div>
-
-                    <!-- Resources Card -->
-                    <div class="card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-                        <h3 class="text-xl font-semibold mb-3 text-ias-blue">Resources</h3>
-                        <p class="text-gray-700 mb-4">Access valuable resources including library, computational facilities, and lecture notes for our community.</p>
-                        <a href="/resources.html" class="text-ias-teal hover:underline font-medium flex items-center">
-                            Access Resources
-                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </a>
-                    </div>
-
-                    <!-- Contact Card -->
-                    <div class="card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-                        <h3 class="text-xl font-semibold mb-3 text-ias-blue">Contact Us</h3>
-                        <p class="text-gray-700 mb-4">Reach out to us for admissions, collaborations, or general inquiries.</p>
-                        <a href="/contact.html" class="text-ias-teal hover:underline font-medium flex items-center">
-                            Get in Touch
-                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Latest News & Events Section -->
-        <section class="py-12 md:py-20 bg-gray-100">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-heading font-bold text-center mb-12">Latest News & Events</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- News Column -->
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-6 text-ias-blue">News</h3>
-                        <div class="space-y-6">
-                            <!-- News Item 1 (from previous content) -->
-                            <div class="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
-                                <p class="text-sm text-gray-500 mb-1">June 5, 2025</p>
-                                <h4 class="font-semibold text-lg mb-2"><a href="#" class="hover:text-ias-teal">Distinguished Professor Dr. Elara Vance Joins KSoM Faculty</a></h4>
-                                <p class="text-gray-700 text-base">We are delighted to announce that Dr. Elara Vance, a renowned expert in Algebraic Geometry, has joined the Kerala School of Mathematics as a full professor...</p>
-                                <a href="#" class="text-ias-teal hover:underline text-sm mt-2 block">Read More</a>
-                            </div>
-                            <!-- News Item 2 (from previous content) -->
-                            <div class="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
-                                <p class="text-sm text-gray-500 mb-1">May 20, 2025</p>
-                                <h4 class="font-semibold text-lg mb-2"><a href="#" class="hover:text-ias-teal">KSoM Hosts Successful Workshop on Combinatorial Theory</a></h4>
-                                <p class="text-gray-700 text-base">The recent workshop on Combinatorial Theory attracted participants from across the globe, featuring insightful lectures and vibrant discussions...</p>
-                                <a href="#" class="text-ias-teal hover:underline text-sm mt-2 block">Read More</a>
-                            </div>
-                            <div class="text-right mt-6">
-                                <a href="/news.html" class="inline-block bg-ias-teal hover:bg-opacity-90 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out">
-                                    View All News
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Events Column -->
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-6 text-ias-blue">Events</h3>
-                        <div class="space-y-6">
-                            <!-- Event Item 1 (from previous content) -->
-                            <div class="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
-                                <p class="text-sm text-gray-500 mb-1">June 15, 2025 | 10:00 AM</p>
-                                <h4 class="font-semibold text-lg mb-2"><a href="#" class="hover:text-ias-teal">Weekly Research Seminar: "Advances in Number Theory"</a></h4>
-                                <p class="text-gray-700 text-base">Dr. Kiran Kumar (IIT Bombay) will deliver a talk on recent breakthroughs in analytic number theory. Open to all interested in mathematics.</p>
-                                <a href="#" class="text-ias-teal hover:underline text-sm mt-2 block">Event Details</a>
-                            </div>
-                            <!-- Event Item 2 (from previous content) -->
-                            <div class="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
-                                <p class="text-sm text-gray-500 mb-1">July 1-3, 2025</p>
-                                <h4 class="font-semibold text-lg mb-2"><a href="#" class="hover:text-ias-teal">International Conference on Discrete Mathematics</a></h4>
-                                <p class="text-gray-700 text-base">KSoM will host a three-day international conference featuring plenary talks, invited sessions, and contributed papers.</p>
-                                <a href="#" class="text-ias-teal hover:underline text-sm mt-2 block">Conference Website</a>
-                            </div>
-                            <div class="text-right mt-6">
-                                <a href="/events.html" class="inline-block bg-ias-teal hover:bg-opacity-90 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out">
-                                    View All Events
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Current "Upcoming Events" content (from last prompt) - Moved here for reference, can be integrated into "Latest News & Events" or kept separate -->
-        <section class="py-12 md:py-20 bg-gray-50">
-            <div class="container mx-auto px-4 max-w-4xl">
-                <h2 class="text-3xl font-heading font-bold text-center mb-8">Important Announcements / Deadlines</h2>
-                <ul class="list-disc list-inside text-gray-700 text-lg space-y-2">
-                    <li><strong>Recruitment of Accounts Officer:</strong> June 3, 2025</li>
-                    <li><strong>Recruitment of Registrar:</strong> June 3, 2025</li>
-                    <li><strong>KSoM-PhD Admissions 2025 Advertisement:</strong> May 7, 2025</li>
-                    <li><strong>Visiting Assistant Professor Position:</strong> March 4, 2025</li>
-                    <li><strong>NBHM Doctoral and Master's Scholarship Schemes 2025:</strong> December 10, 2024</li>
-                    <li><strong>Integrated MSc-PhD Program Admissions 2025:</strong> December 5, 2024</li>
+    <!-- Mobile Navigation (hidden by default) -->
+    <nav class="mobile-nav" aria-label="Mobile Navigation">
+        <button class="close-button" aria-label="Close Mobile Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        <ul>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#programmes">Programmes</a></li>
+            <li>
+                <button class="dropdown-toggle">
+                    Academics
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+                <ul class="dropdown-submenu">
+                    <li><a href="#">Faculty</a></li>
+                    <li><a href="#">Courses Offered</a></li>
+                    <li><a href="#">Research Areas</a></li>
                 </ul>
-            </div>
-        </section>
+            </li>
+            <li><a href="#admissions">Admissions</a></li>
+            <li><a href="#news-events">News & Events</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
 
-        <!-- Contact Section -->
-        <section class="mb-12 py-12 md:py-20 bg-white">
-            <div class="container mx-auto px-4 max-w-4xl">
-                <h2 class="text-3xl font-heading font-bold text-center mb-8">Contact Us</h2>
-                <p class="text-gray-700 text-lg text-center leading-relaxed">
-                    Kerala School of Mathematics<br />
-                    Kunnamangalam P.O., Kozhikode - 673571<br />
-                    Kerala, India<br />
-                    Phone: +91-495-2809000<br />
-                    Fax: +91-495-2809001<br />
-                    Email: <a href="mailto:ksom@ksom.res.in" class="text-blue-500 hover:underline">ksom@ksom.res.in</a>
-                </p>
-            </div>
-        </section>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <h2>Advancing Mathematical Sciences in Kerala</h2>
+            <p>Welcome to the Kerala School of Mathematics, an autonomous institution dedicated to excellence in mathematical research and education.</p>
+            <a href="#programmes" class="btn-primary">Explore Programmes</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Welcome Section -->
+            <section class="about-us-section" id="about-us">
+                <div class="container flex-col md:flex-row items-center gap-8">
+                    <div class="image-column md:w-1/2">
+                        <img src="https://placehold.co/600x400/8a6100/ffffff?text=KSoM+Building" alt="KSoM Campus View" class="rounded-lg shadow-lg">
+                    </div>
+                    <div class="text-column md:w-1/2 text-center md:text-left">
+                        <h2 class="section-title !text-left !mb-6 !pb-4 md:!mx-0 !mx-auto">Welcome to Kerala School of Mathematics</h2>
+                        <p>The Kerala School of Mathematics (KSoM) is an initiative by the Government of Kerala to foster high-level research and advanced education in mathematics. Located in Kozhikode, KSoM aims to be a leading center for mathematical sciences, attracting talent from across the nation and beyond.</p>
+                        <p>Our mission is to create a vibrant academic environment that promotes cutting-edge research, nurtures young mathematicians, and contributes significantly to the global mathematical community.</p>
+                        <a href="#" class="view-all-link">Read More About Us &rarr;</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- News & Events Section -->
+            <section class="news-events-section mb-16" id="news-events">
+                <h2 class="section-title">Latest Updates & Events</h2>
+                <div class="news-events-grid">
+                    <!-- News Section -->
+                    <div class="news-section">
+                        <h3>Latest News</h3>
+                        <ul class="news-list">
+                            <li class="news-item">
+                                <div class="date">
+                                    <span class="day">01</span>
+                                    <span class="month">Jun</span>
+                                </div>
+                                <div class="news-content">
+                                    <h4>New Research Grant Awarded to Dr. Arya Menon</h4>
+                                    <p>Dr. Arya Menon receives prestigious grant for her work on Algebraic Topology.</p>
+                                </div>
+                            </li>
+                            <li class="news-item">
+                                <div class="date">
+                                    <span class="day">25</span>
+                                    <span class="month">May</span>
+                                </div>
+                                <div class="news-content">
+                                    <h4>Admission Portal Opens for Ph.D. Programme 2025</h4>
+                                    <p>Applications are now open for the upcoming Ph.D. admissions. Apply by July 15.</p>
+                                </div>
+                            </li>
+                            <li class="news-item">
+                                <div class="date">
+                                    <span class="day">10</span>
+                                    <span class="month">May</span>
+                                </div>
+                                <div class="news-content">
+                                    <h4>International Conference on Pure and Applied Mathematics Concludes</h4>
+                                    <p>KSoM successfully hosted a five-day international conference with participants from over 20 countries.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="#" class="view-all-link">View All News &rarr;</a>
+                    </div>
+
+                    <!-- Events Section -->
+                    <div class="events-section">
+                        <h3>Upcoming Events</h3>
+                        <ul class="event-list">
+                            <li class="event-card">
+                                <div class="date-box">
+                                    <span class="day">15</span>
+                                    <span class="month">Jul</span>
+                                </div>
+                                <div class="event-content">
+                                    <h4>Guest Lecture: Dr. Ravi Kumar (IIT Bombay)</h4>
+                                    <p>Topic: Advances in Number Theory. Time: 10:00 AM, KSoM Auditorium.</p>
+                                </div>
+                            </li>
+                            <li class="event-card">
+                                <div class="date-box">
+                                    <span class="day">01</span>
+                                    <span class="month">Aug</span>
+                                </div>
+                                <div class="event-content">
+                                    <h4>Workshop on Cryptography and its Applications</h4>
+                                    <p>A week-long workshop for research scholars and faculty. Registration open.</p>
+                                </div>
+                            </li>
+                            <li class="event-card">
+                                <div class="date-box">
+                                    <span class="day">20</span>
+                                    <span class="month">Aug</span>
+                                </div>
+                                <div class="event-content">
+                                    <h4>Ph.D. Entrance Examination</h4>
+                                    <p>The annual entrance examination for Ph.D. admissions will be conducted on campus.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="#" class="view-all-link">View All Events &rarr;</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Programmes Section -->
+            <section class="programmes-section mb-16" id="programmes">
+                <h2 class="section-title">Our Programmes</h2>
+                <div class="grid content-cards-grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    <a href="#" class="content-card">
+                        <img src="https://placehold.co/600x338/005080/ffffff?text=Integrated+MSc-PhD" alt="Integrated MSc-PhD Programme" class="cover">
+                        <div class="card-content">
+                            <h3>Integrated M.Sc. - Ph.D. Programme</h3>
+                            <p>A rigorous programme designed for students passionate about advanced mathematical research, leading to both a Master's and a Ph.D. degree.</p>
+                            <span class="text-ias-teal font-semibold">Learn More &rarr;</span>
+                        </div>
+                    </a>
+                    <a href="#" class="content-card">
+                        <img src="https://placehold.co/600x338/006090/ffffff?text=PhD+in+Mathematics" alt="PhD in Mathematics Programme" class="cover">
+                        <div class="card-content">
+                            <h3>Ph.D. in Mathematics</h3>
+                            <p>Our doctoral programme offers deep specialization in various branches of mathematics, mentored by leading experts in the field.</p>
+                            <span class="text-ias-teal font-semibold">Learn More &rarr;</span>
+                        </div>
+                    </a>
+                    <a href="#" class="content-card">
+                        <img src="https://placehold.co/600x338/0070A0/ffffff?text=Postdoctoral+Fellowships" alt="Postdoctoral Fellowships" class="cover">
+                        <div class="card-content">
+                            <h3>Postdoctoral Fellowships</h3>
+                            <p>Opportunities for young researchers to pursue independent research and collaborate with KSoM faculty.</p>
+                            <span class="text-ias-teal font-semibold">Learn More &rarr;</span>
+                        </div>
+                    </a>
+                    <a href="#" class="content-card">
+                        <img src="https://placehold.co/600x338/0080B0/ffffff?text=Visiting+Programmes" alt="Visiting Programmes" class="cover">
+                        <div class="card-content">
+                            <h3>Visiting Programmes</h3>
+                            <p>Short-term and long-term visiting positions for academics and researchers to engage with KSoM's vibrant research environment.</p>
+                            <span class="text-ias-teal font-semibold">Learn More &rarr;</span>
+                        </div>
+                    </a>
+                    <a href="#" class="content-card">
+                        <img src="https://placehold.co/600x338/0090C0/ffffff?text=Workshops+and+Conferences" alt="Workshops and Conferences" class="cover">
+                        <div class="card-content">
+                            <h3>Workshops and Conferences</h3>
+                            <p>KSoM regularly hosts national and international workshops, conferences, and lecture series on diverse mathematical topics.</p>
+                            <span class="text-ias-teal font-semibold">View Schedule &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- MSc Slideshow Section - Renamed to Programme Highlights -->
+            <section class="slideshow-section" id="programme-highlights">
+                <h2 class="section-title">Highlights of Our Academic Environment</h2>
+                <div class="slideshow-container">
+                    <div class="msc-slide active">
+                        <img src="https://placehold.co/800x450/005080/ffffff?text=KSoM+Research+Labs" alt="KSoM Research Labs">
+                        <div class="slide-caption">
+                            <h3>State-of-the-Art Research Facilities</h3>
+                            <p>Access to modern computing clusters and a vast digital library supporting cutting-edge research.</p>
+                        </div>
+                    </div>
+                    <div class="msc-slide">
+                        <img src="https://placehold.co/800x450/006090/ffffff?text=KSoM+Faculty" alt="KSoM Faculty">
+                        <div class="slide-caption">
+                            <h3>Renowned Faculty Mentorship</h3>
+                            <p>Learn and collaborate with internationally recognized mathematicians.</p>
+                        </div>
+                    </div>
+                    <div class="msc-slide">
+                        <img src="https://placehold.co/800x450/0070A0/ffffff?text=KSoM+Student+Life" alt="KSoM Student Life">
+                        <div class="slide-caption">
+                            <h3>Vibrant Student Community</h3>
+                            <p>Engage in stimulating discussions, seminars, and extracurricular activities.</p>
+                        </div>
+                    </div>
+                    <div class="msc-slide">
+                        <img src="https://placehold.co/800x450/0080B0/ffffff?text=KSoM+Collaborations" alt="KSoM Collaborations">
+                        <div class="slide-caption">
+                            <h3>International Collaborations</h3>
+                            <p>Opportunities for joint research and exchange programmes with leading institutions worldwide.</p>
+                        </div>
+                    </div>
+                    <div class="msc-slide">
+                        <img src="https://placehold.co/800x450/0090C0/ffffff?text=KSoM+Campus+Life" alt="KSoM Campus Life">
+                        <div class="slide-caption">
+                            <h3>Serene Campus Environment</h3>
+                            <p>A conducive atmosphere for deep study and intellectual growth in picturesque Kozhikode.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
-    <!-- Footer Section (Content from footer.html) -->
-    <footer class="site-footer bg-gray-900 text-gray-300 py-8">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
-          <!-- Left Section: Logo and Address -->
-          <div class="mb-6 md:mb-0">
-            <a href="/" class="inline-block mb-2">
-              <img src="ksom-logo-footer.png" alt="Kerala School of Mathematics Logo" class="h-12">
-            </a>
-            <p class="text-sm">
-              Kerala School of Mathematics<br>
-              Kunnamangalam P.O., Kozhikode - 673571<br>
-              Kerala, India
-            </p>
-          </div>
-
-          <!-- Middle Section: Contact Information -->
-          <div class="mb-6 md:mb-0">
-            <h4 class="text-white font-semibold mb-2">Contact</h4>
-            <p class="text-sm">
-              Phone: +91-495-2809000<br>
-              Fax: +91-495-2809001<br>
-              Email: <a href="mailto:ksom@ksom.res.in" class="text-blue-400 hover:underline">ksom@ksom.res.in</a>
-            </p>
-          </div>
-
-          <!-- Right Section: Quick Links -->
-          <div>
-            <h4 class="text-white font-semibold mb-2">Quick Links</h4>
-            <ul class="text-sm space-y-1">
-              <li><a href="/about.html" class="hover:text-white">About</a></li>
-              <li><a href="/research.html" class="hover:text-white">Research</a></li>
-              <li><a href="/programmes/phd.html" class="hover:text-white">Ph.D. Programme</a></li>
-              <li><a href="/programmes/msc.html" class="hover:text-white">M.Sc. Programme</a></li>
-              <li><a href="/people.html" class="hover:text-white">People</a></li>
-              <li><a href="/events.html" class="hover:text-white">Events</a></li>
-              <li><a href="/publications.html" class="hover:text-white">Publications</a></li>
-              <li><a href="/resources.html" class="hover:text-white">Resources</a></li>
-              <li><a href="/contact.html" class="hover:text-white">Contact</a></li>
-            </ul>
-          </div>
+    <!-- Footer -->
+    <footer class="site-footer" id="contact">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <h4>About KSoM</h4>
+                <p>The Kerala School of Mathematics is a premier institution in India dedicated to promoting advanced studies and research in mathematical sciences.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#programmes">Programmes</a></li>
+                    <li><a href="#news-events">News & Events</a></li>
+                    <li><a href="#">Admissions</a></li>
+                    <li><a href="#">Faculty</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Kerala School of Mathematics (KSoM)<br>
+                Kunnamangalam, Kozhikode, Kerala 673571</p>
+                <p>Email: <a href="mailto:info@ksom.ac.in">info@ksom.ac.in</a></p>
+                <p>Phone: <a href="tel:+914952809000">+91-495-2809000</a></p>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <!-- Placeholder for social media icons -->
+                <div class="flex gap-4 mt-2">
+                    <a href="#" class="text-white hover:text-ias-teal" aria-label="KSoM on Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 .27-2.5h-1c-1.2 0-2 .52-2 2.8v1.7H8v4h3.5v8H20V13.5h-6z"/></svg>
+                    </a>
+                    <a href="#" class="text-white hover:text-ias-teal" aria-label="KSoM on X (Twitter)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 6c-.84.37-1.74.62-2.67.73.96-.58 1.7-1.5 2.04-2.6.93.06 1.83-.28 2.67-.73-.97 1.25-2.2 2.15-3.56 2.62C18.12 5.16 16.52 4 14.7 4c-3.54 0-6.41 2.87-6.41 6.41 0 .5.05.98.15 1.45C8.04 16.14 4.54 12.64 2.1 9.4c-.55 1.05-.86 2.27-.86 3.56 0 2.22 1.13 4.18 2.84 5.33-.81-.02-1.57-.25-2.24-.62v.08c0 3.09 2.2 5.65 5.13 6.22-.53.15-1.09.23-1.66.23-.41 0-.8-.04-1.18-.11.81 2.54 3.17 4.38 5.97 4.43-2.12 1.66-4.79 2.66-7.7 2.66-.5 0-.99-.03-1.47-.08C2.5 22.08 6.55 24 11 24c5.99 0 9.27-4.96 9.27-9.27 0-.14-.01-.27-.01-.4.63-.45 1.17-.99 1.6-1.6z"/></svg>
+                    </a>
+                    <a href="#" class="text-white hover:text-ias-teal" aria-label="KSoM on LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="text-center text-xs mt-8 pt-4 border-t border-gray-700">
-          &copy; 2025 Kerala School of Mathematics. All rights reserved.
+        <div class="footer-bottom">
+            <p>&copy; 2024 Kerala School of Mathematics. All rights reserved. Designed and Maintained by KSoM Web Team.</p>
         </div>
-      </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu and Desktop Dropdown (from header.html) -->
-    <!-- This script assumes that the header.html does not embed its own script for mobile menu functionality, -->
-    <!-- and thus needs to be included here to ensure the interactive elements work. -->
+    <!-- JavaScript for Mobile Menu and Slideshow -->
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const button = document.querySelector('.mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const desktopNav = document.getElementById('desktop-nav'); // Assuming this ID exists in header.html
-        // Check if desktopNav exists before querying children
-        let navItems = [];
-        if (desktopNav) {
-            navItems = desktopNav.querySelectorAll('#nav-items > li > a');
-        }
+        // --- Mobile Menu Script ---
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const closeButton = document.querySelector('.mobile-nav .close-button');
+        const dropdownToggles = document.querySelectorAll('.mobile-nav .dropdown-toggle');
 
-
-        // Populate mobile nav with desktop nav items if mobileMenu exists
-        if (mobileMenu) {
-            const ul = document.createElement('ul');
-            ul.classList.add('mobile-nav-list');
-            navItems.forEach(item => {
-              const li = document.createElement('li');
-              const a = item.cloneNode(true); // Clone the anchor tag
-              li.appendChild(a);
-
-              // Handle dropdowns for mobile: find nested ul and append
-              const parentLi = item.closest('li');
-              if (parentLi && parentLi.classList.contains('dropdown')) {
-                const dropdownMenu = parentLi.querySelector('.dropdown-menu');
-                if (dropdownMenu) {
-                  const mobileSubMenu = document.createElement('ul');
-                  mobileSubMenu.classList.add('mobile-submenu', 'hidden'); // Hidden by default
-                  Array.from(dropdownMenu.children).forEach(subItem => {
-                    const subLi = document.createElement('li');
-                    const subA = subItem.querySelector('a').cloneNode(true);
-                    subLi.appendChild(subA);
-                    mobileSubMenu.appendChild(subLi);
-                  });
-                  li.appendChild(mobileSubMenu);
-
-                  // Add toggle functionality for mobile dropdown
-                  a.addEventListener('click', (e) => {
-                    e.preventDefault(); // Prevent default link behavior
-                    mobileSubMenu.classList.toggle('hidden');
-                    a.classList.toggle('active'); // Optional: Add an active class to indicate expanded state
-                  });
-                }
-              }
-              a.classList.add('block', 'py-3', 'px-4', 'text-white');
-              ul.appendChild(li);
-            });
-            mobileMenu.appendChild(ul);
-        }
-
-
-        // Toggle mobile menu
-        if (button && mobileMenu) {
-            button.addEventListener('click', () => {
-              const expanded = button.getAttribute('aria-expanded') === 'true';
-              button.setAttribute('aria-expanded', String(!expanded));
-              mobileMenu.classList.toggle('mobile-menu-hidden');
-              mobileMenu.classList.toggle('mobile-menu-visible');
-            });
-
-            // Hide menu on outside click
-            document.addEventListener('click', function (e) {
-              const isClickInside = button.contains(e.target) || mobileMenu.contains(e.target);
-              if (!isClickInside && mobileMenu.classList.contains('mobile-menu-visible')) {
-                mobileMenu.classList.remove('mobile-menu-visible');
-                mobileMenu.classList.add('mobile-menu-hidden');
-                button.setAttribute('aria-expanded', 'false');
-              }
-            });
-        }
-
-
-        // Desktop dropdown hover support
-        document.querySelectorAll('.dropdown').forEach(dropdown => {
-          const link = dropdown.querySelector('a');
-          const menu = dropdown.querySelector('.dropdown-menu');
-          if (menu) {
-            dropdown.addEventListener('mouseenter', () => {
-              menu.classList.add('show');
-              link.setAttribute('aria-expanded', 'true');
-            });
-            dropdown.addEventListener('mouseleave', () => {
-              menu.classList.remove('show');
-              link.setAttribute('aria-expanded', 'false');
-            });
-          }
+        mobileMenuButton.addEventListener('click', () => {
+            mobileNav.classList.add('open');
+            mobileMenuButton.setAttribute('aria-expanded', 'true');
         });
-      });
+
+        closeButton.addEventListener('click', () => {
+            mobileNav.classList.remove('open');
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+        });
+
+        // Close mobile nav when a link is clicked
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                // Check if the clicked link is not a dropdown toggle itself
+                if (!link.closest('.dropdown-toggle')) {
+                    mobileNav.classList.remove('open');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const submenu = toggle.nextElementSibling;
+                if (submenu && submenu.classList.contains('dropdown-submenu')) {
+                    submenu.classList.toggle('open');
+                    toggle.classList.toggle('active');
+                    // Accessibility: toggle aria-expanded
+                    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+                    toggle.setAttribute('aria-expanded', !isExpanded);
+                }
+            });
+        });
+
+        // --- Programme Highlights Slideshow Script ---
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.msc-slide');
+        const slideshowInterval = 7000; // 7 seconds
+
+        function showSlides() {
+            if (slides.length === 0) return; // Exit if no slides found
+
+            // Hide all slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            // Increment slide index, reset if needed
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+
+            // Show the current slide
+            slides[slideIndex - 1].classList.add('active');
+
+            // Call showSlides again after the defined interval
+            setTimeout(showSlides, slideshowInterval);
+        }
+
+        // Start the slideshow
+        // Use DOMContentLoaded to ensure the DOM is fully loaded before accessing elements
+        document.addEventListener('DOMContentLoaded', () => {
+             if (slides.length > 0) {
+                 slides[0].classList.add('active'); // Show the first slide initially
+                 slideIndex = 0; // Initialize index
+                 setTimeout(showSlides, slideshowInterval); // Start the loop
+             }
+        });
     </script>
 </body>
 </html>
