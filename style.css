@@ -310,7 +310,7 @@ a:hover, a:focus-visible {
     font-size: var(--font-size-xl);
     color: var(--ias-blue);
     margin-bottom: var(--spacing-0-5);
-    white-space: normal; /* Ensure text wraps naturally */
+    white-space: nowrap; /* Force the text to stay on a single line */
 }
 
 .site-header .university-name {
@@ -318,7 +318,7 @@ a:hover, a:focus-visible {
     color: var(--gray-600); /* Moved from inline style */
     margin-bottom: 0;
     line-height: 1.3; /* Adjust line height for better readability when wrapping */
-    white-space: normal; /* Ensure text wraps naturally */
+    white-space: normal; /* Ensure text wraps naturally if it was ever forced nowrap */
 }
 
 .site-header .header-right {
@@ -404,7 +404,7 @@ a:hover, a:focus-visible {
     text-decoration: none; /* Remove underline on hover within dropdown */
 }
 
-/* Mobile navigation */
+/* Mobile Menu Button */
 .mobile-menu-button {
     display: none; /* Hidden by default, shown on small screens */
     background-color: var(--ias-blue);
@@ -471,6 +471,10 @@ a:hover, a:focus-visible {
     margin-bottom: var(--spacing-16);
     border-radius: var(--border-radius-lg);
     overflow: hidden; /* Ensure content stays within rounded corners */
+    display: flex; /* Make it a flex container to align content */
+    align-items: flex-end; /* Align items to the bottom */
+    justify-content: flex-start; /* Align items to the left */
+    min-height: 400px; /* Ensure sufficient height for the image and text */
 }
 
 .hero-section::before {
@@ -488,7 +492,11 @@ a:hover, a:focus-visible {
     position: relative;
     z-index: 2;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0; /* Remove auto margin */
+    padding: var(--spacing-8); /* Add some padding from the bottom/left edges */
+    text-align: left; /* Ensure text aligns left within its container */
+    align-self: flex-end; /* Explicitly align to the bottom for flex item */
+    justify-content: flex-start; /* Explicitly align to the start for flex item */
 }
 
 .hero-section h2 {
@@ -496,12 +504,14 @@ a:hover, a:focus-visible {
     color: var(--white);
     margin-bottom: var(--spacing-4);
     text-shadow: var(--shadow-text);
+    text-align: left; /* Ensure title is left-aligned */
 }
 
 .hero-section p {
     font-size: var(--font-size-lg);
     margin-bottom: var(--spacing-8);
     text-shadow: var(--shadow-text);
+    text-align: left; /* Ensure paragraph is left-aligned */
 }
 
 .hero-section .btn-primary {
@@ -530,11 +540,20 @@ a:hover, a:focus-visible {
     padding-bottom: var(--spacing-16);
 }
 
+/* New grid for Welcome and News/Events sections */
+.main-content-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: var(--spacing-16); /* Space between sections */
+    margin-bottom: var(--spacing-16); /* Space below this combined section */
+}
+
 .section-title {
     text-align: center;
     margin-bottom: var(--spacing-12);
     position: relative;
     padding-bottom: var(--spacing-4);
+    font-size: var(--font-size-4xl); /* Increased font size for section titles */
 }
 
 .section-title::after {
@@ -549,12 +568,11 @@ a:hover, a:focus-visible {
     border-radius: var(--border-radius-full);
 }
 
-/* General Content Cards (for Programme and News/Events) */
+/* General Content Cards (for Programme and Research) */
 .content-card {
     background-color: var(--white);
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-md);
-    overflow: hidden;
     transition: transform var(--transition-fast), box-shadow var(--transition-fast);
     display: flex;
     flex-direction: column;
@@ -604,16 +622,26 @@ a:hover, a:focus-visible {
     display: -webkit-box;
     -webkit-line-clamp: 3; /* Limit to 3 lines */
     -webkit-box-orient: vertical;
-    transition: max-height 0.3s ease-in-out; /* Smooth transition for expansion */
+    transition: all 0.3s ease-in-out; /* Smooth transition for expansion */
+    position: relative; /* Ensure proper stacking context if needed */
     margin-bottom: var(--spacing-4); /* Consistent spacing below description */
     color: var(--gray-700);
 }
 
 .content-card:hover .truncated-description,
 .content-card:focus-within .truncated-description {
-    max-height: 500px; /* Large enough to show full content */
+    max-height: none; /* Allows natural height */
     -webkit-line-clamp: unset; /* Remove line clamping on hover/focus */
-    overflow: visible;
+    overflow: visible; /* Ensure content is visible */
+}
+/* This rule was intended to remove a potential ::after element on hover,
+   which might have been used for a "Read More" fade overlay.
+   Including it to explicitly ensure no unwanted ::after element appears
+   when the description expands. */
+.content-card:hover .truncated-description::after,
+.content-card:focus-within .truncated-description::after {
+    content: none;
+    display: none;
 }
 
 
@@ -630,7 +658,7 @@ a:hover, a:focus-visible {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: var(--spacing-8);
-    margin-bottom: var(--spacing-16);
+    /* Removed margin-bottom here as it's now part of main-content-grid gap */
 }
 
 .news-section, .events-section {
@@ -712,8 +740,8 @@ a:hover, a:focus-visible {
 
 /* About Us Section */
 .about-us-section {
-    padding: var(--spacing-16) 0;
-    margin-bottom: var(--spacing-16);
+    padding: var(--spacing-16) 0; /* Adjusted padding as it's now a grid item */
+    /* Removed margin-bottom as it's now part of main-content-grid gap */
     background-color: var(--white);
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-md);
@@ -721,11 +749,19 @@ a:hover, a:focus-visible {
 }
 
 .about-us-section .container {
+    /* Removed display: flex and related properties here as the parent main-content-grid handles layout */
+    padding-left: 0; /* Remove container padding for inner flex to manage */
+    padding-right: 0;
+}
+
+.about-us-section .flex-col.md\:flex-row { /* Targets the inner flex container for the image/text */
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-8);
+    padding: var(--spacing-4); /* Add back some inner padding */
 }
+
 
 .about-us-section .image-column img {
     content: url('../Images/KSoMCampus.jpg'); /* Use content for image replacement in CSS */
@@ -994,6 +1030,12 @@ a:hover, a:focus-visible {
     .content-cards-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    /* New: Two-column layout for main content sections on medium screens */
+    .main-content-grid {
+        grid-template-columns: 1.5fr 1fr; /* Welcome section wider than News/Events */
+        align-items: start; /* Align items to the start of their grid cell */
+    }
 }
 
 /* Large devices (desktops, 1024px and up) */
@@ -1030,6 +1072,11 @@ a:hover, a:focus-visible {
 
     .footer-contact {
         grid-column: span 2; /* Contact info spans two columns */
+    }
+
+    /* Adjust main-content-grid for larger screens */
+    .main-content-grid {
+        grid-template-columns: 2fr 1.5fr; /* Adjust proportions for larger screens if needed */
     }
 }
 
