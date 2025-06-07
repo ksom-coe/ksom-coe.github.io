@@ -58,6 +58,7 @@
                6.4 Main Content (Cards, Prose, News)
                6.5 Footer
            7. Utilities
+               7.1 New Utility Classes for Header
            8. Media Queries
            9. Accessibility
            10. Enhancements: Dark Mode, Animations
@@ -332,39 +333,43 @@
             box-shadow: var(--shadow-md);
         }
 
-        .site-header .header-content {
+        /* New header specific styles */
+        .site-header .site-header-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .site-header .logo {
+        .site-header .site-branding {
             display: flex;
             align-items: center;
-            flex-shrink: 0; /* Prevent logo from shrinking */
+            flex-shrink: 0;
         }
 
-        .site-header .logo img {
+        .site-header .site-logo-img {
             height: 64px; /* Adjust height as needed */
             width: auto;
-            margin-right: var(--spacing-4);
             border-radius: var(--border-radius-sm);
         }
 
-        .site-header .logo-text h1 {
-            font-size: var(--font-size-xl);
+        .site-header .dept-title {
             font-family: var(--font-heading);
             font-weight: 700;
+            font-size: var(--font-size-xl);
             color: var(--ias-blue);
             margin-bottom: var(--spacing-0-5);
             white-space: nowrap; /* Prevent text wrapping */
         }
 
-        .site-header .logo-text p {
+        .site-header .university-name {
             font-size: var(--font-size-sm);
             color: var(--gray-600);
             margin-bottom: 0;
-            white-space: nowrap; /* Prevent text wrapping */
+        }
+
+        .site-header .header-right {
+            display: flex;
+            align-items: center;
         }
 
         /* --------------------------------------------------------------------------
@@ -421,8 +426,8 @@
             z-index: var(--z-dropdown);
         }
 
-        .dropdown:hover .dropdown-menu,
-        .dropdown:focus-within .dropdown-menu {
+        /* Use .show class for JavaScript-driven dropdown visibility */
+        .dropdown-menu.show {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
@@ -454,31 +459,35 @@
             z-index: var(--z-fixed); /* Ensure it's above content */
         }
 
+        /* New mobile nav classes for JS toggle */
         .mobile-nav {
-            display: none; /* Hidden by default */
             position: fixed;
-            top: 0;
+            top: var(--spacing-16); /* Start below header */
             left: 0;
             width: 100%;
-            height: 100%;
+            height: calc(100% - var(--spacing-16)); /* Fill remaining height */
             background-color: var(--ias-blue);
             color: var(--white);
             z-index: var(--z-modal);
             overflow-y: auto;
-            padding: var(--spacing-16) var(--spacing-4) var(--spacing-8); /* Adjust padding for header */
-            transform: translateX(100%); /* Start off-screen */
+            padding: var(--spacing-4);
             transition: transform var(--transition-medium) ease-out;
         }
 
-        .mobile-nav.open {
+        .mobile-nav.mobile-menu-hidden {
+            transform: translateX(100%); /* Start off-screen */
+        }
+
+        .mobile-nav.mobile-menu-visible {
             transform: translateX(0); /* Slide in */
         }
+
 
         .mobile-nav ul {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: var(--spacing-4);
+            gap: var(--spacing-2); /* Smaller gap for mobile items */
         }
 
         .mobile-nav ul li a {
@@ -494,65 +503,6 @@
         .mobile-nav ul li a:focus-visible {
             background-color: rgba(255, 255, 255, 0.1);
             text-decoration: none;
-        }
-
-        .mobile-nav .close-button {
-            position: absolute;
-            top: var(--spacing-4);
-            right: var(--spacing-4);
-            background: none;
-            border: none;
-            font-size: var(--font-size-3xl);
-            color: var(--white);
-            cursor: pointer;
-        }
-
-        .mobile-nav .dropdown-toggle {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            background: none;
-            border: none;
-            padding: var(--spacing-3) var(--spacing-4);
-            color: var(--white);
-            font-size: var(--font-size-lg);
-            font-weight: 500;
-            cursor: pointer;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .mobile-nav .dropdown-toggle.active {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .mobile-nav .dropdown-toggle svg {
-            transition: transform var(--transition-fast);
-        }
-
-        .mobile-nav .dropdown-toggle.active svg {
-            transform: rotate(90deg);
-        }
-
-        .mobile-nav .dropdown-submenu {
-            list-style: none;
-            background-color: rgba(0, 0, 0, 0.1);
-            padding-left: var(--spacing-8);
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height var(--transition-medium) ease-in-out;
-        }
-
-        .mobile-nav .dropdown-submenu.open {
-            max-height: 500px; /* Arbitrary large value to allow content to show */
-        }
-
-        .mobile-nav .dropdown-submenu li a {
-            padding: var(--spacing-2) var(--spacing-4);
-            font-size: var(--font-size-base);
-            border-bottom: none;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         /* --------------------------------------------------------------------------
@@ -1024,13 +974,13 @@
 
         /* Medium devices (tablets, 768px and up) */
         @media (min-width: 768px) {
-            .site-header .logo img {
+            .site-header .site-logo-img { /* Updated selector */
                 height: 72px; /* Slightly larger logo on tablets */
             }
-            .site-header .logo-text h1 {
+            .site-header .dept-title { /* Updated selector */
                 font-size: var(--font-size-2xl);
             }
-            .site-header .logo-text p {
+            .site-header .university-name { /* Updated selector */
                 font-size: var(--font-size-base);
             }
 
@@ -1072,7 +1022,7 @@
                 padding-right: var(--spacing-8);
             }
 
-            .site-header .logo img {
+            .site-header .site-logo-img { /* Updated selector */
                 height: 80px; /* Larger logo on desktops */
             }
 
@@ -1157,10 +1107,10 @@
                 background-color: var(--gray-800);
                 color: var(--gray-100);
             }
-            .site-header .logo-text h1 {
+            .site-header .dept-title { /* Updated selector */
                 color: var(--ias-teal);
             }
-            .site-header .logo-text p {
+            .site-header .university-name { /* Updated selector */
                 color: var(--gray-400);
             }
             .main-nav ul li a {
@@ -1256,61 +1206,56 @@
 
     <!-- Header -->
     <header class="site-header">
-        <div class="container header-content">
-            <a href="#" class="logo" aria-label="Kerala School of Mathematics Home">
-                <img src="https://placehold.co/64x64/003366/ffffff?text=KSoM" alt="KSoM Logo">
-                <div class="logo-text">
-                    <h1>Kerala School of Mathematics</h1>
-                    <p>Government of Kerala</p>
+        <div class="container site-header-inner">
+            <!-- Logo and Institution Branding -->
+            <div class="site-branding">
+                <a href="/" class="site-logo-link">
+                    <img src="https://placehold.co/64x64/003366/ffffff?text=KSoM" alt="Kerala School of Mathematics Logo" class="site-logo-img" />
+                </a>
+                <div class="flex flex-col ml-2">
+                    <p class="dept-title">Kerala School of Mathematics</p>
+                    <p class="university-name text-sm font-medium" style="color: var(--gray-300);">
+                        An autonomous institution established as a joint venture of the Science and Technology Department, Government of Kerala,<br class="hidden md:block">
+                        and the Department of Atomic Energy, Government of India
+                    </p>
                 </div>
-            </a>
-            <nav class="main-nav hidden md:block" aria-label="Main Navigation">
-                <ul>
-                    <li><a href="#about-us">About Us</a></li>
-                    <li><a href="#programmes">Programmes</a></li>
-                    <li class="dropdown">
-                        <a href="#">Academics <span class="ml-1">&#9662;</span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Faculty</a></li>
-                            <li><a href="#">Courses Offered</a></li>
-                            <li><a href="#">Research Areas</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#admissions">Admissions</a></li>
-                    <li><a href="#news-events">News & Events</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                </ul>
-            </nav>
-            <button class="mobile-menu-button md:hidden" aria-label="Open Mobile Menu" aria-expanded="false">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            </button>
+            </div>
+
+            <!-- Right Side: Navigation + Toggle -->
+            <div class="header-right">
+                <!-- Desktop Nav -->
+                <nav id="desktop-nav" class="main-nav hidden md:block" aria-label="Main Navigation">
+                    <ul id="nav-items">
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/research.html">Research</a></li>
+                        <li class="relative dropdown">
+                            <a href="#" aria-haspopup="true" aria-expanded="false">Programmes</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/programmes/phd.html">Ph.D. Programme</a></li>
+                                <li><a href="/programmes/msc.html">M.Sc. Programme</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/people.html">People</a></li>
+                        <li><a href="/events.html">Events</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="mobile-menu-button md:hidden" aria-label="Toggle mobile menu" aria-controls="mobile-menu" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Placeholder -->
+        <div id="mobile-menu" class="mobile-nav mobile-menu-hidden container" aria-label="Mobile Navigation">
+            <!-- JS will populate this with cloned nav -->
         </div>
     </header>
-
-    <!-- Mobile Navigation (hidden by default) -->
-    <nav class="mobile-nav" aria-label="Mobile Navigation">
-        <button class="close-button" aria-label="Close Mobile Menu">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-        </button>
-        <ul>
-            <li><a href="#about-us">About Us</a></li>
-            <li><a href="#programmes">Programmes</a></li>
-            <li>
-                <button class="dropdown-toggle">
-                    Academics
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </button>
-                <ul class="dropdown-submenu">
-                    <li><a href="#">Faculty</a></li>
-                    <li><a href="#">Courses Offered</a></li>
-                    <li><a href="#">Research Areas</a></li>
-                </ul>
-            </li>
-            <li><a href="#admissions">Admissions</a></li>
-            <li><a href="#news-events">News & Events</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-        </ul>
-    </nav>
 
     <!-- Hero Section -->
     <section class="hero-section">
@@ -1557,44 +1502,63 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu and Slideshow -->
+    <!-- JavaScript for Header and Slideshow -->
     <script>
-        // --- Mobile Menu Script ---
-        const mobileMenuButton = document.querySelector('.mobile-menu-button');
-        const mobileNav = document.querySelector('.mobile-nav');
-        const closeButton = document.querySelector('.mobile-nav .close-button');
-        const dropdownToggles = document.querySelectorAll('.mobile-nav .dropdown-toggle');
+        // --- Header Mobile Menu and Dropdown Script ---
+        document.addEventListener("DOMContentLoaded", function () {
+            const desktopNav = document.getElementById('nav-items');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const button = document.getElementById('mobile-menu-button');
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileNav.classList.add('open');
-            mobileMenuButton.setAttribute('aria-expanded', 'true');
-        });
+            // Clone the nav items from desktop to mobile
+            const mobileNav = document.createElement('nav');
+            mobileNav.setAttribute('aria-label', 'Mobile Navigation'); // Add aria-label for accessibility
+            const ul = desktopNav.cloneNode(true);
+            ul.classList.remove('flex', 'space-x-4');
 
-        closeButton.addEventListener('click', () => {
-            mobileNav.classList.remove('open');
-            mobileMenuButton.setAttribute('aria-expanded', 'false');
-        });
+            // Remove dropdowns for mobile version — or customize if needed later
+            ul.querySelectorAll('.dropdown').forEach(drop => {
+                drop.querySelectorAll('.dropdown-menu').forEach(menu => menu.remove());
+            });
 
-        // Close mobile nav when a link is clicked
-        mobileNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                // Check if the clicked link is not a dropdown toggle itself
-                if (!link.closest('.dropdown-toggle')) {
-                    mobileNav.classList.remove('open');
-                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+            ul.querySelectorAll('a').forEach(a => {
+                a.classList.add('block', 'py-3', 'px-4', 'text-white');
+            });
+
+            mobileNav.appendChild(ul);
+            mobileMenu.appendChild(mobileNav);
+
+            // Toggle mobile menu
+            button.addEventListener('click', () => {
+                const expanded = button.getAttribute('aria-expanded') === 'true';
+                button.setAttribute('aria-expanded', String(!expanded));
+                mobileMenu.classList.toggle('mobile-menu-hidden');
+                mobileMenu.classList.toggle('mobile-menu-visible');
+            });
+
+            // Hide menu on outside click
+            document.addEventListener('click', function (e) {
+                const isClickInside = button.contains(e.target) || mobileMenu.contains(e.target);
+                if (!isClickInside && mobileMenu.classList.contains('mobile-menu-visible')) {
+                    mobileMenu.classList.remove('mobile-menu-visible');
+                    mobileMenu.classList.add('mobile-menu-hidden');
+                    button.setAttribute('aria-expanded', 'false');
                 }
             });
-        });
 
-        dropdownToggles.forEach(toggle => {
-            toggle.addEventListener('click', () => {
-                const submenu = toggle.nextElementSibling;
-                if (submenu && submenu.classList.contains('dropdown-submenu')) {
-                    submenu.classList.toggle('open');
-                    toggle.classList.toggle('active');
-                    // Accessibility: toggle aria-expanded
-                    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-                    toggle.setAttribute('aria-expanded', !isExpanded);
+            // Desktop dropdown hover support
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                const link = dropdown.querySelector('a');
+                const menu = dropdown.querySelector('.dropdown-menu');
+                if (menu) {
+                    dropdown.addEventListener('mouseenter', () => {
+                        menu.classList.add('show');
+                        link.setAttribute('aria-expanded', 'true');
+                    });
+                    dropdown.addEventListener('mouseleave', () => {
+                        menu.classList.remove('show');
+                        link.setAttribute('aria-expanded', 'false');
+                    });
                 }
             });
         });
