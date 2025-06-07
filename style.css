@@ -544,7 +544,7 @@ a:hover, a:focus-visible {
 .main-content-grid {
     display: grid;
     grid-template-columns: 1fr; /* Single column on mobile */
-    gap: var(--spacing-16); /* Space between sections */
+    gap: var(--spacing-8); /* Space between sections vertically */
     margin-bottom: var(--spacing-16); /* Space below this combined section */
 }
 
@@ -553,7 +553,7 @@ a:hover, a:focus-visible {
     margin-bottom: var(--spacing-12);
     position: relative;
     padding-bottom: var(--spacing-4);
-    font-size: var(--font-size-4xl); /* Increased font size for section titles */
+    font-size: 2rem !important; /* Adjusted base font size for section titles */
 }
 
 .section-title::after {
@@ -569,6 +569,10 @@ a:hover, a:focus-visible {
 }
 
 /* General Content Cards (for Programme and Research) */
+.content-cards-grid {
+    align-items: start; /* Add this to prevent row stretching */
+}
+
 .content-card {
     background-color: var(--white);
     border-radius: var(--border-radius-lg);
@@ -579,6 +583,7 @@ a:hover, a:focus-visible {
     height: 100%; /* Ensure cards fill grid cell height */
     align-self: start; /* Prevents grid items from stretching vertically to match tallest sibling */
     text-decoration: none !important; /* Ensure card link itself doesn't underline */
+    overflow: hidden; /* Added to prevent content overflow outside card boundaries */
 }
 
 .content-card:hover,
@@ -622,7 +627,7 @@ a:hover, a:focus-visible {
     display: -webkit-box;
     -webkit-line-clamp: 3; /* Limit to 3 lines */
     -webkit-box-orient: vertical;
-    transition: all 0.3s ease-in-out; /* Smooth transition for expansion */
+    transition: max-height 0.3s ease; /* Smooth transition for expansion */
     position: relative; /* Ensure proper stacking context if needed */
     margin-bottom: var(--spacing-4); /* Consistent spacing below description */
     color: var(--gray-700);
@@ -630,9 +635,9 @@ a:hover, a:focus-visible {
 
 .content-card:hover .truncated-description,
 .content-card:focus-within .truncated-description {
-    max-height: none; /* Allows natural height */
+    max-height: 15em; /* Set a max height instead of none */
+    overflow: auto; /* Add scroll if content is too long */
     -webkit-line-clamp: unset; /* Remove line clamping on hover/focus */
-    overflow: visible; /* Ensure content is visible */
 }
 /* This rule was intended to remove a potential ::after element on hover,
    which might have been used for a "Read More" fade overlay.
@@ -654,12 +659,7 @@ a:hover, a:focus-visible {
 
 
 /* News & Events Section */
-.news-events-grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: var(--spacing-8);
-    /* Removed margin-bottom here as it's now part of main-content-grid gap */
-}
+/* Removed .news-events-grid since its children are now direct main-content-grid items */
 
 .news-section, .events-section {
     background-color: var(--white);
@@ -740,37 +740,16 @@ a:hover, a:focus-visible {
 
 /* About Us Section */
 .about-us-section {
-    padding: var(--spacing-16) 0; /* Adjusted padding as it's now a grid item */
-    /* Removed margin-bottom as it's now part of main-content-grid gap */
+    padding: var(--spacing-6); /* Adjusted padding for standalone card look */
     background-color: var(--white);
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-md);
     overflow: hidden;
 }
 
-.about-us-section .container {
-    /* Removed display: flex and related properties here as the parent main-content-grid handles layout */
-    padding-left: 0; /* Remove container padding for inner flex to manage */
-    padding-right: 0;
-}
-
-.about-us-section .flex-col.md\:flex-row { /* Targets the inner flex container for the image/text */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-8);
-    padding: var(--spacing-4); /* Add back some inner padding */
-}
-
-
-.about-us-section .image-column img {
-    content: url('../Images/KSoMCampus.jpg'); /* Use content for image replacement in CSS */
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-lg);
-}
-
+/* Removed specific flex properties as the image column is gone */
 .about-us-section .text-column {
-    text-align: center;
+    text-align: center; /* Default for mobile */
 }
 
 .about-us-section h2 {
@@ -1013,17 +992,9 @@ a:hover, a:focus-visible {
         font-size: var(--font-size-xl);
     }
 
-    .about-us-section .container {
-        flex-direction: row; /* Side-by-side columns */
-        text-align: left;
-    }
-
-    .about-us-section .image-column {
-        flex: 1;
-    }
+    /* Adjust text alignment for about-us-section on larger screens */
     .about-us-section .text-column {
-        flex: 1;
-        text-align: left; /* Align text left within its column */
+        text-align: left;
     }
 
     /* Grid for content cards on medium desktops (2 columns) */
@@ -1031,10 +1002,16 @@ a:hover, a:focus-visible {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* New: Two-column layout for main content sections on medium screens */
+    /* New: Three-column layout for main content sections on medium screens */
     .main-content-grid {
-        grid-template-columns: 1.5fr 1fr; /* Welcome section wider than News/Events */
+        grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
         align-items: start; /* Align items to the start of their grid cell */
+        gap: var(--spacing-8); /* Adjusted gap for 3 columns */
+    }
+
+    /* Specific title font size for section titles on medium screens */
+    .section-title {
+        font-size: 2.5rem !important; /* Adjusted for tablets */
     }
 }
 
@@ -1062,21 +1039,15 @@ a:hover, a:focus-visible {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .news-events-grid {
-        grid-template-columns: 2fr 1fr; /* News wider than events */
-    }
-
-    .site-footer .footer-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .footer-contact {
-        grid-column: span 2; /* Contact info spans two columns */
-    }
-
-    /* Adjust main-content-grid for larger screens */
+    /* Adjust main-content-grid for larger screens, e.g., slightly wider welcome */
     .main-content-grid {
-        grid-template-columns: 2fr 1.5fr; /* Adjust proportions for larger screens if needed */
+        grid-template-columns: 1.2fr 1fr 1fr; /* Welcome section slightly wider */
+        gap: var(--spacing-12); /* Slightly larger gap */
+    }
+
+    /* Specific title font size for section titles on large screens */
+    .section-title {
+        font-size: 3rem !important; /* Adjusted for desktops */
     }
 }
 
