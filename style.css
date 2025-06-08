@@ -442,23 +442,31 @@ a:hover, a:focus-visible {
 /* Mobile menu improvements */
 .mobile-nav {
     position: fixed;
-    top: 0;
-    right: -320px; /* Adjust off-screen position */
-    width: 300px; /* Fixed width instead of 80% */
-    max-width: 90%; /* Ensure it doesn't overflow on small screens */
-    height: 100%;
+    top: 0; /* Align to top */
+    right: -100vw; /* Start completely off-screen to the right (viewport width) */
+    width: min(300px, 90vw); /* Fixed width for the sliding panel, responsive */
+    height: 100vh; /* Full viewport height */
     background-color: var(--ias-blue);
     color: var(--white);
     z-index: var(--z-modal);
     overflow-y: auto;
     padding: var(--spacing-4);
-    transition: right var(--transition-medium) ease-out;
+    transition: right var(--transition-medium) ease-out; /* Transition 'right' property */
     box-shadow: -5px 0 15px rgba(0,0,0,0.2); /* Add shadow for depth */
 }
 
+/* When visible */
 .mobile-nav.mobile-menu-visible {
     right: 0; /* Slide in from right */
 }
+
+/* Hide on desktop */
+@media (min-width: 768px) {
+    .mobile-nav {
+        display: none !important; /* Absolutely hide mobile nav on desktop */
+    }
+}
+
 
 .mobile-nav ul {
     list-style: none;
@@ -634,7 +642,7 @@ a:hover, a:focus-visible {
     display: flex;
     flex-direction: column;
     height: auto; /* Remove fixed height */
-    min-height: 380px; /* New minimum height */
+    min-height: 380px; /* Default minimum height for larger screens */
     align-self: start; /* Prevents grid items from stretching vertically to match tallest sibling */
     text-decoration: none !important; /* Ensure card link itself doesn't underline */
     overflow: hidden; /* Added to prevent content overflow outside card boundaries */
