@@ -874,7 +874,7 @@ a:hover, a:focus-visible {
 }
 
 .about-us-section .about-us-text-content p { /* Target paragraphs inside new wrapper */
-    font-size: var(--font-size-sm); /* Reduced font size to 'sm' */
+    font-size: var(--font-size-base); /* Changed from var(--font-size-sm) to match research section */
     color: var(--gray-700);
     line-height: 1.7;
     margin-bottom: var(--spacing-3); /* Adjusted margin for paragraphs */
@@ -918,6 +918,21 @@ a:hover, a:focus-visible {
 .research-area-item p strong {
     color: var(--ias-teal); /* Highlight focus/link text */
 }
+
+/* Programme Cards specific styles - UPDATED */
+.programme-card {
+    min-height: 260px; /* Reduced overall height for programme cards */
+}
+
+.programme-card .card-content {
+    padding: var(--spacing-4); /* Reduced padding inside card content */
+}
+
+.programme-card .truncated-description {
+    -webkit-line-clamp: 5; /* Show max 5 lines by default for programme cards */
+    max-height: 10em; /* Adjusted max height to match 5 lines * 1.7 line-height * 1rem */
+}
+
 
 /* Programme Highlights Slideshow Section */
 .slideshow-section {
