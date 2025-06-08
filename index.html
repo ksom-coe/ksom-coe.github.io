@@ -28,6 +28,35 @@
     <!-- Link to external style.css -->
     <link rel="stylesheet" href="../style.css">
 
+    <!-- MathJax Configuration -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true,
+          packages: ['base', 'ams']
+        },
+        options: {
+          ignoreHtmlClass: 'tex2jax_ignore',
+          processHtmlClass: 'tex2jax_process',
+          renderActions: {
+            addMenu: [0, '', ''],
+            checkLoading: [0, '', '']
+          }
+        },
+        startup: {
+          pageReady() {
+            return MathJax.startup.defaultPageReady().then(function () {
+              document.body.classList.add('mathjax-loaded');
+            });
+          }
+        },
+        loader: { load: ['[tex]/ams'] }
+      };
+    </script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <noscript>
         <style>
             /* Styles for when JavaScript is disabled */
@@ -64,8 +93,8 @@
                 <a href="/" class="site-logo-link flex items-center">
                     <img src="../Images/ksom-logo.png" alt="Kerala School of Mathematics Logo" class="site-logo-img" />
                     <div class="flex flex-col ml-2">
-                        <p class="dept-title">KSoM</p> <!-- Changed text to KSoM -->
-                        <!-- The long university name text is now permanently removed from here -->
+                        <p class="dept-title">KSoM</p> <!-- KSoM in elegant font -->
+                        <p class="university-name">KERALA SCHOOL OF MATHEMATICS</p> <!-- New text with uppercase and Lora font -->
                     </div>
                 </a>
             </div>
@@ -120,7 +149,7 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="container hero-content !text-left !items-end !justify-start !pt-0 !pb-12">
+        <div class="container hero-content"> <!-- Classes managed by CSS now -->
             <h2 class="!mb-2">Kerala School of Mathematics</h2>
             <p class="!mb-0 max-w-2xl">An autonomous institution established as a joint venture of the Science and Technology Department, Government of Kerala, and the Department of Atomic Energy, Government of India</p>
             <!-- Removed the Explore programmes button -->
@@ -131,11 +160,13 @@
     <main class="main-content">
         <div class="container main-content-grid">
             <!-- Welcome Section (Column 1) -->
-            <section class="about-us-section hidden-on-mobile" id="about-us">
+            <section class="about-us-section hidden-on-mobile" id="about-us" tabindex="0">
                 <div class="text-column text-center md:text-left">
                     <h2 class="section-title !text-left !mb-6 !pb-4 md:!mx-0 !mx-auto">About Us</h2>
-                    <p>Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.</p>
-                    <p>The main objective of Kerala School of Mathematics is conduct of high quality Mathematical Research. Our mission is to create a vibrant academic environment that promotes cutting-edge research, nurtures young mathematicians, and contributes significantly to the global mathematical community.</p>
+                    <div class="about-us-text-content"> <!-- New wrapper for paragraphs -->
+                        <p class="about-us-description truncated-description">Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.</p>
+                        <p class="about-us-description truncated-description">The main objective of Kerala School of Mathematics is conduct of high quality Mathematical Research. Our mission is to create a vibrant academic environment that promotes cutting-edge research, nurtures young mathematicians, and contributes significantly to the global mathematical community.</p>
+                    </div>
                     <a href="#" class="view-all-link">Read More About Us &rarr;</a>
                 </div>
             </section>
@@ -290,7 +321,7 @@
                             <p class="truncated-description">Opportunities for young researchers to pursue independent research and collaborate with KSoM faculty.</p>
                             <a href="/programmes/postdoctoral.html" class="text-ias-teal font-semibold read-more-link">Learn More &rarr;</a>
                         </div>
-                    </div>
+                    </li>
 
                     <!-- Visiting Programmes Card -->
                     <div class="content-card programme-card" tabindex="0">
@@ -557,29 +588,46 @@
         });
 
         // --- Research/Programme Card Interaction (Scroll on Hover/Click) ---
-        // This section will now apply to both .content-card and .research-area-item
-        document.querySelectorAll('.content-card, .research-area-item').forEach(item => {
-            const description = item.querySelector('.truncated-description');
-
+        // This section will now apply to both .content-card, .research-area-item, and .about-us-section
+        document.querySelectorAll('.content-card, .research-area-item, .about-us-section').forEach(item => {
+            // Target the appropriate description element within the item
+            let descriptionElement;
+            if (item.classList.contains('about-us-section')) {
+                descriptionElement = item.querySelector('.about-us-text-content');
+            } else {
+                descriptionElement = item.querySelector('.truncated-description');
+            }
+            
             // Only apply if there's a description element that might truncate
-            if (description) {
+            if (descriptionElement) {
                 // Function to enable scroll and unset line clamping
                 const enableScroll = () => {
-                    description.style.overflowY = 'auto';
-                    description.style.webkitLineClamp = 'unset';
+                    descriptionElement.style.overflowY = 'auto';
+                    descriptionElement.style.webkitLineClamp = 'unset'; // For general truncated descriptions
+                    descriptionElement.style.maxHeight = '500px'; // Expand max height
                 };
 
                 // Function to disable scroll and re-apply line clamping
                 const disableScroll = () => {
                     // Check if content actually overflows before applying hidden
-                    if (description.scrollHeight > description.clientHeight) {
-                        description.style.overflowY = 'hidden';
+                    if (descriptionElement.scrollHeight > descriptionElement.clientHeight) {
+                        descriptionElement.style.overflowY = 'hidden';
                         // Re-apply original line clamp based on parent type or a default
-                        description.style.webkitLineClamp = item.classList.contains('programme-card') ? '6' : '8';
+                        if (item.classList.contains('programme-card')) {
+                            descriptionElement.style.webkitLineClamp = '6';
+                            descriptionElement.style.maxHeight = 'auto'; // Reset, letting line-clamp manage
+                        } else if (item.classList.contains('research-area-item')) {
+                            descriptionElement.style.webkitLineClamp = '8';
+                            descriptionElement.style.maxHeight = 'auto'; // Reset, letting line-clamp manage
+                        } else if (item.classList.contains('about-us-section')) {
+                            descriptionElement.style.webkitLineClamp = '5'; // Specific line clamp for about section
+                            descriptionElement.style.maxHeight = '10em'; // Restore initial max height
+                        }
                     } else {
                         // If content doesn't overflow, ensure no scrollbar even if it was temporarily 'auto'
-                        description.style.overflowY = 'hidden';
-                        description.style.webkitLineClamp = 'unset'; // No need to clamp if it fits
+                        descriptionElement.style.overflowY = 'hidden';
+                        descriptionElement.style.webkitLineClamp = 'unset'; // No need to clamp if it fits
+                        descriptionElement.style.maxHeight = 'auto'; // No need for max-height if it fits
                     }
                 };
 
@@ -597,7 +645,7 @@
                     }
 
                     // Toggle based on current state
-                    if (description.style.overflowY === 'auto') {
+                    if (descriptionElement.style.overflowY === 'auto') {
                         disableScroll();
                     } else {
                         enableScroll();
