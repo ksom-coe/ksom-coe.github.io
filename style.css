@@ -1104,6 +1104,11 @@ a:hover, a:focus-visible {
         align-items: start; /* Align items to the start of their grid cell */
         gap: var(--spacing-8); /* Adjusted gap for 3 columns */
     }
+
+    /* Ensure about-us-section is visible on tablet and up */
+    .about-us-section.hidden-on-mobile {
+        display: block; /* Or flex if it uses flexbox for its internal layout */
+    }
 }
 
 /* Large devices (desktops, 1024px and up) */
@@ -1172,6 +1177,18 @@ a:hover, a:focus-visible {
     font-size: 0.9rem;
     /* Reduce line clamp for smaller programme cards on mobile */
     -webkit-line-clamp: 6; /* Adjust as needed */
+  }
+
+  /* Ensure the truncated-description still scrolls when needed on programme cards */
+  .programme-card:hover .truncated-description,
+  .programme-card:focus-within .truncated-description {
+      overflow-y: auto;
+      -webkit-line-clamp: unset;
+  }
+
+  /* Hide about-us-section on mobile */
+  .about-us-section.hidden-on-mobile {
+      display: none !important;
   }
 }
 
