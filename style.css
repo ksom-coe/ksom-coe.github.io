@@ -42,6 +42,7 @@
     /* Typography */
     --font-primary: 'Lora', Georgia, serif;
     --font-heading: 'Playfair Display', 'Times New Roman', serif;
+    --font-size-xxs: 0.625rem; /* 10px - New for smaller date text */
     --font-size-xs: 0.75rem;   /* 12px */
     --font-size-sm: 0.875rem; /* 14px */
     --font-size-base: 1rem;    /* 16px */
@@ -183,8 +184,8 @@ a:hover, a:focus-visible {
 .event-card:focus-visible,
 .research-area-item:hover, /* Added for new research items */
 .research-area-item:focus-visible, /* Added for new research items */
-.about-us-section .about-us-description:hover, /* Added for about us scroll */
-.about-us-section .about-us-description:focus-visible /* Added for about us scroll */ {
+.about-us-section[tabindex="0"]:hover, /* Added for about us scroll */
+.about-us-section[tabindex="0"]:focus-visible /* Added for about us scroll */ {
     text-decoration: none !important;
 }
 
@@ -205,8 +206,8 @@ a:hover, a:focus-visible {
 .research-area-item:focus-visible h3, /* Added for new research items */
 .research-area-item:focus-visible p, /* Added for new research items */
 .research-area-item:focus-visible strong, /* Added for new research items */
-.about-us-section .about-us-description:hover, /* Added for about us scroll */
-.about-us-section .about-us-description:focus-visible /* Added for about us scroll */ {
+.about-us-section[tabindex="0"]:hover .about-us-text-content p, /* Added for about us scroll */
+.about-us-section[tabindex="0"]:focus-visible .about-us-text-content p /* Added for about us scroll */ {
      text-decoration: none !important; /* Use !important to override potential inherited styles */
 }
 
@@ -549,14 +550,14 @@ a:hover, a:focus-visible {
     background-size: cover;
     background-position: center;
     color: var(--white);
-    padding: var(--spacing-20) 0;
+    padding: var(--spacing-20) 0; /* Initial padding */
     text-align: center;
     margin-bottom: var(--spacing-16);
     border-radius: var(--border-radius-lg);
     overflow: hidden; /* Ensure content stays within rounded corners */
     display: flex; /* Make it a flex container to align content */
-    align-items: flex-end; /* Align items to the bottom */
-    justify-content: flex-start; /* Align items to the left */
+    align-items: flex-end; /* Align items to the bottom by default */
+    justify-content: flex-start; /* Align items to the left by default */
     min-height: 400px; /* Ensure sufficient height for the image and text */
 }
 
@@ -572,15 +573,17 @@ a:hover, a:focus-visible {
 }
 
 .hero-section .hero-content {
-    position: relative;
+    position: absolute; /* Absolute positioning relative to hero-section */
+    bottom: var(--spacing-8); /* Distance from bottom */
+    left: var(--spacing-8); /* Distance from left */
+    right: var(--spacing-8); /* Distance from right, allows text to wrap within bounds */
     z-index: 2;
-    max-width: 800px;
-    margin: 0; /* Remove auto margin to allow left/bottom alignment */
-    padding: var(--spacing-8); /* Add some padding from the bottom/left edges */
-    text-align: left; /* Ensure text aligns left within its container */
-    align-self: flex-end; /* Explicitly align to the bottom for flex item */
-    justify-content: flex-start; /* Explicitly align to the start for flex item */
-    /* Remove any explicit !pb-12 or !pt-0 if they interfere with alignment */
+    max-width: none; /* Override any max-width to allow full width within padding */
+    padding: 0; /* Remove padding here as it's handled by bottom/left/right */
+    text-align: left; /* Ensure text aligns left */
+    /* Remove flex alignment properties as absolute positioning takes over */
+    align-self: unset;
+    justify-content: unset;
 }
 
 .hero-section h2 {
@@ -600,21 +603,7 @@ a:hover, a:focus-visible {
 }
 
 .hero-section .btn-primary { /* Kept the style for potential future use or if other buttons use it */
-    display: none; /* Hide the button */
-    background-color: var(--ias-teal);
-    color: var(--white);
-    padding: var(--spacing-3) var(--spacing-8);
-    border-radius: var(--border-radius-full);
-    font-weight: 600;
-    transition: background-color var(--transition-fast), transform var(--transition-fast);
-    box-shadow: var(--shadow-md);
-}
-
-.hero-section .btn-primary:hover,
-.hero-section .btn-primary:focus-visible {
-    background-color: #006666; /* Darker teal */
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    display: none; /* Hide the button as requested */
 }
 
 /* --------------------------------------------------------------------------
@@ -631,6 +620,20 @@ a:hover, a:focus-visible {
     grid-template-columns: 1fr; /* Single column on mobile */
     gap: var(--spacing-8); /* Space between sections vertically */
     margin-bottom: var(--spacing-16); /* Space below this combined section */
+}
+
+/* Ensure these three sections have equal height and enable internal scrolling */
+.about-us-section,
+.news-section,
+.events-section {
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-6);
+    display: flex; /* Make them flex containers */
+    flex-direction: column; /* Stack children vertically */
+    height: 100%; /* Important: makes them stretch to equal height in a grid row */
+    overflow: hidden; /* Hide overflow initially if content is very long */
 }
 
 .section-title {
@@ -733,9 +736,9 @@ a:hover, a:focus-visible {
 .content-card:focus-within .truncated-description,
 .research-area-item:hover .truncated-description,
 .research-area-item:focus-within .truncated-description,
-.about-us-section .about-us-description.expanded, /* Added for JS control */
-.about-us-section .about-us-description:hover, /* Direct CSS hover for about us */
-.about-us-section .about-us-description:focus-within /* Direct CSS focus for about us */ {
+/* Apply to the content container of about-us-section */
+.about-us-section[tabindex="0"]:hover .about-us-text-content,
+.about-us-section[tabindex="0"]:focus-within .about-us-text-content {
     max-height: 500px; /* Large enough to show all content */
     overflow-y: auto;
     -webkit-line-clamp: unset; /* Remove line clamping */
@@ -761,14 +764,7 @@ a:hover, a:focus-visible {
 
 
 /* News & Events Section */
-/* Removed .news-events-grid since its children are now direct main-content-grid items */
-
-.news-section, .events-section {
-    background-color: var(--white);
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-md);
-    padding: var(--spacing-6);
-}
+/* The main-content-grid handles the layout */
 
 .news-section h3, .events-section h3 {
     font-size: var(--font-size-2xl);
@@ -780,6 +776,8 @@ a:hover, a:focus-visible {
 .news-list, .event-list {
     list-style: none;
     padding: 0;
+    flex-grow: 1; /* Allow list to take available height */
+    overflow-y: auto; /* Enable scrolling for the list itself */
 }
 
 .news-item, .event-card {
@@ -797,7 +795,7 @@ a:hover, a:focus-visible {
 .news-item .date, .event-card .date-box {
     flex-shrink: 0;
     text-align: center;
-    width: 60px; /* Reduced width for date box */
+    width: 50px; /* Further reduced width for date box */
     background-color: var(--ias-light-blue);
     padding: var(--spacing-1) var(--spacing-0-5); /* Adjusted padding */
     border-radius: var(--border-radius-sm);
@@ -808,13 +806,13 @@ a:hover, a:focus-visible {
 }
 
 .news-item .date .day, .event-card .date-box .day {
-    font-size: var(--font-size-xl); /* Smaller day font size */
+    font-size: var(--font-size-lg); /* Smaller day font size */
     line-height: 1;
     margin-bottom: var(--spacing-0-5);
 }
 
 .news-item .date .month, .event-card .date-box .month {
-    font-size: var(--font-size-xs); /* Smaller month font size */
+    font-size: var(--font-size-xxs); /* Smaller month font size */
     text-transform: uppercase;
 }
 
@@ -842,29 +840,43 @@ a:hover, a:focus-visible {
 }
 
 /* About Us Section - UPDATED */
+/* This section now also includes flex properties for equal height */
 .about-us-section {
-    padding: var(--spacing-6); /* Adjusted padding for standalone card look */
+    padding: var(--spacing-6);
     background-color: var(--white);
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-md);
-    overflow: hidden;
+    overflow: hidden; /* Initial overflow hidden */
 }
 
-/* Removed specific flex properties as the image column is gone */
 .about-us-section .text-column {
     text-align: center; /* Default for mobile */
+    flex-grow: 1; /* Allow the text column to grow and fill space */
+    display: flex;
+    flex-direction: column;
+}
+
+.about-us-section .about-us-text-content { /* New wrapper for paragraphs for scrolling */
+    flex-grow: 1;
+    overflow-y: hidden; /* Controlled by JS/hover */
+    max-height: 10em; /* Initial max height for truncated view */
+    transition: max-height 0.5s ease-out, overflow-y 0.5s ease-out;
 }
 
 .about-us-section h2 {
     margin-bottom: var(--spacing-6);
 }
 
-.about-us-section p {
-    font-size: var(--font-size-base); /* Reduced font size */
+.about-us-section .about-us-text-content p { /* Target paragraphs inside new wrapper */
+    font-size: var(--font-size-sm); /* Reduced font size to 'sm' */
     color: var(--gray-700);
     line-height: 1.7;
-    margin-bottom: var(--spacing-3); /* Adjust margin for paragraphs */
+    margin-bottom: var(--spacing-3); /* Adjusted margin for paragraphs */
 }
+.about-us-section .about-us-text-content p:last-of-type {
+    margin-bottom: 0; /* Remove bottom margin from last paragraph to avoid extra space */
+}
+
 
 /* New: Research Areas Container and Items */
 .research-areas-container {
@@ -1021,23 +1033,24 @@ a:hover, a:focus-visible {
 }
 
 .site-footer .footer-social {
-    <h4>Follow Us</h4>
-    <!-- Placeholder for social media icons -->
-    <div class="flex gap-4 mt-2">
-        <a href="#" class="text-white hover:text-ias-teal" aria-label="KSoM on Facebook">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 .27-2.5h-1c-1.2 0-2 .52-2 2.8v1.7H8v4h3.5v8H20V13.5h-6z"/></svg>
-        </a>
-        <a href="#" class="text-white hover:text-ias-teal" aria-label="KSoM on X (Twitter)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 6c-.84.37-1.74.62-2.67.73.96-.58 1.7-1.5 2.04-2.6.93.06 1.83-.28 2.67-.73-.97 1.25-2.2 2.15-3.56 2.62C18.12 5.16 16.52 4 14.7 4c-3.54 0-6.41 2.87-6.41 6.41 0 .5.05.98.15 1.45C8.04 16.14 4.54 12.64 2.1 9.4c-.55 1.05-.86 2.27-.86 3.56 0 2.22 1.13 4.18 2.84 5.33-.81-.02-1.57-.25-2.24-.62v.08c0 3.09 2.2 5.65 5.13 6.22-.53.15-1.09.23-1.66.23-.41 0-.8-.04-1.18-.11.81 2.54 3.17 4.38 5.97 4.43-2.12 1.66-4.79 2.66-7.7 2.66-.5 0-.99-.03-1.47-.08C2.5 22.08 6.55 24 11 24c5.99 0 9.27-4.96 9.27-9.27 0-.14-.01-.27-.01-.4.63-.45 1.17-.99 1.6-1.6z"/></svg>
-        </a>
-        <a href="#" class="text-white hover:text-ias-teal" aria-label="KSoM on LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
-    </div>
-</div>
-<div class="footer-bottom">
-    <p>&copy; 2024 Kerala School of Mathematics. All rights reserved. Designed and Maintained by KSoM Web Team.</p>
-</div>
+    display: flex;
+    gap: var(--spacing-4);
+    margin-top: var(--spacing-2);
+}
+.site-footer .footer-social h4 { /* Corrected selector */
+    margin-bottom: var(--spacing-4);
+    color: var(--white);
+}
+
+
+.site-footer .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: var(--spacing-8);
+    padding-top: var(--spacing-6);
+    text-align: center;
+    font-size: var(--font-size-xs);
+    color: var(--gray-400);
+}
 
 /* ==========================================================================
    7. Utilities
@@ -1143,7 +1156,7 @@ a:hover, a:focus-visible {
     /* New: Three equal-column layout for main content sections on medium screens */
     .main-content-grid {
         grid-template-columns: repeat(3, 1fr); /* Three equal columns */
-        align-items: start; /* Align items to the start of their grid cell */
+        align-items: stretch; /* Stretch items to equal height */
         gap: var(--spacing-8); /* Adjusted gap for 3 columns */
     }
 
@@ -1331,7 +1344,7 @@ a:hover, a:focus-visible {
     }
     .content-card p,
     .truncated-description, /* General truncated-description for dark mode */
-    .about-us-section p,
+    .about-us-section .about-us-text-content p, /* Specific for dark mode */
     .research-area-item p /* Added for dark mode */ {
         color: var(--gray-300);
     }
