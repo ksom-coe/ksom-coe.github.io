@@ -324,7 +324,7 @@ a:hover, a:focus-visible {
 .site-header .header-right {
     display: flex;
     align-items: center;
-    flex-grow: 1; /* Allow it to take up available space to the right */
+    /* Removed flex-grow: 1 as per user instruction */
     justify-content: flex-end; /* Ensure nav is pushed to the right within header-right */
 }
 
@@ -396,16 +396,16 @@ a:hover, a:focus-visible {
     pointer-events: auto;
 }
 
-/* Update mobile menu button styles */
+/* Mobile menu button styles */
 .mobile-menu-button {
-    display: block; /* Show by default on mobile */
-    background-color: var(--ias-blue);
-    color: var(--white);
-    padding: var(--spacing-2) var(--spacing-4);
-    border-radius: var(--border-radius-md);
-    font-size: var(--font-size-xl);
+    background-color: var(--ias-blue); /* Added from user instruction */
+    color: var(--white); /* Added from user instruction */
+    padding: 8px 12px; /* Added from user instruction */
+    border-radius: 4px; /* Added from user instruction */
+    font-size: 1.2rem; /* Added from user instruction */
+    cursor: pointer; /* Added from user instruction */
+    display: block; /* Ensure it's visible on mobile */
     z-index: var(--z-fixed);
-    cursor: pointer;
 }
 
 /* Mobile header adjustments */
@@ -437,6 +437,11 @@ a:hover, a:focus-visible {
     .site-header .site-branding {
         max-width: 50%; /* More space for navigation */
     }
+
+    /* Hide mobile nav on desktop - Added from user instruction */
+    .mobile-nav {
+        display: none !important;
+    }
 }
 
 /* Mobile menu improvements */
@@ -461,11 +466,12 @@ a:hover, a:focus-visible {
 }
 
 /* Hide on desktop */
-@media (min-width: 768px) {
+/* This media query is now redundant due to the one above it for min-width: 768px */
+/* @media (min-width: 768px) {
     .mobile-nav {
-        display: none !important; /* Absolutely hide mobile nav on desktop */
+        display: none !important;
     }
-}
+} */
 
 
 .mobile-nav ul {
@@ -1107,6 +1113,36 @@ a:hover, a:focus-visible {
         max-width: 40%; /* Even tighter branding on XL screens */
     }
 }
+
+/* Mobile-specific programme card styles */
+@media (max-width: 767px) {
+  .programme-card {
+    min-height: 280px !important;
+    height: auto;
+  }
+  
+  .programme-card .card-content {
+    padding: 1rem;
+  }
+  
+  .programme-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .programme-card p {
+    font-size: 0.9rem;
+    /* Reduce line clamp for smaller programme cards on mobile */
+    -webkit-line-clamp: 6; /* Adjust as needed */
+  }
+
+  /* Ensure the truncated-description still scrolls when needed on programme cards */
+  .programme-card:hover .truncated-description,
+  .programme-card:focus-within .truncated-description {
+      overflow-y: auto;
+      -webkit-line-clamp: unset;
+  }
+}
+
 
 /* Print styles */
 @media print {
