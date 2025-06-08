@@ -632,23 +632,24 @@ a:hover, a:focus-visible {
 
 /* New style for truncated paragraph within content cards */
 .content-card .truncated-description {
-    max-height: 4.5em; /* Approximately 3 lines of text (1.5em line-height * 3 lines) */
+    max-height: 4.5em; /* Keep this fixed height */
     overflow: hidden;
     text-overflow: ellipsis; /* Add ellipsis for overflowed text */
     display: -webkit-box;
     -webkit-line-clamp: 3; /* Limit to 3 lines */
     -webkit-box-orient: vertical;
-    transition: max-height 0.3s ease; /* Smooth transition for expansion */
+    /* Removed transition as max-height is no longer animated by CSS */
     position: relative; /* Ensure proper stacking context if needed */
     margin-bottom: var(--spacing-4); /* Consistent spacing below description */
     color: var(--gray-700);
 }
 
+/* On hover/focus: become scrollable within the fixed height, and show full text */
 .content-card:hover .truncated-description,
 .content-card:focus-within .truncated-description {
-    max-height: 15em; /* Set a max height instead of none */
-    overflow: auto; /* Add scroll if content is too long */
-    -webkit-line-clamp: unset; /* Remove line clamping on hover/focus */
+    /* No max-height change here to make cards non-expandable */
+    overflow-y: auto; /* This is the key: allow scrolling */
+    -webkit-line-clamp: unset; /* Allow full text to be visible for scrolling */
 }
 /* This rule was intended to remove a potential ::after element on hover,
    which might have been used for a "Read More" fade overlay.
