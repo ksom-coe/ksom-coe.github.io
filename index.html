@@ -7,7 +7,7 @@
     <title>Kerala School of Mathematics (KSoM)</title>
     <link rel="icon" type="image/png" href="https://placehold.co/64x64/003366/ffffff?text=KSoM">
     <!-- Preload the KSoM logo -->
-    <link rel="preload" href="../Images/ksom-logo.png" as="image">
+    <link rel="preload" href="../Images/KSoMLogo.png" as="image">
     <!-- Preload the actual KSoM Campus image -->
     <link rel="preload" href="../Images/KSoMCampus.jpg" as="image">
     <!-- Preload placeholder images for programmes -->
@@ -91,10 +91,10 @@
             <!-- Logo and Institution Branding -->
             <div class="site-branding">
                 <a href="/" class="site-logo-link flex items-center">
-                    <img src="../Images/ksom-logo.png" alt="Kerala School of Mathematics Logo" class="site-logo-img" />
+                    <img src="../Images/KSoMLogo.png" alt="Kerala School of Mathematics Logo" class="site-logo-img" />
                     <div class="flex flex-col ml-2">
                         <p class="dept-title">KSoM</p> <!-- KSoM in elegant font -->
-                        <p class="university-name">KERALA SCHOOL OF MATHEMATICS</p> <!-- New text with uppercase and Lora font -->
+                        <p class="university-name">KERALA SCHOOL OF MATHEMATICS</p> <!-- Updated text with uppercase and Lora font -->
                     </div>
                 </a>
             </div>
@@ -620,8 +620,8 @@
                             descriptionElement.style.webkitLineClamp = '8';
                             descriptionElement.style.maxHeight = 'auto'; // Reset, letting line-clamp manage
                         } else if (item.classList.contains('about-us-section')) {
-                            descriptionElement.style.webkitLineClamp = '5'; // Specific line clamp for about section
-                            descriptionElement.style.maxHeight = '10em'; // Restore initial max height
+                            descriptionElement.style.webkitLineClamp = '8'; // Restore initial max height
+                            descriptionElement.style.maxHeight = '16em'; // Restore initial max height
                         }
                     } else {
                         // If content doesn't overflow, ensure no scrollbar even if it was temporarily 'auto'
