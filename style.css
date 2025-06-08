@@ -321,27 +321,33 @@ a:hover, a:focus-visible {
     border-radius: var(--border-radius-sm);
 }
 
+/* Styles for "KSoM" (previously dept-title) */
 .site-header .dept-title {
-    font-family: var(--font-heading); /* Apply Playfair Display */
-    font-weight: 700;
+    font-family: var(--font-heading); /* Playfair Display for KSoM */
+    font-weight: 900; /* Bold to make it "divine" */
     font-size: var(--font-size-2xl); /* Larger for 'KSoM' */
     color: var(--ias-blue);
     margin-bottom: var(--spacing-0-5);
     white-space: nowrap; /* Force the text to stay on a single line */
+    letter-spacing: -0.02em; /* Slightly tighter for elegant look */
 }
 
+/* Styles for "Kerala School of Mathematics" (previously university-name) */
 .site-header .university-name {
+    font-family: var(--font-primary); /* Lora for the descriptive text */
     font-size: var(--font-size-sm);
-    color: var(--gray-600); /* Moved from inline style */
+    color: var(--gray-600);
     margin-bottom: 0;
-    line-height: 1.3; /* Adjust line height for better readability when wrapping */
-    white-space: normal; /* Ensure text wraps naturally if it was ever forced nowrap */
+    line-height: 1.3;
+    white-space: normal; /* Allow text to wrap naturally */
+    text-transform: uppercase; /* Uppercase as in IAS example */
+    font-weight: 500;
+    letter-spacing: 0.05em; /* Slightly spaced out */
 }
 
 .site-header .header-right {
     display: flex;
     align-items: center;
-    /* Removed flex-grow: 1 as per user instruction */
     justify-content: flex-end; /* Ensure nav is pushed to the right within header-right */
 }
 
