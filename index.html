@@ -426,10 +426,10 @@
             const mobileCloseButton = document.getElementById('mobile-close-button');
 
             // Clone the nav items from desktop to mobile
-            const mobileNavElement = mobileMenu.querySelector('nav ul');
-            // Clear existing content in mobileNavElement to prevent duplication if script runs multiple times
-            if (mobileNavElement) {
-                mobileNavElement.innerHTML = '';
+            const mobileNavContainer = mobileMenu.querySelector('nav ul');
+            // Clear existing content in mobileNavContainer to prevent duplication if script runs multiple times
+            if (mobileNavContainer) {
+                mobileNavContainer.innerHTML = '';
             }
 
             const clonedUl = desktopNav.cloneNode(true);
@@ -462,8 +462,8 @@
             });
 
             // Append cloned and modified items to the mobile menu's nav
-            if (mobileNavElement) {
-                mobileNavElement.appendChild(clonedUl);
+            if (mobileNavContainer) {
+                mobileNavContainer.appendChild(clonedUl);
             }
             
 
@@ -568,45 +568,49 @@
         });
 
         // --- Research/Programme Card Interaction (Scroll on Hover/Click) ---
+        // This section has been updated based on the new requirements:
+        // - Cards are not expandable on hover.
+        // - Links are only on the "Read More" button, not the whole card.
+        // - Scrolling appears on hover OR click.
         document.querySelectorAll('.content-card').forEach(card => {
             const description = card.querySelector('.truncated-description');
 
-            // Function to expand/enable scroll
-            const expandAndScroll = () => {
-                description.style.maxHeight = '15em'; // Same as CSS hover value
+            // Function to enable scroll and unset line clamping
+            const enableScroll = () => {
                 description.style.overflowY = 'auto';
                 description.style.webkitLineClamp = 'unset';
             };
 
-            // Function to collapse/disable scroll
-            const collapseAndHideScroll = () => {
-                description.style.maxHeight = '4.5em'; // Original truncated height
+            // Function to disable scroll and re-apply line clamping
+            const disableScroll = () => {
                 description.style.overflowY = 'hidden';
-                description.style.webkitLineClamp = '3';
+                description.style.webkitLineClamp = '3'; // Re-apply original line clamp
             };
 
-            // Hover effect (for mouse users)
-            card.addEventListener('mouseenter', expandAndScroll);
-            card.addEventListener('mouseleave', collapseAndHideScroll);
+            // On mouse enter (hover), enable scroll
+            card.addEventListener('mouseenter', enableScroll);
+            
+            // On mouse leave, disable scroll
+            card.addEventListener('mouseleave', disableScroll);
 
-            // Click effect (for touch users and keyboard navigation)
-            // This will toggle the expanded state on click
+            // On click, toggle scroll (important for touch devices or specific user interaction)
             card.addEventListener('click', (event) => {
-                // Prevent bubbling if a link inside the card is clicked (e.g., "Read More")
+                // Prevent bubbling if the 'Read More' link was clicked
                 if (event.target.closest('.read-more-link')) {
                     return;
                 }
 
-                if (description.style.maxHeight === '15em') { // Check if it's currently expanded
-                    collapseAndHideScroll();
+                // Check if scroll is currently enabled (by checking overflowY style)
+                if (description.style.overflowY === 'auto') {
+                    disableScroll();
                 } else {
-                    expandAndScroll();
+                    enableScroll();
                 }
             });
 
             // For accessibility: keyboard users should also be able to interact
-            card.addEventListener('focusin', expandAndScroll);
-            card.addEventListener('focusout', collapseAndHideScroll);
+            card.addEventListener('focusin', enableScroll);
+            card.addEventListener('focusout', disableScroll);
         });
     </script>
 </body>
