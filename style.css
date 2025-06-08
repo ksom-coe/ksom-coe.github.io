@@ -182,10 +182,8 @@ a:hover, a:focus-visible {
 .content-card:focus-visible,
 .event-card:hover,
 .event-card:focus-visible,
-.research-area-item:hover, /* Added for new research items */
-.research-area-item:focus-visible, /* Added for new research items */
-.about-us-section[tabindex="0"]:hover, /* Added for about us scroll */
-.about-us-section[tabindex="0"]:focus-visible /* Added for about us scroll */ {
+.research-area-item:hover,
+.research-area-item:focus-visible {
     text-decoration: none !important;
 }
 
@@ -200,24 +198,22 @@ a:hover, a:focus-visible {
 .event-card:hover p,
 .event-card:focus-visible h3,
 .event-card:focus-visible p,
-.research-area-item:hover h3, /* Added for new research items */
-.research-area-item:hover p, /* Added for new research items */
-.research-area-item:hover strong, /* Added for new research items */
-.research-area-item:focus-visible h3, /* Added for new research items */
-.research-area-item:focus-visible p, /* Added for new research items */
-.research-area-item:focus-visible strong, /* Added for new research items */
-.about-us-section[tabindex="0"]:hover .about-us-text-content p, /* Added for about us scroll */
-.about-us-section[tabindex="0"]:focus-visible .about-us-text-content p /* Added for about us scroll */ {
+.research-area-item:hover h3,
+.research-area-item:hover p,
+.research-area-item:hover strong,
+.research-area-item:focus-visible h3,
+.research-area-item:focus-visible p,
+.research-area-item:focus-visible strong {
      text-decoration: none !important; /* Use !important to override potential inherited styles */
 }
 
 /* Re-add underline for specific elements inside if needed, like 'Read More' or 'Apply now' span */
 .content-card span.text-ias-teal:hover,
 .content-card span.text-ias-teal:focus-visible,
-.research-area-item .text-ias-teal:hover, /* Added for new research items */
-.research-area-item .text-ias-teal:focus-visible, /* Added for new research items */
-.about-us-section .view-all-link:hover, /* Added for about us scroll */
-.about-us-section .view-all-link:focus-visible /* Added for about us scroll */ {
+.research-area-item .text-ias-teal:hover,
+.research-area-item .text-ias-teal:focus-visible,
+.about-us-section .view-all-link:hover,
+.about-us-section .view-all-link:focus-visible {
     text-decoration: underline !important; /* Use !important to ensure it applies */
 }
 
@@ -294,7 +290,7 @@ a:hover, a:focus-visible {
 .site-header {
     background-color: var(--white);
     color: var(--gray-800);
-    padding: var(--spacing-4) 0; /* Reduced padding to make it smaller */
+    padding: var(--spacing-3) 0; /* Reduced padding to make it smaller */
     position: sticky;
     top: 0;
     z-index: var(--z-sticky);
@@ -316,7 +312,7 @@ a:hover, a:focus-visible {
 }
 
 .site-header .site-logo-img {
-    height: 56px; /* Reduced logo height */
+    height: 48px; /* Reduced logo height further */
     width: auto;
     border-radius: var(--border-radius-sm);
 }
@@ -325,7 +321,7 @@ a:hover, a:focus-visible {
 .site-header .dept-title {
     font-family: var(--font-heading); /* Playfair Display for KSoM */
     font-weight: 900; /* Bold to make it "divine" */
-    font-size: var(--font-size-xl); /* Adjusted font size for 'KSoM' */
+    font-size: var(--font-size-lg); /* Adjusted font size for 'KSoM' */
     color: var(--ias-blue);
     margin-bottom: var(--spacing-0-5);
     white-space: nowrap; /* Force the text to stay on a single line */
@@ -361,13 +357,13 @@ a:hover, a:focus-visible {
 .main-nav ul {
     list-style: none;
     display: flex;
-    gap: var(--spacing-5); /* Adjusted space between main nav items */
+    gap: var(--spacing-4); /* Adjusted space between main nav items, smaller */
     flex-wrap: nowrap; /* Prevent nav items from wrapping */
     white-space: nowrap; /* Keep nav items on single line */
 }
 
 .main-nav ul li a {
-    padding: var(--spacing-1-5) var(--spacing-0); /* Reduced padding for smaller nav bar */
+    padding: var(--spacing-1) var(--spacing-0); /* Reduced padding for smaller nav bar */
     display: block;
     font-weight: 600;
     color: var(--gray-700);
@@ -401,7 +397,7 @@ a:hover, a:focus-visible {
     background-color: var(--white);
     box-shadow: var(--shadow-md);
     border-radius: var(--border-radius-md);
-    min-width: 200px;
+    min-width: 240px; /* Increased min-width for longer programme names */
     list-style: none;
     padding: var(--spacing-2) 0;
     opacity: 0;
@@ -488,15 +484,6 @@ a:hover, a:focus-visible {
     right: 0; /* Slide in from right */
 }
 
-/* Hide on desktop */
-/* This media query is now redundant due to the one above it for min-width: 768px */
-/* @media (min-width: 768px) {
-    .mobile-nav {
-        display: none !important;
-    }
-} */
-
-
 .mobile-nav ul {
     list-style: none;
     display: flex;
@@ -556,15 +543,15 @@ a:hover, a:focus-visible {
     background-size: cover;
     background-position: center;
     color: var(--white);
-    padding: var(--spacing-20) 0; /* Initial padding */
+    padding: var(--spacing-12) 0; /* Reduced padding */
     text-align: center;
-    margin-bottom: var(--spacing-16);
-    border-radius: var(--border-radius-lg);
-    overflow: hidden; /* Ensure content stays within rounded corners */
-    display: flex; /* Make it a flex container to align content */
-    align-items: flex-end; /* Align items to the bottom by default */
-    justify-content: flex-start; /* Align items to the left by default */
-    min-height: 400px; /* Ensure sufficient height for the image and text */
+    margin-bottom: var(--spacing-8); /* Reduced margin */
+    /* Removed border-radius for sharp boundary */
+    overflow: hidden; /* Ensure content stays within section bounds */
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    min-height: 300px;
 }
 
 .hero-section::before {
@@ -579,15 +566,14 @@ a:hover, a:focus-visible {
 }
 
 .hero-section .hero-content {
-    position: absolute; /* Absolute positioning relative to hero-section */
-    bottom: var(--spacing-8); /* Distance from bottom */
-    left: var(--spacing-8); /* Distance from left */
-    right: var(--spacing-8); /* Distance from right, allows text to wrap within bounds */
+    position: absolute;
+    bottom: var(--spacing-6);
+    left: var(--spacing-6);
+    right: var(--spacing-6);
     z-index: 2;
-    max-width: none; /* Override any max-width to allow full width within padding */
-    padding: 0; /* Remove padding here as it's handled by bottom/left/right */
-    text-align: left; /* Ensure text aligns left */
-    /* Remove flex alignment properties as absolute positioning takes over */
+    max-width: none;
+    padding: 0;
+    text-align: left;
     align-self: unset;
     justify-content: unset;
 }
@@ -595,20 +581,21 @@ a:hover, a:focus-visible {
 .hero-section h2 {
     font-size: var(--font-size-4xl);
     color: var(--white);
-    margin-bottom: var(--spacing-2); /* Reduced margin */
+    margin-bottom: var(--spacing-2);
     text-shadow: var(--shadow-text);
-    text-align: left; /* Ensure title is left-aligned */
+    text-align: left;
 }
 
 .hero-section p {
     font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-2); /* Reduced margin */
+    margin-bottom: var(--spacing-2);
     text-shadow: var(--shadow-text);
-    text-align: left; /* Ensure paragraph is left-aligned */
-    line-height: 1.4; /* Adjust line height for readability */
+    text-align: left;
+    line-height: 1.4;
+    overflow-wrap: break-word; /* Ensure long words break */
 }
 
-.hero-section .btn-primary { /* Kept the style for potential future use or if other buttons use it */
+.hero-section .btn-primary {
     display: none; /* Hide the button as requested */
 }
 
@@ -616,38 +603,49 @@ a:hover, a:focus-visible {
    6.4 Main Content (Cards, Prose, News) - UPDATED
    -------------------------------------------------------------------------- */
 .main-content {
-    padding-top: var(--spacing-8);
-    padding-bottom: var(--spacing-16);
+    padding-top: var(--spacing-6);
+    padding-bottom: var(--spacing-12);
 }
 
-/* New grid for Welcome and News/Events sections */
+/* Unified grid for main content sections (About Us, News, Events) */
 .main-content-grid {
     display: grid;
     grid-template-columns: 1fr; /* Single column on mobile */
-    gap: var(--spacing-8); /* Space between sections vertically */
-    margin-bottom: var(--spacing-16); /* Space below this combined section */
+    gap: var(--spacing-6); /* Reduced space between sections vertically */
+    margin-bottom: var(--spacing-8); /* Reduced space below this combined section */
 }
 
-/* Ensure these three sections have equal height and enable internal scrolling */
+/* Base styles for all sections that will mimic cards */
 .about-us-section,
 .news-section,
-.events-section {
+.events-section,
+.research-areas-container,
+.programmes-section .content-cards-grid > .content-card, /* Target individual programme cards */
+.other-activities-section .content-cards-grid > .content-card /* Target individual other activities cards */ {
     background-color: var(--white);
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-md);
-    padding: var(--spacing-6);
-    display: flex; /* Make them flex containers */
-    flex-direction: column; /* Stack children vertically */
+    padding: var(--spacing-6); /* Consistent padding */
+    display: flex;
+    flex-direction: column;
     height: 100%; /* Important: makes them stretch to equal height in a grid row */
     overflow: hidden; /* Hide overflow initially if content is very long */
 }
 
+/* Adjust padding for news/events/about-us sections specifically */
+.about-us-section,
+.news-section,
+.events-section {
+    padding: var(--spacing-6); /* Consistent padding */
+}
+
+
 .section-title {
     text-align: center;
-    margin-bottom: var(--spacing-12);
+    margin-bottom: var(--spacing-8);
     position: relative;
-    padding-bottom: var(--spacing-4);
-    font-size: 1.75rem !important; /* Reduced from 2rem */
+    padding-bottom: var(--spacing-3);
+    font-size: 1.75rem !important;
 }
 
 .section-title::after {
@@ -664,28 +662,23 @@ a:hover, a:focus-visible {
 
 /* General Content Cards (for Programme and Research) */
 .content-cards-grid {
-    align-items: start; /* Add this to prevent row stretching */
+    align-items: start;
 }
 
 .content-card {
-    background-color: var(--white);
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-md);
     transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-    display: flex;
-    flex-direction: column;
-    height: auto; /* Remove fixed height */
-    min-height: 380px; /* Default minimum height for larger screens - applies to research only now */
-    align-self: start; /* Prevents grid items from stretching vertically to match tallest sibling */
-    text-decoration: none !important; /* Ensure card link itself doesn't underline */
-    overflow: hidden; /* Added to prevent content overflow outside card boundaries */
+    /* No direct background/shadow/border-radius here, applied by parent selectors */
+    height: auto;
+    min-height: 220px; /* Reduced min-height for programme/activity cards */
+    align-self: start;
+    text-decoration: none !important;
 }
 
 .content-card:hover,
 .content-card:focus-visible {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
-    text-decoration: none !important; /* Ensure card link itself doesn't underline on hover */
+    text-decoration: none !important;
 }
 
 .content-card img.cover {
@@ -693,71 +686,56 @@ a:hover, a:focus-visible {
     aspect-ratio: 16 / 9;
     width: 100%;
     height: auto;
-    border-radius: var(--border-radius-md); /* Apply border-radius to the image */
-    /* Ensure the image fills the top part of the card */
+    border-radius: var(--border-radius-md);
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
 
 .content-card .card-content {
-    padding: var(--spacing-6);
-    flex-grow: 1; /* Allows content to push footer to bottom */
+    padding: var(--spacing-3); /* Reduced padding inside card content */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%; /* Added to ensure content area respects parent card height */
+    height: 100%;
 }
 
 .content-card .card-content h3 {
     font-size: var(--font-size-xl);
     margin-bottom: var(--spacing-2);
     color: var(--ias-blue);
-    /* No explicit background or padding here for compact heading */
 }
 
-/* Adjust description area */
-.truncated-description { /* Removed .content-card prefix to make it more general */
-    max-height: 16em; /* Set a max height */
-    overflow-y: hidden; /* Hide overflow initially */
-    text-overflow: ellipsis; /* Add ellipsis for overflowed text */
-    display: -webkit-box; /* Enable for line clamping */
-    -webkit-line-clamp: 8; /* Show max 8 lines by default for cards/research */
+/* Adjust truncated description area */
+.truncated-description {
+    overflow-y: hidden; /* Always hidden by default, JS/expanded class adds auto */
+    text-overflow: ellipsis;
+    display: -webkit-box;
     -webkit-box-orient: vertical;
     transition: max-height 0.3s ease-out; /* Smooth transition for expansion */
     position: relative;
     margin-bottom: var(--spacing-4);
     color: var(--gray-700);
     flex-grow: 1;
+
+    /* Default line clamps for un-expanded states */
+    -webkit-line-clamp: 8; /* Default for research items */
+    max-height: 16em; /* Corresponding default max-height */
 }
 
-/* Override for about us section specifically for different line clamp */
-.about-us-description.truncated-description {
-    -webkit-line-clamp: 8; /* Increased lines for about section paragraph initially */
-    max-height: 16em; /* Adjusted max-height for about section */
+/* Specific line clamp for programme and other activity cards */
+.programme-card .truncated-description {
+    -webkit-line-clamp: 5;
+    max-height: 10em; /* Adjusted max height to match 5 lines * 1.7 line-height * 1rem */
 }
 
-
-/* When hovered or clicked, expand and allow scrolling */
-.content-card:hover .truncated-description,
-.content-card:focus-within .truncated-description,
-.research-area-item:hover .truncated-description,
-.research-area-item:focus-within .truncated-description,
-/* Apply to the content container of about-us-section */
-.about-us-section[tabindex="0"]:hover .about-us-text-content,
-.about-us-section[tabindex="0"]:focus-within .about-us-text-content {
-    max-height: 500px; /* Large enough to show all content */
-    overflow-y: auto;
-    -webkit-line-clamp: unset; /* Remove line clamping */
+/* Styles when expanded (via JS adding 'expanded' class) */
+.content-card.expanded .truncated-description,
+.research-area-item.expanded .truncated-description {
+    max-height: 500px; /* Sufficiently large to show all content */
+    overflow-y: auto; /* Enable scroll if content truly exceeds 500px */
+    -webkit-line-clamp: unset; /* Remove line clamping when expanded */
     transition: max-height 0.5s ease-out; /* Smooth transition for expansion */
-}
-
-/* This rule was intended to remove a potential ::after element on hover,
-   which might have been used for a "Read More" fade overlay.
-   Including it to explicitly ensure no unwanted ::after element appears
-   when the description expands. */
-.truncated-description::after {
-    content: none;
-    display: none;
 }
 
 
@@ -770,21 +748,30 @@ a:hover, a:focus-visible {
 
 
 /* News & Events Section */
-/* The main-content-grid handles the layout */
-
-.news-section h3, .events-section h3 {
-    font-size: var(--font-size-2xl);
-    text-align: center;
-    margin-bottom: var(--spacing-6);
-    color: var(--ias-blue);
-}
-
 .news-list, .event-list {
     list-style: none;
     padding: 0;
     flex-grow: 1; /* Allow list to take available height */
+    max-height: 270px; /* Set a fixed height for scrolling after 3-4 items */
     overflow-y: auto; /* Enable scrolling for the list itself */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: var(--ias-teal) var(--gray-200); /* For Firefox */
 }
+
+/* Custom scrollbar for WebKit browsers */
+.news-list::-webkit-scrollbar, .event-list::-webkit-scrollbar {
+    width: 8px;
+}
+.news-list::-webkit-scrollbar-track, .event-list::-webkit-scrollbar-track {
+    background: var(--gray-200);
+    border-radius: var(--border-radius-full);
+}
+.news-list::-webkit-scrollbar-thumb, .event-list::-webkit-scrollbar-thumb {
+    background-color: var(--ias-teal);
+    border-radius: var(--border-radius-full);
+    border: 2px solid var(--gray-200);
+}
+
 
 .news-item, .event-card {
     border-bottom: 1px solid var(--gray-200);
@@ -801,24 +788,24 @@ a:hover, a:focus-visible {
 .news-item .date, .event-card .date-box {
     flex-shrink: 0;
     text-align: center;
-    width: 45px; /* Further reduced width for date box */
+    width: 45px;
     background-color: var(--ias-light-blue);
-    padding: var(--spacing-1) var(--spacing-0-5); /* Adjusted padding */
+    padding: var(--spacing-1) var(--spacing-0-5);
     border-radius: var(--border-radius-sm);
     color: var(--ias-blue);
     font-weight: 600;
     border: 1px solid var(--gray-300);
-    line-height: 1.2; /* Adjust line height for tighter date display */
+    line-height: 1.2;
 }
 
 .news-item .date .day, .event-card .date-box .day {
-    font-size: var(--font-size-lg); /* Smaller day font size */
+    font-size: var(--font-size-lg);
     line-height: 1;
     margin-bottom: var(--spacing-0-5);
 }
 
 .news-item .date .month, .event-card .date-box .month {
-    font-size: var(--font-size-xxs); /* Smaller month font size */
+    font-size: var(--font-size-xxs);
     text-transform: uppercase;
 }
 
@@ -846,50 +833,55 @@ a:hover, a:focus-visible {
 }
 
 /* About Us Section - UPDATED */
-/* This section now also includes flex properties for equal height */
 .about-us-section {
-    padding: var(--spacing-6);
-    background-color: var(--white);
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-md);
-    overflow: hidden; /* Initial overflow hidden */
+    /* Background, shadow, border-radius and padding are handled by the common card style above */
+    overflow: hidden;
+    margin-bottom: var(--spacing-8);
+}
+
+.about-us-section .container { /* Keep flex layout for inner content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-8);
+}
+
+.about-us-section .image-column img {
+    /* Ensure no border-radius on image for sharp corners */
+    border-radius: 0;
+    box-shadow: var(--shadow-md); /* Keep shadow for the image */
 }
 
 .about-us-section .text-column {
     text-align: center; /* Default for mobile */
-    flex-grow: 1; /* Allow the text column to grow and fill space */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-.about-us-section .about-us-text-content { /* New wrapper for paragraphs for scrolling */
+.about-us-section .about-us-text-content {
     flex-grow: 1;
-    overflow-y: hidden; /* Controlled by JS/hover */
-    max-height: 16em; /* Initial max height for truncated view (8 lines * 1.7 line-height * 1rem) */
-    transition: max-height 0.5s ease-out, overflow-y 0.5s ease-out;
+    transition: none;
 }
 
 .about-us-section h2 {
     margin-bottom: var(--spacing-6);
 }
 
-.about-us-section .about-us-text-content p { /* Target paragraphs inside new wrapper */
-    font-size: var(--font-size-base); /* Changed from var(--font-size-sm) to match research section */
+.about-us-section .about-us-text-content p {
+    font-size: var(--font-size-base);
     color: var(--gray-700);
     line-height: 1.7;
-    margin-bottom: var(--spacing-3); /* Adjusted margin for paragraphs */
+    margin-bottom: var(--spacing-3);
 }
 .about-us-section .about-us-text-content p:last-of-type {
-    margin-bottom: 0; /* Remove bottom margin from last paragraph to avoid extra space */
+    margin-bottom: 0;
 }
 
 
-/* New: Research Areas Container and Items */
+/* Research Areas Container and Items */
 .research-areas-container {
-    background-color: var(--white);
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-md);
-    padding: var(--spacing-6);
+    /* Background, shadow, border-radius and padding are handled by the common card style above */
 }
 
 .research-area-item {
@@ -899,7 +891,7 @@ a:hover, a:focus-visible {
 }
 
 .research-area-item:last-child {
-    border-bottom: none; /* Remove border for the last item */
+    border-bottom: none;
     padding-bottom: 0;
 }
 
@@ -912,33 +904,24 @@ a:hover, a:focus-visible {
 .research-area-item p {
     font-size: var(--font-size-base);
     color: var(--gray-700);
-    margin-bottom: var(--spacing-2); /* Reduced margin for tighter spacing */
+    margin-bottom: var(--spacing-2);
 }
 
 .research-area-item p strong {
-    color: var(--ias-teal); /* Highlight focus/link text */
+    color: var(--ias-teal);
 }
 
 /* Programme Cards specific styles - UPDATED */
+/* These are now targeted by the common card style, but keeping specific height adjust */
 .programme-card {
-    min-height: 260px; /* Reduced overall height for programme cards */
+    min-height: 220px;
 }
-
-.programme-card .card-content {
-    padding: var(--spacing-4); /* Reduced padding inside card content */
-}
-
-.programme-card .truncated-description {
-    -webkit-line-clamp: 5; /* Show max 5 lines by default for programme cards */
-    max-height: 10em; /* Adjusted max height to match 5 lines * 1.7 line-height * 1rem */
-}
-
 
 /* Programme Highlights Slideshow Section */
 .slideshow-section {
-    margin-bottom: var(--spacing-16);
+    margin-bottom: var(--spacing-8);
     background-color: var(--ias-blue);
-    padding: var(--spacing-16) 0;
+    padding: var(--spacing-12) 0;
     color: var(--white);
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-lg);
@@ -955,26 +938,26 @@ a:hover, a:focus-visible {
 .slideshow-container {
     position: relative;
     max-width: 900px;
-    margin: var(--spacing-8) auto;
+    margin: var(--spacing-6) auto;
     border-radius: var(--border-radius-md);
     overflow: hidden;
     box-shadow: var(--shadow-lg);
-    background-color: var(--black); /* Fallback for images */
-    aspect-ratio: 16 / 9; /* Maintain aspect ratio */
-    display: flex; /* Use flexbox to center content */
+    background-color: var(--black);
+    aspect-ratio: 16 / 9;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .msc-slide {
-    display: none; /* Hidden by default */
+    display: none;
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
-    transition: opacity 1s ease-in-out; /* Smooth fade effect */
+    transition: opacity 1s ease-in-out;
 }
 
 .msc-slide.active {
@@ -985,7 +968,7 @@ a:hover, a:focus-visible {
 .msc-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cover the container */
+    object-fit: cover;
 }
 
 .msc-slide .slide-caption {
@@ -1008,20 +991,20 @@ a:hover, a:focus-visible {
 .site-footer {
     background-color: var(--ias-blue);
     color: var(--gray-200);
-    padding: var(--spacing-12) 0 var(--spacing-8);
+    padding: var(--spacing-8) 0 var(--spacing-6);
     font-size: var(--font-size-sm);
 }
 
 .site-footer .footer-grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap: var(--spacing-8);
+    gap: var(--spacing-6);
 }
 
 .site-footer h4 {
     color: var(--white);
     font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-4);
+    margin-bottom: var(--spacing-3);
 }
 
 .site-footer ul {
@@ -1030,7 +1013,7 @@ a:hover, a:focus-visible {
 }
 
 .site-footer ul li {
-    margin-bottom: var(--spacing-2);
+    margin-bottom: var(--spacing-1);
 }
 
 .site-footer ul li a {
@@ -1046,7 +1029,7 @@ a:hover, a:focus-visible {
 }
 
 .site-footer .footer-contact p {
-    margin-bottom: var(--spacing-2);
+    margin-bottom: var(--spacing-1);
 }
 
 .site-footer .footer-contact a {
@@ -1055,19 +1038,19 @@ a:hover, a:focus-visible {
 
 .site-footer .footer-social {
     display: flex;
-    gap: var(--spacing-4);
+    gap: var(--spacing-3);
     margin-top: var(--spacing-2);
 }
-.site-footer .footer-social h4 { /* Corrected selector */
-    margin-bottom: var(--spacing-4);
+.site-footer .footer-social h4 {
+    margin-bottom: var(--spacing-3);
     color: var(--white);
 }
 
 
 .site-footer .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: var(--spacing-8);
-    padding-top: var(--spacing-6);
+    margin-top: var(--spacing-6);
+    padding-top: var(--spacing-4);
     text-align: center;
     font-size: var(--font-size-xs);
     color: var(--gray-400);
@@ -1124,18 +1107,13 @@ a:hover, a:focus-visible {
         padding-right: var(--spacing-6);
     }
 
-    h1 { font-size: var(--font-size-4xl); } /* ~36px */
-    h2 { font-size: var(--font-size-3xl); } /* ~30px */
-    h3 { font-size: var(--font-size-2xl); } /* ~24px */
+    h1 { font-size: var(--font-size-4xl); }
+    h2 { font-size: var(--font-size-3xl); }
+    h3 { font-size: var(--font-size-2xl); }
 
     .hero-section {
-        padding: var(--spacing-24) 0;
+        padding: var(--spacing-16) 0;
     }
-
-    /* Not used anymore, replaced by main-content-grid */
-    /* .news-events-grid {
-        grid-template-columns: repeat(2, 1fr);
-    } */
 
     .site-footer .footer-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1144,24 +1122,32 @@ a:hover, a:focus-visible {
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-    .site-header .site-logo-img { /* Updated selector */
-        height: 64px; /* Slightly larger logo on tablets */
+    .site-header .site-logo-img {
+        height: 56px;
     }
-    .site-header .dept-title { /* Updated selector */
-        font-size: var(--font-size-2xl);
+    .site-header .dept-title {
+        font-size: var(--font-size-xl);
     }
-    .site-header .university-name { /* Updated selector */
-        font-size: var(--font-size-base);
+    .site-header .university-name {
+        font-size: var(--font-size-sm);
     }
 
     .site-header .site-branding {
-        max-width: 50%; /* More space for navigation */
+        max-width: 50%;
     }
 
+    .mobile-menu-button {
+        display: none;
+    }
+    .main-nav {
+        display: flex !important;
+    }
+    .mobile-nav {
+        display: none !important;
+    }
 
-    /* Specific title font size for section titles on medium screens */
     .section-title {
-        font-size: 2rem !important; /* Reduced from 2.5rem */
+        font-size: 2rem !important;
     }
 
     /* Adjust text alignment for about-us-section on larger screens */
@@ -1174,16 +1160,16 @@ a:hover, a:focus-visible {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* New: Three equal-column layout for main content sections on medium screens */
+    /* Three equal-column layout for main content sections on medium screens */
     .main-content-grid {
-        grid-template-columns: repeat(3, 1fr); /* Three equal columns */
-        align-items: stretch; /* Stretch items to equal height */
-        gap: var(--spacing-8); /* Adjusted gap for 3 columns */
+        grid-template-columns: repeat(3, 1fr);
+        align-items: stretch;
+        gap: var(--spacing-8);
     }
 
     /* Ensure about-us-section is visible on tablet and up */
     .about-us-section.hidden-on-mobile {
-        display: block; /* Or flex if it uses flexbox for its internal layout */
+        display: flex; /* Changed from block to flex to maintain internal flex behavior */
     }
 }
 
@@ -1194,16 +1180,16 @@ a:hover, a:focus-visible {
         padding-right: var(--spacing-8);
     }
 
-    .site-header .site-logo-img { /* Updated selector */
-        height: 72px; /* Larger logo on desktops */
+    .site-header .site-logo-img {
+        height: 64px;
     }
 
     .site-header .site-branding {
-        max-width: 45%; /* Further limit branding width on large desktops */
+        max-width: 45%;
     }
 
     .main-nav ul {
-        gap: var(--spacing-6); /* Adjusted gap */
+        gap: var(--spacing-5);
     }
 
     /* Grid for content cards on large desktops (3 columns) */
@@ -1213,13 +1199,12 @@ a:hover, a:focus-visible {
 
     /* Adjusted main-content-grid for larger screens: three equal columns */
     .main-content-grid {
-        grid-template-columns: repeat(3, 1fr); /* Three equal columns */
-        gap: var(--spacing-12); /* Slightly larger gap */
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-10);
     }
 
-    /* Specific title font size for section titles on large screens */
     .section-title {
-        font-size: 2.25rem !important; /* Reduced from 3rem */
+        font-size: 2.25rem !important;
     }
 }
 
@@ -1230,42 +1215,56 @@ a:hover, a:focus-visible {
         padding-right: var(--spacing-10);
     }
     .site-header .site-branding {
-        max-width: 40%; /* Even tighter branding on XL screens */
+        max-width: 40%;
     }
 }
 
-/* Mobile-specific programme card styles */
+/* Mobile-specific adjustments for hero section and other sections */
 @media (max-width: 767px) {
-  .programme-card {
-    min-height: 280px !important;
-    height: auto;
-  }
-  
-  .programme-card .card-content {
-    padding: 1rem;
-  }
-  
-  .programme-card h3 {
-    font-size: 1.1rem;
-  }
-  
-  .programme-card p {
-    font-size: 0.9rem;
-    /* Reduce line clamp for smaller programme cards on mobile */
-    -webkit-line-clamp: 6; /* Adjust as needed */
-  }
+    /* Hero section text adjustments for very small screens */
+    .hero-section .hero-content {
+        bottom: var(--spacing-4);
+        left: var(--spacing-4);
+        right: var(--spacing-4);
+    }
+    .hero-section p {
+        font-size: var(--font-size-sm); /* Smaller font for long text on small screens */
+        line-height: 1.3; /* Tighter line height for smaller font */
+        padding-left: var(--spacing-2); /* Ensure it doesn't push too far left/right */
+        padding-right: var(--spacing-2);
+    }
 
-  /* Ensure the truncated-description still scrolls when needed on programme cards */
-  .programme-card:hover .truncated-description,
-  .programme-card:focus-within .truncated-description {
-      overflow-y: auto;
-      -webkit-line-clamp: unset;
-  }
+    /* Programme/Activity cards for mobile */
+    .programme-card {
+        min-height: 240px !important;
+        height: auto;
+    }
+    
+    .programme-card .card-content {
+        padding: 0.75rem;
+    }
+    
+    .programme-card h3 {
+        font-size: 1rem;
+    }
+    
+    .programme-card p {
+        font-size: 0.8rem;
+        -webkit-line-clamp: 5;
+    }
 
-  /* Hide about-us-section on mobile */
-  .about-us-section.hidden-on-mobile {
-      display: none !important;
-  }
+    /* Hide about-us-section on mobile */
+    .about-us-section.hidden-on-mobile {
+        display: none !important;
+    }
+
+    /* Further reduce vertical spacing between sections on mobile */
+    .research-section,
+    .programmes-section,
+    .other-activities-section, /* Updated section name */
+    .slideshow-section {
+        margin-bottom: var(--spacing-8); /* Consistent smaller margin on mobile */
+    }
 }
 
 
@@ -1321,10 +1320,10 @@ a:hover, a:focus-visible {
         background-color: var(--gray-800);
         color: var(--gray-100);
     }
-    .site-header .dept-title { /* Updated selector */
+    .site-header .dept-title {
         color: var(--ias-teal);
     }
-    .site-header .university-name { /* Updated selector */
+    .site-header .university-name {
         color: var(--gray-400);
     }
     .main-nav ul li a {
@@ -1352,7 +1351,7 @@ a:hover, a:focus-visible {
     .news-section,
     .events-section,
     .about-us-section,
-    .research-areas-container /* Added for dark mode */ {
+    .research-areas-container {
         background-color: var(--gray-800);
         color: var(--gray-200);
     }
@@ -1360,17 +1359,17 @@ a:hover, a:focus-visible {
     .news-section h3,
     .events-section h3,
     .about-us-section h2,
-    .research-area-item h3 /* Added for dark mode */ {
+    .research-area-item h3 {
         color: var(--ias-teal);
     }
     .content-card p,
-    .truncated-description, /* General truncated-description for dark mode */
-    .about-us-section .about-us-text-content p, /* Specific for dark mode */
-    .research-area-item p /* Added for dark mode */ {
+    .truncated-description,
+    .about-us-section .about-us-text-content p,
+    .research-area-item p {
         color: var(--gray-300);
     }
     .news-item, .event-card,
-    .research-area-item /* Added for dark mode */ {
+    .research-area-item {
         border-bottom-color: var(--gray-700);
     }
     .news-item .date, .event-card .date-box {
