@@ -360,6 +360,7 @@ a:hover, a:focus-visible {
     gap: var(--spacing-4); /* Adjusted space between main nav items, smaller */
     flex-wrap: nowrap; /* Prevent nav items from wrapping */
     white-space: nowrap; /* Keep nav items on single line */
+    margin-left: auto; /* Pushes the menu items to the right */
 }
 
 .main-nav ul li a {
@@ -393,7 +394,7 @@ a:hover, a:focus-visible {
 .dropdown-menu {
     position: absolute;
     top: 100%;
-    left: 0;
+    right: 0; /* Aligned to the right edge of the parent dropdown */
     background-color: var(--white);
     box-shadow: var(--shadow-md);
     border-radius: var(--border-radius-md);
@@ -405,6 +406,9 @@ a:hover, a:focus-visible {
     transform: translateY(var(--spacing-2));
     transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
     z-index: var(--z-dropdown);
+    display: flex; /* Make it a flex container */
+    flex-direction: column; /* Stack items vertically */
+    transform-origin: top right; /* Ensures animation originates from top right */
 }
 
 /* Add this rule for desktop dropdown on hover */
@@ -413,6 +417,11 @@ a:hover, a:focus-visible {
     visibility: visible;
     transform: translateY(0);
     pointer-events: auto;
+}
+
+.dropdown-menu li a {
+    padding: 8px 16px; /* Added padding for submenu items */
+    white-space: normal; /* Allow text to wrap within submenu items */
 }
 
 /* Mobile menu button styles */
@@ -1115,6 +1124,11 @@ a:hover, a:focus-visible {
         padding: var(--spacing-16) 0;
     }
 
+    /* Not used anymore, replaced by main-content-grid */
+    /* .news-events-grid {
+        grid-template-columns: repeat(2, 1fr);
+    } */
+
     .site-footer .footer-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1133,8 +1147,9 @@ a:hover, a:focus-visible {
     }
 
     .site-header .site-branding {
-        max-width: 50%;
+        max-width: 50%; /* More space for navigation */
     }
+
 
     .mobile-menu-button {
         display: none;
@@ -1169,7 +1184,7 @@ a:hover, a:focus-visible {
 
     /* Ensure about-us-section is visible on tablet and up */
     .about-us-section.hidden-on-mobile {
-        display: flex; /* Changed from block to flex to maintain internal flex behavior */
+        display: flex;
     }
 }
 
@@ -1228,9 +1243,9 @@ a:hover, a:focus-visible {
         right: var(--spacing-4);
     }
     .hero-section p {
-        font-size: var(--font-size-sm); /* Smaller font for long text on small screens */
-        line-height: 1.3; /* Tighter line height for smaller font */
-        padding-left: var(--spacing-2); /* Ensure it doesn't push too far left/right */
+        font-size: var(--font-size-sm);
+        line-height: 1.3;
+        padding-left: var(--spacing-2);
         padding-right: var(--spacing-2);
     }
 
@@ -1261,9 +1276,9 @@ a:hover, a:focus-visible {
     /* Further reduce vertical spacing between sections on mobile */
     .research-section,
     .programmes-section,
-    .other-activities-section, /* Updated section name */
+    .other-activities-section,
     .slideshow-section {
-        margin-bottom: var(--spacing-8); /* Consistent smaller margin on mobile */
+        margin-bottom: var(--spacing-8);
     }
 }
 
