@@ -26,7 +26,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Link to external style.css -->
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
 
     <noscript>
         <style>
@@ -111,7 +111,7 @@
                         </ul>
                     </li>
                     <li><a href="/people.html">People</a></li>
-                    <li><a href="/events.html" class="block py-3">Events</a></li>
+                    <li><a href="/events.html">Events</a></li>
                     <li><a href="/contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -217,54 +217,49 @@
             </section>
         </div>
 
-        <!-- Research Section -->
+        <!-- Research Section - Revamped into a single box -->
         <section class="research-section mb-16" id="research">
             <div class="container">
                 <h2 class="section-title">Research Areas at KSoM</h2>
-                <div class="grid content-cards-grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                    <!-- Complex Analysis Card -->
-                    <div class="content-card" tabindex="0">
-                        <div class="card-content">
-                            <h3>Complex Analysis</h3>
-                            <p class="truncated-description">Several Complex Variables has emerged as one of the most dynamic areas of modern mathematics, experiencing remarkable growth through the pioneering work of Cartan, Oka, Kohn, Hörmander, Fefferman, Catlin, and Bell, among others. The field's strength lies in its deep interconnections with algebra, differential geometry, partial differential equations, algebraic geometry, and Banach algebras, creating a rich tapestry of cross-fertilization that has driven major advances across all these disciplines. At Kerala School of Mathematics, our research group is currently focused on investigating the impact of Hörmander's estimates on various properties of the Bers domain (Teichmüller space) and exploring the profound implications of the remarkable fact that the Kobayashi metric is isometric to the Teichmüller metric. This research sits at the fascinating intersection of complex analysis, Teichmüller theory, and differential geometry, contributing to our understanding of intrinsic metrics on complex spaces and their geometric significance.</p>
-                            <a href="https://ksom-coe.github.io/research/complex%20analysis" class="text-ias-teal font-semibold read-more-link">Read More &rarr;</a>
-                        </div>
+                <div class="research-areas-container">
+                    <!-- Research Area 1: Complex Analysis -->
+                    <div class="research-area-item" tabindex="0">
+                        <h3>1. Complex Analysis</h3>
+                        <p><strong>Focus:</strong> Several Complex Variables, Hörmander's estimates, Bers domain (Teichmüller space), Kobayashi metric</p>
+                        <p class="truncated-description">Investigation of the impact of Hörmander's estimates on various properties of the Bers domain and exploring the profound implications of the remarkable fact that the Kobayashi metric is isometric to the Teichmüller metric. Research sits at the intersection of complex analysis, Teichmüller theory, and differential geometry.</p>
+                        <a href="https://ksom-coe.github.io/research/complex%20analysis" class="text-ias-teal font-semibold read-more-link">Read More &rarr;</a>
                     </div>
 
-                    <!-- Braid Groups and Mapping Class Groups Card -->
-                    <div class="content-card" tabindex="0">
-                        <div class="card-content">
-                            <h3>Braid Groups & Mapping Class Groups</h3>
-                            <p class="truncated-description">Braid groups and mapping class groups represent fundamental objects at the intersection of algebraic topology, geometric group theory, and low-dimensional topology, with profound connections to algebraic geometry, representation theory, and mathematical physics. These groups, first systematically studied by Artin and later developed through the work of Birman, Morita, Ivanov, and others, have revealed deep structural properties that continue to drive contemporary research across multiple mathematical disciplines. At Kerala School of Mathematics, our research group focuses on investigating the intricate relationships between braid groups and mapping class groups, with particular emphasis on liftability problems and the Birman-Hilden property, which characterize when homeomorphisms of surfaces can be extended to homeomorphisms of handlebodies. Central to our current investigations is the study of unitary representations of braid groups, exploring their classification, irreducibility properties, and connections to quantum invariants, thereby contributing to the rich interplay between geometric group theory, representation theory, and quantum topology.</p>
-                            <a href="https://ksom-coe.github.io/research/mcg" class="text-ias-teal font-semibold read-more-link">Read More &rarr;</a>
-                        </div>
+                    <!-- Research Area 2: Braid Groups & Mapping Class Groups -->
+                    <div class="research-area-item" tabindex="0">
+                        <h3>2. Braid Groups & Mapping Class Groups</h3>
+                        <p><strong>Focus:</strong> Algebraic topology, geometric group theory, low-dimensional topology, liftability problems, Birman-Hilden property</p>
+                        <p class="truncated-description">Investigation of intricate relationships between braid groups and mapping class groups, with particular emphasis on liftability problems and the Birman-Hilden property. Central focus on unitary representations of braid groups, their classification, irreducibility properties, and connections to quantum invariants.</p>
+                        <a href="https://ksom-coe.github.io/research/mcg" class="text-ias-teal font-semibold read-more-link">Read More &rarr;</a>
                     </div>
 
-                    <!-- Non-commutative Functional Analysis Card -->
-                    <div class="content-card" tabindex="0">
-                        <div class="card-content">
-                            <h3>Non-commutative Functional Analysis</h3>
-                            <p class="truncated-description">Non-commutative functional analysis has emerged as a central paradigm in modern mathematics, extending classical functional analysis to the quantum realm through the systematic study of operator algebras, operator spaces, and their geometric properties. This field, pioneered by von Neumann, Murray, and later advanced by Effros, Ruan, Pisier, and Paulsen, provides the mathematical foundation for quantum mechanics while revealing deep connections between functional analysis, harmonic analysis, and quantum information theory. The theory of operator spaces, which captures the "matrix structure" of operators through completely bounded maps and complete contractions, has revolutionized our understanding of non-commutative phenomena and led to profound developments in approximation theory, convexity, and geometric functional analysis. At Kerala School of Mathematics, our research group actively investigates quantum aspects of approximation and convexity within the framework of operator spaces and operator systems in C*-algebras, exploring problems related to the completely bounded approximation property, quantum convexity, matricial ranges, and the structure theory of operator systems. This research contributes to the growing interface between abstract functional analysis and quantum functional analysis and quantum information theory, with applications ranging from quantum error correction to the classification of quantum channels and the geometric analysis of quantum states.</p>
-                            <a href="https://ksom-coe.github.io/research/non-commutativegeometry" class="text-ias-teal font-semibold read-more-link">Read More &rarr;</a>
-                        </div>
+                    <!-- Research Area 3: Non-commutative Functional Analysis -->
+                    <div class="research-area-item" tabindex="0">
+                        <h3>3. Non-commutative Functional Analysis</h3>
+                        <p><strong>Focus:</strong> Operator algebras, operator spaces, quantum aspects of approximation and convexity, C*-algebras</p>
+                        <p class="truncated-description">Investigation of quantum aspects of approximation and convexity within the framework of operator spaces and operator systems in C*-algebras. Research includes completely bounded approximation property, quantum convexity, matricial ranges, and structure theory of operator systems.</p>
+                        <a href="https://ksom-coe.github.io/research/non-commutativegeometry" class="text-ias-teal font-semibold read-more-link">Read More &rarr;</a>
                     </div>
 
-                    <!-- Harmonic Analysis Card -->
-                    <div class="content-card" tabindex="0">
-                        <div class="card-content">
-                            <h3>Harmonic Analysis</h3>
-                            <p class="truncated-description">Harmonic analysis, particularly in the context of nilpotent Lie groups and time-frequency analysis, represents a vibrant area of mathematical research that bridges classical Fourier analysis with modern operator theory and partial differential equations. This field has experienced significant development through the work of mathematicians studying the Heisenberg group, twisted convolution operators, modulation spaces, and their applications to nonlinear dispersive equations. At Kerala School of Mathematics, our research group focuses on several interconnected themes including the theory of modulation spaces and their invariance properties, Fourier multipliers and twisted convolution operators with particular emphasis on Lp-Lq boundedness, maximal functions along hypersurfaces and their regularity properties, and the analysis of nonlinear Schrödinger equations involving twisted Laplacians and special Hermite operators. Central to our investigations is the development of Hardy-Sobolev inequalities in non-commutative settings, the study of Fourier integral operators and their local smoothing properties, and the exploration of spherical maximal operators on symmetric spaces, contributing to the rich interplay between harmonic analysis, geometric analysis, and mathematical physics while advancing our understanding of oscillatory integrals and their applications to dispersive partial differential equations.</p>
-                            <a href="https://ksom-coe.github.io/research/harmonicanalysis" class="text-ias-teal font-semibold read-more-link">Read More &rarr;</a>
-                        </div>
+                    <!-- Research Area 4: Harmonic Analysis -->
+                    <div class="research-area-item" tabindex="0">
+                        <h3>4. Harmonic Analysis</h3>
+                        <p><strong>Focus:</strong> Nilpotent Lie groups, time-frequency analysis, modulation spaces, twisted convolution operators, nonlinear Schrödinger equations</p>
+                        <p class="truncated-description">Research on modulation spaces and their invariance properties, Fourier multipliers, twisted convolution operators, maximal functions along hypersurfaces, Hardy-Sobolev inequalities in non-commutative settings, and spherical maximal operators on symmetric spaces.</p>
+                        <a href="https://ksom-coe.github.io/research/harmonicanalysis" class="text-ias-teal font-semibold read-more-link">Read More &rarr;</a>
                     </div>
 
-                    <!-- Analytic Number Theory Card -->
-                    <div class="content-card" tabindex="0">
-                        <div class="card-content">
-                            <h3>Analytic Number Theory</h3>
-                            <p class="truncated-description">Analytic number theory stands as one of the most profound and challenging areas of modern mathematics, employing sophisticated analytical techniques to unlock the mysteries of prime numbers, multiplicative functions, and special values of L-functions. This field has witnessed remarkable developments through the contributions of Euler, Riemann, Hardy, Littlewood, and contemporary mathematicians who have advanced our understanding of the distribution of primes and the arithmetic structure of integers. At Kerala School of Mathematics, our research group focuses on several interconnected areas including the theory of multiple zeta values and their generalizations, particularly multiple Apéry-like sums and their combinatorial and analytical properties, explicit averages of multiplicative functions with emphasis on going beyond classical main term estimates and exploring refined asymptotic behaviors, Möbius sums with coprimality conditions and their tail behaviors, and additive number theory including chromatic generalizations of classical results such as Lagrange's four squares theorem. Central to our investigations is the study of the Beurling-Selberg function and its applications to prime number theory, the analysis of double tails and structural properties of multiple zeta values, and the development of new techniques for obtaining explicit bounds and averages in multiplicative number theory, contributing to the rich interplay between analytic methods, combinatorial structures, and the deep arithmetic properties of integers.</p>
-                            <a href="https://ksom-coe.github.io/research/AnalyticNumberTheory" class="text-ias-teal font-semibold read-more-link">Read More &rarr;</a>
-                        </div>
+                    <!-- Research Area 5: Analytic Number Theory -->
+                    <div class="research-area-item" tabindex="0">
+                        <h3>5. Analytic Number Theory</h3>
+                        <p><strong>Focus:</strong> Prime numbers, multiplicative functions, L-functions, multiple zeta values, Möbius sums, additive number theory</p>
+                        <p class="truncated-description">Research on multiple zeta values and their generalizations, particularly multiple Apéry-like sums and their combinatorial and analytical properties, explicit averages of multiplicative functions with emphasis on going beyond classical main term estimates and exploring refined asymptotic behaviors, Möbius sums with coprimality conditions and their tail behaviors, and additive number theory including chromatic generalizations of classical results such as Lagrange's four squares theorem. Central to our investigations is the study of the Beurling-Selberg function and its applications to prime number theory, the analysis of double tails and structural properties of multiple zeta values, and the development of new techniques for obtaining explicit bounds and averages in multiplicative number theory, contributing to the rich interplay between analytic methods, combinatorial structures, and the deep arithmetic properties of integers.</p>
+                        <a href="https://ksom-coe.github.io/research/AnalyticNumberTheory" class="text-ias-teal font-semibold read-more-link">Read More &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -354,23 +349,37 @@
                         <div class="slide-caption">
                             <h3>International Collaborations</h3>
                             <p>Opportunities for joint research and exchange programmes with leading institutions worldwide.</p>
+                        <h4>Guest Lecture: Dr. Ravi Kumar (IIT Bombay)</h4>
+                            <p>Topic: Advances in Number Theory. Time: 10:00 AM, KSoM Auditorium.</p>
                         </div>
-                    </div>
-                    <div class="msc-slide">
-                        <img src="https://placehold.co/800x450/0090C0/ffffff?text=KSoM+Campus+Life" alt="KSoM Campus Life">
-                        <div class="slide-caption">
-                            <h3>Serene Campus Environment</h3>
-                            <p>A conducive atmosphere for deep study and intellectual growth in picturesque Kozhikode.</p>
+                    </li>
+                    <li class="event-card">
+                        <div class="date-box">
+                            <span class="day">01</span>
+                            <span class="month">Aug</span>
                         </div>
-                    </div>
-                </div>
+                        <div class="event-content">
+                            <h4>Workshop on Cryptography and its Applications</h4>
+                            <p>A week-long workshop for research scholars and faculty. Registration open.</p>
+                        </div>
+                    </li>
+                    <li class="event-card">
+                        <div class="date-box">
+                            <span class="day">20</span>
+                            <span class="month">Aug</span>
+                        </div>
+                        <div class="event-content">
+                            <h4>Ph.D. Entrance Examination</h4>
+                            <p>The annual entrance examination for Ph.D. admissions will be conducted on campus.</p>
+                        </div>
+                    </li>
+                </ul>
+                <a href="#" class="view-all-link">View All Events &rarr;</a>
             </div>
         </section>
     </main>
 
-    <!-- Footer Content (This section would typically be dynamically included from footer.html) -->
-    <!-- For local development, you might manually copy the content of footer.html here, -->
-    <!-- or use a build tool/server-side include for production. -->
+    <!-- Footer -->
     <footer class="site-footer" id="contact">
         <div class="container footer-grid">
             <div class="footer-about">
@@ -567,49 +576,57 @@
         });
 
         // --- Research/Programme Card Interaction (Scroll on Hover/Click) ---
-        // This section has been updated based on the new requirements:
-        // - Cards are not expandable on hover.
-        // - Links are only on the "Read More" button, not the whole card.
-        // - Scrolling appears on hover OR click.
-        document.querySelectorAll('.content-card').forEach(card => {
-            const description = card.querySelector('.truncated-description');
+        // This section will now apply to both .content-card and .research-area-item
+        document.querySelectorAll('.content-card, .research-area-item').forEach(item => {
+            const description = item.querySelector('.truncated-description');
 
-            // Function to enable scroll and unset line clamping
-            const enableScroll = () => {
-                description.style.overflowY = 'auto';
-                description.style.webkitLineClamp = 'unset';
-            };
+            // Only apply if there's a description element that might truncate
+            if (description) {
+                // Function to enable scroll and unset line clamping
+                const enableScroll = () => {
+                    description.style.overflowY = 'auto';
+                    description.style.webkitLineClamp = 'unset';
+                };
 
-            // Function to disable scroll and re-apply line clamping
-            const disableScroll = () => {
-                description.style.overflowY = 'hidden';
-                description.style.webkitLineClamp = '8'; // Re-apply original line clamp
-            };
+                // Function to disable scroll and re-apply line clamping
+                const disableScroll = () => {
+                    // Check if content actually overflows before applying hidden
+                    if (description.scrollHeight > description.clientHeight) {
+                        description.style.overflowY = 'hidden';
+                        // Re-apply original line clamp based on parent type or a default
+                        description.style.webkitLineClamp = item.classList.contains('programme-card') ? '6' : '8';
+                    } else {
+                        // If content doesn't overflow, ensure no scrollbar even if it was temporarily 'auto'
+                        description.style.overflowY = 'hidden';
+                        description.style.webkitLineClamp = 'unset'; // No need to clamp if it fits
+                    }
+                };
 
-            // On mouse enter (hover), enable scroll
-            card.addEventListener('mouseenter', enableScroll);
-            
-            // On mouse leave, disable scroll
-            card.addEventListener('mouseleave', disableScroll);
+                // On mouse enter (hover), enable scroll
+                item.addEventListener('mouseenter', enableScroll);
+                
+                // On mouse leave, disable scroll
+                item.addEventListener('mouseleave', disableScroll);
 
-            // On click, toggle scroll (important for touch devices or specific user interaction)
-            card.addEventListener('click', (event) => {
-                // Prevent bubbling if the 'Read More' link was clicked
-                if (event.target.closest('.read-more-link')) {
-                    return;
-                }
+                // On click, toggle scroll (important for touch devices or specific user interaction)
+                item.addEventListener('click', (event) => {
+                    // Prevent bubbling if a link or button *inside* the item was clicked
+                    if (event.target.closest('a') || event.target.closest('button')) {
+                        return;
+                    }
 
-                // Check if scroll is currently enabled (by checking overflowY style)
-                if (description.style.overflowY === 'auto') {
-                    disableScroll();
-                } else {
-                    enableScroll();
-                }
-            });
+                    // Toggle based on current state
+                    if (description.style.overflowY === 'auto') {
+                        disableScroll();
+                    } else {
+                        enableScroll();
+                    }
+                });
 
-            // For accessibility: keyboard users should also be able to interact
-            card.addEventListener('focusin', enableScroll);
-            card.addEventListener('focusout', disableScroll);
+                // For accessibility: keyboard users should also be able to interact
+                item.addEventListener('focusin', enableScroll);
+                item.addEventListener('focusout', disableScroll);
+            }
         });
     </script>
 </body>
