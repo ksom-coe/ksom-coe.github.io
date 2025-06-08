@@ -180,7 +180,9 @@ a:hover, a:focus-visible {
 .content-card:hover,
 .content-card:focus-visible,
 .event-card:hover,
-.event-card:focus-visible {
+.event-card:focus-visible,
+.research-area-item:hover, /* Added for new research items */
+.research-area-item:focus-visible /* Added for new research items */ {
     text-decoration: none !important;
 }
 
@@ -194,13 +196,21 @@ a:hover, a:focus-visible {
 .event-card:hover h3,
 .event-card:hover p,
 .event-card:focus-visible h3,
-.event-card:focus-visible p {
+.event-card:focus-visible p,
+.research-area-item:hover h3, /* Added for new research items */
+.research-area-item:hover p, /* Added for new research items */
+.research-area-item:hover strong, /* Added for new research items */
+.research-area-item:focus-visible h3, /* Added for new research items */
+.research-area-item:focus-visible p, /* Added for new research items */
+.research-area-item:focus-visible strong /* Added for new research items */ {
      text-decoration: none !important; /* Use !important to override potential inherited styles */
 }
 
 /* Re-add underline for specific elements inside if needed, like 'Read More' or 'Apply now' span */
 .content-card span.text-ias-teal:hover,
-.content-card span.text-ias-teal:focus-visible {
+.content-card span.text-ias-teal:focus-visible,
+.research-area-item .text-ias-teal:hover, /* Added for new research items */
+.research-area-item .text-ias-teal:focus-visible /* Added for new research items */ {
     text-decoration: underline !important; /* Use !important to ensure it applies */
 }
 
@@ -288,8 +298,8 @@ a:hover, a:focus-visible {
 .site-header .site-header-inner {
     display: flex;
     justify-content: space-between; /* Keeps logo left, nav right */
-    align-items: center;
     flex-wrap: nowrap; /* Prevent wrapping */
+    align-items: center;
 }
 
 .site-header .site-branding {
@@ -648,7 +658,7 @@ a:hover, a:focus-visible {
     display: flex;
     flex-direction: column;
     height: auto; /* Remove fixed height */
-    min-height: 380px; /* Default minimum height for larger screens */
+    min-height: 380px; /* Default minimum height for larger screens - applies to research only now */
     align-self: start; /* Prevents grid items from stretching vertically to match tallest sibling */
     text-decoration: none !important; /* Ensure card link itself doesn't underline */
     overflow: hidden; /* Added to prevent content overflow outside card boundaries */
@@ -689,7 +699,7 @@ a:hover, a:focus-visible {
 }
 
 /* Adjust description area */
-.content-card .truncated-description {
+.truncated-description { /* Removed .content-card prefix to make it more general */
     max-height: 16em !important; /* Increased height */
     overflow-y: hidden; /* Remove scrollbar until needed */
     text-overflow: ellipsis; /* Add ellipsis for overflowed text */
@@ -703,17 +713,11 @@ a:hover, a:focus-visible {
     flex-grow: 1; /* Take available space within card-content */
 }
 
-.content-card:hover .truncated-description,
-.content-card:focus-within .truncated-description {
-    overflow-y: auto; /* Show scrollbar on hover/focus */
-    -webkit-line-clamp: unset; /* Show all text on hover/focus */
-}
 /* This rule was intended to remove a potential ::after element on hover,
    which might have been used for a "Read More" fade overlay.
    Including it to explicitly ensure no unwanted ::after element appears
    when the description expands. */
-.content-card:hover .truncated-description::after,
-.content-card:focus-within .truncated-description::after {
+.truncated-description::after {
     content: none;
     display: none;
 }
@@ -829,6 +833,41 @@ a:hover, a:focus-visible {
     font-size: var(--font-size-lg);
     color: var(--gray-700);
     line-height: 1.7;
+}
+
+/* New: Research Areas Container and Items */
+.research-areas-container {
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-6);
+}
+
+.research-area-item {
+    padding-top: var(--spacing-4);
+    padding-bottom: var(--spacing-4);
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.research-area-item:last-child {
+    border-bottom: none; /* Remove border for the last item */
+    padding-bottom: 0;
+}
+
+.research-area-item h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-2);
+    color: var(--ias-blue);
+}
+
+.research-area-item p {
+    font-size: var(--font-size-base);
+    color: var(--gray-700);
+    margin-bottom: var(--spacing-2); /* Reduced margin for tighter spacing */
+}
+
+.research-area-item p strong {
+    color: var(--ias-teal); /* Highlight focus/link text */
 }
 
 /* Programme Highlights Slideshow Section */
@@ -1134,13 +1173,6 @@ a:hover, a:focus-visible {
     /* Reduce line clamp for smaller programme cards on mobile */
     -webkit-line-clamp: 6; /* Adjust as needed */
   }
-
-  /* Ensure the truncated-description still scrolls when needed on programme cards */
-  .programme-card:hover .truncated-description,
-  .programme-card:focus-within .truncated-description {
-      overflow-y: auto;
-      -webkit-line-clamp: unset;
-  }
 }
 
 
@@ -1226,22 +1258,26 @@ a:hover, a:focus-visible {
     .content-card,
     .news-section,
     .events-section,
-    .about-us-section {
+    .about-us-section,
+    .research-areas-container /* Added for dark mode */ {
         background-color: var(--gray-800);
         color: var(--gray-200);
     }
     .content-card h3,
     .news-section h3,
     .events-section h3,
-    .about-us-section h2 {
+    .about-us-section h2,
+    .research-area-item h3 /* Added for dark mode */ {
         color: var(--ias-teal);
     }
     .content-card p,
-    .content-card .truncated-description, /* Added for dark mode */
-    .about-us-section p {
+    .truncated-description, /* General truncated-description for dark mode */
+    .about-us-section p,
+    .research-area-item p /* Added for dark mode */ {
         color: var(--gray-300);
     }
-    .news-item, .event-card {
+    .news-item, .event-card,
+    .research-area-item /* Added for dark mode */ {
         border-bottom-color: var(--gray-700);
     }
     .news-item .date, .event-card .date-box {
