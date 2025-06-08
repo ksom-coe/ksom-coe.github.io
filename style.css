@@ -393,7 +393,7 @@ a:hover, a:focus-visible {
 /* Update mobile menu button styles */
 .mobile-menu-button {
     display: block; /* Show by default on mobile */
-    background-color: var(--ias-blue);
+    background-color: var(--ias-blue); /* Ensured color fix */
     color: var(--white);
     padding: var(--spacing-2) var(--spacing-4);
     border-radius: var(--border-radius-md);
@@ -409,7 +409,7 @@ a:hover, a:focus-visible {
     }
     /* Fix for Desktop Navigation Bar */
     .main-nav {
-        display: block !important;
+        display: flex !important; /* Changed from block to flex for better alignment */
     }
 }
 
@@ -417,8 +417,9 @@ a:hover, a:focus-visible {
 .mobile-nav {
     position: fixed;
     top: 0;
-    right: -100%; /* Start off-screen */
-    width: 80%;
+    right: -320px; /* Adjust off-screen position */
+    width: 300px; /* Fixed width instead of 80% */
+    max-width: 90%; /* Ensure it doesn't overflow on small screens */
     height: 100%;
     background-color: var(--ias-blue);
     color: var(--white);
@@ -426,6 +427,7 @@ a:hover, a:focus-visible {
     overflow-y: auto;
     padding: var(--spacing-4);
     transition: right var(--transition-medium) ease-out;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2); /* Add shadow for depth */
 }
 
 .mobile-nav.mobile-menu-visible {
@@ -465,6 +467,19 @@ a:hover, a:focus-visible {
     padding: var(--spacing-2) var(--spacing-4); /* Smaller padding for sub-items */
     font-size: var(--font-size-base);
     border-bottom: none; /* No border for sub-items */
+}
+
+/* Mobile close button styling */
+#mobile-close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
 }
 
 
@@ -590,7 +605,7 @@ a:hover, a:focus-visible {
     box-shadow: var(--shadow-md);
     transition: transform var(--transition-fast), box-shadow var(--transition-fast);
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Changed from default to column */
     height: 100%; /* Ensure cards fill grid cell height */
     align-self: start; /* Prevents grid items from stretching vertically to match tallest sibling */
     text-decoration: none !important; /* Ensure card link itself doesn't underline */
@@ -621,6 +636,7 @@ a:hover, a:focus-visible {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%; /* Added to ensure content area respects parent card height */
 }
 
 .content-card .card-content h3 {
@@ -632,24 +648,25 @@ a:hover, a:focus-visible {
 
 /* New style for truncated paragraph within content cards */
 .content-card .truncated-description {
-    max-height: 4.5em; /* Keep this fixed height */
-    overflow: hidden;
+    max-height: 15em !important; /* Fixed height for full text */
+    overflow-y: auto; /* Always scrollable */
     text-overflow: ellipsis; /* Add ellipsis for overflowed text */
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    display: block; /* Override flexbox display if needed */
+    -webkit-line-clamp: unset; /* Show all text, allow scrolling */
     -webkit-box-orient: vertical;
-    /* Removed transition as max-height is no longer animated by CSS */
+    transition: none !important; /* Remove animations */
     position: relative; /* Ensure proper stacking context if needed */
     margin-bottom: var(--spacing-4); /* Consistent spacing below description */
     color: var(--gray-700);
+    flex-grow: 1; /* Take available space within card-content */
 }
 
 /* On hover/focus: become scrollable within the fixed height, and show full text */
 .content-card:hover .truncated-description,
 .content-card:focus-within .truncated-description {
-    /* No max-height change here to make cards non-expandable */
-    overflow-y: auto; /* This is the key: allow scrolling */
-    -webkit-line-clamp: unset; /* Allow full text to be visible for scrolling */
+    /* No max-height change here as it's permanently set. Only ensures scroll behavior. */
+    overflow-y: auto;
+    -webkit-line-clamp: unset;
 }
 /* This rule was intended to remove a potential ::after element on hover,
    which might have been used for a "Read More" fade overlay.
