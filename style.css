@@ -182,7 +182,9 @@ a:hover, a:focus-visible {
 .event-card:hover,
 .event-card:focus-visible,
 .research-area-item:hover, /* Added for new research items */
-.research-area-item:focus-visible /* Added for new research items */ {
+.research-area-item:focus-visible, /* Added for new research items */
+.about-us-section .about-us-description:hover, /* Added for about us scroll */
+.about-us-section .about-us-description:focus-visible /* Added for about us scroll */ {
     text-decoration: none !important;
 }
 
@@ -202,7 +204,9 @@ a:hover, a:focus-visible {
 .research-area-item:hover strong, /* Added for new research items */
 .research-area-item:focus-visible h3, /* Added for new research items */
 .research-area-item:focus-visible p, /* Added for new research items */
-.research-area-item:focus-visible strong /* Added for new research items */ {
+.research-area-item:focus-visible strong, /* Added for new research items */
+.about-us-section .about-us-description:hover, /* Added for about us scroll */
+.about-us-section .about-us-description:focus-visible /* Added for about us scroll */ {
      text-decoration: none !important; /* Use !important to override potential inherited styles */
 }
 
@@ -210,7 +214,9 @@ a:hover, a:focus-visible {
 .content-card span.text-ias-teal:hover,
 .content-card span.text-ias-teal:focus-visible,
 .research-area-item .text-ias-teal:hover, /* Added for new research items */
-.research-area-item .text-ias-teal:focus-visible /* Added for new research items */ {
+.research-area-item .text-ias-teal:focus-visible, /* Added for new research items */
+.about-us-section .view-all-link:hover, /* Added for about us scroll */
+.about-us-section .view-all-link:focus-visible /* Added for about us scroll */ {
     text-decoration: underline !important; /* Use !important to ensure it applies */
 }
 
@@ -315,9 +321,9 @@ a:hover, a:focus-visible {
 }
 
 .site-header .dept-title {
-    font-family: var(--font-heading);
+    font-family: var(--font-heading); /* Apply Playfair Display */
     font-weight: 700;
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-2xl); /* Larger for 'KSoM' */
     color: var(--ias-blue);
     margin-bottom: var(--spacing-0-5);
     white-space: nowrap; /* Force the text to stay on a single line */
@@ -535,7 +541,7 @@ a:hover, a:focus-visible {
 
 
 /* --------------------------------------------------------------------------
-   6.3 Hero Section
+   6.3 Hero Section - UPDATED
    -------------------------------------------------------------------------- */
 .hero-section {
     position: relative;
@@ -569,30 +575,32 @@ a:hover, a:focus-visible {
     position: relative;
     z-index: 2;
     max-width: 800px;
-    margin: 0; /* Remove auto margin */
+    margin: 0; /* Remove auto margin to allow left/bottom alignment */
     padding: var(--spacing-8); /* Add some padding from the bottom/left edges */
     text-align: left; /* Ensure text aligns left within its container */
     align-self: flex-end; /* Explicitly align to the bottom for flex item */
     justify-content: flex-start; /* Explicitly align to the start for flex item */
+    /* Remove any explicit !pb-12 or !pt-0 if they interfere with alignment */
 }
 
 .hero-section h2 {
     font-size: var(--font-size-4xl);
     color: var(--white);
-    margin-bottom: var(--spacing-4);
+    margin-bottom: var(--spacing-2); /* Reduced margin */
     text-shadow: var(--shadow-text);
     text-align: left; /* Ensure title is left-aligned */
 }
 
 .hero-section p {
     font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-8);
+    margin-bottom: var(--spacing-2); /* Reduced margin */
     text-shadow: var(--shadow-text);
     text-align: left; /* Ensure paragraph is left-aligned */
+    line-height: 1.4; /* Adjust line height for readability */
 }
 
-.hero-section .btn-primary {
-    display: inline-block;
+.hero-section .btn-primary { /* Kept the style for potential future use or if other buttons use it */
+    display: none; /* Hide the button */
     background-color: var(--ias-teal);
     color: var(--white);
     padding: var(--spacing-3) var(--spacing-8);
@@ -700,17 +708,38 @@ a:hover, a:focus-visible {
 
 /* Adjust description area */
 .truncated-description { /* Removed .content-card prefix to make it more general */
-    max-height: 16em !important; /* Increased height */
-    overflow-y: hidden; /* Remove scrollbar until needed */
+    max-height: 16em; /* Set a max height */
+    overflow-y: hidden; /* Hide overflow initially */
     text-overflow: ellipsis; /* Add ellipsis for overflowed text */
-    display: -webkit-box; /* Re-enable for line clamping */
-    -webkit-line-clamp: 8; /* Show more lines by default */
+    display: -webkit-box; /* Enable for line clamping */
+    -webkit-line-clamp: 8; /* Show max 8 lines by default for cards/research */
     -webkit-box-orient: vertical;
-    transition: none !important; /* Remove animations */
-    position: relative; /* Ensure proper stacking context if needed */
-    margin-bottom: var(--spacing-4); /* Consistent spacing below description */
+    transition: max-height 0.3s ease-out; /* Smooth transition for expansion */
+    position: relative;
+    margin-bottom: var(--spacing-4);
     color: var(--gray-700);
-    flex-grow: 1; /* Take available space within card-content */
+    flex-grow: 1;
+}
+
+/* Override for about us section specifically for different line clamp */
+.about-us-description.truncated-description {
+    -webkit-line-clamp: 5; /* Fewer lines for about section paragraph initially */
+    max-height: 10em; /* Adjusted max-height for about section */
+}
+
+
+/* When hovered or clicked, expand and allow scrolling */
+.content-card:hover .truncated-description,
+.content-card:focus-within .truncated-description,
+.research-area-item:hover .truncated-description,
+.research-area-item:focus-within .truncated-description,
+.about-us-section .about-us-description.expanded, /* Added for JS control */
+.about-us-section .about-us-description:hover, /* Direct CSS hover for about us */
+.about-us-section .about-us-description:focus-within /* Direct CSS focus for about us */ {
+    max-height: 500px; /* Large enough to show all content */
+    overflow-y: auto;
+    -webkit-line-clamp: unset; /* Remove line clamping */
+    transition: max-height 0.5s ease-out; /* Smooth transition for expansion */
 }
 
 /* This rule was intended to remove a potential ::after element on hover,
@@ -758,7 +787,7 @@ a:hover, a:focus-visible {
     padding: var(--spacing-4) 0;
     display: flex;
     align-items: flex-start;
-    gap: var(--spacing-4);
+    gap: var(--spacing-3); /* Reduced gap */
 }
 
 .news-item:last-child, .event-card:last-child {
@@ -768,23 +797,24 @@ a:hover, a:focus-visible {
 .news-item .date, .event-card .date-box {
     flex-shrink: 0;
     text-align: center;
-    width: 70px; /* Fixed width for date box */
+    width: 60px; /* Reduced width for date box */
     background-color: var(--ias-light-blue);
-    padding: var(--spacing-2);
+    padding: var(--spacing-1) var(--spacing-0-5); /* Adjusted padding */
     border-radius: var(--border-radius-sm);
     color: var(--ias-blue);
     font-weight: 600;
     border: 1px solid var(--gray-300);
+    line-height: 1.2; /* Adjust line height for tighter date display */
 }
 
 .news-item .date .day, .event-card .date-box .day {
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-xl); /* Smaller day font size */
     line-height: 1;
     margin-bottom: var(--spacing-0-5);
 }
 
 .news-item .date .month, .event-card .date-box .month {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xs); /* Smaller month font size */
     text-transform: uppercase;
 }
 
@@ -811,7 +841,7 @@ a:hover, a:focus-visible {
     font-weight: 600;
 }
 
-/* About Us Section */
+/* About Us Section - UPDATED */
 .about-us-section {
     padding: var(--spacing-6); /* Adjusted padding for standalone card look */
     background-color: var(--white);
@@ -830,9 +860,10 @@ a:hover, a:focus-visible {
 }
 
 .about-us-section p {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base); /* Reduced font size */
     color: var(--gray-700);
     line-height: 1.7;
+    margin-bottom: var(--spacing-3); /* Adjust margin for paragraphs */
 }
 
 /* New: Research Areas Container and Items */
@@ -989,14 +1020,24 @@ a:hover, a:focus-visible {
     color: var(--gray-300);
 }
 
-.site-footer .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: var(--spacing-8);
-    padding-top: var(--spacing-6);
-    text-align: center;
-    font-size: var(--font-size-xs);
-    color: var(--gray-400);
-}
+.site-footer .footer-social {
+    <h4>Follow Us</h4>
+    <!-- Placeholder for social media icons -->
+    <div class="flex gap-4 mt-2">
+        <a href="#" class="text-white hover:text-ias-teal" aria-label="KSoM on Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 .27-2.5h-1c-1.2 0-2 .52-2 2.8v1.7H8v4h3.5v8H20V13.5h-6z"/></svg>
+        </a>
+        <a href="#" class="text-white hover:text-ias-teal" aria-label="KSoM on X (Twitter)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 6c-.84.37-1.74.62-2.67.73.96-.58 1.7-1.5 2.04-2.6.93.06 1.83-.28 2.67-.73-.97 1.25-2.2 2.15-3.56 2.62C18.12 5.16 16.52 4 14.7 4c-3.54 0-6.41 2.87-6.41 6.41 0 .5.05.98.15 1.45C8.04 16.14 4.54 12.64 2.1 9.4c-.55 1.05-.86 2.27-.86 3.56 0 2.22 1.13 4.18 2.84 5.33-.81-.02-1.57-.25-2.24-.62v.08c0 3.09 2.2 5.65 5.13 6.22-.53.15-1.09.23-1.66.23-.41 0-.8-.04-1.18-.11.81 2.54 3.17 4.38 5.97 4.43-2.12 1.66-4.79 2.66-7.7 2.66-.5 0-.99-.03-1.47-.08C2.5 22.08 6.55 24 11 24c5.99 0 9.27-4.96 9.27-9.27 0-.14-.01-.27-.01-.4.63-.45 1.17-.99 1.6-1.6z"/></svg>
+        </a>
+        <a href="#" class="text-white hover:text-ias-teal" aria-label="KSoM on LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+    </div>
+</div>
+<div class="footer-bottom">
+    <p>&copy; 2024 Kerala School of Mathematics. All rights reserved. Designed and Maintained by KSoM Web Team.</p>
+</div>
 
 /* ==========================================================================
    7. Utilities
@@ -1057,9 +1098,10 @@ a:hover, a:focus-visible {
         padding: var(--spacing-24) 0;
     }
 
-    .news-events-grid {
+    /* Not used anymore, replaced by main-content-grid */
+    /* .news-events-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
+    } */
 
     .site-footer .footer-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1098,9 +1140,9 @@ a:hover, a:focus-visible {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* New: Three-column layout for main content sections on medium screens */
+    /* New: Three equal-column layout for main content sections on medium screens */
     .main-content-grid {
-        grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+        grid-template-columns: repeat(3, 1fr); /* Three equal columns */
         align-items: start; /* Align items to the start of their grid cell */
         gap: var(--spacing-8); /* Adjusted gap for 3 columns */
     }
@@ -1135,9 +1177,9 @@ a:hover, a:focus-visible {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    /* Adjust main-content-grid for larger screens, e.g., slightly wider welcome */
+    /* Adjusted main-content-grid for larger screens: three equal columns */
     .main-content-grid {
-        grid-template-columns: 1.2fr 1fr 1fr; /* Welcome section slightly wider */
+        grid-template-columns: repeat(3, 1fr); /* Three equal columns */
         gap: var(--spacing-12); /* Slightly larger gap */
     }
 
