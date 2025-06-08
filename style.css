@@ -732,8 +732,8 @@ a:hover, a:focus-visible {
 
 /* Override for about us section specifically for different line clamp */
 .about-us-description.truncated-description {
-    -webkit-line-clamp: 5; /* Fewer lines for about section paragraph initially */
-    max-height: 10em; /* Adjusted max-height for about section */
+    -webkit-line-clamp: 8; /* Increased lines for about section paragraph initially */
+    max-height: 16em; /* Adjusted max-height for about section */
 }
 
 
@@ -791,7 +791,7 @@ a:hover, a:focus-visible {
     padding: var(--spacing-4) 0;
     display: flex;
     align-items: flex-start;
-    gap: var(--spacing-3); /* Reduced gap */
+    gap: var(--spacing-3); /* Reduced gap for tighter text wrapping */
 }
 
 .news-item:last-child, .event-card:last-child {
@@ -865,7 +865,7 @@ a:hover, a:focus-visible {
 .about-us-section .about-us-text-content { /* New wrapper for paragraphs for scrolling */
     flex-grow: 1;
     overflow-y: hidden; /* Controlled by JS/hover */
-    max-height: 10em; /* Initial max height for truncated view */
+    max-height: 16em; /* Initial max height for truncated view (8 lines * 1.7 line-height * 1rem) */
     transition: max-height 0.5s ease-out, overflow-y 0.5s ease-out;
 }
 
