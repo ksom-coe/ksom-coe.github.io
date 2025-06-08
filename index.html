@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Official website of the Kerala School of Mathematics (KSoM)">
     <title>Kerala School of Mathematics (KSoM)</title>
-    <link rel="icon" type="image/png" href="../Images/KSoMLogo.png"> <!-- Updated icon path -->
+    <link rel="icon" type="image/png" href="Images/KSoMLogo.png"> <!-- Updated icon path -->
     <!-- Preload the KSoM logo -->
-    <link rel="preload" href="../Images/KSoMLogo.png" as="image">
+    <link rel="preload" href="Images/KSoMLogo.png" as="image">
     <!-- Preload the actual KSoM Campus image -->
-    <link rel="preload" href="../Images/KSoMCampus.jpg" as="image">
+    <link rel="preload" href="Images/KSoMCampus.jpg" as="image">
     <!-- Preload placeholder images for programmes -->
     <link rel="preload" href="https://placehold.co/800x450/005080/ffffff?text=KSoM+Program+1" as="image">
     <link rel="preload" href="https://placehold.co/800x450/006090/ffffff?text=KSoM+Program+2" as="image">
@@ -26,7 +26,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Link to external style.css -->
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
 
     <!-- MathJax Configuration -->
     <script>
@@ -83,15 +83,13 @@
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-    <!-- Header Content (This section would typically be dynamically included from header.html) -->
-    <!-- For local development, you might manually copy the content of header.html here, -->
-    <!-- or use a build tool/server-side include for production. -->
+    <!-- Header Content -->
     <header class="site-header">
         <div class="container site-header-inner">
             <!-- Logo and Institution Branding -->
             <div class="site-branding">
                 <a href="/" class="site-logo-link flex items-center">
-                    <img src="../Images/KSoMLogo.png" alt="Kerala School of Mathematics Logo" class="site-logo-img" />
+                    <img src="Images/KSoMLogo.png" alt="Kerala School of Mathematics Logo" class="site-logo-img" />
                     <div class="flex flex-col ml-2">
                         <p class="dept-title">KSoM</p> <!-- KSoM in elegant font -->
                         <p class="university-name">KERALA SCHOOL OF MATHEMATICS</p> <!-- Updated text with uppercase and Lora font -->
@@ -100,41 +98,42 @@
             </div>
 
             <!-- Desktop Navigation -->
-            <nav id="desktop-nav" class="main-nav md:flex" aria-label="Main Navigation">
+            <!-- Added 'hidden' class to ensure desktop nav is hidden on mobile by default -->
+            <nav id="desktop-nav" class="main-nav md:flex hidden" aria-label="Main Navigation">
                 <ul id="nav-items">
                     <li><a href="/about.html">About</a></li>
                     <li><a href="https://ksom-coe.github.io/research">Research</a></li>
                     <li class="relative dropdown">
                         <a href="#" aria-haspopup="true" aria-expanded="false">Programmes</a>
                         <ul class="dropdown-menu">
-                            <li><a href="https://ksom-coe.github.io/programmes/i-msc-phd">Integrated MSc-PhD programme</a></li>
-                            <li><a href="https://ksom-coe.github.io/programmes/phd">PhD programme</a></li>
-                            <li><a href="https://ksom-coe.github.io/programmes/pdf">Postdoctoral programme</a></li>
+                            <li><a href="/programmes/i-msc-phd.html">Integrated MSc-PhD programme</a></li>
+                            <li><a href="/programmes/phd.html">PhD programme</a></li>
+                            <li><a href="/programmes/pdf.html">Postdoctoral programme</a></li>
                         </ul>
                     </li>
                     <li class="relative dropdown">
                         <a href="#" aria-haspopup="true" aria-expanded="false">People</a>
                         <ul class="dropdown-menu">
-                            <li><a href="https://ksom-coe.github.io/people/faculty">Faculty</a></li>
-                            <li><a href="https://ksom-coe.github.io/people/pdf">Postdoctoral fellows</a></li>
-                            <li><a href="https://ksom-coe.github.io/people/researchscholars">Research Scholars</a></li>
-                            <li><a href="https://ksom-coe.github.io/people/students">Students</a></li>
+                            <li><a href="/people/faculty.html">Faculty</a></li>
+                            <li><a href="/people/pdf.html">Postdoctoral fellows</a></li>
+                            <li><a href="/people/researchscholars.html">Research Scholars</a></li>
+                            <li><a href="/people/students.html">Students</a></li>
                         </ul>
                     </li>
                     <li class="relative dropdown">
                         <a href="#" aria-haspopup="true" aria-expanded="false">Activities</a>
                         <ul class="dropdown-menu">
-                            <li><a href="https://ksom-coe.github.io/activities/seminars">Colloquiums and seminars</a></li>
-                            <li><a href="https://ksom-coe.github.io/activities/conferences">Conferences</a></li>
-                            <li><a href="https://ksom-coe.github.io/activities/workshops">Workshops</a></li>
-                            <li><a href="https://ksom-coe.github.io/activities/outreach">Outreach activities</a></li>
+                            <li><a href="/activities/seminars.html">Colloquiums and seminars</a></li>
+                            <li><a href="/activities/conferences.html">Conferences</a></li>
+                            <li><a href="/activities/workshops.html">Workshops</a></li>
+                            <li><a href="/activities/outreach.html">Outreach activities</a></li>
                         </ul>
                     </li>
                     <li class="relative dropdown">
                         <a href="#" aria-haspopup="true" aria-expanded="false">Resources</a>
                         <ul class="dropdown-menu">
-                            <li><a href="https://ksom-coe.github.io/resources/library">Library</a></li>
-                            <li><a href="https://ksom-coe.github.io/resources/archive">Archive</a></li>
+                            <li><a href="/resources/library.html">Library</a></li>
+                            <li><a href="/resources/archive.html">Archive</a></li>
                         </ul>
                     </li>
                     <li><a href="/contact.html">Contact</a></li>
@@ -153,43 +152,8 @@
         <div id="mobile-menu" class="mobile-nav" aria-label="Mobile Navigation">
             <button id="mobile-close-button" class="absolute top-4 right-4 text-white text-2xl" aria-label="Close mobile menu">×</button>
             <nav aria-label="Mobile Navigation">
-                <ul class="mt-12">
-                    <li><a href="/about.html" class="block py-3">About</a></li>
-                    <li><a href="https://ksom-coe.github.io/research" class="block py-3">Research</a></li>
-                    <li class="relative">
-                        <a href="#" class="block py-3" aria-expanded="false">Programmes</a>
-                        <ul class="pl-4 hidden">
-                            <li><a href="https://ksom-coe.github.io/programmes/i-msc-phd" class="block py-2">Integrated MSc-PhD programme</a></li>
-                            <li><a href="https://ksom-coe.github.io/programmes/phd" class="block py-2">PhD programme</a></li>
-                            <li><a href="https://ksom-coe.github.io/programmes/pdf" class="block py-2">Postdoctoral programme</a></li>
-                        </ul>
-                    </li>
-                    <li class="relative">
-                        <a href="#" class="block py-3" aria-expanded="false">People</a>
-                        <ul class="pl-4 hidden">
-                            <li><a href="https://ksom-coe.github.io/people/faculty" class="block py-2">Faculty</a></li>
-                            <li><a href="https://ksom-coe.github.io/people/pdf" class="block py-2">Postdoctoral fellows</a></li>
-                            <li><a href="https://ksom-coe.github.io/people/researchscholars" class="block py-2">Research Scholars</a></li>
-                            <li><a href="https://ksom-coe.github.io/people/students" class="block py-2">Students</a></li>
-                        </ul>
-                    </li>
-                    <li class="relative">
-                        <a href="#" class="block py-3" aria-expanded="false">Activities</a>
-                        <ul class="pl-4 hidden">
-                            <li><a href="https://ksom-coe.github.io/activities/seminars" class="block py-2">Colloquiums and seminars</a></li>
-                            <li><a href="https://ksom-coe.github.io/activities/conferences" class="block py-2">Conferences</a></li>
-                            <li><a href="https://ksom-coe.github.io/activities/workshops" class="block py-2">Workshops</a></li>
-                            <li><a href="https://ksom-coe.github.io/activities/outreach" class="block py-2">Outreach activities</a></li>
-                        </ul>
-                    </li>
-                    <li class="relative">
-                        <a href="#" class="block py-3" aria-expanded="false">Resources</a>
-                        <ul class="pl-4 hidden">
-                            <li><a href="https://ksom-coe.github.io/resources/library" class="block py-2">Library</a></li>
-                            <li><a href="https://ksom-coe.github.io/resources/archive" class="block py-2">Archive</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="/contact.html" class="block py-3">Contact</a></li>
+                <ul id="mobile-nav-container" class="mt-12">
+                    <!-- This ul will be populated by JavaScript -->
                 </ul>
             </nav>
         </div>
@@ -454,9 +418,7 @@
         </section>
     </main>
 
-    <!-- Footer Content (This section would typically be dynamically included from footer.html) -->
-    <!-- For local development, you might manually copy the content of footer.html here, -->
-    <!-- or use a build tool/server-side include for production. -->
+    <!-- Footer Content -->
     <footer class="site-footer" id="contact">
         <div class="container footer-grid">
             <div class="footer-about">
@@ -509,14 +471,14 @@
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileCloseButton = document.getElementById('mobile-close-button');
+            const mobileNavContainer = document.getElementById('mobile-nav-container');
 
-            // Clone the nav items from desktop to mobile
-            const mobileNavContainer = mobileMenu.querySelector('nav ul');
             // Clear existing content in mobileNavContainer to prevent duplication if script runs multiple times
             if (mobileNavContainer) {
                 mobileNavContainer.innerHTML = '';
             }
 
+            // Clone the nav items from desktop to mobile
             const clonedUl = desktopNav.cloneNode(true);
             clonedUl.classList.remove('flex', 'space-x-4'); // Remove desktop flex classes
 
@@ -524,7 +486,10 @@
             clonedUl.querySelectorAll('li').forEach(li => {
                 const anchor = li.querySelector('a');
                 if (anchor) {
-                    anchor.classList.add('block', 'py-3', 'px-4', 'text-white'); // Add common mobile link styles
+                    // Add common mobile link styles
+                    anchor.classList.add('block', 'py-3', 'px-4', 'text-white');
+                    // Remove desktop specific hover underline functionality from cloned elements if any
+                    // The CSS `display: none;` on `::after` already handles this, so no JS needed.
                 }
 
                 const dropdownMenu = li.querySelector('.dropdown-menu');
@@ -551,16 +516,17 @@
                 mobileNavContainer.appendChild(clonedUl);
             }
             
-
             // Toggle mobile menu
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.add('mobile-menu-visible');
+                mobileMenu.classList.remove('mobile-menu-hidden'); // Ensure it slides in
                 mobileMenuButton.setAttribute('aria-expanded', 'true');
             });
 
             // Close mobile menu
             mobileCloseButton.addEventListener('click', () => {
                 mobileMenu.classList.remove('mobile-menu-visible');
+                mobileMenu.classList.add('mobile-menu-hidden'); // Ensure it slides out
                 mobileMenuButton.setAttribute('aria-expanded', 'false');
             });
 
@@ -571,6 +537,7 @@
 
                 if (!isClickInsideButton && !isClickInsideMenu && mobileMenu.classList.contains('mobile-menu-visible')) {
                     mobileMenu.classList.remove('mobile-menu-visible');
+                    mobileMenu.classList.add('mobile-menu-hidden');
                     mobileMenuButton.setAttribute('aria-expanded', 'false');
                 }
             });
@@ -581,11 +548,11 @@
                 const menu = dropdown.querySelector('.dropdown-menu');
                 if (menu) {
                     dropdown.addEventListener('mouseenter', () => {
-                        // menu.classList.add('show'); // CSS handles visibility now
+                        menu.classList.add('show');
                         link.setAttribute('aria-expanded', 'true');
                     });
                     dropdown.addEventListener('mouseleave', () => {
-                        // menu.classList.remove('show'); // CSS handles visibility now
+                        menu.classList.remove('show');
                         link.setAttribute('aria-expanded', 'false');
                     });
                 }
