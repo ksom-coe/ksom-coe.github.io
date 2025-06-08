@@ -294,7 +294,7 @@ a:hover, a:focus-visible {
 .site-header {
     background-color: var(--white);
     color: var(--gray-800);
-    padding: var(--spacing-5) 0;
+    padding: var(--spacing-4) 0; /* Reduced padding to make it smaller */
     position: sticky;
     top: 0;
     z-index: var(--z-sticky);
@@ -316,7 +316,7 @@ a:hover, a:focus-visible {
 }
 
 .site-header .site-logo-img {
-    height: 64px; /* Adjust height as needed */
+    height: 56px; /* Reduced logo height */
     width: auto;
     border-radius: var(--border-radius-sm);
 }
@@ -325,7 +325,7 @@ a:hover, a:focus-visible {
 .site-header .dept-title {
     font-family: var(--font-heading); /* Playfair Display for KSoM */
     font-weight: 900; /* Bold to make it "divine" */
-    font-size: var(--font-size-2xl); /* Larger for 'KSoM' */
+    font-size: var(--font-size-xl); /* Adjusted font size for 'KSoM' */
     color: var(--ias-blue);
     margin-bottom: var(--spacing-0-5);
     white-space: nowrap; /* Force the text to stay on a single line */
@@ -335,7 +335,7 @@ a:hover, a:focus-visible {
 /* Styles for "Kerala School of Mathematics" (previously university-name) */
 .site-header .university-name {
     font-family: var(--font-primary); /* Lora for the descriptive text */
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xs); /* Adjusted font size */
     color: var(--gray-600);
     margin-bottom: 0;
     line-height: 1.3;
@@ -361,13 +361,13 @@ a:hover, a:focus-visible {
 .main-nav ul {
     list-style: none;
     display: flex;
-    gap: var(--spacing-6); /* Space between main nav items */
+    gap: var(--spacing-5); /* Adjusted space between main nav items */
     flex-wrap: nowrap; /* Prevent nav items from wrapping */
     white-space: nowrap; /* Keep nav items on single line */
 }
 
 .main-nav ul li a {
-    padding: var(--spacing-2) var(--spacing-0);
+    padding: var(--spacing-1-5) var(--spacing-0); /* Reduced padding for smaller nav bar */
     display: block;
     font-weight: 600;
     color: var(--gray-700);
@@ -791,7 +791,7 @@ a:hover, a:focus-visible {
     padding: var(--spacing-4) 0;
     display: flex;
     align-items: flex-start;
-    gap: var(--spacing-3); /* Reduced gap for tighter text wrapping */
+    gap: var(--spacing-2); /* Reduced gap to make text start closer to date */
 }
 
 .news-item:last-child, .event-card:last-child {
@@ -801,7 +801,7 @@ a:hover, a:focus-visible {
 .news-item .date, .event-card .date-box {
     flex-shrink: 0;
     text-align: center;
-    width: 50px; /* Further reduced width for date box */
+    width: 45px; /* Further reduced width for date box */
     background-color: var(--ias-light-blue);
     padding: var(--spacing-1) var(--spacing-0-5); /* Adjusted padding */
     border-radius: var(--border-radius-sm);
@@ -1130,7 +1130,7 @@ a:hover, a:focus-visible {
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     .site-header .site-logo-img { /* Updated selector */
-        height: 72px; /* Slightly larger logo on tablets */
+        height: 64px; /* Slightly larger logo on tablets */
     }
     .site-header .dept-title { /* Updated selector */
         font-size: var(--font-size-2xl);
@@ -1180,7 +1180,7 @@ a:hover, a:focus-visible {
     }
 
     .site-header .site-logo-img { /* Updated selector */
-        height: 80px; /* Larger logo on desktops */
+        height: 72px; /* Larger logo on desktops */
     }
 
     .site-header .site-branding {
@@ -1188,7 +1188,7 @@ a:hover, a:focus-visible {
     }
 
     .main-nav ul {
-        gap: var(--spacing-8);
+        gap: var(--spacing-6); /* Adjusted gap */
     }
 
     /* Grid for content cards on large desktops (3 columns) */
