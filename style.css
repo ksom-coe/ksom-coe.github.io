@@ -272,7 +272,7 @@ a:hover, a:focus-visible {
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   6.1 Header
+   6.1 Header - UPDATED
    -------------------------------------------------------------------------- */
 .site-header {
     background-color: var(--white);
@@ -289,7 +289,7 @@ a:hover, a:focus-visible {
     display: flex;
     justify-content: space-between; /* Keeps logo left, nav right */
     align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    flex-wrap: nowrap; /* Prevent wrapping */
 }
 
 .site-header .site-branding {
@@ -331,10 +331,16 @@ a:hover, a:focus-visible {
 /* --------------------------------------------------------------------------
    6.2 Navigation (Desktop & Mobile) - UPDATED
    -------------------------------------------------------------------------- */
+.main-nav {
+    flex-shrink: 0; /* Prevent nav from growing */
+}
+
 .main-nav ul {
     list-style: none;
     display: flex;
     gap: var(--spacing-6); /* Space between main nav items */
+    flex-wrap: nowrap; /* Prevent nav items from wrapping */
+    white-space: nowrap; /* Keep nav items on single line */
 }
 
 .main-nav ul li a {
@@ -427,6 +433,9 @@ a:hover, a:focus-visible {
     /* Fix navigation visibility */
     .main-nav {
         display: flex !important; /* Ensure desktop nav is visible and uses flex */
+    }
+    .site-header .site-branding {
+        max-width: 50%; /* More space for navigation */
     }
 }
 
@@ -977,7 +986,7 @@ a:hover, a:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   8. Media Queries
+   8. Media Queries - UPDATED
    -------------------------------------------------------------------------- */
 
 /* Small devices (phones, 640px and up) */
@@ -1017,7 +1026,7 @@ a:hover, a:focus-visible {
     }
 
     .site-header .site-branding {
-        max-width: 55%; /* Limit branding width to give more space for nav */
+        max-width: 50%; /* More space for navigation */
     }
 
 
