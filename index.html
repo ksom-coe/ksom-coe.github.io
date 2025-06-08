@@ -70,27 +70,26 @@
                 </div>
             </div>
 
-            <!-- Right Side: Navigation + Toggle -->
-            <div class="header-right">
-                <!-- Desktop Nav -->
-                <nav id="desktop-nav" class="main-nav hidden md:flex" aria-label="Main Navigation">
-                    <ul id="nav-items">
-                        <li><a href="/about.html">About</a></li>
-                        <li><a href="/research.html">Research</a></li>
-                        <li class="relative dropdown">
-                            <a href="#" aria-haspopup="true" aria-expanded="false">Programmes</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/programmes/phd.html">Ph.D. Programme</a></li>
-                                <li><a href="/programmes/msc.html">M.Sc. Programme</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="/people.html">People</a></li>
-                        <li><a href="/events.html">Events</a></li>
-                        <li><a href="/contact.html">Contact</a></li>
-                    </ul>
-                </nav>
+            <!-- Desktop Navigation -->
+            <nav id="desktop-nav" class="main-nav hidden md:flex" aria-label="Main Navigation">
+                <ul id="nav-items">
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/research.html">Research</a></li>
+                    <li class="relative dropdown">
+                        <a href="#" aria-haspopup="true" aria-expanded="false">Programmes</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/programmes/phd.html">Ph.D. Programme</a></li>
+                            <li><a href="/programmes/msc.html">M.Sc. Programme</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/people.html">People</a></li>
+                    <li><a href="/events.html">Events</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </nav>
 
-                <!-- Mobile Menu Button -->
+            <!-- Mobile Menu Button -->
+            <div class="header-right">
                 <button id="mobile-menu-button" class="mobile-menu-button md:hidden" aria-label="Toggle mobile menu" aria-controls="mobile-menu" aria-expanded="false">
                     ☰ <!-- Hamburger icon -->
                 </button>
@@ -111,7 +110,7 @@
                             <li><a href="/programmes/msc.html" class="block py-2">M.Sc. Programme</a></li>
                         </ul>
                     </li>
-                    <li><a href="/people.html" class="block py-3">People</a></li>
+                    <li><a href="/people.html">People</a></li>
                     <li><a href="/events.html" class="block py-3">Events</a></li>
                     <li><a href="/contact.html">Contact</a></li>
                 </ul>
@@ -584,7 +583,7 @@
             // Function to disable scroll and re-apply line clamping
             const disableScroll = () => {
                 description.style.overflowY = 'hidden';
-                description.style.webkitLineClamp = '3'; // Re-apply original line clamp
+                description.style.webkitLineClamp = '8'; // Re-apply original line clamp
             };
 
             // On mouse enter (hover), enable scroll
