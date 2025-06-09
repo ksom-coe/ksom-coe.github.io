@@ -218,49 +218,26 @@
         }
 
         /* === Layout Container (Unified Width and Padding) === */
-        .container, .site-header-inner, .main-content-wrapper, .top-content-area {
+        .container, .site-header-inner, .main-layout-container, .site-footer > .container {
             max-width: 1280px; /* Consistent max-width */
             margin: 0 auto;
             padding: 0 2rem; /* Consistent horizontal padding */
         }
-        .main-content-wrapper, .top-content-area { /* Re-apply vertical padding for main content sections */
+        .main-layout-container { /* Re-apply vertical padding for the main content area */
             padding-top: 2rem;
             padding-bottom: 2rem;
         }
 
 
-        /* Top Section: Campus Photo + News Sidebar */
-        .top-content-area {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem; /* Consistent gap */
-        }
-        @media (min-width: 1024px) {
-            .top-content-area {
-                flex-direction: row;
-                gap: 2rem; /* Consistent gap */
-            }
-            .campus-photo-container {
-                flex: 2; /* 2/3 width */
-                border-radius: 0.75rem;
-                overflow: hidden;
-                height: 220px; /* Reduced height for desktop */
-                position: relative; /* Key fix: for overlay to align to its bottom */
-            }
-            .news-events-sidebar {
-                flex: 1; /* 1/3 width */
-                max-height: 220px; /* Reduced max-height for desktop */
-                overflow-y: auto; /* Scroll if content overflows */
-            }
-        }
+        /* Top Section: Campus Photo + News Sidebar (old styles removed, as now part of new layout) */
+        /* .top-content-area styles are now integrated into .main-layout-container and its children */
+        
         .campus-photo-container {
-            height: 250px; /* Reduced height for mobile/default */
-            position: relative; /* Key fix: for overlay to align to its bottom */
+            height: 250px; /* Default height */
+            position: relative;
+            border-radius: 0.75rem; /* Re-added for consistency */
+            overflow: hidden; /* Re-added for consistency */
         }
-        .news-events-sidebar {
-            max-height: 250px; /* Reduced max-height for mobile/default */
-        }
-
         .campus-photo {
             width: 100%;
             height: 100%;
@@ -301,77 +278,83 @@
         }
 
 
-        /* === Latest News Card (top section, uses .content-card) === */
-        .news-section.content-card {
-            padding: 1rem 1.25rem; /* Consistent padding */
-            background-color: #ffffff;
-            border-radius: 0.5rem;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-        }
-        /* Style for individual news items within the top sidebar */
-        .news-item.card-block {
-            background-color: transparent; /* Minimalist */
-            padding: 0.5rem 0; /* Reduced padding */
-            border-left: none; /* No border */
-            box-shadow: none; /* No shadow */
-            border-radius: 0; /* No border-radius */
-            margin-bottom: 0.5rem; /* Keep a small gap between news items */
-        }
-        .news-item.card-block:hover {
-            box-shadow: none; /* No shadow on hover for news items */
-            transform: none; /* No lift on hover for news items */
-        }
-        .news-item h4 {
-            font-size: 1rem; /* Smaller title for news items */
-            color: var(--highlight-blue);
-            margin-bottom: 0.1rem;
-        }
-        .news-date-text {
-            font-size: 0.75rem; /* Smaller date font for news items */
-            color: #888;
-            margin-bottom: 0.2rem;
-        }
-        .news-item p {
-            font-size: 0.8rem; /* Smaller paragraph font for news items */
-            line-height: 1.4;
-            color: #555;
-            text-align: justify;
-        }
-
-        /* === MAIN CONTENT BOX STYLE === */
+        /* === MAIN CONTENT BOX STYLE (Overall grid container for About/Research/Events/Outreach) === */
         .main-content-box {
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background-color: #fff; /* Re-added as it's part of the left block now */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Re-added */
+            border-radius: 0.75rem; /* Re-added */
+            padding: 2rem; /* Re-added */
+            
+            display: flex; /* Default to flex column on mobile */
+            flex-direction: column;
+            gap: 2rem; /* Gap between main sections on mobile */
+        }
+        /* Styles for the unified content card in the right sidebar */
+        .unified-right-sidebar-content.content-card {
+            padding: 1.5rem;
+            background-color: #ffffff;
             border-radius: 0.75rem;
-            padding: 2rem; /* Overall padding for the main box */
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem; /* Gap between News, Events, Outreach sections */
         }
 
-        /* === Responsive Three-Column Grid === */
-        .inner-three-column-grid {
-            display: grid;
-            grid-template-columns: 1fr; /* Default to stack on mobile */
-            gap: 2rem; /* Consistent gap for both mobile and desktop */
-        }
 
+        /* === Responsive Grid Layout for Main Content === */
         @media (min-width: 1024px) {
-            .inner-three-column-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2rem; /* Keep 2rem gap for desktop */
+            .main-layout-container {
+                flex-direction: row;
+                align-items: flex-start; /* Align children to the top */
+                gap: 2rem;
             }
-            /* Shift separator line and adjust padding */
-            .inner-three-column-grid > .inner-column:nth-child(2),
-            .inner-three-column-grid > .inner-column:nth-child(3) { /* Apply padding-left to both 2nd and 3rd column */
-                padding-left: 1rem;
+
+            .left-main-block {
+                width: 75%; /* Takes 75% of the width */
+                display: flex; /* Make it a flex container */
+                flex-direction: column; /* Stack image and content vertically */
+                gap: 2rem; /* Gap between image and content below it */
             }
-            .inner-three-column-grid > .inner-column:nth-child(2) {
-                border-left: 1px solid rgba(0,0,0,0.08); /* Border for 2nd column */
+            
+            .campus-photo-container {
+                height: 220px; /* Reduced height for desktop in 75% column */
             }
-            .inner-three-column-grid > .inner-column:nth-child(3) {
-                border-left: 1px solid rgba(0,0,0,0.08); /* Border for 3rd column */
+
+            .right-sidebar-full {
+                width: 25%; /* Takes 25% of the width */
+                display: flex;
+                flex-direction: column;
+                /* No specific max-height, it will naturally extend */
             }
-            .inner-column { /* Reset padding for all columns */
+
+            /* Main Content Two Columns (About + Research) */
+            .main-content-box { /* This now acts as the 2-column grid within the left block */
+                display: grid;
+                grid-template-columns: 1fr 1fr; /* Two equal columns */
+                gap: 2rem; /* Gap between About and Research columns */
+                padding: 0; /* Remove overall padding, content will have its own padding */
+                box-shadow: none; /* No shadow for this inner grid container */
+                background-color: transparent; /* No background for this inner grid container */
+                border-radius: 0; /* No border-radius for this inner grid container */
+            }
+
+
+            /* No specific padding-left/right on .inner-column itself */
+            .inner-column {
                 padding-left: 0;
                 padding-right: 0;
+                border-right: none; /* Ensure no residual borders from old layout */
+                border-left: none;
+            }
+
+            /* Add vertical separators */
+            .main-content-box > .inner-column:nth-child(2) {
+                border-left: 1px solid rgba(0,0,0,0.08); /* Separator between About and Research columns */
+                padding-left: 1rem; /* Padding for content next to border */
+            }
+            .right-sidebar-full { /* This will be the third main visual column */
+                border-left: 1px solid rgba(0,0,0,0.08); /* Separator between left 75% block and right 25% sidebar */
+                padding-left: 1rem; /* Padding for content next to border */
             }
         }
 
@@ -387,6 +370,18 @@
             margin-bottom: 0.5rem; /* Slightly more space below heading */
             width: 100%; /* Ensure headings span full width within their logical column content */
         }
+        /* Bonus tip: Smaller headings for right sidebar, and remove borders */
+        .right-sidebar-full .section-heading {
+            font-size: 1.2rem; /* Smaller heading for denser sidebar */
+            border: none; /* Remove border from headings in the right sidebar */
+            margin-top: 1.5rem; /* Add consistent top margin between sections */
+            margin-bottom: 0.5rem; /* Keep consistent bottom margin */
+        }
+        /* Ensure the first heading in the unified sidebar doesn't have an extra top margin */
+        .unified-right-sidebar-content .section-heading:first-child {
+            margin-top: 0;
+        }
+
 
         /* === Text Block Style (General paragraphs not in cards) === */
         /* These are for the main intro paragraphs within columns (e.g., About KSoM, Research Areas intro) */
@@ -512,9 +507,6 @@
             color: #ffffff;
         }
 
-        /* Utility classes */
-        /* .container is now part of the unified width/padding rule above */
-
         /* Responsive adjustments for mobile */
         @media (max-width: 767px) {
             .site-header-inner {
@@ -535,8 +527,15 @@
             .mobile-menu-button {
                 display: block;
             }
-            .top-content-area {
-                padding: 1rem;
+            /* Main layout container will stack on mobile */
+            .main-layout-container {
+                flex-direction: column;
+                padding: 1rem; /* Adjust padding for mobile */
+                gap: 1.5rem; /* Adjust gap for mobile sections */
+            }
+            .left-main-block, .right-sidebar-full {
+                width: 100%; /* Full width on mobile */
+                gap: 1.5rem;
             }
             .campus-photo-container {
                 height: 200px; /* Even shorter image on mobile */
@@ -562,7 +561,7 @@
                 margin-top: 0.3rem;
             }
 
-            .inner-column {
+            .inner-column { /* Ensure inner columns stack on mobile */
                 padding-left: 0;
                 padding-right: 0;
             }
@@ -571,6 +570,26 @@
                 width: 100%;
                 max-width: none;
             }
+            .main-content-box { /* Ensure the two columns stack on mobile */
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 1.5rem; /* Adjust padding for inner content box on mobile */
+            }
+            /* Remove borders on mobile */
+            .main-content-box > .inner-column:nth-child(2),
+            .right-sidebar-full {
+                border-left: none;
+                padding-left: 0;
+            }
+            .right-sidebar-full .section-heading {
+                 border-bottom: 2px solid var(--highlight-red); /* Re-add border for headings on mobile */
+                 padding-bottom: 0.5rem;
+            }
+            .unified-right-sidebar-content.content-card {
+                box-shadow: none; /* No shadow for the main unified card on mobile */
+                border-radius: 0; /* No border radius */
+                padding: 1rem; /* Adjust padding for mobile */
+            }
         }
     </style>
 </head>
@@ -578,7 +597,6 @@
 
     <!-- Header Content -->
     <header class="site-header">
-        <!-- Removed "container" class from site-header-inner div as it was redundant -->
         <div class="site-header-inner">
             <!-- Logo and Institution Branding -->
             <div class="site-branding">
@@ -651,59 +669,24 @@
     </nav>
 
     <main id="main-content">
-        <!-- TOP VISUAL AREA: KSoM Campus Photo + Latest News Sidebar (MFO Style) -->
-        <section class="top-content-area">
-            <!-- KSoM Campus Photo (Left part) -->
-            <div class="campus-photo-container">
-                <img src="Images/KSoMCampus.jpg" alt="KSoM Campus" class="campus-photo" onerror="this.onerror=null;this.src='https://placehold.co/1920x600/005080/ffffff?text=KSoM+Campus';">
-                <div class="campus-photo-overlay-content">
-                    <h1 class="campus-title">Kerala School of Mathematics</h1>
-                    <p class="campus-subtitle">
-                        An autonomous institution established jointly by the Science & Technology Department, Govt. of Kerala and the Department of Atomic Energy, Govt. of India.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Right Sidebar: Latest News -->
-            <div class="news-events-sidebar">
-                <!-- Latest News Section -->
-                <section class="news-section content-card">
-                    <h3 class="text-xl font-bold mb-3 text-ias-dark-blue">Latest News</h3>
-                    <div class="space-y-3">
-                        <!-- News Item 1 -->
-                        <a href="/news/registrar-recruitment.html" class="news-item card-block">
-                            <h4 class="font-semibold text-base mb-1 text-ias-blue">Recruitment of Registrar</h4>
-                            <span class="news-date-text">June 03, 2025</span>
-                            <p class="text-gray-700 text-sm truncated-text">
-                                KSoM is seeking a qualified candidate for the position of Registrar. Responsibilities include administrative operations, student records, and coordinating with various departments. A master's degree and relevant experience are required.
-                            </p>
-                        </a>
-                        <!-- News Item 2 -->
-                        <a href="/news/phd-admissions-2025.html" class="news-item card-block">
-                            <h4 class="font-semibold text-base mb-1 text-ias-blue">KSoM-Ph.D. Admissions 2025 - Advertisement</h4>
-                            <span class="news-date-text">May 07, 2025</span>
-                            <p class="text-gray-700 text-sm truncated-text">
-                                Advertisement for the Ph.D. Programme admissions for 2025 has been released. Prospective candidates are invited to apply through the official website. The deadline for applications is July 15, 2025.
-                            </p>
-                        </a>
-                         <!-- News Item 3 -->
-                         <a href="/news/autonomous-status.html" class="news-item card-block">
-                            <h4 class="font-semibold text-base mb-1 text-ias-blue">KSoM Gains Autonomous Status</h4>
-                            <span class="news-date-text">April 25, 2025</span>
-                            <p class="text-gray-700 text-sm truncated-text">
-                                KSoM has officially become an autonomous institution, delinked from KSCSTE. This new status grants KSoM greater flexibility in academic and administrative matters, paving the way for enhanced research and educational initiatives.
-                            </p>
-                        </a>
+        <!-- Combined TOP and RIGHT Column -->
+        <section class="main-layout-container">
+            <!-- LEFT SIDE: Image + Main Content -->
+            <div class="left-main-block">
+                <!-- Image Block -->
+                <div class="campus-photo-container">
+                    <img src="Images/KSoMCampus.jpg" alt="KSoM Campus" class="campus-photo"
+                         onerror="this.onerror=null;this.src='https://placehold.co/1920x600/005080/ffffff?text=KSoM+Campus';">
+                    <div class="campus-photo-overlay-content">
+                        <h1 class="campus-title">Kerala School of Mathematics</h1>
+                        <p class="campus-subtitle">
+                            An autonomous institution established jointly by the Science & Technology Department, Govt. of Kerala and the Department of Atomic Energy, Govt. of India.
+                        </p>
                     </div>
-                    <a href="/news.html" class="view-all-link text-ias-teal font-semibold mt-3 block text-right">View All News &rarr;</a>
-                </section>    
-            </div>
-        </section>
+                </div>
 
-        <!-- MAIN CONTENT IN SINGLE BOX WITH INNER THREE COLUMNS (IAS Style) -->
-        <section class="main-content-wrapper">
-            <div class="main-content-box">
-                <div class="inner-three-column-grid">
+                <!-- Main Content Two Columns (About + Research) -->
+                <div class="main-content-box">
                     <!-- Column 1: About KSoM, Programmes -->
                     <div class="inner-column">
                         <h2 class="section-heading">About KSoM</h2>
@@ -794,54 +777,85 @@
                         </div>
                         <a href="/activities.html" class="read-more-link mt-auto block text-right">View All Activities &rarr;</a>
                     </div>
-
-                    <!-- Column 3: Upcoming Events & Outreach -->
-                    <div class="inner-column">
-                        <h2 class="section-heading">Upcoming Events</h2>
-                        <div class="space-y-4">
-                            <a href="/events/ravi-kumar-lecture.html" class="event-item-card card-block">
-                                <h4 class="font-semibold text-base mb-1 text-ias-blue">Guest Lecture: Dr. Ravi Kumar (IIT Bombay)</h4>
-                                <span class="event-date-text">July 15, 2025</span>
-                                <p class="event-location text-gray-600 text-sm">KSoM Auditorium</p>
-                                <p class="event-time text-gray-600 text-sm">10:00 AM</p>
-                                <p class="text-gray-700 truncated-text">
-                                    Topic: Advances in Number Theory. This lecture is part of the ongoing seminar series and is open to all students and faculty.
-                                </p>
-                            </a>
-                            <a href="/events/cryptography-workshop.html" class="event-item-card card-block">
-                                <h4 class="font-semibold text-base mb-1 text-ias-blue">Workshop on Cryptography and its Applications</h4>
-                                <span class="event-date-text">August 01, 2025</span>
-                                <p class="event-location text-gray-600 text-sm">KSoM Computing Lab</p>
-                                <p class="event-time text-gray-600 text-sm">August 1-7, 2025</p>
-                                <p class="text-gray-700 truncated-text">
-                                    A week-long workshop for research scholars and faculty focusing on symmetric and asymmetric key cryptography, hash functions, and digital signatures.
-                                </p>
-                            </a>
-                            <a href="/events/phd-exam.html" class="event-item-card card-block">
-                                <h4 class="font-semibold text-base mb-1 text-ias-blue">Ph.D. Entrance Examination</h4>
-                                <span class="event-date-text">August 20, 2025</span>
-                                <p class="event-location text-gray-600 text-sm">KSoM Examination Halls</p>
-                                <p class="event-time text-gray-600 text-sm">9:30 AM onwards</p>
-                                <p class="text-gray-700 truncated-text">
-                                    The annual entrance examination for Ph.D. admissions will be conducted on campus.
-                                </p>
-                            </a>
-                        </div>
-                        <a href="/events.html" class="read-more-link mt-auto block text-right">View All Events &rarr;</a>
-
-                        <h2 class="section-heading mt-6">Outreach</h2>
-                        <div class="space-y-4">
-                            <a href="/outreach/swim-ksom.html" class="outreach-item card-block">
-                                <h3>SWIM@KSoM: Summer Workshop in Mathematics</h3>
-                                <p class="truncated-text">
-                                    SWIM@KSoM is an annual summer workshop by KSoM, introducing undergraduates to advanced mathematics for research careers. The two-week program features lectures, problem-solving, and discussions led by KSoM faculty and experts, covering Abstract Algebra, Real Analysis, Topology, and Number Theory. It bridges undergraduate curriculum with higher mathematics, promoting critical thinking and independent problem-solving. Selection is competitive, based on merit and application.
-                                </p>
-                            </a>
-                            <a href="https://ksom-swim.github.io/" target="_blank" class="read-more-link mt-auto block text-right">Visit SWIM@KSoM website &rarr;</a>
-                        </div>
-                    </div>
                 </div>
             </div>
+
+            <!-- RIGHT SIDE: Latest News + Events/Outreach (Single Column Block) -->
+            <aside class="right-sidebar-full">
+                <section class="unified-right-sidebar-content content-card">
+                    <h3 class="text-xl font-bold mb-3 text-ias-dark-blue">Latest News</h3>
+                    <div class="space-y-3">
+                        <!-- News Item 1 -->
+                        <a href="/news/registrar-recruitment.html" class="news-item card-block">
+                            <h4 class="font-semibold text-base mb-1 text-ias-blue">Recruitment of Registrar</h4>
+                            <span class="news-date-text">June 03, 2025</span>
+                            <p class="text-gray-700 text-sm truncated-text">
+                                KSoM is seeking a qualified candidate for the position of Registrar. Responsibilities include administrative operations, student records, and coordinating with various departments. A master's degree and relevant experience are required.
+                            </p>
+                        </a>
+                        <!-- News Item 2 -->
+                        <a href="/news/phd-admissions-2025.html" class="news-item card-block">
+                            <h4 class="font-semibold text-base mb-1 text-ias-blue">KSoM-Ph.D. Admissions 2025 - Advertisement</h4>
+                            <span class="news-date-text">May 07, 2025</span>
+                            <p class="text-gray-700 text-sm truncated-text">
+                                Advertisement for the Ph.D. Programme admissions for 2025 has been released. Prospective candidates are invited to apply through the official website. The deadline for applications is July 15, 2025.
+                            </p>
+                        </a>
+                        <!-- News Item 3 -->
+                        <a href="/news/autonomous-status.html" class="news-item card-block">
+                            <h4 class="font-semibold text-base mb-1 text-ias-blue">KSoM Gains Autonomous Status</h4>
+                            <span class="news-date-text">April 25, 2025</span>
+                            <p class="text-gray-700 text-sm truncated-text">
+                                KSoM has officially become an autonomous institution, delinked from KSCSTE. This new status grants KSoM greater flexibility in academic and administrative matters, paving the way for enhanced research and educational initiatives.
+                            </p>
+                        </a>
+                    </div>
+                    <a href="/news.html" class="view-all-link text-ias-teal font-semibold mt-3 block text-right">View All News &rarr;</a>
+
+                    <h2 class="section-heading mt-6">Upcoming Events</h2>
+                    <div class="space-y-4">
+                        <a href="/events/ravi-kumar-lecture.html" class="event-item-card card-block">
+                            <h4 class="font-semibold text-base mb-1 text-ias-blue">Guest Lecture: Dr. Ravi Kumar (IIT Bombay)</h4>
+                            <span class="event-date-text">July 15, 2025</span>
+                            <p class="event-location text-gray-600 text-sm">KSoM Auditorium</p>
+                            <p class="event-time text-gray-600 text-sm">10:00 AM</p>
+                            <p class="text-gray-700 truncated-text">
+                                Topic: Advances in Number Theory. This lecture is part of the ongoing seminar series and is open to all students and faculty.
+                            </p>
+                        </a>
+                        <a href="/events/cryptography-workshop.html" class="event-item-card card-block">
+                            <h4 class="font-semibold text-base mb-1 text-ias-blue">Workshop on Cryptography and its Applications</h4>
+                            <span class="event-date-text">August 01, 2025</span>
+                            <p class="event-location text-gray-600 text-sm">KSoM Computing Lab</p>
+                            <p class="event-time text-gray-600 text-sm">August 1-7, 2025</p>
+                            <p class="text-gray-700 truncated-text">
+                                A week-long workshop for research scholars and faculty focusing on symmetric and asymmetric key cryptography, hash functions, and digital signatures.
+                            </p>
+                        </a>
+                        <a href="/events/phd-exam.html" class="event-item-card card-block">
+                            <h4 class="font-semibold text-base mb-1 text-ias-blue">Ph.D. Entrance Examination</h4>
+                            <span class="event-date-text">August 20, 2025</span>
+                            <p class="event-location text-gray-600 text-sm">KSoM Examination Halls</p>
+                            <p class="event-time text-gray-600 text-sm">9:30 AM onwards</p>
+                            <p class="text-gray-700 truncated-text">
+                                The annual entrance examination for Ph.D. admissions will be conducted on campus.
+                            </p>
+                        </a>
+                    </div>
+                    <a href="/events.html" class="read-more-link mt-auto block text-right">View All Events &rarr;</a>
+
+                    <h2 class="section-heading mt-6">Outreach</h2>
+                    <div class="space-y-4">
+                        <a href="/outreach/swim-ksom.html" class="outreach-item card-block">
+                            <h3>SWIM@KSoM: Summer Workshop in Mathematics</h3>
+                            <p class="truncated-text">
+                                SWIM@KSoM is an annual summer workshop by KSoM, introducing undergraduates to advanced mathematics for research careers. The two-week program features lectures, problem-solving, and discussions led by KSoM faculty and experts, covering Abstract Algebra, Real Analysis, Topology, and Number Theory. It bridges undergraduate curriculum with higher mathematics, promoting critical thinking and independent problem-solving. Selection is competitive, based on merit and application.
+                            </p>
+                        </a>
+                        <a href="https://ksom-swim.github.io/" target="_blank" class="read-more-link mt-auto block text-right">Visit SWIM@KSoM website &rarr;</a>
+                    </div>
+                </section>
+            </aside>
         </section>
     </main>
 
