@@ -184,80 +184,86 @@
             </section>
 
             <!-- Latest News Section (Column 2) -->
-            <section class="news-section" id="news-column">
-                <h2 class="section-title">Latest News</h2>
-                <ul class="news-list">
-                    <li class="news-item" tabindex="0"> <!-- Added tabindex for keyboard accessibility -->
-                        <div class="date">
-                            <span class="day">03</span>
-                            <span class="month">Jun</span>
+            <!-- Wrapped the news section in a content-card for overall expandability -->
+            <div class="content-card" tabindex="0">
+                <section class="news-section" id="news-column">
+                    <h2 class="section-title">Latest News</h2>
+                    <ul class="news-list">
+                        <li class="news-item"> <!-- Removed tabindex here, handled by parent card -->
+                            <div class="date">
+                                <span class="day">03</span>
+                                <span class="month">Jun</span>
+                            </div>
+                            <div class="news-content">
+                                <h4>Recruitment of Registrar</h4>
+                                <p>Kerala School of Mathematics is seeking a qualified candidate for the position of Registrar.</p>
+                            </div>
+                        </li>
+                        <li class="news-item">
+                            <div class="date">
+                                <span class="day">07</span>
+                                <span class="month">May</span>
+                            </div>
+                            <div class="news-content">
+                                <h4>KSoM-Ph.D. Admissions 2025 - Advertisement</h4>
+                                <p>Advertisement for the Ph.D. Programme admissions for the year 2025 has been released.</p>
+                            </div>
+                        </li>
+                         <li class="news-item">
+                            <div class="date">
+                                <span class="day">25</span>
+                                <span class="month">Apr</span>
+                            </div>
+                            <div class="news-content">
+                                <h4>KSoM Gains Autonomous Status</h4>
+                                <p>Kerala School of Mathematics has officially become an autonomous institution, delinked from KSCSTE.</p>
                         </div>
-                        <div class="news-content">
-                            <h4>Recruitment of Registrar</h4>
-                            <p>Kerala School of Mathematics is seeking a qualified candidate for the position of Registrar.</p>
-                        </div>
-                    </li>
-                    <li class="news-item" tabindex="0">
-                        <div class="date">
-                            <span class="day">07</span>
-                            <span class="month">May</span>
-                        </div>
-                        <div class="news-content">
-                            <h4>KSoM-Ph.D. Admissions 2025 - Advertisement</h4>
-                            <p>Advertisement for the Ph.D. Programme admissions for the year 2025 has been released.</p>
-                        </div>
-                    </li>
-                     <li class="news-item" tabindex="0">
-                        <div class="date">
-                            <span class="day">25</span>
-                            <span class="month">Apr</span>
-                        </div>
-                        <div class="news-content">
-                            <h4>KSoM Gains Autonomous Status</h4>
-                            <p>Kerala School of Mathematics has officially become an autonomous institution, delinked from KSCSTE.</p>
-                        </div>
-                    </li>
-                </ul>
-                <a href="#" class="view-all-link">View All News &rarr;</a>
-            </section>
+                        </li>
+                    </ul>
+                    <a href="#" class="view-all-link">View All News &rarr;</a>
+                </section>
+            </div>
 
             <!-- Upcoming Events Section (Column 3) -->
-            <section class="events-section" id="events-column">
-                <h2 class="section-title">Upcoming Events</h2>
-                <ul class="event-list">
-                    <li class="event-card" tabindex="0"> <!-- Added tabindex for keyboard accessibility -->
-                        <div class="date-box">
-                            <span class="day">15</span>
-                            <span class="month">Jul</span>
-                        </div>
-                        <div class="event-content">
-                            <h4>Guest Lecture: Dr. Ravi Kumar (IIT Bombay)</h4>
-                            <p>Topic: Advances in Number Theory. Time: 10:00 AM, KSoM Auditorium.</p>
-                        </div>
-                    </li>
-                    <li class="event-card" tabindex="0">
-                        <div class="date-box">
-                            <span class="day">01</span>
-                            <span class="month">Aug</span>
-                        </div>
-                        <div class="event-content">
-                            <h4>Workshop on Cryptography and its Applications</h4>
-                            <p>A week-long workshop for research scholars and faculty. Registration open.</p>
-                        </div>
-                    </li>
-                    <li class="event-card" tabindex="0">
-                        <div class="date-box">
-                            <span class="day">20</span>
-                            <span class="month">Aug</span>
-                        </div>
-                        <div class="event-content">
-                            <h4>Ph.D. Entrance Examination</h4>
-                            <p>The annual entrance examination for Ph.D. admissions will be conducted on campus.</p>
-                        </div>
-                    </li>
-                </ul>
-                <a href="#" class="view-all-link">View All Events &rarr;</a>
-            </section>
+            <!-- Wrapped the events section in a content-card for overall expandability -->
+            <div class="content-card" tabindex="0">
+                <section class="events-section" id="events-column">
+                    <h2 class="section-title">Upcoming Events</h2>
+                    <ul class="event-list">
+                        <li class="event-card"> <!-- Removed tabindex here, handled by parent card -->
+                            <div class="date-box">
+                                <span class="day">15</span>
+                                <span class="month">Jul</span>
+                            </div>
+                            <div class="event-content">
+                                <h4>Guest Lecture: Dr. Ravi Kumar (IIT Bombay)</h4>
+                                <p>Topic: Advances in Number Theory. Time: 10:00 AM, KSoM Auditorium.</p>
+                            </div>
+                        </li>
+                        <li class="event-card">
+                            <div class="date-box">
+                                <span class="day">01</span>
+                                <span class="month">Aug</span>
+                            </div>
+                            <div class="event-content">
+                                <h4>Workshop on Cryptography and its Applications</h4>
+                                <p>A week-long workshop for research scholars and faculty. Registration open.</p>
+                            </div>
+                        </li>
+                        <li class="event-card">
+                            <div class="date-box">
+                                <span class="day">20</span>
+                                <span class="month">Aug</span>
+                            </div>
+                            <div class="event-content">
+                                <h4>Ph.D. Entrance Examination</h4>
+                                <p>The annual entrance examination for Ph.D. admissions will be conducted on campus.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="#" class="view-all-link">View All Events &rarr;</a>
+                </section>
+            </div>
         </div>
 
         <!-- Research Section - Revamped into a single box -->
@@ -621,12 +627,12 @@
 
         // --- Research/Programme/News/Event Card Interaction (Expand/Collapse on Click/Hover) ---
         // Expanded the selector to include .news-item and .event-card
-        document.querySelectorAll('.content-card, .research-area-item, .news-item, .event-card, .about-us-section').forEach(item => {
+        document.querySelectorAll('.content-card, .research-area-item, .about-us-section').forEach(item => { // Removed news-item, event-card from here as they are now children
             let descriptionElement;
             // Determine the correct element to apply truncation/expansion to
-            if (item.classList.contains('news-item') || item.classList.contains('event-card')) {
-                // For news/event items, the paragraph inside news-content/event-content
-                descriptionElement = item.querySelector('.news-content p, .event-content p');
+            if (item.classList.contains('news-section') || item.classList.contains('events-section')) { // This condition will no longer be true with the new structure
+                // This block is now effectively unused with the new HTML structure
+                descriptionElement = null; // Ensure no element is selected if structure is changed
             } else if (item.classList.contains('about-us-section')) {
                 // For about-us section, target the specific paragraphs inside about-us-text-content
                 descriptionElement = item.querySelector('.about-us-description.truncated-description');
@@ -636,7 +642,116 @@
                 descriptionElement = item.querySelector('.truncated-description');
             }
             
-            if (descriptionElement) {
+            // Re-evaluating selection for news/events sections
+            if (item.classList.contains('content-card')) {
+                // If it's a content-card wrapper for news/events, its expandable content is the inner paragraphs
+                // Loop through all news-item/event-card within this content-card and apply truncation logic to their 'p' tags
+                item.querySelectorAll('.news-item .news-content p, .event-card .event-content p').forEach(pTag => {
+                    // Temporarily store original clamp/maxHeight values on the pTag itself before collapseContent
+                    pTag.dataset.originalClamp = getComputedStyle(pTag).webkitLineClamp || 'unset';
+                    pTag.dataset.originalMaxHeight = pTag.style.maxHeight || 'none';
+
+                    const expandIndividualContent = () => {
+                        pTag.style.overflowY = 'visible';
+                        pTag.style.webkitLineClamp = 'unset';
+                        pTag.style.maxHeight = 'none';
+                    };
+
+                    const collapseIndividualContent = () => {
+                        pTag.style.overflowY = 'hidden';
+                        pTag.style.webkitLineClamp = '3'; // Default for news/events
+                        pTag.style.maxHeight = `calc(${getComputedStyle(pTag).fontSize} * 1.7 * 3)`;
+                    };
+
+                    // Initial state for inner paragraphs
+                    collapseIndividualContent();
+
+                    // Adding mouseenter/mouseleave for individual items within the news/event cards
+                    pTag.closest('.news-item, .event-card').addEventListener('mouseenter', expandIndividualContent);
+                    pTag.closest('.news-item, .event-card').addEventListener('mouseleave', collapseIndividualContent);
+                    pTag.closest('.news-item, .event-card').addEventListener('focusin', expandIndividualContent);
+                    pTag.closest('.news-item, .event-card').addEventListener('focusout', collapseIndividualContent);
+
+                });
+
+                // The overall content-card (for news/events) itself needs expansion logic
+                // For news/events parent cards, we want *all* inner paragraphs to expand when the parent card expands
+                // So, no single 'descriptionElement' for the whole card, but manage inner ones.
+                // The expandContent/collapseContent for the main card will trigger the inner ones.
+                const mainExpandContent = () => {
+                    item.querySelectorAll('.news-item .news-content p, .event-card .event-content p').forEach(pTag => {
+                        pTag.style.overflowY = 'visible';
+                        pTag.style.webkitLineClamp = 'unset';
+                        pTag.style.maxHeight = 'none';
+                    });
+                    item.classList.add('expanded');
+                };
+
+                const mainCollapseContent = () => {
+                    item.querySelectorAll('.news-item .news-content p, .event-card .event-content p').forEach(pTag => {
+                        pTag.style.overflowY = 'hidden';
+                        pTag.style.webkitLineClamp = '3';
+                        pTag.style.maxHeight = `calc(${getComputedStyle(pTag).fontSize} * 1.7 * 3)`;
+                    });
+                    item.classList.remove('expanded');
+                };
+
+                // Apply hover/click listeners to the main .content-card wrapper
+                item.addEventListener('mouseenter', mainExpandContent);
+                item.addEventListener('mouseleave', () => {
+                    if (!item.dataset.stickyExpanded) {
+                        mainCollapseContent();
+                    }
+                });
+                item.addEventListener('click', (event) => {
+                    if (event.target.closest('a') || event.target.closest('button')) {
+                        return;
+                    }
+                    if (item.dataset.stickyExpanded === 'true') {
+                        item.dataset.stickyExpanded = 'false';
+                        mainCollapseContent();
+                    } else {
+                        document.querySelectorAll('.content-card[data-sticky-expanded="true"], .research-area-item[data-sticky-expanded="true"], .about-us-section[data-sticky-expanded="true"]').forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.dataset.stickyExpanded = 'false';
+                                if (otherItem.classList.contains('news-section') || otherItem.classList.contains('events-section')) { // This condition is now wrong for the new structure
+                                    otherItem.querySelectorAll('.news-item .news-content p, .event-card .event-content p').forEach(pTag => {
+                                        pTag.style.overflowY = 'hidden';
+                                        pTag.style.webkitLineClamp = '3';
+                                        pTag.style.maxHeight = `calc(${getComputedStyle(pTag).fontSize} * 1.7 * 3)`;
+                                    });
+                                } else if (otherItem.classList.contains('about-us-section')) {
+                                    otherItem.querySelector('.about-us-description.truncated-description').style.overflowY = 'hidden';
+                                    otherItem.querySelector('.about-us-description.truncated-description').style.webkitLineClamp = '8';
+                                    otherItem.querySelector('.about-us-description.truncated-description').style.maxHeight = '16em';
+                                } else {
+                                    const otherDesc = otherItem.querySelector('.truncated-description');
+                                    if (otherDesc) {
+                                        otherDesc.style.overflowY = 'hidden';
+                                        if (otherItem.classList.contains('programme-card')) {
+                                            otherDesc.style.webkitLineClamp = '5';
+                                            otherDesc.style.maxHeight = '10em';
+                                        } else if (otherItem.classList.contains('research-area-item')) {
+                                            otherDesc.style.webkitLineClamp = '8';
+                                            otherDesc.style.maxHeight = '16em';
+                                        }
+                                    }
+                                }
+                                otherItem.classList.remove('expanded');
+                            }
+                        });
+                        item.dataset.stickyExpanded = 'true';
+                        mainExpandContent();
+                    }
+                });
+                item.addEventListener('focusin', mainExpandContent);
+                item.addEventListener('focusout', () => {
+                    if (!item.dataset.stickyExpanded) {
+                        mainCollapseContent();
+                    }
+                });
+
+            } else if (descriptionElement) { // For .research-area-item, .programme-card, .about-us-section itself
                 // Function to expand content
                 const expandContent = () => {
                     descriptionElement.style.overflowY = 'visible'; // No scroll when expanded
@@ -651,14 +766,8 @@
                     if (item.classList.contains('programme-card')) {
                         descriptionElement.style.webkitLineClamp = '5';
                         descriptionElement.style.maxHeight = '10em';
-                    } else if (item.classList.contains('research-area-item')) {
+                    } else if (item.classList.contains('research-area-item') || item.classList.contains('about-us-section')) {
                         descriptionElement.style.webkitLineClamp = '8';
-                        descriptionElement.style.maxHeight = '16em';
-                    } else if (item.classList.contains('news-item') || item.classList.contains('event-card')) {
-                        descriptionElement.style.webkitLineClamp = '3'; // Set initial clamp for news/events
-                        descriptionElement.style.maxHeight = `calc(${getComputedStyle(descriptionElement).fontSize} * 1.7 * 3)`; // Dynamic height for 3 lines
-                    } else if (item.classList.contains('about-us-section')) {
-                        descriptionElement.style.webkitLineClamp = '8'; // Clamp for about us on collapse
                         descriptionElement.style.maxHeight = '16em';
                     }
                     item.classList.remove('expanded');
@@ -690,16 +799,20 @@
                         collapseContent();
                     } else {
                         // Collapse all other sticky expanded cards first
-                        document.querySelectorAll('.content-card[data-sticky-expanded="true"], .research-area-item[data-sticky-expanded="true"], .news-item[data-sticky-expanded="true"], .event-card[data-sticky-expanded="true"], .about-us-section[data-sticky-expanded="true"]').forEach(otherItem => {
+                        document.querySelectorAll('.content-card[data-sticky-expanded="true"], .research-area-item[data-sticky-expanded="true"], .about-us-section[data-sticky-expanded="true"]').forEach(otherItem => {
                             if (otherItem !== item) { // Don't collapse the current item
                                 otherItem.dataset.stickyExpanded = 'false';
                                 let otherDesc;
-                                if (otherItem.classList.contains('news-item') || otherItem.classList.contains('event-card')) {
-                                    otherDesc = otherItem.querySelector('.news-content p, .event-content p');
+                                // Need to handle news/events as well if they are `content-card` now
+                                if (otherItem.classList.contains('content-card') && (otherItem.querySelector('.news-section') || otherItem.querySelector('.events-section'))) {
+                                    otherItem.querySelectorAll('.news-item .news-content p, .event-card .event-content p').forEach(pTag => {
+                                        pTag.style.overflowY = 'hidden';
+                                        pTag.style.webkitLineClamp = '3';
+                                        pTag.style.maxHeight = `calc(${getComputedStyle(pTag).fontSize} * 1.7 * 3)`;
+                                    });
                                 } else if (otherItem.classList.contains('about-us-section')) {
                                     otherDesc = otherItem.querySelector('.about-us-description.truncated-description');
-                                }
-                                else {
+                                } else {
                                     otherDesc = otherItem.querySelector('.truncated-description');
                                 }
 
@@ -708,18 +821,12 @@
                                     if (otherItem.classList.contains('programme-card')) {
                                         otherDesc.style.webkitLineClamp = '5';
                                         otherDesc.style.maxHeight = '10em';
-                                    } else if (otherItem.classList.contains('research-area-item')) {
-                                        otherDesc.style.webkitLineClamp = '8';
-                                        otherDesc.style.maxHeight = '16em';
-                                    } else if (otherItem.classList.contains('news-item') || otherItem.classList.contains('event-card')) {
-                                        otherDesc.style.webkitLineClamp = '3';
-                                        otherDesc.style.maxHeight = `calc(${getComputedStyle(otherDesc).fontSize} * 1.7 * 3)`;
-                                    } else if (otherItem.classList.contains('about-us-section')) {
+                                    } else if (otherItem.classList.contains('research-area-item') || otherItem.classList.contains('about-us-section')) {
                                         otherDesc.style.webkitLineClamp = '8';
                                         otherDesc.style.maxHeight = '16em';
                                     }
-                                    otherItem.classList.remove('expanded');
                                 }
+                                otherItem.classList.remove('expanded');
                             }
                         });
 
@@ -738,10 +845,6 @@
                 });
             }
         });
-
-        // The "About Us" section's content overflow handling without scroll-on-hover
-        // This is now handled by the general card interaction script by including .about-us-section in the selector
-        // and setting the initial clamping for its paragraph. The separate DOMContentLoaded listener is no longer needed.
     </script>
 </body>
 </html>
