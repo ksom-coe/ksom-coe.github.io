@@ -64,7 +64,7 @@
         }
         .main-nav ul {
             display: flex;
-            gap: 2rem; /* Spacing between nav items */
+            gap: 1.25rem; /* Adjusted gap as per request */
             list-style: none; /* Remove default list style */
         }
         .main-nav ul li a {
@@ -137,8 +137,8 @@
             visibility: visible;
             transform: translateY(0);
         }
-        .dropdown-menu a {
-            padding: 12px 20px; /* Increased padding for submenu items */
+        .dropdown-menu li > a { /* Adjusted selector for better targeting */
+            padding: 10px 18px; /* Adjusted vertical padding */
             font-size: 0.95rem; /* Slightly larger font size */
             color: var(--ias-text-color) !important;
             text-decoration: none;
@@ -359,9 +359,15 @@
                 gap: 2rem; /* Keep 2rem gap for desktop */
             }
             /* Shift separator line and adjust padding */
-            .inner-three-column-grid > .inner-column:nth-child(2) {
-                border-left: 1px solid rgba(0,0,0,0.08); /* Move the line here */
+            .inner-three-column-grid > .inner-column:nth-child(2),
+            .inner-three-column-grid > .inner-column:nth-child(3) { /* Apply padding-left to both 2nd and 3rd column */
                 padding-left: 1rem;
+            }
+            .inner-three-column-grid > .inner-column:nth-child(2) {
+                border-left: 1px solid rgba(0,0,0,0.08); /* Border for 2nd column */
+            }
+            .inner-three-column-grid > .inner-column:nth-child(3) {
+                border-left: 1px solid rgba(0,0,0,0.08); /* Border for 3rd column */
             }
             .inner-column { /* Reset padding for all columns */
                 padding-left: 0;
@@ -568,7 +574,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body>
 
     <!-- Header Content -->
     <header class="site-header">
@@ -588,7 +594,7 @@
 
             <!-- Desktop Navigation -->
             <nav id="desktop-nav" class="main-nav md:flex hidden" aria-label="Main Navigation">
-                <ul id="nav-items" class="flex space-x-6">
+                <ul id="nav-items" class="flex"> <!-- Removed space-x-6 as requested -->
                     <li><a href="#about" class="hover:text-ias-blue active">About</a></li>
                     <li class="dropdown relative">
                         <a href="#programmes" class="hover:text-ias-blue">Programmes</a>
