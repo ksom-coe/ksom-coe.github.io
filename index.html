@@ -55,9 +55,7 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
         }
         .site-header-inner {
-            max-width: 1280px; /* Aligned with main content width */
-            margin: 0 auto;
-            padding: 1rem; /* Reduced padding */
+            padding: 1.5rem 2rem; /* Increased vertical padding */
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -76,6 +74,7 @@
             padding: 0.25rem 0;
             position: relative;
             transition: color 0.2s ease;
+            letter-spacing: 0.01em; /* Optional visual boost */
         }
         .main-nav ul li a::after {
             content: '';
@@ -115,7 +114,7 @@
             text-transform: uppercase;
         }
 
-        /* Dropdown styles (kept from previous version as not specified for change) */
+        /* Dropdown styles */
         .dropdown-menu {
             display: none;
             position: absolute;
@@ -137,8 +136,9 @@
             transform: translateY(0);
         }
         .dropdown-menu a {
+            padding: 12px 20px; /* Increased padding for submenu items */
+            font-size: 0.95rem; /* Slightly larger font size */
             color: var(--ias-text-color) !important;
-            padding: 10px 15px;
             text-decoration: none;
             display: block;
             white-space: nowrap;
@@ -215,12 +215,17 @@
             color: var(--ias-blue) !important;
         }
 
-        /* === Layout Container === */
-        .main-content-wrapper, .top-content-area {
-            max-width: 1280px; /* Aligned with new main content max-width */
+        /* === Layout Container (Unified Width and Padding) === */
+        .container, .site-header-inner, .main-content-wrapper, .top-content-area {
+            max-width: 1280px; /* Consistent max-width */
             margin: 0 auto;
-            padding: 2rem 1rem; /* Consistent padding */
+            padding: 0 2rem; /* Consistent horizontal padding */
         }
+        .main-content-wrapper, .top-content-area { /* Re-apply vertical padding for main content sections */
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
 
         /* Top Section: Campus Photo + News Sidebar */
         .top-content-area {
@@ -238,6 +243,7 @@
                 border-radius: 0.75rem;
                 overflow: hidden;
                 height: 220px; /* Reduced height for desktop */
+                position: relative; /* Key fix: for overlay to align to its bottom */
             }
             .news-events-sidebar {
                 flex: 1; /* 1/3 width */
@@ -247,6 +253,7 @@
         }
         .campus-photo-container {
             height: 250px; /* Reduced height for mobile/default */
+            position: relative; /* Key fix: for overlay to align to its bottom */
         }
         .news-events-sidebar {
             max-height: 250px; /* Reduced max-height for mobile/default */
@@ -266,7 +273,6 @@
             text-align: left; /* Align text to left */
             color: #f8f9fa; /* Light grey for text */
             text-shadow: 0 2px 4px rgba(0,0,0,0.6); /* Text shadow for readability */
-            /* Removed previous flex and centering styles */
             width: calc(100% - 4rem); /* Ensure it doesn't overflow if text is long */
             max-width: 500px; /* Max width to keep lines readable */
         }
@@ -364,10 +370,10 @@
         @media (min-width: 1024px) {
             .inner-column:not(:last-child) {
                 border-right: 1px solid rgba(0,0,0,0.08); /* Faint vertical line */
-                padding-right: 2rem; /* Matches the gap on the left of the next column */
+                padding-right: 1rem; /* Reduced from 2rem as requested */
             }
             .inner-column:not(:first-child) {
-                padding-left: 2rem; /* Matches the gap on the right of the previous column */
+                padding-left: 1rem; /* Reduced from 2rem as requested */
             }
         }
 
@@ -381,8 +387,7 @@
             border-bottom: 2px solid var(--highlight-red); /* Red from suggested CSS */
             padding-bottom: 0.5rem;
             margin-bottom: 0.5rem; /* Slightly more space below heading */
-            /* Ensure headings span full width within their logical column content */
-            width: 100%;
+            width: 100%; /* Ensure headings span full width within their logical column content */
         }
 
         /* === Text Block Style (General paragraphs not in cards) === */
@@ -401,20 +406,20 @@
         /* === Card Block (Programmes, Research, Events, Activities) === */
         .card-block {
             display: block; /* Make it a block element to be clickable */
-            background-color: #fafafa; /* Gentle contrast, as requested */
-            padding: 0.5rem 0; /* Reduced padding as requested */
-            border-left: none; /* No border */
-            border-radius: 0; /* No border-radius */
-            box-shadow: none; /* No shadow */
-            transition: box-shadow 0.2s ease, transform 0.2s ease;
+            background-color: #fdfdfd; /* Beautified minimal card styling */
+            border-radius: 0.5rem;
+            padding: 1rem; /* Beautified minimal card styling */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03); /* Very light shadow */
+            transition: transform 0.2s ease;
             text-decoration: none; /* Remove underline for clickable cards */
             color: inherit; /* Inherit text color from parent for default links */
             width: 100%; /* Ensure full width usage within column */
             max-width: none; /* Remove any max-width constraints */
+            border-left: none; /* Ensure border-left is removed */
         }
         .card-block:hover {
-            box-shadow: none; /* No shadow on hover */
             transform: translateY(-2px); /* Slight lift on hover */
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1); /* Reintroduce a subtle shadow on hover */
         }
         .card-block h3 {
             font-size: 1.1rem;
@@ -510,11 +515,7 @@
         }
 
         /* Utility classes */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
+        /* .container is now part of the unified width/padding rule above */
 
         /* Responsive adjustments for mobile */
         @media (max-width: 767px) {
@@ -599,34 +600,34 @@
                     <li class="dropdown relative">
                         <a href="#programmes" class="hover:text-ias-blue">Programmes</a>
                         <ul class="dropdown-menu absolute top-full left-0 mt-2 rounded-md shadow-lg bg-white z-10">
-                            <li><a href="/programmes/integrated-msc-phd.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Integrated MSc-PhD</a></li>
-                            <li><a href="/programmes/phd.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">PhD Programme</a></li>
-                            <li><a href="/programmes/postdoctoral.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Postdoctoral Programme</a></li>
+                            <li><a href="/programmes/integrated-msc-phd.html" class="block">Integrated MSc-PhD</a></li>
+                            <li><a href="/programmes/phd.html" class="block">PhD Programme</a></li>
+                            <li><a href="/programmes/postdoctoral.html" class="block">Postdoctoral Programme</a></li>
                         </ul>
                     </li>
                     <li class="dropdown relative">
                         <a href="#people" class="hover:text-ias-blue">People</a>
                         <ul class="dropdown-menu absolute top-full left-0 mt-2 rounded-md shadow-lg bg-white z-10">
-                            <li><a href="/people/faculty.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Faculty</a></li>
-                            <li><a href="/people/postdoctoral-fellows.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Postdoctoral Fellows</a></li>
-                            <li><a href="/people/research-scholars.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Research Scholars</a></li>
-                            <li><a href="/people/students.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Students</a></li>
+                            <li><a href="/people/faculty.html" class="block">Faculty</a></li>
+                            <li><a href="/people/postdoctoral-fellows.html" class="block">Postdoctoral Fellows</a></li>
+                            <li><a href="/people/research-scholars.html" class="block">Research Scholars</a></li>
+                            <li><a href="/people/students.html" class="block">Students</a></li>
                         </ul>
                     </li>
                     <li><a href="#research" class="hover:text-ias-blue">Research</a></li>
                     <li class="dropdown relative">
                         <a href="#activities" class="hover:text-ias-blue">Activities</a>
                         <ul class="dropdown-menu absolute top-full left-0 mt-2 rounded-md shadow-lg bg-white z-10">
-                            <li><a href="/activities/seminars.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Colloquiums & Seminars</a></li>
-                            <li><a href="/activities/conferences.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Conferences</a></li>
-                            <li><a href="/activities/workshops.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Workshops</a></li>
+                            <li><a href="/activities/seminars.html" class="block">Colloquiums & Seminars</a></li>
+                            <li><a href="/activities/conferences.html" class="block">Conferences</a></li>
+                            <li><a href="/activities/workshops.html" class="block">Workshops</a></li>
                         </ul>
                     </li>
                     <li class="dropdown relative">
                         <a href="#resources" class="hover:text-ias-blue">Resources</a>
                         <ul class="dropdown-menu absolute top-full left-0 mt-2 rounded-md shadow-lg bg-white z-10">
-                            <li><a href="/resources/library.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Library</a></li>
-                            <li><a href="/resources/archive.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Archive</a></li>
+                            <li><a href="/resources/library.html" class="block">Library</a></li>
+                            <li><a href="/resources/archive.html" class="block">Archive</a></li>
                         </ul>
                     </li>
                     <li><a href="#contact" class="hover:text-ias-blue">Contact</a></li>
