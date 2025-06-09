@@ -39,18 +39,27 @@
     --gray-900: #212529; /* Very dark gray / soft black */
     --red-600: #dc2626;
 
+    /* Subtle Background Colors for Sections - Reverted to lighter shades */
+    /* All sections will now have the default white background for consistency */
+    --section-bg-about: var(--white);
+    --section-bg-news: var(--white);
+    --section-bg-events: var(--white);
+    --section-bg-research: var(--white);
+    --section-bg-programmes: var(--white);
+    --section-bg-activities: var(--white);
+
     /* Typography */
     --font-primary: 'Lora', Georgia, serif;
     --font-heading: 'Playfair Display', 'Times New Roman', serif;
-    --font-size-xxs: 0.625rem; /* 10px - New for smaller date text */
+    --font-size-xxs: 0.625rem; /* 10px */
     --font-size-xs: 0.75rem;   /* 12px */
     --font-size-sm: 0.875rem; /* 14px */
     --font-size-base: 1rem;    /* 16px */
     --font-size-lg: 1.125rem;  /* 18px */
     --font-size-xl: 1.25rem;  /* 20px */
     --font-size-2xl: 1.5rem;  /* 24px */
-    --font-size-3xl: 1.875rem; /* 30px - Used for section titles */
-    --font-size-4xl: 2.25rem; /* 36px - Used for main hero title */
+    --font-size-3xl: 1.875rem; /* 30px */
+    --font-size-4xl: 2.25rem; /* 36px */
 
     /* Spacing Scale (based on 4px grid) */
     --spacing-0: 0;
@@ -182,8 +191,8 @@ a:hover, a:focus-visible {
 .content-card:focus-visible,
 .research-area-item:hover,
 .research-area-item:focus-visible,
-.about-us-section:hover, /* Added for about-us section */
-.about-us-section:focus-visible /* Added for about-us section */
+.about-us-section:hover,
+.about-us-section:focus-visible
 {
     text-decoration: none !important;
 }
@@ -201,18 +210,18 @@ a:hover, a:focus-visible {
 .research-area-item:focus-visible h3,
 .research-area-item:focus-visible p,
 .research-area-item:focus-visible strong,
-.news-item:hover h4, /* Added for news item */
-.news-item:hover p, /* Added for news item */
-.news-item:focus-visible h4, /* Added for news item */
-.news-item:focus-visible p, /* Added for news item */
-.event-card:hover h4, /* Added for event item */
-.event-card:hover p, /* Added for event item */
-.event-card:focus-visible h4, /* Added for event item */
-.event-card:focus-visible p, /* Added for event item */
-.about-us-section:hover h2, /* Added for about-us section */
-.about-us-section:hover p, /* Added for about-us section */
-.about-us-section:focus-visible h2, /* Added for about-us section */
-.about-us-section:focus-visible p /* Added for about-us section */
+.news-item:hover h4,
+.news-item:hover p,
+.news-item:focus-visible h4,
+.news-item:focus-visible p,
+.event-card:hover h4,
+.event-card:hover p,
+.event-card:focus-visible h4,
+.event-card:focus-visible p,
+.about-us-section:hover h2,
+.about-us-section:hover p,
+.about-us-section:focus-visible h2,
+.about-us-section:focus-visible p
 {
      text-decoration: none !important; /* Use !important to override potential inherited styles */
 }
@@ -222,12 +231,16 @@ a:hover, a:focus-visible {
 .content-card span.text-ias-teal:focus-visible,
 .research-area-item .text-ias-teal:hover,
 .research-area-item .text-ias-teal:focus-visible,
-.news-section .view-all-link:hover, /* Added for news section */
-.news-section .view-all-link:focus-visible, /* Added for news section */
-.events-section .view-all-link:hover, /* Added for events section */
-.events-section .view-all-link:focus-visible, /* Added for events section */
-.about-us-section .view-all-link:hover, /* Added for about-us section */
-.about-us-section .view-all-link:focus-visible /* Added for about-us section */
+.news-section .view-all-link:hover,
+.news-section .view-all-link:focus-visible,
+.events-section .view-all-link:hover,
+.events-section .view-all-link:focus-visible,
+.about-us-section .view-all-link:hover,
+.about-us-section .view-all-link:focus-visible,
+.programmes-section .view-all-link:hover, /* Added for new programme section structure */
+.programmes-section .view-all-link:focus-visible,
+.other-activities-section .view-all-link:hover, /* Added for new activities section structure */
+.other-activities-section .view-all-link:focus-visible
 {
     text-decoration: underline !important; /* Use !important to ensure it applies */
 }
@@ -574,7 +587,6 @@ a:hover, a:focus-visible {
     padding: var(--spacing-12) 0; /* Reduced padding */
     text-align: center;
     margin-bottom: var(--spacing-8); /* Reduced margin */
-    /* Removed border-radius for sharp boundary */
     overflow: hidden; /* Ensure content stays within section bounds */
     display: flex;
     align-items: flex-end;
@@ -644,13 +656,14 @@ a:hover, a:focus-visible {
 }
 
 /* Base styles for all sections that will mimic cards */
+/* Applied to the section directly, or the content-card wrapper if exists */
 .about-us-section,
-.research-areas-container,
-.programmes-section .content-cards-grid > .content-card, /* Target individual programme cards */
-.other-activities-section .content-cards-grid > .content-card, /* Target individual other activities cards */
-.main-content-grid > .content-card /* This now targets the news/events wrappers */
+.research-areas-container, /* This is now a content-card wrapper */
+.programmes-list-container, /* This is now a content-card wrapper */
+.activities-list-container, /* This is now a content-card wrapper */
+.main-content-grid > .content-card /* This targets news/events wrappers */
 {
-    background-color: var(--white);
+    background-color: var(--white); /* All sections now have default white background */
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-md);
     padding: var(--spacing-6); /* Consistent padding */
@@ -661,6 +674,15 @@ a:hover, a:focus-visible {
     transition: transform var(--transition-fast), box-shadow var(--transition-fast); /* Add transition for hover effect */
 }
 
+/* Apply hover/focus effects to the top-level expandable cards/sections */
+.about-us-section:hover,
+.about-us-section:focus-visible,
+.research-areas-container:hover,
+.research-areas-container:focus-visible,
+.programmes-list-container:hover,
+.programmes-list-container:focus-visible,
+.activities-list-container:hover,
+.activities-list-container:focus-visible,
 .main-content-grid > .content-card:hover,
 .main-content-grid > .content-card:focus-visible {
     transform: translateY(-5px);
@@ -673,8 +695,21 @@ a:hover, a:focus-visible {
     margin-bottom: var(--spacing-8);
     position: relative;
     padding-bottom: var(--spacing-3);
-    font-size: 1.75rem !important;
+    /* Adjusted font sizes for section titles - Smaller as requested */
+    font-size: var(--font-size-lg) !important; /* ~18px on mobile */
+    line-height: 1.2; /* Tighter line height for titles */
 }
+@media (min-width: 768px) {
+    .section-title {
+        font-size: var(--font-size-xl) !important; /* ~20px on tablet */
+    }
+}
+@media (min-width: 1024px) {
+    .section-title {
+        font-size: var(--font-size-xl) !important; /* ~20px on desktop */
+    }
+}
+
 
 .section-title::after {
     content: '';
@@ -689,17 +724,14 @@ a:hover, a:focus-visible {
 }
 
 /* General Content Cards (for Programme and Research) */
-.content-cards-grid {
+/* This specific class is now only for programme-item/activity-item when they had full card styling */
+/* The parent .content-card (or direct section) gets the main card styles */
+.content-cards-grid { /* This is the grid for programme and activities sections */
+    display: grid; /* Keep it as a grid parent for responsiveness */
+    grid-template-columns: 1fr; /* Default to single column */
+    gap: var(--spacing-8); /* Gap between actual cards within the grid */
     align-items: start;
-}
-
-.content-card {
-    /* Transitions and initial styles are now handled by .main-content-grid > .content-card for news/events sections */
-    /* And by its own class for .programme-card and .other-activities-section .content-card */
-    height: auto;
-    min-height: 220px; /* Reduced min-height for programme/activity cards */
-    align-self: start;
-    text-decoration: none !important;
+    height: 100%; /* Ensure this grid container fills available height */
 }
 
 
@@ -713,7 +745,7 @@ a:hover, a:focus-visible {
     border-bottom-right-radius: 0;
 }
 
-.content-card .card-content {
+.content-card .card-content { /* Used for programme/activity inner cards in old structure */
     padding: var(--spacing-3); /* Reduced padding inside card content */
     flex-grow: 1;
     display: flex;
@@ -722,7 +754,12 @@ a:hover, a:focus-visible {
     height: 100%;
 }
 
-.content-card .card-content h3 {
+/* Common style for h3 inside various items */
+.content-card h3,
+.research-area-item h3,
+.programme-item h3, /* New */
+.activity-item h3 /* New */
+{
     font-size: var(--font-size-xl);
     margin-bottom: var(--spacing-2);
     color: var(--ias-blue);
@@ -740,19 +777,16 @@ a:hover, a:focus-visible {
     color: var(--gray-700);
     flex-grow: 1;
 
-    /* Default line clamps for un-expanded states */
-    -webkit-line-clamp: 8; /* Default for research items */
-    max-height: 16em; /* Corresponding default max-height */
-}
-
-/* Specific line clamp for programme and other activity cards */
-.programme-card .truncated-description {
-    -webkit-line-clamp: 5;
-    max-height: 10em; /* Adjusted max height to match 5 lines * 1.7 line-height * 1rem */
+    /* Default line clamps are set by JS now, but a fallback can be here */
+    -webkit-line-clamp: 8; /* Fallback for general truncated description */
+    max-height: 16em; /* Fallback height */
 }
 
 
-.content-card .card-content .text-ias-teal {
+.content-card .card-content .text-ias-teal,
+.item-content .text-ias-teal, /* For new programme/activity structure */
+.research-area-item .text-ias-teal
+{
     color: var(--ias-teal);
     font-weight: 600;
     display: inline-block;
@@ -761,25 +795,26 @@ a:hover, a:focus-visible {
 
 
 /* News & Events Section Specific Styling (individual items) */
-.news-list, .event-list {
+.news-list, .event-list, .programme-list, .activities-list-container { /* Added new lists */
     list-style: none;
     padding: 0;
-    flex-grow: 1; /* Allow list to take available height */
+    flex-grow: 1;
     max-height: none; /* Allow full expansion, no internal scroll */
     overflow-y: visible; /* No internal scroll */
     scrollbar-width: none; /* For Firefox to hide scrollbar */
 }
 
 /* Hide scrollbar for WebKit browsers */
-.news-list::-webkit-scrollbar, .event-list::-webkit-scrollbar {
+.news-list::-webkit-scrollbar, .event-list::-webkit-scrollbar,
+.programme-list::-webkit-scrollbar, .activities-list-container::-webkit-scrollbar {
     display: none;
 }
 
-.news-item, .event-card {
+.news-item, .event-card, .programme-item, .activity-item { /* Unified item styling */
     border-bottom: 1px solid var(--gray-200); /* Line separation */
     padding: var(--spacing-4) 0; /* Vertical padding only */
     display: flex;
-    flex-direction: row; /* Date and content side-by-side */
+    flex-direction: row; /* Date/Number and content side-by-side */
     align-items: flex-start;
     gap: var(--spacing-2);
     background-color: transparent; /* No background for individual items */
@@ -792,15 +827,16 @@ a:hover, a:focus-visible {
     height: auto;
 }
 
-.news-item:last-child, .event-card:last-child {
+.news-item:last-child, .event-card:last-child,
+.programme-item:last-child, .activity-item:last-child {
     border-bottom: none; /* No border on the last item */
 }
 
-/* No direct hover effects for individual news/event items, parent card handles it */
-.news-item:hover,
-.news-item:focus-visible,
-.event-card:hover,
-.event-card:focus-visible {
+/* No direct hover effects for individual items, parent card handles it */
+.news-item:hover, .news-item:focus-visible,
+.event-card:hover, .event-card:focus-visible,
+.programme-item:hover, .programme-item:focus-visible,
+.activity-item:hover, .activity-item:focus-visible {
     transform: none;
     box-shadow: none;
 }
@@ -831,35 +867,38 @@ a:hover, a:focus-visible {
     text-transform: uppercase;
 }
 
-.news-item .news-content, .event-card .event-content {
+.news-item .news-content, .event-card .event-content,
+.programme-item .item-content, .activity-item .item-content { /* Unified content wrapper */
     flex-grow: 1;
     width: 100%; /* Take full width */
 }
 
 .news-item .news-content h4, .event-card .event-content h4 {
-    font-size: var(--font-size-xl); /* Increased to match research H3 (20px) */
+    font-size: var(--font-size-xl);
     color: var(--ias-blue);
     margin-bottom: var(--spacing-2);
 }
 
-/* Apply truncation styles to news/event content paragraphs */
-.news-item .news-content p, .event-card .event-content p {
-    font-size: var(--font-size-base); /* Increased to match research P (16px) */
+/* Apply truncation styles to content paragraphs */
+.news-item .news-content p, .event-card .event-content p,
+.programme-item .truncated-description, .activity-item .truncated-description {
+    font-size: var(--font-size-base);
     color: var(--gray-700);
     margin-bottom: 0; /* Control spacing with flex-grow and transition */
-    overflow-y: hidden; /* Hidden by default */
+    overflow-y: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3; /* Initial clamp for news/events */
-    max-height: calc(var(--font-size-base) * 1.7 * 3); /* Approximate height for 3 lines */
-    transition: max-height 0.3s ease-out; /* Smooth transition for expansion */
+    /* Initial clamp values set by JS now based on item type */
+    transition: max-height 0.3s ease-out;
 }
 
-/* Styles when expanded (via JS adding 'expanded' class on parent .content-card) */
-/* When the main .content-card is expanded, its inner paragraphs should fully expand */
+/* Styles when expanded (via JS adding 'expanded' class on parent .content-card or section) */
+.expanded .truncated-description, /* For about-us and research directly */
 .content-card.expanded .news-item .news-content p,
-.content-card.expanded .event-card .event-content p {
+.content-card.expanded .event-card .event-content p,
+.content-card.expanded .programme-item .truncated-description,
+.content-card.expanded .activity-item .truncated-description {
     max-height: none; /* Allow content to expand fully */
     overflow-y: visible; /* No scroll when expanded */
     -webkit-line-clamp: unset; /* Remove line clamping */
@@ -874,9 +913,9 @@ a:hover, a:focus-visible {
     font-weight: 600;
 }
 
-/* About Us Section - UPDATED */
+/* About Us Section */
 .about-us-section {
-    /* Background, shadow, border-radius and padding are handled by the common card style above */
+    background-color: var(--section-bg-about); /* Subtle color for About Us */
     overflow: hidden;
     margin-bottom: var(--spacing-8);
 }
@@ -888,44 +927,42 @@ a:hover, a:focus-visible {
     flex-direction: column;
 }
 
-.about-us-section .about-us-text-content {
+.about-us-section .about-us-text-content-wrapper { /* New wrapper for truncation */
     flex-grow: 1;
-    transition: none;
+    transition: none; /* The transition is handled by truncated-description now */
+    margin-bottom: var(--spacing-4); /* Ensure spacing before "Read More" link */
+    color: var(--gray-700); /* Ensure text color */
 }
 
 .about-us-section h2 {
     margin-bottom: var(--spacing-6);
 }
 
-.about-us-section .about-us-text-content p {
+.about-us-section .about-us-text-content-wrapper p { /* Target paragraphs inside wrapper */
     font-size: var(--font-size-base);
-    color: var(--gray-700);
     line-height: 1.7;
     margin-bottom: var(--spacing-3);
-    /* Added truncation for about us text for consistency */
-    overflow-y: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 8; /* Default clamp for about us */
-    max-height: 16em; /* Corresponding height for 8 lines */
-    transition: max-height 0.3s ease-out;
-}
-.about-us-section.expanded .about-us-text-content p {
-    max-height: none;
-    overflow-y: visible;
-    -webkit-line-clamp: unset;
-    transition: max-height 0.5s ease-out;
+    /* No direct truncation here, handled by .truncated-description class on wrapper */
 }
 
-.about-us-section .about-us-text-content p:last-of-type {
+.about-us-section .about-us-text-content-wrapper p:last-of-type {
     margin-bottom: 0;
+}
+
+/* News Section Wrapper */
+.main-content-grid > .content-card:has(.news-section) {
+    background-color: var(--section-bg-news);
+}
+
+/* Events Section Wrapper */
+.main-content-grid > .content-card:has(.events-section) {
+    background-color: var(--section-bg-events);
 }
 
 
 /* Research Areas Container and Items */
-.research-areas-container {
-    /* Background, shadow, border-radius and padding are handled by the common card style above */
+.research-section .research-areas-container { /* The container itself is the content-card */
+    background-color: var(--section-bg-research); /* Subtle color for Research */
 }
 
 .research-area-item {
@@ -939,95 +976,27 @@ a:hover, a:focus-visible {
     padding-bottom: 0;
 }
 
-.research-area-item h3 {
-    font-size: var(--font-size-xl);
-    margin-bottom: var(--spacing-2);
-    color: var(--ias-blue);
-}
-
-.research-area-item p {
-    font-size: var(--font-size-base);
-    color: var(--gray-700);
-    margin-bottom: var(--spacing-2);
-}
-
 .research-area-item p strong {
     color: var(--ias-teal);
 }
 
-/* Programme Cards specific styles - UPDATED */
-/* These are now targeted by the common card style, but keeping specific height adjust */
-.programme-card {
-    min-height: 220px;
+/* Programmes Section Container and Items - NEW STRUCTURE */
+.programmes-section .programmes-list-container { /* The container itself is the content-card */
+    background-color: var(--section-bg-programmes); /* Subtle color for Programmes */
+}
+.programmes-list-container .programme-item {
+    /* Styles are unified under .programme-item now */
 }
 
-/* Programme Highlights Slideshow Section */
-.slideshow-section {
-    margin-bottom: var(--spacing-8);
-    background-color: var(--ias-blue);
-    padding: var(--spacing-12) 0;
-    color: var(--white);
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-lg);
-    overflow: hidden;
+
+/* Other Activities Section Container and Items - NEW STRUCTURE */
+.other-activities-section .activities-list-container { /* The container itself is the content-card */
+    background-color: var(--section-bg-activities); /* Subtle color for Other Activities */
+}
+.activities-list-container .activity-item {
+    /* Styles are unified under .activity-item now */
 }
 
-.slideshow-section .section-title h2 {
-    color: var(--white);
-}
-.slideshow-section .section-title::after {
-    background-color: var(--ias-teal);
-}
-
-.slideshow-container {
-    position: relative;
-    max-width: 900px;
-    margin: var(--spacing-6) auto;
-    border-radius: var(--border-radius-md);
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    background-color: var(--black);
-    aspect-ratio: 16 / 9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.msc-slide {
-    display: none;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.msc-slide.active {
-    display: block;
-    opacity: 1;
-}
-
-.msc-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.msc-slide .slide-caption {
-    position: absolute;
-    bottom: var(--spacing-4);
-    left: var(--spacing-4);
-    right: var(--spacing-4);
-    background-color: rgba(0, 0, 0, 0.6);
-    color: var(--white);
-    padding: var(--spacing-3);
-    border-radius: var(--border-radius-sm);
-    font-size: var(--font-size-base);
-    text-align: left;
-    z-index: 10;
-}
 
 /* --------------------------------------------------------------------------
    6.5 Footer
@@ -1159,11 +1128,6 @@ a:hover, a:focus-visible {
         padding: var(--spacing-16) 0;
     }
 
-    /* Not used anymore, replaced by main-content-grid */
-    /* .news-events-grid {
-        grid-template-columns: repeat(2, 1fr);
-    } */
-
     .site-footer .footer-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1194,10 +1158,6 @@ a:hover, a:focus-visible {
     }
     .mobile-nav {
         display: none !important;
-    }
-
-    .section-title {
-        font-size: 2rem !important;
     }
 
     /* Adjust text alignment for about-us-section on larger screens */
@@ -1252,10 +1212,6 @@ a:hover, a:focus-visible {
         grid-template-columns: repeat(3, 1fr);
         gap: var(--spacing-10);
     }
-
-    .section-title {
-        font-size: 2.25rem !important;
-    }
 }
 
 /* Extra large devices (large desktops, 1280px and up) */
@@ -1284,45 +1240,10 @@ a:hover, a:focus-visible {
         padding-right: var(--spacing-2);
     }
 
-    /* Programme/Activity cards for mobile - UPDATED FONT SIZES TO MATCH RESEARCH */
-    .programme-card {
-        min-height: 240px !important;
-        height: auto;
-    }
-    
-    .programme-card .card-content {
-        padding: 0.75rem;
-    }
-    
-    .programme-card h3 {
-        /* Changed from 1rem to var(--font-size-xl) to match research h3 (20px) */
-        font-size: var(--font-size-xl);
-    }
-    
-    .programme-card p {
-        /* Changed from 0.8rem to var(--font-size-base) to match research p (16px) */
-        font-size: var(--font-size-base);
-        /* Removed line clamp and max-height override to inherit from .truncated-description */
-    }
-
-    /* Override the specific .programme-card .truncated-description for mobile
-       to inherit the same line-clamp and max-height as research items */
-    .programme-card .truncated-description {
-        -webkit-line-clamp: 8; /* Now matches default for research items */
-        max-height: 16em; /* Corresponding default max-height for 8 lines */
-    }
-
-
-    /* Hide about-us-section on mobile */
-    .about-us-section.hidden-on-mobile {
-        display: none !important;
-    }
-
     /* Further reduce vertical spacing between sections on mobile */
     .research-section,
     .programmes-section,
-    .other-activities-section,
-    .slideshow-section {
+    .other-activities-section { /* Removed slideshow-section as it's removed from HTML */
         margin-bottom: var(--spacing-8);
     }
 }
@@ -1407,29 +1328,38 @@ a:hover, a:focus-visible {
     .hero-section::before {
         background-color: rgba(0, 0, 0, 0.7);
     }
-    .content-card,
-    .news-section,
-    .events-section,
+    /* Reverted to default dark mode backgrounds for sections */
     .about-us-section,
-    .research-areas-container {
+    .research-areas-container,
+    .programmes-list-container,
+    .activities-list-container,
+    .main-content-grid > .content-card {
         background-color: var(--gray-800);
         color: var(--gray-200);
     }
+
     .content-card h3,
     .news-section h3,
     .events-section h3,
     .about-us-section h2,
-    .research-area-item h3 {
+    .research-area-item h3,
+    .programme-item h3,
+    .activity-item h3 {
         color: var(--ias-teal);
     }
     .content-card p,
     .truncated-description,
-    .about-us-section .about-us-text-content p,
-    .research-area-item p {
+    .about-us-section .about-us-text-content-wrapper p,
+    .research-area-item p,
+    .programme-item p,
+    .activity-item p {
         color: var(--gray-300);
     }
     .news-item, .event-card,
-    .research-area-item {
+    .research-area-item,
+    .programme-item, /* For dark mode border */
+    .activity-item /* For dark mode border */
+    {
         border-bottom-color: var(--gray-700);
     }
     .news-item .date, .event-card .date-box {
