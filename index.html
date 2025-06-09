@@ -10,7 +10,8 @@
     <!-- Preload fonts for better performance -->
     <link rel="preload" href="https://fonts.gstatic.com/s/lora/v32/0QI-MX1D_JO_P-z_VA.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvEIDcmoIrZvjTeKhpO_mdGvIDP1tB.woff2" as="font" type="font/woff2" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- New font import: IBM Plex Sans and Lora are already in preload, adding Playfair Display for headings explicitly -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Playfair+Display:wght@400;700&family=Lora:wght@400&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -28,7 +29,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif; /* Primary font for body text */
+            font-family: 'IBM Plex Sans', sans-serif; /* Updated font to IBM Plex Sans */
             color: var(--ias-text-color);
             background-color: var(--ias-grey-bg);
             font-size: 16px; /* Base font size for calculations */
@@ -41,7 +42,7 @@
         
         /* Navigation Bar Font - IAS style */
         .main-nav ul li a, .dropdown-menu a {
-            font-family: 'Lora', serif; /* Use Lora for nav items for a more IAS-like feel */
+            font-family: 'IBM Plex Sans', sans-serif; /* Updated font to IBM Plex Sans */
             font-weight: 500;
         }
 
@@ -68,14 +69,14 @@
             list-style: none; /* Remove default list style */
         }
         .main-nav ul li a {
-            font-family: 'Inter', sans-serif; /* Changed to Inter as per request */
+            font-family: 'IBM Plex Sans', sans-serif; /* Updated font */
             font-size: 1rem;
             font-weight: 500;
             color: var(--highlight-blue); /* Dark blue color */
             text-decoration: none;
             padding: 0.25rem 0;
             position: relative;
-            transition: color 0.2s ease;
+            transition: color 0.2s ease, background-color 0.2s ease, padding 0.2s ease, border-radius 0.2s ease; /* Added transitions for new hover effects */
             letter-spacing: 0.01em; /* Optional visual boost */
         }
         .main-nav ul li a::after {
@@ -91,6 +92,23 @@
         .main-nav ul li a:hover::after {
             width: 100%;
         }
+        /* Highlight Main Menu on Hover */
+        .main-nav ul li a:hover {
+            color: var(--highlight-red);
+            background-color: rgba(0, 114, 149, 0.05);
+            border-radius: 0.375rem;
+            padding: 0.25rem 0.5rem;
+        }
+        /* Optional: Active Navigation Button Highlight */
+        .main-nav ul li a.active {
+            border-bottom: 2px solid var(--highlight-red);
+            color: var(--highlight-red);
+        }
+        /* Submenu Arrow on Hover - REMOVED or OVERRIDDEN */
+        .main-nav .dropdown > a::after {
+            content: none !important; /* Removed submenu arrow */
+        }
+
 
         .site-logo-img {
             height: 48px; /* Adjust logo size */
@@ -108,7 +126,7 @@
         }
 
         .university-name {
-            font-family: 'Lora', serif;
+            font-family: 'Lora', serif; /* Consistent with IAS website */
             font-size: 0.8rem;
             color: var(--ias-text-color);
             margin-top: 0.2rem;
@@ -120,9 +138,10 @@
         .dropdown-menu {
             display: none;
             position: absolute;
-            background-color: #ffffff;
-            min-width: 180px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            min-width: 200px; /* Adjusted min-width for more air */
+            background-color: white; /* Explicit background */
+            border: 1px solid #ddd; /* Added border */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Adjusted shadow */
             z-index: 10;
             border-radius: 0.5rem;
             overflow: hidden;
@@ -130,6 +149,7 @@
             opacity: 0;
             visibility: hidden;
             transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out;
+            padding: 0.25rem 0; /* Padding for the container */
         }
         .dropdown:hover .dropdown-menu {
             display: block;
@@ -137,18 +157,21 @@
             visibility: visible;
             transform: translateY(0);
         }
-        .dropdown-menu li > a { /* Adjusted selector for better targeting */
-            padding: 10px 18px; /* Adjusted vertical padding */
-            font-size: 0.95rem; /* Slightly larger font size */
-            color: var(--ias-text-color) !important;
-            text-decoration: none;
+        .main-nav .dropdown-menu li > a { /* More specific selector for submenu items */
             display: block;
+            padding: 0.75rem 1.25rem !important; /* 12px vertical, 20px horizontal with !important */
+            font-size: 1rem; /* Adjusted font size */
+            line-height: 1.5; /* Adjusted line height */
             white-space: nowrap;
-            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+            color: var(--ias-text-color) !important; /* Ensure color override */
+            background-color: transparent; /* Default transparent background */
+            transition: background-color 0.2s ease-in-out;
+            text-decoration: none; /* Ensure no underline */
         }
-        .dropdown-menu a:hover {
-            background-color: var(--ias-light-blue);
-            color: var(--ias-dark-blue) !important;
+        .main-nav .dropdown-menu li > a:hover { /* Added hover feedback */
+            background-color: rgba(0, 114, 149, 0.08);
+            color: var(--highlight-blue) !important;
+            border-radius: 0.375rem;
         }
 
         /* Mobile Navigation */
@@ -160,7 +183,7 @@
             z-index: 1001;
         }
         .mobile-nav {
-            display: none;
+            display: flex; /* Changed from display: none; */
             position: fixed;
             top: 0;
             left: 0;
@@ -226,6 +249,9 @@
         .main-layout-container { /* Re-apply vertical padding for the main content area */
             padding-top: 2rem;
             padding-bottom: 2rem;
+            display: flex;
+            flex-direction: column; /* keep for mobile (<768px) */
+            gap: 2rem;
         }
 
 
@@ -250,8 +276,8 @@
             bottom: 1.5rem; /* Position from bottom */
             left: 2rem; /* Position from left */
             text-align: left; /* Align text to left */
-            color: #f8f9fa; /* Light grey for text */
-            text-shadow: 0 2px 4px rgba(0,0,0,0.6); /* Text shadow for readability */
+            color: #fefefe; /* Updated color for better visibility */
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.65); /* Deeper shadow */
             width: calc(100% - 4rem); /* Ensure it doesn't overflow if text is long */
             max-width: 500px; /* Max width to keep lines readable */
         }
@@ -260,12 +286,13 @@
             font-weight: 700;
             font-family: 'Playfair Display', serif; /* Aesthetic font */
             margin-bottom: 0.25rem;
+            color: #ffffff; /* Ensure title is pure white */
         }
         .campus-subtitle {
             font-size: 1rem; /* Subtitle within overlay */
-            font-family: 'Inter', sans-serif; /* Aesthetic font */
+            font-family: 'IBM Plex Sans', sans-serif; /* Consistent with body font */
             line-height: 1.4;
-            color: #eaeaea; /* Slightly different shade for subtitle */
+            color: #f0f0f0; /* Soft but bright off-white */
             max-width: 500px; /* Max width for readability */
         }
         @media (min-width: 768px) {
@@ -291,26 +318,26 @@
         }
         /* Styles for the unified content card in the right sidebar */
         .unified-right-sidebar-content.content-card {
-            padding: 1.5rem;
+            padding: 0.75rem; /* Reduced padding */
             background-color: #ffffff;
             border-radius: 0.75rem;
             box-shadow: 0 1px 4px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
-            gap: 2rem; /* Gap between News, Events, Outreach sections */
+            gap: 1rem; /* Reduced gap between sections inside this card */
         }
 
 
         /* === Responsive Grid Layout for Main Content === */
-        @media (min-width: 1024px) {
+        @media (min-width: 768px) { /* Changed breakpoint to 768px */
             .main-layout-container {
                 flex-direction: row;
                 align-items: flex-start; /* Align children to the top */
-                gap: 2rem;
+                gap: 1.25rem; /* Reduced gap from 2rem */
             }
 
             .left-main-block {
-                width: 75%; /* Takes 75% of the width */
+                width: 70%; /* Changed from 75% to 70% */
                 display: flex; /* Make it a flex container */
                 flex-direction: column; /* Stack image and content vertically */
                 gap: 2rem; /* Gap between image and content below it */
@@ -321,9 +348,11 @@
             }
 
             .right-sidebar-full {
-                width: 25%; /* Takes 25% of the width */
+                width: 30%; /* Changed from 25% to 30% */
                 display: flex;
                 flex-direction: column;
+                border-left: none !important; /* REMOVED border between column 2 and sidebar */
+                padding-left: 1rem; /* Padding for content next to border */
                 /* No specific max-height, it will naturally extend */
             }
 
@@ -350,12 +379,10 @@
             /* Add vertical separators */
             .main-content-box > .inner-column:nth-child(2) {
                 border-left: 1px solid rgba(0,0,0,0.08); /* Separator between About and Research columns */
-                padding-left: 1rem; /* Padding for content next to border */
+                padding-left: 0.75rem; /* Adjusted padding as requested */
+                margin-left: -0.5rem; /* Added negative margin to shift border left */
             }
-            .right-sidebar-full { /* This will be the third main visual column */
-                border-left: 1px solid rgba(0,0,0,0.08); /* Separator between left 75% block and right 25% sidebar */
-                padding-left: 1rem; /* Padding for content next to border */
-            }
+            /* The .right-sidebar-full already has its border and padding now */
         }
 
 
@@ -388,8 +415,8 @@
         .inner-column > div > p, /* For paragraphs inside a div like 'About KSoM' img/text wrapper */
         .inner-column > p /* For direct paragraphs like Research Areas intro */
         {
-            font-size: 1rem;
-            line-height: 1.6;
+            font-size: 0.95rem; /* Reduced font size */
+            line-height: 1.55; /* Adjusted line height */
             color: #333;
             text-align: justify;
             margin-bottom: 1rem; /* Standard paragraph margin */
@@ -401,7 +428,7 @@
             display: block; /* Make it a block element to be clickable */
             background-color: #fdfdfd; /* Beautified minimal card styling */
             border-radius: 0.5rem;
-            padding: 1rem; /* Beautified minimal card styling */
+            padding: 0.6rem 0.8rem; /* Adjusted padding */
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03); /* Very light shadow */
             transition: transform 0.2s ease;
             text-decoration: none; /* Remove underline for clickable cards */
@@ -415,17 +442,22 @@
             box-shadow: 0 3px 8px rgba(0,0,0,0.1); /* Reintroduce a subtle shadow on hover */
         }
         .card-block h3 {
-            font-size: 1.1rem;
+            font-size: 1.05rem; /* Slightly smaller */
             font-weight: 600;
             color: var(--highlight-blue);
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem; /* Adjusted margin */
         }
         .card-block p {
-            font-size: 0.95rem;
+            font-size: 0.95rem; /* Reduced font size */
             color: #444;
             margin-bottom: 0; /* Remove margin-bottom for paragraphs inside cards */
-            line-height: 1.5; /* Consistent line height for card text */
+            line-height: 1.55; /* Adjusted line height */
         }
+        .card-block h4 { /* Also target h4 for news items */
+            font-size: 1.05rem; /* Slightly smaller */
+            margin-bottom: 0.2rem; /* Adjusted margin */
+        }
+
 
         /* Specific card elements for dates and location */
         .card-block .news-date-text,
@@ -457,26 +489,38 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
-            line-height: 1.5; /* Reduced line height */
-            font-size: 0.83rem; /* Reduced font size */
+            line-height: 1.45; /* Adjusted line height */
+            font-size: 0.88rem; /* Adjusted font size */
             text-align: justify; /* Justify text alignment */
         }
-
-        /* Specific truncation for main body text in columns (like "About KSoM" initial paragraph) */
-        .inner-column > div > p.truncated-text {
+        /* Further refine specific truncation for main body text in columns */
+        .inner-column > div > p.truncated-text,
+        .inner-column > p.truncated-text {
+            font-size: 0.95rem; /* Keep this at 0.95rem for main paragraphs */
             -webkit-line-clamp: 6; /* Adjusted to 6 lines for tighter feel */
-            max-height: calc(6 * 1.5em);
-        }
-        .inner-column > p.truncated-text { /* Target research/outreach intro text */
-            -webkit-line-clamp: 6; /* Adjusted to 6 lines */
-            max-height: calc(6 * 1.5em);
+            max-height: calc(6 * 1.55em);
         }
 
         /* Specific truncation for descriptions within cards (e.g., news/event items, programme descriptions) */
         .card-block p.truncated-text {
+            font-size: 0.88rem; /* Adjusted font size */
             -webkit-line-clamp: 3; /* Limit card descriptions to 3 lines */
-            max-height: calc(3 * 1.5em);
+            max-height: calc(3 * 1.45em); /* Adjusted max-height based on new line-height */
         }
+
+        /* Optional: no bottom margin after last card in right sidebar */
+        .right-sidebar-full .card-block {
+            margin-bottom: 0.75rem; /* space between cards */
+        }
+        .right-sidebar-full .card-block:last-of-type {
+            margin-bottom: 0;
+        }
+        /* Also apply to view all links if they are the last element */
+        .right-sidebar-full .view-all-link:last-of-type,
+        .right-sidebar-full .read-more-link:last-of-type {
+            margin-bottom: 0;
+        }
+
 
         /* Footer */
         .site-footer {
@@ -659,7 +703,7 @@
     </header>
 
     <!-- Mobile Navigation (hidden by default) -->
-    <nav id="mobile-nav" class="mobile-nav hidden md:hidden">
+    <nav id="mobile-nav" class="mobile-nav md:hidden"> <!-- Removed 'hidden' class -->
         <div class="mobile-menu-button absolute top-4 right-4" id="mobile-menu-close-button">
             &times; <!-- Close icon -->
         </div>
@@ -766,6 +810,7 @@
                                 <h3>Weekly Algebraic Geometry Seminar</h3>
                                 <p class="truncated-text">
                                     Our ongoing weekly Algebraic Geometry seminar attracts a strong audience, with recent talks on "Moduli Spaces of Curves." It provides a platform for faculty, post-docs, and Ph.D. students to present research and engage in discussions on topics like intersection theory and derived categories.
+                                
                                 </p>
                             </a>
                             <a href="/activities/outreach-program.html" class="activity-item card-block">
