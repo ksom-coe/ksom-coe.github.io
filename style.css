@@ -682,17 +682,17 @@ a:hover, a:focus-visible {
     position: relative;
     padding-bottom: var(--spacing-3);
     /* Adjusted font sizes for section titles - Optimized for readability */
-    font-size: var(--font-size-xl) !important; /* ~20px on mobile */
+    font-size: var(--font-size-2xl) !important; /* ~24px on mobile */
     line-height: 1.2;
 }
 @media (min-width: 768px) {
     .section-title {
-        font-size: var(--font-size-2xl) !important; /* ~24px on tablet */
+        font-size: var(--font-size-3xl) !important; /* ~30px on tablet */
     }
 }
 @media (min-width: 1024px) {
     .section-title {
-        font-size: var(--font-size-2xl) !important; /* ~24px on desktop */
+        font-size: var(--font-size-3xl) !important; /* ~30px on desktop */
     }
 }
 
