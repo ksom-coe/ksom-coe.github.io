@@ -180,12 +180,10 @@ a:hover, a:focus-visible {
 /* Ensure clickable cards do NOT get underline on hover/focus */
 .content-card:hover,
 .content-card:focus-visible,
-.event-card:hover,
-.event-card:focus-visible,
 .research-area-item:hover,
 .research-area-item:focus-visible,
-.news-item:hover, /* Added for news item */
-.news-item:focus-visible /* Added for news item */
+.about-us-section:hover, /* Added for about-us section */
+.about-us-section:focus-visible /* Added for about-us section */
 {
     text-decoration: none !important;
 }
@@ -197,10 +195,6 @@ a:hover, a:focus-visible {
 .content-card:focus-visible h3,
 .content-card:focus-visible p,
 .content-card:focus-visible span,
-.event-card:hover h3,
-.event-card:hover p,
-.event-card:focus-visible h3,
-.event-card:focus-visible p,
 .research-area-item:hover h3,
 .research-area-item:hover p,
 .research-area-item:hover strong,
@@ -210,7 +204,15 @@ a:hover, a:focus-visible {
 .news-item:hover h4, /* Added for news item */
 .news-item:hover p, /* Added for news item */
 .news-item:focus-visible h4, /* Added for news item */
-.news-item:focus-visible p /* Added for news item */
+.news-item:focus-visible p, /* Added for news item */
+.event-card:hover h4, /* Added for event item */
+.event-card:hover p, /* Added for event item */
+.event-card:focus-visible h4, /* Added for event item */
+.event-card:focus-visible p, /* Added for event item */
+.about-us-section:hover h2, /* Added for about-us section */
+.about-us-section:hover p, /* Added for about-us section */
+.about-us-section:focus-visible h2, /* Added for about-us section */
+.about-us-section:focus-visible p /* Added for about-us section */
 {
      text-decoration: none !important; /* Use !important to override potential inherited styles */
 }
@@ -220,12 +222,12 @@ a:hover, a:focus-visible {
 .content-card span.text-ias-teal:focus-visible,
 .research-area-item .text-ias-teal:hover,
 .research-area-item .text-ias-teal:focus-visible,
-.about-us-section .view-all-link:hover,
-.about-us-section .view-all-link:focus-visible,
 .news-section .view-all-link:hover, /* Added for news section */
 .news-section .view-all-link:focus-visible, /* Added for news section */
 .events-section .view-all-link:hover, /* Added for events section */
-.events-section .view-all-link:focus-visible /* Added for events section */
+.events-section .view-all-link:focus-visible, /* Added for events section */
+.about-us-section .view-all-link:hover, /* Added for about-us section */
+.about-us-section .view-all-link:focus-visible /* Added for about-us section */
 {
     text-decoration: underline !important; /* Use !important to ensure it applies */
 }
@@ -643,11 +645,11 @@ a:hover, a:focus-visible {
 
 /* Base styles for all sections that will mimic cards */
 .about-us-section,
-.news-section,
-.events-section,
 .research-areas-container,
 .programmes-section .content-cards-grid > .content-card, /* Target individual programme cards */
-.other-activities-section .content-cards-grid > .content-card /* Target individual other activities cards */ {
+.other-activities-section .content-cards-grid > .content-card, /* Target individual other activities cards */
+.main-content-grid > .content-card /* This now targets the news/events wrappers */
+{
     background-color: var(--white);
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-md);
@@ -656,13 +658,13 @@ a:hover, a:focus-visible {
     flex-direction: column;
     height: 100%; /* Important: makes them stretch to equal height in a grid row */
     overflow: hidden; /* Hide overflow initially if content is very long */
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast); /* Add transition for hover effect */
 }
 
-/* Adjust padding for news/events/about-us sections specifically */
-.about-us-section,
-.news-section,
-.events-section {
-    padding: var(--spacing-6); /* Consistent padding */
+.main-content-grid > .content-card:hover,
+.main-content-grid > .content-card:focus-visible {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
 }
 
 
@@ -692,20 +694,14 @@ a:hover, a:focus-visible {
 }
 
 .content-card {
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-    /* No direct background/shadow/border-radius here, applied by parent selectors */
+    /* Transitions and initial styles are now handled by .main-content-grid > .content-card for news/events sections */
+    /* And by its own class for .programme-card and .other-activities-section .content-card */
     height: auto;
     min-height: 220px; /* Reduced min-height for programme/activity cards */
     align-self: start;
     text-decoration: none !important;
 }
 
-.content-card:hover,
-.content-card:focus-visible {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-    text-decoration: none !important;
-}
 
 .content-card img.cover {
     object-fit: cover;
@@ -751,7 +747,6 @@ a:hover, a:focus-visible {
 
 /* Specific line clamp for programme and other activity cards */
 .programme-card .truncated-description {
-    /* These will be overridden by mobile specific settings or removed to match research */
     -webkit-line-clamp: 5;
     max-height: 10em; /* Adjusted max height to match 5 lines * 1.7 line-height * 1rem */
 }
@@ -765,67 +760,58 @@ a:hover, a:focus-visible {
 }
 
 
-/* News & Events Section */
+/* News & Events Section Specific Styling (individual items) */
 .news-list, .event-list {
     list-style: none;
     padding: 0;
     flex-grow: 1; /* Allow list to take available height */
-    /* Removed max-height and overflow-y to allow full expansion */
-    /* max-height: 270px; */
-    /* overflow-y: auto; */
-    scrollbar-width: thin; /* For Firefox */
-    scrollbar-color: var(--ias-teal) var(--gray-200); /* For Firefox */
+    max-height: none; /* Allow full expansion, no internal scroll */
+    overflow-y: visible; /* No internal scroll */
+    scrollbar-width: none; /* For Firefox to hide scrollbar */
 }
 
-/* Custom scrollbar for WebKit browsers */
+/* Hide scrollbar for WebKit browsers */
 .news-list::-webkit-scrollbar, .event-list::-webkit-scrollbar {
-    width: 0px; /* Hide scrollbar */
-    background: transparent; /* Make scrollbar transparent */
+    display: none;
 }
-.news-list::-webkit-scrollbar-track, .event-list::-webkit-scrollbar-track {
-    background: transparent; /* Make scrollbar track transparent */
-}
-.news-list::-webkit-scrollbar-thumb, .event-list::-webkit-scrollbar-thumb {
-    background-color: transparent; /* Make scrollbar thumb transparent */
-}
-
 
 .news-item, .event-card {
-    border-bottom: 1px solid var(--gray-200);
-    padding: var(--spacing-4) 0;
+    border-bottom: 1px solid var(--gray-200); /* Line separation */
+    padding: var(--spacing-4) 0; /* Vertical padding only */
     display: flex;
-    flex-direction: column; /* Stack date and content vertically */
+    flex-direction: row; /* Date and content side-by-side */
     align-items: flex-start;
-    gap: var(--spacing-2); /* Reduced gap to make text start closer to date */
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast); /* Add transition for hover effect */
-    background-color: var(--white); /* Ensure white background for consistency */
-    border-radius: var(--border-radius-lg); /* Rounded corners for consistency */
-    box-shadow: var(--shadow-md); /* Shadow for consistency */
-    overflow: hidden; /* Hide overflow initially if content is very long */
-    padding: var(--spacing-4); /* Consistent padding */
-    margin-bottom: var(--spacing-4); /* Add bottom margin for spacing between news/event items */
+    gap: var(--spacing-2);
+    background-color: transparent; /* No background for individual items */
+    border-radius: 0; /* No border-radius for individual items */
+    box-shadow: none; /* No shadow for individual items */
+    overflow: hidden; /* Keep hidden for truncation of text */
+    transition: max-height 0.3s ease-out; /* Only transition for paragraph expansion */
+    margin-bottom: var(--spacing-0); /* Adjust spacing between items */
+    min-height: unset; /* Remove min-height from individual items */
+    height: auto;
 }
 
 .news-item:last-child, .event-card:last-child {
-    border-bottom: none;
-    margin-bottom: 0; /* No bottom margin for the last item */
+    border-bottom: none; /* No border on the last item */
 }
 
+/* No direct hover effects for individual news/event items, parent card handles it */
 .news-item:hover,
 .news-item:focus-visible,
 .event-card:hover,
 .event-card:focus-visible {
-    transform: translateY(-5px); /* Add hover effect */
-    box-shadow: var(--shadow-lg); /* Add hover shadow */
+    transform: none;
+    box-shadow: none;
 }
 
 
 .news-item .date, .event-card .date-box {
     flex-shrink: 0;
     text-align: center;
-    width: auto; /* Allow date box to size content */
+    width: auto; /* Adjust width based on content */
     background-color: var(--ias-light-blue);
-    padding: var(--spacing-1) var(--spacing-2); /* Adjusted padding */
+    padding: var(--spacing-1) var(--spacing-2);
     border-radius: var(--border-radius-sm);
     color: var(--ias-blue);
     font-weight: 600;
@@ -851,27 +837,29 @@ a:hover, a:focus-visible {
 }
 
 .news-item .news-content h4, .event-card .event-content h4 {
-    font-size: var(--font-size-xl); /* Increased font size to match research H3 */
+    font-size: var(--font-size-xl); /* Increased to match research H3 (20px) */
     color: var(--ias-blue);
-    margin-bottom: var(--spacing-2); /* Adjusted margin */
+    margin-bottom: var(--spacing-2);
 }
 
+/* Apply truncation styles to news/event content paragraphs */
 .news-item .news-content p, .event-card .event-content p {
-    font-size: var(--font-size-base); /* Increased font size to match research P */
+    font-size: var(--font-size-base); /* Increased to match research P (16px) */
     color: var(--gray-700);
-    margin-bottom: 0; /* Remove default paragraph margin, controlled by truncation */
-    overflow-y: hidden;
+    margin-bottom: 0; /* Control spacing with flex-grow and transition */
+    overflow-y: hidden; /* Hidden by default */
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3; /* Set initial clamp to 3 lines for news/events */
+    -webkit-line-clamp: 3; /* Initial clamp for news/events */
     max-height: calc(var(--font-size-base) * 1.7 * 3); /* Approximate height for 3 lines */
     transition: max-height 0.3s ease-out; /* Smooth transition for expansion */
 }
 
-/* Styles when expanded (via JS adding 'expanded' class) for news/event content */
-.news-item.expanded .news-content p,
-.event-card.expanded .event-content p {
+/* Styles when expanded (via JS adding 'expanded' class on parent .content-card) */
+/* When the main .content-card is expanded, its inner paragraphs should fully expand */
+.content-card.expanded .news-item .news-content p,
+.content-card.expanded .event-card .event-content p {
     max-height: none; /* Allow content to expand fully */
     overflow-y: visible; /* No scroll when expanded */
     -webkit-line-clamp: unset; /* Remove line clamping */
@@ -891,19 +879,6 @@ a:hover, a:focus-visible {
     /* Background, shadow, border-radius and padding are handled by the common card style above */
     overflow: hidden;
     margin-bottom: var(--spacing-8);
-}
-
-.about-us-section .container { /* Keep flex layout for inner content */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-8);
-}
-
-.about-us-section .image-column img {
-    /* Ensure no border-radius on image for sharp corners */
-    border-radius: 0;
-    box-shadow: var(--shadow-md); /* Keep shadow for the image */
 }
 
 .about-us-section .text-column {
@@ -927,7 +902,22 @@ a:hover, a:focus-visible {
     color: var(--gray-700);
     line-height: 1.7;
     margin-bottom: var(--spacing-3);
+    /* Added truncation for about us text for consistency */
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 8; /* Default clamp for about us */
+    max-height: 16em; /* Corresponding height for 8 lines */
+    transition: max-height 0.3s ease-out;
 }
+.about-us-section.expanded .about-us-text-content p {
+    max-height: none;
+    overflow-y: visible;
+    -webkit-line-clamp: unset;
+    transition: max-height 0.5s ease-out;
+}
+
 .about-us-section .about-us-text-content p:last-of-type {
     margin-bottom: 0;
 }
@@ -1319,7 +1309,7 @@ a:hover, a:focus-visible {
        to inherit the same line-clamp and max-height as research items */
     .programme-card .truncated-description {
         -webkit-line-clamp: 8; /* Now matches default for research items */
-        max-height: 16em; /* Now matches default for research items */
+        max-height: 16em; /* Corresponding default max-height for 8 lines */
     }
 
 
