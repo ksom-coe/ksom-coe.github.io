@@ -171,31 +171,32 @@
     <main class="main-content">
         <div class="container main-content-grid">
             <!-- Welcome Section (Column 1) -->
+            <!-- Added 'hidden-on-mobile' for desktop-only visibility -->
             <section class="about-us-section hidden-on-mobile" id="about-us" tabindex="0">
                 <div class="text-column text-center md:text-left">
                     <h2 class="section-title !text-left !mb-6 !pb-4 md:!mx-0 !mx-auto">About Us</h2>
-                    <div class="about-us-text-content-wrapper truncated-description"> <!-- Added wrapper for truncation -->
-                        <p>Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.</p>
-                        <p>The main objective of Kerala School of Mathematics is conduct of high quality Mathematical Research. Our mission is to create a vibrant academic environment that promotes cutting-edge research, nurtures young mathematicians, and contributes significantly to the global mathematical community.</p>
+                    <div class="about-us-text-content-wrapper">
+                        <!-- Each paragraph now has truncated-paragraph class for individual truncation -->
+                        <p class="truncated-paragraph">Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.</p>
+                        <p class="truncated-paragraph">The main objective of Kerala School of Mathematics is conduct of high quality Mathematical Research. Our mission is to create a vibrant academic environment that promotes cutting-edge research, nurtures young mathematicians, and contributes significantly to the global mathematical community.</p>
                     </div>
                     <a href="#" class="view-all-link">Read More About Us &rarr;</a>
                 </div>
             </section>
 
             <!-- Latest News Section (Column 2) -->
-            <!-- Wrapped the news section in a content-card for overall expandability -->
             <div class="content-card" tabindex="0">
                 <section class="news-section" id="news-column">
                     <h2 class="section-title">Latest News</h2>
                     <ul class="news-list">
-                        <li class="news-item"> <!-- Removed tabindex here, handled by parent card -->
+                        <li class="news-item">
                             <div class="date">
                                 <span class="day">03</span>
                                 <span class="month">Jun</span>
                             </div>
                             <div class="news-content">
                                 <h4>Recruitment of Registrar</h4>
-                                <p>Kerala School of Mathematics is seeking a qualified candidate for the position of Registrar.</p>
+                                <p class="truncated-description">Kerala School of Mathematics is seeking a qualified candidate for the position of Registrar.</p>
                             </div>
                         </li>
                         <li class="news-item">
@@ -205,7 +206,7 @@
                             </div>
                             <div class="news-content">
                                 <h4>KSoM-Ph.D. Admissions 2025 - Advertisement</h4>
-                                <p>Advertisement for the Ph.D. Programme admissions for the year 2025 has been released.</p>
+                                <p class="truncated-description">Advertisement for the Ph.D. Programme admissions for the year 2025 has been released.</p>
                             </div>
                         </li>
                          <li class="news-item">
@@ -215,7 +216,7 @@
                             </div>
                             <div class="news-content">
                                 <h4>KSoM Gains Autonomous Status</h4>
-                                <p>Kerala School of Mathematics has officially become an autonomous institution, delinked from KSCSTE.</p>
+                                <p class="truncated-description">Kerala School of Mathematics has officially become an autonomous institution, delinked from KSCSTE.</p>
                         </div>
                         </li>
                     </ul>
@@ -224,19 +225,18 @@
             </div>
 
             <!-- Upcoming Events Section (Column 3) -->
-            <!-- Wrapped the events section in a content-card for overall expandability -->
             <div class="content-card" tabindex="0">
                 <section class="events-section" id="events-column">
                     <h2 class="section-title">Upcoming Events</h2>
                     <ul class="event-list">
-                        <li class="event-card"> <!-- Removed tabindex here, handled by parent card -->
+                        <li class="event-card">
                             <div class="date-box">
                                 <span class="day">15</span>
                                 <span class="month">Jul</span>
                             </div>
                             <div class="event-content">
                                 <h4>Guest Lecture: Dr. Ravi Kumar (IIT Bombay)</h4>
-                                <p>Topic: Advances in Number Theory. Time: 10:00 AM, KSoM Auditorium.</p>
+                                <p class="truncated-description">Topic: Advances in Number Theory. Time: 10:00 AM, KSoM Auditorium.</p>
                             </div>
                         </li>
                         <li class="event-card">
@@ -246,7 +246,7 @@
                             </div>
                             <div class="event-content">
                                 <h4>Workshop on Cryptography and its Applications</h4>
-                                <p>A week-long workshop for research scholars and faculty. Registration open.</p>
+                                <p class="truncated-description">A week-long workshop for research scholars and faculty. Registration open.</p>
                             </div>
                         </li>
                         <li class="event-card">
@@ -256,7 +256,7 @@
                             </div>
                             <div class="event-content">
                                 <h4>Ph.D. Entrance Examination</h4>
-                                <p>The annual entrance examination for Ph.D. admissions will be conducted on campus.</p>
+                                <p class="truncated-description">The annual entrance examination for Ph.D. admissions will be conducted on campus.</p>
                             </div>
                         </li>
                     </ul>
@@ -269,38 +269,33 @@
         <section class="research-section mb-8" id="research">
             <div class="container">
                 <h2 class="section-title">Research Areas at KSoM</h2>
-                <div class="research-areas-container content-card" tabindex="0"> <!-- Added content-card class to this container -->
-                    <!-- Research Area 1: Complex Analysis -->
+                <div class="research-areas-container content-card" tabindex="0">
                     <div class="research-area-item">
-                        <h3>Complex Analysis</h3> <!-- Removed "1." -->
+                        <h3>Complex Analysis</h3>
                         <p class="truncated-description">Investigation of the impact of Hörmander's estimates on various properties of the Bers domain and exploring the profound implications of the remarkable fact that the Kobayashi metric is isometric to the Teichmüller metric. Research sits at the intersection of complex analysis, Teichmüller theory, and differential geometry.</p>
                         <a href="https://ksom-coe.github.io/research/complex%20analysis" class="text-ias-teal font-semibold read-more-link">Read More &rarr;</a>
                     </div>
 
-                    <!-- Research Area 2: Braid Groups & Mapping Class Groups -->
                     <div class="research-area-item">
-                        <h3>Braid Groups & Mapping Class Groups</h3> <!-- Removed "2." -->
+                        <h3>Braid Groups & Mapping Class Groups</h3>
                         <p class="truncated-description">Investigation of intricate relationships between braid groups and mapping class groups, with particular emphasis on liftability problems and the Birman-Hilden property. Central focus on unitary representations of braid groups, their classification, irreducibility properties, and connections to quantum invariants.</p>
                         <a href="https://ksom-coe.github.io/research/mcg" class="text-ias-teal font-semibold read-more-link">Read More &rarr;</a>
                     </div>
 
-                    <!-- Research Area 3: Non-commutative Functional Analysis -->
                     <div class="research-area-item">
-                        <h3>Non-commutative Functional Analysis</h3> <!-- Removed "3." -->
+                        <h3>Non-commutative Functional Analysis</h3>
                         <p class="truncated-description">Investigation of quantum aspects of approximation and convexity within the framework of operator spaces and operator systems in C*-algebras. Research includes completely bounded approximation property, quantum convexity, matricial ranges, and structure theory of operator systems.</p>
                         <a href="https://ksom.res.in/research/non-commutativegeometry" class="text-ias-teal font-semibold read-more-link">Read More &rarr;</a>
                     </div>
 
-                    <!-- Research Area 4: Harmonic Analysis -->
                     <div class="research-area-item">
-                        <h3>Harmonic Analysis</h3> <!-- Removed "4." -->
+                        <h3>Harmonic Analysis</h3>
                         <p class="truncated-description">Research on modulation spaces and their invariance properties, Fourier multipliers, twisted convolution operators, maximal functions along hypersurfaces, Hardy-Sobolev inequalities in non-commutative settings, and spherical maximal operators on symmetric spaces.</p>
                         <a href="https://ksom.res.in/research/harmonicanalysis" class="text-ias-teal font-semibold read-more-link">Read More &rarr;</a>
                     </div>
 
-                    <!-- Research Area 5: Analytic Number Theory -->
                     <div class="research-area-item">
-                        <h3>Analytic Number Theory</h3> <!-- Removed "5." -->
+                        <h3>Analytic Number Theory</h3>
                         <p class="truncated-description">Research on multiple zeta values and their generalizations, explicit averages of multiplicative functions, Möbius sums with coprimality conditions, and chromatic generalizations of classical results.</p>
                         <a href="https://ksom.res.in/research/AnalyticNumberTheory" class="text-ias-teal font-semibold read-more-link">Read More &rarr;</a>
                     </div>
@@ -312,32 +307,23 @@
         <section class="programmes-section mb-8" id="programmes">
             <div class="container">
                 <h2 class="section-title">Our Programmes</h2>
-                <div class="programmes-list-container content-card" tabindex="0"> <!-- Wrapped with content-card -->
-                    <!-- Integrated M.Sc. - Ph.D. Programme Item -->
-                    <div class="programme-item"> <!-- Changed from content-card programme-card -->
-                        <div class="item-content"> <!-- Changed from card-content -->
-                            <h3>Integrated M.Sc. - Ph.D. Programme</h3>
-                            <p class="truncated-description">The program is an advanced postgraduate training program designed to prepare students for a research career in Mathematics, with options to specialize in Physics or Theoretical Computer Science. Key features include a monthly scholarship of Rs. 6000 for MSc students and a scholarship equivalent to national schemes for PhD candidates. The program offers subsidized on-campus accommodation and free access to institute facilities. Eligibility requires a B.Sc., B.Math., B.Stat., or equivalent degree with Mathematics as a subject, or a BE/B.Tech. degree.</p>
-                            <a href="/programmes/integrated-msc-phd.html" class="text-ias-teal font-semibold read-more-link">Learn More &rarr;</a>
-                        </div>
+                <div class="programmes-list-container content-card" tabindex="0">
+                    <div class="programme-item">
+                        <h3>Integrated M.Sc. - Ph.D. Programme</h3>
+                        <p class="truncated-description">The program is an advanced postgraduate training program designed to prepare students for a research career in Mathematics, with options to specialize in Physics or Theoretical Computer Science. Key features include a monthly scholarship of Rs. 6000 for MSc students and a scholarship equivalent to national schemes for PhD candidates. The program offers subsidized on-campus accommodation and free access to institute facilities. Eligibility requires a B.Sc., B.Math., B.Stat., or equivalent degree with Mathematics as a subject, or a BE/B.Tech. degree.</p>
+                        <a href="/programmes/integrated-msc-phd.html" class="text-ias-teal font-semibold read-more-link">Learn More &rarr;</a>
                     </div>
 
-                    <!-- Ph.D. in Mathematics Item -->
                     <div class="programme-item">
-                        <div class="item-content">
-                            <h3>Ph.D. in Mathematics</h3>
-                            <p class="truncated-description">The PhD programme at Kerala School of Mathematics provides opportunities to explore various research areas in depth. Students are selected through examinations followed by an interview at Kerala School of Mathematics. To be eligible, candidates must have a Master's degree in the Mathematical or Physical Sciences, or a B.E./B.Tech. (or equivalent degree) in an appropriate field of Engineering or Technology. Additionally, candidates should have passed one of the specified entrance tests. The PhD offer will be based on the candidate's performance in the interview. All students admitted to the PhD program will have to complete 24 credits in their first year.</p>
-                            <a href="/programmes/phd.html" class="text-ias-teal font-semibold read-more-link">Learn More &rarr;</a>
-                        </div>
+                        <h3>Ph.D. in Mathematics</h3>
+                        <p class="truncated-description">The PhD programme at Kerala School of Mathematics provides opportunities to explore various research areas in depth. Students are selected through examinations followed by an interview at Kerala School of Mathematics. To be eligible, candidates must have a Master's degree in the Mathematical or Physical Sciences, or a B.E./B.Tech. (or equivalent degree) in an appropriate field of Engineering or Technology. Additionally, candidates should have passed one of the specified entrance tests. The PhD offer will be based on the candidate's performance in the interview. All students admitted to the PhD program will have to complete 24 credits in their first year.</p>
+                        <a href="/programmes/phd.html" class="text-ias-teal font-semibold read-more-link">Learn More &rarr;</a>
                     </div>
 
-                    <!-- Postdoctoral Fellowships Item -->
                     <div class="programme-item">
-                        <div class="item-content">
-                            <h3>Postdoctoral Fellowships</h3>
-                            <p class="truncated-description">The Postdoctoral Fellowship program welcomes holders of INSPIRE faculty, NBHM postdoctoral fellowship, N-PDF, or any other external postdoctoral fellowship. The Research Associateship is offered to young researchers who have completed or submitted their PhD dissertation in Mathematics or related areas. Research Associates are expected to teach at least one course each year at the MSc level. The fellowship amount varies based on experience, with additional contingency grants provided. The fellowship is initially for one year, extendable based on a review of the work done.</p>
-                            <a href="/programmes/postdoctoral.html" class="text-ias-teal font-semibold read-more-link">Learn More &rarr;</a>
-                        </div>
+                        <h3>Postdoctoral Fellowships</h3>
+                        <p class="truncated-description">The Postdoctoral Fellowship program welcomes holders of INSPIRE faculty, NBHM postdoctoral fellowship, N-PDF, or any other external postdoctoral fellowship. The Research Associateship is offered to young researchers who have completed or submitted their PhD dissertation in Mathematics or related areas. Research Associates are expected to teach at least one course each year at the MSc level. The fellowship amount varies based on experience, with additional contingency grants provided. The fellowship is initially for one year, extendable based on a review of the work done.</p>
+                        <a href="/programmes/postdoctoral.html" class="text-ias-teal font-semibold read-more-link">Learn More &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -347,32 +333,23 @@
         <section class="other-activities-section mb-8" id="other-activities">
             <div class="container">
                 <h2 class="section-title">Other Activities</h2>
-                <div class="activities-list-container content-card" tabindex="0"> <!-- Wrapped with content-card -->
-                    <!-- Colloquiums and Seminars Item -->
-                    <div class="activity-item"> <!-- Changed from content-card programme-card -->
-                        <div class="item-content"> <!-- Changed from card-content -->
-                            <h3>Colloquiums and Seminars</h3>
-                            <p class="truncated-description">Kerala School of Mathematics (KSoM) frequently conducts regular colloquiums and seminars by eminent and established mathematicians and upcoming researchers. The details of the various colloquiums and seminars at KSoM can be found on their website. The website also provides information on past and upcoming events, including the title, speaker, affiliation, venue, date, time, and abstract of each talk.</p>
-                            <a href="https://ksom.res.in/colloquium-and-seminars/" class="text-ias-teal font-semibold read-more-link">Learn More &rarr;</a>
-                        </div>
+                <div class="activities-list-container content-card" tabindex="0">
+                    <div class="activity-item">
+                        <h3>Colloquiums and Seminars</h3>
+                        <p class="truncated-description">Kerala School of Mathematics (KSoM) frequently conducts regular colloquiums and seminars by eminent and established mathematicians and upcoming researchers. The details of the various colloquiums and seminars at KSoM can be found on their website. The website also provides information on past and upcoming events, including the title, speaker, affiliation, venue, date, time, and abstract of each talk.</p>
+                        <a href="https://ksom.res.in/colloquium-and-seminars/" class="text-ias-teal font-semibold read-more-link">Learn More &rarr;</a>
                     </div>
 
-                    <!-- Conferences Item -->
                     <div class="activity-item">
-                        <div class="item-content">
-                            <h3>Conferences</h3>
-                            <p class="truncated-description">The Kerala School of Mathematics (KSoM) has hosted several conferences aimed at bringing together number theorists, mathematicians, and young scholars to showcase their work and foster collaborations. Some of the conferences include: The International Conference on Transcendence, Arithmetic and Diophantine Explorations (TRADE) is scheduled for January 03-05, 2025. The International Conference on Class Groups of Number Fields and Related Topics was held in 2021, 2022 and 2023.</p>
-                            <a href="https://ksom.res.in/conferences/" class="text-ias-teal font-semibold read-more-link">Learn More &rarr;</a>
-                        </div>
+                        <h3>Conferences</h3>
+                        <p class="truncated-description">The Kerala School of Mathematics (KSoM) has hosted several conferences aimed at bringing together number theorists, mathematicians, and young scholars to showcase their work and foster collaborations. Some of the conferences include: The International Conference on Transcendence, Arithmetic and Diophantine Explorations (TRADE) is scheduled for January 03-05, 2025. The International Conference on Class Groups of Number Fields and Related Topics was held in 2021, 2022 and 2023.</p>
+                        <a href="https://ksom.res.in/conferences/" class="text-ias-teal font-semibold read-more-link">Learn More &rarr;</a>
                     </div>
 
-                    <!-- Workshops Item -->
                     <div class="activity-item">
-                        <div class="item-content">
-                            <h3>Workshops</h3>
-                            <p class="truncated-description">The Kerala School of Mathematics (KSoM) has conducted several workshops. In March 2025, they held a discussion meeting on Vector Bundles & Moduli Spaces. In December 2024, a workshop on Dynamics brought together young researchers and experts to discuss analytic, arithmetic, and ergodic dynamics. A Summer Workshop in Mathematics took place in May 2024, featuring lectures and problem-solving sessions in Analysis, Algebra, and Linear Algebra for MSc and BSc students.</p>
-                            <a href="https://ksom.res.in/workshops/" class="text-ias-teal font-semibold read-more-link">Learn More &rarr;</a>
-                        </div>
+                        <h3>Workshops</h3>
+                        <p class="truncated-description">The Kerala School of Mathematics (KSoM) has conducted several workshops. In March 2025, they held a discussion meeting on Vector Bundles & Moduli Spaces. In December 2024, a workshop on Dynamics brought together young researchers and experts to discuss analytic, arithmetic, and ergodic dynamics. A Summer Workshop in Mathematics took place in May 2024, featuring lectures and problem-solving sessions in Analysis, Algebra, and Linear Algebra for MSc and BSc students.</p>
+                        <a href="https://ksom.res.in/workshops/" class="text-ias-teal font-semibold read-more-link">Learn More &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -589,18 +566,12 @@
             element.style.textOverflow = 'ellipsis';
             element.style.display = '-webkit-box'; // Ensure display is -webkit-box for clamping
             
-            if (itemType === 'programme-item' || itemType === 'activity-item') {
-                element.style.webkitLineClamp = '5';
+            if (itemType === 'programme-item' || itemType === 'activity-item' || itemType === 'research-area-item') {
+                element.style.webkitLineClamp = '5'; // Keep consistent for these types for now
                 element.style.maxHeight = '10em'; // Approx height for 5 lines
-            } else if (itemType === 'research-area-item') { // Removed about-us-section from here
-                element.style.webkitLineClamp = '8';
-                element.style.maxHeight = '16em'; // Approx height for 8 lines
-            } else if (itemType === 'about-us-section') { // Added specific handling for about-us-section
-                // For about-us-section, apply clamp to its direct p tags
-                Array.from(element.querySelectorAll('p')).forEach(p => {
-                    p.style.webkitLineClamp = '4'; // Example: clamp about us to 4 lines initially
-                    p.style.maxHeight = 'unset'; // Let clamp handle height
-                });
+            } else if (itemType === 'about-us-paragraph') { // Specific for individual paragraphs in About Us
+                element.style.webkitLineClamp = '4'; // Clamp individual paragraphs in About Us
+                element.style.maxHeight = 'unset'; // Let clamp handle height
             } else if (itemType === 'news-item' || itemType === 'event-card') {
                 element.style.webkitLineClamp = '3';
                 element.style.maxHeight = `calc(${getComputedStyle(element).fontSize} * 1.7 * 3)`; // Dynamic height for 3 lines
@@ -617,42 +588,39 @@
             element.style.webkitLineClamp = 'unset';
             element.style.maxHeight = 'none';
             element.style.overflowY = 'visible';
-            // For about-us-section, ensure all inner paragraphs also expand
-            if (element.classList.contains('about-us-text-content-wrapper')) {
-                Array.from(element.querySelectorAll('p')).forEach(p => {
-                    p.style.webkitLineClamp = 'unset';
-                    p.style.maxHeight = 'none';
-                });
+            // For about-us paragraphs, ensure margins are restored for readability if needed (already default)
+            if (element.classList.contains('truncated-paragraph')) {
+                element.style.marginBottom = ''; // Revert to default margin
             }
         }
 
         document.addEventListener("DOMContentLoaded", function() {
-            // Select all top-level expandable elements
-            document.querySelectorAll('.content-card, .research-areas-container, .about-us-section').forEach(item => {
+            // Select all top-level expandable elements which are wrappers for items
+            // Also include the about-us-section itself
+            document.querySelectorAll('.content-card, .research-areas-container, .programmes-list-container, .activities-list-container, .about-us-section').forEach(item => {
                 let targetElements = [];
                 let itemType = '';
 
-                // Determine the type of the item and its expandable target elements
                 if (item.classList.contains('about-us-section')) {
-                    targetElements = [item.querySelector('.about-us-text-content-wrapper')];
-                    itemType = 'about-us-section';
+                    // For about-us, target each individual paragraph for truncation
+                    targetElements = Array.from(item.querySelectorAll('.about-us-text-content-wrapper .truncated-paragraph'));
+                    itemType = 'about-us-paragraph'; // New itemType for individual paragraphs
                 } else if (item.classList.contains('research-areas-container')) {
-                    // For research, each item's description is the target
                     targetElements = Array.from(item.querySelectorAll('.research-area-item .truncated-description'));
                     itemType = 'research-area-item';
-                } else if (item.classList.contains('content-card')) {
+                } else if (item.classList.contains('programmes-list-container')) {
+                    targetElements = Array.from(item.querySelectorAll('.programme-item .truncated-description'));
+                    itemType = 'programme-item';
+                } else if (item.classList.contains('activities-list-container')) {
+                    targetElements = Array.from(item.querySelectorAll('.activity-item .truncated-description'));
+                    itemType = 'activity-item';
+                } else if (item.classList.contains('content-card')) { // News & Events sections
                     if (item.querySelector('.news-section')) {
-                        targetElements = Array.from(item.querySelectorAll('.news-item .news-content p'));
+                        targetElements = Array.from(item.querySelectorAll('.news-item .news-content .truncated-description'));
                         itemType = 'news-item';
                     } else if (item.querySelector('.events-section')) {
-                        targetElements = Array.from(item.querySelectorAll('.event-card .event-content p'));
+                        targetElements = Array.from(item.querySelectorAll('.event-card .event-content .truncated-description'));
                         itemType = 'event-card';
-                    } else if (item.querySelector('.programmes-list-container')) { // Programmes section wrapper
-                        targetElements = Array.from(item.querySelectorAll('.programme-item .truncated-description'));
-                        itemType = 'programme-item';
-                    } else if (item.querySelector('.activities-list-container')) { // Activities section wrapper
-                        targetElements = Array.from(item.querySelectorAll('.activity-item .truncated-description'));
-                        itemType = 'activity-item';
                     }
                 }
 
@@ -697,25 +665,26 @@
                             // Re-apply truncation to elements within the other collapsed item
                             let otherTargetElements = [];
                             let otherItemType = '';
+
                             if (otherItem.classList.contains('about-us-section')) {
-                                otherTargetElements = [otherItem.querySelector('.about-us-text-content-wrapper')];
-                                otherItemType = 'about-us-section';
+                                otherTargetElements = Array.from(otherItem.querySelectorAll('.about-us-text-content-wrapper .truncated-paragraph'));
+                                otherItemType = 'about-us-paragraph';
                             } else if (otherItem.classList.contains('research-areas-container')) {
                                 otherTargetElements = Array.from(otherItem.querySelectorAll('.research-area-item .truncated-description'));
                                 otherItemType = 'research-area-item';
+                            } else if (otherItem.classList.contains('programmes-list-container')) {
+                                otherTargetElements = Array.from(otherItem.querySelectorAll('.programme-item .truncated-description'));
+                                otherItemType = 'programme-item';
+                            } else if (otherItem.classList.contains('activities-list-container')) {
+                                otherTargetElements = Array.from(otherItem.querySelectorAll('.activity-item .truncated-description'));
+                                otherItemType = 'activity-item';
                             } else if (otherItem.classList.contains('content-card')) {
                                 if (otherItem.querySelector('.news-section')) {
-                                    otherTargetElements = Array.from(otherItem.querySelectorAll('.news-item .news-content p'));
+                                    otherTargetElements = Array.from(otherItem.querySelectorAll('.news-item .news-content .truncated-description'));
                                     otherItemType = 'news-item';
                                 } else if (otherItem.querySelector('.events-section')) {
-                                    otherTargetElements = Array.from(otherItem.querySelectorAll('.event-card .event-content p'));
+                                    otherTargetElements = Array.from(otherItem.querySelectorAll('.event-card .event-content .truncated-description'));
                                     otherItemType = 'event-card';
-                                } else if (otherItem.querySelector('.programmes-list-container')) {
-                                    otherTargetElements = Array.from(otherItem.querySelectorAll('.programme-item .truncated-description'));
-                                    otherItemType = 'programme-item';
-                                } else if (otherItem.querySelector('.activities-list-container')) {
-                                    otherTargetElements = Array.from(otherItem.querySelectorAll('.activity-item .truncated-description'));
-                                    otherItemType = 'activity-item';
                                 }
                             }
                             otherTargetElements.filter(el => el).forEach(el => applyTruncation(el, otherItemType));
