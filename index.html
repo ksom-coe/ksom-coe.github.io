@@ -23,6 +23,8 @@
             --ias-text-color: #333333; /* Darker text for readability */
             --ias-grey-bg: #f9f9f9;
             --ias-teal: #008f8f; /* From IAS site for links */
+            --highlight-red: #d62828; /* New red color from suggested CSS */
+            --highlight-blue: #003049; /* New dark blue from suggested CSS */
         }
 
         body {
@@ -43,22 +45,50 @@
             font-weight: 500;
         }
 
+        /* === Modern Navigation Bar === */
         .site-header {
-            background-color: #ffffff; /* White background for header */
-            border-bottom: 1px solid var(--ias-light-blue);
+            background-color: white; /* White background */
+            border-bottom: 1px solid #eee; /* Light border */
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
         }
-
         .site-header-inner {
+            max-width: 1280px; /* Aligned with main content width */
+            margin: 0 auto;
+            padding: 1rem; /* Reduced padding */
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 1rem 1.5rem; /* Responsive padding */
-            max-width: 1200px; /* Max width for content */
-            margin: 0 auto; /* Center the content */
+            justify-content: space-between;
+        }
+        .main-nav ul {
+            display: flex;
+            gap: 2rem; /* Spacing between nav items */
+            list-style: none; /* Remove default list style */
+        }
+        .main-nav ul li a {
+            font-family: 'Inter', sans-serif; /* Changed to Inter as per request */
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--highlight-blue); /* Dark blue color */
+            text-decoration: none;
+            padding: 0.25rem 0;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+        .main-nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--highlight-red); /* Red underline on hover */
+            transition: width 0.3s ease;
+        }
+        .main-nav ul li a:hover::after {
+            width: 100%;
         }
 
         .site-logo-img {
@@ -85,40 +115,7 @@
             text-transform: uppercase;
         }
 
-        /* Desktop Navigation */
-        .main-nav ul {
-            display: flex;
-            gap: 1.5rem; /* Space between nav items */
-        }
-
-        .main-nav ul li a {
-            color: var(--ias-dark-blue);
-            padding: 0.5rem 0.25rem;
-            transition: color 0.3s ease-in-out;
-            position: relative;
-        }
-
-        .main-nav ul li a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 0;
-            height: 2px;
-            background-color: var(--ias-blue);
-            transition: width 0.3s ease-in-out;
-        }
-
-        .main-nav ul li a:hover::after,
-        .main-nav ul li a.active::after {
-            width: 100%;
-        }
-
-        .main-nav ul li a:hover {
-            color: var(--ias-blue);
-        }
-
-        /* Dropdown styles */
+        /* Dropdown styles (kept from previous version as not specified for change) */
         .dropdown-menu {
             display: none;
             position: absolute;
@@ -127,29 +124,26 @@
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             z-index: 10;
             border-radius: 0.5rem;
-            overflow: hidden; /* Ensures rounded corners */
-            transform: translateY(10px); /* Initial transform */
-            opacity: 0; /* Initial opacity */
-            visibility: hidden; /* Hide visually */
+            overflow: hidden;
+            transform: translateY(10px);
+            opacity: 0;
+            visibility: hidden;
             transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out;
         }
-
         .dropdown:hover .dropdown-menu {
             display: block;
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
-
         .dropdown-menu a {
-            color: var(--ias-text-color) !important; /* Override parent color */
+            color: var(--ias-text-color) !important;
             padding: 10px 15px;
             text-decoration: none;
             display: block;
             white-space: nowrap;
             transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
         }
-
         .dropdown-menu a:hover {
             background-color: var(--ias-light-blue);
             color: var(--ias-dark-blue) !important;
@@ -161,41 +155,36 @@
             font-size: 2rem;
             color: var(--ias-blue);
             cursor: pointer;
-            z-index: 1001; /* Above mobile nav */
+            z-index: 1001;
         }
-
         .mobile-nav {
-            display: none; /* Hidden by default */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(255, 255, 255, 0.98); /* Semi-transparent white */
+            background-color: rgba(255, 255, 255, 0.98);
             z-index: 999;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transform: translateX(100%); /* Start off-screen */
+            transform: translateX(100%);
             transition: transform 0.4s ease-out;
             backdrop-filter: blur(5px);
         }
-
         .mobile-nav.open {
-            transform: translateX(0); /* Slide in */
+            transform: translateX(0);
         }
-
         .mobile-nav ul {
             list-style: none;
             padding: 0;
             text-align: center;
             width: 80%;
         }
-
         .mobile-nav ul li {
             margin: 1rem 0;
         }
-
         .mobile-nav ul li a {
             font-size: 1.5rem;
             color: var(--ias-dark-blue);
@@ -203,323 +192,319 @@
             display: block;
             padding: 0.5rem 0;
         }
-
         .mobile-nav ul li a:hover {
             color: var(--ias-blue);
         }
-
         .mobile-nav .dropdown-menu {
-            position: static; /* Remove positioning */
-            display: block; /* Always show when parent is active */
-            background-color: transparent; /* No background */
-            box-shadow: none; /* No shadow */
+            position: static;
+            display: block;
+            background-color: transparent;
+            box-shadow: none;
             padding-top: 0.5rem;
             opacity: 1;
             visibility: visible;
             transform: none;
         }
-
         .mobile-nav .dropdown-menu a {
             font-size: 1.2rem;
             padding: 0.3rem 0;
             color: #555 !important;
         }
-
         .mobile-nav .dropdown-menu a:hover {
             background-color: transparent;
             color: var(--ias-blue) !important;
         }
 
-        /* Top Section: MFO-style layout */
+        /* === Layout Container === */
+        .main-content-wrapper, .top-content-area {
+            max-width: 1280px; /* Aligned with new main content max-width */
+            margin: 0 auto;
+            padding: 2rem 1rem; /* Consistent padding */
+        }
+
+        /* Top Section: Campus Photo + News Sidebar */
         .top-content-area {
             display: flex;
-            flex-direction: column; /* Stack on mobile */
-            gap: 1.5rem; /* Reverted to slightly larger gap */
-            padding: 1.5rem; /* Reverted to slightly larger padding */
-            max-width: 1200px;
-            margin: 0 auto;
+            flex-direction: column;
+            gap: 2rem; /* Consistent gap */
         }
-
-        @media (min-width: 768px) {
+        @media (min-width: 1024px) {
             .top-content-area {
-                flex-direction: row; /* Side-by-side on desktop */
-                align-items: flex-start; /* Align top */
+                flex-direction: row;
+                gap: 2rem; /* Consistent gap */
             }
-        }
-
-        .campus-photo-container {
-            position: relative;
-            width: 100%;
-            height: 320px; /* Adjusted height for image to balance */
-            overflow: hidden;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            flex-shrink: 0; /* Prevent shrinking */
-        }
-        @media (min-width: 768px) {
             .campus-photo-container {
-                width: 65%; /* 2/3 width for image */
-                height: 400px; /* Taller on desktop to match card height */
+                flex: 2; /* 2/3 width */
+                border-radius: 0.75rem;
+                overflow: hidden;
+                height: 220px; /* Reduced height for desktop */
             }
+            .news-events-sidebar {
+                flex: 1; /* 1/3 width */
+                max-height: 220px; /* Reduced max-height for desktop */
+                overflow-y: auto; /* Scroll if content overflows */
+            }
+        }
+        .campus-photo-container {
+            height: 250px; /* Reduced height for mobile/default */
+        }
+        .news-events-sidebar {
+            max-height: 250px; /* Reduced max-height for mobile/default */
         }
 
         .campus-photo {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.7); /* Darken image slightly */
+            filter: brightness(0.7);
         }
-
+        /* === Overlay Text on Image (Bottom Left with Aesthetic Font) === */
         .campus-photo-overlay-content {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            bottom: 1.5rem; /* Position from bottom */
+            left: 2rem; /* Position from left */
+            text-align: left; /* Align text to left */
+            color: #f8f9fa; /* Light grey for text */
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6); /* Text shadow for readability */
+            /* Removed previous flex and centering styles */
+            width: calc(100% - 4rem); /* Ensure it doesn't overflow if text is long */
+            max-width: 500px; /* Max width to keep lines readable */
         }
-
         .campus-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem; /* Consistent on mobile */
+            font-size: 1.5rem; /* Larger title within overlay */
             font-weight: 700;
-            margin-bottom: 0.5rem;
-            line-height: 1.1;
+            font-family: 'Playfair Display', serif; /* Aesthetic font */
+            margin-bottom: 0.25rem;
         }
-
         .campus-subtitle {
-            font-family: 'Lora', serif;
-            font-size: 1.2rem; /* Consistent on mobile */
+            font-size: 1rem; /* Subtitle within overlay */
+            font-family: 'Inter', sans-serif; /* Aesthetic font */
             line-height: 1.4;
+            color: #eaeaea; /* Slightly different shade for subtitle */
+            max-width: 500px; /* Max width for readability */
         }
         @media (min-width: 768px) {
-             .campus-title {
-                font-size: 3rem; /* Slightly larger for impact */
+            .campus-photo-overlay-content .campus-title {
+                font-size: 2rem; /* Slightly larger on desktop for impact */
             }
-
-            .campus-subtitle {
-                font-size: 1.4rem; /* Slightly larger for impact */
+            .campus-photo-overlay-content .campus-subtitle {
+                font-size: 1.1rem; /* Slightly larger on desktop */
             }
         }
 
-        .news-events-sidebar {
-            width: 100%;
+
+        /* === Latest News Card (top section, uses .content-card) === */
+        .news-section.content-card {
+            padding: 1rem 1.25rem; /* Consistent padding */
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+        /* Style for individual news items within the top sidebar */
+        .news-item.card-block {
+            background-color: transparent; /* Minimalist */
+            padding: 0.5rem 0; /* Reduced padding */
+            border-left: none; /* No border */
+            box-shadow: none; /* No shadow */
+            border-radius: 0; /* No border-radius */
+            margin-bottom: 0.5rem; /* Keep a small gap between news items */
+        }
+        .news-item.card-block:hover {
+            box-shadow: none; /* No shadow on hover for news items */
+            transform: none; /* No lift on hover for news items */
+        }
+        .news-item h4 {
+            font-size: 1rem; /* Smaller title for news items */
+            color: var(--highlight-blue);
+            margin-bottom: 0.1rem;
+        }
+        .news-date-text {
+            font-size: 0.75rem; /* Smaller date font for news items */
+            color: #888;
+            margin-bottom: 0.2rem;
+        }
+        .news-item p {
+            font-size: 0.8rem; /* Smaller paragraph font for news items */
+            line-height: 1.4;
+            color: #555;
+            text-align: justify;
+        }
+
+        /* === MAIN CONTENT BOX STYLE === */
+        .main-content-box {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-radius: 0.75rem;
+            padding: 2rem; /* Overall padding for the main box */
+        }
+
+        /* === Responsive Three-Column Grid === */
+        .inner-three-column-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Default to stack on mobile */
+            gap: 2rem; /* Consistent gap for both mobile and desktop */
+        }
+
+        @media (min-width: 1024px) {
+            .inner-three-column-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem; /* Keep 2rem gap for desktop */
+            }
+        }
+
+        /* === Individual Column Style === */
+        .inner-column {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem; /* Reverted to slightly larger gap */
+            gap: 1.5rem; /* Gap between elements within a column */
+            /* Removed inner padding from here, content elements will define their own padding */
         }
-        @media (min-width: 768px) {
-            .news-events-sidebar {
-                width: 35%; /* 1/3 width for sidebar */
-                min-height: 400px; /* Match image height, allowing for scrolling */
-                max-height: 400px; /* Max height to match image */
-                overflow-y: auto; /* Enable scrolling for news/events if they overflow */
+
+        /* Vertical separators for desktop */
+        @media (min-width: 1024px) {
+            .inner-column:not(:last-child) {
+                border-right: 1px solid rgba(0,0,0,0.08); /* Faint vertical line */
+                padding-right: 2rem; /* Matches the gap on the left of the next column */
+            }
+            .inner-column:not(:first-child) {
+                padding-left: 2rem; /* Matches the gap on the right of the previous column */
             }
         }
 
-        /* General card styling for News/Events */
-        .content-card {
-            background-color: #ffffff;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            padding: 1.5rem; /* Increased padding */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
 
-        .content-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-        }
-
-        /* Section Heading for main content columns */
+        /* === Unified Section Headings === */
         .section-heading {
-            font-size: 1.25rem; /* Matches Latest News heading (text-xl) */
-            font-weight: 700;
-            margin-bottom: 1.2rem; /* Increased margin */
-            text-align: left; /* Align left */
-            color: var(--ias-dark-blue);
-            position: relative;
-            padding-bottom: 0.4rem; /* Increased padding */
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--highlight-blue); /* Darker blue from suggested CSS */
+            border-bottom: 2px solid var(--highlight-red); /* Red from suggested CSS */
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem; /* Slightly more space below heading */
+            /* Ensure headings span full width within their logical column content */
+            width: 100%;
         }
 
-        .section-heading::after {
-            content: '';
-            position: absolute;
-            left: 0; /* Align left */
-            bottom: 0;
-            width: 60px; /* Increased width */
-            height: 3px; /* Slightly thicker line */
-            background-color: var(--ias-blue);
-            border-radius: 2px;
+        /* === Text Block Style (General paragraphs not in cards) === */
+        /* These are for the main intro paragraphs within columns (e.g., About KSoM, Research Areas intro) */
+        .inner-column > div > p, /* For paragraphs inside a div like 'About KSoM' img/text wrapper */
+        .inner-column > p /* For direct paragraphs like Research Areas intro */
+        {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+            text-align: justify;
+            margin-bottom: 1rem; /* Standard paragraph margin */
+            width: 100%; /* Ensure full width use */
         }
-        
+
+        /* === Card Block (Programmes, Research, Events, Activities) === */
+        .card-block {
+            display: block; /* Make it a block element to be clickable */
+            background-color: #fafafa; /* Gentle contrast, as requested */
+            padding: 0.5rem 0; /* Reduced padding as requested */
+            border-left: none; /* No border */
+            border-radius: 0; /* No border-radius */
+            box-shadow: none; /* No shadow */
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
+            text-decoration: none; /* Remove underline for clickable cards */
+            color: inherit; /* Inherit text color from parent for default links */
+            width: 100%; /* Ensure full width usage within column */
+            max-width: none; /* Remove any max-width constraints */
+        }
+        .card-block:hover {
+            box-shadow: none; /* No shadow on hover */
+            transform: translateY(-2px); /* Slight lift on hover */
+        }
+        .card-block h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--highlight-blue);
+            margin-bottom: 0.3rem;
+        }
+        .card-block p {
+            font-size: 0.95rem;
+            color: #444;
+            margin-bottom: 0; /* Remove margin-bottom for paragraphs inside cards */
+            line-height: 1.5; /* Consistent line height for card text */
+        }
+
+        /* Specific card elements for dates and location */
+        .card-block .news-date-text,
+        .card-block .event-date-text,
+        .card-block .event-location,
+        .card-block .event-time {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.1rem;
+            display: block;
+        }
+
+        /* === Read More Links (for general 'View All' links at bottom of sections) === */
         .read-more-link, .view-all-link {
-            color: var(--ias-teal);
+            font-size: 0.9rem;
+            color: var(--highlight-red);
             font-weight: 500;
             text-decoration: none;
-            transition: color 0.3s ease;
-            font-size: 0.95rem; /* Consistent font size for read more links */
+            margin-top: 0.5rem;
+            display: inline-block;
         }
         .read-more-link:hover, .view-all-link:hover {
-            color: var(--ias-dark-blue);
             text-decoration: underline;
         }
 
-        /* Truncation for non-expandable content (just for visual presentation) */
+        /* === Responsive Truncation === */
         .truncated-text {
             display: -webkit-box;
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
-            line-height: 1.6; /* Increased line height for better readability */
-            margin-bottom: 0.8rem; /* Increased space below truncated text */
-            font-size: 0.85rem; /* Consistent smaller font size for general truncated text */
-        }
-        /* Specific truncation for list items */
-        .news-item .news-content p, .event-item-card .event-content p,
-        .programme-item p, .research-item p, .activity-item p, .outreach-item p {
-            -webkit-line-clamp: 3; /* Shorter for list items */
-            max-height: calc(3 * 1.6em); /* Max height based on new line height */
-            font-size: 0.85rem; /* Consistent smaller font size for these specific truncated texts */
-        }
-        /* Global truncation for main sections like About and summarized research/outreach */
-        .main-content-box > .inner-three-column-grid > div > p.truncated-text { /* Target paragraphs directly under columns */
-            -webkit-line-clamp: 6; /* Adjusted for better balance with new line-height */
-            max-height: calc(6 * 1.6em); /* Max height based on new line height */
-            font-size: 0.85rem; /* Base font size for main column paragraphs, now consistent */
+            line-height: 1.5; /* Reduced line height */
+            font-size: 0.83rem; /* Reduced font size */
+            text-align: justify; /* Justify text alignment */
         }
 
-        /* News and Events specific styling for date and content (space efficient) */
-        .news-item, .event-item-card {
-            display: flex;
-            align-items: flex-start; /* Align date and content at the top */
-            margin-bottom: 0.8rem; /* Increased margin */
-            background-color: #fefefe;
-            border-radius: 0.5rem;
-            overflow: hidden;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease;
+        /* Specific truncation for main body text in columns (like "About KSoM" initial paragraph) */
+        .inner-column > div > p.truncated-text {
+            -webkit-line-clamp: 6; /* Adjusted to 6 lines for tighter feel */
+            max-height: calc(6 * 1.5em);
+        }
+        .inner-column > p.truncated-text { /* Target research/outreach intro text */
+            -webkit-line-clamp: 6; /* Adjusted to 6 lines */
+            max-height: calc(6 * 1.5em);
         }
 
-        .news-item:hover, .event-item-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        /* Specific truncation for descriptions within cards (e.g., news/event items, programme descriptions) */
+        .card-block p.truncated-text {
+            -webkit-line-clamp: 3; /* Limit card descriptions to 3 lines */
+            max-height: calc(3 * 1.5em);
         }
-
-        .news-date-text, .event-date-text { /* New class for space-efficient date text */
-            font-family: 'Lora', serif;
-            font-size: 0.8rem; /* Slightly larger date font */
-            color: #666; /* Subtler color */
-            margin-bottom: 0.2rem; /* Increased margin below date */
-            display: block;
-        }
-        
-        .news-content, .event-content {
-            padding: 0.8rem 1rem; /* Increased padding */
-            flex-grow: 1;
-        }
-        .news-content h4, .event-content h4 {
-            font-size: 1rem; /* Slightly larger for news/event titles */
-            margin-bottom: 0.2rem; /* Increased margin */
-        }
-        .event-location, .event-time {
-            font-size: 0.8rem; /* Slightly larger */
-            color: #666;
-            margin-top: 0.1rem; /* Increased margin */
-        }
-
-        /* Main Content within a single box with inner three columns */
-        .main-content-wrapper { /* New wrapper for the entire main content area */
-            padding: 1.5rem; /* Increased overall padding for this section */
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .main-content-box { /* The single main box containing the three columns */
-            background-color: #ffffff;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            padding: 2rem; /* Increased padding inside the main content box */
-        }
-
-        .inner-three-column-grid { /* The grid for the three internal columns */
-            display: grid;
-            grid-template-columns: 1fr; /* Stack on mobile */
-            gap: 2rem; /* Increased gap between columns on mobile */
-        }
-
-        @media (min-width: 768px) {
-            .inner-three-column-grid {
-                grid-template-columns: repeat(3, 1fr); /* Three columns on desktop */
-                gap: 2.5rem; /* Increased gap between internal columns for more space */
-            }
-            .inner-column:not(:last-child) { /* Apply border between all columns except the last one */
-                border-right: 1px solid rgba(0,0,0,0.08); /* Faint vertical line */
-                padding-right: 2.5rem; /* Adjusted padding to match new gap */
-            }
-            .inner-column:not(:first-child) { /* Adjust padding for all columns except the first */
-                padding-left: 2.5rem; /* Adjusted padding to match new gap */
-            }
-        }
-        
-        .inner-column {
-            display: flex;
-            flex-direction: column; /* Ensure content stacks vertically within each column */
-            /* No background, shadow, or border-radius here; they are on main-content-box */
-        }
-
-        .programme-item, .research-item, .activity-item, .outreach-item {
-            padding-bottom: 0.8rem; /* Increased padding */
-            border-bottom: 1px solid #eee; /* Subtle separator */
-            margin-bottom: 0.8rem; /* Increased space between items */
-        }
-        .programme-item:last-child, .research-item:last-child, .activity-item:last-child, .outreach-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-        .programme-item h3, .research-item h3, .activity-item h3, .outreach-item h3 {
-            font-size: 1rem; /* Consistent font size for list items */
-            color: var(--ias-dark-blue);
-            margin-bottom: 0.2rem; /* Increased margin */
-        }
-
 
         /* Footer */
         .site-footer {
             background-color: var(--ias-dark-blue);
             color: var(--ias-light-blue);
-            padding: 2.5rem 1.5rem; /* Increased padding */
-            font-size: 0.9rem; /* Slightly larger footer font size */
+            padding: 2.5rem 1.5rem;
+            font-size: 0.9rem;
         }
-
         .footer-logo-text {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem; /* Reverted to larger */
+            font-size: 2.2rem;
             font-weight: 700;
             line-height: 1;
             color: #ffffff;
         }
-
         .footer-university-name {
             font-family: 'Lora', serif;
-            font-size: 0.7rem; /* Slightly larger */
+            font-size: 0.7rem;
             color: #a0d0e0;
             letter-spacing: 0.05em;
             text-transform: uppercase;
         }
-
         .footer-nav ul li a, .footer-social-links a {
             color: var(--ias-light-blue);
             transition: color 0.3s ease;
         }
-
         .footer-nav ul li a:hover, .footer-social-links a:hover {
             color: #ffffff;
         }
@@ -536,56 +521,56 @@
             .site-header-inner {
                 padding: 0.8rem 1rem;
             }
-
             .site-logo-img {
                 height: 40px;
             }
-
             .dept-title {
                 font-size: 1.5rem;
             }
-
             .university-name {
                 font-size: 0.7rem;
             }
-
             .main-nav {
-                display: none; /* Hide desktop nav on mobile */
+                display: none;
             }
-
             .mobile-menu-button {
-                display: block; /* Show mobile menu button */
+                display: block;
             }
-
             .top-content-area {
                 padding: 1rem;
             }
-
             .campus-photo-container {
-                height: 250px; /* Shorter image on mobile */
+                height: 200px; /* Even shorter image on mobile */
             }
-
             .campus-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
-
             .campus-subtitle {
-                font-size: 1rem;
+                font-size: 0.9rem;
             }
-
             .section-heading {
-                font-size: 1.1rem; /* Further reduced for mobile */
+                font-size: 1.1rem;
             }
             
-            /* News/Events date box removed, handled by text */
+            /* News/Events items as cards on mobile */
             .news-item, .event-item-card {
-                flex-direction: column; /* Stack date and content vertically */
+                flex-direction: column;
             }
-            .news-content h4, .event-content h4 {
-                font-size: 0.95rem; /* Smaller font for mobile news/event titles */
+            .news-item h4, .event-item-card h4 {
+                font-size: 0.95rem;
             }
             .news-date-text, .event-date-text {
-                margin-top: 0.3rem; /* Add a bit of space on top for date on mobile */
+                margin-top: 0.3rem;
+            }
+
+            .inner-column {
+                padding-left: 0;
+                padding-right: 0;
+            }
+            /* Cards and content blocks now fill full width on mobile */
+            .card-block, .inner-column > div, .inner-column > p {
+                width: 100%;
+                max-width: none;
             }
         }
     </style>
@@ -673,49 +658,42 @@
                 <img src="Images/KSoMCampus.jpg" alt="KSoM Campus" class="campus-photo" onerror="this.onerror=null;this.src='https://placehold.co/1920x600/005080/ffffff?text=KSoM+Campus';">
                 <div class="campus-photo-overlay-content">
                     <h1 class="campus-title">Kerala School of Mathematics</h1>
-                    <p class="campus-subtitle">An autonomous institution established jointly by the Science & Technology Department, Govt. of Kerala and the Department of Atomic Energy, Govt. of India.</p>
+                    <p class="campus-subtitle">
+                        An autonomous institution established jointly by the Science & Technology Department, Govt. of Kerala and the Department of Atomic Energy, Govt. of India.
+                    </p>
                 </div>
             </div>
 
             <!-- Right Sidebar: Latest News -->
             <div class="news-events-sidebar">
                 <!-- Latest News Section -->
-                <section class="news-section content-card p-4">
+                <section class="news-section content-card">
                     <h3 class="text-xl font-bold mb-3 text-ias-dark-blue">Latest News</h3>
                     <div class="space-y-3">
                         <!-- News Item 1 -->
-                        <div class="news-item">
-                            <div class="news-content">
-                                <h4 class="font-semibold text-base mb-1 text-ias-blue">Recruitment of Registrar</h4>
-                                <span class="news-date-text">June 03, 2025</span>
-                                <p class="text-gray-700 text-sm truncated-text">
-                                    KSoM is seeking a qualified candidate for the position of Registrar. Responsibilities include administrative operations, student records, and coordinating with various departments. A master's degree and relevant experience are required.
-                                </p>
-                                <a href="/news/registrar-recruitment.html" class="read-more-link text-xs mt-1 block text-right">Read More &rarr;</a>
-                            </div>
-                        </div>
+                        <a href="/news/registrar-recruitment.html" class="news-item card-block">
+                            <h4 class="font-semibold text-base mb-1 text-ias-blue">Recruitment of Registrar</h4>
+                            <span class="news-date-text">June 03, 2025</span>
+                            <p class="text-gray-700 text-sm truncated-text">
+                                KSoM is seeking a qualified candidate for the position of Registrar. Responsibilities include administrative operations, student records, and coordinating with various departments. A master's degree and relevant experience are required.
+                            </p>
+                        </a>
                         <!-- News Item 2 -->
-                        <div class="news-item">
-                            <div class="news-content">
-                                <h4 class="font-semibold text-base mb-1 text-ias-blue">KSoM-Ph.D. Admissions 2025 - Advertisement</h4>
-                                <span class="news-date-text">May 07, 2025</span>
-                                <p class="text-gray-700 text-sm truncated-text">
-                                    Advertisement for the Ph.D. Programme admissions for 2025 has been released. Prospective candidates are invited to apply through the official website. The deadline for applications is July 15, 2025.
-                                </p>
-                                <a href="/news/phd-admissions-2025.html" class="read-more-link text-xs mt-1 block text-right">Read More &rarr;</a>
-                            </div>
-                        </div>
+                        <a href="/news/phd-admissions-2025.html" class="news-item card-block">
+                            <h4 class="font-semibold text-base mb-1 text-ias-blue">KSoM-Ph.D. Admissions 2025 - Advertisement</h4>
+                            <span class="news-date-text">May 07, 2025</span>
+                            <p class="text-gray-700 text-sm truncated-text">
+                                Advertisement for the Ph.D. Programme admissions for 2025 has been released. Prospective candidates are invited to apply through the official website. The deadline for applications is July 15, 2025.
+                            </p>
+                        </a>
                          <!-- News Item 3 -->
-                         <div class="news-item">
-                            <div class="news-content">
-                                <h4 class="font-semibold text-base mb-1 text-ias-blue">KSoM Gains Autonomous Status</h4>
-                                <span class="news-date-text">April 25, 2025</span>
-                                <p class="text-gray-700 text-sm truncated-text">
-                                    KSoM has officially become an autonomous institution, delinked from KSCSTE. This new status grants KSoM greater flexibility in academic and administrative matters, paving the way for enhanced research and educational initiatives.
-                                </p>
-                                <a href="/news/autonomous-status.html" class="read-more-link text-xs mt-1 block text-right">Read More &rarr;</a>
-                            </div>
-                        </div>
+                         <a href="/news/autonomous-status.html" class="news-item card-block">
+                            <h4 class="font-semibold text-base mb-1 text-ias-blue">KSoM Gains Autonomous Status</h4>
+                            <span class="news-date-text">April 25, 2025</span>
+                            <p class="text-gray-700 text-sm truncated-text">
+                                KSoM has officially become an autonomous institution, delinked from KSCSTE. This new status grants KSoM greater flexibility in academic and administrative matters, paving the way for enhanced research and educational initiatives.
+                            </p>
+                        </a>
                     </div>
                     <a href="/news.html" class="view-all-link text-ias-teal font-semibold mt-3 block text-right">View All News &rarr;</a>
                 </section>    
@@ -729,7 +707,7 @@
                     <!-- Column 1: About KSoM, Programmes -->
                     <div class="inner-column">
                         <h2 class="section-heading">About KSoM</h2>
-                        <div class="flex flex-col mb-4">
+                        <div class="mb-4">
                             <img src="https://placehold.co/400x250/007295/ffffff?text=KSoM+Overview" alt="KSoM Overview" class="w-full rounded-lg shadow-md mb-4">
                             <p class="truncated-text">
                                 Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.
@@ -741,24 +719,24 @@
 
                         <h2 class="section-heading mt-6">Our Programmes</h2>
                         <div class="space-y-4">
-                            <div class="programme-item">
-                                <h3 class="text-ias-blue">Integrated M.Sc. - Ph.D. Programme</h3>
+                            <a href="/programmes/integrated-msc-phd.html" class="programme-item card-block">
+                                <h3>Integrated M.Sc. - Ph.D. Programme</h3>
                                 <p class="text-gray-600 truncated-text">
                                     An advanced postgraduate training program designed for research careers in Mathematics, with options in Physics or Theoretical Computer Science. It offers monthly scholarships and hostel facilities. Admission is based on a written test and interview, requiring a B.Sc. in Mathematics/Physics or B.E./B.Tech. with strong mathematical background. The curriculum includes advanced courses and early research engagement.
                                 </p>
-                            </div>
-                            <div class="programme-item">
+                            </a>
+                            <a href="/programmes/phd.html" class="programme-item card-block">
                                 <h3 class="text-ias-blue">Ph.D. Programme</h3>
                                 <p class="text-gray-600 truncated-text">
                                     Aimed at highly motivated students for mathematical research careers, offering a Ph.D. in Pure and Applied Mathematics. Students work closely with faculty on advanced problems, typically spanning five years with initial coursework and intensive research. Financial support includes fellowships and conference opportunities.
                                 </p>
-                            </div>
-                            <div class="programme-item">
+                            </a>
+                            <a href="/programmes/postdoctoral.html" class="programme-item card-block">
                                 <h3 class="text-ias-blue">Postdoctoral Programme</h3>
                                 <p class="text-gray-600 truncated-text">
                                     Fellowships for outstanding young researchers with recently completed Ph.D.s for independent research in a stimulating environment. Fellows receive competitive stipends and research grants, conducting original research and participating in teaching. Fellowships are typically two years, extendable based on performance, with access to excellent facilities.
                                 </p>
-                            </div>
+                            </a>
                         </div>
                         <a href="/programmes.html" class="read-more-link mt-auto block text-right">View All Programmes &rarr;</a>
                     </div>
@@ -770,49 +748,49 @@
                             KSoM is a vibrant hub for advanced mathematical research, with faculty and scholars engaged in cutting-edge work across diverse fields. Our research initiatives aim to push the boundaries of theoretical and applied mathematics, fostering an environment of rigorous inquiry and intellectual discovery. Key areas of focus include:
                         </p>
                         <div class="space-y-4">
-                            <div class="research-item">
-                                <h3 class="text-ias-blue">Complex Analysis</h3>
+                            <a href="/research/complex-analysis.html" class="research-item card-block">
+                                <h3>Complex Analysis</h3>
                                 <p class="truncated-text">Investigation of the impact of Hörmander's estimates on properties of the Bers domain and implications of the Kobayashi metric isometric to the Teichmüller metric. Research spans complex analysis, Teichmüller theory, and differential geometry, utilizing functional analysis and PDE techniques.</p>
-                            </div>
-                            <div class="research-item">
-                                <h3 class="text-ias-blue">Braid Groups & Mapping Class Groups</h3>
+                            </a>
+                            <a href="/research/braid-groups.html" class="research-item card-block">
+                                <h3>Braid Groups & Mapping Class Groups</h3>
                                 <p class="truncated-text">Exploration of intricate relationships between braid groups and mapping class groups, with emphasis on liftability and the Birman-Hilden property. Focus includes unitary representations, their classification, irreducibility, and connections to quantum invariants in knot theory and low-dimensional topology.</p>
-                            </div>
-                            <div class="research-item">
-                                <h3 class="text-ias-blue">Non-commutative Functional Analysis</h3>
+                            </a>
+                            <a href="/research/non-commutative-functional-analysis.html" class="research-item card-block">
+                                <h3>Non-commutative Functional Analysis</h3>
                                 <p class="truncated-text">Investigation of quantum aspects of approximation and convexity within operator spaces and systems in C*-algebras. Research covers completely bounded approximation, quantum convexity, matricial ranges, and structure theory of operator systems, with implications for quantum mechanics.</p>
-                            </div>
-                            <div class="research-item">
-                                <h3 class="text-ias-blue">Harmonic Analysis</h3>
+                            </a>
+                            <a href="/research/harmonic-analysis.html" class="research-item card-block">
+                                <h3>Harmonic Analysis</h3>
                                 <p class="truncated-text">Research on modulation spaces, Fourier multipliers, twisted convolution operators, maximal functions along hypersurfaces, Hardy-Sobolev inequalities in non-commutative settings, and spherical maximal operators. Applications include signal processing, image reconstruction, and partial differential equations.</p>
-                            </div>
-                            <div class="research-item">
-                                <h3 class="text-ias-blue">Analytic Number Theory</h3>
+                            </a>
+                            <a href="/research/analytic-number-theory.html" class="research-item card-block">
+                                <h3>Analytic Number Theory</h3>
                                 <p class="truncated-text">Research on multiple zeta values, explicit averages of multiplicative functions, Möbius sums with coprimality conditions, and chromatic generalizations. This area uses real and complex analysis to study integers, prime distribution, and arithmetic functions, with connections to cryptography.</p>
-                            </div>
+                            </a>
                         </div>
                         <a href="/research.html" class="read-more-link mt-auto block text-right">View All Research Areas &rarr;</a>
 
                         <h2 class="section-heading mt-6">Other Activities</h2>
                         <div class="space-y-4">
-                            <div class="activity-item">
-                                <h3 class="text-ias-blue">Workshop on Number Theory</h3>
+                            <a href="/activities/workshop-number-theory.html" class="activity-item card-block">
+                                <h3>Workshop on Number Theory</h3>
                                 <p class="truncated-text">
                                     A five-day workshop on "Recent Advances in Analytic Number Theory" (March 10-14, 2025) featured lectures by renowned mathematicians and parallel sessions for young researchers. Keynote speakers covered topics like L-functions and sieve methods, fostering discussions and collaborations among over 100 participants.
                                 </p>
-                            </div>
-                            <div class="activity-item">
-                                <h3 class="text-ias-blue">Weekly Algebraic Geometry Seminar</h3>
+                            </a>
+                            <a href="/activities/algebraic-geometry-seminar.html" class="activity-item card-block">
+                                <h3>Weekly Algebraic Geometry Seminar</h3>
                                 <p class="truncated-text">
                                     Our ongoing weekly Algebraic Geometry seminar attracts a strong audience, with recent talks on "Moduli Spaces of Curves." It provides a platform for faculty, post-docs, and Ph.D. students to present research and engage in discussions on topics like intersection theory and derived categories.
                                 </p>
-                            </div>
-                            <div class="activity-item">
-                                <h3 class="text-ias-blue">Mathematics Outreach Program</h3>
+                            </a>
+                            <a href="/activities/outreach-program.html" class="activity-item card-block">
+                                <h3>Mathematics Outreach Program</h3>
                                 <p class="truncated-text">
                                     KSoM faculty and students participated in a local outreach program to promote mathematics among high school students. Interactive sessions and workshops covered fascinating aspects like Fractals, Game Theory, and Cryptography, aiming to inspire young minds towards mathematical sciences.
                                 </p>
-                            </div>
+                            </a>
                         </div>
                         <a href="/activities.html" class="read-more-link mt-auto block text-right">View All Activities &rarr;</a>
                     </div>
@@ -821,53 +799,44 @@
                     <div class="inner-column">
                         <h2 class="section-heading">Upcoming Events</h2>
                         <div class="space-y-4">
-                            <div class="event-item-card">
-                                <div class="event-content">
-                                    <h4 class="font-semibold text-base mb-1 text-ias-blue">Guest Lecture: Dr. Ravi Kumar (IIT Bombay)</h4>
-                                    <span class="event-date-text">July 15, 2025</span>
-                                    <p class="event-location text-gray-600 text-sm">KSoM Auditorium</p>
-                                    <p class="event-time text-gray-600 text-sm">10:00 AM</p>
-                                    <p class="text-gray-700 truncated-text">
-                                        Topic: Advances in Number Theory. This lecture is part of the ongoing seminar series and is open to all students and faculty.
-                                    </p>
-                                    <a href="/events/ravi-kumar-lecture.html" class="read-more-link text-xs mt-1 block text-right">Read More &rarr;</a>
-                                </div>
-                            </div>
-                            <div class="event-item-card">
-                                <div class="event-content">
-                                    <h4 class="font-semibold text-base mb-1 text-ias-blue">Workshop on Cryptography and its Applications</h4>
-                                    <span class="event-date-text">August 01, 2025</span>
-                                    <p class="event-location text-gray-600 text-sm">KSoM Computing Lab</p>
-                                    <p class="event-time text-gray-600 text-sm">August 1-7, 2025</p>
-                                    <p class="text-gray-700 truncated-text">
-                                        A week-long workshop for research scholars and faculty focusing on symmetric and asymmetric key cryptography, hash functions, and digital signatures.
-                                    </p>
-                                    <a href="/events/cryptography-workshop.html" class="read-more-link text-xs mt-1 block text-right">Read More &rarr;</a>
-                                </div>
-                            </div>
-                            <div class="event-item-card">
-                                <div class="event-content">
-                                    <h4 class="font-semibold text-base mb-1 text-ias-blue">Ph.D. Entrance Examination</h4>
-                                    <span class="event-date-text">August 20, 2025</span>
-                                    <p class="event-location text-gray-600 text-sm">KSoM Examination Halls</p>
-                                    <p class="event-time text-gray-600 text-sm">9:30 AM onwards</p>
-                                    <p class="text-gray-700 truncated-text">
-                                        The annual entrance examination for Ph.D. admissions will be conducted on campus.
-                                    </p>
-                                    <a href="/events/phd-exam.html" class="read-more-link text-xs mt-1 block text-right">Read More &rarr;</a>
-                                </div>
-                            </div>
+                            <a href="/events/ravi-kumar-lecture.html" class="event-item-card card-block">
+                                <h4 class="font-semibold text-base mb-1 text-ias-blue">Guest Lecture: Dr. Ravi Kumar (IIT Bombay)</h4>
+                                <span class="event-date-text">July 15, 2025</span>
+                                <p class="event-location text-gray-600 text-sm">KSoM Auditorium</p>
+                                <p class="event-time text-gray-600 text-sm">10:00 AM</p>
+                                <p class="text-gray-700 truncated-text">
+                                    Topic: Advances in Number Theory. This lecture is part of the ongoing seminar series and is open to all students and faculty.
+                                </p>
+                            </a>
+                            <a href="/events/cryptography-workshop.html" class="event-item-card card-block">
+                                <h4 class="font-semibold text-base mb-1 text-ias-blue">Workshop on Cryptography and its Applications</h4>
+                                <span class="event-date-text">August 01, 2025</span>
+                                <p class="event-location text-gray-600 text-sm">KSoM Computing Lab</p>
+                                <p class="event-time text-gray-600 text-sm">August 1-7, 2025</p>
+                                <p class="text-gray-700 truncated-text">
+                                    A week-long workshop for research scholars and faculty focusing on symmetric and asymmetric key cryptography, hash functions, and digital signatures.
+                                </p>
+                            </a>
+                            <a href="/events/phd-exam.html" class="event-item-card card-block">
+                                <h4 class="font-semibold text-base mb-1 text-ias-blue">Ph.D. Entrance Examination</h4>
+                                <span class="event-date-text">August 20, 2025</span>
+                                <p class="event-location text-gray-600 text-sm">KSoM Examination Halls</p>
+                                <p class="event-time text-gray-600 text-sm">9:30 AM onwards</p>
+                                <p class="text-gray-700 truncated-text">
+                                    The annual entrance examination for Ph.D. admissions will be conducted on campus.
+                                </p>
+                            </a>
                         </div>
                         <a href="/events.html" class="read-more-link mt-auto block text-right">View All Events &rarr;</a>
 
                         <h2 class="section-heading mt-6">Outreach</h2>
                         <div class="space-y-4">
-                            <div class="outreach-item">
-                                <h3 class="text-ias-blue">SWIM@KSoM: Summer Workshop in Mathematics</h3>
+                            <a href="/outreach/swim-ksom.html" class="outreach-item card-block">
+                                <h3>SWIM@KSoM: Summer Workshop in Mathematics</h3>
                                 <p class="truncated-text">
                                     SWIM@KSoM is an annual summer workshop by KSoM, introducing undergraduates to advanced mathematics for research careers. The two-week program features lectures, problem-solving, and discussions led by KSoM faculty and experts, covering Abstract Algebra, Real Analysis, Topology, and Number Theory. It bridges undergraduate curriculum with higher mathematics, promoting critical thinking and independent problem-solving. Selection is competitive, based on merit and application.
                                 </p>
-                            </div>
+                            </a>
                             <a href="https://ksom-swim.github.io/" target="_blank" class="read-more-link mt-auto block text-right">Visit SWIM@KSoM website &rarr;</a>
                         </div>
                     </div>
