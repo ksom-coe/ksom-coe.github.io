@@ -53,9 +53,11 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
+            padding-top: 0.75rem; /* Header spacing fix */
+            padding-bottom: 0.75rem; /* Header spacing fix */
         }
         .site-header-inner {
-            padding: 1.5rem 2rem; /* Increased vertical padding */
+            padding: 1.5rem 2rem; /* Increased vertical padding and consistent horizontal padding */
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -356,24 +358,14 @@
                 grid-template-columns: repeat(3, 1fr);
                 gap: 2rem; /* Keep 2rem gap for desktop */
             }
-        }
-
-        /* === Individual Column Style === */
-        .inner-column {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem; /* Gap between elements within a column */
-            /* Removed inner padding from here, content elements will define their own padding */
-        }
-
-        /* Vertical separators for desktop */
-        @media (min-width: 1024px) {
-            .inner-column:not(:last-child) {
-                border-right: 1px solid rgba(0,0,0,0.08); /* Faint vertical line */
-                padding-right: 1rem; /* Reduced from 2rem as requested */
+            /* Shift separator line and adjust padding */
+            .inner-three-column-grid > .inner-column:nth-child(2) {
+                border-left: 1px solid rgba(0,0,0,0.08); /* Move the line here */
+                padding-left: 1rem;
             }
-            .inner-column:not(:first-child) {
-                padding-left: 1rem; /* Reduced from 2rem as requested */
+            .inner-column { /* Reset padding for all columns */
+                padding-left: 0;
+                padding-right: 0;
             }
         }
 
@@ -580,7 +572,8 @@
 
     <!-- Header Content -->
     <header class="site-header">
-        <div class="container site-header-inner">
+        <!-- Removed "container" class from site-header-inner div as it was redundant -->
+        <div class="site-header-inner">
             <!-- Logo and Institution Branding -->
             <div class="site-branding">
                 <a href="/" class="site-logo-link flex items-center">
