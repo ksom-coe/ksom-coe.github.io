@@ -237,9 +237,9 @@ a:hover, a:focus-visible {
 .events-section .view-all-link:focus-visible,
 .about-us-section .view-all-link:hover,
 .about-us-section .view-all-link:focus-visible,
-.programmes-section .view-all-link:hover, /* Added for new programme section structure */
+.programmes-section .view-all-link:hover,
 .programmes-section .view-all-link:focus-visible,
-.other-activities-section .view-all-link:hover, /* Added for new activities section structure */
+.other-activities-section .view-all-link:hover,
 .other-activities-section .view-all-link:focus-visible
 {
     text-decoration: underline !important; /* Use !important to ensure it applies */
@@ -376,23 +376,23 @@ a:hover, a:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   6.2 Navigation (Desktop & Mobile) - UPDATED
+   6.2 Navigation (Desktop & Mobile)
    -------------------------------------------------------------------------- */
 .main-nav {
-    flex-shrink: 0; /* Prevent nav from growing */
+    flex-shrink: 0;
 }
 
 .main-nav ul {
     list-style: none;
     display: flex;
-    gap: var(--spacing-4); /* Adjusted space between main nav items, smaller */
-    flex-wrap: nowrap; /* Prevent nav items from wrapping */
-    white-space: nowrap; /* Keep nav items on single line */
-    margin-left: auto; /* Pushes the menu items to the right */
+    gap: var(--spacing-4);
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    margin-left: auto;
 }
 
 .main-nav ul li a {
-    padding: var(--spacing-1) var(--spacing-0); /* Reduced padding for smaller nav bar */
+    padding: var(--spacing-1) var(--spacing-0);
     display: block;
     font-weight: 600;
     color: var(--gray-700);
@@ -408,7 +408,7 @@ a:hover, a:focus-visible {
     height: 2px;
     background-color: var(--ias-teal);
     transition: width var(--transition-fast);
-    display: none; /* Removed underline completely */
+    display: none;
 }
 
 .main-nav ul li a:hover::after,
@@ -423,11 +423,11 @@ a:hover, a:focus-visible {
 .dropdown-menu {
     position: absolute;
     top: 100%;
-    right: 0; /* Aligned to the right edge of the parent dropdown */
+    right: 0;
     background-color: var(--white);
     box-shadow: var(--shadow-md);
     border-radius: var(--border-radius-md);
-    min-width: 240px; /* Increased min-width for longer programme names */
+    min-width: 240px;
     list-style: none;
     padding: var(--spacing-2) 0;
     opacity: 0;
@@ -435,12 +435,11 @@ a:hover, a:focus-visible {
     transform: translateY(var(--spacing-2));
     transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
     z-index: var(--z-dropdown);
-    display: flex; /* Make it a flex container */
-    flex-direction: column; /* Stack items vertically */
-    transform-origin: top right; /* Ensures animation originates from top right */
+    display: flex;
+    flex-direction: column;
+    transform-origin: top right;
 }
 
-/* Add this rule for desktop dropdown on hover */
 .dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
@@ -449,88 +448,79 @@ a:hover, a:focus-visible {
 }
 
 .dropdown-menu li a {
-    padding: 8px 16px; /* Added padding for submenu items */
-    white-space: normal; /* Allow text to wrap within submenu items */
-    line-height: 1.5; /* Increased line-height for better spacing */
+    padding: 8px 16px;
+    white-space: normal;
+    line-height: 1.5;
 }
 
-/* Mobile menu button styles */
 .mobile-menu-button {
-    background-color: var(--ias-blue); /* Added from user instruction */
-    color: var(--white); /* Added from user instruction */
-    padding: 8px 12px; /* Added from user instruction */
-    border-radius: 4px; /* Added from user instruction */
-    font-size: 1.2rem; /* Added from user instruction */
-    cursor: pointer; /* Added from user instruction */
-    display: block; /* Ensure it's visible on mobile */
+    background-color: var(--ias-blue);
+    color: var(--white);
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: block;
     z-index: var(--z-fixed);
 }
 
-/* Mobile header adjustments */
 @media (max-width: 767px) {
     .site-header .site-branding {
         flex-direction: column;
         align-items: flex-start;
-        max-width: 70%; /* Limit the branding width */
+        max-width: 70%;
     }
     
     .site-header .dept-title {
-        font-size: 1.1rem; /* Smaller font size for mobile title */
-        white-space: normal; /* Allow text to wrap */
+        font-size: 1.1rem;
+        white-space: normal;
         line-height: 1.3;
         margin-top: 4px;
     }
 }
 
-
-/* Hide mobile button on desktop */
 @media (min-width: 768px) {
     .mobile-menu-button {
         display: none;
     }
-    /* Fix navigation visibility */
     .main-nav {
-        display: flex !important; /* Ensure desktop nav is visible and uses flex */
+        display: flex !important;
     }
     .site-header .site-branding {
-        max-width: 50%; /* More space for navigation */
+        max-width: 50%;
     }
-
-    /* Hide mobile nav on desktop - Added from user instruction */
     .mobile-nav {
         display: none !important;
     }
 }
 
-/* Mobile menu improvements */
 .mobile-nav {
     position: fixed;
-    top: 0; /* Align to top */
-    right: -100vw; /* Start completely off-screen to the right (viewport width) */
-    width: min(300px, 90vw); /* Fixed width for the sliding panel, responsive */
-    height: 100vh; /* Full viewport height */
+    top: 0;
+    right: -100vw;
+    width: min(300px, 90vw);
+    height: 100vh;
     background-color: var(--ias-blue);
     color: var(--white);
     z-index: var(--z-modal);
     overflow-y: auto;
-    max-width: 100vw; /* Ensure it doesn't exceed viewport width */
-    overflow-x: hidden; /* Hide horizontal overflow */
+    max-width: 100vw;
+    overflow-x: hidden;
     padding: var(--spacing-4);
-    transition: right var(--transition-medium) ease-out; /* Transition 'right' property */
-    box-shadow: -5px 0 15px rgba(0,0,0,0.2); /* Add shadow for depth */
+    transition: right var(--transition-medium) ease-out;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
 }
 
-/* When visible */
 .mobile-nav.mobile-menu-visible {
-    right: 0; /* Slide in from right */
+    right: 0;
 }
 
 .mobile-nav ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-2); /* Smaller gap for mobile items */
-    margin-top: var(--spacing-12); /* Added for spacing from close button */
+    gap: var(--spacing-2);
+    margin-top: var(--spacing-12);
 }
 
 .mobile-nav ul li a {
@@ -547,20 +537,18 @@ a:hover, a:focus-visible {
     background-color: rgba(255, 255, 255, 0.1);
     text-decoration: none;
 }
-/* Mobile nested dropdown styles */
 .mobile-nav ul ul {
     padding-left: var(--spacing-4);
-    margin-top: 0; /* Override margin from parent ul */
-    border-top: none; /* Remove border from parent li */
+    margin-top: 0;
+    border-top: none;
 }
 
 .mobile-nav ul ul li a {
-    padding: var(--spacing-2) var(--spacing-4); /* Smaller padding for sub-items */
+    padding: var(--spacing-2) var(--spacing-4);
     font-size: var(--font-size-base);
-    border-bottom: none; /* No border for sub-items */
+    border-bottom: none;
 }
 
-/* Mobile close button styling */
 #mobile-close-button {
     position: absolute;
     top: 20px;
@@ -571,23 +559,23 @@ a:hover, a:focus-visible {
     font-size: 2rem;
     cursor: pointer;
     z-index: 10;
-    display: block !important; /* Ensure it's always visible */
+    display: block !important;
 }
 
 
 /* --------------------------------------------------------------------------
-   6.3 Hero Section - UPDATED
+   6.3 Hero Section
    -------------------------------------------------------------------------- */
 .hero-section {
     position: relative;
-    background-image: url('Images/KSoMCampus.jpg'); /* Updated path */
+    background-image: url('Images/KSoMCampus.jpg');
     background-size: cover;
     background-position: center;
     color: var(--white);
-    padding: var(--spacing-12) 0; /* Reduced padding */
+    padding: var(--spacing-12) 0;
     text-align: center;
-    margin-bottom: var(--spacing-8); /* Reduced margin */
-    overflow: hidden; /* Ensure content stays within section bounds */
+    margin-bottom: var(--spacing-8);
+    overflow: hidden;
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
@@ -601,7 +589,7 @@ a:hover, a:focus-visible {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
@@ -632,11 +620,11 @@ a:hover, a:focus-visible {
     text-shadow: var(--shadow-text);
     text-align: left;
     line-height: 1.4;
-    overflow-wrap: break-word; /* Ensure long words break */
+    overflow-wrap: break-word;
 }
 
 .hero-section .btn-primary {
-    display: none; /* Hide the button as requested */
+    display: none;
 }
 
 /* --------------------------------------------------------------------------
@@ -647,31 +635,29 @@ a:hover, a:focus-visible {
     padding-bottom: var(--spacing-12);
 }
 
-/* Unified grid for main content sections (About Us, News, Events) */
 .main-content-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Single column on mobile */
-    gap: var(--spacing-6); /* Reduced space between sections vertically */
-    margin-bottom: var(--spacing-8); /* Reduced space below this combined section */
+    grid-template-columns: 1fr;
+    gap: var(--spacing-6);
+    margin-bottom: var(--spacing-8);
 }
 
 /* Base styles for all sections that will mimic cards */
-/* Applied to the section directly, or the content-card wrapper if exists */
 .about-us-section,
-.research-areas-container, /* This is now a content-card wrapper */
-.programmes-list-container, /* This is now a content-card wrapper */
-.activities-list-container, /* This is now a content-card wrapper */
-.main-content-grid > .content-card /* This targets news/events wrappers */
+.research-areas-container,
+.programmes-list-container,
+.activities-list-container,
+.main-content-grid > .content-card
 {
-    background-color: var(--white); /* All sections now have default white background */
+    background-color: var(--white);
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-md);
-    padding: var(--spacing-6); /* Consistent padding */
+    padding: var(--spacing-6);
     display: flex;
     flex-direction: column;
-    height: 100%; /* Important: makes them stretch to equal height in a grid row */
-    overflow: hidden; /* Hide overflow initially if content is very long */
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast); /* Add transition for hover effect */
+    height: 100%;
+    overflow: hidden;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 /* Apply hover/focus effects to the top-level expandable cards/sections */
@@ -695,18 +681,18 @@ a:hover, a:focus-visible {
     margin-bottom: var(--spacing-8);
     position: relative;
     padding-bottom: var(--spacing-3);
-    /* Adjusted font sizes for section titles - Smaller as requested */
-    font-size: var(--font-size-lg) !important; /* ~18px on mobile */
-    line-height: 1.2; /* Tighter line height for titles */
+    /* Adjusted font sizes for section titles - Optimized for readability */
+    font-size: var(--font-size-xl) !important; /* ~20px on mobile */
+    line-height: 1.2;
 }
 @media (min-width: 768px) {
     .section-title {
-        font-size: var(--font-size-xl) !important; /* ~20px on tablet */
+        font-size: var(--font-size-2xl) !important; /* ~24px on tablet */
     }
 }
 @media (min-width: 1024px) {
     .section-title {
-        font-size: var(--font-size-xl) !important; /* ~20px on desktop */
+        font-size: var(--font-size-2xl) !important; /* ~24px on desktop */
     }
 }
 
@@ -724,14 +710,12 @@ a:hover, a:focus-visible {
 }
 
 /* General Content Cards (for Programme and Research) */
-/* This specific class is now only for programme-item/activity-item when they had full card styling */
-/* The parent .content-card (or direct section) gets the main card styles */
-.content-cards-grid { /* This is the grid for programme and activities sections */
-    display: grid; /* Keep it as a grid parent for responsiveness */
-    grid-template-columns: 1fr; /* Default to single column */
-    gap: var(--spacing-8); /* Gap between actual cards within the grid */
+.content-cards-grid { /* This is the grid for programme and activities sections - no longer used as direct wrapper */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
     align-items: start;
-    height: 100%; /* Ensure this grid container fills available height */
+    height: 100%;
 }
 
 
@@ -746,7 +730,7 @@ a:hover, a:focus-visible {
 }
 
 .content-card .card-content { /* Used for programme/activity inner cards in old structure */
-    padding: var(--spacing-3); /* Reduced padding inside card content */
+    padding: var(--spacing-3);
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -757,8 +741,8 @@ a:hover, a:focus-visible {
 /* Common style for h3 inside various items */
 .content-card h3,
 .research-area-item h3,
-.programme-item h3, /* New */
-.activity-item h3 /* New */
+.programme-item h3,
+.activity-item h3
 {
     font-size: var(--font-size-xl);
     margin-bottom: var(--spacing-2);
@@ -767,24 +751,42 @@ a:hover, a:focus-visible {
 
 /* Adjust truncated description area */
 .truncated-description {
-    overflow-y: hidden; /* Always hidden by default, JS/expanded class adds auto */
+    overflow-y: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    transition: max-height 0.3s ease-out; /* Smooth transition for expansion */
+    transition: max-height 0.3s ease-out;
     position: relative;
     margin-bottom: var(--spacing-4);
     color: var(--gray-700);
     flex-grow: 1;
 
-    /* Default line clamps are set by JS now, but a fallback can be here */
-    -webkit-line-clamp: 8; /* Fallback for general truncated description */
-    max-height: 16em; /* Fallback height */
+    /* Fallback for general truncated description, actual clamps are JS controlled */
+    -webkit-line-clamp: 8;
+    max-height: 16em;
+}
+
+/* Specific style for paragraphs in About Us that are truncated */
+.truncated-paragraph {
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    transition: max-height 0.3s ease-out;
+    position: relative;
+    margin-bottom: var(--spacing-3); /* Keep individual paragraph spacing */
+    color: var(--gray-700);
+    /* Default clamp for about us paragraphs, overridden by JS */
+    -webkit-line-clamp: 4; /* Default 4 lines per paragraph */
+    max-height: calc(var(--font-size-base) * 1.7 * 4); /* Approx height for 4 lines */
+}
+.truncated-paragraph:last-of-type {
+    margin-bottom: 0; /* Remove bottom margin for the last paragraph */
 }
 
 
 .content-card .card-content .text-ias-teal,
-.item-content .text-ias-teal, /* For new programme/activity structure */
+.item-content .text-ias-teal,
 .research-area-item .text-ias-teal
 {
     color: var(--ias-teal);
@@ -795,13 +797,13 @@ a:hover, a:focus-visible {
 
 
 /* News & Events Section Specific Styling (individual items) */
-.news-list, .event-list, .programme-list, .activities-list-container { /* Added new lists */
+.news-list, .event-list, .programme-list, .activities-list-container {
     list-style: none;
     padding: 0;
     flex-grow: 1;
-    max-height: none; /* Allow full expansion, no internal scroll */
-    overflow-y: visible; /* No internal scroll */
-    scrollbar-width: none; /* For Firefox to hide scrollbar */
+    max-height: none;
+    overflow-y: visible;
+    scrollbar-width: none;
 }
 
 /* Hide scrollbar for WebKit browsers */
@@ -810,31 +812,40 @@ a:hover, a:focus-visible {
     display: none;
 }
 
-.news-item, .event-card, .programme-item, .activity-item { /* Unified item styling */
-    border-bottom: 1px solid var(--gray-200); /* Line separation */
-    padding: var(--spacing-4) 0; /* Vertical padding only */
-    display: flex;
-    flex-direction: row; /* Date/Number and content side-by-side */
-    align-items: flex-start;
-    gap: var(--spacing-2);
-    background-color: transparent; /* No background for individual items */
-    border-radius: 0; /* No border-radius for individual items */
-    box-shadow: none; /* No shadow for individual items */
-    overflow: hidden; /* Keep hidden for truncation of text */
-    transition: max-height 0.3s ease-out; /* Only transition for paragraph expansion */
-    margin-bottom: var(--spacing-0); /* Adjust spacing between items */
-    min-height: unset; /* Remove min-height from individual items */
+/* Base styling for individual list items in all main sections (News, Events, Research, Programmes, Activities) */
+.news-item, .event-card, .research-area-item, .programme-item, .activity-item {
+    border-bottom: 1px solid var(--gray-200);
+    padding: var(--spacing-4) 0;
+    display: flex; /* Using flexbox for internal layout of items */
+    gap: var(--spacing-2); /* Gap between elements within the item */
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: hidden; /* Important for truncation */
+    transition: max-height 0.3s ease-out;
+    margin-bottom: var(--spacing-0);
+    min-height: unset;
     height: auto;
+    flex-direction: column; /* Default to column for text stack */
+    align-items: flex-start; /* Align items to start */
 }
 
 .news-item:last-child, .event-card:last-child,
-.programme-item:last-child, .activity-item:last-child {
-    border-bottom: none; /* No border on the last item */
+.research-area-item:last-child, .programme-item:last-child, .activity-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Ensure only news and event items have the date box layout */
+.news-item, .event-card {
+    flex-direction: row; /* For News/Events, date and content are side-by-side */
+    align-items: flex-start;
 }
 
 /* No direct hover effects for individual items, parent card handles it */
 .news-item:hover, .news-item:focus-visible,
 .event-card:hover, .event-card:focus-visible,
+.research-area-item:hover, .research-area-item:focus-visible,
 .programme-item:hover, .programme-item:focus-visible,
 .activity-item:hover, .activity-item:focus-visible {
     transform: none;
@@ -845,7 +856,7 @@ a:hover, a:focus-visible {
 .news-item .date, .event-card .date-box {
     flex-shrink: 0;
     text-align: center;
-    width: auto; /* Adjust width based on content */
+    width: auto;
     background-color: var(--ias-light-blue);
     padding: var(--spacing-1) var(--spacing-2);
     border-radius: var(--border-radius-sm);
@@ -853,7 +864,7 @@ a:hover, a:focus-visible {
     font-weight: 600;
     border: 1px solid var(--gray-300);
     line-height: 1.2;
-    margin-bottom: var(--spacing-2); /* Space below date box */
+    margin-bottom: var(--spacing-2);
 }
 
 .news-item .date .day, .event-card .date-box .day {
@@ -868,7 +879,7 @@ a:hover, a:focus-visible {
 }
 
 .news-item .news-content, .event-card .event-content,
-.programme-item .item-content, .activity-item .item-content { /* Unified content wrapper */
+.programme-item .item-content, .activity-item .item-content {
     flex-grow: 1;
     width: 100%; /* Take full width */
 }
@@ -880,29 +891,29 @@ a:hover, a:focus-visible {
 }
 
 /* Apply truncation styles to content paragraphs */
-.news-item .news-content p, .event-card .event-content p,
+.news-item .news-content .truncated-description, .event-card .event-content .truncated-description,
 .programme-item .truncated-description, .activity-item .truncated-description {
     font-size: var(--font-size-base);
     color: var(--gray-700);
-    margin-bottom: 0; /* Control spacing with flex-grow and transition */
+    margin-bottom: 0;
     overflow-y: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    /* Initial clamp values set by JS now based on item type */
     transition: max-height 0.3s ease-out;
 }
 
 /* Styles when expanded (via JS adding 'expanded' class on parent .content-card or section) */
-.expanded .truncated-description, /* For about-us and research directly */
-.content-card.expanded .news-item .news-content p,
-.content-card.expanded .event-card .event-content p,
+.expanded .truncated-paragraph, /* For about-us direct paragraphs */
+.expanded .truncated-description, /* For research direct descriptions */
+.content-card.expanded .news-item .news-content .truncated-description,
+.content-card.expanded .event-card .event-content .truncated-description,
 .content-card.expanded .programme-item .truncated-description,
 .content-card.expanded .activity-item .truncated-description {
-    max-height: none; /* Allow content to expand fully */
-    overflow-y: visible; /* No scroll when expanded */
-    -webkit-line-clamp: unset; /* Remove line clamping */
-    transition: max-height 0.5s ease-out; /* Smooth transition */
+    max-height: none;
+    overflow-y: visible;
+    -webkit-line-clamp: unset;
+    transition: max-height 0.5s ease-out;
 }
 
 
@@ -915,39 +926,29 @@ a:hover, a:focus-visible {
 
 /* About Us Section */
 .about-us-section {
-    background-color: var(--section-bg-about); /* Subtle color for About Us */
+    background-color: var(--section-bg-about);
     overflow: hidden;
     margin-bottom: var(--spacing-8);
 }
 
 .about-us-section .text-column {
-    text-align: center; /* Default for mobile */
+    text-align: center;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-.about-us-section .about-us-text-content-wrapper { /* New wrapper for truncation */
+.about-us-section .about-us-text-content-wrapper {
     flex-grow: 1;
-    transition: none; /* The transition is handled by truncated-description now */
-    margin-bottom: var(--spacing-4); /* Ensure spacing before "Read More" link */
-    color: var(--gray-700); /* Ensure text color */
+    transition: none;
+    margin-bottom: var(--spacing-4);
+    color: var(--gray-700);
 }
 
 .about-us-section h2 {
     margin-bottom: var(--spacing-6);
 }
 
-.about-us-section .about-us-text-content-wrapper p { /* Target paragraphs inside wrapper */
-    font-size: var(--font-size-base);
-    line-height: 1.7;
-    margin-bottom: var(--spacing-3);
-    /* No direct truncation here, handled by .truncated-description class on wrapper */
-}
-
-.about-us-section .about-us-text-content-wrapper p:last-of-type {
-    margin-bottom: 0;
-}
 
 /* News Section Wrapper */
 .main-content-grid > .content-card:has(.news-section) {
@@ -961,8 +962,8 @@ a:hover, a:focus-visible {
 
 
 /* Research Areas Container and Items */
-.research-section .research-areas-container { /* The container itself is the content-card */
-    background-color: var(--section-bg-research); /* Subtle color for Research */
+.research-section .research-areas-container {
+    background-color: var(--section-bg-research);
 }
 
 .research-area-item {
@@ -980,21 +981,21 @@ a:hover, a:focus-visible {
     color: var(--ias-teal);
 }
 
-/* Programmes Section Container and Items - NEW STRUCTURE */
-.programmes-section .programmes-list-container { /* The container itself is the content-card */
-    background-color: var(--section-bg-programmes); /* Subtle color for Programmes */
+/* Programmes Section Container and Items */
+.programmes-section .programmes-list-container {
+    background-color: var(--section-bg-programmes);
 }
 .programmes-list-container .programme-item {
-    /* Styles are unified under .programme-item now */
+    /* Base styles already inherited from .programme-item */
 }
 
 
-/* Other Activities Section Container and Items - NEW STRUCTURE */
-.other-activities-section .activities-list-container { /* The container itself is the content-card */
-    background-color: var(--section-bg-activities); /* Subtle color for Other Activities */
+/* Other Activities Section Container and Items */
+.other-activities-section .activities-list-container {
+    background-color: var(--section-bg-activities);
 }
 .activities-list-container .activity-item {
-    /* Styles are unified under .activity-item now */
+    /* Base styles already inherited from .activity-item */
 }
 
 
@@ -1146,7 +1147,7 @@ a:hover, a:focus-visible {
     }
 
     .site-header .site-branding {
-        max-width: 50%; /* More space for navigation */
+        max-width: 50%;
     }
 
 
@@ -1243,7 +1244,7 @@ a:hover, a:focus-visible {
     /* Further reduce vertical spacing between sections on mobile */
     .research-section,
     .programmes-section,
-    .other-activities-section { /* Removed slideshow-section as it's removed from HTML */
+    .other-activities-section {
         margin-bottom: var(--spacing-8);
     }
 }
@@ -1349,7 +1350,7 @@ a:hover, a:focus-visible {
     }
     .content-card p,
     .truncated-description,
-    .about-us-section .about-us-text-content-wrapper p,
+    .truncated-paragraph, /* Added for dark mode color */
     .research-area-item p,
     .programme-item p,
     .activity-item p {
@@ -1357,8 +1358,8 @@ a:hover, a:focus-visible {
     }
     .news-item, .event-card,
     .research-area-item,
-    .programme-item, /* For dark mode border */
-    .activity-item /* For dark mode border */
+    .programme-item,
+    .activity-item
     {
         border-bottom-color: var(--gray-700);
     }
