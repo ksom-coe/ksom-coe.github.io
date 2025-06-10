@@ -183,23 +183,40 @@
             z-index: 1001;
         }
         .mobile-nav {
-            display: flex; /* Changed from display: none; */
+            width: 66.6667vw; /* Set mobile nav width to 2/3 screen */
+            max-width: 320px; /* Max width for mobile nav */
+            background-color: white;
             position: fixed;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.98);
+            right: 0; /* Position mobile nav to the right */
+            height: 100vh;
             z-index: 999;
+            padding-top: 2rem;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.05);
+            display: flex; /* Changed from display: none; */
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start; /* Align content to start */
             transform: translateX(100%);
             transition: transform 0.4s ease-out;
             backdrop-filter: blur(5px);
+            overflow-y: auto; /* Enable scrolling for long content */
         }
         .mobile-nav.open {
             transform: translateX(0);
+        }
+        .mobile-nav-header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 1rem;
+            width: 100%;
+        }
+        .mobile-close-button {
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: #003049;
+            cursor: pointer;
         }
         .mobile-nav ul {
             list-style: none;
@@ -222,13 +239,17 @@
         }
         .mobile-nav .dropdown-menu {
             position: static;
-            display: block;
+            display: none; /* Collapsible on mobile */
             background-color: transparent;
             box-shadow: none;
             padding-top: 0.5rem;
             opacity: 1;
             visibility: visible;
             transform: none;
+            margin-top: 0.5rem; /* Space between parent and submenu */
+        }
+        .mobile-nav .dropdown-menu.open {
+            display: block; /* Show when open */
         }
         .mobile-nav .dropdown-menu a {
             font-size: 1.2rem;
@@ -389,12 +410,12 @@
         /* === Unified Section Headings === */
         .section-heading {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.4rem; /* Adjusted font size */
             font-weight: 600;
             color: var(--highlight-blue); /* Darker blue from suggested CSS */
-            border-bottom: 2px solid var(--highlight-red); /* Red from suggested CSS */
-            padding-bottom: 0.5rem;
-            margin-bottom: 0.5rem; /* Slightly more space below heading */
+            border: none; /* Removed border */
+            padding-bottom: 0; /* Removed padding */
+            margin-bottom: 0.75rem; /* Adjusted margin */
             width: 100%; /* Ensure headings span full width within their logical column content */
         }
         /* Bonus tip: Smaller headings for right sidebar, and remove borders */
@@ -428,7 +449,7 @@
             display: block; /* Make it a block element to be clickable */
             background-color: #fdfdfd; /* Beautified minimal card styling */
             border-radius: 0.5rem;
-            padding: 0.6rem 0.8rem; /* Adjusted padding */
+            padding: 0.5rem 0.75rem; /* Adjusted padding */
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03); /* Very light shadow */
             transition: transform 0.2s ease;
             text-decoration: none; /* Remove underline for clickable cards */
@@ -704,8 +725,8 @@
 
     <!-- Mobile Navigation (hidden by default) -->
     <nav id="mobile-nav" class="mobile-nav md:hidden"> <!-- Removed 'hidden' class -->
-        <div class="mobile-menu-button absolute top-4 right-4" id="mobile-menu-close-button">
-            &times; <!-- Close icon -->
+        <div class="mobile-nav-header"> <!-- Added mobile nav header for close button -->
+            <button id="mobile-close" class="mobile-close-button">✕</button>
         </div>
         <ul id="mobile-nav-items">
             <!-- Content will be populated by JavaScript -->
@@ -731,7 +752,7 @@
 
                 <!-- Main Content Two Columns (About + Research) -->
                 <div class="main-content-box">
-                    <!-- Column 1: About KSoM, Programmes -->
+                    <!-- Column 1: About KSoM, Programmes, Outreach -->
                     <div class="inner-column">
                         <h2 class="section-heading">About KSoM</h2>
                         <div class="mb-4">
@@ -741,7 +762,7 @@
 
                                 The main objective of Kerala School of Mathematics is conduct of high quality Mathematical Research. Our mission is to create a vibrant academic environment that promotes cutting-edge research, nurtures young mathematicians, and contributes significantly to the global mathematical community.
                             </p>
-                            <a href="/about.html" class="read-more-link mt-auto block text-right">Read More About Us &rarr;</a>
+                            <a href="/about.html" class="read-more-link mt-auto block text-right">Read More About Us</a> <!-- Removed arrow -->
                         </div>
 
                         <h2 class="section-heading mt-6">Our Programmes</h2>
@@ -765,7 +786,19 @@
                                 </p>
                             </a>
                         </div>
-                        <a href="/programmes.html" class="read-more-link mt-auto block text-right">View All Programmes &rarr;</a>
+                        <a href="/programmes.html" class="read-more-link mt-auto block text-right">View All Programmes</a> <!-- Removed arrow -->
+                        
+                        <!-- Moved Outreach section below Programmes -->
+                        <h2 class="section-heading mt-6">Outreach</h2>
+                        <div class="space-y-4">
+                            <a href="/outreach/swim-ksom.html" class="outreach-item card-block">
+                                <h3>SWIM@KSoM: Summer Workshop in Mathematics</h3>
+                                <p class="truncated-text">
+                                    SWIM@KSoM is an annual summer workshop by KSoM, introducing undergraduates to advanced mathematics for research careers. The two-week program features lectures, problem-solving, and discussions led by KSoM faculty and experts, covering Abstract Algebra, Real Analysis, Topology, and Number Theory. It bridges undergraduate curriculum with higher mathematics, promoting critical thinking and independent problem-solving. Selection is competitive, based on merit and application.
+                                </p>
+                            </a>
+                            <a href="https://ksom-swim.github.io/" target="_blank" class="read-more-link mt-auto block text-right">Visit SWIM@KSoM website</a> <!-- Removed arrow -->
+                        </div>
                     </div>
 
                     <!-- Column 2: Research Areas & Other Activities -->
@@ -796,7 +829,7 @@
                                 <p class="truncated-text">Research on multiple zeta values, explicit averages of multiplicative functions, Möbius sums with coprimality conditions, and chromatic generalizations. This area uses real and complex analysis to study integers, prime distribution, and arithmetic functions, with connections to cryptography.</p>
                             </a>
                         </div>
-                        <a href="/research.html" class="read-more-link mt-auto block text-right">View All Research Areas &rarr;</a>
+                        <a href="/research.html" class="read-more-link mt-auto block text-right">View All Research Areas</a> <!-- Removed arrow -->
 
                         <h2 class="section-heading mt-6">Other Activities</h2>
                         <div class="space-y-4">
@@ -820,7 +853,7 @@
                                 </p>
                             </a>
                         </div>
-                        <a href="/activities.html" class="read-more-link mt-auto block text-right">View All Activities &rarr;</a>
+                        <a href="/activities.html" class="read-more-link mt-auto block text-right">View All Activities</a> <!-- Removed arrow -->
                     </div>
                 </div>
             </div>
@@ -855,7 +888,7 @@
                             </p>
                         </a>
                     </div>
-                    <a href="/news.html" class="view-all-link text-ias-teal font-semibold mt-3 block text-right">View All News &rarr;</a>
+                    <a href="/news.html" class="view-all-link text-ias-teal font-semibold mt-3 block text-right">View All News</a> <!-- Removed arrow -->
 
                     <h2 class="section-heading mt-6">Upcoming Events</h2>
                     <div class="space-y-4">
@@ -887,18 +920,9 @@
                             </p>
                         </a>
                     </div>
-                    <a href="/events.html" class="read-more-link mt-auto block text-right">View All Events &rarr;</a>
+                    <a href="/events.html" class="read-more-link mt-auto block text-right">View All Events</a> <!-- Removed arrow -->
 
-                    <h2 class="section-heading mt-6">Outreach</h2>
-                    <div class="space-y-4">
-                        <a href="/outreach/swim-ksom.html" class="outreach-item card-block">
-                            <h3>SWIM@KSoM: Summer Workshop in Mathematics</h3>
-                            <p class="truncated-text">
-                                SWIM@KSoM is an annual summer workshop by KSoM, introducing undergraduates to advanced mathematics for research careers. The two-week program features lectures, problem-solving, and discussions led by KSoM faculty and experts, covering Abstract Algebra, Real Analysis, Topology, and Number Theory. It bridges undergraduate curriculum with higher mathematics, promoting critical thinking and independent problem-solving. Selection is competitive, based on merit and application.
-                            </p>
-                        </a>
-                        <a href="https://ksom-swim.github.io/" target="_blank" class="read-more-link mt-auto block text-right">Visit SWIM@KSoM website &rarr;</a>
-                    </div>
+                    <!-- Removed Outreach section from here, moved to Column 1 -->
                 </section>
             </aside>
         </section>
@@ -1008,6 +1032,18 @@
                     arrowSpan.remove();
                 }
 
+                // Add event listener for collapsible submenus on mobile
+                if (desktopItem.classList.contains('dropdown')) {
+                    mobileLink.addEventListener('click', function(e) {
+                        e.preventDefault(); // Prevent default link behavior
+                        const submenu = this.nextElementSibling;
+                        if (submenu && submenu.classList.contains('collapsible-submenu')) {
+                            submenu.classList.toggle('open');
+                        }
+                    });
+                }
+
+
                 mobileLi.appendChild(mobileLink);
 
                 // If it's a dropdown, clone its menu too
@@ -1015,7 +1051,7 @@
                 if (dropdownMenu) {
                     const mobileDropdownUl = dropdownMenu.cloneNode(true);
                     mobileDropdownUl.classList.remove('absolute', 'top-full', 'left-0', 'mt-2', 'shadow-lg', 'bg-white', 'z-10');
-                    mobileDropdownUl.classList.add('static', 'block', 'shadow-none', 'bg-transparent', 'text-left'); // Adjust for mobile display
+                    mobileDropdownUl.classList.add('static', 'collapsible-submenu', 'shadow-none', 'bg-transparent', 'text-left'); // Added collapsible-submenu class
                     // Remove any cloned 'active' class from dropdown items
                     Array.from(mobileDropdownUl.querySelectorAll('a')).forEach(itemLink => {
                         itemLink.classList.remove('active');
@@ -1028,12 +1064,12 @@
 
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button');
+        const mobileMenuCloseButton = document.getElementById('mobile-close'); // Updated ID
         const mobileNav = document.getElementById('mobile-nav');
 
         mobileMenuButton.addEventListener('click', () => {
             populateMobileNav(); // Populate menu every time it's opened to ensure freshness
-            mobileNav.classList.remove('hidden');
+            mobileNav.classList.remove('hidden'); // Ensure it's not hidden
             setTimeout(() => {
                 mobileNav.classList.add('open');
             }, 10); // Small delay for transition
@@ -1042,7 +1078,7 @@
         mobileMenuCloseButton.addEventListener('click', () => {
             mobileNav.classList.remove('open');
             setTimeout(() => {
-                mobileNav.classList.add('hidden');
+                mobileNav.classList.add('hidden'); // Add hidden back after transition
             }, 400); // Wait for transition to complete before hiding
         });
 
@@ -1052,16 +1088,8 @@
             const clickedLink = event.target.closest('a');
             if (clickedLink) {
                 const parentLi = clickedLink.closest('li');
-                if (parentLi && parentLi.classList.contains('dropdown')) {
-                    // If it's a dropdown toggle, don't close the menu, just open/close dropdown (handled by CSS hover/JS for mobile later)
-                    // For now, if it's a dropdown, don't auto-close the main mobile nav unless it's a sub-item navigating away
-                    if (clickedLink.getAttribute('href') && clickedLink.getAttribute('href').startsWith('/')) { // If it's an actual navigation link
-                        mobileNav.classList.remove('open');
-                        setTimeout(() => {
-                            mobileNav.classList.add('hidden');
-                        }, 400);
-                    }
-                } else if (clickedLink.getAttribute('href')) { // If it's a non-dropdown link that navigates
+                // Only close if it's not a dropdown toggle itself and it's a navigation link
+                if (!(parentLi && parentLi.classList.contains('dropdown')) || (clickedLink.getAttribute('href') && clickedLink.getAttribute('href').startsWith('/'))) {
                     mobileNav.classList.remove('open');
                     setTimeout(() => {
                         mobileNav.classList.add('hidden');
