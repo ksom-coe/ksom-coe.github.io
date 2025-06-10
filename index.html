@@ -48,6 +48,7 @@
 
         /* === Modern Navigation Bar === */
         .site-header {
+            width: 100%; /* Ensure full width */
             background-color: white; /* White background */
             border-bottom: 1px solid #eee; /* Light border */
             position: sticky;
@@ -62,6 +63,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            max-width: 1280px; /* Ensure content is centered */
+            margin: 0 auto; /* Ensure content is centered */
         }
         .main-nav ul {
             display: flex;
@@ -354,11 +357,11 @@
             .main-layout-container {
                 flex-direction: row;
                 align-items: flex-start; /* Align children to the top */
-                gap: 1.25rem; /* Reduced gap from 2rem */
+                gap: 1rem; /* Reduced gap from 1.25rem */
             }
 
             .left-main-block {
-                width: 70%; /* Changed from 75% to 70% */
+                width: 73%; /* Changed from 70% to 73% */
                 display: flex; /* Make it a flex container */
                 flex-direction: column; /* Stack image and content vertically */
                 gap: 2rem; /* Gap between image and content below it */
@@ -369,7 +372,7 @@
             }
 
             .right-sidebar-full {
-                width: 30%; /* Changed from 25% to 30% */
+                width: 27%; /* Changed from 30% to 27% */
                 display: flex;
                 flex-direction: column;
                 border-left: none !important; /* REMOVED border between column 2 and sidebar */
@@ -410,14 +413,22 @@
         /* === Unified Section Headings === */
         .section-heading {
             font-family: 'Playfair Display', serif;
-            font-size: 1.4rem; /* Adjusted font size */
+            font-size: 1.4rem;
             font-weight: 600;
+            position: relative;
+            margin-bottom: 1rem; /* Adjusted margin-bottom */
             color: var(--highlight-blue); /* Darker blue from suggested CSS */
-            border: none; /* Removed border */
-            padding-bottom: 0; /* Removed padding */
-            margin-bottom: 0.75rem; /* Adjusted margin */
-            width: 100%; /* Ensure headings span full width within their logical column content */
         }
+        .section-heading::after { /* Fancy Heading Enhancements */
+            content: "";
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: #003049;
+            margin-top: 0.5rem;
+            border-radius: 2px;
+        }
+
         /* Bonus tip: Smaller headings for right sidebar, and remove borders */
         .right-sidebar-full .section-heading {
             font-size: 1.2rem; /* Smaller heading for denser sidebar */
@@ -545,10 +556,15 @@
 
         /* Footer */
         .site-footer {
+            width: 100%; /* Ensure full width */
             background-color: var(--ias-dark-blue);
             color: var(--ias-light-blue);
             padding: 2.5rem 1.5rem;
             font-size: 0.9rem;
+        }
+        .site-footer > .container { /* Ensure content is centered */
+            max-width: 1280px;
+            margin: 0 auto;
         }
         .footer-logo-text {
             font-family: 'Playfair Display', serif;
@@ -572,6 +588,20 @@
             color: #ffffff;
         }
 
+        /* Programme Slideshow */
+        .programme-slideshow {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .programme-slideshow img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+
         /* Responsive adjustments for mobile */
         @media (max-width: 767px) {
             .site-header-inner {
@@ -592,6 +622,16 @@
             .mobile-menu-button {
                 display: block;
             }
+            /* Mobile Content Reordering & Hide About Us */
+            .about-section {
+                display: none !important; /* Hide About Us section on mobile */
+            }
+            .mobile-order-latest { order: 1; }
+            .mobile-order-research { order: 2; }
+            .mobile-order-programmes { order: 3; }
+            .mobile-order-activities { order: 4; }
+            .mobile-order-outreach { order: 5; }
+
             /* Main layout container will stack on mobile */
             .main-layout-container {
                 flex-direction: column;
@@ -613,6 +653,11 @@
             }
             .section-heading {
                 font-size: 1.1rem;
+            }
+            .section-heading::after { /* Adjust line for mobile headings */
+                width: 30px;
+                height: 2px;
+                margin-top: 0.3rem;
             }
             
             /* News/Events items as cards on mobile */
@@ -753,19 +798,23 @@
                 <!-- Main Content Two Columns (About + Research) -->
                 <div class="main-content-box">
                     <!-- Column 1: About KSoM, Programmes, Outreach -->
-                    <div class="inner-column">
+                    <div class="inner-column about-section mobile-order-latest"> <!-- Added about-section class for mobile hiding and order -->
                         <h2 class="section-heading">About KSoM</h2>
                         <div class="mb-4">
-                            <img src="https://placehold.co/400x250/007295/ffffff?text=KSoM+Overview" alt="KSoM Overview" class="w-full rounded-lg shadow-md mb-4">
+                            <!-- Removed image from About Us section -->
                             <p class="truncated-text">
                                 Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.
 
                                 The main objective of Kerala School of Mathematics is conduct of high quality Mathematical Research. Our mission is to create a vibrant academic environment that promotes cutting-edge research, nurtures young mathematicians, and contributes significantly to the global mathematical community.
                             </p>
-                            <a href="/about.html" class="read-more-link mt-auto block text-right">Read More About Us</a> <!-- Removed arrow -->
+                            <a href="/about.html" class="read-more-link mt-auto block text-right">Read More About Us</a>
                         </div>
 
                         <h2 class="section-heading mt-6">Our Programmes</h2>
+                        <!-- Added slideshow to Programmes section -->
+                        <div class="programme-slideshow">
+                            <img id="programme-slide" src="Images/I-MSc-PhD/image_1.jpg" alt="Programme Image" onerror="this.onerror=null;this.src='https://placehold.co/800x450/005080/ffffff?text=KSoM+Program+Image';" />
+                        </div>
                         <div class="space-y-4">
                             <a href="/programmes/integrated-msc-phd.html" class="programme-item card-block">
                                 <h3>Integrated M.Sc. - Ph.D. Programme</h3>
@@ -786,9 +835,9 @@
                                 </p>
                             </a>
                         </div>
-                        <a href="/programmes.html" class="read-more-link mt-auto block text-right">View All Programmes</a> <!-- Removed arrow -->
+                        <a href="/programmes.html" class="read-more-link mt-auto block text-right">View All Programmes</a>
                         
-                        <!-- Moved Outreach section below Programmes -->
+                        <!-- Outreach section moved here -->
                         <h2 class="section-heading mt-6">Outreach</h2>
                         <div class="space-y-4">
                             <a href="/outreach/swim-ksom.html" class="outreach-item card-block">
@@ -797,12 +846,12 @@
                                     SWIM@KSoM is an annual summer workshop by KSoM, introducing undergraduates to advanced mathematics for research careers. The two-week program features lectures, problem-solving, and discussions led by KSoM faculty and experts, covering Abstract Algebra, Real Analysis, Topology, and Number Theory. It bridges undergraduate curriculum with higher mathematics, promoting critical thinking and independent problem-solving. Selection is competitive, based on merit and application.
                                 </p>
                             </a>
-                            <a href="https://ksom-swim.github.io/" target="_blank" class="read-more-link mt-auto block text-right">Visit SWIM@KSoM website</a> <!-- Removed arrow -->
+                            <a href="https://ksom-swim.github.io/" target="_blank" class="read-more-link mt-auto block text-right">Visit SWIM@KSoM website</a>
                         </div>
                     </div>
 
                     <!-- Column 2: Research Areas & Other Activities -->
-                    <div class="inner-column">
+                    <div class="inner-column mobile-order-research"> <!-- Added order class -->
                         <h2 class="section-heading">Research Areas at KSoM</h2>
                         <p class="truncated-text mb-4">
                             KSoM is a vibrant hub for advanced mathematical research, with faculty and scholars engaged in cutting-edge work across diverse fields. Our research initiatives aim to push the boundaries of theoretical and applied mathematics, fostering an environment of rigorous inquiry and intellectual discovery. Key areas of focus include:
@@ -829,7 +878,7 @@
                                 <p class="truncated-text">Research on multiple zeta values, explicit averages of multiplicative functions, Möbius sums with coprimality conditions, and chromatic generalizations. This area uses real and complex analysis to study integers, prime distribution, and arithmetic functions, with connections to cryptography.</p>
                             </a>
                         </div>
-                        <a href="/research.html" class="read-more-link mt-auto block text-right">View All Research Areas</a> <!-- Removed arrow -->
+                        <a href="/research.html" class="read-more-link mt-auto block text-right">View All Research Areas</a>
 
                         <h2 class="section-heading mt-6">Other Activities</h2>
                         <div class="space-y-4">
@@ -853,13 +902,13 @@
                                 </p>
                             </a>
                         </div>
-                        <a href="/activities.html" class="read-more-link mt-auto block text-right">View All Activities</a> <!-- Removed arrow -->
+                        <a href="/activities.html" class="read-more-link mt-auto block text-right">View All Activities</a>
                     </div>
                 </div>
             </div>
 
             <!-- RIGHT SIDE: Latest News + Events/Outreach (Single Column Block) -->
-            <aside class="right-sidebar-full">
+            <aside class="right-sidebar-full mobile-order-latest"> <!-- Added order class -->
                 <section class="unified-right-sidebar-content content-card">
                     <h3 class="text-xl font-bold mb-3 text-ias-dark-blue">Latest News</h3>
                     <div class="space-y-3">
@@ -888,7 +937,7 @@
                             </p>
                         </a>
                     </div>
-                    <a href="/news.html" class="view-all-link text-ias-teal font-semibold mt-3 block text-right">View All News</a> <!-- Removed arrow -->
+                    <a href="/news.html" class="view-all-link text-ias-teal font-semibold mt-3 block text-right">View All News</a>
 
                     <h2 class="section-heading mt-6">Upcoming Events</h2>
                     <div class="space-y-4">
@@ -920,7 +969,7 @@
                             </p>
                         </a>
                     </div>
-                    <a href="/events.html" class="read-more-link mt-auto block text-right">View All Events</a> <!-- Removed arrow -->
+                    <a href="/events.html" class="read-more-link mt-auto block text-right">View All Events</a>
 
                     <!-- Removed Outreach section from here, moved to Column 1 -->
                 </section>
@@ -1035,9 +1084,9 @@
                 // Add event listener for collapsible submenus on mobile
                 if (desktopItem.classList.contains('dropdown')) {
                     mobileLink.addEventListener('click', function(e) {
-                        e.preventDefault(); // Prevent default link behavior
                         const submenu = this.nextElementSibling;
                         if (submenu && submenu.classList.contains('collapsible-submenu')) {
+                            e.preventDefault(); // Only prevent default if it's a submenu toggle
                             submenu.classList.toggle('open');
                         }
                     });
@@ -1089,8 +1138,10 @@
             if (clickedLink) {
                 const parentLi = clickedLink.closest('li');
                 // Only close if it's not a dropdown toggle itself and it's a navigation link
-                if (!(parentLi && parentLi.classList.contains('dropdown')) || (clickedLink.getAttribute('href') && clickedLink.getAttribute('href').startsWith('/'))) {
-                    mobileNav.classList.remove('open');
+                // If it's a dropdown header, it should toggle the submenu, not close the whole nav.
+                // If it's a sub-item of a dropdown, it should close the nav.
+                if (!(parentLi && parentLi.classList.contains('dropdown') && clickedLink.nextElementSibling && clickedLink.nextElementSibling.classList.contains('collapsible-submenu')) || (clickedLink.getAttribute('href') && clickedLink.getAttribute('href').startsWith('/'))) {
+                     mobileNav.classList.remove('open');
                     setTimeout(() => {
                         mobileNav.classList.add('hidden');
                     }, 400);
@@ -1100,6 +1151,19 @@
         
         // Initial population on page load for consistency (even if not immediately opened)
         document.addEventListener('DOMContentLoaded', populateMobileNav);
+
+        // Programme Slideshow Logic
+        const slideImg = document.getElementById("programme-slide");
+        const totalSlides = 5;
+        let slideIndex = 1;
+        setInterval(() => {
+            slideIndex = (slideIndex % totalSlides) + 1; // Cycle from 1 to 5
+            slideImg.src = `Images/I-MSc-PhD/image_${slideIndex}.jpg`;
+            // Optional: Add error handling for image loading if needed
+            slideImg.onerror = function() {
+                this.src = 'https://placehold.co/800x450/005080/ffffff?text=KSoM+Program+Image+Error';
+            };
+        }, 4000); // Change image every 4 seconds
 
     </script>
     <!-- MathJax Configuration and script -->
