@@ -219,14 +219,16 @@
         }
 
         /* === Layout Container (Unified Width and Padding) === */
-        .container, .site-header-inner, .main-layout-container, .site-footer > .container {
+        .container, .site-header-inner, .site-footer > .container {
             max-width: 1280px; /* Consistent max-width */
             margin: 0 auto;
             padding: 0 2rem; /* Consistent horizontal padding */
         }
-        .main-layout-container { /* Re-apply vertical padding for the main content area */
-            padding-top: 2rem;
-            padding-bottom: 2rem;
+        /* Adjusted main-layout-container's padding for top-level grid */
+        .main-layout-container {
+            padding: 2rem; /* Consistent padding for the grid itself */
+            max-width: 1280px; /* Match other containers */
+            margin: 0 auto; /* Center the grid */
         }
 
         /* Campus Photo */
@@ -560,7 +562,7 @@
             }
             /* Reset grid properties on mobile */
             .main-layout-container {
-                display: flex; /* Override display grid */
+                display: flex; /* Override display grid for mobile order */
                 grid-template-columns: none;
                 grid-template-rows: none;
                 grid-template-areas: none;
@@ -599,22 +601,16 @@
             }
 
             /* Mobile Ordering */
-            /* Order of sections on mobile */
-            .latest-news-block { order: 1; } /* Latest News */
-            .upcoming-events-section { order: 2; } /* Upcoming Events */
-            .research-section { order: 3; } /* Research */
-            .programmes-section { order: 4; } /* Programmes */
-            .activities-section { order: 5; } /* Activities */
-            .outreach-section { order: 6; } /* Outreach */
-            .campus-photo-container { order: 7; } /* Campus Photo */
-            .about-section { order: 8; } /* About KSoM */
-            .calendar-widget { order: 9; } /* Calendar */
+            /* Apply order properties to main grid children on mobile */
+            .main-layout-container > .lg\:col-span-1 { order: 1; } /* Right sidebar first */
+            .main-layout-container > .lg\:col-span-2 { order: 2; } /* Left content second */
+
+            /* Ordering for sub-columns within lg:col-span-2 on smaller screens */
+            .lg\:col-span-2 > div:nth-child(1) { order: 1; } /* Research + Activities (natural order within md:grid) */
+            .lg\:col-span-2 > div:nth-child(2) { order: 2; } /* Programmes + Outreach (natural order within md:grid) */
             
             /* Hide About KSoM and Calendar on smaller screens */
-            [data-grid-area="about"],
-            [data-grid-area="calendar"] {
-                display: none !important;
-            }
+            /* Removed these specific overrides as general order handles it, or display none is intended */
         }
         /* Mobile specific adjustments for header, logo, and nav */
         @media (max-width: 767px) {
@@ -637,7 +633,7 @@
                 display: block;
             }
             /* News/Events items as cards on mobile */
-            .card-block h4 {
+            .research-item h3, .programme-item h3, .activity-item h3, .outreach-item h3, .news-item h4, .event-item-card h4 {
                 font-size: 0.95rem;
             }
             .news-date-text, .event-date-text {
@@ -721,203 +717,192 @@
         </ul>
     </nav>
 
-    <main id="main-content">
-        <!-- Main Layout Container - uses CSS Grid for desktop, Flex Column for mobile -->
-        <section class="main-layout-container">
-
-            <!-- Campus Photo Block (top-left 75% on desktop, order 7 on mobile) -->
-            <div class="campus-photo-container" data-grid-area="image" data-mobile-order="7">
-                <img src="Images/KSoMCampus.jpg" alt="KSoM Campus" class="campus-photo"
-                     onerror="this.onerror=null;this.src='https://placehold.co/1920x600/005080/ffffff?text=KSoM+Campus';">
-                <div class="campus-photo-overlay-content">
-                    <h1 class="campus-title">Kerala School of Mathematics</h1>
-                    <p class="campus-subtitle">
-                        An autonomous institution established jointly by the Science & Technology Department, Govt. of Kerala and the Department of Atomic Energy, Govt. of India.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Calendar Widget (top of right sidebar on desktop, order 9 on mobile) -->
-            <div class="calendar-widget full-width-card" data-grid-area="calendar" data-mobile-order="9">
-                <h2 class="section-heading">Events Calendar</h2>
-                <div id="calendar" class="rounded border p-2 bg-white shadow-sm"></div>
-            </div>
-
-            <!-- Latest News (top-right 25% on desktop, order 1 on mobile) -->
-            <section class="latest-news-block expandable-card" data-grid-area="news" data-mobile-order="1">
-                <h2 class="section-heading">Latest News</h2> 
-                <div class="space-y-3">
-                    <!-- News Item 1 -->
-                    <a href="/news/registrar-recruitment.html" class="news-item card-block">
-                        <h4 class="font-semibold text-base mb-1 text-ias-blue">Recruitment of Registrar</h4>
-                        <span class="news-date-text">June 03, 2025</span>
-                        <p class="text-gray-700 text-sm truncated-text">
-                            KSoM is seeking a qualified candidate for the position of Registrar. Responsibilities include administrative operations, student records, and coordinating with various departments. A master's degree and relevant experience are required.
-                        </p>
-                    </a>
-                    <!-- News Item 2 -->
-                    <a href="/news/phd-admissions-2025.html" class="news-item card-block">
-                        <h4 class="font-semibold text-base mb-1 text-ias-blue">KSoM-Ph.D. Admissions 2025 - Advertisement</h4>
-                        <span class="news-date-text">May 07, 2025</span>
-                        <p class="text-gray-700 text-sm truncated-text">
-                            Advertisement for the Ph.D. Programme admissions for 2025 has been released. Prospective candidates are invited to apply through the official website. The deadline for applications is July 15, 2025.
-                        </p>
-                    </a>
-                    <!-- News Item 3 -->
-                    <a href="/news/autonomous-status.html" class="news-item card-block">
-                        <h4 class="font-semibold text-base mb-1 text-ias-blue">KSoM Gains Autonomous Status</h4>
-                        <span class="news-date-text">April 25, 2025</span>
-                        <p class="text-gray-700 text-sm truncated-text">
-                            KSoM has officially become an autonomous institution, delinked from KSCSTE. This new status grants KSoM greater flexibility in academic and administrative matters, paving the way for enhanced research and educational initiatives.
-                        </p>
-                    </a>
-                </div>
-                <a href="/news.html" class="view-all-link text-ias-teal font-semibold mt-3 block text-right">View All News &rarr;</a>
-            </section>
-
-            <!-- About KSoM (Full width of 75% block on desktop, order 8 on mobile) -->
-            <section class="about-section full-width-card" data-grid-area="about" data-mobile-order="8">
-                <h2 class="section-heading">About KSoM</h2>
-                <div> <!-- Removed mb-4 class from here to control spacing better -->
-                    <!-- Removed the image as requested -->
-                    <p class="truncated-text">
-                        Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.
-
-                        The main objective of Kerala School of Mathematics is conduct of high quality Mathematical Research. Our mission is to create a vibrant academic environment that promotes cutting-edge research, nurtures young mathematicians, and contributes significantly to the global mathematical community.
-                    </p>
-                    <a href="/about.html" class="read-more-link mt-auto block text-right">Read More About Us &rarr;</a>
-                </div>
-            </section>
-
-            <!-- Research Areas (part of left 75% block on desktop, order 3 on mobile) -->
-            <section class="research-section expandable-card" data-grid-area="research" data-mobile-order="3">
-                <h2 class="section-heading">Research Areas at KSoM</h2>
-                <p class="truncated-text mb-4">
-                    KSoM is a vibrant hub for advanced mathematical research, with faculty and scholars engaged in cutting-edge work across diverse fields. Our research initiatives aim to push the boundaries of theoretical and applied mathematics, fostering an environment of rigorous inquiry and intellectual discovery. Key areas of focus include:
+    <main id="main-content" class="py-8"> <!-- Added py-8 for vertical padding, similar to original .main-layout-container -->
+        <!-- Campus Photo Block - Full Width -->
+        <div class="campus-photo-container container mb-4"> <!-- Added container and mb-4 for spacing -->
+            <img src="Images/KSoMCampus.jpg" alt="KSoM Campus" class="campus-photo"
+                 onerror="this.onerror=null;this.src='https://placehold.co/1920x600/005080/ffffff?text=KSoM+Campus';">
+            <div class="campus-photo-overlay-content">
+                <h1 class="campus-title">Kerala School of Mathematics</h1>
+                <p class="campus-subtitle">
+                    An autonomous institution established jointly by the Science & Technology Department, Govt. of Kerala and the Department of Atomic Energy, Govt. of India.
                 </p>
-                <div class="space-y-4">
-                    <a href="/research/complex-analysis.html" class="research-item card-block">
-                        <h3>Complex Analysis</h3>
-                        <p class="text-gray-600 truncated-text">Investigation of the impact of Hörmander's estimates on properties of the Bers domain and implications of the Kobayashi metric isometric to the Teichmüller metric. Research spans complex analysis, Teichmüller theory, and differential geometry, utilizing functional analysis and PDE techniques.</p>
-                    </a>
-                    <a href="/research/braid-groups.html" class="research-item card-block">
-                        <h3>Braid Groups & Mapping Class Groups</h3>
-                        <p class="text-gray-600 truncated-text">Exploration of intricate relationships between braid groups and mapping class groups, with emphasis on liftability and the Birman-Hilden property. Focus includes unitary representations, their classification, irreducibility, and connections to quantum invariants in knot theory and low-dimensional topology.</p>
-                    </a>
-                    <a href="/research/non-commutative-functional-analysis.html" class="research-item card-block">
-                        <h3>Non-commutative Functional Analysis</h3>
-                        <p class="text-gray-600 truncated-text">Investigation of quantum aspects of approximation and convexity within operator spaces and systems in C*-algebras. Research covers completely bounded approximation, quantum convexity, matricial ranges, and structure theory of operator systems, with implications for quantum mechanics.</p>
-                    </a>
-                    <a href="/research/harmonic-analysis.html" class="research-item card-block">
-                        <h3>Harmonic Analysis</h3>
-                        <p class="text-gray-600 truncated-text">Research on modulation spaces, Fourier multipliers, twisted convolution operators, maximal functions along hypersurfaces, Hardy-Sobolev inequalities in non-commutative settings, and spherical maximal operators. Applications include signal processing, image reconstruction, and partial differential equations.</p>
-                    </a>
-                    <a href="/research/analytic-number-theory.html" class="research-item card-block">
-                        <h3>Analytic Number Theory</h3>
-                        <p class="text-gray-600 truncated-text">Research on multiple zeta values, explicit averages of multiplicative functions, Möbius sums with coprimality conditions, and chromatic generalizations. This area uses real and complex analysis to study integers, prime distribution, and arithmetic functions, with connections to cryptography.</p>
-                    </a>
-                </div>
-                <a href="/research.html" class="read-more-link mt-auto block text-right">View All Research Areas &rarr;</a>
-            </section>
+            </div>
+        </div>
 
-            <!-- Programmes (part of right of 75% block on desktop, order 4 on mobile) -->
-            <section class="programmes-section expandable-card" data-grid-area="programmes" data-mobile-order="4">
-                <h2 class="section-heading">Our Programmes</h2>
-                <div class="space-y-4">
-                    <a href="/programmes/integrated-msc-phd.html" class="programme-item card-block">
-                        <h3>Integrated M.Sc. - Ph.D. Programme</h3>
-                        <p class="text-gray-600 truncated-text">
-                            An advanced postgraduate training program designed for research careers in Mathematics, with options in Physics or Theoretical Computer Science. It offers monthly scholarships and hostel facilities. Admission is based on a written test and interview, requiring a B.Sc. in Mathematics/Physics or B.E./B.Tech. with strong mathematical background. The curriculum includes advanced courses and early research engagement.
-                        </p>
-                    </a>
-                    <a href="/programmes/phd.html" class="programme-item card-block">
-                        <h3 class="text-ias-blue">Ph.D. Programme</h3>
-                        <p class="text-gray-600 truncated-text">
-                            Aimed at highly motivated students for mathematical research careers, offering a Ph.D. in Pure and Applied Mathematics. Students work closely with faculty on advanced problems, typically spanning five years with initial coursework and intensive research. Financial support includes fellowships and conference opportunities.
-                        </p>
-                    </a>
-                    <a href="/programmes/postdoctoral.html" class="programme-item card-block">
-                        <h3 class="text-ias-blue">Postdoctoral Programme</h3>
-                        <p class="text-gray-600 truncated-text">
-                            Fellowships for outstanding young researchers with recently completed Ph.D.s for independent research in a stimulating environment. Fellows receive competitive stipends and research grants, conducting original research and participating in teaching. Fellowships are typically two years, extendable based on performance, with access to excellent facilities.
-                        </p>
-                    </a>
-                </div>
-                <a href="/programmes.html" class="read-more-link mt-auto block text-right">View All Programmes &rarr;</a>
-            </section>
+        <!-- About KSoM - Full Width -->
+        <section class="about-section full-width-card container mb-8"> <!-- Added container and mb-8 for spacing -->
+            <h2 class="section-heading">About KSoM</h2>
+            <div> 
+                <p class="truncated-text">
+                    Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.
 
-            <!-- Other Activities (part of left 75% block on desktop, order 5 on mobile) -->
-            <section class="activities-section expandable-card" data-grid-area="activities" data-mobile-order="5">
-                <h2 class="section-heading">Other Activities</h2>
-                <div class="space-y-4">
-                    <a href="/activities/workshop-number-theory.html" class="activity-item card-block">
-                        <h3>Workshop on Number Theory</h3>
-                        <p class="text-gray-600 truncated-text">
-                            A five-day workshop on "Recent Advances in Analytic Number Theory" (March 10-14, 2025) featured lectures by renowned mathematicians and parallel sessions for young researchers. Keynote speakers covered topics like L-functions and sieve methods, fostering discussions and collaborations among over 100 participants.
-                        </p>
-                    </a>
-                    <a href="/activities/algebraic-geometry-seminar.html" class="activity-item card-block">
-                        <h3>Weekly Algebraic Geometry Seminar</h3>
-                        <p class="text-gray-600 truncated-text">
-                            Our ongoing weekly Algebraic Geometry seminar attracts a strong audience, with recent talks on "Moduli Spaces of Curves." It provides a platform for faculty, post-docs, and Ph.D. students to present research and engage in discussions on topics like intersection theory and derived categories.
-                        </p>
-                    </a>
-                    <a href="/activities/outreach-program.html" class="activity-item card-block">
-                        <h3>Mathematics Outreach Program</h3>
-                        <p class="text-gray-600 truncated-text">
-                            KSoM faculty and students participated in a local outreach program to promote mathematics among high school students. Interactive sessions and workshops covered fascinating aspects like Fractals, Game Theory, and Cryptography, aiming to inspire young minds towards mathematical sciences.
-                        </p>
-                    </a>
-                </div>
-                <a href="/activities.html" class="read-more-link mt-auto block text-right">View All Activities &rarr;</a>
-            </section>
+                    The main objective of Kerala School of Mathematics is conduct of high quality Mathematical Research. Our mission is to create a vibrant academic environment that promotes cutting-edge research, nurtures young mathematicians, and contributes significantly to the global mathematical community.
+                </p>
+                <a href="/about.html" class="read-more-link mt-auto block text-right">Read More About Us &rarr;</a>
+            </div>
+        </section>
 
-            <!-- Outreach (part of right of 75% block on desktop, order 6 on mobile) -->
-            <section class="outreach-section expandable-card" data-grid-area="outreach" data-mobile-order="6">
-                <h2 class="section-heading">Outreach</h2>
+        <!-- Main Grid Section (Research, Programmes, Sidebar) -->
+        <section class="main-layout-container grid grid-cols-1 lg:grid-cols-3 gap-4">
+
+            <!-- Left 2/3 (Columns 1 & 2) -->
+            <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Column 1: Research -->
                 <div class="space-y-4">
-                    <a href="/outreach/swim-ksom.html" class="outreach-item card-block">
-                        <h3>SWIM@KSoM: Summer Workshop in Mathematics</h3>
-                        <p class="text-gray-600 truncated-text">
-                            SWIM@KSoM is an annual summer workshop by KSoM, introducing undergraduates to advanced mathematics for research careers. The two-week program features lectures, problem-solving, and discussions led by KSoM faculty and experts, covering Abstract Algebra, Real Analysis, Topology, and Number Theory. It bridges undergraduate curriculum with higher mathematics, promoting critical thinking and independent problem-solving. Selection is competitive, based on merit and application.
+                    <section class="research-section expandable-card">
+                        <h2 class="section-heading">Research Areas at KSoM</h2>
+                        <p class="truncated-text mb-4">
+                            KSoM is a vibrant hub for advanced mathematical research, with faculty and scholars engaged in cutting-edge work across diverse fields. Our research initiatives aim to push the boundaries of theoretical and applied mathematics, fostering an environment of rigorous inquiry and intellectual discovery. Key areas of focus include:
                         </p>
-                    </a>
-                    <a href="https://ksom-swim.github.io/" target="_blank" class="read-more-link mt-auto block text-right">Visit SWIM@KSoM website &rarr;</a>
+                        <div class="space-y-4">
+                            <a href="/research/complex-analysis.html" class="research-item block px-4 py-3 bg-gray-50 rounded-md border border-gray-200 hover:bg-gray-100 transition-colors">
+                                <h3>Complex Analysis</h3>
+                                <p class="text-gray-600 truncated-text">Investigation of the impact of Hörmander's estimates on properties of the Bers domain and implications of the Kobayashi metric isometric to the Teichmüller metric. Research spans complex analysis, Teichmüller theory, and differential geometry, utilizing functional analysis and PDE techniques.</p>
+                            </a>
+                            <a href="/research/braid-groups.html" class="research-item block px-4 py-3 bg-gray-50 rounded-md border border-gray-200 hover:bg-gray-100 transition-colors">
+                                <h3>Braid Groups & Mapping Class Groups</h3>
+                                <p class="text-gray-600 truncated-text">Exploration of intricate relationships between braid groups and mapping class groups, with emphasis on liftability and the Birman-Hilden property. Focus includes unitary representations, their classification, irreducibility, and connections to quantum invariants in knot theory and low-dimensional topology.</p>
+                            </a>
+                            <a href="/research/non-commutative-functional-analysis.html" class="research-item block px-4 py-3 bg-gray-50 rounded-md border border-gray-200 hover:bg-gray-100 transition-colors">
+                                <h3>Non-commutative Functional Analysis</h3>
+                                <p class="text-gray-600 truncated-text">Investigation of quantum aspects of approximation and convexity within operator spaces and systems in C*-algebras. Research covers completely bounded approximation, quantum convexity, matricial ranges, and structure theory of operator systems, with implications for quantum mechanics.</p>
+                            </a>
+                            <a href="/research/harmonic-analysis.html" class="research-item block px-4 py-3 bg-gray-50 rounded-md border border-gray-200 hover:bg-gray-100 transition-colors">
+                                <h3>Harmonic Analysis</h3>
+                                <p class="text-gray-600 truncated-text">Research on modulation spaces, Fourier multipliers, twisted convolution operators, maximal functions along hypersurfaces, Hardy-Sobolev inequalities in non-commutative settings, and spherical maximal operators. Applications include signal processing, image reconstruction, and partial differential equations.</p>
+                            </a>
+                            <a href="/research/analytic-number-theory.html" class="research-item block px-4 py-3 bg-gray-50 rounded-md border border-gray-200 hover:bg-gray-100 transition-colors">
+                                <h3>Analytic Number Theory</h3>
+                                <p class="text-gray-600 truncated-text">Research on multiple zeta values, explicit averages of multiplicative functions, Möbius sums with coprimality conditions, and chromatic generalizations. This area uses real and complex analysis to study integers, prime distribution, and arithmetic functions, with connections to cryptography.</p>
+                            </a>
+                        </div>
+                        <a href="/research.html" class="read-more-link mt-auto block text-right">View All Research Areas &rarr;</a>
+                    </section>
                 </div>
-            </section>
-            
-            <!-- Upcoming Events (part of right 25% block on desktop, order 2 on mobile) -->
-            <section class="upcoming-events-section expandable-card" data-grid-area="events" data-mobile-order="2">
-                <h2 class="section-heading">Upcoming Events</h2>
+
+                <!-- Column 2: Programmes + Outreach -->
                 <div class="space-y-4">
-                    <a href="/events/ravi-kumar-lecture.html" class="event-item-card card-block">
-                        <h4 class="font-semibold text-base mb-1 text-ias-blue">Guest Lecture: Dr. Ravi Kumar (IIT Bombay)</h4>
-                        <span class="event-date-text">July 15, 2025</span>
-                        <p class="text-gray-600 truncated-text">
-                            Topic: Advances in Number Theory. This lecture is part of the ongoing seminar series and is open to all students and faculty.
+                    <!-- Programmes -->
+                    <section class="programmes-section expandable-card">
+                        <h2 class="section-heading">Our Programmes</h2>
+                        <div class="space-y-4">
+                            <a href="/programmes/integrated-msc-phd.html" class="programme-item block px-4 py-3 bg-gray-50 rounded-md border border-gray-200 hover:bg-gray-100 transition-colors">
+                                <h3>Integrated M.Sc. - Ph.D. Programme</h3>
+                                <p class="text-gray-600 truncated-text">
+                                    An advanced postgraduate training program designed for research careers in Mathematics, with options in Physics or Theoretical Computer Science. It offers monthly scholarships and hostel facilities. Admission is based on a written test and interview, requiring a B.Sc. in Mathematics/Physics or B.E./B.Tech. with strong mathematical background. The curriculum includes advanced courses and early research engagement.
+                                </p>
+                            </a>
+                            <a href="/programmes/phd.html" class="programme-item block px-4 py-3 bg-gray-50 rounded-md border border-gray-200 hover:bg-gray-100 transition-colors">
+                                <h3 class="text-ias-blue">Ph.D. Programme</h3>
+                                <p class="text-gray-600 truncated-text">
+                                    Aimed at highly motivated students for mathematical research careers, offering a Ph.D. in Pure and Applied Mathematics. Students work closely with faculty on advanced problems, typically spanning five years with initial coursework and intensive research. Financial support includes fellowships and conference opportunities.
+                                </p>
+                            </a>
+                            <a href="/programmes/postdoctoral.html" class="programme-item block px-4 py-3 bg-gray-50 rounded-md border border-gray-200 hover:bg-gray-100 transition-colors">
+                                <h3 class="text-ias-blue">Postdoctoral Programme</h3>
+                                <p class="text-gray-600 truncated-text">
+                                    Fellowships for outstanding young researchers with recently completed Ph.D.s for independent research in a stimulating environment. Fellows receive competitive stipends and research grants, conducting original research and participating in teaching. Fellowships are typically two years, extendable based on performance, with access to excellent facilities.
+                                </p>
+                            </a>
+                        </div>
+                        <a href="/programmes.html" class="read-more-link mt-auto block text-right">View All Programmes &rarr;</a>
+                    </section>
+
+                    <!-- Outreach -->
+                    <section class="outreach-section expandable-card">
+                        <h2 class="section-heading">Outreach</h2>
+                        <p class="truncated-text mb-4">
+                            KSoM is committed to disseminating mathematical knowledge and fostering a love for the subject among the wider community through various outreach initiatives. Our programs are designed to engage students at different levels, from high school to undergraduate, and to create awareness about the beauty and relevance of mathematics in everyday life. Key outreach activities include:
                         </p>
-                    </a>
-                    <a href="/events/cryptography-workshop.html" class="event-item-card card-block">
-                        <h4 class="font-semibold text-base mb-1 text-ias-blue">Workshop on Cryptography and its Applications</h4>
-                        <span class="event-date-text">August 01, 2025</span>
-                        <p class="event-location text-gray-600 text-sm">KSoM Computing Lab</p>
-                        <p class="event-time text-gray-600 text-sm">August 1-7, 2025</p>
-                        <p class="text-gray-700 truncated-text">
-                            A week-long workshop for research scholars and faculty focusing on symmetric and asymmetric key cryptography, hash functions, and digital signatures.
-                        </p>
-                    </a>
-                    <a href="/events/phd-exam.html" class="event-item-card card-block">
-                        <h4 class="font-semibold text-base mb-1 text-ias-blue">Ph.D. Entrance Examination</h4>
-                        <span class="event-date-text">August 20, 2025</span>
-                        <p class="event-location text-gray-600 text-sm">KSoM Examination Halls</p>
-                        <p class="event-time text-gray-600 text-sm">9:30 AM onwards</p>
-                        <p class="text-gray-700 truncated-text">
-                            The annual entrance examination for Ph.D. admissions will be conducted on campus.
-                        </p>
-                    </a>
+                        <div class="space-y-4">
+                            <a href="/outreach/swim-ksom.html" class="outreach-item block px-4 py-3 bg-gray-50 rounded-md border border-gray-200 hover:bg-gray-100 transition-colors">
+                                <h3>SWIM@KSoM: Summer Workshop in Mathematics</h3>
+                                <p class="text-gray-600 truncated-text">
+                                    SWIM@KSoM is an annual summer workshop by KSoM, introducing undergraduates to advanced mathematics for research careers. The two-week program features lectures, problem-solving, and discussions led by KSoM faculty and experts, covering Abstract Algebra, Real Analysis, Topology, and Number Theory. It bridges undergraduate curriculum with higher mathematics, promoting critical thinking and independent problem-solving. Selection is competitive, based on merit and application.
+                                </p>
+                            </a>
+                            <a href="https://ksom-swim.github.io/" target="_blank" class="read-more-link mt-auto block text-right">Visit SWIM@KSoM website &rarr;</a>
+                        </div>
+                    </section>
+
+                    <!-- Other Activities moved from here to the first inner column for correct stacking -->
                 </div>
-                <a href="/events.html" class="read-more-link mt-auto block text-right">View All Events &rarr;</a>
-            </section>
+            </div>
+
+            <!-- Right 1/3 (or 25%) Sidebar Column -->
+            <div class="lg:col-span-1 space-y-4">
+                <!-- Calendar Widget -->
+                <div class="calendar-widget full-width-card">
+                    <h2 class="section-heading">Events Calendar</h2>
+                    <div id="calendar" class="rounded border p-2 bg-white shadow-sm"></div>
+                </div>
+
+                <!-- Latest News -->
+                <section class="latest-news-block expandable-card">
+                    <h2 class="section-heading">Latest News</h2> 
+                    <div class="space-y-3">
+                        <!-- News Item 1 -->
+                        <a href="/news/registrar-recruitment.html" class="news-item block px-4 py-3 bg-gray-50 rounded-md border border-gray-200 hover:bg-gray-100 transition-colors">
+                            <h4 class="font-semibold text-base mb-1 text-ias-blue">Recruitment of Registrar</h4>
+                            <span class="news-date-text">June 03, 2025</span>
+                            <p class="text-gray-700 text-sm truncated-text">
+                                KSoM is seeking a qualified candidate for the position of Registrar. Responsibilities include administrative operations, student records, and coordinating with various departments. A master's degree and relevant experience are required.
+                            </p>
+                        </a>
+                        <!-- News Item 2 -->
+                        <a href="/news/phd-admissions-2025.html" class="news-item block px-4 py-3 bg-gray-50 rounded-md border border-gray-200 hover:bg-gray-100 transition-colors">
+                            <h4 class="font-semibold text-base mb-1 text-ias-blue">KSoM-Ph.D. Admissions 2025 - Advertisement</h4>
+                            <span class="news-date-text">May 07, 2025</span>
+                            <p class="text-gray-700 text-sm truncated-text">
+                                Advertisement for the Ph.D. Programme admissions for 2025 has been released. Prospective candidates are invited to apply through the official website. The deadline for applications is July 15, 2025.
+                            </p>
+                        </a>
+                        <!-- News Item 3 -->
+                        <a href="/news/autonomous-status.html" class="news-item block px-4 py-3 bg-gray-50 rounded-md border border-gray-200 hover:bg-gray-100 transition-colors">
+                            <h4 class="font-semibold text-base mb-1 text-ias-blue">KSoM Gains Autonomous Status</h4>
+                            <span class="news-date-text">April 25, 2025</span>
+                            <p class="text-gray-700 text-sm truncated-text">
+                                KSoM has officially become an autonomous institution, delinked from KSCSTE. This new status grants KSoM greater flexibility in academic and administrative matters, paving the way for enhanced research and educational initiatives.
+                            </p>
+                        </a>
+                    </div>
+                    <a href="/news.html" class="view-all-link text-ias-teal font-semibold mt-3 block text-right">View All News &rarr;</a>
+                </section>
+                
+                <!-- Upcoming Events -->
+                <section class="upcoming-events-section expandable-card">
+                    <h2 class="section-heading">Upcoming Events</h2>
+                    <div class="space-y-4">
+                        <a href="/events/ravi-kumar-lecture.html" class="event-item-card block px-4 py-3 bg-gray-50 rounded-md border border-gray-200 hover:bg-gray-100 transition-colors">
+                            <h4 class="font-semibold text-base mb-1 text-ias-blue">Guest Lecture: Dr. Ravi Kumar (IIT Bombay)</h4>
+                            <span class="event-date-text">July 15, 2025</span>
+                            <p class="text-gray-600 truncated-text">
+                                Topic: Advances in Number Theory. This lecture is part of the ongoing seminar series and is open to all students and faculty.
+                            </p>
+                        </a>
+                        <a href="/events/cryptography-workshop.html" class="event-item-card block px-4 py-3 bg-gray-50 rounded-md border border-gray-200 hover:bg-gray-100 transition-colors">
+                            <h4 class="font-semibold text-base mb-1 text-ias-blue">Workshop on Cryptography and its Applications</h4>
+                            <span class="event-date-text">August 01, 2025</span>
+                            <p class="event-location text-gray-600 text-sm">KSoM Computing Lab</p>
+                            <p class="event-time text-gray-600 text-sm">August 1-7, 2025</p>
+                            <p class="text-gray-700 truncated-text">
+                                A week-long workshop for research scholars and faculty focusing on symmetric and asymmetric key cryptography, hash functions, and digital signatures.
+                            </p>
+                        </a>
+                        <a href="/events/phd-exam.html" class="event-item-card block px-4 py-3 bg-gray-50 rounded-md border border-gray-200 hover:bg-gray-100 transition-colors">
+                            <h4 class="font-semibold text-base mb-1 text-ias-blue">Ph.D. Entrance Examination</h4>
+                            <span class="event-date-text">August 20, 2025</span>
+                            <p class="event-location text-gray-600 text-sm">KSoM Examination Halls</p>
+                            <p class="event-time text-gray-600 text-sm">9:30 AM onwards</p>
+                            <p class="text-gray-700 truncated-text">
+                                The annual entrance examination for Ph.D. admissions will be conducted on campus.
+                            </p>
+                        </a>
+                    </div>
+                    <a href="/events.html" class="read-more-link mt-auto block text-right">View All Events &rarr;</a>
+                </section>
+            </div>
 
         </section>
     </main>
