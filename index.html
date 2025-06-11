@@ -219,16 +219,14 @@
         }
 
         /* === Layout Container (Unified Width and Padding) === */
-        .container, .site-header-inner, .site-footer > .container {
+        .container, .site-header-inner, .main-layout-container, .site-footer > .container {
             max-width: 1280px; /* Consistent max-width */
             margin: 0 auto;
             padding: 0 2rem; /* Consistent horizontal padding */
         }
-        /* Adjusted main-layout-container's padding for top-level grid */
-        .main-layout-container {
-            padding: 2rem; /* Consistent padding for the grid itself */
-            max-width: 1280px; /* Match other containers */
-            margin: 0 auto; /* Center the grid */
+        .main-layout-container { /* Re-apply vertical padding for the main content area */
+            padding-top: 2rem;
+            padding-bottom: 2rem;
         }
 
         /* Campus Photo */
@@ -562,7 +560,7 @@
             }
             /* Reset grid properties on mobile */
             .main-layout-container {
-                display: flex; /* Override display grid for mobile order */
+                display: flex; /* Override display grid */
                 grid-template-columns: none;
                 grid-template-rows: none;
                 grid-template-areas: none;
@@ -601,16 +599,22 @@
             }
 
             /* Mobile Ordering */
-            /* Apply order properties to main grid children on mobile */
-            .main-layout-container > .lg\:col-span-1 { order: 1; } /* Right sidebar first */
-            .main-layout-container > .lg\:col-span-2 { order: 2; } /* Left content second */
-
-            /* Ordering for sub-columns within lg:col-span-2 on smaller screens */
-            .lg\:col-span-2 > div:nth-child(1) { order: 1; } /* Research + Activities (natural order within md:grid) */
-            .lg\:col-span-2 > div:nth-child(2) { order: 2; } /* Programmes + Outreach (natural order within md:grid) */
+            /* Order of sections on mobile */
+            .latest-news-block { order: 1; } /* Latest News */
+            .upcoming-events-section { order: 2; } /* Upcoming Events */
+            .research-section { order: 3; } /* Research */
+            .programmes-section { order: 4; } /* Programmes */
+            .activities-section { order: 5; } /* Activities */
+            .outreach-section { order: 6; } /* Outreach */
+            .campus-photo-container { order: 7; } /* Campus Photo */
+            .about-section { order: 8; } /* About KSoM */
+            .calendar-widget { order: 9; } /* Calendar */
             
             /* Hide About KSoM and Calendar on smaller screens */
-            /* Removed these specific overrides as general order handles it, or display none is intended */
+            [data-grid-area="about"],
+            [data-grid-area="calendar"] {
+                display: none !important;
+            }
         }
         /* Mobile specific adjustments for header, logo, and nav */
         @media (max-width: 767px) {
@@ -633,7 +637,7 @@
                 display: block;
             }
             /* News/Events items as cards on mobile */
-            .research-item h3, .programme-item h3, .activity-item h3, .outreach-item h3, .news-item h4, .event-item-card h4 {
+            .card-block h4 {
                 font-size: 0.95rem;
             }
             .news-date-text, .event-date-text {
