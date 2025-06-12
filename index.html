@@ -53,6 +53,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 70px; /* Space for fixed header */
 }
 body.dark-mode {
   background: var(--dark-primary-bg);
@@ -82,17 +83,21 @@ header {
   color: white;
   padding: 0; /* Padding will be on header-content */
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-  width: 90%; /* Span 90% as requested for the background */
-  max-width: var(--max-content-width); /* Constrain max-width */
-  margin: 0 auto; /* Center the header */
+  width: 100%; /* Span full width */
+  position: fixed; /* Fixed position */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Stay on top */
   display: flex; /* Keep flex to align content inside header */
   justify-content: center; /* Center the inner content */
   align-items: center;
+  height: 70px; /* Fixed height for header */
 }
 
 .header-content { /* Content inside the header */
-  width: 100%; /* Take full width of parent header */
-  padding: 1rem 2rem; /* Apply original padding here */
+  width: 90%; /* Constrain content width */
+  max-width: var(--max-content-width); /* Constrain max-width */
+  padding: 1rem 0; /* Vertical padding only, horizontal handled by width */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -119,7 +124,7 @@ header {
 .logo-title a {
   color: white;
   font-family: var(--font-serif); /* Using Merriweather for the main title */
-  font-size: 1.3rem;
+  font-size: 1.1rem; /* Smaller font size */
   font-weight: 700;
   text-decoration: none;
   letter-spacing: 0.3px;
@@ -188,7 +193,7 @@ nav a:hover {
   display: grid; /* Changed from flex to grid for precise column control */
   grid-template-columns: 72% 28%; /* Define two columns with exact percentages */
   gap: 1.5rem; /* Reduced gap from 2rem to 1.5rem */
-  width: 90%; /* Adjusted to match header width */
+  width: 90%; /* Adjusted to match header content width */
   max-width: var(--max-content-width);
   margin: 2rem auto; /* Centered with top margin */
 }
@@ -203,13 +208,47 @@ nav a:hover {
 
 .top-image {
   width: 100%; /* Takes full width of its parent (.main-content-left) */
+  position: relative; /* For overlay text positioning */
+  border-radius: 8px; /* Match slideshow container border-radius */
+  overflow: hidden; /* Ensure content is clipped within rounded corners */
 }
 
 /* Image specific styling for size and fit */
 .top-image img {
   width: 100%;
-  height: 300px; /* Fixed height to match calendar */
+  height: 300px; /* Fixed height for consistency */
   object-fit: cover; /* Ensures the image covers the area without distortion */
+  border-radius: 8px; /* Apply rounded corners to image within container */
+}
+
+/* Overlay text for top-image slideshow */
+.top-image .overlay-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0)); /* Gradient for better text readability */
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align text to the bottom */
+}
+
+.top-image .overlay-text .main-title {
+    font-family: var(--font-serif);
+    font-size: 1.8rem; /* Larger font for main title */
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Stronger shadow for visibility */
+    margin-bottom: 5px; /* Space between lines */
+}
+
+.top-image .overlay-text .sub-title {
+    font-family: var(--font-body);
+    font-size: 0.95rem; /* Smaller font for sub-title */
+    line-height: 1.4;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6); /* Subtle shadow for sub-title */
 }
 
 .sidebar {
@@ -234,11 +273,6 @@ body.dark-mode .sidebar section {
     margin-bottom: 1rem;
     color: var(--accent-blue);
     font-family: var(--font-serif); /* Apply Merriweather to sidebar headings */
-}
-
-/* Specific styling for the calendar section to remove padding */
-.sidebar section.calendar-section {
-  padding: 0; /* Remove padding from calendar section */
 }
 
 
@@ -309,6 +343,7 @@ body.dark-mode .accordion-item {
   font-weight: 600;
   color: var(--accent-blue);
   margin-bottom: 0.4rem;
+  cursor: pointer; /* Indicate it's clickable */
 }
 .accordion-snippet {
   font-size: 1rem;
@@ -453,19 +488,30 @@ body.dark-mode .accordion-item {
 }
 
 /* === Calendar === */
-#calendar {
+#calendar-preview, #full-calendar {
   font-family: var(--font-sans); /* Ensure calendar uses the Inter (sans-serif) font */
-  border: 1px solid var(--card-border); /* Soft border for the whole calendar */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* More pronounced shadow */
-  background-color: var(--card-bg);
-  border-radius: 12px; /* Match other card elements */
-  overflow: visible; /* Ensure no hidden overflow, allowing calendar to expand */
-  height: auto !important; /* Allow calendar to take natural height */
+  border: none; /* No border for the calendar itself */
+  background-color: transparent; /* No background for calendar itself */
+  border-radius: 0; /* No border radius for calendar itself */
+  overflow: hidden; /* Hide overflow */
+  height: 100% !important; /* Take full height of parent */
+  width: 100% !important; /* Take full width of parent */
+  padding: 0; /* No padding within the calendar */
+  box-shadow: none; /* No shadow on calendar itself */
 }
 
-body.dark-mode #calendar {
-  background-color: var(--dark-card-bg);
-  border-color: var(--dark-border);
+body.dark-mode #calendar-preview, body.dark-mode #full-calendar {
+  background-color: transparent;
+}
+
+/* Calendar Accordion Item Specifics (to make it look like a calendar card) */
+.calendar-accordion-item {
+    padding: 0 !important; /* Remove all padding from the accordion item itself */
+    overflow: hidden; /* Ensures the calendar's rounded corners within the card are respected */
+}
+
+.calendar-accordion-item .accordion-content {
+    padding: 0 !important; /* Remove all padding from the content div inside */
 }
 
 /* FullCalendar Toolbar (Header) */
@@ -474,16 +520,17 @@ body.dark-mode #calendar {
   color: white;
   padding: 0.5rem 0.8rem; /* Slightly reduced padding */
   border-bottom: 1px solid rgba(255,255,255,0.1);
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  border-radius: 8px; /* Apply border-radius to toolbar */
+  margin-bottom: 10px; /* Space between toolbar and calendar grid */
   display: flex; /* Ensure flexbox for layout within toolbar */
   justify-content: space-between; /* Space out items */
   align-items: center; /* Vertically align items */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for toolbar */
 }
 
 .fc .fc-toolbar-title {
   font-family: var(--font-serif); /* Use Merriweather (serif) for calendar title */
-  font-size: 1rem; /* Smaller font for title */
+  font-size: 1.1rem; /* Slightly larger font for title */
   font-weight: 700;
   color: white;
   flex-grow: 1; /* Allow title to grow and push buttons to ends */
@@ -495,11 +542,11 @@ body.dark-mode #calendar {
   background-color: rgba(255, 255, 255, 0.2);
   border: none;
   color: white;
-  padding: 0.3em 0.5em; /* Reduced button padding */
+  padding: 0.4em 0.8em; /* Adjusted button padding */
   border-radius: 5px; /* Smaller rounded buttons */
   font-weight: 500;
-  font-size: 0.75em; /* Reduced font size for buttons */
-  transition: background-color var(--transition-fast), transform 0.1s ease;
+  font-size: 0.8em; /* Adjusted font size for buttons */
+  transition: background-color var(--transition-fast), transform 0.1s ease, box-shadow 0.2s ease;
   box-shadow: 0 1px 3px rgba(0,0,0,0.08); /* Reduced shadow */
   cursor: pointer;
   outline: none; /* Remove default outline */
@@ -508,6 +555,7 @@ body.dark-mode #calendar {
 .fc .fc-button:hover {
   background-color: rgba(255, 255, 255, 0.3);
   transform: translateY(-1px); /* Subtle lift effect */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 .fc .fc-button:active {
   background-color: rgba(255, 255, 255, 0.4);
@@ -531,9 +579,9 @@ body.dark-mode .fc-theme-standard th {
 }
 
 .fc-daygrid-day-top {
-  padding: 0.25em; /* Further reduced padding */
-  font-weight: 500;
-  font-size: 0.65rem; /* Reduced font size for day numbers */
+  padding: 0.35em; /* Adjusted padding */
+  font-weight: 600; /* Slightly bolder day numbers */
+  font-size: 0.75rem; /* Larger font size for day numbers */
   color: var(--primary-text);
 }
 body.dark-mode .fc-daygrid-day-top {
@@ -542,14 +590,14 @@ body.dark-mode .fc-daygrid-day-top {
 
 /* Days of the week (headers) */
 .fc-col-header-cell-cushion {
-    font-size: 0.6rem; /* Further reduced font size for day names */
-    color: #666; /* Softer color for day names */
-    font-weight: 500;
-    padding-top: 0.5em; /* Add some top padding */
-    padding-bottom: 0.5em; /* Add some bottom padding */
+    font-size: 0.7rem; /* Adjusted font size for day names */
+    color: #555; /* Slightly darker color for day names */
+    font-weight: 600; /* Bolder day names */
+    padding-top: 0.6em; /* Add some top padding */
+    padding-bottom: 0.6em; /* Add some bottom padding */
 }
 body.dark-mode .fc-col-header-cell-cushion {
-    color: #bbb;
+    color: #ccc;
 }
 
 
@@ -557,32 +605,33 @@ body.dark-mode .fc-col-header-cell-cushion {
 .fc-event {
   background-color: var(--accent-light); /* Event background color */
   color: white; /* Event text color */
-  border-radius: 2px; /* Smaller rounded event corners */
-  padding: 0.15em 0.25em; /* Further reduced padding */
-  margin-bottom: 0.25px; /* Further reduced margin */
+  border-radius: 4px; /* Slightly larger rounded event corners */
+  padding: 0.2em 0.4em; /* Adjusted padding */
+  margin-bottom: 3px; /* Adjusted margin */
   border: none;
-  box-shadow: 0 0.5px 0.5px rgba(0,0,0,0.05); /* Reduced shadow */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Adjusted shadow */
   white-space: normal; /* Allow text to wrap */
+  font-family: var(--font-sans); /* Use sans-serif for event text */
 }
 body.dark-mode .fc-event {
   background-color: #0072b1; /* A slightly different accent for dark mode events */
 }
 
 .fc-event-title {
-  font-size: 0.6em; /* Further smaller event text */
+  font-size: 0.75em; /* Adjusted event text size */
   font-weight: 500;
   white-space: normal; /* Ensure text wraps */
 }
 
 /* Today's highlighting */
 .fc-day-today {
-  background-color: rgba(0, 92, 151, 0.04); /* Even lighter accent background for today */
-  border-radius: 6px; /* Apply rounded corners to today's cell */
-  border: 1px solid rgba(0, 92, 151, 0.1); /* Even softer border */
+  background-color: rgba(0, 92, 151, 0.08); /* Adjusted accent background for today */
+  border-radius: 8px; /* Apply rounded corners to today's cell */
+  border: 1px solid rgba(0, 92, 151, 0.2); /* Adjusted softer border */
 }
 body.dark-mode .fc-day-today {
-  background-color: rgba(0, 114, 177, 0.08);
-  border-color: rgba(0, 114, 177, 0.15);
+  background-color: rgba(0, 114, 177, 0.12);
+  border-color: rgba(0, 114, 177, 0.25);
 }
 
 /* Day numbers for current month */
@@ -595,7 +644,7 @@ body.dark-mode .fc-daygrid-day.fc-day-valid {
 
 /* Day numbers for other months */
 .fc-day-other .fc-daygrid-day-top {
-  opacity: 0.3; /* More faded out days from other months */
+  opacity: 0.4; /* Adjusted faded out days from other months */
 }
 
 /* General improvements */
@@ -603,7 +652,7 @@ body.dark-mode .fc-daygrid-day.fc-day-valid {
   border-collapse: separate; /* Allow border-radius on cells */
 }
 .fc-daygrid-day-frame {
-  min-height: 35px; /* Further reduced height for day cells */
+  min-height: 40px; /* Adjusted height for day cells */
 }
 
 /* === Timeline UI === */
@@ -728,17 +777,16 @@ footer {
   background: linear-gradient(to right, var(--accent-blue), var(--accent-light));
   color: white;
   padding: 2rem;
-  width: 90%; /* Span 90% as requested */
-  max-width: var(--max-content-width); /* Constrain max-width */
-  margin: 0 auto; /* Center the footer */
+  width: 100%; /* Span full width */
   box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.2); /* Shadow for separation from content */
 }
 
 .footer-content {
-  width: 100%; /* Take full width of parent (footer) */
+  width: 90%; /* Constrain content width */
+  max-width: var(--max-content-width); /* Constrain max-width */
+  margin: 0 auto; /* Center the content */
   display: flex; /* Changed back to flex for horizontal layout of columns */
   justify-content: space-between;
-  margin: 0 auto; /* Center the content */
   gap: 2rem; /* Gap between footer columns */
   flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
   margin-bottom: 1.5rem; /* Space before copyright */
@@ -772,7 +820,8 @@ footer {
 }
 
 .footer-bottom {
-  width: 100%; /* Take full width of parent (footer) */
+  width: 90%; /* Constrain content width */
+  max-width: var(--max-content-width); /* Constrain max-width */
   margin: 0 auto; /* Center within the footer */
   text-align: center;
   font-size: 0.85rem;
@@ -784,6 +833,10 @@ footer {
 
 /* === Responsive === */
 @media (max-width: 768px) {
+  body {
+    padding-top: 120px; /* Adjust padding-top for fixed header on mobile if it wraps */
+  }
+
   .main-layout-wrapper {
     grid-template-columns: 1fr; /* Stack columns vertically on small screens */
     gap: 2rem;
@@ -797,14 +850,22 @@ footer {
   header {
     flex-direction: column;
     align-items: flex-start;
-    width: 90%; /* Keep 90% for consistency with other elements in mobile */
-    padding: 1rem 1.5rem; /* Adjust padding for mobile as well */
+    padding: 1rem 0; /* Adjust padding for mobile header */
+    height: auto; /* Allow height to adjust if nav wraps */
+  }
+
+  .header-content {
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1rem; /* Add horizontal padding to header content on mobile */
+      width: 100%; /* Ensure header content takes full width on mobile */
   }
 
   nav {
     flex-wrap: wrap;
     justify-content: center;
     width: 100%; /* Ensure nav takes full width of header-content */
+    margin-top: 1rem; /* Space between logo and nav on mobile */
   }
   nav a {
     font-size: 0.9rem; /* Slightly smaller font for mobile nav */
@@ -838,6 +899,7 @@ footer {
   }
   .footer-bottom {
     width: 100%; /* Ensure consistent width with other mobile elements */
+    padding: 1rem; /* Add padding to footer bottom on mobile */
   }
 
   /* Calendar Responsive adjustments */
@@ -908,6 +970,45 @@ body.dark-mode .modal-research-card h3 {
 body.dark-mode .modal-research-card p {
     color: #ccc;
 }
+
+/* Slideshow styles (general, applies to all .slideshow-container) */
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem; /* Space below slideshow */
+  background-color: #f0f0f0; /* Light background for images */
+}
+body.dark-mode .slideshow-container {
+  background-color: #333;
+}
+
+.mySlides {
+  display: none;
+}
+
+.mySlides img {
+  width: 100%;
+  height: 300px; /* Fixed height for consistency */
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* No dots or arrows for this slideshow as per request */
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
   </style>
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js" defer></script>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
@@ -931,14 +1032,17 @@ body.dark-mode .modal-research-card p {
           </div>
         </div>
         <div class="dropdown">
-          <a href="/activities">Activities</a>
+          <a href="/people">People</a>
           <div class="dropdown-content">
-            <a href="/activities/colloquium">Mathematics Colloquium</a>
-            <a href="/activities/seminar-series">Seminar Series</a>
-            <a href="/activities/conferences">International Conferences</a>
-            <a href="/activities/workshops">Research Workshops</a>
+            <a href="/people/faculty">Faculty members</a>
+            <a href="/people/postdocs">Postdoctoral fellows</a>
+            <a href="/people/research-scholars">Research scholars</a>
+            <a href="/people/students">Students</a>
+            <a href="/people/admin-staff">Administrative Staff</a>
+            <a href="/people/alumni">Alumni</a>
           </div>
         </div>
+        <a href="/activities">Activities</a>
         <div class="dropdown">
           <a href="/outreach">Outreach</a>
           <div class="dropdown-content">
@@ -947,6 +1051,7 @@ body.dark-mode .modal-research-card p {
             <a href="/outreach/enrichment-day">School Enrichment Day</a>
           </div>
         </div>
+        <a href="/careers">Careers</a>
         <a href="/resources">Resources</a>
         <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
       </nav>
@@ -955,8 +1060,26 @@ body.dark-mode .modal-research-card p {
 
   <div class="main-layout-wrapper">
     <div class="main-content-left">
-      <div class="top-image">
-        <img src="Images/KSoMCampus.jpg" alt="KSoM Campus Image" />
+      <div class="top-image slideshow-container" data-slideshow-id="mainCampus">
+        <div class="mySlides fade">
+            <img src="/Images/Main/Image-1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x300/ADAFC8/ffffff?text=KSoM+Campus+1';" alt="KSoM Campus Image 1" />
+        </div>
+        <div class="mySlides fade">
+            <img src="/Images/Main/Image-2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x300/ADAFC8/ffffff?text=KSoM+Campus+2';" alt="KSoM Campus Image 2" />
+        </div>
+        <div class="mySlides fade">
+            <img src="/Images/Main/Image-3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x300/ADAFC8/ffffff?text=KSoM+Campus+3';" alt="KSoM Campus Image 3" />
+        </div>
+        <div class="mySlides fade">
+            <img src="/Images/Main/Image-4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x300/ADAFC8/ffffff?text=KSoM+Campus+4';" alt="KSoM Campus Image 4" />
+        </div>
+        <div class="mySlides fade">
+            <img src="/Images/Main/Image-5.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x300/ADAFC8/ffffff?text=KSoM+Campus+5';" alt="KSoM Campus Image 5" />
+        </div>
+        <div class="overlay-text">
+            <div class="main-title">Kerala School of Mathematics</div>
+            <div class="sub-title">An autonomous institution jointly established by the Science & Technology Department, Government of Kerala, and the Department of Atomic Energy, Government of India.</div>
+        </div>
       </div>
       <main class="content-area">
         <div class="full-width-block">
@@ -1026,6 +1149,24 @@ body.dark-mode .modal-research-card p {
             <div class="accordion-item">
                 <div class="accordion-header">Academic & Research Activities at KSoM</div>
                 <div class="accordion-snippet">
+                <!-- Slideshow container -->
+                <div class="slideshow-container" data-slideshow-id="academicActivities">
+                    <div class="mySlides fade">
+                        <img src="/Images/Activities/Image-1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x300/F0F8FF/333333?text=Activity+Image+1';" alt="Academic & Research Activities 1">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="/Images/Activities/Image-2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x300/E6E6FA/333333?text=Activity+Image+2';" alt="Academic & Research Activities 2">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="/Images/Activities/Image-3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x300/F5F5DC/333333?text=Activity+Image+3';" alt="Academic & Research Activities 3">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="/Images/Activities/Image-4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x300/FFE4E1/333333?text=Activity+Image+4';" alt="Academic & Research Activities 4">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="/Images/Activities/Image-5.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x300/AFEEEE/333333?text=Activity+Image+5';" alt="Academic & Research Activities 5">
+                    </div>
+                </div>
                 Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.
                 </div>
                 <div class="accordion-content" style="display: none;">
@@ -1083,41 +1224,16 @@ body.dark-mode .modal-research-card p {
                 </div>
                 <a class="expand-link" href="#" data-accordion-id="academicProgrammes">Expand</a>
             </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">Key Outreach Programmes</div>
-                <div class="accordion-snippet">
-                Kerala School of Mathematics actively connects advanced mathematics with diverse communities through targeted outreach programmes. Our initiatives inspire future mathematicians while promoting accessibility and inclusion in mathematical sciences through workshops, mentorship, and collaborative learning opportunities.
-                </div>
-                <div class="accordion-content" style="display: none;">
-                <p>Kerala School of Mathematics actively connects advanced mathematics with diverse communities through targeted outreach programmes. Our initiatives inspire future mathematicians while promoting accessibility and inclusion in mathematical sciences through workshops, mentorship, and collaborative learning opportunities.</p>
-                <div class="modal-research-cards-container">
-                    <a href="/outreach/summer-workshop" class="modal-research-card">
-                        <h3>Summer Workshop in Mathematics (SWIM)</h3>
-                        <p>Offers intensive residential training in fundamental mathematics for undergraduate students. Through advanced lectures and problem-solving sessions, participants deepen their understanding of core mathematical concepts while engaging with KSoM faculty and visiting scholars in a vibrant academic environment.</p>
-                    </a>
-                    <a href="/outreach/glimpses" class="modal-research-card">
-                        <h3>Glimpses into Mathematics</h3>
-                        <p>Provides M.Sc. students nationwide with immersive exposure to cutting-edge mathematical research through specialized short courses. Delivered by leading experts over 1-2 week intensive sessions, these programmes explore advanced topics across pure and applied mathematics, helping students identify research interests and transition to doctoral studies.</p>
-                    </a>
-                    <a href="/outreach/enrichment-day" class="modal-research-card">
-                        <h3>School Mathematics Enrichment Day</h3>
-                        <p>Invites talented pre-university students for interactive workshops featuring mathematical discovery sessions, problem-solving challenges, and facility tours. This one-day immersion experience fosters mathematical curiosity while giving school students firsthand exposure to university-level mathematical thinking and research environments.</p>
-                    </a>
-                </div>
-                <p>Impact and Reach<br/>Our outreach annually engages 500+ participants through strategic partnerships with schools, universities, and scientific organizations. These efforts strengthen mathematical foundations across Kerala while creating inclusive pathways to advanced study, particularly through early interventions that inspire underrepresented groups to pursue mathematical careers.</p>
-                <a class="modal-learn-more-btn" href="/outreach">Learn more about Key Outreach Programmes &rarr;</a>
-                </div>
-                <a class="expand-link" href="#" data-accordion-id="keyOutreachProgrammes">Expand</a>
-            </div>
             </section>
         </div>
       </main>
     </div>
 
     <aside class="sidebar">
-      <section class="calendar-section">
-        <div id="calendar"></div>
+      <section class="accordion-item calendar-accordion-item" style="cursor: pointer; padding: 0;">
+        <div class="accordion-content" style="display: block; padding: 0;">
+            <div id="calendar-preview"></div> <!-- This will host the smaller calendar -->
+        </div>
       </section>
       <section>
         <h3>Latest News at KSoM</h3>
@@ -1238,8 +1354,8 @@ body.dark-mode .modal-research-card p {
     <div class="footer-content">
       <div class="footer-column">
         <h3>Kerala School of Mathematics</h3>
-        <p>Kuzhimannam, Oliyamchira,<br>Kozhikode, Kerala, India - 673571</p>
-        <p>Email: info@ksom.ac.in</p>
+        <p>Kunnamangalam PO,<br>Kozhikode, Kerala, India - 673571</p>
+        <p>Email: info@ksom.res.in</p>
       </div>
       <div class="footer-column">
         <h3>Quick Links</h3>
@@ -1266,23 +1382,110 @@ body.dark-mode .modal-research-card p {
       document.body.classList.toggle('dark-mode');
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-      const calendarEl = document.getElementById('calendar');
-      const calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        expandRows: true, // Allow rows to expand to fill space
-        events: [
-          { title: 'SWIM Workshop', date: '2025-06-15' },
-          { title: 'Mathematics Colloquium', date: '2025-06-20' },
-          { title: 'Outreach Day', date: '2025-06-25' },
-          { title: 'Algebra Seminar', date: '2025-06-05' },
-          { title: 'Geometry Talk', date: '2025-06-10' },
-          { title: 'Analysis Lecture', date: '2025-06-22' }
-        ]
-      });
-      calendar.render();
+    // Function to manage individual slideshows
+    function initSlideshow(slideshowId, intervalTime = 3000) {
+        let currentSlideIndex = 0; // Start at index 0 for array
+        let currentSlideInterval;
+        let slides = document.querySelectorAll(`[data-slideshow-id="${slideshowId}"] .mySlides`);
 
-      // Attach expand-link handlers for specific accordions
+        // Check if there are any slides to avoid errors
+        if (slides.length === 0) {
+            console.warn(`No slides found for slideshow-id: ${slideshowId}`);
+            return;
+        }
+
+        function showSlides() {
+            // Hide all slides
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            // Increment index and loop if at end
+            currentSlideIndex++;
+            if (currentSlideIndex > slides.length) { currentSlideIndex = 1 }
+
+            // Display current slide
+            slides[currentSlideIndex - 1].style.display = "block";
+        }
+
+        // Clear any existing interval for this slideshow before setting a new one
+        if (currentSlideInterval) {
+            clearInterval(currentSlideInterval);
+        }
+
+        // Initial show and start interval
+        showSlides(); // Call once to display the first slide
+        currentSlideInterval = setInterval(showSlides, intervalTime); // Change image based on intervalTime
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Initialize slideshow for Academic & Research Activities with 7-second interval
+      initSlideshow('academicActivities', 7000); 
+      // Initialize slideshow for Main Campus with 5-second interval
+      initSlideshow('mainCampus', 5000);
+
+      // Define shared calendar options for aesthetics
+      const commonCalendarOptions = {
+          headerToolbar: {
+              left: 'prev,next today',
+              center: 'title',
+              right: 'dayGridMonth,timeGridWeek,timeGridDay'
+          },
+          buttonText: { // Customize button text
+              today: 'Today',
+              month: 'Month',
+              week: 'Week',
+              day: 'Day'
+          },
+          editable: false,
+          selectable: false,
+          nowIndicator: true,
+          dayMaxEvents: true, // allow "more" link when too many events
+          events: [
+              { title: 'SWIM Workshop', date: '2025-06-15', color: '#005c97' },
+              { title: 'Mathematics Colloquium', date: '2025-06-20', color: '#002b45' },
+              { title: 'Outreach Day', date: '2025-06-25', color: '#005c97' },
+              { title: 'Algebra Seminar', date: '2025-06-05', color: '#002b45' },
+              { title: 'Geometry Talk', date: '2025-06-10', color: '#005c97' },
+              { title: 'Analysis Lecture', date: '2025-06-22', color: '#002b45' },
+              // Add more events for a richer calendar
+              { title: 'Faculty Meeting', date: '2025-06-01', color: '#002b45' },
+              { title: 'Student Orientation', date: '2025-07-01', color: '#005c97' },
+              { title: 'Research Presentation', date: '2025-07-15', color: '#002b45' },
+              { title: 'PhD Viva Voce', date: '2025-07-28', color: '#005c97' },
+          ],
+          // Additional aesthetic options
+          eventTextColor: '#ffffff',
+          eventBorderColor: 'transparent',
+          eventBackgroundColor: 'var(--accent-light)', // Use CSS variable
+          dayHeaderContent: function(arg) {
+              return arg.text; // Keep default day headers
+          },
+          dayCellDidMount: function(info) {
+              // Add custom styling for today's date
+              if (info.isToday) {
+                  info.el.style.backgroundColor = 'rgba(0, 92, 151, 0.08)';
+                  info.el.style.borderRadius = '6px';
+              }
+          }
+      };
+
+      // Initialize main calendar in the sidebar preview
+      const calendarPreviewEl = document.getElementById('calendar-preview');
+      const calendarPreview = new FullCalendar.Calendar(calendarPreviewEl, {
+          ...commonCalendarOptions, // Use common options
+          initialView: 'dayGridMonth',
+          height: 200, // Make it much smaller for the preview
+          expandRows: false, // Prevents rows from expanding, keeping calendar compact
+          headerToolbar: { // Simplified header for preview
+              left: 'prev,next',
+              center: 'title',
+              right: 'today'
+          },
+      });
+      calendarPreview.render();
+
+      // Attach expand-link handlers for accordions (excluding calendar)
       const expandLinks = document.querySelectorAll('.accordion-item .expand-link');
       expandLinks.forEach(link => {
         link.addEventListener('click', function (e) {
@@ -1290,9 +1493,22 @@ body.dark-mode .modal-research-card p {
           const accordionItem = this.closest('.accordion-item');
           const title = accordionItem.querySelector('.accordion-header').textContent;
           const content = accordionItem.querySelector('.accordion-content').innerHTML;
-          openModal(title, content);
+          openModal(title, content, false); // Not a calendar modal
         });
       });
+
+      // Attach click handler to the entire calendar accordion item
+      const calendarAccordionItem = document.querySelector('.calendar-accordion-item');
+      if (calendarAccordionItem) {
+          calendarAccordionItem.addEventListener('click', function (e) {
+              // Prevent opening modal if clicking on the calendar's internal elements (buttons, dates)
+              // This ensures only clicks on the "card" background open the modal
+              if (e.target.closest('.fc-toolbar') || e.target.closest('.fc-daygrid-body')) {
+                  return; 
+              }
+              openModal('Upcoming Events Calendar', '', true); // Title, empty content, isCalendarModal true
+          });
+      }
 
       // Existing modal handlers for other "Learn more" buttons (excluding expand-link for regular accordions)
       document.querySelectorAll('.learn-more-btn:not(.expand-link)').forEach(btn => {
@@ -1301,7 +1517,7 @@ body.dark-mode .modal-research-card p {
           const section = this.closest('.accordion-item');
           const title = section.querySelector('.accordion-header').textContent;
           const content = section.querySelector('.accordion-content').innerHTML;
-          openModal(title, content);
+          openModal(title, content, false); // Not a calendar modal
         });
       });
 
@@ -1312,13 +1528,32 @@ body.dark-mode .modal-research-card p {
           closeModal();
         }
       });
-    });
 
-    function openModal(title, content) {
-      document.getElementById('modal-title').innerText = title;
-      document.getElementById('modal-body').innerHTML = content;
-      document.getElementById('modal').classList.add('active');
-    }
+      // Function to open modal (modified for calendar)
+      function openModal(title, content, isCalendarModal = false) {
+        document.getElementById('modal-title').innerText = title;
+        const modalBody = document.getElementById('modal-body');
+        modalBody.innerHTML = ''; // Clear previous content
+        modalBody.scrollTop = 0; // Scroll to top
+
+        if (isCalendarModal) {
+            const fullCalendarDiv = document.createElement('div');
+            fullCalendarDiv.id = 'full-calendar';
+            modalBody.appendChild(fullCalendarDiv);
+
+            // Initialize the full calendar in the modal
+            const fullCalendar = new FullCalendar.Calendar(fullCalendarDiv, {
+                ...commonCalendarOptions, // Use common options
+                height: 'auto', // Allow it to expand
+                aspectRatio: 1.8 // Adjust aspect ratio for larger display
+            });
+            fullCalendar.render(); // Re-render to ensure proper display in the new container
+        } else {
+            modalBody.innerHTML = content;
+        }
+        document.getElementById('modal').classList.add('active');
+      }
+    });
 
     function closeModal() {
       document.getElementById('modal').classList.remove('active');
