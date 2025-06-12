@@ -244,10 +244,10 @@ body.dark-mode .sidebar section {
 
 /* === Main Section (now within main-content-left) === */
 main.content-area {
-  width: 100%; /* Takes full width of its parent (.main-content-left) */
+  width: 100%; /* Takes full width of its parent (main.content-area) */
   display: flex;
   flex-direction: column;
-  gap: 2rem; /* Consistent gap between content blocks */
+  gap: 2rem;
 }
 .full-width-block {
   width: 100%; /* Now takes 100% of its parent (main.content-area) */
@@ -293,6 +293,7 @@ main.content-area {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   padding: 1.5rem 1.25rem; /* Changed horizontal padding as requested */
   transition: transform 0.2s ease;
+  position: relative; /* Needed for absolute positioning of expand link */
 }
 .accordion-item:hover {
   transform: translateY(-2px);
@@ -353,7 +354,7 @@ body.dark-mode .accordion-item {
   font-family: var(--font-sans); /* Use Inter for strong text in cards for differentiation */
 }
 
-/* === Learn More Buttons === */
+/* === Learn More Buttons & Expand Link === */
 .learn-more-btn {
   display: inline-block;
   margin-top: 1rem;
@@ -369,6 +370,22 @@ body.dark-mode .accordion-item {
 }
 .learn-more-btn:hover {
   background-color: var(--accent-hover);
+}
+
+.expand-link {
+  position: absolute; /* Position relative to .accordion-item */
+  bottom: 1.5rem; /* Adjust as needed for padding */
+  right: 1.25rem; /* Adjust as needed for padding */
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: var(--font-body); /* Changed font to Lora for consistency with body text */
+  transition: color var(--transition-fast), text-decoration var(--transition-fast);
+}
+.expand-link:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
 }
 
 /* === Modal === */
@@ -400,6 +417,9 @@ body.dark-mode .accordion-item {
   position: relative;
   color: var(--primary-text);
   font-family: var(--font-body); /* Apply Lora to modal content */
+}
+.modal-content p + p { /* Add margin between consecutive paragraphs */
+  margin-top: 1em;
 }
 .modal-close {
   position: absolute;
@@ -501,7 +521,7 @@ body.dark-mode .fc-daygrid-day-top {
 
 /* Days of the week (headers) */
 .fc-col-header-cell-cushion {
-    font-size: 0.65rem; /* Reduced font size for day names */
+    font-size: 0.6rem; /* Further reduced font size for day names */
     color: #666; /* Softer color for day names */
     font-weight: 500;
     padding-top: 0.5em; /* Add some top padding */
@@ -810,6 +830,84 @@ footer {
   }
 }
 
+/* Styles for modal research cards - now a column layout (stacked) */
+.modal-research-cards-container {
+    display: flex; /* Changed to flex */
+    flex-direction: column; /* Stack vertically */
+    gap: 1rem; /* Space between cards */
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-research-card {
+    position: relative; /* For positioning the "Learn more" link */
+    display: block; /* Changed from flex to block */
+    background: #fdfdfd;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    padding: 1.5rem;
+    /* Removed padding-bottom to allow margin to handle spacing */
+    text-decoration: none;
+    color: var(--primary-text); /* Use primary text color */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 1rem; /* Added margin-bottom for spacing between cards */
+}
+
+body.dark-mode .modal-research-card {
+    background: #3a3a3a;
+    border-color: #555;
+    color: var(--dark-primary-text);
+}
+
+.modal-research-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.modal-research-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    color: var(--accent-blue);
+    margin-bottom: 0.75rem;
+}
+
+body.dark-mode .modal-research-card h3 {
+    color: var(--accent-light);
+}
+
+.modal-research-card p {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+    /* Removed flex-grow: 1 */
+}
+
+body.dark-mode .modal-research-card p {
+    color: #ccc;
+}
+
+/* This class is now removed from individual cards, so it's commented out/removed */
+/*
+.modal-card-learn-more {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    font-family: var(--font-body);
+    transition: color var(--transition-fast), text-decoration var(--transition-fast);
+}
+
+.modal-card-learn-more:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+*/
+
   </style>
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js" defer></script>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
@@ -866,13 +964,18 @@ footer {
             <div class="accordion-item">
               <div class="accordion-header">About KSoM</div>
               <div class="accordion-snippet">
-                <!-- Removed: "Kerala School of Mathematics (KSoM) is an advanced research institute established in 2007 as a joint venture of national and state-level science departments. It aims to revive the legacy of a historical mathematical tradition in Kerala." -->
+                Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.
               </div>
-              <div class="accordion-content">
+              <div class="accordion-content" style="display: none;">
                 <p><strong>Kerala School of Mathematics (KSoM)</strong> is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.</p>
                 <p>The main objective of Kerala School of Mathematics is conduct of high quality Mathematical Research. Our mission is to create a vibrant academic environment that promotes cutting-edge research, nurtures young mathematicians, and contributes significantly to the global mathematical community.</p>
+                <p>Our faculty members are actively engaged in diverse fields of mathematics, pushing the boundaries of knowledge and inspiring the next generation of scholars. We offer various academic programs including Integrated M.Sc.-Ph.D., Ph.D. Programme, and Postdoctoral Fellowships, designed to provide comprehensive theoretical knowledge and practical research experience.</p>
+                <p>KSoM also hosts numerous research activities such as the Mathematics Colloquium, specialized seminar series, international conferences, and intensive workshops, fostering a dynamic and collaborative research environment.</p>
+                <p>Beyond academic pursuits, KSoM is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.</p>
                 <a class="learn-more-btn" href="https://ksom.res.in/about">Learn more</a>
               </div>
+              <!-- Changed to a simple anchor tag with a new class for styling -->
+              <a class="expand-link" href="#" data-accordion-id="aboutKSoM">Expand</a>
             </div>
           </section>
         </div>
@@ -881,19 +984,43 @@ footer {
             <div class="accordion-item">
                 <div class="accordion-header">Research Areas at KSoM</div>
                 <div class="accordion-snippet">
-                <!-- Removed: "Our faculty engage in research across several mathematical disciplines such as complex analysis, number theory, harmonic analysis, and topological group theory." -->
+                Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.
                 </div>
-                <div class="accordion-content">
+                <div class="accordion-content" style="display: none;">
                 <p>Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.</p>
-                <div class="research-links">
-                    <a class="research-card" href="https://ksom.res.in/research/complex-analysis"><strong>Complex Analysis</strong><br/>Investigating Teichmüller theory, Hörmander's estimates on Bers domains, and geometric implications of Kobayashi metrics.</a>
-                    <a class="research-card" href="https://ksom.res.in/research/braid-&-mapping-class-groups"><strong>Braid & Mapping Class Groups</strong><br/>Examining topological structures through liftability problems, Birman-Hilden theory, and quantum representations.</a>
-                    <a class="research-card" href="https://ksom.res.in/research/harmonic-analysis"><strong>Harmonic Analysis</strong><br/>Studying time-frequency methods, modulation spaces, and nonlinear PDEs in nilpotent Lie groups.</a>
-                    <a class="research-card" href="https://ksom.res.in/research/non-commutative-functional-analysis"><strong>Non-commutative Functional Analysis</strong><br/>Advancing operator space theory with applications to quantum approximation and convexity.</a>
-                    <a class="research-card" href="https://ksom.res.in/research/analytic-number-theory"><strong>Analytic Number Theory</strong><br/>Developing innovative techniques for prime distributions, zeta values, and arithmetic structures.</a>
+
+                <div class="modal-research-cards-container">
+                    <a href="https://ksom.res.in/research/complex-analysis" class="modal-research-card">
+                        <h3>Complex Analysis Research</h3>
+                        <p>Our group explores several complex variables as a dynamic area of modern mathematics, focusing on Hörmander's estimates and their impact on the Bers domain (Teichmüller space). We investigate the profound geometric implications of the Kobayashi metric being isometric to the Teichmüller metric. This research bridges complex analysis, Teichmüller theory, and differential geometry, advancing our understanding of intrinsic metrics on complex spaces through interdisciplinary connections with algebra, PDEs, and algebraic geometry.</p>
+                        <!-- Removed Learn more link from individual card -->
+                    </a>
+                    <a href="https://ksom.res.in/research/braid-&-mapping-class-groups" class="modal-research-card">
+                        <h3>Braid Groups & Mapping Class Groups Research</h3>
+                        <p>We study fundamental structures at the intersection of algebraic topology and geometric group theory, examining relationships between braid groups and mapping class groups. Our work centers on liftability problems and the Birman-Hilden property, which determine when surface homeomorphisms extend to handlebodies. A key focus involves classifying unitary representations of braid groups and analyzing their connections to quantum invariants, linking geometric group theory with representation theory and quantum topology.</p>
+                        <!-- Removed Learn more link from individual card -->
+                    </a>
+                    <a href="https://ksom.res.in/research/harmonic-analysis" class="modal-research-card">
+                        <h3>Harmonic Analysis Research</h3>
+                        <p>Our investigations center on harmonic analysis in nilpotent Lie groups and time-frequency methods, connecting classical Fourier analysis with modern operator theory. We explore modulation spaces, Fourier multipliers, twisted convolution operators, and their Lp-Lq boundedness properties. The group also analyzes nonlinear Schrödinger equations with twisted Laplacians, maximal functions along hypersurfaces, and develops Hardy-Sobolev inequalities in non-commutative settings, advancing oscillatory integral techniques for dispersive PDEs.</p>
+                        <!-- Removed Learn more link from individual card -->
+                    </a>
+                    <a href="https://ksom.res.in/research/non-commutative-functional-analysis" class="modal-research-card">
+                        <h3>Non-commutative Functional Analysis Research</h3>
+                        <p>We extend functional analysis to quantum realms through operator algebras and operator spaces, investigating quantum approximation properties and convexity in C*-algebras. Our work focuses on completely bounded approximation, quantum convexity, matricial ranges, and operator system structures. This research bridges abstract functional analysis with quantum information theory, with applications in quantum error correction, quantum channel classification, and geometric analysis of quantum states.</p>
+                        <!-- Removed Learn more link from individual card -->
+                    </a>
+                    <a href="https://ksom.res.in/research/analytic-number-theory" class="modal-research-card">
+                        <h3>Analytic Number Theory Research</h3>
+                        <p>Our group employs advanced analytic techniques to study prime distributions, multiplicative functions, and L-function special values. We investigate multiple zeta values and their generalizations (including multiple Apéry-like sums), explicit averages beyond classical estimates, Möbius sums with coprimality conditions, and additive number theory extensions. Key work involves the Beurling-Selberg function's applications to prime number theory and developing new methods for bounding multiple zeta value tails, connecting analytic techniques with combinatorial structures.</p>
+                        <!-- Removed Learn more link from individual card -->
+                    </a>
                 </div>
-                <a class="learn-more-btn" href="https://ksom.res.in/research">Learn more</a>
+                <p>Collaborative Environment<br/>Our research thrives through synergistic partnerships between faculty, postdoctoral researchers, and doctoral students. This collaborative ecosystem combines rigorous theoretical inquiry with computational approaches, positioning KSoM at the forefront of mathematical discovery while training next-generation mathematicians.</p>
+                <!-- Added a single "Learn more" button at the bottom of the modal content for Research Areas -->
+                <a class="learn-more-btn" href="https://ksom.res.in/research">Learn more about Research &rarr;</a>
                 </div>
+                <a class="expand-link" href="#" data-accordion-id="researchAreas">Expand</a>
             </div>
 
             <div class="accordion-item">
@@ -918,18 +1045,29 @@ footer {
             <div class="accordion-item">
                 <div class="accordion-header">Academic Programmes at KSoM</div>
                 <div class="accordion-snippet">
-                <!-- Removed: "KSoM offers integrated M.Sc.-Ph.D., standalone Ph.D., and postdoctoral positions with a strong research focus and academic mentorship." -->
+                Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.
                 </div>
-                <div class="accordion-content">
-                <p>Kerala School of Mathematics offers research-intensive academic pathways designed to cultivate exceptional mathematical talent. Our programmes blend rigorous coursework with cutting-edge investigation, providing dedicated mentorship, comprehensive financial support, and access to world-class facilities within a collaborative community.</p>
-                <div class="research-links">
-                    <a class="research-card" href="https://ksom.res.in/programmes/integrated-msc-phd"><strong>Integrated M.Sc.-Ph.D.</strong><br/>Seamless five-year progression with specializations in Mathematics, Physics, or Theoretical Computer Science.</a>
-                    <a class="research-card" href="https://ksom.res.in/programmes/phd">Ph.D. Programme<br/>Doctoral candidates pursue advanced research under expert faculty guidance, culminating in a dissertation.</a>
-                    <a class="research-card" href="https://ksom.res.in/programmes/postdoc">Postdoctoral Fellowships<br/>Two-year renewable positions with stipends, research grants, and development support.</a>
+                <div class="accordion-content" style="display: none;">
+                <p>Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.</p>
+
+                <div class="modal-research-cards-container">
+                    <a href="https://ksom.res.in/programmes/integrated-msc-phd" class="modal-research-card">
+                        <h3>Integrated M.Sc. - Ph.D. Programme</h3>
+                        <p>Provides seamless progression from advanced coursework to doctoral research, specializing in Mathematics, Physics, or Theoretical Computer Science. Students receive monthly scholarships, hostel accommodation, and engage in research from the first year, developing strong theoretical foundations through a curriculum that bridges pure and applied mathematics. Admission requires a bachelor's degree with substantial mathematical background and performance in rigorous entrance examinations.</p>
+                    </a>
+                    <a href="https://ksom.res.in/programmes/phd" class="modal-research-card">
+                        <h3>Ph.D. Programme</h3>
+                        <p>Offers intensive research immersion in Pure or Applied Mathematics under close faculty mentorship. Spanning approximately five years, scholars transition from specialized coursework to original dissertation work on frontier mathematical problems, supported by fellowships, travel grants for conferences, and teaching opportunities. This programme cultivates independent research capabilities while fostering academic networking through seminars and collaborations with international experts.</p>
+                    </a>
+                    <a href="https://ksom.res.in/programmes/postdoc" class="modal-research-card">
+                        <h3>Postdoctoral Programme</h3>
+                        <p>Empowers recent Ph.D. graduates with resources to pursue innovative independent research projects. Fellows receive competitive stipends, dedicated research grants, and opportunities to mentor students while developing their academic profiles through teaching and seminar leadership. The renewable two-year fellowship includes access to specialized computational resources and interdisciplinary collaboration platforms, positioning fellows for permanent academic appointments.</p>
+                    </a>
                 </div>
-                <p>Scholarly Community<br/>Seminars, workshops, and global collaborations enrich the experience and foster professional growth.</p>
-                <a class="learn-more-btn" href="https://ksom.res.in/programmes">Learn more</a>
+                <p>Scholarly Environment<br/>All programmes emphasize collaborative learning through weekly research seminars, specialized workshops, and annual conferences that connect students with global mathematical leaders. Our selective admission process identifies exceptional talent while maintaining small cohort sizes that ensure personalized guidance. This supportive ecosystem enables scholars to contribute meaningfully to mathematical knowledge while developing as versatile researchers equipped to address complex scientific challenges.</p>
+                <a class="learn-more-btn" href="https://ksom.res.in/programmes">Learn more about Academic Programmes &rarr;</a>
                 </div>
+                <a class="expand-link" href="#" data-accordion-id="academicProgrammes">Expand</a>
             </div>
 
             <div class="accordion-item">
@@ -944,7 +1082,7 @@ footer {
                     <a class="research-card" href="https://ksom.res.in/outreach/enrichment-day">School Mathematics Enrichment Day<br/>Interactive workshops for talented pre-university students to foster mathematical curiosity and introduce university-level thinking.</a>
                 </div>
                 <p>Impact and Reach<br/>Our outreach annually engages 500+ participants through partnerships with schools, universities, and scientific organizations.</p>
-                <a class="learn-more-btn" href="https://ksom.res.in/outreach">Learn more</a>
+                <a class="learn-more-btn" href="#">Learn more</a>
                 </div>
             </div>
             </section>
@@ -1107,49 +1245,6 @@ footer {
       const calendarEl = document.getElementById('calendar');
       const calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
-        // height: 300, // Removed fixed height
-        expandRows: true, // Allow rows to expand to fill space
-        events: [
-          { title: 'SWIM Workshop', date: '2025-06-15' },
-          { title: 'Mathematics Colloquium', date: '2025-06-20' },
-          { title: 'Outreach Day', date: '2025-06-25' },
-          { title: 'Algebra Seminar', date: '2025-06-05' },
-          { title: 'Geometry Talk', date: '2025-06-10' },
-          { title: 'Analysis Lecture', date: '2025-06-22' }
-        ]
-      });
-      calendar.render();
-    });
-
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
-  <!-- Modal Template -->
-  <div id="modal" class="modal-overlay" role="dialog" aria-labelledby="modal-title" aria-modal="true">
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Close modal" onclick="closeModal()">&times;</button>
-      <h2 id="modal-title"></h2>
-      <div id="modal-body"></div>
-    </div>
-  </div>
-
-  <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-      const calendarEl = document.getElementById('calendar');
-      const calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        // height: 300, // Removed fixed height
         expandRows: true, // Allow rows to expand to fill space
         events: [
           { title: 'SWIM Workshop', date: '2025-06-15' },
@@ -1162,8 +1257,20 @@ footer {
       });
       calendar.render();
 
-      // Attach modal handlers
-      document.querySelectorAll('.learn-more-btn').forEach(btn => {
+      // Attach expand-link handlers for specific accordions
+      const expandLinks = document.querySelectorAll('.accordion-item .expand-link');
+      expandLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          const accordionItem = this.closest('.accordion-item');
+          const title = accordionItem.querySelector('.accordion-header').textContent;
+          const content = accordionItem.querySelector('.accordion-content').innerHTML;
+          openModal(title, content);
+        });
+      });
+
+      // Existing modal handlers for other "Learn more" buttons (excluding expand-link for regular accordions)
+      document.querySelectorAll('.learn-more-btn:not(.expand-link)').forEach(btn => {
         btn.addEventListener('click', function (e) {
           e.preventDefault();
           const section = this.closest('.accordion-item');
@@ -1171,6 +1278,14 @@ footer {
           const content = section.querySelector('.accordion-content').innerHTML;
           openModal(title, content);
         });
+      });
+
+      // Add event listener to modal overlay to close when clicking outside content
+      const modalOverlay = document.getElementById('modal');
+      modalOverlay.addEventListener('click', function(e) {
+        if (e.target === modalOverlay) { // Check if the click was directly on the overlay
+          closeModal();
+        }
       });
     });
 
@@ -1200,5 +1315,13 @@ footer {
       });
     }
   </script>
+  <!-- Modal Template -->
+  <div id="modal" class="modal-overlay" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal" onclick="closeModal()">&times;</button>
+      <h2 id="modal-title"></h2>
+      <div id="modal-body"></div>
+    </div>
+  </div>
 </body>
 </html>
