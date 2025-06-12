@@ -8,8 +8,8 @@
   <meta name="description" content="Kerala School of Mathematics - A premier research institute in Mathematics established by DAE and Government of Kerala.">
   <meta name="theme-color" content="#002b45">
   <title>Kerala School of Mathematics - Official Website</title>
-  <!-- Google Fonts for Lora, Merriweather, and IBM Plex Sans -->
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Merriweather:wght@400;700;900&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts for Lora, Merriweather, and Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <!--<link rel="stylesheet" href="style.css">-->
   <style>
 
@@ -24,7 +24,7 @@
   --card-border: #e0e0e0;
   --transition-fast: 0.25s ease;
   --max-content-width: 1400px; /* Increased from 1200px */
-  --font-sans: 'IBM Plex Sans', system-ui, sans-serif; /* IBM Plex Sans for UI elements like navigation */
+  --font-sans: 'Inter', system-ui, sans-serif; /* Inter for UI elements like navigation */
   --font-serif: 'Merriweather', Georgia, serif; /* Merriweather for headings */
   --font-body: 'Lora', serif; /* Lora for body text */
   --modal-bg: rgba(0, 0, 0, 0.7);
@@ -123,7 +123,7 @@ header {
 }
 .logo-title a {
   color: white;
-  font-family: var(--font-sans); /* Changed to IBM Plex Sans for main title */
+  font-family: var(--font-sans); /* Changed to Inter for main title */
   font-size: 1.1rem; /* Slightly increased font size */
   font-weight: 700;
   text-decoration: none;
@@ -144,7 +144,7 @@ nav a {
   border-radius: 5px;
   transition: background var(--transition-fast);
   outline: none;
-  font-family: var(--font-sans); /* Ensure navigation links use IBM Plex Sans (sans-serif) font */
+  font-family: var(--font-sans); /* Ensure navigation links use Inter font */
   font-size: 0.85rem; /* Reduced font size for menu items */
   text-transform: uppercase; /* Make uppercase */
 }
@@ -175,7 +175,7 @@ nav a:hover {
   color: var(--accent-blue);
   text-decoration: none;
   transition: background var(--transition-fast);
-  font-family: var(--font-sans); /* Ensure dropdown links use IBM Plex Sans (sans-serif) font */
+  font-family: var(--font-sans); /* Ensure dropdown links use Inter font */
   font-size: 0.8rem; /* Reduced font size for submenu items */
   text-transform: uppercase; /* Make uppercase */
 }
@@ -193,29 +193,231 @@ nav a:hover {
   cursor: pointer;
 }
 
+/* Hamburger menu styles */
+.hamburger-menu-icon {
+    display: none; /* Hidden by default on desktop */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem; /* Larger icon */
+    cursor: pointer;
+    margin-left: 1rem; /* Space from other header elements */
+    z-index: 1001; /* Ensure it's above other elements */
+    transition: transform 0.3s ease;
+}
+
+.hamburger-menu-icon.active {
+    transform: rotate(90deg); /* Rotate when active for visual feedback */
+}
+
+.mobile-menu-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--accent-blue); /* Dark overlay */
+    color: white;
+    z-index: 2000; /* Above everything */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 70px; /* Space for fixed close button */
+    overflow-y: auto;
+    transition: transform 0.3s ease-out;
+    transform: translateX(100%); /* Slide out to the right */
+}
+
+.mobile-menu-overlay.active {
+    display: flex;
+    transform: translateX(0); /* Slide in */
+}
+
+.mobile-menu-overlay .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 2001;
+}
+
+.mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px; /* Constrain width for menu items */
+    margin-top: 2rem;
+}
+
+.mobile-menu-content a {
+    color: white;
+    text-decoration: none;
+    padding: 1rem 0;
+    font-family: var(--font-sans);
+    font-size: 1.1rem; /* Larger font for mobile menu */
+    text-transform: uppercase;
+    text-align: center;
+    transition: background 0.2s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Separator */
+}
+
+.mobile-menu-content a:last-child {
+    border-bottom: none;
+}
+
+.mobile-menu-content a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-dropdown-header {
+    color: white;
+    padding: 1rem 0;
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+}
+
+.mobile-dropdown-header::after {
+    content: '▼'; /* Dropdown arrow */
+    font-size: 0.7em;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.2s ease;
+}
+
+.mobile-dropdown-header.expanded::after {
+    transform: translateY(-50%) rotate(180deg); /* Rotate arrow when expanded */
+}
+
+.mobile-submenu {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.2); /* Slightly darker for submenu */
+}
+
+.mobile-submenu.expanded {
+    display: flex;
+}
+
+.mobile-submenu a {
+    font-size: 0.95rem; /* Smaller for submenu items */
+    padding: 0.8rem 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05); /* Lighter separator */
+}
+
 /* === Main Layout Wrapper === */
 .main-layout-wrapper {
-  display: grid; /* Changed from flex to grid for precise column control */
-  grid-template-columns: 72% 28%; /* Define two columns with exact percentages */
-  gap: 1.5rem; /* Reduced gap from 2rem to 1.5rem */
-  width: 90%; /* Adjusted to match header content width */
+  display: grid;
+  /* Define 3 columns for desktop: 60% of 72%, 40% of 72%, and 28% for sidebar */
+  grid-template-columns: calc(0.72 * 0.6 * var(--max-content-width)) calc(0.72 * 0.4 * var(--max-content-width)) 28%;
+  grid-template-areas:
+    "campus-photos campus-photos news"
+    "about-ksom about-ksom news"
+    "research-activities programmes-outreach calendar"
+    "research-activities programmes-outreach events";
+  gap: 1.5rem;
+  width: 90%;
   max-width: var(--max-content-width);
-  margin: 2rem auto; /* Centered with top margin */
+  margin: 0 auto;
+  padding-top: 2rem; /* Space below fixed header */
 }
 
-.main-content-left {
-  /* Removed flex: 0 0 72%; - now controlled by grid-template-columns */
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  width: 100%; /* Added as requested */
+/* Assign grid areas for desktop layout */
+#campus-photos-section { grid-area: campus-photos; }
+#about-ksom-section { grid-area: about-ksom; }
+
+/* Group Research and Academic Activities into the first column area */
+#research-areas-section { grid-area: research-activities; }
+#academic-activities-section { grid-area: research-activities; } /* These will stack within the same grid area */
+/* Group Programmes and Outreach into the second column area */
+#academic-programmes-section { grid-area: programmes-outreach; }
+#outreach-section { grid-area: programmes-outreach; } /* These will stack within the same grid area */
+
+/* Sidebar items */
+#latest-news-section { grid-area: news; }
+#calendar-section { grid-area: calendar; }
+#upcoming-events-section { grid-area: events; }
+
+/* Ensure items within the same grid area stack vertically */
+#research-areas-section,
+#academic-activities-section,
+#academic-programmes-section,
+#outreach-section,
+#latest-news-section,
+#calendar-section,
+#upcoming-events-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Consistent gap between stacked sections */
+    /* Add flex-grow to ensure sections expand to fill available space within their column */
+    flex-grow: 1;
 }
+
+
+/* Common styling for all major content sections */
+#campus-photos-section,
+#about-ksom-section,
+#research-areas-section,
+#academic-activities-section,
+#academic-programmes-section,
+#outreach-section,
+#latest-news-section,
+#calendar-section,
+#upcoming-events-section {
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-sizing: border-box;
+}
+body.dark-mode #campus-photos-section,
+body.dark-mode #about-ksom-section,
+body.dark-mode #research-areas-section,
+body.dark-mode #academic-activities-section,
+body.dark-mode #academic-programmes-section,
+body.dark-mode #outreach-section,
+body.dark-mode #latest-news-section,
+body.dark-mode #calendar-section,
+body.dark-mode #upcoming-events-section {
+    background: var(--dark-card-bg);
+    border: 1px solid var(--dark-border);
+}
+
+/* Special styling for top-image slideshow to remove its own padding/background/shadow */
+#campus-photos-section {
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Specific calendar styling (padding already 0, min-height handled) */
+#calendar-section {
+    padding: 0 !important;
+    overflow: hidden;
+    min-height: 340px;
+}
+
 
 .top-image {
-  width: 100%; /* Takes full width of its parent (.main-content-left) */
+  width: 100%; /* Takes full width of its grid area */
   position: relative; /* For overlay text positioning */
   border-radius: 8px; /* Match slideshow container border-radius */
   overflow: hidden; /* Ensure content is clipped within rounded corners */
+  padding: 0; /* Ensure no internal padding interferes */
+  box-shadow: none; /* Remove section shadow from image, handled by parent div */
+  background: transparent; /* Remove section background from image */
 }
 
 /* Image specific styling for size and fit */
@@ -256,69 +458,6 @@ nav a:hover {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.6); /* Subtle shadow for sub-title */
 }
 
-.sidebar {
-  /* Removed flex: 0 0 28%; - now controlled by grid-template-columns */
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-/* Styling for sections within the sidebar to ensure proper filling */
-.sidebar section {
-    padding: 1.5rem; /* Add padding to content sections */
-    background: var(--card-bg); /* Match card background */
-    border-radius: 12px; /* Match card border-radius */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Match card shadow */
-}
-body.dark-mode .sidebar section {
-    background: var(--dark-card-bg);
-    border: 1px solid var(--dark-border);
-}
-.sidebar h3 {
-    margin-bottom: 1rem;
-    color: var(--accent-blue);
-    font-family: var(--font-serif); /* Apply Merriweather to sidebar headings */
-}
-
-
-/* === Main Section (now within main-content-left) === */
-main.content-area {
-  width: 100%; /* Takes full width of its parent (main.content-area) */
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-.full-width-block {
-  width: 100%; /* Now takes 100% of its parent (main.content-area) */
-  margin-bottom: 0; /* Remove specific margin as gap handles it */
-}
-.two-column-wrapper { /* This wrapper is not needed anymore as .two-column is directly under main.content-area */
-  display: none; /* Hide or remove this if not needed */
-}
-.two-column {
-  display: flex;
-  gap: 1rem; /* Changed gap as requested */
-  width: 100%; /* Now takes 100% of its parent (main.content-area) */
-  margin: 0; /* Remove specific margin as gap handles it */
-}
-.left-column {
-  flex: 3; /* Adjusted for 60-40 split */
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-.right-column {
-  flex: 2; /* Adjusted for 60-40 split */
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-.half-column {
-  width: 36%;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
 
 /* === Accordion === */
 .accordion {
@@ -391,7 +530,7 @@ body.dark-mode .accordion-item {
 }
 .research-card strong {
   font-weight: 700; /* Keep the explicitly strong text bold */
-  font-family: var(--font-sans); /* Use IBM Plex Sans for strong text in cards for differentiation */
+  font-family: var(--font-sans); /* Use Inter for strong text in cards for differentiation */
 }
 
 /* === Learn More Buttons & Expand Link === */
@@ -406,7 +545,7 @@ body.dark-mode .accordion-item {
   font-size: 0.9rem;
   transition: background var(--transition-fast);
   cursor: pointer;
-  font-family: var(--font-sans); /* Apply IBM Plex Sans to buttons */
+  font-family: var(--font-sans); /* Apply Inter to buttons */
 }
 .learn-more-btn:hover {
   background-color: var(--accent-hover);
@@ -494,7 +633,7 @@ body.dark-mode .accordion-item {
 
 /* === Calendar === */
 #calendar-preview, #full-calendar {
-  font-family: var(--font-sans); /* Ensure calendar uses IBM Plex Sans (sans-serif) font */
+  font-family: var(--font-sans); /* Ensure calendar uses Inter font */
   border: none; /* No border for the calendar itself */
   background-color: transparent; /* No background for calendar itself */
   border-radius: 0; /* No border radius for calendar itself */
@@ -513,16 +652,6 @@ body.dark-mode #calendar-preview, body.dark-mode #full-calendar {
   background-color: transparent;
 }
 
-/* Calendar Accordion Item Specifics (to make it look like a calendar card) */
-.calendar-accordion-item {
-    padding: 0 !important; /* Remove all padding from the accordion item itself */
-    overflow: hidden; /* Ensures the calendar's rounded corners within the card are respected */
-    min-height: 340px; /* Increased min-height to accommodate new calendar height + toolbar */
-}
-
-.calendar-accordion-item .accordion-content {
-    padding: 0 !important; /* Remove all padding from the content div inside */
-}
 
 /* FullCalendar Toolbar (Header) */
 .fc .fc-toolbar {
@@ -560,7 +689,7 @@ body.dark-mode #calendar-preview, body.dark-mode #full-calendar {
   box-shadow: 0 1px 3px rgba(0,0,0,0.08); /* Reduced shadow */
   cursor: pointer;
   outline: none; /* Remove default outline */
-  font-family: var(--font-sans); /* Apply IBM Plex Sans to calendar buttons */
+  font-family: var(--font-sans); /* Apply Inter to calendar buttons */
 }
 .fc .fc-button:hover {
   background-color: rgba(255, 255, 255, 0.3);
@@ -621,7 +750,7 @@ body.dark-mode .fc-col-header-cell-cushion {
   border: none;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Adjusted shadow */
   white-space: normal; /* Allow text to wrap */
-  font-family: var(--font-sans); /* Use IBM Plex Sans for event text */
+  font-family: var(--font-sans); /* Use Inter for event text */
 }
 body.dark-mode .fc-event {
   background-color: #0072b1; /* A slightly different accent for dark mode events */
@@ -749,7 +878,7 @@ body.dark-mode .timeline-item {
   color: #888; /* Softer color */
   font-weight: 500;
   margin-bottom: 0.1rem; /* Reduced margin */
-  font-family: var(--font-sans); /* IBM Plex Sans for dates */
+  font-family: var(--font-sans); /* Inter for dates */
 }
 body.dark-mode .timeline-date {
   color: #bbb;
@@ -838,89 +967,7 @@ footer {
   color: rgba(255, 255, 255, 0.7);
   padding-top: 1rem; /* Space from columns above */
   border-top: 1px solid rgba(255, 255, 255, 0.1); /* Separator line */
-  font-family: var(--font-sans); /* Apply IBM Plex Sans to footer bottom */
-}
-
-/* === Responsive === */
-@media (max-width: 768px) {
-  body {
-    padding-top: 120px; /* Adjust padding-top for fixed header on mobile if it wraps */
-  }
-
-  .main-layout-wrapper {
-    grid-template-columns: 1fr; /* Stack columns vertically on small screens */
-    gap: 2rem;
-  }
-
-  .main-content-left,
-  .sidebar {
-    width: 100%; /* Ensure they take full width of the single grid column */
-  }
-  
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1rem 0; /* Adjust padding for mobile header */
-    height: auto; /* Allow height to adjust if nav wraps */
-  }
-
-  .header-content {
-      flex-direction: column;
-      align-items: center;
-      padding: 0 1rem; /* Add horizontal padding to header content on mobile */
-      width: 100%; /* Ensure header content takes full width on mobile */
-  }
-
-  nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%; /* Ensure nav takes full width of header-content */
-    margin-top: 1rem; /* Space between logo and nav on mobile */
-  }
-  nav a {
-    font-size: 0.85rem; /* Slightly smaller font for mobile nav */
-    padding: 0.4rem 0.6rem;
-  }
-
-  /* Ensure columns stack and take full width */
-  .left-column,
-  .right-column {
-    width: 100%;
-  }
-
-  /* Footer responsive adjustments */
-  .footer-content {
-    flex-direction: column; /* Stack footer columns vertically */
-    gap: 1rem; /* Reduced gap for mobile footer columns */
-    width: 100%; /* Ensure consistent width with other mobile elements */
-    padding: 0 1rem; /* Add some padding to footer content on mobile */
-  }
-  .footer-column {
-    min-width: unset; /* Remove min-width on mobile for better stacking */
-    text-align: center; /* Center align text in columns */
-    margin-bottom: 0.75rem; /* Adjust spacing for stacked mobile columns */
-  }
-  .footer-column:last-child {
-    margin-bottom: 0;
-  }
-  .footer-column p, .footer-column a {
-    text-align: center; /* Center align text for links and paragraphs */
-    margin-bottom: 0.3rem; /* Reduce spacing for stacked items */
-  }
-  .footer-bottom {
-    width: 100%; /* Ensure consistent width with other mobile elements */
-    padding: 1rem; /* Add padding to footer bottom on mobile */
-  }
-
-  /* Calendar Responsive adjustments */
-  .fc .fc-toolbar {
-    flex-direction: column;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
-  }
-  .fc .fc-toolbar-title {
-    font-size: 1.2rem;
-  }
+  font-family: var(--font-sans); /* Apply Inter to footer bottom */
 }
 
 /* Styles for modal research cards - now a column layout (stacked) */
@@ -1019,6 +1066,103 @@ body.dark-mode .slideshow-container {
   from {opacity: .4}
   to {opacity: 1}
 }
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  body {
+    padding-top: 100px; /* Adjust padding-top for fixed header on mobile with hamburger */
+  }
+
+  .header-content {
+      flex-direction: row; /* Keep logo and nav controls in a row */
+      justify-content: space-between; /* Space them out */
+      padding: 0 1rem; /* Add horizontal padding to header content on mobile */
+      width: 100%; /* Ensure header content takes full width on mobile */
+  }
+
+  /* Hide desktop navigation and show hamburger */
+  nav {
+    display: none;
+  }
+
+  .hamburger-menu-icon {
+    display: block; /* Show hamburger icon on mobile */
+  }
+
+  /* Main content layout on mobile */
+  .main-layout-wrapper {
+    display: flex; /* Switch to flexbox for stacking */
+    flex-direction: column;
+    grid-template-columns: none; /* Remove grid on mobile */
+    grid-template-areas: none; /* Remove grid areas on mobile */
+    width: 95%; /* Adjust width for mobile */
+    padding-top: 1.5rem;
+    gap: 2rem; /* Gap between stacked sections */
+  }
+
+  /* Ensure all sections take full width on mobile */
+  #campus-photos-section,
+  #about-ksom-section,
+  #research-areas-section,
+  #academic-activities-section,
+  #academic-programmes-section,
+  #outreach-section,
+  #latest-news-section,
+  #upcoming-events-section {
+      width: 100%;
+      flex: none; /* Remove flex-grow from desktop specific flex properties */
+  }
+
+  /* Hide calendar section on mobile */
+  #calendar-section {
+    display: none !important;
+  }
+
+  /* Mobile Order of Sections using `order` property on direct children of .main-layout-wrapper */
+  #campus-photos-section { order: 1; }
+  #about-ksom-section { order: 2; }
+  #latest-news-section { order: 3; }
+  #upcoming-events-section { order: 4; }
+  #research-areas-section { order: 5; }
+  #academic-programmes-section { order: 6; }
+  #academic-activities-section { order: 7; }
+  #outreach-section { order: 8; }
+
+
+  /* Footer responsive adjustments */
+  .footer-content {
+    flex-direction: column; /* Stack footer columns vertically */
+    gap: 1rem; /* Reduced gap for mobile footer columns */
+    width: 100%; /* Ensure consistent width with other mobile elements */
+    padding: 0 1rem; /* Add some padding to footer content on mobile */
+  }
+  .footer-column {
+    min-width: unset; /* Remove min-width on mobile for better stacking */
+    text-align: center; /* Center align text in columns */
+    margin-bottom: 0.75rem; /* Adjust spacing for stacked mobile columns */
+  }
+  .footer-column:last-child {
+    margin-bottom: 0;
+  }
+  .footer-column p, .footer-column a {
+    text-align: center; /* Center align text for links and paragraphs */
+    margin-bottom: 0.3rem; /* Reduce spacing for stacked items */
+  }
+  .footer-bottom {
+    width: 100%; /* Ensure consistent width with other mobile elements */
+    padding: 1rem; /* Add padding to footer bottom on mobile */
+  }
+
+  /* Calendar Responsive adjustments */
+  .fc .fc-toolbar {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+  }
+  .fc .fc-toolbar-title {
+    font-size: 1.2rem;
+  }
+}
   </style>
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js" defer></script>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
@@ -1030,7 +1174,7 @@ body.dark-mode .slideshow-container {
         <div class="circle-logo">KSoM</div>
         <a href="https://ksom.res.in">Kerala School of Mathematics</a>
       </div>
-      <nav>
+      <nav id="desktop-nav">
         <a href="https://ksom.res.in/">Home</a>
         <a href="https://ksom.res.in/research">Research</a>
         <div class="dropdown">
@@ -1065,299 +1209,312 @@ body.dark-mode .slideshow-container {
         <a href="https://ksom.res.in/resources">Resources</a>
         <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
       </nav>
+      <button class="hamburger-menu-icon" id="hamburger-icon" aria-label="Open mobile menu">&#9776;</button>
     </div>
   </header>
 
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+    <button class="close-btn" id="mobile-menu-close-btn" aria-label="Close mobile menu">&times;</button>
+    <div class="mobile-menu-content" id="mobile-menu-content">
+      <!-- Menu items will be populated here by JavaScript -->
+    </div>
+  </div>
+
   <div class="main-layout-wrapper">
-    <div class="main-content-left">
-      <div class="top-image slideshow-container" data-slideshow-id="mainCampus">
-        <div class="mySlides fade">
-            <img src="/Images/Main/Image-1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x300/ADAFC8/ffffff?text=KSoM+Campus+1';" alt="KSoM Campus Image 1" />
-        </div>
-        <div class="mySlides fade">
-            <img src="/Images/Main/Image-2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x300/ADAFC8/ffffff?text=KSoM+Campus+2';" alt="KSoM Campus Image 2" />
-        </div>
-        <div class="mySlides fade">
-            <img src="/Images/Main/Image-3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x300/ADAFC8/ffffff?text=KSoM+Campus+3';" alt="KSoM Campus Image 3" />
-        </div>
-        <div class="mySlides fade">
-            <img src="/Images/Main/Image-4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x300/ADAFC8/ffffff?text=KSoM+Campus+4';" alt="KSoM Campus Image 4" />
-        </div>
-        <div class="mySlides fade">
-            <img src="/Images/Main/Image-5.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x300/ADAFC8/ffffff?text=KSoM+Campus+5';" alt="KSoM Campus Image 5" />
-        </div>
-        <div class="overlay-text">
-            <div class="main-title">Kerala School of Mathematics</div>
-            <div class="sub-title">An autonomous institution jointly established by the Science & Technology Department, Government of Kerala, and the Department of Atomic Energy, Government of India.</div>
-        </div>
+    <!-- Campus photos Section (Full width of 72% on desktop, order 1 on mobile) -->
+    <div id="campus-photos-section" class="top-image slideshow-container" data-slideshow-id="mainCampus">
+      <div class="mySlides fade">
+          <img src="/Images/Main/Image-1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x300/ADAFC8/ffffff?text=KSoM+Campus+1';" alt="KSoM Campus Image 1" />
       </div>
-      <main class="content-area">
-        <div class="full-width-block">
-          <section class="accordion">
-            <div class="accordion-item">
-              <div class="accordion-header">About KSoM</div>
-              <div class="accordion-snippet">
-                Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.
-              </div>
-              <div class="accordion-content" style="display: none;">
-                <p><strong>Kerala School of Mathematics (KSoM)</strong> is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.</p>
-                <p>The main objective of Kerala School of Mathematics is conduct of high quality Mathematical Research. Our mission is to create a vibrant academic environment that promotes cutting-edge research, nurtures young mathematicians, and contributes significantly to the global mathematical community.</p>
-                <p>Our faculty members are actively engaged in diverse fields of mathematics, pushing the boundaries of knowledge and inspiring the next generation of scholars. We offer various academic programs including Integrated M.Sc.-Ph.D., Ph.D. Programme, and Postdoctoral Fellowships, designed to provide comprehensive theoretical knowledge and practical research experience.</p>
-                <p>KSoM also hosts numerous research activities such as the Mathematics Colloquium, specialized seminar series, international conferences, and intensive workshops, fostering a dynamic and collaborative research environment.</p>
-                <p>Beyond academic pursuits, KSoM is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.</p>
-                <a class="learn-more-btn" href="https://ksom.res.in/about">Learn more</a>
-              </div>
-              <!-- Changed to a simple anchor tag with a new class for styling -->
-              <a class="expand-link" href="#" data-accordion-id="aboutKSoM">Expand</a>
-            </div>
-          </section>
-        </div>
-        <div class="two-column">
-          <section class="accordion left-column">
-            <div class="accordion-item">
-                <div class="accordion-header">Research Areas at KSoM</div>
-                <div class="accordion-snippet">
-                Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.
-                </div>
-                <div class="accordion-content" style="display: none;">
-                <p>Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.</p>
-
-                <div class="modal-research-cards-container">
-                    <a href="https://ksom.res.in/research/complex-analysis" class="modal-research-card">
-                        <h3>Complex Analysis Research</h3>
-                        <p>Our group explores several complex variables as a dynamic area of modern mathematics, focusing on Hörmander's estimates and their impact on the Bers domain (Teichmüller space). We investigate the profound geometric implications of the Kobayashi metric being isometric to the Teichmüller metric. This research bridges complex analysis, Teichmüller theory, and differential geometry, advancing our understanding of intrinsic metrics on complex spaces through interdisciplinary connections with algebra, PDEs, and algebraic geometry.</p>
-                        <!-- Removed Learn more link from individual card -->
-                    </a>
-                    <a href="https://ksom.res.in/research/braid-&-mapping-class-groups" class="modal-research-card">
-                        <h3>Braid Groups & Mapping Class Groups Research</h3>
-                        <p>We study fundamental structures at the intersection of algebraic topology and geometric group theory, examining relationships between braid groups and mapping class groups. Our work centers on liftability problems and the Birman-Hilden property, which determine when surface homeomorphisms extend to handlebodies. A key focus involves classifying unitary representations of braid groups and analyzing their connections to quantum invariants, linking geometric group theory with representation theory and quantum topology.</p>
-                        <!-- Removed Learn more link from individual card -->
-                    </a>
-                    <a href="https://ksom.res.in/research/harmonic-analysis" class="modal-research-card">
-                        <h3>Harmonic Analysis Research</h3>
-                        <p>Our investigations center on harmonic analysis in nilpotent Lie groups and time-frequency methods, connecting classical Fourier analysis with modern operator theory. We explore modulation spaces, Fourier multipliers, twisted convolution operators, and their Lp-Lq boundedness properties. The group also analyzes nonlinear Schrödinger equations with twisted Laplacians, maximal functions along hypersurfaces, and develops Hardy-Sobolev inequalities in non-commutative settings, advancing oscillatory integral techniques for dispersive PDEs.</p>
-                        <!-- Removed Learn more link from individual card -->
-                    </a>
-                    <a href="https://ksom.res.in/research/non-commutative-functional-analysis" class="modal-research-card">
-                        <h3>Non-commutative Functional Analysis Research</h3>
-                        <p>We extend functional analysis to quantum realms through operator algebras and operator spaces, investigating quantum approximation properties and convexity in C*-algebras. Our work focuses on completely bounded approximation, quantum convexity, matricial ranges, and operator system structures. This research bridges abstract functional analysis with quantum information theory, with applications in quantum error correction, quantum channel classification, and geometric analysis of quantum states.</p>
-                        <!-- Removed Learn more link from individual card -->
-                    </a>
-                    <a href="https://ksom.res.in/research/analytic-number-theory" class="modal-research-card">
-                        <h3>Analytic Number Theory Research</h3>
-                        <p>Our group employs advanced analytic techniques to study prime distributions, multiplicative functions, and L-function special values. We investigate multiple zeta values and their generalizations (including multiple Apéry-like sums), explicit averages beyond classical estimates, Möbius sums with coprimality conditions, and additive number theory extensions. Key work involves the Beurling-Selberg function's applications to prime number theory and developing new methods for bounding multiple zeta value tails, connecting analytic techniques with combinatorial structures.</p>
-                        <!-- Removed Learn more link from individual card -->
-                    </a>
-                </div>
-                <p>Collaborative Environment<br/>Our research thrives through synergistic partnerships between faculty, postdoctoral researchers, and doctoral students. This collaborative ecosystem combines rigorous theoretical inquiry with computational approaches, positioning KSoM at the forefront of mathematical discovery while training next-generation mathematicians.</p>
-                <!-- Added a single "Learn more" button at the bottom of the modal content for Research Areas -->
-                <a class="modal-learn-more-btn" href="https://ksom.res.in/research">Learn more about Research &rarr;</a>
-                </div>
-                <a class="expand-link" href="#" data-accordion-id="researchAreas">Expand</a>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">Academic & Research Activities at KSoM</div>
-                <div class="accordion-snippet">
-                <!-- Slideshow container -->
-                <div class="slideshow-container" data-slideshow-id="academicActivities">
-                    <div class="mySlides fade">
-                        <img src="/Images/Activities/Image-1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x300/F0F8FF/333333?text=Activity+Image+1';" alt="Academic & Research Activities 1">
-                    </div>
-                    <div class="mySlides fade">
-                        <img src="/Images/Activities/Image-2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x300/E6E6FA/333333?text=Activity+Image+2';" alt="Academic & Research Activities 2">
-                    </div>
-                    <div class="mySlides fade">
-                        <img src="/Images/Activities/Image-3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x300/F5F5DC/333333?text=Activity+Image+3';" alt="Academic & Research Activities 3">
-                    </div>
-                    <div class="mySlides fade">
-                        <img src="/Images/Activities/Image-4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x300/FFE4E1/333333?text=Activity+Image+4';" alt="Academic & Research Activities 4">
-                    </div>
-                    <div class="mySlides fade">
-                        <img src="/Images/Activities/Image-5.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x300/AFEEEE/333333?text=Activity+Image+5';" alt="Academic & Research Activities 5">
-                    </div>
-                </div>
-                Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.
-                </div>
-                <div class="accordion-content" style="display: none;">
-                <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.</p>
-                <div class="modal-research-cards-container">
-                    <a href="https://ksom.res.in/activities/colloquium" class="modal-research-card">
-                        <h3>Mathematics Colloquium</h3>
-                        <p>Features regular presentations by distinguished visiting mathematicians, showcasing frontier research across pure and applied mathematics. These talks provide comprehensive overviews of emerging fields while stimulating interdisciplinary dialogue among researchers at all career stages.</p>
-                    </a>
-                    <a href="https://ksom.res.in/activities/seminar-series" class="modal-research-card">
-                        <h3>Specialized Seminar Series</h3>
-                        <p>Offers focused forums for deep exploration of specific mathematical disciplines. Organized by research groups, these sessions include graduate student presentations, paper discussions, and technical workshops that advance collaborative projects and methodological development.</p>
-                    </a>
-                    <a href="https://ksom.res.in/activities/conferences" class="modal-research-card">
-                        <h3>International Conferences</h3>
-                        <p>Host annual gatherings convening global experts on specialized mathematical themes. These multi-day events feature invited lectures, contributed talks, and poster sessions that disseminate cutting-edge research while fostering new collaborations across institutions.</p>
-                    </a>
-                    <a href="https://ksom.res.in/activities/workshops" class="modal-research-card">
-                        <h3>Research Workshops</h3>
-                        <p>Conduct intensive focused meetings for collaborative problem-solving and skill development. These shorter, topic-specific gatherings feature working sessions, tutorial lectures, and hands-on training in emerging methodologies, often leading to joint publications and research initiatives.</p>
-                    </a>
-                </div>
-                <p>Community Impact<br/>These activities form the intellectual backbone of our research ecosystem, providing crucial platforms for knowledge exchange and professional growth. By integrating undergraduate students through senior faculty in shared learning experiences, we cultivate an inclusive environment that advances both individual scholarship and collective mathematical progress.</p>
-                <a class="modal-learn-more-btn" href="https://ksom.res.in/activities">Learn more about Academic & Research Activities &rarr;</a>
-                </div>
-                <a class="expand-link" href="#" data-accordion-id="academicResearchActivities">Expand</a>
-            </div>
-            </section>
-
-            <section class="accordion right-column">
-            <div class="accordion-item">
-                <div class="accordion-header">Academic Programmes at KSoM</div>
-                <div class="accordion-snippet">
-                Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.
-                </div>
-                <div class="accordion-content" style="display: none;">
-                <p>Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.</p>
-
-                <div class="modal-research-cards-container">
-                    <a href="https://ksom.res.in/programmes/integrated-msc-phd" class="modal-research-card">
-                        <h3>Integrated M.Sc. - Ph.D. Programme</h3>
-                        <p>Provides seamless progression from advanced coursework to doctoral research, specializing in Mathematics, Physics, or Theoretical Computer Science. Students receive monthly scholarships, hostel accommodation, and engage in research from the first year, developing strong theoretical foundations through a curriculum that bridges pure and applied mathematics. Admission requires a bachelor's degree with substantial mathematical background and performance in rigorous entrance examinations.</p>
-                    </a>
-                    <a href="https://ksom.res.in/programmes/phd" class="modal-research-card">
-                        <h3>Ph.D. Programme</h3>
-                        <p>Offers intensive research immersion in Pure or Applied Mathematics under close faculty mentorship. Spanning approximately five years, scholars transition from specialized coursework to original dissertation work on frontier mathematical problems, supported by fellowships, travel grants for conferences, and teaching opportunities. This programme cultivates independent research capabilities while fostering academic networking through seminars and collaborations with international experts.</p>
-                    </a>
-                    <a href="https://ksom.res.in/programmes/postdoc" class="modal-research-card">
-                        <h3>Postdoctoral Programme</h3>
-                        <p>Empowers recent Ph.D. graduates with resources to pursue innovative independent research projects. Fellows receive competitive stipends, dedicated research grants, and opportunities to mentor students while developing their academic profiles through teaching and seminar leadership. The renewable two-year fellowship includes access to specialized computational resources and interdisciplinary collaboration platforms, positioning fellows for permanent academic appointments.</p>
-                    </a>
-                </div>
-                <p>Scholarly Environment<br/>All programmes emphasize collaborative learning through weekly research seminars, specialized workshops, and annual conferences that connect students with global mathematical leaders. Our selective admission process identifies exceptional talent while maintaining small cohort sizes that ensure personalized guidance. This supportive ecosystem enables scholars to contribute meaningfully to mathematical knowledge while developing as versatile researchers equipped to address complex scientific challenges.</p>
-                <a class="modal-learn-more-btn" href="https://ksom.res.in/programmes">Learn more about Academic Programmes &rarr;</a>
-                </div>
-                <a class="expand-link" href="#" data-accordion-id="academicProgrammes">Expand</a>
-            </div>
-            </section>
-        </div>
-      </main>
+      <div class="mySlides fade">
+          <img src="/Images/Main/Image-2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x300/ADAFC8/ffffff?text=KSoM+Campus+2';" alt="KSoM Campus Image 2" />
+      </div>
+      <div class="mySlides fade">
+          <img src="/Images/Main/Image-3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x300/ADAFC8/ffffff?text=KSoM+Campus+3';" alt="KSoM Campus Image 3" />
+      </div>
+      <div class="mySlides fade">
+          <img src="/Images/Main/Image-4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x300/ADAFC8/ffffff?text=KSoM+Campus+4';" alt="KSoM Campus Image 4" />
+      </div>
+      <div class="mySlides fade">
+          <img src="/Images/Main/Image-5.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x300/ADAFC8/ffffff?text=KSoM+Campus+5';" alt="KSoM Campus Image 5" />
+      </div>
+      <div class="overlay-text">
+          <div class="main-title">Kerala School of Mathematics</div>
+          <div class="sub-title">An autonomous institution jointly established by the Science & Technology Department, Government of Kerala, and the Department of Atomic Energy, Government of India.</div>
+      </div>
     </div>
 
-    <aside class="sidebar">
-      <section class="accordion-item calendar-accordion-item" style="cursor: pointer; padding: 0;">
+    <!-- About KSoM Section (Full width of 72% on desktop, order 2 on mobile) -->
+    <section id="about-ksom-section" class="accordion-item">
+      <div class="accordion-header">About KSoM</div>
+      <div class="accordion-snippet">
+        Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.
+      </div>
+      <div class="accordion-content" style="display: none;">
+        <p><strong>Kerala School of Mathematics (KSoM)</strong> is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.</p>
+        <p>The main objective of Kerala School of Mathematics is conduct of high quality Mathematical Research. Our mission is to create a vibrant academic environment that promotes cutting-edge research, nurtures young mathematicians, and contributes significantly to the global mathematical community.</p>
+        <p>Our faculty members are actively engaged in diverse fields of mathematics, pushing the boundaries of knowledge and inspiring the next generation of scholars. We offer various academic programs including Integrated M.Sc.-Ph.D., Ph.D. Programme, and Postdoctoral Fellowships, designed to provide comprehensive theoretical knowledge and practical research experience.</p>
+        <p>KSoM also hosts numerous research activities such as the Mathematics Colloquium, specialized seminar series, international conferences, and intensive workshops, fostering a dynamic and collaborative research environment.</p>
+        <p>Beyond academic pursuits, KSoM is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.</p>
+        <a class="learn-more-btn" href="https://ksom.res.in/about">Learn more</a>
+      </div>
+      <a class="expand-link" href="#" data-accordion-id="aboutKSoM">Expand</a>
+    </section>
+
+    <!-- Latest News Section (Sidebar on desktop, order 3 on mobile) -->
+    <section id="latest-news-section" class="accordion-item">
+      <h3>Latest News at KSoM</h3>
+      <div class="timeline-container">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-date">June 3, 2025</p>
+              <a href="#">KSoM Recruitment Drive</a>
+              <p class="timeline-description">Applications now open for key administrative positions: Accounts Officer and Registrar. Join our growing team supporting mathematical excellence.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-date">May 7, 2025</p>
+              <a href="#">PhD Admissions 2025</a>
+              <p class="timeline-description">Applications invited for doctoral programmes in Pure and Applied Mathematics. Full financial support available for selected candidates.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-date">March 4, 2025</p>
+              <a href="#">Visiting Faculty Position</a>
+              <p class="timeline-description">Seeking highly qualified candidates for Visiting Assistant Professor positions across all mathematical disciplines. Join our vibrant research community.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-date">February 15, 2025</p>
+              <a href="#">Annual Research Symposium</a>
+              <p class="timeline-description">Highlights from our successful annual symposium, featuring keynote speakers and groundbreaking research presentations.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-date">January 20, 2025</p>
+              <a href="#">New Faculty Announcement</a>
+              <p class="timeline-description">Welcome our newest faculty member, Dr. Alok Kumar, specializing in Algebraic Geometry.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-date">December 1, 2024</p>
+              <a href="#">Winter School on Number Theory</a>
+              <p class="timeline-description">Registration now open for the intensive winter school focused on advanced topics in analytic number theory.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="learn-more-btn" href="#">News archive</a>
+    </section>
+
+    <!-- Upcoming Events Section (Sidebar on desktop, order 4 on mobile) -->
+    <section id="upcoming-events-section" class="accordion-item">
+      <h3>Upcoming Events at KSoM</h3>
+      <div class="timeline-container">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-date">July 10, 2025</p>
+              <a href="#">Guest Lecture Series: Dr. Anya Sharma</a>
+              <p class="timeline-description">Exploring advancements in Quantum Topology. Open to all researchers and students.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-date">August 5, 2025</p>
+              <a href="#">International Conference on Discrete Mathematics</a>
+              <p class="timeline-description">Leading experts convene to discuss new theories and applications in discrete mathematics.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-date">September 1, 2025</p>
+              <a href="#">Freshers' Orientation Program</a>
+              <p class="timeline-description">Welcome session for new M.Sc. and Ph.D. students joining KSoM.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-date">October 20, 2025</p>
+              <a href="#">Workshop on Machine Learning in Mathematics</a>
+              <p class="timeline-description">A practical workshop on the intersection of machine learning and mathematical research.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-date">November 12, 2025</p>
+              <a href="#">Annual Alumni Meet</a>
+              <p class="timeline-description">Connect with fellow KSoM alumni and faculty. Networking and dinner included.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-date">December 8, 2025</p>
+              <a href="#">Christmas Lecture: The Beauty of Fractals</a>
+              <p class="timeline-description">A public lecture showcasing the visual and mathematical elegance of fractals.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="learn-more-btn" href="#">Upcoming Events Archive</a>
+    </section>
+
+    <!-- Research Areas Section (60% of 72% on desktop, order 5 on mobile) -->
+    <section id="research-areas-section" class="accordion-item">
+        <div class="accordion-header">Research Areas at KSoM</div>
+        <div class="accordion-snippet">
+        Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.
+        </div>
+        <div class="accordion-content" style="display: none;">
+        <p>Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.</p>
+
+        <div class="modal-research-cards-container">
+            <a href="https://ksom.res.in/research/complex-analysis" class="modal-research-card">
+                <h3>Complex Analysis Research</h3>
+                <p>Our group explores several complex variables as a dynamic area of modern mathematics, focusing on Hörmander's estimates and their impact on the Bers domain (Teichmüller space). We investigate the profound geometric implications of the Kobayashi metric being isometric to the Teichmüller metric. This research bridges complex analysis, Teichmüller theory, and differential geometry, advancing our understanding of intrinsic metrics on complex spaces through interdisciplinary connections with algebra, PDEs, and algebraic geometry.</p>
+            </a>
+            <a href="https://ksom.res.in/research/braid-&-mapping-class-groups" class="modal-research-card">
+                <h3>Braid Groups & Mapping Class Groups Research</h3>
+                <p>We study fundamental structures at the intersection of algebraic topology and geometric group theory, examining relationships between braid groups and mapping class groups. Our work centers on liftability problems and the Birman-Hilden property, which determine when surface homeomorphisms extend to handlebodies. A key focus involves classifying unitary representations of braid groups and analyzing their connections to quantum invariants, linking geometric group theory with representation theory and quantum topology.</p>
+            </a>
+            <a href="https://ksom.res.in/research/harmonic-analysis" class="modal-research-card">
+                <h3>Harmonic Analysis Research</h3>
+                <p>Our investigations center on harmonic analysis in nilpotent Lie groups and time-frequency methods, connecting classical Fourier analysis with modern operator theory. We explore modulation spaces, Fourier multipliers, twisted convolution operators, and their Lp-Lq boundedness properties. The group also analyzes nonlinear Schrödinger equations with twisted Laplacians, maximal functions along hypersurfaces, and develops Hardy-Sobolev inequalities in non-commutative settings, advancing oscillatory integral techniques for dispersive PDEs.</p>
+            </a>
+            <a href="https://ksom.res.in/research/non-commutative-functional-analysis" class="modal-research-card">
+                <h3>Non-commutative Functional Analysis Research</h3>
+                <p>We extend functional analysis to quantum realms through operator algebras and operator spaces, investigating quantum approximation properties and convexity in C*-algebras. Our work focuses on completely bounded approximation, quantum convexity, matricial ranges, and operator system structures. This research bridges abstract functional analysis with quantum information theory, with applications in quantum error correction, quantum channel classification, and geometric analysis of quantum states.</p>
+            </a>
+            <a href="https://ksom.res.in/research/analytic-number-theory" class="modal-research-card">
+                <h3>Analytic Number Theory Research</h3>
+                <p>Our group employs advanced analytic techniques to study prime distributions, multiplicative functions, and L-function special values. We investigate multiple zeta values and their generalizations (including multiple Apéry-like sums), explicit averages beyond classical estimates, Möbius sums with coprimality conditions, and additive number theory extensions. Key work involves the Beurling-Selberg function's applications to prime number theory and developing new methods for bounding multiple zeta value tails, connecting analytic techniques with combinatorial structures.</p>
+            </a>
+        </div>
+        <p>Collaborative Environment<br/>Our research thrives through synergistic partnerships between faculty, postdoctoral researchers, and doctoral students. This collaborative ecosystem combines rigorous theoretical inquiry with computational approaches, positioning KSoM at the forefront of mathematical discovery while training next-generation mathematicians.</p>
+        <a class="modal-learn-more-btn" href="https://ksom.res.in/research">Learn more about Research &rarr;</a>
+        </div>
+        <a class="expand-link" href="#" data-accordion-id="researchAreas">Expand</a>
+    </section>
+
+    <!-- Academic Programmes Section (40% of 72% on desktop, order 6 on mobile) -->
+    <section id="academic-programmes-section" class="accordion-item">
+        <div class="accordion-header">Academic Programmes at KSoM</div>
+        <div class="accordion-snippet">
+        Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.
+        </div>
+        <div class="accordion-content" style="display: none;">
+        <p>Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.</p>
+
+        <div class="modal-research-cards-container">
+            <a href="https://ksom.res.in/programmes/integrated-msc-phd" class="modal-research-card">
+                <h3>Integrated M.Sc. - Ph.D. Programme</h3>
+                <p>Provides seamless progression from advanced coursework to doctoral research, specializing in Mathematics, Physics, or Theoretical Computer Science. Students receive monthly scholarships, hostel accommodation, and engage in research from the first year, developing strong theoretical foundations through a curriculum that bridges pure and applied mathematics. Admission requires a bachelor's degree with substantial mathematical background and performance in rigorous entrance examinations.</p>
+            </a>
+            <a href="https://ksom.res.in/programmes/phd" class="modal-research-card">
+                <h3>Ph.D. Programme</h3>
+                <p>Offers intensive research immersion in Pure or Applied Mathematics under close faculty mentorship. Spanning approximately five years, scholars transition from specialized coursework to original dissertation work on frontier mathematical problems, supported by fellowships, travel grants for conferences, and teaching opportunities. This programme cultivates independent research capabilities while fostering academic networking through seminars and collaborations with international experts.</p>
+            </a>
+            <a href="https://ksom.res.in/programmes/postdoc" class="modal-research-card">
+                <h3>Postdoctoral Programme</h3>
+                <p>Empowers recent Ph.D. graduates with resources to pursue innovative independent research projects. Fellows receive competitive stipends, dedicated research grants, and opportunities to mentor students while developing their academic profiles through teaching and seminar leadership. The renewable two-year fellowship includes access to specialized computational resources and interdisciplinary collaboration platforms, positioning fellows for permanent academic appointments.</p>
+            </a>
+        </div>
+        <p>Scholarly Environment<br/>All programmes emphasize collaborative learning through weekly research seminars, specialized workshops, and annual conferences that connect students with global mathematical leaders. Our selective admission process identifies exceptional talent while maintaining small cohort sizes that ensure personalized guidance. This supportive ecosystem enables scholars to contribute meaningfully to mathematical knowledge while developing as versatile researchers equipped to address complex scientific challenges.</p>
+        <a class="modal-learn-more-btn" href="https://ksom.res.in/programmes">Learn more about Academic Programmes &rarr;</a>
+        </div>
+        <a class="expand-link" href="#" data-accordion-id="academicProgrammes">Expand</a>
+    </section>
+
+
+    <!-- Academic & Research Activities Section (60% of 72% on desktop, order 7 on mobile) -->
+    <section id="academic-activities-section" class="accordion-item">
+        <div class="accordion-header">Academic & Research Activities at KSoM</div>
+        <div class="accordion-snippet">
+        <!-- Slideshow container -->
+        <div class="slideshow-container" data-slideshow-id="academicActivities">
+            <div class="mySlides fade">
+                <img src="/Images/Activities/Image-1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x300/F0F8FF/333333?text=Activity+Image+1';" alt="Academic & Research Activities 1">
+            </div>
+            <div class="mySlides fade">
+                <img src="/Images/Activities/Image-2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x300/E6E6FA/333333?text=Activity+Image+2';" alt="Academic & Research Activities 2">
+            </div>
+            <div class="mySlides fade">
+                <img src="/Images/Activities/Image-3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x300/F5F5DC/333333?text=Activity+Image+3';" alt="Academic & Research Activities 3">
+            </div>
+            <div class="mySlides fade">
+                <img src="/Images/Activities/Image-4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x300/FFE4E1/333333?text=Activity+Image+4';" alt="Academic & Research Activities 4">
+            </div>
+            <div class="mySlides fade">
+                <img src="/Images/Activities/Image-5.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x300/AFEEEE/333333?text=Activity+Image+5';" alt="Academic & Research Activities 5">
+            </div>
+        </div>
+        Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.
+        </div>
+        <div class="accordion-content" style="display: none;">
+        <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.</p>
+        <div class="modal-research-cards-container">
+            <a href="https://ksom.res.in/activities/colloquium" class="modal-research-card">
+                <h3>Mathematics Colloquium</h3>
+                <p>Features regular presentations by distinguished visiting mathematicians, showcasing frontier research across pure and applied mathematics. These talks provide comprehensive overviews of emerging fields while stimulating interdisciplinary dialogue among researchers at all career stages.</p>
+            </a>
+            <a href="https://ksom.res.in/activities/seminar-series" class="modal-research-card">
+                <h3>Specialized Seminar Series</h3>
+                <p>Offers focused forums for deep exploration of specific mathematical disciplines. Organized by research groups, these sessions include graduate student presentations, paper discussions, and technical workshops that advance collaborative projects and methodological development.</p>
+            </a>
+            <a href="https://ksom.res.in/activities/conferences" class="modal-research-card">
+                <h3>International Conferences</h3>
+                <p>Host annual gatherings convening global experts on specialized mathematical themes. These multi-day events feature invited lectures, contributed talks, and poster sessions that disseminate cutting-edge research while fostering new collaborations across institutions.</p>
+            </a>
+            <a href="https://ksom.res.in/activities/workshops" class="modal-research-card">
+                <h3>Research Workshops</h3>
+                <p>Conduct intensive focused meetings for collaborative problem-solving and skill development. These shorter, topic-specific gatherings feature working sessions, tutorial lectures, and hands-on training in emerging methodologies, often leading to joint publications and research initiatives.</p>
+            </a>
+        </div>
+        <p>Community Impact<br/>These activities form the intellectual backbone of our research ecosystem, providing crucial platforms for knowledge exchange and professional growth. By integrating undergraduate students through senior faculty in shared learning experiences, we cultivate an inclusive environment that advances both individual scholarship and collective mathematical progress.</p>
+        <a class="modal-learn-more-btn" href="https://ksom.res.in/activities">Learn more about Academic & Research Activities &rarr;</a>
+        </div>
+        <a class="expand-link" href="#" data-accordion-id="academicResearchActivities">Expand</a>
+    </section>
+
+    <!-- Outreach Section (40% of 72% on desktop, order 8 on mobile) -->
+    <section id="outreach-section" class="accordion-item">
+        <div class="accordion-header">Outreach Activities</div>
+        <div class="accordion-content">
+            <p>Kerala School of Mathematics is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.</p>
+            <p>Our outreach initiatives are designed to foster mathematical curiosity and understanding among students and the general public. We organize interactive sessions, workshops, and lectures that make complex mathematical concepts accessible and engaging for all age groups.</p>
+            <p>The **Summer Workshop in Mathematics (SWIM)** is an intensive program for undergraduate students, providing them with exposure to advanced mathematical topics and research methodologies. **Glimpses into Mathematics** is a series of public lectures that showcase the beauty and practical applications of mathematics.</p>
+            <p>Our **School Enrichment Day** actively engages high school students through hands-on activities and problem-solving challenges, sparking their interest in pursuing higher education in mathematics and related fields.</p>
+            <a class="modal-learn-more-btn" href="https://ksom.res.in/outreach">Learn more about Outreach &rarr;</a>
+        </div>
+        <a class="expand-link" href="#" data-accordion-id="outreachActivities">Expand</a>
+    </section>
+
+    <!-- Calendar Section (Sidebar on desktop, hidden on mobile) -->
+    <section id="calendar-section" class="accordion-item calendar-accordion-item" style="cursor: pointer;">
         <div class="accordion-content" style="display: block; padding: 0;">
             <div id="calendar-preview"></div> <!-- This will host the smaller calendar -->
         </div>
-      </section>
-      <section>
-        <h3>Latest News at KSoM</h3>
-        <div class="timeline-container">
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <p class="timeline-date">June 3, 2025</p>
-                <a href="#">KSoM Recruitment Drive</a>
-                <p class="timeline-description">Applications now open for key administrative positions: Accounts Officer and Registrar. Join our growing team supporting mathematical excellence.</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <p class="timeline-date">May 7, 2025</p>
-                <a href="#">PhD Admissions 2025</a>
-                <p class="timeline-description">Applications invited for doctoral programmes in Pure and Applied Mathematics. Full financial support available for selected candidates.</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <p class="timeline-date">March 4, 2025</p>
-                <a href="#">Visiting Faculty Position</a>
-                <p class="timeline-description">Seeking highly qualified candidates for Visiting Assistant Professor positions across all mathematical disciplines. Join our vibrant research community.</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <p class="timeline-date">February 15, 2025</p>
-                <a href="#">Annual Research Symposium</a>
-                <p class="timeline-description">Highlights from our successful annual symposium, featuring keynote speakers and groundbreaking research presentations.</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <p class="timeline-date">January 20, 2025</p>
-                <a href="#">New Faculty Announcement</a>
-                <p class="timeline-description">Welcome our newest faculty member, Dr. Alok Kumar, specializing in Algebraic Geometry.</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <p class="timeline-date">December 1, 2024</p>
-                <a href="#">Winter School on Number Theory</a>
-                <p class="timeline-description">Registration now open for the intensive winter school focused on advanced topics in analytic number theory.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a class="learn-more-btn" href="#">News archive</a>
-      </section>
-      <section>
-        <h3>Upcoming Events at KSoM</h3>
-        <div class="timeline-container">
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <p class="timeline-date">July 10, 2025</p>
-                <a href="#">Guest Lecture Series: Dr. Anya Sharma</a>
-                <p class="timeline-description">Exploring advancements in Quantum Topology. Open to all researchers and students.</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <p class="timeline-date">August 5, 2025</p>
-                <a href="#">International Conference on Discrete Mathematics</a>
-                <p class="timeline-description">Leading experts convene to discuss new theories and applications in discrete mathematics.</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <p class="timeline-date">September 1, 2025</p>
-                <a href="#">Freshers' Orientation Program</a>
-                <p class="timeline-description">Welcome session for new M.Sc. and Ph.D. students joining KSoM.</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <p class="timeline-date">October 20, 2025</p>
-                <a href="#">Workshop on Machine Learning in Mathematics</a>
-                <p class="timeline-description">A practical workshop on the intersection of machine learning and mathematical research.</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <p class="timeline-date">November 12, 2025</p>
-                <a href="#">Annual Alumni Meet</a>
-                <p class="timeline-description">Connect with fellow KSoM alumni and faculty. Networking and dinner included.</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <p class="timeline-date">December 8, 2025</p>
-                <a href="#">Christmas Lecture: The Beauty of Fractals</a>
-                <p class="timeline-description">A public lecture showcasing the visual and mathematical elegance of fractals.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a class="learn-more-btn" href="#">Upcoming Events Archive</a>
-      </section>
-    </aside>
+    </section>
+
   </div>
 
   <footer>
@@ -1434,7 +1591,7 @@ body.dark-mode .slideshow-container {
 
     document.addEventListener('DOMContentLoaded', function () {
       // Initialize slideshow for Academic & Research Activities with 7-second interval
-      initSlideshow('academicActivities', 7000); 
+      initSlideshow('academicActivities', 7000);
       // Initialize slideshow for Main Campus with 5-second interval
       initSlideshow('mainCampus', 5000);
 
@@ -1517,10 +1674,9 @@ body.dark-mode .slideshow-container {
       });
 
       // Attach click handler to the entire calendar accordion item
-      const calendarAccordionItem = document.querySelector('.calendar-accordion-item');
+      const calendarAccordionItem = document.getElementById('calendar-section'); // Target the section by ID
       if (calendarAccordionItem) {
           calendarAccordionItem.addEventListener('click', function (e) {
-              // Removed the condition to prevent modal opening on toolbar/body click
               // Now, clicking anywhere on the calendar accordion item (which contains the calendar) opens the modal
               openModal('Upcoming Events Calendar', '', true); // Title, empty content, isCalendarModal true
           });
@@ -1617,6 +1773,81 @@ body.dark-mode .slideshow-container {
         }
       });
     }
+
+    // --- Hamburger Menu Logic ---
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn');
+    const mobileMenuContent = document.getElementById('mobile-menu-content');
+    const desktopNav = document.getElementById('desktop-nav'); // Get the desktop nav element
+
+    function populateMobileMenu() {
+        // Clear existing content
+        mobileMenuContent.innerHTML = '';
+
+        // Clone desktop navigation items
+        Array.from(desktopNav.children).forEach(item => {
+            if (item.tagName === 'A') {
+                // Direct link
+                const clonedLink = item.cloneNode(true);
+                mobileMenuContent.appendChild(clonedLink);
+            } else if (item.classList.contains('dropdown')) {
+                // Dropdown menu
+                const dropdownHeader = document.createElement('div');
+                dropdownHeader.classList.add('mobile-dropdown-header');
+                dropdownHeader.textContent = item.querySelector('a').textContent; // Use the main link text as header
+                
+                const submenu = document.createElement('div');
+                submenu.classList.add('mobile-submenu');
+
+                Array.from(item.querySelector('.dropdown-content').children).forEach(subItem => {
+                    const clonedSubLink = subItem.cloneNode(true);
+                    submenu.appendChild(clonedSubLink);
+                });
+
+                mobileMenuContent.appendChild(dropdownHeader);
+                mobileMenuContent.appendChild(submenu);
+
+                // Add toggle functionality for mobile dropdowns
+                dropdownHeader.addEventListener('click', () => {
+                    dropdownHeader.classList.toggle('expanded');
+                    submenu.classList.toggle('expanded');
+                });
+            }
+        });
+    }
+
+    // Event listener for opening the mobile menu
+    hamburgerIcon.addEventListener('click', () => {
+        populateMobileMenu(); // Populate each time it opens to ensure latest state
+        mobileMenuOverlay.classList.add('active');
+        hamburgerIcon.classList.add('active');
+    });
+
+    // Event listener for closing the mobile menu
+    mobileMenuCloseBtn.addEventListener('click', () => {
+        mobileMenuOverlay.classList.remove('active');
+        hamburgerIcon.classList.remove('active');
+        // Reset all mobile dropdowns to collapsed state when closing the menu
+        document.querySelectorAll('.mobile-dropdown-header').forEach(header => header.classList.remove('expanded'));
+        document.querySelectorAll('.mobile-submenu').forEach(submenu => submenu.classList.remove('expanded'));
+    });
+
+    // Close mobile menu when a link inside it is clicked
+    mobileMenuOverlay.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A' && e.target.closest('.mobile-menu-content')) {
+            closeMobileMenu(); // Ensure the menu closes on link click
+        }
+    });
+
+    function closeMobileMenu() {
+      mobileMenuOverlay.classList.remove('active');
+      hamburgerIcon.classList.remove('active');
+      // Reset all mobile dropdowns to collapsed state when closing the menu
+      document.querySelectorAll('.mobile-dropdown-header').forEach(header => header.classList.remove('expanded'));
+      document.querySelectorAll('.mobile-submenu').forEach(submenu => submenu.classList.remove('expanded'));
+    }
+
   </script>
   <!-- Modal Template -->
   <div id="modal" class="modal-overlay" role="dialog" aria-labelledby="modal-title" aria-modal="true">
