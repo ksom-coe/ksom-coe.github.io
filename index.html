@@ -372,6 +372,27 @@ body.dark-mode .accordion-item {
   background-color: var(--accent-hover);
 }
 
+.modal-learn-more-btn { /* New class for buttons inside modals */
+  display: inline-block;
+  margin-top: 1.5rem; /* Increased margin to separate from cards/text */
+  padding: 0.7rem 1.2rem; /* Slightly larger padding for prominence */
+  background-color: var(--accent-blue);
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.95rem; /* Slightly larger font */
+  font-weight: 600; /* Slightly bolder */
+  transition: background var(--transition-fast), transform 0.2s ease;
+  cursor: pointer;
+  font-family: var(--font-body); /* Using Lora for modal buttons */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+.modal-learn-more-btn:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
 .expand-link {
   position: absolute; /* Position relative to .accordion-item */
   bottom: 1.5rem; /* Adjust as needed for padding */
@@ -887,27 +908,6 @@ body.dark-mode .modal-research-card h3 {
 body.dark-mode .modal-research-card p {
     color: #ccc;
 }
-
-/* This class is now removed from individual cards, so it's commented out/removed */
-/*
-.modal-card-learn-more {
-    position: absolute;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    color: var(--accent-blue);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
-    font-family: var(--font-body);
-    transition: color var(--transition-fast), text-decoration var(--transition-fast);
-}
-
-.modal-card-learn-more:hover {
-    color: var(--accent-hover);
-    text-decoration: underline;
-}
-*/
-
   </style>
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js" defer></script>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
@@ -917,37 +917,37 @@ body.dark-mode .modal-research-card p {
     <div class="header-content">
       <div class="logo-title">
         <div class="circle-logo">KSoM</div>
-        <a href="https://ksom.res.in">Kerala School of Mathematics</a>
+        <a href="">Kerala School of Mathematics</a>
       </div>
       <nav>
-        <a href="https://ksom.res.in/">Home</a>
-        <a href="https://ksom.res.in/research">Research</a>
+        <a href="/">Home</a>
+        <a href="/research">Research</a>
         <div class="dropdown">
-          <a href="https://ksom.res.in/programmes">Programmes</a>
+          <a href="/programmes">Programmes</a>
           <div class="dropdown-content">
-            <a href="https://ksom.res.in/programmes/integrated-msc-phd">Integrated M.Sc.-Ph.D.</a>
-            <a href="https://ksom.res.in/programmes/phd">Ph.D. Programme</a>
-            <a href="https://ksom.res.in/programmes/postdoc">Postdoctoral Fellowships</a>
+            <a href="/programmes/integrated-msc-phd">Integrated M.Sc.-Ph.D.</a>
+            <a href="/programmes/phd">Ph.D. Programme</a>
+            <a href="/programmes/postdoc">Postdoctoral Fellowships</a>
           </div>
         </div>
         <div class="dropdown">
-          <a href="https://ksom.res.in/activities">Activities</a>
+          <a href="/activities">Activities</a>
           <div class="dropdown-content">
-            <a href="https://ksom.res.in/activities/colloquium">Mathematics Colloquium</a>
-            <a href="https://ksom.res.in/activities/seminar-series">Seminar Series</a>
-            <a href="https://ksom.res.in/activities/conferences">International Conferences</a>
-            <a href="https://ksom.res.in/activities/workshops">Research Workshops</a>
+            <a href="/activities/colloquium">Mathematics Colloquium</a>
+            <a href="/activities/seminar-series">Seminar Series</a>
+            <a href="/activities/conferences">International Conferences</a>
+            <a href="/activities/workshops">Research Workshops</a>
           </div>
         </div>
         <div class="dropdown">
-          <a href="https://ksom.res.in/outreach">Outreach</a>
+          <a href="/outreach">Outreach</a>
           <div class="dropdown-content">
-            <a href="https://ksom.res.in/outreach/summer-workshop">SWIM</a>
-            <a href="https://ksom.res.in/outreach/glimpses">Glimpses into Mathematics</a>
-            <a href="https://ksom.res.in/outreach/enrichment-day">School Enrichment Day</a>
+            <a href="/outreach/summer-workshop">SWIM</a>
+            <a href="/outreach/glimpses">Glimpses into Mathematics</a>
+            <a href="/outreach/enrichment-day">School Enrichment Day</a>
           </div>
         </div>
-        <a href="https://ksom.res.in/resources">Resources</a>
+        <a href="/resources">Resources</a>
         <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
       </nav>
     </div>
@@ -972,7 +972,7 @@ body.dark-mode .modal-research-card p {
                 <p>Our faculty members are actively engaged in diverse fields of mathematics, pushing the boundaries of knowledge and inspiring the next generation of scholars. We offer various academic programs including Integrated M.Sc.-Ph.D., Ph.D. Programme, and Postdoctoral Fellowships, designed to provide comprehensive theoretical knowledge and practical research experience.</p>
                 <p>KSoM also hosts numerous research activities such as the Mathematics Colloquium, specialized seminar series, international conferences, and intensive workshops, fostering a dynamic and collaborative research environment.</p>
                 <p>Beyond academic pursuits, KSoM is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.</p>
-                <a class="learn-more-btn" href="https://ksom.res.in/about">Learn more</a>
+                <a class="learn-more-btn" href="/about">Learn more</a>
               </div>
               <!-- Changed to a simple anchor tag with a new class for styling -->
               <a class="expand-link" href="#" data-accordion-id="aboutKSoM">Expand</a>
@@ -990,27 +990,27 @@ body.dark-mode .modal-research-card p {
                 <p>Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.</p>
 
                 <div class="modal-research-cards-container">
-                    <a href="https://ksom.res.in/research/complex-analysis" class="modal-research-card">
+                    <a href="/research/complex-analysis" class="modal-research-card">
                         <h3>Complex Analysis Research</h3>
                         <p>Our group explores several complex variables as a dynamic area of modern mathematics, focusing on Hörmander's estimates and their impact on the Bers domain (Teichmüller space). We investigate the profound geometric implications of the Kobayashi metric being isometric to the Teichmüller metric. This research bridges complex analysis, Teichmüller theory, and differential geometry, advancing our understanding of intrinsic metrics on complex spaces through interdisciplinary connections with algebra, PDEs, and algebraic geometry.</p>
                         <!-- Removed Learn more link from individual card -->
                     </a>
-                    <a href="https://ksom.res.in/research/braid-&-mapping-class-groups" class="modal-research-card">
+                    <a href="/research/braid-&-mapping-class-groups" class="modal-research-card">
                         <h3>Braid Groups & Mapping Class Groups Research</h3>
                         <p>We study fundamental structures at the intersection of algebraic topology and geometric group theory, examining relationships between braid groups and mapping class groups. Our work centers on liftability problems and the Birman-Hilden property, which determine when surface homeomorphisms extend to handlebodies. A key focus involves classifying unitary representations of braid groups and analyzing their connections to quantum invariants, linking geometric group theory with representation theory and quantum topology.</p>
                         <!-- Removed Learn more link from individual card -->
                     </a>
-                    <a href="https://ksom.res.in/research/harmonic-analysis" class="modal-research-card">
+                    <a href="/research/harmonic-analysis" class="modal-research-card">
                         <h3>Harmonic Analysis Research</h3>
                         <p>Our investigations center on harmonic analysis in nilpotent Lie groups and time-frequency methods, connecting classical Fourier analysis with modern operator theory. We explore modulation spaces, Fourier multipliers, twisted convolution operators, and their Lp-Lq boundedness properties. The group also analyzes nonlinear Schrödinger equations with twisted Laplacians, maximal functions along hypersurfaces, and develops Hardy-Sobolev inequalities in non-commutative settings, advancing oscillatory integral techniques for dispersive PDEs.</p>
                         <!-- Removed Learn more link from individual card -->
                     </a>
-                    <a href="https://ksom.res.in/research/non-commutative-functional-analysis" class="modal-research-card">
+                    <a href="/research/non-commutative-functional-analysis" class="modal-research-card">
                         <h3>Non-commutative Functional Analysis Research</h3>
                         <p>We extend functional analysis to quantum realms through operator algebras and operator spaces, investigating quantum approximation properties and convexity in C*-algebras. Our work focuses on completely bounded approximation, quantum convexity, matricial ranges, and operator system structures. This research bridges abstract functional analysis with quantum information theory, with applications in quantum error correction, quantum channel classification, and geometric analysis of quantum states.</p>
                         <!-- Removed Learn more link from individual card -->
                     </a>
-                    <a href="https://ksom.res.in/research/analytic-number-theory" class="modal-research-card">
+                    <a href="/research/analytic-number-theory" class="modal-research-card">
                         <h3>Analytic Number Theory Research</h3>
                         <p>Our group employs advanced analytic techniques to study prime distributions, multiplicative functions, and L-function special values. We investigate multiple zeta values and their generalizations (including multiple Apéry-like sums), explicit averages beyond classical estimates, Möbius sums with coprimality conditions, and additive number theory extensions. Key work involves the Beurling-Selberg function's applications to prime number theory and developing new methods for bounding multiple zeta value tails, connecting analytic techniques with combinatorial structures.</p>
                         <!-- Removed Learn more link from individual card -->
@@ -1018,7 +1018,7 @@ body.dark-mode .modal-research-card p {
                 </div>
                 <p>Collaborative Environment<br/>Our research thrives through synergistic partnerships between faculty, postdoctoral researchers, and doctoral students. This collaborative ecosystem combines rigorous theoretical inquiry with computational approaches, positioning KSoM at the forefront of mathematical discovery while training next-generation mathematicians.</p>
                 <!-- Added a single "Learn more" button at the bottom of the modal content for Research Areas -->
-                <a class="learn-more-btn" href="https://ksom.res.in/research">Learn more about Research &rarr;</a>
+                <a class="modal-learn-more-btn" href="/research">Learn more about Research &rarr;</a>
                 </div>
                 <a class="expand-link" href="#" data-accordion-id="researchAreas">Expand</a>
             </div>
@@ -1026,18 +1026,32 @@ body.dark-mode .modal-research-card p {
             <div class="accordion-item">
                 <div class="accordion-header">Academic & Research Activities at KSoM</div>
                 <div class="accordion-snippet">
-                From workshops for school students to advanced exposure programmes for postgraduates, KSoM engages in wide-ranging outreach activities across Kerala and India.
+                Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.
                 </div>
-                <div class="accordion-content">
-                <div class="research-links">
-                    <a class="research-card" href="https://ksom.res.in/activities/colloquium"><strong>Mathematics Colloquium</strong><br/>Regular talks by visiting mathematicians showcasing frontier research.</a>
-                    <a class="research-card" href="https://ksom.res.in/activities/seminar-series"><strong>Specialized Seminar Series</strong><br/>Focused sessions on specific disciplines with presentations and workshops.</a>
-                    <a class="research-card" href="https://ksom.res.in/activities/conferences"><strong>International Conferences</strong><br/>Annual events gathering global experts and presenting cutting-edge research.</a>
-                    <a class="research-card" href="https://ksom.res.in/activities/workshops"><strong>Research Workshops</strong><br/>Collaborative meetings featuring tutorial lectures and intensive problem solving.</a>
+                <div class="accordion-content" style="display: none;">
+                <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.</p>
+                <div class="modal-research-cards-container">
+                    <a href="/activities/colloquium" class="modal-research-card">
+                        <h3>Mathematics Colloquium</h3>
+                        <p>Features regular presentations by distinguished visiting mathematicians, showcasing frontier research across pure and applied mathematics. These talks provide comprehensive overviews of emerging fields while stimulating interdisciplinary dialogue among researchers at all career stages.</p>
+                    </a>
+                    <a href="/activities/seminar-series" class="modal-research-card">
+                        <h3>Specialized Seminar Series</h3>
+                        <p>Offers focused forums for deep exploration of specific mathematical disciplines. Organized by research groups, these sessions include graduate student presentations, paper discussions, and technical workshops that advance collaborative projects and methodological development.</p>
+                    </a>
+                    <a href="/activities/conferences" class="modal-research-card">
+                        <h3>International Conferences</h3>
+                        <p>Host annual gatherings convening global experts on specialized mathematical themes. These multi-day events feature invited lectures, contributed talks, and poster sessions that disseminate cutting-edge research while fostering new collaborations across institutions.</p>
+                    </a>
+                    <a href="/activities/workshops" class="modal-research-card">
+                        <h3>Research Workshops</h3>
+                        <p>Conduct intensive focused meetings for collaborative problem-solving and skill development. These shorter, topic-specific gatherings feature working sessions, tutorial lectures, and hands-on training in emerging methodologies, often leading to joint publications and research initiatives.</p>
+                    </a>
                 </div>
-                <p>Scholarly Community<br/>Seminars, workshops, and global collaborations enrich the experience and foster professional growth.</p>
-                <a class="learn-more-btn" href="https://ksom.res.in/activities">Learn more</a>
+                <p>Community Impact<br/>These activities form the intellectual backbone of our research ecosystem, providing crucial platforms for knowledge exchange and professional growth. By integrating undergraduate students through senior faculty in shared learning experiences, we cultivate an inclusive environment that advances both individual scholarship and collective mathematical progress.</p>
+                <a class="modal-learn-more-btn" href="/activities">Learn more about Academic & Research Activities &rarr;</a>
                 </div>
+                <a class="expand-link" href="#" data-accordion-id="academicResearchActivities">Expand</a>
             </div>
             </section>
 
@@ -1051,21 +1065,21 @@ body.dark-mode .modal-research-card p {
                 <p>Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.</p>
 
                 <div class="modal-research-cards-container">
-                    <a href="https://ksom.res.in/programmes/integrated-msc-phd" class="modal-research-card">
+                    <a href="/programmes/integrated-msc-phd" class="modal-research-card">
                         <h3>Integrated M.Sc. - Ph.D. Programme</h3>
                         <p>Provides seamless progression from advanced coursework to doctoral research, specializing in Mathematics, Physics, or Theoretical Computer Science. Students receive monthly scholarships, hostel accommodation, and engage in research from the first year, developing strong theoretical foundations through a curriculum that bridges pure and applied mathematics. Admission requires a bachelor's degree with substantial mathematical background and performance in rigorous entrance examinations.</p>
                     </a>
-                    <a href="https://ksom.res.in/programmes/phd" class="modal-research-card">
+                    <a href="/programmes/phd" class="modal-research-card">
                         <h3>Ph.D. Programme</h3>
                         <p>Offers intensive research immersion in Pure or Applied Mathematics under close faculty mentorship. Spanning approximately five years, scholars transition from specialized coursework to original dissertation work on frontier mathematical problems, supported by fellowships, travel grants for conferences, and teaching opportunities. This programme cultivates independent research capabilities while fostering academic networking through seminars and collaborations with international experts.</p>
                     </a>
-                    <a href="https://ksom.res.in/programmes/postdoc" class="modal-research-card">
+                    <a href="/programmes/postdoc" class="modal-research-card">
                         <h3>Postdoctoral Programme</h3>
                         <p>Empowers recent Ph.D. graduates with resources to pursue innovative independent research projects. Fellows receive competitive stipends, dedicated research grants, and opportunities to mentor students while developing their academic profiles through teaching and seminar leadership. The renewable two-year fellowship includes access to specialized computational resources and interdisciplinary collaboration platforms, positioning fellows for permanent academic appointments.</p>
                     </a>
                 </div>
                 <p>Scholarly Environment<br/>All programmes emphasize collaborative learning through weekly research seminars, specialized workshops, and annual conferences that connect students with global mathematical leaders. Our selective admission process identifies exceptional talent while maintaining small cohort sizes that ensure personalized guidance. This supportive ecosystem enables scholars to contribute meaningfully to mathematical knowledge while developing as versatile researchers equipped to address complex scientific challenges.</p>
-                <a class="learn-more-btn" href="https://ksom.res.in/programmes">Learn more about Academic Programmes &rarr;</a>
+                <a class="modal-learn-more-btn" href="/programmes">Learn more about Academic Programmes &rarr;</a>
                 </div>
                 <a class="expand-link" href="#" data-accordion-id="academicProgrammes">Expand</a>
             </div>
@@ -1073,17 +1087,28 @@ body.dark-mode .modal-research-card p {
             <div class="accordion-item">
                 <div class="accordion-header">Key Outreach Programmes</div>
                 <div class="accordion-snippet">
-                From workshops for school students to advanced exposure programmes for postgraduates, KSoM engages in wide-ranging outreach activities across Kerala and India.
+                Kerala School of Mathematics actively connects advanced mathematics with diverse communities through targeted outreach programmes. Our initiatives inspire future mathematicians while promoting accessibility and inclusion in mathematical sciences through workshops, mentorship, and collaborative learning opportunities.
                 </div>
-                <div class="accordion-content">
-                <div class="research-links">
-                    <a class="research-card" href="https://ksom.res.in/outreach/summer-workshop">Summer Workshop in Mathematics (SWIM)<br/>Offers intensive residential training in fundamental mathematics for undergraduate students through advanced lectures and problem-solving sessions.</a>
-                    <a class="research-card" href="https://ksom.res.in/outreach/glimpses">Glimpses into Mathematics<br/>Provides M.Sc. students with immersive exposure to cutting-edge mathematical research through short courses.</a>
-                    <a class="research-card" href="https://ksom.res.in/outreach/enrichment-day">School Mathematics Enrichment Day<br/>Interactive workshops for talented pre-university students to foster mathematical curiosity and introduce university-level thinking.</a>
+                <div class="accordion-content" style="display: none;">
+                <p>Kerala School of Mathematics actively connects advanced mathematics with diverse communities through targeted outreach programmes. Our initiatives inspire future mathematicians while promoting accessibility and inclusion in mathematical sciences through workshops, mentorship, and collaborative learning opportunities.</p>
+                <div class="modal-research-cards-container">
+                    <a href="/outreach/summer-workshop" class="modal-research-card">
+                        <h3>Summer Workshop in Mathematics (SWIM)</h3>
+                        <p>Offers intensive residential training in fundamental mathematics for undergraduate students. Through advanced lectures and problem-solving sessions, participants deepen their understanding of core mathematical concepts while engaging with KSoM faculty and visiting scholars in a vibrant academic environment.</p>
+                    </a>
+                    <a href="/outreach/glimpses" class="modal-research-card">
+                        <h3>Glimpses into Mathematics</h3>
+                        <p>Provides M.Sc. students nationwide with immersive exposure to cutting-edge mathematical research through specialized short courses. Delivered by leading experts over 1-2 week intensive sessions, these programmes explore advanced topics across pure and applied mathematics, helping students identify research interests and transition to doctoral studies.</p>
+                    </a>
+                    <a href="/outreach/enrichment-day" class="modal-research-card">
+                        <h3>School Mathematics Enrichment Day</h3>
+                        <p>Invites talented pre-university students for interactive workshops featuring mathematical discovery sessions, problem-solving challenges, and facility tours. This one-day immersion experience fosters mathematical curiosity while giving school students firsthand exposure to university-level mathematical thinking and research environments.</p>
+                    </a>
                 </div>
-                <p>Impact and Reach<br/>Our outreach annually engages 500+ participants through partnerships with schools, universities, and scientific organizations.</p>
-                <a class="learn-more-btn" href="#">Learn more</a>
+                <p>Impact and Reach<br/>Our outreach annually engages 500+ participants through strategic partnerships with schools, universities, and scientific organizations. These efforts strengthen mathematical foundations across Kerala while creating inclusive pathways to advanced study, particularly through early interventions that inspire underrepresented groups to pursue mathematical careers.</p>
+                <a class="modal-learn-more-btn" href="/outreach">Learn more about Key Outreach Programmes &rarr;</a>
                 </div>
+                <a class="expand-link" href="#" data-accordion-id="keyOutreachProgrammes">Expand</a>
             </div>
             </section>
         </div>
@@ -1218,17 +1243,17 @@ body.dark-mode .modal-research-card p {
       </div>
       <div class="footer-column">
         <h3>Quick Links</h3>
-        <a href="https://ksom.res.in/about">About Us</a>
-        <a href="https://ksom.res.in/research">Research</a>
-        <a href="https://ksom.res.in/programmes">Programmes</a>
-        <a href="https://ksom.res.in/activities">Events</a>
-        <a href="https://ksom.res.in/news">News</a>
+        <a href="/about">About Us</a>
+        <a href="/research">Research</a>
+        <a href="/programmes">Programmes</a>
+        <a href="/activities">Events</a>
+        <a href="/news">News</a>
       </div>
       <div class="footer-column">
         <h3>Connect</h3>
-        <a href="https://ksom.res.in/contact">Contact Us</a>
-        <a href="https://ksom.res.in/careers">Careers</a>
-        <a href="https://ksom.res.in/sitemap">Sitemap</a>
+        <a href="/contact">Contact Us</a>
+        <a href="/careers">Careers</a>
+        <a href="/sitemap">Sitemap</a>
       </div>
     </div>
     <div class="footer-bottom">
