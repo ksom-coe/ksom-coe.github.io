@@ -380,31 +380,31 @@ nav a:hover {
 /* Assign grid areas for main wrappers */
 .left-content-wrapper {
   grid-area: left-area;
-  display: flex;
-  flex-wrap: wrap; /* Allows items to wrap to the next line */
-  gap: var(--accordion-column-gap); /* Use specific gap for accordions */
-  align-items: flex-start; /* Aligns items to the top of the cross-axis, crucial for delinking heights */
+  column-count: 2; /* Use CSS columns for 50-50 split and vertical flow */
+  column-gap: var(--accordion-column-gap); /* Gap between the two content columns */
 }
 
-/* Styles for 60/40 widths applied directly to accordions */
-.width-60 {
-  width: calc((100% - var(--accordion-column-gap)) * 0.6);
+/* Elements that should span full width within the left-content-wrapper */
+#campus-photos-section,
+#about-ksom-section {
+  column-span: all; /* Span both columns for column layout */
+  width: auto;
 }
-.width-40 {
-  width: calc((100% - var(--accordion-column-gap)) * 0.4);
+
+/* Standard accordion items inside left-content-wrapper */
+#research-areas-section,
+#academic-programmes-section,
+#academic-activities-section,
+#outreach-section {
+  /* No explicit grid placement needed as content flows naturally in columns */
 }
+
 
 .sidebar-content-wrapper {
   grid-area: sidebar-area;
   display: flex;
   flex-direction: column;
   gap: 0.75rem; /* Reduced gap between sidebar items */
-}
-
-/* Elements that should span full width within the left-content-wrapper */
-#campus-photos-section,
-#about-ksom-section {
-  width: 100%; /* Force these sections to take full width */
 }
 
 /* Common styling for all major content sections */
@@ -425,6 +425,14 @@ nav a:hover {
   padding: 1.5rem 1.25rem 3.5rem 1.25rem;
   transition: transform 0.2s ease;
   position: relative;
+  margin-bottom: 1.5rem; /* Added vertical spacing between items */
+  break-inside: avoid; /* Prevent content from breaking across columns within an item */
+  page-break-inside: avoid; /* For print fallback */
+}
+/* Remove margin-bottom from the last accordion item in a column (if it's the last one in a grid row) */
+/* This is less necessary with explicit grid-row but good practice */
+.accordion-item:last-child {
+    /* margin-bottom: 0; */ /* Keep this commented out or adjust if it removes spacing too much */
 }
 body.dark-mode .main-layout-wrapper > .left-content-wrapper > *,
 body.dark-mode .main-layout-wrapper > .sidebar-content-wrapper > *
@@ -456,10 +464,9 @@ body.dark-mode .main-layout-wrapper > .sidebar-content-wrapper > *
   width: 100%; /* Takes full width of its container */
   position: relative; /* For overlay text positioning */
   border-radius: 8px; /* Match slideshow container border-radius */
-  overflow: hidden; /* Ensure content is clipped within rounded corners */
-  padding: 0; /* Ensure no internal padding interferes */
-  box-shadow: none; /* Remove section shadow from image, handled by parent div */
-  background: transparent; /* Remove section background from image */
+  overflow: hidden;
+  box-shadow: none;
+  background: transparent;
 }
 
 /* Image specific styling for size and fit */
@@ -1212,28 +1219,43 @@ body.dark-mode .slideshow-container {
   .left-content-wrapper {
       flex-direction: column; /* Ensure main wrapper stacks columns */
       align-items: stretch; /* Ensures items fill available width */
+      gap: 2rem; /* Consistent gap for stacked sections on mobile */
+      /* Removed column-count as it's not applicable in flex column */
+      column-count: unset;
+      column-gap: unset;
+      /* Remove grid properties on mobile */
+      display: flex; /* Revert to flex for mobile stacking */
   }
 
-  /* On mobile, column-width classes should stack vertically (full width) */
-  .width-60, .width-40 {
-    width: 100%; /* Force full width on mobile */
+  /* Elements inside left-content-wrapper should take full width and stack */
+  .left-content-wrapper > * {
+    width: 100%;
   }
 
-  /* Removed explicit grid column assignments for mobile sections, they will stack */
-  /* Re-apply order as per previous instructions */
-  #campus-photos-section { order: 1; }
-  #about-ksom-section { order: 2; }
-  #latest-news-section { order: 3; }
-  #upcoming-events-section { order: 4; }
-  #research-areas-section { order: 5; }
-  #academic-programmes-section { order: 6; }
-  #academic-activities-section { order: 7; }
-  #outreach-section { order: 8; }
+  /* Reset grid-column/row for individual sections on mobile */
+  #campus-photos-section,
+  #about-ksom-section,
+  #research-areas-section,
+  #academic-programmes-section,
+  #academic-activities-section,
+  #outreach-section,
+  #latest-news-section, /* Ensure these sections also behave as standard blocks on mobile */
+  #upcoming-events-section {
+    column-span: unset; /* Remove column-span for mobile */
+    width: 100%; /* Ensure they take full width in flex column */
+  }
 
-
+  /* Sidebar items also need to behave as standard blocks when they stack */
   .sidebar-content-wrapper {
-      display: contents; /* Makes children participate in parent flex layout directly */
+      display: flex; /* Keep flexbox for internal stacking */
+      flex-direction: column;
+      gap: 2rem; /* Consistent gap for stacked sections on mobile */
+      width: 100%; /* Take full width on mobile */
   }
+  .sidebar-content-wrapper > * {
+    width: 100%;
+  }
+
 
   /* Calendar hidden on mobile */
   #calendar-section {
@@ -1388,8 +1410,8 @@ body.dark-mode .slideshow-container {
         <a class="expand-link" href="#" data-accordion-id="aboutKSoM">Expand</a>
       </section>
 
-      <!-- Research Areas Section (60% width) -->
-      <section id="research-areas-section" class="accordion-item width-60">
+      <!-- Research Areas Section -->
+      <section id="research-areas-section" class="accordion-item">
           <div class="accordion-header">Research Areas at KSoM</div>
           <div class="accordion-snippet">
           Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.
@@ -1425,33 +1447,8 @@ body.dark-mode .slideshow-container {
           <a class="expand-link" href="#" data-accordion-id="researchAreas">Expand</a>
       </section>
 
-      <!-- Academic Programmes Section (40% width) -->
-      <section id="academic-programmes-section" class="accordion-item width-40">
-          <div class="accordion-header">Academic Programmes at KSoM</div>
-          <div class="accordion-snippet">
-          Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.
-          </div>
-          <div class="accordion-content" style="display: none;">
-          <p>Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.</p>
-
-          <div class="modal-research-cards-container">
-              <a href="https://ksom.res.in/programmes/integrated-msc-phd" class="modal-research-card">
-                  <h3>Integrated M.Sc. - Ph.D. Programme</h3>
-                  <p>Provides seamless progression from advanced coursework to doctoral research, specializing in Mathematics, Physics, or Theoretical Computer Science. Students receive monthly scholarships, hostel accommodation, and engage in research from the first year, developing strong theoretical foundations through a curriculum that bridges pure and applied mathematics. Admission requires a bachelor's degree with substantial mathematical background and performance in rigorous entrance examinations.</p>
-              </a>
-              <a href="https://ksom.res.in/programmes/phd" class="modal-research-card">
-                  <h3>Ph.D. Programme</h3>
-                  <p>Offers intensive research immersion in Pure or Applied Mathematics under close faculty mentorship. Spanning approximately five years, scholars transition from specialized coursework to original dissertation work on frontier mathematical problems, supported by fellowships, travel grants for conferences, and teaching opportunities. This programme cultivates independent research capabilities while fostering academic networking through seminars and collaborations with international experts.</p>
-                  </a>
-              </div>
-              <p>Scholarly Environment<br/>All programmes emphasize collaborative learning through weekly research seminars, specialized workshops, and annual conferences that connect students with global mathematical leaders. Our selective admission process identifies exceptional talent while maintaining small cohort sizes that ensure personalized guidance. This supportive ecosystem enables scholars to contribute meaningfully to mathematical knowledge while developing as versatile researchers equipped to address complex scientific challenges.</p>
-              <a class="modal-learn-more-btn" href="https://ksom.res.in/programmes">Learn more about Academic Programmes &rarr;</a>
-              </div>
-          <a class="expand-link" href="#" data-accordion-id="academicProgrammes">Expand</a>
-      </section>
-
-      <!-- Academic & Research Activities Section (60% width) -->
-      <section id="academic-activities-section" class="accordion-item width-60">
+      <!-- Academic & Research Activities Section -->
+      <section id="academic-activities-section" class="accordion-item">
               <div class="accordion-header">Academic & Research Activities at KSoM</div>
               <div class="accordion-snippet">
               <!-- Slideshow container -->
@@ -1475,7 +1472,7 @@ body.dark-mode .slideshow-container {
               Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.
               </div>
               <div class="accordion-content" style="display: none;">
-              <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.</p>
+              <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with mathematical networks.</p>
               <div class="modal-research-cards-container">
                   <a href="https://ksom.res.in/activities/colloquium" class="modal-research-card">
                       <h3>Mathematics Colloquium</h3>
@@ -1500,8 +1497,33 @@ body.dark-mode .slideshow-container {
               <a class="expand-link" href="#" data-accordion-id="academicResearchActivities">Expand</a>
           </section>
 
-          <!-- Outreach Section (40% width) -->
-          <section id="outreach-section" class="accordion-item width-40">
+      <!-- Academic Programmes Section -->
+      <section id="academic-programmes-section" class="accordion-item">
+          <div class="accordion-header">Academic Programmes at KSoM</div>
+          <div class="accordion-snippet">
+          Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.
+          </div>
+          <div class="accordion-content" style="display: none;">
+          <p>Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.</p>
+
+          <div class="modal-research-cards-container">
+              <a href="https://ksom.res.in/programmes/integrated-msc-phd" class="modal-research-card">
+                  <h3>Integrated M.Sc. - Ph.D. Programme</h3>
+                  <p>Provides seamless progression from advanced coursework to doctoral research, specializing in Mathematics, Physics, or Theoretical Computer Science. Students receive monthly scholarships, hostel accommodation, and engage in research from the first year, developing strong theoretical foundations through a curriculum that bridges pure and applied mathematics. Admission requires a bachelor's degree with substantial mathematical background and performance in rigorous entrance examinations.</p>
+              </a>
+              <a href="https://ksom.res.in/programmes/phd" class="modal-research-card">
+                  <h3>Ph.D. Programme</h3>
+                  <p>Offers intensive research immersion in Pure or Applied Mathematics under close faculty mentorship. Spanning approximately five years, scholars transition from specialized coursework to original dissertation work on frontier mathematical problems, supported by fellowships, travel grants for conferences, and teaching opportunities. This programme cultivates independent research capabilities while fostering academic networking through seminars and collaborations with international experts.</p>
+                  </a>
+              </div>
+              <p>Scholarly Environment<br/>All programmes emphasize collaborative learning through weekly research seminars, specialized workshops, and annual conferences that connect students with global mathematical leaders. Our selective admission process identifies exceptional talent while maintaining small cohort sizes that ensure personalized guidance. This supportive ecosystem enables scholars to contribute meaningfully to mathematical knowledge while developing as versatile researchers equipped to address complex scientific challenges.</p>
+              <a class="modal-learn-more-btn" href="https://ksom.res.in/programmes">Learn more about Academic Programmes &rarr;</a>
+              </div>
+          <a class="expand-link" href="#" data-accordion-id="academicProgrammes">Expand</a>
+      </section>
+
+          <!-- Outreach Section -->
+          <section id="outreach-section" class="accordion-item">
               <div class="accordion-header">Outreach Activities</div>
               <div class="accordion-snippet">
                   Kerala School of Mathematics is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.
@@ -1531,7 +1553,7 @@ body.dark-mode .slideshow-container {
 
     <!-- Right 28% Sidebar content area for desktop -->
     <div class="sidebar-content-wrapper">
-      <!-- Latest News Section (Sidebar on desktop, order 3 on mobile) -->
+      <!-- Latest News Section (Sidebar on desktop) -->
       <section id="latest-news-section" class="accordion-item">
         <h3>Latest News at KSoM</h3>
         <div class="timeline-container">
@@ -1598,7 +1620,7 @@ body.dark-mode .slideshow-container {
           </button>
       </section>
 
-      <!-- Upcoming Events Section (Sidebar on desktop, order 4 on mobile) -->
+      <!-- Upcoming Events Section (Sidebar on desktop) -->
       <section id="upcoming-events-section" class="accordion-item">
         <h3>Upcoming Events at KSoM</h3>
         <div class="timeline-container">
