@@ -461,7 +461,7 @@ body.dark-mode .modal-research-card { /* Include modal cards for dark mode */
 /* Image specific styling for size and fit */
 .top-image img {
   width: 100%;
-  height: 220px; /* Reduced from 300px */
+  height: 300px; /* Increased from 220px */
   object-fit: cover;
   border-radius: 8px;
 }
@@ -574,7 +574,7 @@ body.dark-mode .modal-research-card { /* Include modal cards for dark mode */
   padding: 0.7rem 1.2rem; /* Slightly larger padding for prominence */
   background-color: var(--accent-blue);
   color: white;
-  border-radius: 5px;
+  border-radius: 5_px;
   text-decoration: none;
   font-size: 0.95rem; /* Slightly larger font */
   font-weight: 600; /* Slightly bolder */
@@ -757,7 +757,7 @@ body.dark-mode #full-calendar {
   border: none;
   color: white;
   padding: 0.4em 0.8em; /* Adjusted button padding */
-  border-radius: 5px; /* Smaller rounded buttons */
+  border-radius: 5px;
   font-weight: 500;
   font-size: 0.8em; /* Adjusted font size for buttons */
   transition: background-color var(--transition-fast), transform 0.1s ease, box-shadow 0.2s ease;
@@ -1118,7 +1118,7 @@ body.dark-mode .slideshow-container {
 
 .mySlides img {
   width: 100%;
-  height: 220px; /* Reduced from 300px */
+  height: 300px; /* Increased from 220px */
   object-fit: cover;
   border-radius: 8px;
 }
@@ -1138,89 +1138,182 @@ body.dark-mode .slideshow-container {
 
 /* === Notice Board Effect for Latest News === */
 #latest-news-section {
-  position: relative; /* For pseudo-elements */
-  background: linear-gradient(to bottom right, #f4e8d3, #e2d7c0); /* Subtle paper/wood-like gradient */
-  border: 5px solid #6b4f4f; /* Dark wood-like border */
-  border-radius: 10px;
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.3), inset 0 0 10px rgba(0,0,0,0.1); /* Stronger shadow with inner glow */
-  transform: rotate(-2deg); /* Slight tilt for character */
-  overflow: hidden; /* Ensure pseudo-elements don't leak out */
-  padding: 2rem; /* More padding inside */
-  z-index: 10; /* Ensure it's above other elements if needed */
-  /* Remove default card background and shadow as it's being redefined */
-  background: none;
-  box-shadow: none;
+  position: relative;
+  background-color: var(--card-bg); /* Revert to white/card background */
+  background-image: none; /* Remove bamboo paper effect from main board */
+  border: 1px solid var(--card-border); /* Subtle border */
+  border-radius: 12px; /* Slightly less rounded than before */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Subtle shadow like other accordions */
+  transform: none; /* Ensure no tilt */
+  overflow: hidden;
+  padding: 1.5rem; /* Standard accordion padding */
+  z-index: 10;
 }
 
-/* Pushpins (pseudo-elements) */
-#latest-news-section::before,
-#latest-news-section::after {
-  content: '';
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: #a00; /* Red pushpin */
-  box-shadow: inset 0 2px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
-  z-index: 11;
-  transform: rotate(5deg);
-}
-#latest-news-section::before {
-  top: 10px;
-  left: 10px;
-}
-#latest-news-section::after {
-  top: 10px;
-  right: 10px;
-  transform: rotate(-7deg);
-  background-color: #00a; /* Blue pushpin */
+body.dark-mode #latest-news-section {
+  background-color: var(--dark-card-bg);
+  border-color: var(--dark-border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Slightly more prominent shadow in dark mode */
 }
 
 #latest-news-section h3 {
-    color: #333; /* Ensure heading is readable */
-    text-align: center; /* Center the title */
-    font-size: 1.5rem; /* Larger title */
-    margin-bottom: 1.5rem; /* More space below title */
-    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
-}
-#latest-news-section .timeline-container {
-    border-top: 1px dashed rgba(0,0,0,0.2); /* Separator below title */
-    padding-top: 1rem;
-}
-#latest-news-section .timeline-content a,
-#latest-news-section .timeline-description {
-    color: #555; /* Adjust text color for readability on light board */
-}
-#latest-news-section .timeline-date {
-    color: #777;
-}
-/* Ensure archive button is readable on the new background */
-#latest-news-section .archive-btn {
-    background: var(--accent-blue); /* Keep button consistent */
-    color: white;
-}
-
-/* Dark mode for notice board */
-body.dark-mode #latest-news-section {
-    background: linear-gradient(to bottom right, #3d342c, #2a221c); /* Darker board for dark mode */
-    border-color: #967969;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.5), inset 0 0 10px rgba(0,0,0,0.2);
+    color: var(--accent-blue); /* Standard heading color */
+    text-align: left; /* Align left as in other accordions */
+    font-size: 1.3rem; /* Standard heading size */
+    margin-bottom: 0.4rem; /* Standard heading margin */
+    text-shadow: none; /* Remove text shadow */
 }
 body.dark-mode #latest-news-section h3 {
-    color: var(--dark-primary-text);
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+    color: var(--accent-light);
 }
-body.dark-mode #latest-news-section .timeline-container {
-    border-top-color: rgba(255,255,255,0.2);
+
+/* Specific timeline container within the news section */
+#latest-news-section .timeline-container {
+    border-top: none; /* Remove separator */
+    padding-top: 0; /* Remove extra padding */
 }
-body.dark-mode #latest-news-section .timeline-content a,
-body.dark-mode #latest-news-section .timeline-description,
+
+/* Restore vertical line and marker from the news timeline */
+#latest-news-section .timeline::before {
+  content: ''; /* Restore the main vertical line */
+  position: absolute;
+  left: 8px; /* Position to appear on the board */
+  top: 0;
+  bottom: 0;
+  width: 1px; /* Thinner line */
+  background-color: var(--card-border); /* Light grey line */
+  z-index: 1;
+}
+body.dark-mode #latest-news-section .timeline::before {
+    background-color: var(--dark-border);
+}
+
+/* Styles for individual news items as clickable cards */
+#latest-news-section .timeline-item {
+  /* Matte bamboo paper background */
+  background-color: #f2ede1; /* Desaturated light cream/tan */
+  background-image:
+    linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 50%),
+    linear-gradient(-45deg, rgba(0,0,0,0.05) 0%, transparent 60%);
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Subtle lifted effect */
+  margin-bottom: 1rem; /* Space between items */
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: block;
+  border-bottom: none; /* No dashed line for individual items */
+}
+
+body.dark-mode #latest-news-section .timeline-item {
+    background-color: #3a322b; /* Darker base for dark mode matte bamboo */
+    background-image:
+        linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%),
+        linear-gradient(-45deg, rgba(0,0,0,0.1) 0%, transparent 60%);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Alternating tilts for cards */
+#latest-news-section .timeline-item:nth-child(odd) {
+    transform: rotate(0.5deg); /* Slight clockwise tilt */
+}
+#latest-news-section .timeline-item:nth-child(even) {
+    transform: rotate(-0.5deg); /* Slight anti-clockwise tilt */
+}
+#latest-news-section .timeline-item:hover {
+    transform: scale(1.01) rotate(0deg); /* Straighten and lift on hover */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+/* Pin for each timeline item */
+#latest-news-section .timeline-item::before {
+  content: '';
+  position: absolute;
+  top: -6px; /* Adjust pin position above the card */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%);
+  width: 10px; /* Smaller pin */
+  height: 10px;
+  background-color: #8b0000; /* Dark red for a classic pushpin */
+  border-radius: 50%;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3), 0 0.5px 1px rgba(0,0,0,0.2);
+  z-index: 3;
+}
+body.dark-mode #latest-news-section .timeline-item::before {
+    background-color: #b30000; /* Brighter red for dark mode pin */
+}
+
+/* Restore timeline marker (the bullet on the line) */
+#latest-news-section .timeline-marker {
+  display: block; /* Ensure it's visible */
+  width: 8px; /* Standard marker size */
+  height: 8px;
+  background-color: var(--accent-blue); /* Match standard marker color */
+  border-radius: 50%;
+  z-index: 2;
+  flex-shrink: 0;
+  position: absolute; /* Position relative to .timeline */
+  left: 8px; /* Aligned with the vertical line */
+  transform: translateY(6px) translateX(-50%); /* Adjust for vertical alignment and centering on line */
+}
+body.dark-mode #latest-news-section .timeline-marker {
+    background-color: var(--accent-light);
+}
+
+/* Adjust timeline content for new card layout */
+#latest-news-section .timeline-content {
+  margin-left: 20px; /* Adjust to match the default timeline spacing */
+  padding-left: 0;
+}
+
+/* Specific text styling within news cards for readability */
+#latest-news-section .timeline-date {
+    font-size: 0.7rem; /* Revert to smaller date font */
+    color: #888; /* Softer color for date */
+    font-family: var(--font-sans); /* Inter for date */
+    margin-bottom: 0.1rem; /* Reduced space */
+}
 body.dark-mode #latest-news-section .timeline-date {
+    color: #bbb;
+}
+
+#latest-news-section .timeline-content a { /* News title link */
+    font-size: 0.95rem; /* Revert to smaller title on card */
+    font-weight: 600;
+    color: var(--accent-blue); /* Stronger blue for title */
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+body.dark-mode #latest-news-section .timeline-content a {
+    color: var(--accent-light);
+}
+
+#latest-news-section .timeline-description {
+    font-size: 0.8rem; /* Revert to smaller description */
+    color: #666; /* Softer description color */
+    line-height: 1.4;
+    margin-bottom: 0.8rem; /* Space before archive button */
+}
+body.dark-mode #latest-news-section .timeline-description {
     color: var(--dark-primary-text);
 }
-body.dark-mode #latest-news-section::before,
-body.dark-mode #latest-news-section::after {
-    box-shadow: inset 0 2px 3px rgba(255,255,255,0.1), 0 1px 2px rgba(0,0,0,0.5);
+
+/* Ensure archive button within news section is readable on light background */
+#latest-news-section .archive-btn {
+    background: linear-gradient(45deg, var(--accent-light), var(--accent-blue)); /* Restore standard button style */
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+body.dark-mode #latest-news-section .archive-btn {
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-hover));
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Space after slideshow in Academic & Research Activities */
+#academic-activities-section .slideshow-container {
+    margin-bottom: 1.5rem; /* Add space below the slideshow */
 }
 
 
@@ -1489,7 +1582,7 @@ body.dark-mode #latest-news-section::after {
                         <img src="/Images/Activities/Image-5.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x300/AFEEEE/333333?text=Activity+Image+5';" alt="Academic & Research Activities 5">
                     </div>
                 </div>
-                Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.
+                <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.</p>
                 <a class="expand-link" href="#" data-accordion-id="academicResearchActivities">Expand</a>
                 </div>
                 <div class="accordion-content" style="display: none;">
@@ -1582,50 +1675,44 @@ body.dark-mode #latest-news-section::after {
             <div class="timeline-container">
             <div class="timeline">
                 <div class="timeline-item">
-                <div class="timeline-marker"></div>
                 <div class="timeline-content">
                     <p class="timeline-date">June 3, 2025</p>
-                    <a href="https://ksom.res.in/news/recruitment-drive">KSoM Recruitment Drive</a>
+                    <a href="#" class="news-title-link" data-news-id="recruitment">KSoM Recruitment Drive</a>
                     <p class="timeline-description">Applications now open for key administrative positions: Accounts Officer and Registrar. Join our growing team supporting mathematical excellence.</p>
                 </div>
                 </div>
                 <div class="timeline-item">
-                <div class="timeline-marker"></div>
                 <div class="timeline-content">
                     <p class="timeline-date">May 7, 2025</p>
-                    <a href="https://ksom.res.in/news/phd-admissions">PhD Admissions 2025</a>
+                    <a href="#" class="news-title-link" data-news-id="phd-admissions">PhD Admissions 2025</a>
                     <p class="timeline-description">Applications invited for doctoral programmes in Pure and Applied Mathematics. Full financial support available for selected candidates.</p>
                 </div>
                 </div>
                 <div class="timeline-item">
-                <div class="timeline-marker"></div>
                 <div class="timeline-content">
                     <p class="timeline-date">March 4, 2025</p>
-                    <a href="https://ksom.res.in/news/visiting-faculty">Visiting Faculty Position</a>
+                    <a href="#" class="news-title-link" data-news-id="visiting-faculty">Visiting Faculty Position</a>
                     <p class="timeline-description">Seeking highly qualified candidates for Visiting Assistant Professor positions across all mathematical disciplines. Join our vibrant research community.</p>
                 </div>
                 </div>
                 <div class="timeline-item">
-                <div class="timeline-marker"></div>
                 <div class="timeline-content">
                     <p class="timeline-date">February 15, 2025</p>
-                    <a href="https://ksom.res.in/news/research-symposium">Annual Research Symposium</a>
+                    <a href="#" class="news-title-link" data-news-id="research-symposium">Annual Research Symposium</a>
                     <p class="timeline-description">Highlights from our successful annual symposium, featuring keynote speakers and groundbreaking research presentations.</p>
                 </div>
                 </div>
                 <div class="timeline-item">
-                <div class="timeline-marker"></div>
                 <div class="timeline-content">
                     <p class="timeline-date">January 20, 2025</p>
-                    <a href="https://ksom.res.in/news/new-faculty">New Faculty Announcement</a>
+                    <a href="#" class="news-title-link" data-news-id="new-faculty">New Faculty Announcement</a>
                     <p class="timeline-description">Welcome our newest faculty member, Dr. Alok Kumar, specializing in Algebraic Geometry.</p>
                 </div>
                 </div>
                 <div class="timeline-item">
-                <div class="timeline-marker"></div>
                 <div class="timeline-content">
                     <p class="timeline-date">December 1, 2024</p>
-                    <a href="https://ksom.res.in/news/winter-school">Winter School on Number Theory</a>
+                    <a href="#" class="news-title-link" data-news-id="winter-school">Winter School on Number Theory</a>
                     <p class="timeline-description">Registration now open for the intensive winter school focused on advanced topics in analytic number theory.</p>
                 </div>
                 </div>
@@ -2029,6 +2116,58 @@ body.dark-mode #latest-news-section::after {
       document.querySelectorAll('.mobile-dropdown-header').forEach(header => header.classList.remove('expanded'));
       document.querySelectorAll('.mobile-submenu').forEach(submenu => submenu.classList.remove('expanded'));
     }
+
+    // News data for modal display
+    const newsData = {
+        "recruitment": {
+            title: "KSoM Recruitment Drive",
+            date: "June 3, 2025",
+            description: "Applications are now open for key administrative positions including Accounts Officer and Registrar. We invite dynamic and experienced professionals to join our esteemed institution and contribute to its continued growth and success. This is a unique opportunity to be part of a leading research institute dedicated to mathematical excellence. Detailed job descriptions and application procedures are available on our careers page."
+        },
+        "phd-admissions": {
+            title: "PhD Admissions 2025",
+            date: "May 7, 2025",
+            description: "Applications are invited for our prestigious doctoral programmes in Pure and Applied Mathematics for the academic year 2025. KSoM offers comprehensive financial support, including monthly scholarships and hostel accommodation, to all selected candidates. Our PhD program provides an immersive research environment with access to state-of-the-art facilities and mentorship from world-renowned faculty. Prospective candidates with a strong academic record in mathematics or a related field are encouraged to apply. The admission process involves a rigorous entrance examination and an interview."
+        },
+        "visiting-faculty": {
+            title: "Visiting Faculty Position",
+            date: "March 4, 2025",
+            description: "KSoM is seeking highly qualified candidates for Visiting Assistant Professor positions across all mathematical disciplines. We offer a vibrant and collaborative research environment with opportunities to engage in cutting-edge research and interact with leading mathematicians. The ideal candidate will have a strong research profile and a commitment to teaching and mentoring. We welcome applications from both experienced faculty and promising early-career researchers. Positions are available for periods ranging from three months to a full academic year."
+        },
+        "research-symposium": {
+            title: "Annual Research Symposium",
+            date: "February 15, 2025",
+            description: "The Annual Research Symposium held last week was a resounding success, featuring inspiring keynote speakers and groundbreaking research presentations from our faculty, postdocs, and research scholars. The symposium facilitated vibrant discussions and fostered new collaborations across various mathematical fields. Highlights included sessions on quantum algorithms, geometric group theory, and advancements in analytic number theory. We extend our gratitude to all participants and look forward to building on this momentum in the coming year."
+        },
+        "new-faculty": {
+            title: "New Faculty Announcement",
+            date: "January 20, 2025",
+            description: "We are thrilled to announce the appointment of Dr. Alok Kumar as our newest faculty member, specializing in Algebraic Geometry. Dr. Kumar brings a wealth of expertise and a promising research agenda that will significantly enhance our department's capabilities. His work focuses on the intersection of algebraic geometry and number theory, and we are confident that his contributions will greatly enrich our academic community and foster innovative research collaborations. Please join us in extending a warm welcome to Dr. Kumar."
+        },
+        "winter-school": {
+            title: "Winter School on Number Theory",
+            date: "December 1, 2024",
+            description: "Registration is now open for our intensive Winter School on Number Theory, scheduled for January 10-20, 2025. This school is designed for advanced undergraduate students, graduate students, and young researchers interested in modern developments in analytic number theory. The curriculum will cover topics such as sieve methods, automorphic forms, and L-functions, delivered through a series of lectures and problem-solving sessions by leading experts in the field. Early registration is encouraged due to limited seats."
+        }
+    };
+
+    // Add event listeners for news items to open modal
+    const newsTitleLinks = document.querySelectorAll('#latest-news-section .timeline-item');
+    newsTitleLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Get the news ID from the data-news-id attribute on the anchor tag inside
+            const newsId = this.querySelector('.news-title-link').dataset.newsId;
+            if (newsData[newsId]) {
+                const newsItem = newsData[newsId];
+                const fullContent = `
+                    <p><strong>Date:</strong> ${newsItem.date}</p>
+                    <p>${newsItem.description}</p>
+                `;
+                openModal(newsItem.title, fullContent, false);
+            }
+        });
+    });
 
   </script>
   <!-- Modal Template -->
