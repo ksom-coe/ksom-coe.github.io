@@ -267,7 +267,7 @@ nav a:hover {
 .mobile-menu-panel {
     background-color: var(--accent-blue); /* Actual menu background */
     color: white;
-    width: 66.6%; /* Consume 2/3 of the screen */
+    width: 60%; /* Reduced from 66.6% for more efficiency */
     height: 100%;
     box-shadow: -5px 0 15px rgba(0,0,0,0.3); /* Shadow for depth */
     transform: translateX(100%); /* Start off-screen to the right */
@@ -290,6 +290,7 @@ nav a:hover {
     font-size: 2rem;
     cursor: pointer;
     z-index: 2001; /* Ensure close button is above menu items */
+    color: white; /* Make close button white */
 }
 
 .mobile-menu-content {
@@ -297,7 +298,8 @@ nav a:hover {
     flex-direction: column;
     width: 100%;
     max-width: 300px; /* Constrain width for menu items */
-    margin: 2rem auto 0; /* Center content within the panel, space from top */
+    margin: 1.5rem auto 0; /* Adjusted margin for more efficiency */
+    padding: 0 1rem; /* Added horizontal padding for efficiency */
 }
 
 .mobile-menu-content a {
@@ -872,10 +874,14 @@ body.dark-mode .fc-daygrid-day.fc-day-valid {
 /* === Timeline UI === */
 .timeline-container {
   max-height: 450px; /* Show ~3 items */
-  overflow-y: auto;
-  padding-right: 10px; /* Space for scrollbar */
+  overflow-y: hidden; /* Hide scrollbar by default */
+  padding-right: 2px; /* Push scrollbar a little to the right */
   margin-top: 1rem; /* Added margin to separate from heading */
   padding-top: 0.5rem; /* Padding at the top of the scrollable area */
+}
+/* Show scrollbar on hover */
+.timeline-container:hover {
+  overflow-y: auto;
 }
 .timeline-container::-webkit-scrollbar {
   width: 6px;
@@ -887,61 +893,95 @@ body.dark-mode .fc-daygrid-day.fc-day-valid {
 body.dark-mode .timeline-container::-webkit-scrollbar-thumb {
   background-color: #666;
 }
-.timeline-container:hover {
-  overflow-y: auto; /* Auto-scroll on hover for desktop */
-}
+/* Removed :hover { overflow-y: auto; } since it's now applied above */
+
 
 .timeline {
   position: relative;
-  padding-left: 20px; /* Space for the line and markers */
+  /* Removed padding-left to allow cards to occupy more space */
   font-family: var(--font-body); /* Apply Lora to timeline content */
 }
 
+/* Removed the timeline vertical line */
 .timeline::before {
-  content: '';
-  position: absolute;
-  left: 8px; /* Consistent line position */
-  top: 0;
-  bottom: 0;
-  width: 1px; /* Thinner line */
-  background-color: var(--card-border); /* Light grey line */
-  z-index: 1;
+  content: none;
 }
 
 body.dark-mode .timeline::before {
-  background-color: var(--dark-border);
+  content: none;
 }
 
+/* Base style for timeline items, now functioning as clickable cards */
 .timeline-item {
   position: relative;
-  margin-bottom: 0.6rem; /* Reduced margin between items */
-  padding-bottom: 0.6rem; /* Reduced padding between items */
-  border-bottom: 1px dashed rgba(0, 0, 0, 0.05); /* Lighter, more subtle separator */
-  display: flex; /* Use flexbox to align marker and content */
-  align-items: flex-start; /* Align items to the top */
+  /* Wrap the whole card in <a> tag and remove its default flex behavior */
+  display: block; /* Change to block for full card clickability */
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-bottom: 0.75rem; /* Reduced margin between items for less breathing space */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none; /* Remove underline from the anchor */
+  color: inherit; /* Inherit color from parent for text elements */
 }
 
 body.dark-mode .timeline-item {
-    border-bottom-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.timeline-item:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-  border-bottom: none;
+/* Specific styling for the news cards */
+#latest-news-section .timeline-item {
+  /* Matte bamboo paper background */
+  background-color: #f2ede1; /* Desaturated light cream/tan */
+  background-image:
+    linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 50%),
+    linear-gradient(-45deg, rgba(0,0,0,0.05) 0%, transparent 60%);
+  border-bottom: none; /* No dashed line for individual items */
 }
 
-.timeline-marker {
-  width: 8px; /* Bullet size */
-  height: 8px; /* Bullet size */
-  background-color: var(--accent-blue);
+body.dark-mode #latest-news-section .timeline-item {
+    background-color: #3a322b; /* Darker base for dark mode matte bamboo */
+    background-image:
+        linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%),
+        linear-gradient(-45deg, rgba(0,0,0,0.1) 0%, transparent 60%);
+}
+
+/* Alternating tilts for cards */
+#latest-news-section .timeline-item:nth-child(odd) {
+    transform: rotate(0.5deg); /* Slight clockwise tilt */
+}
+#latest-news-section .timeline-item:nth-child(even) {
+    transform: rotate(-0.5deg); /* Slight anti-clockwise tilt */
+}
+#latest-news-section .timeline-item:hover {
+    transform: scale(1.01) rotate(0deg); /* Straighten and lift on hover */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+/* Pin for each timeline item */
+#latest-news-section .timeline-item::before {
+  content: '';
+  position: absolute;
+  top: -6px; /* Adjust pin position above the card */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%);
+  width: 10px; /* Smaller pin */
+  height: 10px;
+  background-color: #8b0000; /* Dark red for a classic pushpin */
   border-radius: 50%;
-  z-index: 2;
-  flex-shrink: 0; /* Prevent shrinking */
-  margin-right: 12px; /* Space between marker and content */
-  margin-left: -12px; /* Offset to align with the vertical line */
-  transform: translateY(6px); /* Adjusted vertically to align with text baseline */
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3), 0 0.5px 1px rgba(0,0,0,0.2);
+  z-index: 3;
 }
+body.dark-mode #latest-news-section .timeline-item::before {
+    background-color: #b30000; /* Brighter red for dark mode pin */
+}
+
+/* Removed the timeline marker (bullet) */
+.timeline-marker {
+  display: none;
+}
+
 
 .timeline-content { /* Wrapper for date, title, description */
   flex-grow: 1; /* Allow content to take remaining space */
@@ -959,9 +999,13 @@ body.dark-mode .timeline-date {
   color: #bbb;
 }
 
-.timeline-content a { /* News title link */
+/* No change needed for .timeline-content a as the entire card is now the link */
+.timeline-content a {
+  /* This specific selector for news titles inside timeline-content is no longer strictly needed as the parent .timeline-item is the link,
+     but keeping it to maintain visual styles for the title itself.
+     The `text-decoration: none;` is handled by the parent `.timeline-item` now.
+  */
   color: var(--accent-blue); /* Link color */
-  text-decoration: none;
   font-weight: 600;
   font-family: var(--font-serif); /* Changed to Merriweather for news titles */
   font-size: 0.95rem; /* Adjusted size to be slightly smaller */
@@ -969,10 +1013,12 @@ body.dark-mode .timeline-date {
   line-height: 1.3; /* Tighter line height for links */
   display: block; /* Make it a block for better spacing */
 }
-
+/* Remove hover effect from internal link as the whole card has a hover effect now */
 .timeline-content a:hover {
-  color: var(--accent-hover);
-  text-decoration: underline;
+  text-decoration: none; /* Prevent underline on hover of internal link */
+}
+body.dark-mode .timeline-content a {
+  color: var(--accent-light);
 }
 
 .timeline-description {
@@ -1146,7 +1192,7 @@ body.dark-mode .slideshow-container {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Subtle shadow like other accordions */
   transform: none; /* Ensure no tilt */
   overflow: hidden;
-  padding: 1.5rem; /* Standard accordion padding */
+  padding: 1rem; /* Reduced padding for less breathing space */
   z-index: 10;
 }
 
@@ -1173,19 +1219,11 @@ body.dark-mode #latest-news-section h3 {
     padding-top: 0; /* Remove extra padding */
 }
 
-/* Restore vertical line and marker from the news timeline */
-#latest-news-section .timeline::before {
-  content: ''; /* Restore the main vertical line */
-  position: absolute;
-  left: 8px; /* Position to appear on the board */
-  top: 0;
-  bottom: 0;
-  width: 1px; /* Thinner line */
-  background-color: var(--card-border); /* Light grey line */
-  z-index: 1;
-}
-body.dark-mode #latest-news-section .timeline::before {
-    background-color: var(--dark-border);
+/* Removed vertical line and marker from the news timeline */
+#latest-news-section .timeline::before,
+#latest-news-section .timeline-marker {
+  content: none;
+  display: none;
 }
 
 /* Styles for individual news items as clickable cards */
@@ -1198,7 +1236,7 @@ body.dark-mode #latest-news-section .timeline::before {
   padding: 1rem 1.2rem;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Subtle lifted effect */
-  margin-bottom: 1rem; /* Space between items */
+  margin-bottom: 0.75rem; /* Reduced space between items */
   position: relative;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -1244,26 +1282,9 @@ body.dark-mode #latest-news-section .timeline-item::before {
     background-color: #b30000; /* Brighter red for dark mode pin */
 }
 
-/* Restore timeline marker (the bullet on the line) */
-#latest-news-section .timeline-marker {
-  display: block; /* Ensure it's visible */
-  width: 8px; /* Standard marker size */
-  height: 8px;
-  background-color: var(--accent-blue); /* Match standard marker color */
-  border-radius: 50%;
-  z-index: 2;
-  flex-shrink: 0;
-  position: absolute; /* Position relative to .timeline */
-  left: 8px; /* Aligned with the vertical line */
-  transform: translateY(6px) translateX(-50%); /* Adjust for vertical alignment and centering on line */
-}
-body.dark-mode #latest-news-section .timeline-marker {
-    background-color: var(--accent-light);
-}
-
 /* Adjust timeline content for new card layout */
 #latest-news-section .timeline-content {
-  margin-left: 20px; /* Adjust to match the default timeline spacing */
+  margin-left: 0; /* No margin-left from removed line/marker */
   padding-left: 0;
 }
 
@@ -1279,20 +1300,36 @@ body.dark-mode #latest-news-section .timeline-date {
 }
 
 #latest-news-section .timeline-content a { /* News title link */
-    font-size: 0.95rem; /* Revert to smaller title on card */
-    font-weight: 600;
+    /* This specific selector for news titles inside timeline-content is no longer strictly needed as the parent .timeline-item is the link,
+       but keeping it to maintain visual styles for the title itself.
+       The `text-decoration: none;` is handled by the parent `.timeline-item` now.
+    */
     color: var(--accent-blue); /* Stronger blue for title */
-    line-height: 1.3;
-    margin-bottom: 0.5rem;
-    display: block;
+    font-weight: 600;
+    font-family: var(--font-serif); /* Changed to Merriweather for news titles */
+    font-size: 0.95rem; /* Adjusted size to be slightly smaller */
+    transition: color var(--transition-fast);
+    line-height: 1.3; /* Tighter line height for links */
+    display: block; /* Make it a block for better spacing */
 }
+/* Remove hover effect from internal link as the whole card has a hover effect now */
+#latest-news-section .timeline-content a:hover {
+  text-decoration: none; /* Prevent underline on hover of internal link */
+  color: var(--accent-blue); /* Keep color consistent with non-hover state */
+}
+
 body.dark-mode #latest-news-section .timeline-content a {
-    color: var(--accent-light);
+  color: var(--accent-light);
 }
+body.dark-mode #latest-news-section .timeline-content a:hover {
+  color: var(--accent-light); /* Keep color consistent in dark mode */
+}
+
 
 #latest-news-section .timeline-description {
     font-size: 0.8rem; /* Revert to smaller description */
     color: #666; /* Softer description color */
+    margin-top: 0; /* Remove default margin */
     line-height: 1.4;
     margin-bottom: 0.8rem; /* Space before archive button */
 }
@@ -1674,48 +1711,50 @@ body.dark-mode #latest-news-section .archive-btn {
             <h3>Latest News at KSoM</h3>
             <div class="timeline-container">
             <div class="timeline">
-                <div class="timeline-item">
+                <!-- Each timeline-item is now a clickable card -->
+                <a href="#" class="timeline-item" data-news-id="recruitment">
                 <div class="timeline-content">
                     <p class="timeline-date">June 3, 2025</p>
-                    <a href="#" class="news-title-link" data-news-id="recruitment">KSoM Recruitment Drive</a>
+                    <!-- news-title-link class removed from <a> tag as entire card is clickable -->
+                    <span class="news-title-link">KSoM Recruitment Drive</span>
                     <p class="timeline-description">Applications now open for key administrative positions: Accounts Officer and Registrar. Join our growing team supporting mathematical excellence.</p>
                 </div>
-                </div>
-                <div class="timeline-item">
+                </a>
+                <a href="#" class="timeline-item" data-news-id="phd-admissions">
                 <div class="timeline-content">
                     <p class="timeline-date">May 7, 2025</p>
-                    <a href="#" class="news-title-link" data-news-id="phd-admissions">PhD Admissions 2025</a>
+                    <span class="news-title-link">PhD Admissions 2025</span>
                     <p class="timeline-description">Applications invited for doctoral programmes in Pure and Applied Mathematics. Full financial support available for selected candidates.</p>
                 </div>
-                </div>
-                <div class="timeline-item">
+                </a>
+                <a href="#" class="timeline-item" data-news-id="visiting-faculty">
                 <div class="timeline-content">
                     <p class="timeline-date">March 4, 2025</p>
-                    <a href="#" class="news-title-link" data-news-id="visiting-faculty">Visiting Faculty Position</a>
+                    <span class="news-title-link">Visiting Faculty Position</span>
                     <p class="timeline-description">Seeking highly qualified candidates for Visiting Assistant Professor positions across all mathematical disciplines. Join our vibrant research community.</p>
                 </div>
-                </div>
-                <div class="timeline-item">
+                </a>
+                <a href="#" class="timeline-item" data-news-id="research-symposium">
                 <div class="timeline-content">
                     <p class="timeline-date">February 15, 2025</p>
-                    <a href="#" class="news-title-link" data-news-id="research-symposium">Annual Research Symposium</a>
+                    <span class="news-title-link">Annual Research Symposium</span>
                     <p class="timeline-description">Highlights from our successful annual symposium, featuring keynote speakers and groundbreaking research presentations.</p>
                 </div>
-                </div>
-                <div class="timeline-item">
+                </a>
+                <a href="#" class="timeline-item" data-news-id="new-faculty">
                 <div class="timeline-content">
                     <p class="timeline-date">January 20, 2025</p>
-                    <a href="#" class="news-title-link" data-news-id="new-faculty">New Faculty Announcement</a>
+                    <span class="news-title-link">New Faculty Announcement</span>
                     <p class="timeline-description">Welcome our newest faculty member, Dr. Alok Kumar, specializing in Algebraic Geometry.</p>
                 </div>
-                </div>
-                <div class="timeline-item">
+                </a>
+                <a href="#" class="timeline-item" data-news-id="winter-school">
                 <div class="timeline-content">
                     <p class="timeline-date">December 1, 2024</p>
-                    <a href="#" class="news-title-link" data-news-id="winter-school">Winter School on Number Theory</a>
+                    <span class="news-title-link">Winter School on Number Theory</span>
                     <p class="timeline-description">Registration now open for the intensive winter school focused on advanced topics in analytic number theory.</p>
                 </div>
-                </div>
+                </a>
             </div>
             </div>
             <div class="archive-btn-container">
@@ -1867,8 +1906,8 @@ body.dark-mode #latest-news-section .archive-btn {
     document.addEventListener('DOMContentLoaded', function () {
       // Initialize slideshow for Academic & Research Activities with 7-second interval
       initSlideshow('academicActivities', 7000);
-      // Initialize slideshow for Main Campus with 5-second interval
-      initSlideshow('mainCampus', 5000);
+      // Initialize slideshow for Main Campus with 7-second interval (changed from 5000ms)
+      initSlideshow('mainCampus', 7000);
 
       // Define shared calendar options for aesthetics
       const commonCalendarOptions = {
@@ -2101,12 +2140,15 @@ body.dark-mode #latest-news-section .archive-btn {
         document.querySelectorAll('.mobile-submenu').forEach(submenu => submenu.classList.remove('expanded'));
     });
 
-    // Close mobile menu when a link inside it is clicked
+    // Close mobile menu when clicking outside the panel or on a link inside
     mobileMenuOverlay.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A' && e.target.closest('.mobile-menu-content')) {
-            closeMobileMenu(); // Ensure the menu closes on link click
+        const mobileMenuPanel = mobileMenuOverlay.querySelector('.mobile-menu-panel');
+        // If the click is directly on the overlay OR on a link inside the panel
+        if (e.target === mobileMenuOverlay || (e.target.tagName === 'A' && mobileMenuPanel.contains(e.target))) {
+            closeMobileMenu();
         }
     });
+
 
     function closeMobileMenu() {
       mobileMenuOverlay.classList.remove('active');
@@ -2156,8 +2198,8 @@ body.dark-mode #latest-news-section .archive-btn {
     newsTitleLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            // Get the news ID from the data-news-id attribute on the anchor tag inside
-            const newsId = this.querySelector('.news-title-link').dataset.newsId;
+            // Get the news ID from the data-news-id attribute on the anchor tag itself
+            const newsId = this.dataset.newsId;
             if (newsData[newsId]) {
                 const newsItem = newsData[newsId];
                 const fullContent = `
