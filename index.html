@@ -422,9 +422,9 @@ nav a:hover {
   background: var(--card-bg);
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  padding: 1.5rem 1.25rem 3.5rem 1.25rem;
+  padding: 1.5rem 1.25rem 1.5rem 1.25rem; /* Adjusted padding to remove bottom space for expand link */
   transition: transform 0.2s ease;
-  position: relative;
+  position: relative; /* Keep for potential inner elements if needed, but expand-link is no longer absolute */
   margin-bottom: 1.5rem; /* Added vertical spacing between items */
   break-inside: avoid; /* Prevent content from breaking across columns within an item */
   page-break-inside: avoid; /* For print fallback */
@@ -456,7 +456,8 @@ body.dark-mode .main-layout-wrapper > .sidebar-content-wrapper > *
     display: flex; /* To center the button */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    /* Removed min-height to reduce wasted space */
+    padding-bottom: 1rem; /* Added padding below the button */
+    padding-top: 1rem; /* Added padding above the button */
 }
 
 
@@ -532,7 +533,7 @@ body.dark-mode .accordion-item {
 .accordion-snippet {
   font-size: 1rem;
   color: #444;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; Removed as expand-link is now inside */
   font-weight: normal; /* Ensure snippets are not bold */
 }
 .accordion-content {
@@ -614,9 +615,9 @@ body.dark-mode .accordion-item {
 }
 
 .expand-link {
-  position: absolute; /* Position relative to .accordion-item */
-  bottom: 1.5rem; /* Increased for more breathing space */
-  right: 1.25rem; /* Adjust as needed for padding */
+  display: block; /* Make it take its own line */
+  margin-top: 0.5rem; /* Space from the snippet above */
+  text-align: right; /* Align the text of the link to the right */
   color: var(--accent-blue);
   text-decoration: none;
   font-size: 0.9rem;
@@ -1398,6 +1399,7 @@ body.dark-mode .slideshow-container {
         <div class="accordion-header">About KSoM</div>
         <div class="accordion-snippet">
           Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.
+          <a class="expand-link" href="#" data-accordion-id="aboutKSoM">Expand</a>
         </div>
         <div class="accordion-content" style="display: none;">
           <p><strong>Kerala School of Mathematics (KSoM)</strong> is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.</p>
@@ -1407,7 +1409,6 @@ body.dark-mode .slideshow-container {
           <p>Beyond academic pursuits, KSoM is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.</p>
           <a class="learn-more-btn" href="https://ksom.res.in/about">Learn more</a>
         </div>
-        <a class="expand-link" href="#" data-accordion-id="aboutKSoM">Expand</a>
       </section>
 
       <!-- Research Areas Section -->
@@ -1415,6 +1416,7 @@ body.dark-mode .slideshow-container {
           <div class="accordion-header">Research Areas at KSoM</div>
           <div class="accordion-snippet">
           Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.
+          <a class="expand-link" href="#" data-accordion-id="researchAreas">Expand</a>
           </div>
           <div class="accordion-content" style="display: none;">
           <p>Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.</p>
@@ -1444,7 +1446,6 @@ body.dark-mode .slideshow-container {
               <p>Collaborative Environment<br/>Our research thrives through synergistic partnerships between faculty, postdoctoral researchers, and doctoral students. This collaborative ecosystem combines rigorous theoretical inquiry with computational approaches, positioning KSoM at the forefront of mathematical discovery while training next-generation mathematicians.</p>
               <a class="modal-learn-more-btn" href="https://ksom.res.in/research">Learn more about Research &rarr;</a>
               </div>
-          <a class="expand-link" href="#" data-accordion-id="researchAreas">Expand</a>
       </section>
 
       <!-- Academic & Research Activities Section -->
@@ -1470,6 +1471,7 @@ body.dark-mode .slideshow-container {
                   </div>
               </div>
               Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.
+              <a class="expand-link" href="#" data-accordion-id="academicResearchActivities">Expand</a>
               </div>
               <div class="accordion-content" style="display: none;">
               <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with mathematical networks.</p>
@@ -1494,7 +1496,6 @@ body.dark-mode .slideshow-container {
               <p>Community Impact<br/>These activities form the intellectual backbone of our research ecosystem, providing crucial platforms for knowledge exchange and professional growth. By integrating undergraduate students through senior faculty in shared learning experiences, we cultivate an inclusive environment that advances both individual scholarship and collective mathematical progress.</p>
               <a class="modal-learn-more-btn" href="https://ksom.res.in/activities">Learn more about Academic & Research Activities &rarr;</a>
               </div>
-              <a class="expand-link" href="#" data-accordion-id="academicResearchActivities">Expand</a>
           </section>
 
       <!-- Academic Programmes Section -->
@@ -1502,6 +1503,7 @@ body.dark-mode .slideshow-container {
           <div class="accordion-header">Academic Programmes at KSoM</div>
           <div class="accordion-snippet">
           Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.
+          <a class="expand-link" href="#" data-accordion-id="academicProgrammes">Expand</a>
           </div>
           <div class="accordion-content" style="display: none;">
           <p>Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.</p>
@@ -1519,7 +1521,6 @@ body.dark-mode .slideshow-container {
               <p>Scholarly Environment<br/>All programmes emphasize collaborative learning through weekly research seminars, specialized workshops, and annual conferences that connect students with global mathematical leaders. Our selective admission process identifies exceptional talent while maintaining small cohort sizes that ensure personalized guidance. This supportive ecosystem enables scholars to contribute meaningfully to mathematical knowledge while developing as versatile researchers equipped to address complex scientific challenges.</p>
               <a class="modal-learn-more-btn" href="https://ksom.res.in/programmes">Learn more about Academic Programmes &rarr;</a>
               </div>
-          <a class="expand-link" href="#" data-accordion-id="academicProgrammes">Expand</a>
       </section>
 
           <!-- Outreach Section -->
@@ -1527,6 +1528,7 @@ body.dark-mode .slideshow-container {
               <div class="accordion-header">Outreach Activities</div>
               <div class="accordion-snippet">
                   Kerala School of Mathematics is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.
+                  <a class="expand-link" href="#" data-accordion-id="outreachActivities">Expand</a>
               </div>
               <div class="accordion-content" style="display: none;">
                   <p>Kerala School of Mathematics is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.</p>
@@ -1547,7 +1549,6 @@ body.dark-mode .slideshow-container {
                   <p><strong>Impact and Reach</strong><br/>Our outreach annually engages a large number of participants through strategic partnerships with schools, universities, and scientific organizations. These efforts strengthen mathematical foundations across Kerala while creating inclusive pathways to advanced study, particularly through early interventions that inspire underrepresented groups to pursue mathematical careers.</p>
                   <a class="modal-learn-more-btn" href="https://ksom.res.in/outreach">Learn more about Outreach &rarr;</a>
               </div>
-              <a class="expand-link" href="#" data-accordion-id="outreachActivities">Expand</a>
           </section>
     </div>
 
@@ -1637,8 +1638,7 @@ body.dark-mode .slideshow-container {
               <div class="timeline-marker"></div>
               <div class="timeline-content">
                 <p class="timeline-date">August 5, 2025</p>
-                <a href="https://ksom.res.in/events/discrete-math-conference">International Conference on Discrete Mathematics</a>
-                <p class="timeline-description">Leading experts convene to discuss new theories and applications in discrete mathematics.</p>
+                <p class="timeline-description">International Conference on Discrete Mathematics</p>
               </div>
             </div>
             <div class="timeline-item">
