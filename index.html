@@ -311,7 +311,7 @@ nav a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0; /* Match existing mobile-menu-content a padding */
+    padding: 0.8rem 0; /* Slightly reduced padding */
 }
 
 .mobile-dropdown-header a {
@@ -322,7 +322,7 @@ nav a:hover {
     color: white; /* Ensure link color is white */
     text-decoration: none; /* Remove underline */
     font-family: var(--font-sans);
-    font-size: 1.1rem;
+    font-size: 1rem; /* Adjusted font size */
     text-transform: uppercase;
     transition: background 0.2s ease;
 }
@@ -334,7 +334,7 @@ nav a:hover {
     background: none;
     border: none;
     color: white;
-    font-size: 1.1rem; /* Slightly smaller than 1.8rem hamburger */
+    font-size: 1rem; /* Slightly smaller */
     cursor: pointer;
     padding: 0.5rem; /* Make it easily tappable */
     margin-left: 0.5rem; /* Space from the link */
@@ -350,7 +350,7 @@ nav a:hover {
     display: none; /* Hidden by default */
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.2);
-    padding: 0.5rem 0; /* Add some padding for the submenu content */
+    padding: 0.3rem 0; /* Reduced padding for sleeker look */
     width: 100%; /* Ensure submenu takes full width */
 }
 
@@ -359,10 +359,10 @@ nav a:hover {
 }
 
 .mobile-submenu a {
-    font-size: 0.95rem;
-    padding: 0.8rem 0;
+    font-size: 0.9rem; /* Adjusted font size */
+    padding: 0.6rem 0; /* Reduced padding */
     text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: none; /* Removed border */
     color: white; /* Ensure link color is white */
     text-decoration: none; /* Remove underline */
     font-family: var(--font-sans);
@@ -374,25 +374,32 @@ nav a:hover {
 }
 
 /* Existing mobile-menu-content a styles */
-.mobile-menu-content a {
+.mobile-menu-content > a { /* Target direct children anchor tags */
     color: white;
     text-decoration: none;
-    padding: 1rem 0;
+    padding: 0.8rem 0; /* Consistent padding */
     font-family: var(--font-sans);
-    font-size: 1.1rem; /* Larger font for mobile menu */
+    font-size: 1rem; /* Consistent font size */
     text-transform: uppercase;
     text-align: center;
     transition: background 0.2s ease;
     border-bottom: 1px solid rgba(255,255,255,0.1); /* Separator */
 }
 
-.mobile-menu-content a:last-child {
+.mobile-menu-content > a:last-child {
     border-bottom: none;
 }
 
-.mobile-menu-content a:hover {
+.mobile-menu-content > a:hover {
     background: rgba(255, 255, 255, 0.1);
 }
+
+/* Dark mode toggle in mobile menu */
+.mobile-menu-content .dark-toggle {
+    padding: 0.8rem 0; /* Align with other menu items */
+    border-bottom: none; /* No border for the last item */
+}
+
 
 /* Old: mobile-dropdown-header::after */
 .mobile-dropdown-header::after {
@@ -2023,9 +2030,6 @@ footer .footer-column a:hover {
                 modalContentElement.scrollTop = 0;
             }, 0); 
         }
-
-        // The modalLearnMoreBtn element is no longer dynamically created here for non-calendar modals
-        // as the button will be part of the 'content' if it originates from an accordion item.
         
         if (isCalendarModal) {
             // Destroy existing calendar instance if it exists
@@ -2110,8 +2114,17 @@ footer .footer-column a:hover {
                 fullCalendarInstance = null;
             }
             modalBody.innerHTML = content; // This will now include the single "Learn more" button
-            // Removed the conditional check and dynamic button creation here
-            // as the button is already part of the 'content' passed in.
+            
+            // Dynamically add "Learn More" button if learnMoreLink is provided
+            if (learnMoreLink) {
+                const learnMoreBtn = document.createElement('a');
+                learnMoreBtn.href = learnMoreLink;
+                learnMoreBtn.textContent = 'Learn more \u2192'; // Unicode for right arrow
+                learnMoreBtn.classList.add('modal-learn-more-btn');
+                learnMoreBtn.target = '_blank'; // Open in new tab
+                modalBody.appendChild(learnMoreBtn);
+            }
+
             document.getElementById('modal').classList.add('active');
         }
     }
@@ -2261,11 +2274,11 @@ footer .footer-column a:hover {
                   const dropdownHeader = document.createElement('div');
                   dropdownHeader.classList.add('mobile-dropdown-header');
 
-                  const linkElement = originalLink.cloneNode(true); // Clone the actual link (Home, Research, etc.)
-                  linkElement.classList.remove('dropdown-link'); // Remove any desktop-specific classes
-                  linkElement.classList.add('mobile-main-nav-link'); // Add a specific class for mobile main nav links
-                  linkElement.textContent = originalLink.textContent; // Ensure text content
-                  linkElement.href = originalLink.href; // Ensure href
+                  // Create the link element for the main menu item (e.g., Home, Research)
+                  const linkElement = document.createElement('a');
+                  linkElement.href = originalLink.href; // Set the href
+                  linkElement.textContent = originalLink.textContent; // Set the text content
+                  linkElement.classList.add('mobile-main-nav-link'); // Add a specific class for styling
 
                   const toggleButton = document.createElement('button');
                   toggleButton.classList.add('mobile-dropdown-toggle');
@@ -2300,7 +2313,10 @@ footer .footer-column a:hover {
           // Append dark mode toggle at the very end if it's a direct child of desktopNav
           const darkToggle = desktopNav.querySelector('.dark-toggle');
           if (darkToggle) {
-              mobileMenuContent.appendChild(darkToggle.cloneNode(true));
+              const clonedDarkToggle = darkToggle.cloneNode(true);
+              // Ensure cloned button also has the toggleDarkMode functionality
+              clonedDarkToggle.onclick = toggleDarkMode;
+              mobileMenuContent.appendChild(clonedDarkToggle);
           }
       }
 
