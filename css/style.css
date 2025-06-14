@@ -421,7 +421,7 @@ nav a:hover {
 .sidebar-container {
     display: flex;
     flex-direction: column;
-    gap: 0.2rem; /* Consistent spacing between sections within these flex containers */
+    gap: 0rem; /* Consistent spacing between sections within these flex containers */
     padding: 0; /* Remove internal padding, handled by child elements */
     background: transparent; /* Remove background, handled by child elements */
     box-shadow: none; /* Remove shadow, handled by child elements */
