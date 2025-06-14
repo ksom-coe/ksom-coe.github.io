@@ -133,7 +133,9 @@
 <body>
   {% include "header.html" %}
 
-  {{ content | safe }}
+  <main class="main-layout-wrapper">
+    {{ content | safe }}
+  </main>
 
   {% include "footer.html" %}
   {% include "modal.html" %}
