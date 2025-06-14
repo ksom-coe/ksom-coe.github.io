@@ -283,15 +283,15 @@ nav a:hover {
 
 
 .mobile-menu-overlay .close-btn {
-    position: absolute; /* Position relative to the panel */
+    position: absolute;
     top: 1rem;
     right: 1rem;
     background: none;
     border: none;
     font-size: 2rem;
     cursor: pointer;
-    z-index: 2001; /* Ensure close button is above menu items */
-    color: white; /* Make close button white */
+    z-index: 2001;
+    color: white;
 }
 
 .mobile-menu-content {
@@ -577,7 +577,7 @@ body.dark-mode .modal-research-card { /* Include modal cards for dark mode */
   padding: 0.7rem 1.2rem; /* Slightly larger padding for prominence */
   background-color: var(--accent-blue);
   color: white;
-  border-radius: 5_px;
+  border-radius: 5px; /* Fixed typo */
   text-decoration: none;
   font-size: 0.95rem; /* Slightly larger font */
   font-weight: 600; /* Slightly bolder */
@@ -1112,15 +1112,27 @@ body.dark-mode #upcoming-events-section .timeline-item {
     margin-left: 0; /* Keep margin-left at 0 */
 }
 
-#upcoming-events-section .timeline-content a {
-    text-decoration: none; /* Remove underline */
-    color: var(--accent-blue); /* Ensure link color */
+/* Styling for event titles (now spans) */
+.event-title {
+    color: var(--accent-blue); /* Ensure text color */
+    font-weight: 600;
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    line-height: 1.3;
+    display: block; /* Ensure it takes its own line */
+    margin-bottom: 0.5rem; /* Space between title and description */
+}
+body.dark-mode .event-title {
+    color: var(--accent-light);
 }
 
-#upcoming-events-section .timeline-content a:hover {
-    text-decoration: underline; /* Add underline on hover */
-    color: var(--accent-hover); /* Change color on hover */
+
+/* Apply specific style for event links to remove underline on hover */
+#upcoming-events-section .timeline-content .event-link:hover {
+    text-decoration: none; /* Remove underline on hover */
+    color: var(--accent-hover); /* Keep color change on hover */
 }
+
 body.dark-mode #upcoming-events-section .timeline-content a {
   color: var(--accent-light);
 }
@@ -1128,10 +1140,37 @@ body.dark-mode #upcoming-events-section .timeline-content a:hover {
   color: var(--accent-hover);
 }
 
+/* New button style for event details */
+/* This style is now removed as the button is removed */
+/*
+.event-details-btn {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--accent-light);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background var(--transition-fast), transform 0.2s ease;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.event-details-btn:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+*/
+
 /* --- Footer styles based on IAS image --- */
 footer {
-  background-color: #333; /* Dark background */
-  color: #fff; /* Light text */
+  background: linear-gradient(to right, var(--accent-blue), var(--accent-light)); /* Match nav bar background gradient */
+  color: white; /* Light text */
   padding: 30px 0; /* Vertical padding */
   width: 100%;
   font-family: var(--font-sans); /* Use sans-serif font for footer */
@@ -1142,9 +1181,10 @@ footer {
   display: flex;
   justify-content: space-between; /* Distribute columns */
   flex-wrap: wrap; /* Allow wrapping on smaller screens */
-  max-width: var(--max-content-width);
+  max-width: var(--max-content-width); /* Restrict to usable screen width */
   margin: 0 auto;
-  padding: 0 20px; /* Horizontal padding */
+  width: 90%; /* Added width to match header */
+  padding: 0; /* Removed horizontal padding */
 }
 
 .footer-column {
@@ -1165,29 +1205,30 @@ footer {
 }
 
 .footer-column h3 {
-  font-family: var(--font-serif);
+  font-family: var(--font-serif); /* Match nav bar title font */
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 15px;
-  color: #fff;
+  color: white;
   text-transform: uppercase;
 }
 
 .footer-column p {
   margin-bottom: 8px;
   line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9); /* Slightly subdued white for body text */
 }
 
-.footer-column a {
-  color: #fff;
+footer .footer-column a { /* Specificity for footer links */
+  color: white; /* Match nav bar link color */
   text-decoration: none;
   display: block;
   margin-bottom: 8px;
   transition: color 0.2s ease;
 }
 
-.footer-column a:hover {
-  color: var(--accent-light);
+footer .footer-column a:hover {
+  color: var(--accent-hover); /* Match nav bar hover color */
   text-decoration: underline;
 }
 
@@ -1205,6 +1246,16 @@ footer {
     width: 100%;
     height: 100%;
     border: none;
+}
+
+.footer-map-link { /* Specific style for the map link */
+    color: white;
+    text-decoration: underline;
+    margin-top: 10px;
+    display: block;
+}
+.footer-map-link:hover {
+    color: var(--accent-hover);
 }
 
 .give-now-btn,
@@ -1719,54 +1770,60 @@ footer {
             <h3>Upcoming Events at KSoM</h3>
             <div class="timeline-container">
             <div class="timeline">
-                <div class="timeline-item">
+                <a href="#" class="timeline-item" data-event-id="guest-lecture-sharma">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
                     <p class="timeline-date">July 10, 2025</p>
-                    <a href="https://ksom.res.in/events/guest-lecture-sharma">Guest Lecture Series: Dr. Anya Sharma</a>
+                    <span class="event-title">Guest Lecture Series: Dr. Anya Sharma</span>
                     <p class="timeline-description">Exploring advancements in Quantum Topology. Open to all researchers and students.</p>
+                    <!-- <button class="event-details-btn" data-event-id="guest-lecture-sharma">View Details</button> -->
                 </div>
-                </div>
-                <div class="timeline-item">
+                </a>
+                <a href="#" class="timeline-item" data-event-id="discrete-math-conference">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
                     <p class="timeline-date">August 5, 2025</p>
-                    <a href="https://ksom.res.in/events/discrete-math-conference">International Conference on Discrete Mathematics</a>
+                    <span class="event-title">International Conference on Discrete Mathematics</span>
                     <p class="timeline-description">Leading experts convene to discuss new theories and applications in discrete mathematics.</p>
+                    <!-- <button class="event-details-btn" data-event-id="discrete-math-conference">View Details</button> -->
                 </div>
-                </div>
-                <div class="timeline-item">
+                </a>
+                <a href="#" class="timeline-item" data-event-id="freshers-orientation">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
                     <p class="timeline-date">September 1, 2025</p>
-                    <a href="https://ksom.res.in/events/freshers-orientation">Freshers' Orientation Program</a>
+                    <span class="event-title">Freshers' Orientation Program</span>
                     <p class="timeline-description">Welcome session for new M.Sc. and Ph.D. students joining KSoM.</p>
+                    <!-- <button class="event-details-btn" data-event-id="freshers-orientation">View Details</button> -->
                 </div>
-                </div>
-                <div class="timeline-item">
+                </a>
+                <a href="#" class="timeline-item" data-event-id="ml-math-workshop">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
                     <p class="timeline-date">October 20, 2025</p>
-                    <a href="https://ksom.res.in/events/ml-math-workshop">Workshop on Machine Learning in Mathematics</a>
+                    <span class="event-title">Workshop on Machine Learning in Mathematics</span>
                     <p class="timeline-description">A practical workshop on the intersection of machine learning and mathematical research.</p>
+                    <!-- <button class="event-details-btn" data-event-id="ml-math-workshop">View Details</button> -->
                 </div>
-                </div>
-                <div class="timeline-item">
+                </a>
+                <a href="#" class="timeline-item" data-event-id="alumni-meet">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
                     <p class="timeline-date">November 12, 2025</p>
-                    <a href="https://ksom.res.in/events/alumni-meet">Annual Alumni Meet</a>
+                    <span class="event-title">Annual Alumni Meet</span>
                     <p class="timeline-description">Connect with fellow KSoM alumni and faculty. Networking and dinner included.</p>
+                    <!-- <button class="event-details-btn" data-event-id="alumni-meet">View Details</button> -->
                 </div>
-                </div>
-                <div class="timeline-item">
+                </a>
+                <a href="#" class="timeline-item" data-event-id="christmas-lecture">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
                     <p class="timeline-date">December 8, 2025</p>
-                    <a href="https://ksom.res.in/events/christmas-lecture">Christmas Lecture: The Beauty of Fractals</a>
+                    <span class="event-title">Christmas Lecture: The Beauty of Fractals</span>
                     <p class="timeline-description">A public lecture showcasing the visual and mathematical elegance of fractals.</p>
+                    <!-- <button class="event-details-btn" data-event-id="christmas-lecture">View Details</button> -->
                 </div>
-                </div>
+                </a>
             </div>
             </div>
             <div class="archive-btn-container">
@@ -1780,7 +1837,7 @@ footer {
     <div class="footer-container">
         <div class="footer-column footer-logo-column">
             <!-- Using the circle logo as image here for consistency, assuming it's available or can be generated -->
-            <img src="/Images/Main/circle-logo.jpg" alt="KSoM Logo" class="footer-logo">
+            <img src="/Images/Main/circle-logo.jpg" onerror="this.onerror=null;this.src='https://placehold.co/80x80/white/002b45?text=KSoM';" alt="KSoM Logo" class="footer-logo">
             <!-- Fallback for the logo if image not available -->
             <noscript>
                 <div class="circle-logo footer-logo">KSoM</div>
@@ -1796,7 +1853,7 @@ footer {
             <div class="footer-map-container">
                 <iframe src="https://maps.google.com/maps?q=Kerala%20School%20of%20Mathematics%2C%20Kozhikode&t=&z=14&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <a href="https://maps.app.goo.gl/3VFmButB7W3QyB7NA" target="_blank" style="color:white; text-decoration: underline; margin-top: 10px; display: block;">View on Google Maps</a>
+            <a href="https://maps.app.goo.gl/3VFmButB7W3QyB7NA" target="_blank" class="footer-map-link">View on Google Maps</a>
         </div>
         <div class="footer-column footer-links-column">
             <h3>Quick Links</h3>
@@ -1829,158 +1886,21 @@ footer {
   </footer>
 
   <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-    }
-
-    // Function to manage individual slideshows
-    function initSlideshow(slideshowId, intervalTime = 3000) {
-        let currentSlideIndex = 0; // Start at index 0 for array
-        let currentSlideInterval;
-        let slides = document.querySelectorAll(`[data-slideshow-id="${slideshowId}"] .mySlides`);
-
-        // Check if there are any slides to avoid errors
-        if (slides.length === 0) {
-            console.warn(`No slides found for slideshow-id: ${slideshowId}`);
-            return;
-        }
-
-        function showSlides() {
-            // Hide all slides
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-
-            // Increment index and loop if at end
-            currentSlideIndex++;
-            if (currentSlideIndex > slides.length) { currentSlideIndex = 1 }
-
-            // Display current slide
-            slides[currentSlideIndex - 1].style.display = "block";
-        }
-
-        // Clear any existing interval for this slideshow before setting a new one
-        if (currentSlideInterval) {
-            clearInterval(currentSlideInterval);
-        }
-
-        // Initial show and start interval
-        showSlides(); // Call once to display the first slide
-        currentSlideInterval = setInterval(showSlides, intervalTime); // Change image based on intervalTime
-    }
-
     // Global variable to hold the FullCalendar instance for the modal
     let fullCalendarInstance = null;
 
-    document.addEventListener('DOMContentLoaded', function () {
-      // Initialize slideshow for Academic & Research Activities with 7-second interval
-      initSlideshow('academicActivities', 7000);
-      // Initialize slideshow for Main Campus with 7-second interval (changed from 5000ms)
-      initSlideshow('mainCampus', 7000);
-
-      // Define shared calendar options for aesthetics
-      const commonCalendarOptions = {
-          headerToolbar: {
-              left: 'prev,next today',
-              center: 'title',
-              right: 'dayGridMonth,timeGridWeek,timeGridDay'
-          },
-          buttonText: { // Customize button text
-              today: 'Today',
-              month: 'Month',
-              week: 'Week',
-              day: 'Day'
-          },
-          editable: false,
-          selectable: false,
-          nowIndicator: true,
-          dayMaxEvents: true, // allow "more" link when too many events
-          events: [
-              { title: 'SWIM Workshop', date: '2025-06-15', url: 'https://ksom.res.in/events/swim-workshop', color: '#005c97' },
-              { title: 'Mathematics Colloquium', date: '2025-06-20', url: 'https://ksom.res.in/events/math-colloquium', color: '#002b45' },
-              { title: 'Outreach Day', date: '2025-06-25', url: 'https://ksom.res.in/events/outreach-day', color: '#005c97' },
-              { title: 'Algebra Seminar', date: '2025-06-05', url: 'https://ksom.res.in/events/algebra-seminar', color: '#002b45' },
-              { title: 'Geometry Talk', date: '2025-06-10', url: 'https://ksom.res.in/events/geometry-talk', color: '#005c97' },
-              { title: 'Analysis Lecture', date: '2025-06-22', url: 'https://ksom.res.in/events/analysis-lecture', color: '#002b45' },
-              // Add more events for a richer calendar
-              { title: 'Faculty Meeting', date: '2025-06-01', url: 'https://ksom.res.in/events/faculty-meeting', color: '#002b45' },
-              { title: 'Student Orientation', date: '2025-07-01', url: 'https://ksom.res.in/events/student-orientation', color: '#005c97' },
-              { title: 'Research Presentation', date: '2025-07-15', url: 'https://ksom.res.in/events/research-presentation', color: '#002b45' },
-              { title: 'PhD Viva Voce', date: '2025-07-28', url: 'https://ksom.res.in/events/phd-viva', color: '#005c97' },
-          ],
-          // Make events clickable
-          eventClick: function(info) {
-            if (info.event.url) {
-              window.open(info.event.url); // Open the URL in a new tab
-              info.jsEvent.preventDefault(); // Prevent default browser action
-            }
-          },
-          // Additional aesthetic options
-          eventTextColor: '#ffffff',
-          eventBorderColor: 'transparent',
-          eventBackgroundColor: 'var(--accent-light)', // Use CSS variable
-          dayHeaderContent: function(arg) {
-              return arg.text; // Keep default day headers
-          },
-          dayCellDidMount: function(info) {
-              // Add custom styling for today's date
-              if (info.isToday) {
-                  info.el.style.backgroundColor = 'rgba(0, 92, 151, 0.08)';
-                  info.el.style.borderRadius = '6px';
-              }
-          }
-      };
-
-
-      // Attach expand-link handlers for accordions (excluding calendar)
-      const expandLinks = document.querySelectorAll('.accordion-item .expand-link');
-      expandLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-          e.preventDefault();
-          const accordionItem = this.closest('.accordion-item');
-          const title = accordionItem.querySelector('.accordion-header').textContent;
-          const content = accordionItem.querySelector('.accordion-content').innerHTML;
-          openModal(title, content, false); // Not a calendar modal
-        });
-      });
-
-      // Attach click handler to the fancy calendar button's container
-      const calendarSectionButton = document.getElementById('calendar-section'); // Target the section by ID
-      if (calendarSectionButton) {
-          calendarSectionButton.addEventListener('click', function (e) {
-              // Now, clicking anywhere on the calendar section (which contains the fancy button)
-              if (e.target.closest('#events-calendar-button')) { // Only act if the fancy button or its child is clicked
-                  openModal('Upcoming Events Calendar', '', true); // Title, empty content, isCalendarModal true
-              }
-          });
-      }
-
-      // Existing modal handlers for other "Learn more" buttons (excluding expand-link for regular accordions)
-      document.querySelectorAll('.learn-more-btn:not(.expand-link)').forEach(btn => {
-        btn.addEventListener('click', function (e) {
-          e.preventDefault();
-          const section = this.closest('.accordion-item');
-          const title = section.querySelector('.accordion-header').textContent;
-          const content = section.querySelector('.accordion-content').innerHTML;
-          openModal(title, content, false); // Not a calendar modal
-        });
-      });
-
-      // Add event listener to modal overlay to close when clicking outside content
-      const modalOverlay = document.getElementById('modal');
-      modalOverlay.addEventListener('click', function(e) {
-        if (e.target === modalOverlay) { // Check if the click was directly on the overlay
-          closeModal();
-        }
-      });
-
-      // Function to open modal (modified for calendar)
-      function openModal(title, content, isCalendarModal = false) {
+    // Function to open modal (moved to global scope)
+    function openModal(title, content, isCalendarModal = false, learnMoreLink = null) {
         document.getElementById('modal-title').innerText = title;
         const modalBody = document.getElementById('modal-body');
         modalBody.innerHTML = ''; // Clear previous content
         modalBody.scrollTop = 0; // Scroll to top
 
+        const modalLearnMoreBtn = document.createElement('a');
+        modalLearnMoreBtn.classList.add('modal-learn-more-btn');
+        modalLearnMoreBtn.textContent = 'Learn More';
+        modalLearnMoreBtn.target = '_blank'; // Open in new tab
+        
         if (isCalendarModal) {
             // Destroy existing calendar instance if it exists
             if (fullCalendarInstance) {
@@ -1995,20 +1915,67 @@ footer {
             // Show modal first, then render calendar
             document.getElementById('modal').classList.add('active');
 
-            // Initialize the full calendar in the modal
+            // Define common calendar options for aesthetics (needs to be available here)
+            const commonCalendarOptions = {
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                buttonText: {
+                    today: 'Today',
+                    month: 'Month',
+                    week: 'Week',
+                    day: 'Day'
+                },
+                editable: false,
+                selectable: false,
+                nowIndicator: true,
+                dayMaxEvents: true,
+                events: [
+                    { title: 'SWIM Workshop', date: '2025-06-15', url: 'https://ksom.res.in/events/swim-workshop', color: '#005c97' },
+                    { title: 'Mathematics Colloquium', date: '2025-06-20', url: 'https://ksom.res.in/events/math-colloquium', color: '#002b45' },
+                    { title: 'Outreach Day', date: '2025-06-25', url: 'https://ksom.res.in/events/outreach-day', color: '#005c97' },
+                    { title: 'Algebra Seminar', date: '2025-06-05', url: 'https://ksom.res.in/events/algebra-seminar', color: '#002b45' },
+                    { title: 'Geometry Talk', date: '2025-06-10', url: 'https://ksom.res.in/events/geometry-talk', color: '#005c97' },
+                    { title: 'Analysis Lecture', date: '2025-06-22', url: 'https://ksom.res.in/events/analysis-lecture', color: '#002b45' },
+                    { title: 'Faculty Meeting', date: '2025-06-01', url: 'https://ksom.res.in/events/faculty-meeting', color: '#002b45' },
+                    { title: 'Student Orientation', date: '2025-07-01', url: 'https://ksom.res.in/events/student-orientation', color: '#005c97' },
+                    { title: 'Research Presentation', date: '2025-07-15', url: 'https://ksom.res.in/events/research-presentation', color: '#002b45' },
+                    { title: 'PhD Viva Voce', date: '2025-07-28', url: 'https://ksom.res.in/events/phd-viva', color: '#005c97' },
+                ],
+                eventClick: function(info) {
+                    if (info.event.url) {
+                        window.open(info.event.url);
+                        info.jsEvent.preventDefault();
+                    }
+                },
+                eventTextColor: '#ffffff',
+                eventBorderColor: 'transparent',
+                eventBackgroundColor: 'var(--accent-light)',
+                dayHeaderContent: function(arg) {
+                    return arg.text;
+                },
+                dayCellDidMount: function(info) {
+                    if (info.isToday) {
+                        info.el.style.backgroundColor = 'rgba(0, 92, 151, 0.08)';
+                        info.el.style.borderRadius = '6px';
+                    }
+                }
+            };
+
             fullCalendarInstance = new FullCalendar.Calendar(fullCalendarDiv, {
-                ...commonCalendarOptions, // Use common options
-                height: 'auto', // Allow it to expand
-                aspectRatio: 1.8 // Adjust aspect ratio for larger display
+                ...commonCalendarOptions,
+                height: 'auto',
+                aspectRatio: 1.8
             });
-            fullCalendarInstance.render(); // Re-render to ensure proper display in the new container
+            fullCalendarInstance.render();
             
-            // Re-render specifically to fix potential layout issues after modal is fully shown
             setTimeout(() => {
                 if (fullCalendarInstance) {
-                    fullCalendarInstance.updateSize(); // Force calendar to recalculate its dimensions
+                    fullCalendarInstance.updateSize();
                 }
-            }, 10); // Small delay to ensure modal is fully rendered
+            }, 10);
             
         } else {
             // Destroy existing calendar instance if it exists when opening a non-calendar modal
@@ -2017,169 +1984,304 @@ footer {
                 fullCalendarInstance = null;
             }
             modalBody.innerHTML = content;
+            if (learnMoreLink) {
+                modalLearnMoreBtn.href = learnMoreLink;
+                modalBody.appendChild(modalLearnMoreBtn);
+            }
             document.getElementById('modal').classList.add('active');
         }
-      }
-    });
-
-    function closeModal() {
-      document.getElementById('modal').classList.remove('active');
-      // Destroy the calendar instance when modal is closed
-      if (fullCalendarInstance) {
-          fullCalendarInstance.destroy();
-          fullCalendarInstance = null;
-      }
     }
 
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') {
-        closeModal();
-      }
-    });
+    // Function to close modal (moved to global scope)
+    function closeModal() {
+        document.getElementById('modal').classList.remove('active');
+        // Destroy the calendar instance when modal is closed
+        if (fullCalendarInstance) {
+            fullCalendarInstance.destroy();
+            fullCalendarInstance = null;
+        }
+    }
 
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    // Function to manage individual slideshows
+    function initSlideshow(slideshowId, intervalTime = 3000) {
+        let currentSlideIndex = 0;
+        let currentSlideInterval;
+        let slides = document.querySelectorAll(`[data-slideshow-id="${slideshowId}"] .mySlides`);
+
+        if (slides.length === 0) {
+            console.warn(`No slides found for slideshow-id: ${slideshowId}`);
+            return;
+        }
+
+        function showSlides() {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            currentSlideIndex++;
+            if (currentSlideIndex > slides.length) { currentSlideIndex = 1 }
+            slides[currentSlideIndex - 1].style.display = "block";
+        }
+
+        if (currentSlideInterval) {
+            clearInterval(currentSlideInterval);
+        }
+
+        showSlides();
+        currentSlideInterval = setInterval(showSlides, intervalTime);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Initialize slideshow for Academic & Research Activities with 7-second interval
+      initSlideshow('academicActivities', 7000);
+      // Initialize slideshow for Main Campus with 7-second interval (changed from 5000ms)
+      initSlideshow('mainCampus', 7000);
+
+      // Attach expand-link handlers for accordions (excluding calendar)
+      const expandLinks = document.querySelectorAll('.accordion-item .expand-link');
+      expandLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          const accordionItem = this.closest('.accordion-item');
+          const title = accordionItem.querySelector('.accordion-header').textContent;
+          const content = accordionItem.querySelector('.accordion-content').innerHTML;
+          // Extract the direct learn more button if it exists within the accordion content
+          const learnMoreBtnInAccordion = accordionItem.querySelector('.accordion-content .learn-more-btn');
+          let learnMoreLink = learnMoreBtnInAccordion ? learnMoreBtnInAccordion.href : null;
+          openModal(title, content, false, learnMoreLink);
+        });
+      });
+
+      // Attach click handler to the fancy calendar button's container
+      const calendarSectionButton = document.getElementById('calendar-section');
+      if (calendarSectionButton) {
+          calendarSectionButton.addEventListener('click', function (e) {
+              if (e.target.closest('#events-calendar-button')) {
+                  openModal('Upcoming Events Calendar', '', true);
+              }
           });
+      }
+
+      // Existing modal handlers for other "Learn more" buttons (excluding expand-link for regular accordions)
+      document.querySelectorAll('.learn-more-btn:not(.expand-link)').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          const section = this.closest('.accordion-item');
+          const title = section.querySelector('.accordion-header').textContent;
+          const content = section.querySelector('.accordion-content').innerHTML;
+          openModal(title, content, false, this.href); // Pass the button's href as learnMoreLink
+        });
+      });
+
+      // Add event listener to modal overlay to close when clicking outside content
+      const modalOverlay = document.getElementById('modal');
+      modalOverlay.addEventListener('click', function(e) {
+        if (e.target === modalOverlay) {
+          closeModal();
         }
       });
-    }
 
-    // --- Hamburger Menu Logic ---
-    const hamburgerIcon = document.getElementById('hamburger-icon');
-    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-    const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn');
-    const mobileMenuContent = document.getElementById('mobile-menu-content');
-    const desktopNav = document.getElementById('desktop-nav'); // Get the desktop nav element
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          closeModal();
+        }
+      });
 
-    function populateMobileMenu() {
-        // Clear existing content
-        mobileMenuContent.innerHTML = '';
-
-        // Clone desktop navigation items
-        Array.from(desktopNav.children).forEach(item => {
-            if (item.tagName === 'A') {
-                // Direct link
-                const clonedLink = item.cloneNode(true);
-                mobileMenuContent.appendChild(clonedLink);
-            } else if (item.classList.contains('dropdown')) {
-                // Dropdown menu
-                const dropdownHeader = document.createElement('div');
-                dropdownHeader.classList.add('mobile-dropdown-header');
-                dropdownHeader.textContent = item.querySelector('a').textContent; // Use the main link text as header
-                
-                const submenu = document.createElement('div');
-                submenu.classList.add('mobile-submenu');
-
-                Array.from(item.querySelector('.dropdown-content').children).forEach(subItem => {
-                    const clonedSubLink = subItem.cloneNode(true);
-                    submenu.appendChild(clonedSubLink);
-                });
-
-                mobileMenuContent.appendChild(dropdownHeader);
-                mobileMenuContent.appendChild(submenu);
-
-                // Add toggle functionality for mobile dropdowns
-                dropdownHeader.addEventListener('click', () => {
-                    dropdownHeader.classList.toggle('expanded');
-                    submenu.classList.toggle('expanded');
-                });
-            }
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
         });
-    }
+      }
 
-    // Event listener for opening the mobile menu
-    hamburgerIcon.addEventListener('click', () => {
-        populateMobileMenu(); // Populate each time it opens to ensure latest state
-        mobileMenuOverlay.classList.add('active');
-        // The close button is now inside the panel, so it needs to be made visible
-        mobileMenuOverlay.querySelector('.mobile-menu-panel').classList.add('active'); // Apply active class to panel
-        hamburgerIcon.classList.add('active');
-    });
+      // --- Hamburger Menu Logic ---
+      const hamburgerIcon = document.getElementById('hamburger-icon');
+      const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+      const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn');
+      const mobileMenuContent = document.getElementById('mobile-menu-content');
+      const desktopNav = document.getElementById('desktop-nav'); // Get the desktop nav element
 
-    // Event listener for closing the mobile menu
-    mobileMenuCloseBtn.addEventListener('click', () => {
+      function populateMobileMenu() {
+          mobileMenuContent.innerHTML = '';
+
+          Array.from(desktopNav.children).forEach(item => {
+              if (item.tagName === 'A') {
+                  const clonedLink = item.cloneNode(true);
+                  mobileMenuContent.appendChild(clonedLink);
+              } else if (item.classList.contains('dropdown')) {
+                  const dropdownHeader = document.createElement('div');
+                  dropdownHeader.classList.add('mobile-dropdown-header');
+                  dropdownHeader.textContent = item.querySelector('a').textContent;
+                  
+                  const submenu = document.createElement('div');
+                  submenu.classList.add('mobile-submenu');
+
+                  Array.from(item.querySelector('.dropdown-content').children).forEach(subItem => {
+                      const clonedSubLink = subItem.cloneNode(true);
+                      submenu.appendChild(clonedSubLink);
+                  });
+
+                  mobileMenuContent.appendChild(dropdownHeader);
+                  mobileMenuContent.appendChild(submenu);
+
+                  dropdownHeader.addEventListener('click', () => {
+                      dropdownHeader.classList.toggle('expanded');
+                      submenu.classList.toggle('expanded');
+                  });
+              }
+          });
+      }
+
+      hamburgerIcon.addEventListener('click', () => {
+          populateMobileMenu();
+          mobileMenuOverlay.classList.add('active');
+          mobileMenuOverlay.querySelector('.mobile-menu-panel').classList.add('active');
+          hamburgerIcon.classList.add('active');
+      });
+
+      mobileMenuCloseBtn.addEventListener('click', () => {
+          mobileMenuOverlay.classList.remove('active');
+          mobileMenuOverlay.querySelector('.mobile-menu-panel').classList.remove('active');
+          hamburgerIcon.classList.remove('active');
+          document.querySelectorAll('.mobile-dropdown-header').forEach(header => header.classList.remove('expanded'));
+          document.querySelectorAll('.mobile-submenu').forEach(submenu => submenu.classList.remove('expanded'));
+      });
+
+      mobileMenuOverlay.addEventListener('click', (e) => {
+          const mobileMenuPanel = mobileMenuOverlay.querySelector('.mobile-menu-panel');
+          if (e.target === mobileMenuOverlay || (e.target.tagName === 'A' && mobileMenuPanel.contains(e.target))) {
+              closeMobileMenu();
+          }
+      });
+
+      function closeMobileMenu() {
         mobileMenuOverlay.classList.remove('active');
-        mobileMenuOverlay.querySelector('.mobile-menu-panel').classList.remove('active'); // Remove active class from panel
+        mobileMenuOverlay.querySelector('.mobile-menu-panel').classList.remove('active');
         hamburgerIcon.classList.remove('active');
-        // Reset all mobile dropdowns to collapsed state when closing the menu
         document.querySelectorAll('.mobile-dropdown-header').forEach(header => header.classList.remove('expanded'));
         document.querySelectorAll('.mobile-submenu').forEach(submenu => submenu.classList.remove('expanded'));
+      }
+
+      // News data for modal display
+      const newsData = {
+          "recruitment": {
+              title: "KSoM Recruitment Drive",
+              date: "June 3, 2025",
+              description: "Applications are now open for key administrative positions including Accounts Officer and Registrar. We invite dynamic and experienced professionals to join our esteemed institution and contribute to its continued growth and success. This is a unique opportunity to be part of a leading research institute dedicated to mathematical excellence. Detailed job descriptions and application procedures are available on our careers page.",
+              link: "https://ksom.res.in/news/recruitment-drive"
+          },
+          "phd-admissions": {
+              title: "PhD Admissions 2025",
+              date: "May 7, 2025",
+              description: "Applications are invited for our prestigious doctoral programmes in Pure and Applied Mathematics for the academic year 2025. KSoM offers comprehensive financial support, including monthly scholarships and hostel accommodation, to all selected candidates. Our PhD program provides an immersive research environment with access to state-of-the-art facilities and mentorship from world-renowned faculty. Prospective candidates with a strong academic record in mathematics or a related field are encouraged to apply. The admission process involves a rigorous entrance examination and an interview.",
+              link: "https://ksom.res.in/admissions/phd"
+          },
+          "visiting-faculty": {
+              title: "Visiting Faculty Position",
+              date: "March 4, 2025",
+              description: "KSoM is seeking highly qualified candidates for Visiting Assistant Professor positions across all mathematical disciplines. We offer a vibrant and collaborative research environment with opportunities to engage in cutting-edge research and interact with leading mathematicians. The ideal candidate will have a strong research profile and a commitment to teaching and mentoring. We welcome applications from both experienced faculty and promising early-career researchers. Positions are available for periods ranging from three months to a full academic year.",
+              link: "https://ksom.res.in/careers/visiting-faculty"
+          },
+          "research-symposium": {
+              title: "Annual Research Symposium",
+              date: "February 15, 2025",
+              description: "The Annual Research Symposium held last week was a resounding success, featuring keynote speakers and groundbreaking research presentations from our faculty, postdocs, and research scholars. The symposium facilitated vibrant discussions and fostered new collaborations across various mathematical fields. Highlights included sessions on quantum algorithms, geometric group theory, and advancements in analytic number theory. We extend our gratitude to all participants and look forward to building on this momentum in the coming year.",
+              link: "https://ksom.res.in/activities/research-symposium"
+          },
+          "new-faculty": {
+              title: "New Faculty Announcement",
+              date: "January 20, 2025",
+              description: "We are thrilled to announce the appointment of Dr. Alok Kumar as our newest faculty member, specializing in Algebraic Geometry. Dr. Kumar brings a wealth of expertise and a promising research agenda that will significantly enhance our department's capabilities. His work focuses on the intersection of algebraic geometry and number theory, and we are confident that his contributions will greatly enrich our academic community and foster innovative research collaborations. Please join us in extending a warm welcome to Dr. Kumar.",
+              link: "https://ksom.res.in/people/faculty/alok-kumar"
+          },
+          "winter-school": {
+              title: "Winter School on Number Theory",
+              date: "December 1, 2024",
+              description: "Registration is now open for our intensive Winter School on Number Theory, scheduled for January 10-20, 2025. This school is designed for advanced undergraduate students, graduate students, and young researchers interested in modern developments in analytic number theory. The curriculum will cover topics such as sieve methods, automorphic forms, and L-functions, delivered through a series of lectures and problem-solving sessions by leading experts in the field. Early registration is encouraged due to limited seats.",
+              link: "https://ksom.res.in/activities/winter-school"
+          }
+      };
+
+      // Events data for modal display
+      const eventData = {
+          "guest-lecture-sharma": {
+              title: "Guest Lecture Series: Dr. Anya Sharma",
+              date: "July 10, 2025",
+              description: "Exploring advancements in Quantum Topology. Open to all researchers and students. Dr. Sharma is a distinguished mathematician known for her groundbreaking work in algebraic topology and its applications. This lecture promises to be a deep dive into the latest theories and unsolved problems in the field, offering valuable insights for both seasoned researchers and aspiring mathematicians.",
+              link: "https://ksom.res.in/events/guest-lecture-sharma"
+          },
+          "discrete-math-conference": {
+              title: "International Conference on Discrete Mathematics",
+              date: "August 5, 2025",
+              description: "Leading experts convene to discuss new theories and applications in discrete mathematics. This annual conference brings together top researchers from around the globe to present their latest findings, collaborate on new projects, and discuss the future directions of discrete mathematics. Topics include graph theory, combinatorics, cryptography, and theoretical computer science.",
+              link: "https://ksom.res.in/events/discrete-math-conference"
+          },
+          "freshers-orientation": {
+              title: "Freshers' Orientation Program",
+              date: "September 1, 2025",
+              description: "Welcome session for new M.Sc. and Ph.D. students joining KSoM. This comprehensive orientation will introduce new students to KSoM's academic environment, research facilities, faculty members, and campus life. It's an excellent opportunity to meet fellow students, get acquainted with the institute's resources, and prepare for a successful academic journey.",
+              link: "https://ksom.res.in/events/freshers-orientation"
+          },
+          "ml-math-workshop": {
+              title: "Workshop on Machine Learning in Mathematics",
+              date: "October 20, 2025",
+              description: "A practical workshop on the intersection of machine learning and mathematical research. This workshop will cover fundamental concepts of machine learning and demonstrate how mathematical principles underpin various ML algorithms. Participants will engage in hands-on sessions exploring topics like neural networks, optimization, and data analysis, with a focus on their mathematical foundations.",
+              link: "https://ksom.res.in/events/ml-math-workshop"
+          },
+          "alumni-meet": {
+              title: "Annual Alumni Meet",
+              date: "November 12, 2025",
+              description: "Connect with fellow KSoM alumni and faculty. Networking and dinner included. Our annual alumni meet is a cherished tradition, providing a platform for former students to reconnect, share their professional journeys, and foster a strong KSoM community. The event includes a keynote address from a prominent alumnus, a networking reception, and opportunities to reminisce about your time at KSoM.",
+              link: "https://ksom.res.in/events/alumni-meet"
+          },
+          "christmas-lecture": {
+              title: "Christmas Lecture: The Beauty of Fractals",
+              date: "December 8, 2025",
+              description: "A public lecture showcasing the visual and mathematical elegance of fractals. This captivating lecture is designed for a general audience, exploring the fascinating world of fractals found in nature, art, and mathematics. Through stunning visuals and accessible explanations, Professor Emily Davis will reveal the intricate patterns and profound mathematical concepts behind these infinitely complex shapes.",
+              link: "https://ksom.res.in/events/christmas-lecture"
+          }
+      };
+
+      // Add event listeners for news items to open modal
+      const newsItems = document.querySelectorAll('#latest-news-section .timeline-item');
+      newsItems.forEach(item => {
+          item.addEventListener('click', function(e) {
+              e.preventDefault();
+              const newsId = this.dataset.newsId;
+              if (newsData[newsId]) {
+                  const newsItem = newsData[newsId];
+                  const fullContent = `
+                      <p><strong>Date:</strong> ${newsItem.date}</p>
+                      <p>${newsItem.description}</p>
+                  `;
+                  openModal(newsItem.title, fullContent, false, newsItem.link);
+              }
+          });
+      });
+
+      // Add event listeners for upcoming events to open modal (now targets the specific button)
+      const eventItems = document.querySelectorAll('#upcoming-events-section .timeline-item'); // Changed to target the <a> tag
+      eventItems.forEach(item => { // Changed variable name to 'item'
+          item.addEventListener('click', function(e) {
+              e.preventDefault();
+              const eventId = this.dataset.eventId;
+              if (eventData[eventId]) {
+                  const eventItem = eventData[eventId];
+                  const fullContent = `
+                      <p><strong>Date:</strong> ${eventItem.date}</p>
+                      <p>${eventItem.description}</p>
+                  `;
+                  openModal(eventItem.title, fullContent, false, eventItem.link);
+              }
+          });
+      });
     });
-
-    // Close mobile menu when clicking outside the panel or on a link inside
-    mobileMenuOverlay.addEventListener('click', (e) => {
-        const mobileMenuPanel = mobileMenuOverlay.querySelector('.mobile-menu-panel');
-        // If the click is directly on the overlay OR on a link inside the panel
-        if (e.target === mobileMenuOverlay || (e.target.tagName === 'A' && mobileMenuPanel.contains(e.target))) {
-            closeMobileMenu();
-        }
-    });
-
-
-    function closeMobileMenu() {
-      mobileMenuOverlay.classList.remove('active');
-      mobileMenuOverlay.querySelector('.mobile-menu-panel').classList.remove('active'); // Ensure panel also deactivates
-      hamburgerIcon.classList.remove('active');
-      // Reset all mobile dropdowns to collapsed state when closing the menu
-      document.querySelectorAll('.mobile-dropdown-header').forEach(header => header.classList.remove('expanded'));
-      document.querySelectorAll('.mobile-submenu').forEach(submenu => submenu.classList.remove('expanded'));
-    }
-
-    // News data for modal display
-    const newsData = {
-        "recruitment": {
-            title: "KSoM Recruitment Drive",
-            date: "June 3, 2025",
-            description: "Applications are now open for key administrative positions including Accounts Officer and Registrar. We invite dynamic and experienced professionals to join our esteemed institution and contribute to its continued growth and success. This is a unique opportunity to be part of a leading research institute dedicated to mathematical excellence. Detailed job descriptions and application procedures are available on our careers page."
-        },
-        "phd-admissions": {
-            title: "PhD Admissions 2025",
-            date: "May 7, 2025",
-            description: "Applications are invited for our prestigious doctoral programmes in Pure and Applied Mathematics for the academic year 2025. KSoM offers comprehensive financial support, including monthly scholarships and hostel accommodation, to all selected candidates. Our PhD program provides an immersive research environment with access to state-of-the-art facilities and mentorship from world-renowned faculty. Prospective candidates with a strong academic record in mathematics or a related field are encouraged to apply. The admission process involves a rigorous entrance examination and an interview."
-        },
-        "visiting-faculty": {
-            title: "Visiting Faculty Position",
-            date: "March 4, 2025",
-            description: "KSoM is seeking highly qualified candidates for Visiting Assistant Professor positions across all mathematical disciplines. We offer a vibrant and collaborative research environment with opportunities to engage in cutting-edge research and interact with leading mathematicians. The ideal candidate will have a strong research profile and a commitment to teaching and mentoring. We welcome applications from both experienced faculty and promising early-career researchers. Positions are available for periods ranging from three months to a full academic year."
-        },
-        "research-symposium": {
-            title: "Annual Research Symposium",
-            date: "February 15, 2025",
-            description: "The Annual Research Symposium held last week was a resounding success, featuring keynote speakers and groundbreaking research presentations from our faculty, postdocs, and research scholars. The symposium facilitated vibrant discussions and fostered new collaborations across various mathematical fields. Highlights included sessions on quantum algorithms, geometric group theory, and advancements in analytic number theory. We extend our gratitude to all participants and look forward to building on this momentum in the coming year."
-        },
-        "new-faculty": {
-            title: "New Faculty Announcement",
-            date: "January 20, 2025",
-            description: "We are thrilled to announce the appointment of Dr. Alok Kumar as our newest faculty member, specializing in Algebraic Geometry. Dr. Kumar brings a wealth of expertise and a promising research agenda that will significantly enhance our department's capabilities. His work focuses on the intersection of algebraic geometry and number theory, and we are confident that his contributions will greatly enrich our academic community and foster innovative research collaborations. Please join us in extending a warm welcome to Dr. Kumar."
-        },
-        "winter-school": {
-            title: "Winter School on Number Theory",
-            date: "December 1, 2024",
-            description: "Registration is now open for our intensive Winter School on Number Theory, scheduled for January 10-20, 2025. This school is designed for advanced undergraduate students, graduate students, and young researchers interested in modern developments in analytic number theory. The curriculum will cover topics such as sieve methods, automorphic forms, and L-functions, delivered through a series of lectures and problem-solving sessions by leading experts in the field. Early registration is encouraged due to limited seats."
-        }
-    };
-
-    // Add event listeners for news items to open modal
-    const newsTitleLinks = document.querySelectorAll('#latest-news-section .timeline-item');
-    newsTitleLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            // Get the news ID from the data-news-id attribute on the anchor tag itself
-            const newsId = this.dataset.newsId;
-            if (newsData[newsId]) {
-                const newsItem = newsData[newsId];
-                const fullContent = `
-                    <p><strong>Date:</strong> ${newsItem.date}</p>
-                    <p>${newsItem.description}</p>
-                `;
-                openModal(newsItem.title, fullContent, false);
-            }
-        });
-    });
-
   </script>
   <!-- Modal Template -->
   <div id="modal" class="modal-overlay" role="dialog" aria-labelledby="modal-title" aria-modal="true">
