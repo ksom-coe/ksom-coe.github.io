@@ -35,9 +35,98 @@
     };
   </script>
   <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <!--<link rel="stylesheet" href="style.css">-->
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Kerala School of Mathematics",
+      "url": "https://ksom.res.in/",
+      "logo": "https://ksom.res.in/Images/Main/ksom-logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-4952809000",
+        "contactType": "general inquiry",
+        "email": "info@ksom.res.in"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kunnamangalam PO",
+        "addressLocality": "Kozhikode",
+        "addressRegion": "Kerala",
+        "postalCode": "673571",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://www.facebook.com/KeralaSchoolofMathematics",
+        "https://twitter.com/ksom_math",
+        "https://www.linkedin.com/company/kerala-school-of-mathematics"
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Guest Lecture Series: Dr. Anya Sharma",
+      "startDate": "2025-07-10T10:00:00+05:30",
+      "endDate": "2025-07-10T12:00:00+05:30",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "KSoM Auditorium",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Kunnamangalam PO",
+          "addressLocality": "Kozhikode",
+          "addressRegion": "Kerala",
+          "postalCode": "673571",
+          "addressCountry": "IN"
+        }
+      },
+      "description": "Exploring advancements in Quantum Topology. Open to all researchers and students.",
+      "performer": {
+        "@type": "Person",
+        "name": "Dr. Anya Sharma"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Kerala School of Mathematics",
+        "url": "https://ksom.res.in"
+      }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "International Conference on Discrete Mathematics",
+      "startDate": "2025-08-05T09:00:00+05:30",
+      "endDate": "2025-08-07T17:00:00+05:30",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "KSoM Conference Hall",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Kunnamangalam PO",
+          "addressLocality": "Kozhikode",
+          "addressRegion": "Kerala",
+          "postalCode": "673571",
+          "addressCountry": "IN"
+        }
+      },
+      "description": "Leading experts convene to discuss new theories and applications in discrete mathematics.",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Kerala School of Mathematics",
+        "url": "https://ksom.res.in"
+      }
+    }
+  </script>
   <style>
-
     /* === Global Variables === */
 :root {
   --primary-bg: #f8f9fa;
@@ -474,7 +563,7 @@ nav a:hover {
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     box-sizing: border-box;
-    cursor: pointer; /* Make the entire item clickable */
+    cursor: pointer; /* Now the entire item is clickable */
     transition: all 0.3s ease; /* Smooth transition for hover effects */
     /* Removed margin-bottom here. Spacing is now handled by the 'gap' of their parent flex/grid container. */
     break-inside: avoid-column; /* Still relevant for print/column-flow scenarios if any */
@@ -505,8 +594,8 @@ nav a:hover {
     display: flex; /* Ensure button is centered */
     justify-content: center;
     align-items: center;
-    margin-top: 0.5rem; /* Added margin for calendar section */
-    margin-bottom: 0.5rem; /* Added margin for calendar section */
+    margin-top: 0.25rem; /* Reduced from 0.5rem */
+    margin-bottom: 0.25rem; /* Reduced from 0.5rem */
     cursor: default; /* Not clickable for modal */
     transform: none; /* No transform on hover */
 }
@@ -579,12 +668,13 @@ body.dark-mode .accordion-item:hover {
   font-weight: 600;
   color: var(--accent-blue);
   margin-bottom: 0.4rem;
-  /* Removed cursor: pointer; from here as the whole accordion-item is clickable */
+  cursor: inherit; /* Inherit cursor from parent (.accordion-item) */
 }
 .accordion-snippet {
   font-size: 1rem;
   color: #444;
   font-weight: normal; /* Ensure snippets are not bold */
+  cursor: inherit; /* Inherit cursor from parent (.accordion-item) */
 }
 .accordion-content {
   font-size: 0.975rem;
@@ -740,27 +830,27 @@ body.dark-mode .modal-research-card p {
 
 /* Specific style for news/events archive buttons */
 .archive-btn-container {
-    text-align: right; /* Align buttons to the right */
-    margin-top: 1rem; /* Space above buttons */
+    text-align: right;
+    margin-top: 1rem;
 }
 .archive-btn {
   display: inline-block;
-  padding: 0.4rem 0.8rem; /* Smaller padding */
-  background: linear-gradient(45deg, var(--accent-light), var(--accent-blue)); /* Flashier gradient */
+  padding: 0.4rem 0.8rem;
+  background: linear-gradient(45deg, var(--accent-light), var(--accent-blue));
   color: white;
   border-radius: 5px;
   text-decoration: none;
-  font-size: 0.8rem; /* Smaller font */
+  font-size: 0.8rem;
   font-weight: 600;
   transition: all 0.2s ease;
   cursor: pointer;
   font-family: var(--font-sans);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .archive-btn:hover {
   background: linear-gradient(45deg, var(--accent-blue), var(--accent-hover));
-  transform: scale(1.02); /* Subtle flash effect */
+  transform: scale(1.02);
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
@@ -792,9 +882,9 @@ body.dark-mode .modal-research-card p {
   overflow-y: auto;
   position: relative;
   color: var(--primary-text);
-  font-family: var(--font-body); /* Apply Lora to modal content */
+  font-family: var(--font-body);
 }
-.modal-content p + p { /* Add margin between consecutive paragraphs */
+.modal-content p + p {
   margin-top: 1em;
 }
 .modal-close {
@@ -810,49 +900,48 @@ body.dark-mode .modal-research-card p {
 /* === Calendar === */
 /* Styling for the fancy calendar button */
 .fancy-calendar-button {
-    background: radial-gradient(circle at top left, var(--accent-light) 0%, var(--accent-blue) 100%); /* More radial gradient */
+    background: radial-gradient(circle at top left, var(--accent-light) 0%, var(--accent-blue) 100%);
     color: white;
     border: none;
-    padding: 0.75rem 1.5rem; /* Reduced from 1.5rem 2.5rem */
-    border-radius: 15px; /* More rounded */
+    padding: 0.75rem 1.5rem;
+    border-radius: 15px;
     font-family: var(--font-sans);
-    font-size: 1.3rem; /* Larger font */
+    font-size: 1.3rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     cursor: pointer;
-    /* Reduced vertical shadow */
     box-shadow: 0 4px 8px rgba(0, 43, 69, 0.2), 0 2px 4px rgba(0,0,0,0.2);
-    transition: all 0.4s ease; /* Smoother transition */
+    transition: all 0.4s ease;
     display: flex;
     align-items: center;
-    justify-content: center; /* Center text within button */
-    position: relative; /* For bubble effect or other animations */
-    overflow: hidden; /* Hide overflow for hover effects */
-    outline: none; /* Remove outline */
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    outline: none;
 }
 
 .fancy-calendar-button:hover {
-    background: radial-gradient(circle at bottom right, var(--accent-hover) 0%, var(--accent-blue) 100%); /* Change gradient direction on hover */
-    transform: translateY(-5px) scale(1.03); /* Lift and slightly enlarge more */
-    box-shadow: 0 20px 40px rgba(0, 43, 69, 0.5), 0 8px 15px rgba(0,0,0,0.4); /* Even deeper, more pronounced shadow */
+    background: radial-gradient(circle at bottom right, var(--accent-hover) 0%, var(--accent-blue) 100%);
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 43, 69, 0.5), 0 8px 15px rgba(0,0,0,0.4);
 }
 
 .fancy-calendar-button:active {
     transform: translateY(0) scale(1);
-    box-shadow: 0 5px 10px rgba(0, 43, 69, 0.2), inset 0 2px 4px (0,0,0,0.3); /* Pressed effect */
+    box-shadow: 0 5px 10px rgba(0, 43, 69, 0.2), inset 0 2px 4px (0,0,0,0.3);
 }
 
 /* Full calendar for modal */
 #full-calendar {
-  font-family: var(--font-sans); /* Ensure calendar uses Inter font */
-  border: none; /* No border for the calendar itself */
-  background-color: transparent; /* No background for calendar itself */
-  border-radius: 0; /* No border radius for calendar itself */
-  overflow: hidden; /* Hide overflow */
-  width: 100% !important; /* Take full width of parent */
-  padding: 0; /* No padding within the calendar */
-  box-shadow: none; /* No shadow on calendar itself */
+  font-family: var(--font-sans);
+  border: none;
+  background-color: transparent;
+  border-radius: 0;
+  overflow: hidden;
+  width: 100% !important;
+  padding: 0;
+  box-shadow: none;
 }
 
 body.dark-mode #full-calendar {
@@ -862,25 +951,25 @@ body.dark-mode #full-calendar {
 
 /* FullCalendar Toolbar (Header) */
 .fc .fc-toolbar {
-  background-color: var(--accent-blue); /* Consistent header background */
+  background-color: var(--accent-blue);
   color: white;
-  padding: 0.5rem 0.8rem; /* Slightly reduced padding */
+  padding: 0.5rem 0.8rem;
   border-bottom: 1px solid rgba(255,255,255,0.1);
   border-radius: 8px;
-  margin-bottom: 10px; /* Space between toolbar and calendar grid */
-  display: flex; /* Ensure flexbox for layout within toolbar */
-  justify-content: space-between; /* Space out items */
-  align-items: center; /* Vertically align items */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for toolbar */
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .fc .fc-toolbar-title {
-  font-family: var(--font-serif); /* Use Merriweather (serif) for calendar title */
-  font-size: 1.1rem; /* Slightly larger font for title */
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
   font-weight: 700;
   color: white;
-  flex-grow: 1; /* Allow title to grow and push buttons to ends */
-  text-align: center; /* Center the title */
+  flex-grow: 1;
+  text-align: center;
 }
 
 /* FullCalendar Buttons */
@@ -888,24 +977,24 @@ body.dark-mode #full-calendar {
   background-color: rgba(255, 255, 255, 0.2);
   border: none;
   color: white;
-  padding: 0.4em 0.8em; /* Adjusted button padding */
+  padding: 0.4em 0.8em;
   border-radius: 5px;
   font-weight: 500;
-  font-size: 0.8em; /* Adjusted font size for buttons */
+  font-size: 0.8em;
   transition: background-color var(--transition-fast), transform 0.1s ease, box-shadow 0.2s ease;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08); /* Reduced shadow */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
   cursor: pointer;
-  outline: none; /* Remove default outline */
-  font-family: var(--font-sans); /* Apply Inter to calendar buttons */
+  outline: none;
+  font-family: var(--font-sans);
 }
 .fc .fc-button:hover {
   background-color: rgba(255, 255, 255, 0.3);
-  transform: translateY(-1px); /* Subtle lift effect */
+  transform: translateY(-1px);
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 .fc .fc-button:active {
   background-color: rgba(255, 255, 255, 0.4);
-  transform: translateY(0); /* Return to original position */
+  transform: translateY(0);
   box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
 }
 .fc .fc-button-primary:not(:disabled).fc-button-active {
@@ -917,7 +1006,7 @@ body.dark-mode #full-calendar {
 /* Day Grid Cells */
 .fc-theme-standard td,
 .fc-theme-standard th {
-  border-color: var(--card-border); /* Softer cell borders */
+  border-color: var(--card-border);
 }
 body.dark-mode .fc-theme-standard td,
 body.dark-mode .fc-theme-standard th {
@@ -925,9 +1014,9 @@ body.dark-mode .fc-theme-standard th {
 }
 
 .fc-daygrid-day-top {
-  padding: 0.35em; /* Adjusted padding */
-  font-weight: 600; /* Slightly bolder day numbers */
-  font-size: 0.75rem; /* Larger font size for day numbers */
+  padding: 0.35em;
+  font-weight: 600;
+  font-size: 0.75rem;
   color: var(--primary-text);
 }
 body.dark-mode .fc-daygrid-day-top {
@@ -936,11 +1025,11 @@ body.dark-mode .fc-daygrid-day-top {
 
 /* Days of the week (headers) */
 .fc-col-header-cell-cushion {
-    font-size: 0.7rem; /* Adjusted font size for day names */
-    color: #555; /* Slightly darker color for day names */
-    font-weight: 600; /* Bolder day names */
-    padding-top: 0.6em; /* Add some top padding */
-    padding-bottom: 0.6em; /* Add some bottom padding */
+    font-size: 0.7rem;
+    color: #555;
+    font-weight: 600;
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
 }
 body.dark-mode .fc-col-header-cell-cushion {
     color: #ccc;
@@ -949,31 +1038,31 @@ body.dark-mode .fc-col-header-cell-cushion {
 
 /* Events */
 .fc-event {
-  background-color: var(--accent-light); /* Event background color */
-  color: white; /* Event text color */
-  border-radius: 4px; /* Slightly larger rounded event corners */
-  padding: 0.2em 0.4em; /* Adjusted padding */
-  margin-bottom: 3px; /* Adjusted margin */
+  background-color: var(--accent-light);
+  color: white;
+  border-radius: 4px;
+  padding: 0.2em 0.4em;
+  margin-bottom: 3px;
   border: none;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Adjusted shadow */
-  white-space: normal; /* Allow text to wrap */
-  font-family: var(--font-sans); /* Use Inter for event text */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  white-space: normal;
+  font-family: var(--font-sans);
 }
 body.dark-mode .fc-event {
-  background-color: #0072b1; /* A slightly different accent for dark mode events */
+  background-color: #0072b1;
 }
 
 .fc-event-title {
-  font-size: 0.75em; /* Adjusted event text size */
+  font-size: 0.75em;
   font-weight: 500;
-  white-space: normal; /* Ensure text wraps */
+  white-space: normal;
 }
 
 /* Today's highlighting */
 .fc-day-today {
-  background-color: rgba(0, 92, 151, 0.08); /* Adjusted accent background for today */
-  border-radius: 8px; /* Apply rounded corners to today's cell */
-  border: 1px solid rgba(0, 92, 151, 0.2); /* Adjusted softer border */
+  background-color: rgba(0, 92, 151, 0.08);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 92, 151, 0.2);
 }
 body.dark-mode .fc-day-today {
   background-color: rgba(0, 114, 177, 0.12);
@@ -990,24 +1079,24 @@ body.dark-mode .fc-daygrid-day.fc-day-valid {
 
 /* Day numbers for other months */
 .fc-day-other .fc-daygrid-day-top {
-  opacity: 0.4; /* Adjusted faded out days from other months */
+  opacity: 0.4;
 }
 
 /* General improvements */
 .fc-scrollgrid-sync-table {
-  border-collapse: separate; /* Allow border-radius on cells */
+  border-collapse: separate;
 }
 .fc-daygrid-day-frame {
-  min-height: 40px; /* Adjusted height for day cells */
+  min-height: 40px;
 }
 
 /* === Timeline UI === */
 .timeline-container {
-  max-height: 450px; /* Show ~3 items */
-  overflow-y: auto; /* Always show scrollbar if content overflows */
-  padding-right: 2px; /* Push scrollbar a little to the right */
-  margin-top: 1rem; /* Added margin to separate from heading */
-  padding-top: 0.5rem; /* Padding at the top of the scrollable area */
+  max-height: 450px;
+  overflow-y: auto;
+  padding-right: 2px;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
 }
 /* Removed :hover { overflow-y: auto; } since it's now applied above */
 .timeline-container::-webkit-scrollbar {
@@ -1024,7 +1113,7 @@ body.dark-mode .timeline-container::-webkit-scrollbar-thumb {
 
 .timeline {
   position: relative;
-  font-family: var(--font-body); /* Apply Lora to timeline content */
+  font-family: var(--font-body);
 }
 
 /* Re-add the timeline vertical line for general .timeline, but override for #latest-news-section below */
@@ -1033,10 +1122,10 @@ body.dark-mode .timeline-container::-webkit-scrollbar-thumb {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 6px; /* Position the line slightly to the right of the left edge */
-  width: 2px; /* Thin line */
-  background-color: #ddd; /* Light grey for subtle line */
-  z-index: 1; /* Ensure it's behind content */
+  left: 6px;
+  width: 2px;
+  background-color: #ddd;
+  z-index: 1;
 }
 
 body.dark-mode .timeline::before {
@@ -1046,16 +1135,16 @@ body.dark-mode .timeline::before {
 /* Base style for timeline items, now functioning as clickable cards */
 .timeline-item {
   position: relative;
-  display: flex; /* Changed to flex for original timeline layout */
-  align-items: flex-start; /* Align items to the top */
-  padding-left: 25px; /* Space for the marker and line */
-  padding-bottom: 0.6rem; /* Reduced padding between items */
-  margin-bottom: 0.6rem; /* Reduced margin between items */
-  border-bottom: 1px dashed rgba(0, 0, 0, 0.05); /* Lighter, more subtle separator */
-  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  padding-left: 25px;
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+  cursor: pointer; /* Ensure news items are clickable */
   transition: all 0.2s ease;
-  text-decoration: none; /* Remove underline from the anchor */
-  color: inherit; /* Inherit color from parent for text elements */
+  text-decoration: none;
+  color: inherit;
 }
 
 .timeline-item:last-child {
@@ -1070,23 +1159,22 @@ body.dark-mode .timeline-item {
 
 /* Specific styling for the news cards - retain previous values */
 #latest-news-section .timeline-item {
-  background-color: #f2ede1; /* Desaturated light cream/tan */
+  background-color: #f2ede1;
   background-image:
     linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 50%),
     linear-gradient(-45deg, rgba(0,0,0,0.05) 0%, transparent 60%);
   padding: 1rem 1.2rem;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Subtle lifted effect */
-  margin-bottom: 0.75rem; /* Reduced space between items */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-bottom: 0.75rem;
   position: relative;
-  cursor: pointer;
   transition: all 0.2s ease;
-  display: block; /* Keep as block for card layout */
-  border-bottom: none; /* No dashed line for individual items */
+  display: block;
+  border-bottom: none;
 }
 
 body.dark-mode #latest-news-section .timeline-item {
-    background-color: #3a322b; /* Darker base for dark mode matte bamboo */
+    background-color: #3a322b;
     background-image:
         linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%),
         linear-gradient(-45deg, rgba(0,0,0,0.1) 0%, transparent 60%);
@@ -1095,13 +1183,13 @@ body.dark-mode #latest-news-section .timeline-item {
 
 /* Alternating tilts for cards */
 #latest-news-section .timeline-item:nth-child(odd) {
-    transform: rotate(0.5deg); /* Slight clockwise tilt */
+    transform: rotate(0.5deg);
 }
 #latest-news-section .timeline-item:nth-child(even) {
-    transform: rotate(-0.5deg); /* Slight anti-clockwise tilt */
+    transform: rotate(-0.5deg);
 }
 #latest-news-section .timeline-item:hover {
-    transform: scale(1.01) rotate(0deg); /* Straighten and lift on hover */
+    transform: scale(1.01) rotate(0deg);
     box-shadow: 0 8px 15px rgba(0,0,0,0.2);
 }
 
@@ -1109,72 +1197,72 @@ body.dark-mode #latest-news-section .timeline-item {
 #latest-news-section .timeline-item::before {
   content: '';
   position: absolute;
-  top: -6px; /* Adjust pin position above the card */
-  left: 50%; /* Center horizontally */
+  top: -6px;
+  left: 50%;
   transform: translateX(-50%);
-  width: 10px; /* Smaller pin */
+  width: 10px;
   height: 10px;
-  background-color: #8b0000; /* Dark red for a classic pushpin */
+  background-color: #8b0000;
   border-radius: 50%;
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.3), 0 0.5px 1px rgba(0,0,0,0.2);
   z-index: 3;
 }
 body.dark-mode #latest-news-section .timeline-item::before {
-    background-color: #b30000; /* Brighter red for dark mode pin */
+    background-color: #b30000;
 }
 
 /* Override removed timeline marker for #latest-news-section */
 #latest-news-section .timeline-marker {
-  display: none; /* Ensure no marker on news cards */
+  display: none;
 }
 
 /* Adjust timeline content for new card layout */
 #latest-news-section .timeline-content {
-  margin-left: 0; /* No margin-left from removed line/marker */
+  margin-left: 0;
   padding-left: 0;
 }
 
 /* Specific text styling within news cards for readability */
 #latest-news-section .timeline-date {
-    font-size: 0.7rem; /* Revert to smaller date font */
-    color: #888; /* Softer color for date */
-    font-family: var(--font-sans); /* Inter for date */
-    margin-bottom: 0.1rem; /* Reduced space */
+    font-size: 0.7rem;
+    color: #888;
+    font-family: var(--font-sans);
+    margin-bottom: 0.1rem;
 }
 body.dark-mode #latest-news-section .timeline-date {
     color: #bbb;
 }
 
-#latest-news-section .timeline-content .news-title-link { /* News title link */
-    color: var(--accent-blue); /* Stronger blue for title */
+#latest-news-section .timeline-content .news-title-link {
+    color: var(--accent-blue);
     font-weight: 600;
-    font-family: var(--font-serif); /* Changed to Merriweather for news titles */
-    font-size: 0.95rem; /* Adjusted size to be slightly smaller */
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
     transition: color var(--transition-fast);
-    line-height: 1.3; /* Tighter line height for links */
-    display: block; /* Make it a block for better spacing */
-    text-decoration: none; /* Ensure no underline */
+    line-height: 1.3;
+    display: block;
+    text-decoration: none;
 }
 /* Remove hover effect from internal link as the whole card has a hover effect now */
 #latest-news-section .timeline-content .news-title-link:hover {
-  text-decoration: none; /* Prevent underline on hover of internal link */
-  color: var(--accent-blue); /* Keep color consistent with non-hover state */
+  text-decoration: none;
+  color: var(--accent-blue);
 }
 
 body.dark-mode #latest-news-section .timeline-content .news-title-link {
   color: var(--accent-light);
 }
 body.dark-mode #latest-news-section .timeline-content .news-title-link:hover {
-  color: var(--accent-light); /* Keep color consistent in dark mode */
+  color: var(--accent-light);
 }
 
 
 #latest-news-section .timeline-description {
-    font-size: 0.8rem; /* Revert to smaller description */
-    color: #666; /* Softer description color */
-    margin-top: 0; /* Remove default margin */
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0;
     line-height: 1.4;
-    margin-bottom: 0.8rem; /* Space before archive button */
+    margin-bottom: 0.8rem;
 }
 body.dark-mode #latest-news-section .timeline-description {
     color: var(--dark-primary-text);
@@ -1182,7 +1270,7 @@ body.dark-mode #latest-news-section .timeline-description {
 
 /* Ensure archive button within news section is readable on light background */
 #latest-news-section .archive-btn {
-    background: linear-gradient(45deg, var(--accent-light), var(--accent-blue)); /* Restore standard button style */
+    background: linear-gradient(45deg, var(--accent-light), var(--accent-blue));
     color: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
@@ -1198,39 +1286,40 @@ body.dark-mode #latest-news-section .archive-btn {
 
 /* Space after slideshow in Academic & Research Activities */
 #academic-activities-section .slideshow-container {
-    margin-bottom: 1.5rem; /* Add space below the slideshow */
+    margin-bottom: 1.5rem;
 }
 
 /* Specific styling for the upcoming events timeline */
 #upcoming-events-section .timeline::before {
-    content: ''; /* Re-add the vertical line */
+    content: '';
 }
 
 #upcoming-events-section .timeline-marker {
-    display: block; /* Re-add the markers */
-    width: 8px; /* Size of the bullet */
+    display: block;
+    width: 8px;
     height: 8px;
-    background-color: var(--accent-light); /* Bullet color */
+    background-color: var(--accent-light);
     border-radius: 50%;
-    position: absolute; /* Position it relative to timeline-item */
-    left: 0; /* Align to the line */
-    top: 0.75rem; /* Adjust vertically to be centered with content */
-    transform: translateY(-50%); /* Fine-tune vertical alignment */
-    z-index: 2; /* Above the line */
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+    transform: translateY(-50%);
+    z-index: 2;
 }
 body.dark-mode #upcoming-events-section .timeline-marker {
-    background-color: var(--accent-hover); /* Dark mode bullet color */
+    background-color: var(--accent-hover);
 }
 
 #upcoming-events-section .timeline-item {
-    background: none; /* No special background for upcoming events */
-    padding: 0 0 0.6rem 25px; /* Revert padding for timeline items */
+    background: none;
+    padding: 0 0 0.6rem 25px;
     margin-bottom: 0.6rem;
-    border-bottom: 1px dashed rgba(0, 0, 0, 0.05); /* Re-add dashed border */
-    display: flex; /* Keep as flex for alignment */
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+    display: flex;
     align-items: flex-start;
-    box-shadow: none; /* Remove box shadow */
-    transform: none; /* Remove tilt */
+    box-shadow: none;
+    transform: none;
+    cursor: pointer; /* Ensure upcoming event items are clickable */
 }
 #upcoming-events-section .timeline-item:last-child {
   margin-bottom: 0;
@@ -1242,22 +1331,22 @@ body.dark-mode #upcoming-events-section .timeline-item {
 }
 
 #upcoming-events-section .timeline-item::before {
-  content: none; /* Remove news card pin */
+  content: none;
 }
 
 #upcoming-events-section .timeline-content {
-    margin-left: 0; /* Keep margin-left at 0 */
+    margin-left: 0;
 }
 
 /* Styling for event titles (now spans) */
 .event-title {
-    color: var(--accent-blue); /* Ensure text color */
+    color: var(--accent-blue);
     font-weight: 600;
     font-family: var(--font-serif);
     font-size: 0.95rem;
     line-height: 1.3;
-    display: block; /* Ensure it takes its own line */
-    margin-bottom: 0.5rem; /* Space between title and description */
+    display: block;
+    margin-bottom: 0.5rem;
 }
 body.dark-mode .event-title {
     color: var(--accent-light);
@@ -1266,8 +1355,8 @@ body.dark-mode .event-title {
 
 /* Apply specific style for event links to remove underline on hover */
 #upcoming-events-section .timeline-content .event-link:hover {
-    text-decoration: none; /* Remove underline on hover */
-    color: var(--accent-hover); /* Keep color change on hover */
+    text-decoration: none;
+    color: var(--accent-hover);
 }
 
 body.dark-mode #upcoming-events-section .timeline-content a {
@@ -1284,60 +1373,60 @@ body.dark-mode #upcoming-events-section .timeline-content a:hover {
 
 /* --- Footer styles based on IAS image --- */
 footer {
-  background: linear-gradient(to right, var(--accent-blue), var(--accent-light)); /* Match nav bar background gradient */
-  color: white; /* Light text */
-  padding: 30px 0; /* Vertical padding */
+  background: linear-gradient(to right, var(--accent-blue), var(--accent-light));
+  color: white;
+  padding: 30px 0;
   width: 100%;
-  font-family: var(--font-sans); /* Use sans-serif font for footer */
+  font-family: var(--font-sans);
   font-size: 0.9rem;
-  display: flex; /* Make footer a flex container */
-  flex-direction: column; /* Stack container and bottom content vertically */
-  align-items: center; /* Center content horizontally */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .footer-container {
   display: flex;
-  justify-content: space-between; /* Distribute columns */
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
-  max-width: var(--max-content-width); /* Restrict to usable screen width */
-  width: 90%; /* Added width to match header and main content */
-  margin: 0 auto; /* Center the footer content */
-  padding: 0; /* Removed horizontal padding as width is explicitly set */
-  gap: 20px; /* Introduce gap for consistent spacing between columns */
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: var(--max-content-width);
+  width: 90%;
+  margin: 0 auto;
+  padding: 0;
+  gap: 20px;
 }
 
 .footer-column {
-  flex: 1 1 calc(25% - 15px); /* Adjusted flex-basis to account for gap, aiming for 4 columns */
-  min-width: 200px; /* Minimum width for columns before wrapping */
-  margin-bottom: 20px; /* Space between columns on wrap */
-  padding-right: 20px; /* Space within the column */
-  border-right: 1px solid rgba(255, 255, 255, 0.1); /* Add a subtle vertical separator */
+  flex: 1 1 calc(25% - 15px);
+  min-width: 200px;
+  margin-bottom: 20px;
+  padding-right: 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.footer-column:nth-child(4n) { /* Target every 4th column to remove right border in a row */
+.footer-column:nth-child(4n) {
   border-right: none;
   padding-right: 0;
 }
 
 /* When wrapping, ensure last column of a row also has border, then remove on true last child */
 .footer-column:last-child {
-  border-right: none; /* Remove border from the very last column */
+  border-right: none;
   padding-right: 0;
 }
 
 
 body.dark-mode .footer-column {
-    border-right-color: rgba(255, 255, 255, 0.05); /* Lighter border for dark mode */
+    border-right-color: rgba(255, 255, 255, 0.05);
 }
 
 .footer-logo {
-    max-width: 80px; /* Adjust logo size */
+    max-width: 80px;
     height: auto;
     margin-bottom: 15px;
 }
 
 .footer-column h3 {
-  font-family: var(--font-serif); /* Match nav bar title font */
+  font-family: var(--font-serif);
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 15px;
@@ -1348,11 +1437,11 @@ body.dark-mode .footer-column {
 .footer-column p {
   margin-bottom: 8px;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.9); /* Slightly subdued white for body text */
+  color: rgba(255, 255, 255, 0.9);
 }
 
-footer .footer-column a { /* Specificity for footer links */
-  color: white; /* Match nav bar link color */
+footer .footer-column a {
+  color: white;
   text-decoration: none;
   display: block;
   margin-bottom: 8px;
@@ -1360,15 +1449,15 @@ footer .footer-column a { /* Specificity for footer links */
 }
 
 footer .footer-column a:hover {
-  color: var(--accent-hover); /* Match nav bar hover color */
-  text-decoration: none; /* Ensure no underline on hover for footer links */
+  color: var(--accent-hover);
+  text-decoration: none;
 }
 
 .footer-map-container {
     margin-top: 15px;
     width: 100%;
-    max-width: 200px; /* Constrain map width */
-    height: 150px; /* Fixed height for the map */
+    max-width: 200px;
+    height: 150px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);
@@ -1380,7 +1469,7 @@ footer .footer-column a:hover {
     border: none;
 }
 
-.footer-map-link { /* Specific style for the map link */
+.footer-map-link {
     color: white;
     text-decoration: underline;
     margin-top: 10px;
@@ -1418,8 +1507,8 @@ footer .footer-column a:hover {
 }
 
 .social-icons a {
-  display: block; /* Ensure links take up space for hover */
-  width: 30px; /* Size of social icons */
+  display: block;
+  width: 30px;
   height: 30px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
@@ -1434,9 +1523,9 @@ footer .footer-column a:hover {
 }
 
 .social-icons img {
-  width: 16px; /* Icon size within circle */
+  width: 16px;
   height: 16px;
-  filter: invert(100%); /* Make placeholder icons white */
+  filter: invert(100%);
 }
 
 .footer-bottom {
@@ -1446,23 +1535,23 @@ footer .footer-column a:hover {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.7);
-  width: 90%; /* Ensure footer-bottom also matches content width */
-  max-width: var(--max-content-width); /* Align with max-content-width */
-  margin: 0 auto; /* Center footer-bottom */
+  width: 90%;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
 }
 
 
 /* === Responsive === */
 @media (max-width: 768px) {
   body {
-    padding-top: 80px; /* Adjusted from 100px */
+    padding-top: 80px;
   }
 
   .header-content {
-      flex-direction: row; /* Keep logo and nav controls in a row */
-      justify-content: space-between; /* Space them out */
-      padding: 0 1rem; /* Add horizontal padding to header content on mobile */
-      width: 100%; /* Ensure header content takes full width on mobile */
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 1rem;
+      width: 100%;
   }
 
   /* Hide desktop navigation and show hamburger */
@@ -1471,27 +1560,27 @@ footer .footer-column a:hover {
   }
 
   .hamburger-menu-icon {
-    display: block; /* Show hamburger icon on mobile */
+    display: block;
   }
   /* Ensure header-right-group does not interfere on mobile */
   .header-right-group {
-    display: contents; /* Makes children flow into parent's flex context */
+    display: contents;
   }
 
 
   /* Main content layout on mobile */
   .main-layout-wrapper {
-    grid-template-columns: 1fr; /* Single column on mobile */
-    gap: 1.5rem; /* Adjusted from 2rem */
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
     width: 95%;
-    padding-top: 1rem; /* Adjusted from 1.5rem */
-    margin-bottom: 1.5rem; /* Adjusted from 2rem */
+    padding-top: 1rem;
+    margin-bottom: 1.5rem;
 
     /* Mobile grid areas definition for desired stacking order */
     grid-template-areas:
       "campus"
       "about"
-      "sidebar-col" /* This maps to .sidebar-container which now has calendar first */
+      "sidebar-col"
       "left-main-col"
       "right-main-col";
   }
@@ -1500,20 +1589,18 @@ footer .footer-column a:hover {
   .left-accordion-col-wrapper,
   .right-accordion-col-wrapper,
   .sidebar-container {
-    display: flex; /* Keep flex for stacking */
+    display: flex;
     flex-direction: column;
-    gap: 1rem; /* Adjusted from 2rem */
+    gap: 1rem;
   }
 
   /* No longer hide calendar section on mobile */
   #calendar-section {
-    /* Re-enable display for mobile, remove previous `display: none !important;` */
-    display: flex !important; /* Ensure it's displayed as a flex container */
-    justify-content: center; /* Center the button within it */
+    display: flex !important;
+    justify-content: center;
     align-items: center;
-    margin-top: 0.5rem; /* Maintain existing margin */
-    margin-bottom: 0.5rem; /* Maintain existing margin */
-    /* Remove any specific hidden styles if they exist for mobile only */
+    margin-top: 0.25rem; /* Reduced from 0.5rem */
+    margin-bottom: 0.25rem; /* Reduced from 0.5rem */
     padding: 0 !important;
     background: transparent !important;
     box-shadow: none !important;
@@ -1531,21 +1618,21 @@ footer .footer-column a:hover {
       padding-right: 0;
   }
   .footer-container {
-    flex-direction: column; /* Stack footer columns vertically */
-    gap: 1rem; /* Reduced gap for mobile footer columns */
-    width: 100%; /* Ensure consistent width with other mobile elements */
-    padding: 0 1rem; /* Add some padding to footer content on mobile */
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    padding: 0 1rem;
   }
   .footer-column {
-    min-width: unset; /* Remove min-width on mobile for better stacking */
-    text-align: center; /* Center align text in columns */
-    padding-right: 0; /* Remove right padding on mobile */
-    border-right: none; /* Remove border-right on mobile when columns stack */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add a bottom border for stacking */
-    padding-bottom: 20px; /* Add padding at bottom for separation */
+    min-width: unset;
+    text-align: center;
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
   }
   .footer-column:last-child {
-    border-bottom: none; /* No bottom border on the last column */
+    border-bottom: none;
     padding-bottom: 0;
   }
   body.dark-mode .footer-column {
@@ -1563,15 +1650,15 @@ footer .footer-column a:hover {
   .enews-signup-btn {
       margin-left: auto;
       margin-right: auto;
-      display: block; /* Ensure buttons take full width if needed */
+      display: block;
   }
   .social-icons {
-      justify-content: center; /* Center social icons */
+      justify-content: center;
   }
 
   .footer-bottom {
-    width: 100%; /* Ensure consistent width with other mobile elements */
-    padding: 1rem; /* Add padding to footer bottom on mobile */
+    width: 100%;
+    padding: 1rem;
   }
 
   /* Calendar Responsive adjustments */
@@ -1586,13 +1673,13 @@ footer .footer-column a:hover {
   
   /* Modal adjustments for smaller screens */
   .modal-content {
-      max-height: 75vh; /* Further reduced max height for smaller screens */
-      margin-top: 50px; /* Adjusted from 80px */
-      width: 95%; /* Adjust width slightly for smaller screens */
+      max-height: 75vh;
+      margin-top: 50px;
+      width: 95%;
   }
 
   .modal-overlay {
-      align-items: flex-start; /* Align content to the top instead of center */
+      align-items: flex-start;
   }
 }
   </style>
@@ -1600,6 +1687,14 @@ footer .footer-column a:hover {
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
 </head>
 <body>
+  <!-- Skip to main content link for accessibility -->
+  <a href="#main-content-start" class="sr-only focus:not-sr-only" 
+     style="position: absolute; left: -9999px; top: 0; width: 1px; height: 1px; overflow: hidden; z-index: 9999; 
+            background-color: #fff; color: #000; padding: 8px; border: 1px solid #000; 
+            text-decoration: none; clip: auto; white-space: nowrap; /* !important to override sr-only */">
+    Skip to main content
+  </a>
+
   <header>
     <div class="header-content">
       <div class="logo-title">
@@ -1690,23 +1785,23 @@ footer .footer-column a:hover {
     </div>
   </div>
 
-  <div class="main-layout-wrapper">
+  <div class="main-layout-wrapper" id="main-content-start">
     <!-- Campus photos Section -->
     <div id="campus-photos-section" class="top-image slideshow-container" data-slideshow-id="mainCampus">
         <div class="mySlides fade">
-            <img src="/Images/Main/Image-1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+1';" alt="KSoM Campus Image 1" />
+            <img src="/Images/Main/Image-1.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+1';" alt="KSoM Campus Image 1" />
         </div>
         <div class="mySlides fade">
-            <img src="/Images/Main/Image-2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+2';" alt="KSoM Campus Image 2" />
+            <img src="/Images/Main/Image-2.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+2';" alt="KSoM Campus Image 2" />
         </div>
         <div class="mySlides fade">
-            <img src="/Images/Main/Image-3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+3';" alt="KSoM Campus Image 3" />
+            <img src="/Images/Main/Image-3.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+3';" alt="KSoM Campus Image 3" />
         </div>
         <div class="mySlides fade">
-            <img src="/Images/Main/Image-4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+4';" alt="KSoM Campus Image 4" />
+            <img src="/Images/Main/Image-4.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+4';" alt="KSoM Campus Image 4" />
         </div>
         <div class="mySlides fade">
-            <img src="/Images/Main/Image-5.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+5';" alt="KSoM Campus Image 5" />
+            <img src="/Images/Main/Image-5.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+5';" alt="KSoM Campus Image 5" />
         </div>
         <div class="overlay-text">
             <div class="main-title">Kerala School of Mathematics</div>
@@ -1716,11 +1811,11 @@ footer .footer-column a:hover {
 
     <!-- About KSoM Section -->
     <section id="about-ksom-section" class="accordion-item" data-accordion-id="aboutKSoM" data-learn-more-url="https://ksom.res.in/about">
-        <div class="accordion-header">About KSoM</div>
+        <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about About KSoM">About KSoM</div>
         <div class="accordion-snippet">
           Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.<span class="snippet-more-indicator"> ...more</span>
         </div>
-        <div class="accordion-content" style="display: none;">
+        <div class="accordion-content" style="display: none;" id="accordion-content-aboutKSoM">
           <p><strong>Kerala School of Mathematics (KSoM)</strong> is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.</p>
           <p>The main objective of Kerala School of Mathematics is conduct of high quality Mathematical Research. Our mission is to create a vibrant academic environment that promotes cutting-edge research, nurtures young mathematicians, and contributes significantly to the global mathematical community.</p>
           <p>Our faculty members actively engage in diverse fields of mathematics, pushing the boundaries of knowledge and inspiring the next generation of scholars. We offer various academic programs including Integrated M.Sc.-Ph.D., Ph.D. Programme, and Postdoctoral Fellowships, designed to provide comprehensive theoretical knowledge and and practical research experience.</p>
@@ -1733,11 +1828,11 @@ footer .footer-column a:hover {
     <div class="left-accordion-col-wrapper">
         <!-- Research Areas Section -->
         <section id="research-areas-section" class="accordion-item" data-accordion-id="researchAreas" data-learn-more-url="https://ksom.res.in/research">
-            <div class="accordion-header">Research Areas at KSoM</div>
+            <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Research Areas at KSoM">Research Areas at KSoM</div>
             <div class="accordion-snippet">
             Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.<span class="snippet-more-indicator"> ...more</span>
             </div>
-            <div class="accordion-content" style="display: none;">
+            <div class="accordion-content" style="display: none;" id="accordion-content-researchAreas">
             <p>Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.</p>
 
             <div class="modal-research-cards-container">
@@ -1762,35 +1857,35 @@ footer .footer-column a:hover {
                         <p>Our group employs advanced analytic techniques to study prime distributions, multiplicative functions, and L-function special values. We investigate multiple zeta values and their generalizations (including multiple Apéry-like sums), explicit averages beyond classical estimates, Möbius sums with coprimality conditions, and additive number theory extensions. Key work involves the Beurling-Selberg function's applications to prime number theory and developing new methods for bounding multiple zeta value tails, connecting analytic techniques with combinatorial structures.</p>
                     </a>
                 </div>
-                <p>Collaborative Environment<br/>Our research thrives through synergistic partnerships between faculty, postdoctoral researchers, and doctoral students. This collaborative ecosystem combines rigorous theoretical inquiry with computational approaches, positioning KSoM at the forefront of mathematical discovery while training next-generation mathematicians.</p>
+                <p>Collaborative Environment<br/>Our research thrives through synergistic partnerships between faculty, postdoctoral researchers, and doctoral students. This collaborative ecosystem combines rigorous theoretical inquiry and computational approaches, positioning KSoM at the forefront of mathematical discovery while training next-generation mathematicians.</p>
                 </div>
         </section>
 
         <!-- Academic & Research Activities Section -->
         <section id="academic-activities-section" class="accordion-item" data-accordion-id="academicResearchActivities" data-learn-more-url="https://ksom.res.in/activities">
-                <div class="accordion-header">Academic & Research Activities at KSoM</div>
+                <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Academic & Research Activities at KSoM">Academic & Research Activities at KSoM</div>
                 <div class="accordion-snippet">
                 <!-- Slideshow container -->
                 <div class="slideshow-container" data-slideshow-id="academicActivities">
                     <div class="mySlides fade">
-                        <img src="/Images/Activities/Image-1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x350/F0F8FF/333333?text=Activity+Image+1';" alt="Academic & Research Activities 1">
+                        <img src="/Images/Activities/Image-1.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/F0F8FF/333333?text=Activity+Image+1';" alt="Academic & Research Activities 1">
                     </div>
                     <div class="mySlides fade">
-                        <img src="/Images/Activities/Image-2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x350/E6E6FA/333333?text=Activity+Image+2';" alt="Academic & Research Activities 2">
+                        <img src="/Images/Activities/Image-2.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/E6E6FA/333333?text=Activity+Image+2';" alt="Academic & Research Activities 2">
                     </div>
                     <div class="mySlides fade">
-                        <img src="/Images/Activities/Image-3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x350/F5F5DC/333333?text=Activity+Image+3';" alt="Academic & Research Activities 3">
+                        <img src="/Images/Activities/Image-3.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/F5F5DC/333333?text=Activity+Image+3';" alt="Academic & Research Activities 3">
                     </div>
                     <div class="mySlides fade">
-                        <img src="/Images/Activities/Image-4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x350/FFE4E1/333333?text=Activity+Image+4';" alt="Academic & Research Activities 4">
+                        <img src="/Images/Activities/Image-4.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/FFE4E1/333333?text=Activity+Image+4';" alt="Academic & Research Activities 4">
                     </div>
                     <div class="mySlides fade">
-                        <img src="/Images/Activities/Image-5.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x350/AFEEEE/333333?text=Activity+Image+5';" alt="Academic & Research Activities 5">
+                        <img src="/Images/Activities/Image-5.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/AFEEEE/333333?text=Activity+Image+5';" alt="Academic & Research Activities 5">
                     </div>
                 </div>
                 <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.<span class="snippet-more-indicator"> ...more</span></p>
                 </div>
-                <div class="accordion-content" style="display: none;">
+                <div class="accordion-content" style="display: none;" id="accordion-content-academicResearchActivities">
                 <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with mathematical networks.</p>
                 <div class="modal-research-cards-container">
                     <a href="https://ksom.res.in/activities/colloquium" class="modal-research-card">
@@ -1819,11 +1914,11 @@ footer .footer-column a:hover {
     <div class="right-accordion-col-wrapper">
         <!-- Academic Programmes Section -->
         <section id="academic-programmes-section" class="accordion-item" data-accordion-id="academicProgrammes" data-learn-more-url="https://ksom.res.in/programmes">
-            <div class="accordion-header">Academic Programmes at KSoM</div>
+            <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Academic Programmes at KSoM">Academic Programmes at KSoM</div>
             <div class="accordion-snippet">
             Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.<span class="snippet-more-indicator"> ...more</span>
             </div>
-            <div class="accordion-content" style="display: none;">
+            <div class="accordion-content" style="display: none;" id="accordion-content-academicProgrammes">
             <p>Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.</p>
 
             <div class="modal-research-cards-container">
@@ -1846,11 +1941,11 @@ footer .footer-column a:hover {
 
         <!-- Outreach Section -->
         <section id="outreach-section" class="accordion-item" data-accordion-id="outreachActivities" data-learn-more-url="https://ksom.res.in/outreach">
-            <div class="accordion-header">Outreach Activities</div>
+            <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Outreach Activities">Outreach Activities</div>
             <div class="accordion-snippet">
                 Kerala School of Mathematics is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.<span class="snippet-more-indicator"> ...more</span>
             </div>
-            <div class="accordion-content" style="display: none;">
+            <div class="accordion-content" style="display: none;" id="accordion-content-outreachActivities">
                 <p>Kerala School of Mathematics is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.</p>
                 <div class="modal-research-cards-container">
                     <a href="https://ksom.res.in/outreach/swim" class="modal-research-card">
@@ -1875,7 +1970,7 @@ footer .footer-column a:hover {
     <div class="sidebar-container">
         <!-- Calendar Section - MOVED TO THE TOP OF SIDEBAR-CONTAINER FOR MOBILE ORDERING -->
         <section id="calendar-section" class="fancy-calendar-button-container">
-            <button id="events-calendar-button" class="fancy-calendar-button" aria-label="Open Events Calendar">
+            <button id="events-calendar-button" class="fancy-calendar-button" aria-label="Open Events Calendar" aria-haspopup="dialog">
                 <span class="button-text">Events Calendar</span>
             </button>
         </section>
@@ -1886,7 +1981,7 @@ footer .footer-column a:hover {
             <div class="timeline-container">
             <div class="timeline">
                 <!-- Each timeline-item is now a clickable card -->
-                <a href="#" class="timeline-item" data-news-id="recruitment">
+                <a href="#" class="timeline-item" data-news-id="recruitment" role="button" aria-haspopup="dialog">
                 <div class="timeline-content">
                     <p class="timeline-date">June 3, 2025</p>
                     <!-- news-title-link class removed from <a> tag as entire card is clickable -->
@@ -1894,35 +1989,35 @@ footer .footer-column a:hover {
                     <p class="timeline-description">Applications now open for key administrative positions: Accounts Officer and Registrar. Join our growing team supporting mathematical excellence.</p>
                 </div>
                 </a>
-                <a href="#" class="timeline-item" data-news-id="phd-admissions">
+                <a href="#" class="timeline-item" data-news-id="phd-admissions" role="button" aria-haspopup="dialog">
                 <div class="timeline-content">
                     <p class="timeline-date">May 7, 2025</p>
                     <span class="news-title-link">PhD Admissions 2025</span>
                     <p class="timeline-description">Applications invited for doctoral programmes in Pure and Applied Mathematics. Full financial support available for selected candidates.</p>
                 </div>
                 </a>
-                <a href="#" class="timeline-item" data-news-id="visiting-faculty">
+                <a href="#" class="timeline-item" data-news-id="visiting-faculty" role="button" aria-haspopup="dialog">
                 <div class="timeline-content">
                     <p class="timeline-date">March 4, 2025</p>
                     <span class="news-title-link">Visiting Faculty Position</span>
                     <p class="timeline-description">Seeking highly qualified candidates for Visiting Assistant Professor positions across all mathematical disciplines. Join our vibrant research community.</p>
                 </div>
                 </a>
-                <a href="#" class="timeline-item" data-news-id="research-symposium">
+                <a href="#" class="timeline-item" data-news-id="research-symposium" role="button" aria-haspopup="dialog">
                 <div class="timeline-content">
                     <p class="timeline-date">February 15, 2025</p>
                     <span class="news-title-link">Annual Research Symposium</span>
                     <p class="timeline-description">Highlights from our successful annual symposium, featuring keynote speakers and groundbreaking research presentations.</p>
                 </div>
                 </a>
-                <a href="#" class="timeline-item" data-news-id="new-faculty">
+                <a href="#" class="timeline-item" data-news-id="new-faculty" role="button" aria-haspopup="dialog">
                 <div class="timeline-content">
                     <p class="timeline-date">January 20, 2025</p>
                     <span class="news-title-link">New Faculty Announcement</span>
                     <p class="timeline-description">Welcome our newest faculty member, Dr. Alok Kumar, specializing in Algebraic Geometry.</p>
                 </div>
                 </a>
-                <a href="#" class="timeline-item" data-news-id="winter-school">
+                <a href="#" class="timeline-item" data-news-id="winter-school" role="button" aria-haspopup="dialog">
                 <div class="timeline-content">
                     <p class="timeline-date">December 1, 2024</p>
                     <span class="news-title-link">Winter School on Number Theory</span>
@@ -1941,7 +2036,7 @@ footer .footer-column a:hover {
             <h3>Upcoming Events at KSoM</h3>
             <div class="timeline-container">
             <div class="timeline">
-                <a href="#" class="timeline-item" data-event-id="guest-lecture-sharma">
+                <a href="#" class="timeline-item" data-event-id="guest-lecture-sharma" role="button" aria-haspopup="dialog">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
                     <p class="timeline-date">July 10, 2025</p>
@@ -1949,7 +2044,7 @@ footer .footer-column a:hover {
                     <p class="timeline-description">Exploring advancements in Quantum Topology. Open to all researchers and students.</p>
                 </div>
                 </a>
-                <a href="#" class="timeline-item" data-event-id="discrete-math-conference">
+                <a href="#" class="timeline-item" data-event-id="discrete-math-conference" role="button" aria-haspopup="dialog">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
                     <p class="timeline-date">August 5, 2025</p>
@@ -1957,7 +2052,7 @@ footer .footer-column a:hover {
                     <p class="timeline-description">Leading experts convene to discuss new theories and applications in discrete mathematics.</p>
                 </div>
                 </a>
-                <a href="#" class="timeline-item" data-event-id="freshers-orientation">
+                <a href="#" class="timeline-item" data-event-id="freshers-orientation" role="button" aria-haspopup="dialog">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
                     <p class="timeline-date">September 1, 2025</p>
@@ -1965,7 +2060,7 @@ footer .footer-column a:hover {
                     <p class="timeline-description">Welcome session for new M.Sc. and Ph.D. students joining KSoM.</p>
                 </div>
                 </a>
-                <a href="#" class="timeline-item" data-event-id="ml-math-workshop">
+                <a href="#" class="timeline-item" data-event-id="ml-math-workshop" role="button" aria-haspopup="dialog">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
                     <p class="timeline-date">October 20, 2025</p>
@@ -1973,7 +2068,7 @@ footer .footer-column a:hover {
                     <p class="timeline-description">A practical workshop on the intersection of machine learning and mathematical research.</p>
                 </div>
                 </a>
-                <a href="#" class="timeline-item" data-event-id="alumni-meet">
+                <a href="#" class="timeline-item" data-event-id="alumni-meet" role="button" aria-haspopup="dialog">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
                     <p class="timeline-date">November 12, 2025</p>
@@ -1981,7 +2076,7 @@ footer .footer-column a:hover {
                     <p class="timeline-description">Connect with fellow KSoM alumni and faculty. Networking and dinner included.</p>
                 </div>
                 </a>
-                <a href="#" class="timeline-item" data-event-id="christmas-lecture">
+                <a href="#" class="timeline-item" data-event-id="christmas-lecture" role="button" aria-haspopup="dialog">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
                     <p class="timeline-date">December 8, 2025</p>
@@ -2232,7 +2327,8 @@ footer .footer-column a:hover {
     }
 
     function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
+      const isDarkMode = document.body.classList.toggle('dark-mode');
+      localStorage.setItem('dark-mode', isDarkMode); // Store boolean as string
     }
 
     // Function to manage individual slideshows
@@ -2264,40 +2360,67 @@ footer .footer-column a:hover {
     }
 
     document.addEventListener('DOMContentLoaded', function () {
+      // Apply dark mode preference from localStorage on load
+      const prefersDarkMode = localStorage.getItem('dark-mode');
+      if (prefersDarkMode === 'true') {
+          document.body.classList.add('dark-mode');
+      } else if (prefersDarkMode === 'false') {
+          document.body.classList.remove('dark-mode');
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          // Fallback to system preference if no localStorage value
+          document.body.classList.add('dark-mode');
+      }
+
+
       // Initialize slideshow for Academic & Research Activities with 7-second interval
       initSlideshow('academicActivities', 7000);
       // Initialize slideshow for Main Campus with 7-second interval (changed from 5000ms)
       initSlideshow('mainCampus', 7000);
 
-      // Attach accordion item click handlers to open modals
-      const accordionItems = document.querySelectorAll('.accordion-item[data-accordion-id]'); // Select accordion-item directly
+      // Attach accordion item click and keydown handlers to open modals
+      const accordionItems = document.querySelectorAll('.accordion-item[data-accordion-id]');
       accordionItems.forEach(item => {
         item.addEventListener('click', function (e) {
-          // Prevent opening modal if a link or button inside was clicked directly
-          if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('.learn-more-btn')) {
+          // Prevent opening modal if a link INSIDE the accordion item was clicked
+          if (e.target.tagName === 'A' || e.target.closest('a')) {
               return;
           }
-
           e.preventDefault();
-          const accordionId = this.dataset.accordionId; // Get data-accordion-id from the accordion-item
+          const accordionId = this.dataset.accordionId;
 
           if (accordionId) {
-            const title = this.querySelector('.accordion-header').textContent;
-            const content = this.querySelector('.accordion-content').innerHTML; // Use this for content
-            // Get the learn more link from the data attribute on the section
+            const title = this.querySelector('.accordion-header').textContent.trim();
+            const content = this.querySelector('.accordion-content').innerHTML;
             let learnMoreLink = this.dataset.learnMoreUrl || null;
             openModal(title, content, false, learnMoreLink);
           }
         });
+
+        item.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            // Prevent opening modal if a link INSIDE the accordion item was activated
+            if (e.target.tagName === 'A' || e.target.closest('a')) {
+                return;
+            }
+            e.preventDefault();
+            this.click(); // Trigger click event for consistency
+          }
+        });
       });
+
 
       // Attach click handler to the fancy calendar button's container
       const calendarSectionButton = document.getElementById('calendar-section');
       if (calendarSectionButton) {
-          calendarSectionButton.addEventListener('click', function (e) {
-              if (e.target.closest('#events-calendar-button')) {
-                  openModal('Upcoming Events Calendar', '', true);
-              }
+          const calendarButton = calendarSectionButton.querySelector('#events-calendar-button');
+          calendarButton.addEventListener('click', function (e) {
+              openModal('Upcoming Events Calendar', '', true);
+          });
+          calendarButton.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              this.click();
+            }
           });
       }
 
@@ -2399,6 +2522,14 @@ footer .footer-column a:hover {
                       submenu.classList.toggle('expanded');
                       toggleButton.setAttribute('aria-expanded', isExpanded);
                       submenu.setAttribute('aria-hidden', !isExpanded); // Toggle aria-hidden
+                  });
+
+                  // Add keyboard support for dropdown toggle
+                  toggleButton.addEventListener('keydown', function(e) {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          this.click(); // Simulate click to trigger the toggle
+                      }
                   });
               }
           });
@@ -2542,6 +2673,12 @@ footer .footer-column a:hover {
                   openModal(newsItem.title, fullContent, false, newsItem.link);
               }
           });
+          item.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              this.click();
+            }
+          });
       });
 
       // Add event listeners for upcoming events to open modal (now targets the <a> tag)
@@ -2558,6 +2695,12 @@ footer .footer-column a:hover {
                   `;
                   openModal(eventItem.title, fullContent, false, eventItem.link);
               }
+          });
+          item.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              this.click();
+            }
           });
       });
     });
