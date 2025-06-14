@@ -29,7 +29,7 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
-html { border: 5px solid yellow !important; } /* DEBUG: Highlight HTML element */
+html { /* Removed debug border */ }
 body {
   font-family: var(--font-body); /* Apply Lora as the primary body font */
   background: var(--primary-bg);
@@ -39,7 +39,7 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
   padding-top: 70px; /* Space for fixed header */
   min-height: 100vh; /* Ensure body takes full viewport height */
-  border: 5px solid lime !important; /* DEBUG: Highlight Body element */
+  /* Removed debug border */
 }
 body.dark-mode {
   background: var(--dark-primary-bg);
@@ -391,7 +391,7 @@ nav a:hover {
   max-width: var(--max-content-width);
   margin: 0 auto 3rem auto;
   flex-grow: 1; /* Allow main content to grow and push footer down */
-  border: 5px solid orange !important; /* DEBUG: Highlight Main Layout Wrapper */
+  /* Removed debug border */
 }
 
 /* Assign grid areas to direct children of main-layout-wrapper */
@@ -1241,8 +1241,7 @@ footer {
   font-family: var(--font-sans);
   font-size: 0.9rem;
   display: block; /* Explicitly ensure block-level behavior */
-  border: 5px solid red !important; /* DEBUG: Highlight the Footer */
-  outline: 5px dashed purple !important; /* DEBUG: Another layer for emphasis */
+  /* Removed debug borders */
 }
 
 .footer-container {
