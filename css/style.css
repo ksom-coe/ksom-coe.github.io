@@ -36,7 +36,6 @@ body {
   line-height: 1.65;
   font-size: 16px;
   transition: background 0.3s ease, color 0.3s ease;
-  /* --- REVERTED: Re-added padding-top to body as requested by user. --- */
   padding-top: 70px; /* Space for fixed header */
   min-height: 100vh; /* Ensure body takes full viewport height */
 }
@@ -388,7 +387,6 @@ nav a:hover {
   gap: 1rem 1.5rem; /* row-gap: 1rem, column-gap: 1.5rem */
   width: 90%;
   max-width: var(--max-content-width);
-  /* --- REVERTED: Removed margin-top, now handled by body padding-top. --- */
   margin: 0 auto 3rem auto;
   flex-grow: 1; /* Allow main content to grow and push footer down */
 
@@ -419,7 +417,7 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     /* --- REVISED: Reduced gap for tighter vertical spacing within columns. --- */
-    gap: 1rem; /* Consistent spacing between sections within these flex containers */
+    gap: 0.75rem; /* Consistent spacing between sections within these flex containers */
     padding: 0; /* Remove internal padding, handled by child elements */
     background: transparent; /* Remove background, handled by child elements */
     box-shadow: none; /* Remove shadow, handled by child elements */
@@ -1247,13 +1245,9 @@ footer {
   background: linear-gradient(to right, var(--accent-blue), var(--accent-light));
   color: white;
   padding: 30px 0;
-  width: 100%; /* --- REVISED: Ensure it spans full width --- */
+  width: 100%; /* Ensure it spans full width */
   font-family: var(--font-sans);
   font-size: 0.9rem;
-  /* --- REVISED: Removed flex properties from footer to let it be a simple container --- */
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: center; */
 }
 
 .footer-container {
@@ -1270,22 +1264,7 @@ footer {
 .footer-column {
   flex: 0 0 220px; /* Fixed width to prevent stretching, allows wrapping */
   min-width: 200px; /* Ensures content doesn't get too narrow */
-  /* Removed padding-right and border-right as gap handles spacing */
-  /* Removed margin-bottom here, as gap handles vertical spacing */
 }
-
-/* Remove specific border-right rules no longer needed with flex gap */
-/*
-.footer-column:nth-child(4n) {
-  border-right: none;
-  padding-right: 0;
-}
-
-.footer-column:last-child {
-  border-right: none;
-  padding-right: 0;
-}
-*/
 
 body.dark-mode .footer-column {
     border-right-color: rgba(255, 255, 255, 0.05);
@@ -1447,7 +1426,6 @@ footer .footer-column a:hover {
     width: 95%;
     padding-top: 1rem; /* Adjust padding for mobile layout */
     margin-bottom: 1.5rem;
-    /* --- REVISED: Adjust margin-top for mobile fixed header --- */
     margin-top: 80px; /* Should match body padding-top */
 
     /* Mobile grid areas definition for desired stacking order */
