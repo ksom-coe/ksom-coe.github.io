@@ -3,110 +3,109 @@ layout: base.html
 title: Kerala School of Mathematics - Official Website
 ---
 
-<div class="main-layout-wrapper" id="main-content-start" role="main">
-    <div id="campus-photos-section" class="top-image slideshow-container" data-slideshow-id="mainCampus">
-        <div class="mySlides fade">
-            <img src="/Images/Main/Image-1.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+1';" alt="KSoM Campus Image 1" />
-        </div>
-        <div class="mySlides fade">
-            <img src="/Images/Main/Image-2.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+2';" alt="KSoM Campus Image 2" />
-        </div>
-        <div class="mySlides fade">
-            <img src="/Images/Main/Image-3.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+3';" alt="KSoM Campus Image 3" />
-        </div>
-        <div class="mySlides fade">
-            <img src="/Images/Main/Image-4.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+4';" alt="KSoM Campus Image 4" />
-        </div>
-        <div class="mySlides fade">
-            <img src="/Images/Main/Image-5.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+5';" alt="KSoM Campus Image 5" />
-        </div>
-        <div class="overlay-text">
-            <div class="main-title">Kerala School of Mathematics</div>
-            <div class="sub-title">An autonomous institution jointly established by the Science & Technology Department, Government of Kerala, and the Department of Atomic Energy, Government of India.</div>
-        </div>
+<div id="campus-photos-section" class="top-image slideshow-container" data-slideshow-id="mainCampus">
+    <div class="mySlides fade">
+        <img src="/Images/Main/Image-1.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+1';" alt="KSoM Campus Image 1" />
     </div>
+    <div class="mySlides fade">
+        <img src="/Images/Main/Image-2.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+2';" alt="KSoM Campus Image 2" />
+    </div>
+    <div class="mySlides fade">
+        <img src="/Images/Main/Image-3.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+3';" alt="KSoM Campus Image 3" />
+    </div>
+    <div class="mySlides fade">
+        <img src="/Images/Main/Image-4.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+4';" alt="KSoM Campus Image 4" />
+    </div>
+    <div class="mySlides fade">
+        <img src="/Images/Main/Image-5.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+5';" alt="KSoM Campus Image 5" />
+    </div>
+    <div class="overlay-text">
+        <div class="main-title">Kerala School of Mathematics</div>
+        <div class="sub-title">An autonomous institution jointly established by the Science & Technology Department, Government of Kerala, and the Department of Atomic Energy, Government of India.</div>
+    </div>
+</div>
 
-    <section id="about-ksom-section" class="accordion-item" data-accordion-id="aboutKSoM" data-learn-more-url="https://ksom.res.in/about">
-        <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about About KSoM" aria-expanded="false" aria-controls="accordion-content-aboutKSoM">About KSoM</div>
+<section id="about-ksom-section" class="accordion-item" data-accordion-id="aboutKSoM" data-learn-more-url="https://ksom.res.in/about">
+    <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about About KSoM" aria-expanded="false" aria-controls="accordion-content-aboutKSoM">About KSoM</div>
+    <div class="accordion-snippet">
+      Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.<span class="snippet-more-indicator"> ...more</span>
+    </div>
+    <div class="accordion-content" style="display: none;" id="accordion-content-aboutKSoM">
+      <p><strong>Kerala School of Mathematics (KSoM)</strong> is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.</p>
+      <p>The main objective of Kerala School of Mathematics is conduct of high quality Mathematical Research. Our mission is to create a vibrant academic environment that promotes cutting-edge research, nurtures young mathematicians, and contributes significantly to the global mathematical community.</p>
+      <p>Our faculty members actively engage in diverse fields of mathematics, pushing the boundaries of knowledge and inspiring the next generation of scholars. We offer various academic programs including Integrated M.Sc.-Ph.D., Ph.D. Programme, and Postdoctoral Fellowships, designed to provide comprehensive theoretical knowledge and and practical research experience.</p>
+      <p>KSoM also hosts numerous research activities such as the Mathematics Colloquium, specialized seminar series, international conferences, and intensive workshops, fostering a dynamic and collaborative research environment.</p>
+      <p>Beyond academic pursuits, KSoM is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.</p>
+    </div>
+</section>
+
+<div class="left-accordion-col-wrapper">
+    <section id="research-areas-section" class="accordion-item" data-accordion-id="researchAreas" data-learn-more-url="https://ksom.res.in/research">
+        <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Research Areas at KSoM" aria-expanded="false" aria-controls="accordion-content-researchAreas">Research Areas at KSoM</div>
         <div class="accordion-snippet">
-          Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.<span class="snippet-more-indicator"> ...more</span>
+        Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.<span class="snippet-more-indicator"> ...more</span>
         </div>
-        <div class="accordion-content" style="display: none;" id="accordion-content-aboutKSoM">
-          <p><strong>Kerala School of Mathematics (KSoM)</strong> is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.</p>
-          <p>The main objective of Kerala School of Mathematics is conduct of high quality Mathematical Research. Our mission is to create a vibrant academic environment that promotes cutting-edge research, nurtures young mathematicians, and contributes significantly to the global mathematical community.</p>
-          <p>Our faculty members actively engage in diverse fields of mathematics, pushing the boundaries of knowledge and inspiring the next generation of scholars. We offer various academic programs including Integrated M.Sc.-Ph.D., Ph.D. Programme, and Postdoctoral Fellowships, designed to provide comprehensive theoretical knowledge and and practical research experience.</p>
-          <p>KSoM also hosts numerous research activities such as the Mathematics Colloquium, specialized seminar series, international conferences, and intensive workshops, fostering a dynamic and collaborative research environment.</p>
-          <p>Beyond academic pursuits, KSoM is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.</p>
-        </div>
+        <div class="accordion-content" style="display: none;" id="accordion-content-researchAreas">
+        <p>Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.</p>
+
+        <div class="modal-research-cards-container">
+            <a href="https://ksom.res.in/research/complex-analysis" class="modal-research-card">
+                <h3>Complex Analysis Research</h3>
+                <p>Our group explores several complex variables as a dynamic area of modern mathematics, focusing on Hörmander's estimates and their impact on the Bers domain (Teichmüller space). We investigate the profound geometric implications of the Kobayashi metric being isometric to the Teichmüller metric. This research bridges complex analysis, Teichmüller theory, and differential geometry, advancing our understanding of intrinsic metrics on complex spaces through interdisciplinary connections with algebra, PDEs, and algebraic geometry.</p>
+            </a>
+            <a href="https://ksom.res.in/research/braid-&-mapping-class-groups" class="modal-research-card">
+                <h3>Braid Groups & Mapping Class Groups Research</h3>
+                <p>We study fundamental structures at the intersection of algebraic topology and geometric group theory, examining relationships between braid groups and mapping class groups. Our work centers on liftability problems and the Birman-Hilden property, which determine when surface homeomorphisms extend to handlebodies. A key focus involves classifying unitary representations of braid groups and analyzing their connections to quantum invariants, linking geometric group theory with representation theory and quantum topology.</p>
+            </a>
+            <a href="https://ksom.res.in/research/harmonic-analysis" class="modal-research-card">
+                <h3>Harmonic Analysis Research</h3>
+                <p>Our investigations center on harmonic analysis in nilpotent Lie groups and time-frequency methods, connecting classical Fourier analysis with modern operator theory. We explore modulation spaces, Fourier multipliers, twisted convolution operators, and their Lp-Lq boundedness properties. The group also analyzes nonlinear Schrödinger equations with twisted Laplacians, maximal functions along hypersurfaces, and develops Hardy-Sobolev inequalities in non-commutative settings, advancing oscillatory integral techniques for dispersive PDEs.</p>
+            </a>
+            <a href="https://ksom.res.in/research/non-commutative-functional-analysis" class="modal-research-card">
+                <h3>Non-commutative Functional Analysis Research</h3>
+                <p>We extend functional analysis to quantum realms through operator algebras and operator spaces, investigating quantum approximation properties and convexity in C*-algebras. Our work focuses on completely bounded approximation, quantum convexity, matricial ranges, and operator system structures. This research bridges abstract functional analysis with quantum information theory, with applications in quantum error correction, quantum channel classification, and geometric analysis of quantum states.</p>
+                </a>
+                <a href="https://ksom.res.in/research/analytic-number-theory" class="modal-research-card">
+                    <h3>Analytic Number Theory Research</h3>
+                    <p>Our group employs advanced analytic techniques to study prime distributions, multiplicative functions, and L-function special values. We investigate multiple zeta values and their generalizations (including multiple Apéry-like sums), explicit averages beyond classical estimates, Möbius sums with coprimality conditions, and additive number theory extensions. Key work involves the Beurling-Selberg function's applications to prime number theory and developing new methods for bounding multiple zeta value tails, connecting analytic techniques with combinatorial structures.</p>
+                </a>
+            </div>
+            <p>Collaborative Environment<br/>Our research thrives through synergistic partnerships between faculty, postdoctoral researchers, and doctoral students. This collaborative ecosystem combines rigorous theoretical inquiry and computational approaches, positioning KSoM at the forefront of mathematical discovery while training next-generation mathematicians.</p>
+            </div>
     </section>
 
-    <div class="left-accordion-col-wrapper">
-        <section id="research-areas-section" class="accordion-item" data-accordion-id="researchAreas" data-learn-more-url="https://ksom.res.in/research">
-            <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Research Areas at KSoM" aria-expanded="false" aria-controls="accordion-content-researchAreas">Research Areas at KSoM</div>
+    <section id="academic-activities-section" class="accordion-item" data-accordion-id="academicResearchActivities" data-learn-more-url="https://ksom.res.in/activities">
+            <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Academic & Research Activities at KSoM" aria-expanded="false" aria-controls="accordion-content-academicResearchActivities">Academic & Research Activities at KSoM</div>
             <div class="accordion-snippet">
-            Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.<span class="snippet-more-indicator"> ...more</span>
+            <div class="slideshow-container" data-slideshow-id="academicActivities">
+                <div class="mySlides fade">
+                    <img src="/Images/Activities/Image-1.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/F0F8FF/333333?text=Activity+Image+1';" alt="Academic & Research Activities 1">
+                </div>
+                <div class="mySlides fade">
+                    <img src="/Images/Activities/Image-2.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/E6E6FA/333333?text=Activity+Image+2';" alt="Academic & Research Activities 2">
+                </div>
+                <div class="mySlides fade">
+                    <img src="/Images/Activities/Image-3.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/F5F5DC/333333?text=Activity+Image+3';" alt="Academic & Research Activities 3">
+                </div>
+                <div class="mySlides fade">
+                    <img src="/Images/Activities/Image-4.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/FFE4E1/333333?text=Activity+Image+4';" alt="Academic & Research Activities 4">
+                </div>
+                <div class="mySlides fade">
+                    <img src="/Images/Activities/Image-5.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/AFEEEE/333333?text=Activity+Image+5';" alt="Academic & Research Activities 5">
+                </div>
             </div>
-            <div class="accordion-content" style="display: none;" id="accordion-content-researchAreas">
-            <p>Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.</p>
-
+            <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.<span class="snippet-more-indicator"> ...more</span></p>
+            </div>
+            <div class="accordion-content" style="display: none;" id="accordion-content-academicResearchActivities">
+            <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with mathematical networks.</p>
             <div class="modal-research-cards-container">
-                <a href="https://ksom.res.in/research/complex-analysis" class="modal-research-card">
-                    <h3>Complex Analysis Research</h3>
-                    <p>Our group explores several complex variables as a dynamic area of modern mathematics, focusing on Hörmander's estimates and their impact on the Bers domain (Teichmüller space). We investigate the profound geometric implications of the Kobayashi metric being isometric to the Teichmüller metric. This research bridges complex analysis, Teichmüller theory, and differential geometry, advancing our understanding of intrinsic metrics on complex spaces through interdisciplinary connections with algebra, PDEs, and algebraic geometry.</p>
+                <a href="https://ksom.res.in/activities/colloquium" class="modal-research-card">
+                    <h3>Mathematics Colloquium</h3>
+                    <p>Features regular presentations by distinguished visiting mathematicians, showcasing frontier research across pure and applied mathematics. These talks provide comprehensive overviews of emerging fields while stimulating interdisciplinary dialogue among researchers at all career stages.</p>
                 </a>
-                <a href="https://ksom.res.in/research/braid-&-mapping-class-groups" class="modal-research-card">
-                    <h3>Braid Groups & Mapping Class Groups Research</h3>
-                    <p>We study fundamental structures at the intersection of algebraic topology and geometric group theory, examining relationships between braid groups and mapping class groups. Our work centers on liftability problems and the Birman-Hilden property, which determine when surface homeomorphisms extend to handlebodies. A key focus involves classifying unitary representations of braid groups and analyzing their connections to quantum invariants, linking geometric group theory with representation theory and quantum topology.</p>
-                </a>
-                <a href="https://ksom.res.in/research/harmonic-analysis" class="modal-research-card">
-                    <h3>Harmonic Analysis Research</h3>
-                    <p>Our investigations center on harmonic analysis in nilpotent Lie groups and time-frequency methods, connecting classical Fourier analysis with modern operator theory. We explore modulation spaces, Fourier multipliers, twisted convolution operators, and their Lp-Lq boundedness properties. The group also analyzes nonlinear Schrödinger equations with twisted Laplacians, maximal functions along hypersurfaces, and develops Hardy-Sobolev inequalities in non-commutative settings, advancing oscillatory integral techniques for dispersive PDEs.</p>
-                </a>
-                <a href="https://ksom.res.in/research/non-commutative-functional-analysis" class="modal-research-card">
-                    <h3>Non-commutative Functional Analysis Research</h3>
-                    <p>We extend functional analysis to quantum realms through operator algebras and operator spaces, investigating quantum approximation properties and convexity in C*-algebras. Our work focuses on completely bounded approximation, quantum convexity, matricial ranges, and operator system structures. This research bridges abstract functional analysis with quantum information theory, with applications in quantum error correction, quantum channel classification, and geometric analysis of quantum states.</p>
-                    </a>
-                    <a href="https://ksom.res.in/research/analytic-number-theory" class="modal-research-card">
-                        <h3>Analytic Number Theory Research</h3>
-                        <p>Our group employs advanced analytic techniques to study prime distributions, multiplicative functions, and L-function special values. We investigate multiple zeta values and their generalizations (including multiple Apéry-like sums), explicit averages beyond classical estimates, Möbius sums with coprimality conditions, and additive number theory extensions. Key work involves the Beurling-Selberg function's applications to prime number theory and developing new methods for bounding multiple zeta value tails, connecting analytic techniques with combinatorial structures.</p>
-                    </a>
-                </div>
-                <p>Collaborative Environment<br/>Our research thrives through synergistic partnerships between faculty, postdoctoral researchers, and doctoral students. This collaborative ecosystem combines rigorous theoretical inquiry and computational approaches, positioning KSoM at the forefront of mathematical discovery while training next-generation mathematicians.</p>
-                </div>
-        </section>
-
-        <section id="academic-activities-section" class="accordion-item" data-accordion-id="academicResearchActivities" data-learn-more-url="https://ksom.res.in/activities">
-                <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Academic & Research Activities at KSoM" aria-expanded="false" aria-controls="accordion-content-academicResearchActivities">Academic & Research Activities at KSoM</div>
-                <div class="accordion-snippet">
-                <div class="slideshow-container" data-slideshow-id="academicActivities">
-                    <div class="mySlides fade">
-                        <img src="/Images/Activities/Image-1.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/F0F8FF/333333?text=Activity+Image+1';" alt="Academic & Research Activities 1">
-                    </div>
-                    <div class="mySlides fade">
-                        <img src="/Images/Activities/Image-2.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/E6E6FA/333333?text=Activity+Image+2';" alt="Academic & Research Activities 2">
-                    </div>
-                    <div class="mySlides fade">
-                        <img src="/Images/Activities/Image-3.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/F5F5DC/333333?text=Activity+Image+3';" alt="Academic & Research Activities 3">
-                    </div>
-                    <div class="mySlides fade">
-                        <img src="/Images/Activities/Image-4.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/FFE4E1/333333?text=Activity+Image+4';" alt="Academic & Research Activities 4">
-                    </div>
-                    <div class="mySlides fade">
-                        <img src="/Images/Activities/Image-5.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/AFEEEE/333333?text=Activity+Image+5';" alt="Academic & Research Activities 5">
-                    </div>
-                </div>
-                <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.<span class="snippet-more-indicator"> ...more</span></p>
-                </div>
-                <div class="accordion-content" style="display: none;" id="accordion-content-academicResearchActivities">
-                <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with mathematical networks.</p>
-                <div class="modal-research-cards-container">
-                    <a href="https://ksom.res.in/activities/colloquium" class="modal-research-card">
-                        <h3>Mathematics Colloquium</h3>
-                        <p>Features regular presentations by distinguished visiting mathematicians, showcasing frontier research across pure and applied mathematics. These talks provide comprehensive overviews of emerging fields while stimulating interdisciplinary dialogue among researchers at all career stages.</p>
-                    </a>
-                    <a href="https://ksom.res.in/activities/seminar-series" class="modal-research-card">
-                        <h3>Specialized Seminar Series</h3>
-                        <p>Offers focused forums for deep exploration of specific mathematical disciplines. Organized by research groups, these sessions include graduate student presentations, paper discussions, and technical workshops that advance collaborative projects and methodological development.</p>
+                <a href="https://ksom.res.in/activities/seminar-series" class="modal-research-card">
+                    <h3>Specialized Seminar Series</h3>
+                    <p>Offers focused forums for deep exploration of specific mathematical disciplines. Organized by research groups, these sessions include graduate student presentations, paper discussions, and technical workshops that advance collaborative projects and methodological development.</p>
                 </a>
                 <a href="https://ksom.res.in/activities/conferences" class="modal-research-card">
                     <h3>International Conferences</h3>
