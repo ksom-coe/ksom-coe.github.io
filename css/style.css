@@ -1,0 +1,377 @@
+/* === Global Variables === */
+:root {
+  --primary-bg: #f8f9fa;
+  --primary-text: #1a1a1a;
+  --accent-blue: #002b45;
+  --accent-light: #005c97;
+  --accent-hover: #0072b1;
+  --card-bg: #ffffff;
+  --card-border: #e0e0e0;
+  --transition-fast: 0.25s ease;
+  --max-content-width: 1400px; /* Increased from 1200px */
+  --font-sans: 'Inter', system-ui, sans-serif; /* Inter for UI elements like navigation */
+  --font-serif: 'Merriweather', Georgia, serif; /* Merriweather for headings */
+  --font-body: 'Lora', serif; /* Lora for body text */
+  --modal-bg: rgba(0, 0, 0, 0.7);
+  --modal-content-bg: #fff;
+  --dark-primary-bg: #1a1a1a;
+  --dark-primary-text: #f1f1f1;
+  --dark-card-bg: #2b2b2b;
+  --dark-border: #444;
+  --two-column-gap: 2rem; /* Added variable for two-column gap */
+  --accordion-column-gap: 1.5rem; /* Specific gap for columns of accordions */
+}
+
+/* === Base Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--font-body); /* Apply Lora as the primary body font */
+  background: var(--primary-bg);
+  color: var(--primary-text);
+  line-height: 1.65;
+  font-size: 16px;
+  transition: background 0.3s ease, color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 70px; /* Space for fixed header */
+  min-height: 100vh; /* Ensure body takes full viewport height */
+}
+body.dark-mode {
+  background: var(--dark-primary-bg);
+  color: var(--dark-primary-text);
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif); /* Apply Merriweather to headings */
+    font-weight: 700;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border: 0;
+}
+
+/* === Container Layout === */
+.container {
+  width: 90%;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+}
+
+/* === Header & Navigation === */
+header {
+  background: linear-gradient(to right, var(--accent-blue), var(--accent-light));
+  color: white;
+  padding: 0; /* Padding will be on header-content */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  width: 100%; /* Span full width */
+  position: fixed; /* Fixed position */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Stay on top */
+  display: flex; /* Keep flex to align content inside header */
+  justify-content: center; /* Center the inner content */
+  align-items: center;
+  height: 70px; /* Fixed height for header */
+}
+
+.header-content { /* Content inside the header */
+  width: 90%; /* Constrain content width */
+  max-width: var(--max-content-width); /* Constrain max-width */
+  padding: 1rem 0; /* Vertical padding only, horizontal handled by width */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+.circle-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: white;
+  color: var(--accent-blue);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.logo-title a {
+  color: white;
+  font-family: var(--font-serif); /* Changed to Merriweather (serif) for title as requested */
+  font-size: 1.0rem; /* Slightly reduced font size as requested */
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  text-transform: uppercase; /* Make uppercase */
+}
+/* Container for navigation, dark mode toggle, and hamburger icon */
+.header-right-group {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* Space between desktop nav and hamburger icon */
+}
+
+nav {
+  display: flex;
+  gap: 0.6rem; /* Reduced gap further */
+  align-items: center;
+  flex-wrap: nowrap; /* Ensure menu items stay on one line by default */
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.3rem 0.5rem; /* Slightly reduced padding */
+  font-weight: 400; /* Adjusted font weight */
+  border-radius: 5px;
+  transition: background var(--transition-fast);
+  outline: none;
+  font-family: var(--font-sans); /* Ensure navigation links use Inter font */
+  font-size: 0.85rem; /* Reduced font size for menu items */
+  text-transform: uppercase; /* Make uppercase */
+}
+nav a:focus-visible {
+  outline: 2px dashed #fff;
+  outline-offset: 2px;
+}
+nav a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.dropdown {
+  position: relative;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  color: var(--accent-blue);
+  top: 100%;
+  min-width: 200px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  z-index: 1000;
+  padding: 0.5rem 0; /* Add padding to dropdown content */
+}
+.dropdown-content a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: var(--accent-blue);
+  text-decoration: none;
+  transition: background var(--transition-fast);
+  font-family: var(--font-sans); /* Ensure dropdown links use Inter font */
+  font-size: 0.8rem; /* Reduced font size for submenu items */
+  text-transform: uppercase; /* Make uppercase */
+}
+.dropdown-content a:hover {
+  background: #f0f4f8;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dark-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Hamburger menu styles */
+.hamburger-menu-icon {
+    display: none; /* Hidden by default on desktop */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem; /* Larger icon */
+    cursor: pointer;
+    margin-left: 1rem; /* Space from other header elements */
+    z-index: 1001; /* Ensure it's above other elements */
+    transition: transform 0.3s ease;
+}
+
+.hamburger-menu-icon.active {
+    transform: rotate(90deg); /* Rotate when active for visual feedback */
+}
+
+.mobile-menu-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-bg); /* Semi-transparent overlay */
+    z-index: 2000; /* Above everything */
+    justify-content: flex-end; /* Push the menu panel to the right */
+    align-items: flex-start; /* Align content to the top within the panel */
+    transition: background-color 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    display: flex;
+}
+
+.mobile-menu-panel {
+    background-color: var(--accent-blue); /* Actual menu background */
+    color: white;
+    width: 60%; /* Reduced from 66.6% for more efficiency */
+    height: 100%;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.3); /* Shadow for depth */
+    transform: translateX(100%); /* Start off-screen to the right */
+    transition: transform 0.3s ease-out; /* Slide animation */
+    padding-top: 70px; /* Space for fixed close button */
+    overflow-y: auto; /* Enable scrolling for long menus */
+}
+
+.mobile-menu-overlay.active .mobile-menu-panel {
+    transform: translateX(0); /* Slide in */
+}
+
+
+.mobile-menu-overlay .close-btn {
+    position: absolute;
+    top: 0.8rem; /* Adjusted slightly */
+    right: 0.8rem; /* Adjusted slightly */
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 2001;
+    color: white;
+    display: flex; /* Added for centering 'x' */
+    align-items: center; /* Added for centering 'x' */
+    justify-content: center; /* Added for centering 'x' */
+    width: 2.5rem; /* Ensure clickable area */
+    height: 2.5rem; /* Ensure clickable area */
+}
+
+.mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px; /* Constrain width for menu items */
+    margin: 1.5rem auto 0; /* Adjusted margin for more efficiency */
+    padding: 0 1rem; /* Added horizontal padding for efficiency */
+}
+
+/* New/Modified CSS for mobile menu structure */
+.mobile-dropdown-container {
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Separator for the whole dropdown block */
+}
+
+.mobile-dropdown-container:last-of-type {
+    border-bottom: none; /* No border on the last one */
+}
+
+.mobile-dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0; /* Slightly reduced padding */
+}
+
+.mobile-dropdown-header a {
+    flex-grow: 1; /* Allow link to take available space */
+    text-align: center; /* Center the link text */
+    padding: 0; /* Remove internal padding, handled by parent flex item */
+    border-bottom: none; /* Remove border from the link itself */
+    color: white; /* Ensure link color is white */
+    text-decoration: none; /* Remove underline */
+    font-family: var(--font-sans);
+    font-size: 1rem; /* Adjusted font size */
+    text-transform: uppercase;
+    transition: background 0.2s ease;
+}
+.mobile-dropdown-header a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-dropdown-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem; /* Slightly smaller */
+    cursor: pointer;
+    padding: 0.5rem; /* Make it easily tappable */
+    margin-left: 0.5rem; /* Space from the link */
+    transition: transform 0.2s ease;
+    outline: none;
+}
+
+.mobile-dropdown-toggle.expanded {
+    transform: rotate(180deg);
+}
+
+.mobile-submenu {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0.3rem 0; /* Reduced padding for sleeker look */
+    width: 100%; /* Ensure submenu takes full width */
+}
+
+.mobile-submenu.expanded {
+    display: flex;
+}
+
+.mobile-submenu a {
+    font-size: 0.9rem; /* Adjusted font size */
+    padding: 0.6rem 0; /* Reduced padding */
+    text-align: center;
+    border-bottom: none; /* Removed border */
+    color: white; /* Ensure link color is white */
+    text-decoration: none; /* Remove underline */
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    transition: background 0.2s ease;
+}
+.mobile-submenu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Existing mobile-menu-content a styles */
+.mobile-menu-content > a { /* Target direct children anchor tags */
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 0; /* Consistent padding */
+    font-family: var(--font-sans);
+    font-size: 1rem; /* Consistent font size */
+    text-transform: uppercase;
+    text-align: center;
+    transition: background 0.2s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Separator */
+}
+
+.mobile-menu-content > a:last-child {
+    border-bottom: none;
+}
+
+.mobile-menu-content > a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark mode toggle in mobile menu */
+.mobile-menu-content .dark-toggle {
+    padding: 0.8rem 0; /* Align with other menu items */
+    border-bottom: none; /* No border for the last item */
+}
+
+
+/* Old: mobile-dropdown-header::after */
+.mobile-dropdown-header::after {
+    /* Remove this, as we'll use a button for the arrow */
+    content: none;
+}
