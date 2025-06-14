@@ -1972,10 +1972,8 @@ footer .footer-column a:hover {
             }, 0); 
         }
 
-        const modalLearnMoreBtn = document.createElement('a');
-        modalLearnMoreBtn.classList.add('modal-learn-more-btn');
-        modalLearnMoreBtn.textContent = 'Learn More';
-        modalLearnMoreBtn.target = '_blank'; // Open in new tab
+        // The modalLearnMoreBtn element is no longer dynamically created here for non-calendar modals
+        // as the button will be part of the 'content' if it originates from an accordion item.
         
         if (isCalendarModal) {
             // Destroy existing calendar instance if it exists
@@ -2059,11 +2057,9 @@ footer .footer-column a:hover {
                 fullCalendarInstance.destroy();
                 fullCalendarInstance = null;
             }
-            modalBody.innerHTML = content;
-            if (learnMoreLink) {
-                modalLearnMoreBtn.href = learnMoreLink;
-                modalBody.appendChild(modalLearnMoreBtn);
-            }
+            modalBody.innerHTML = content; // This will now include the single "Learn more" button
+            // Removed the conditional check and dynamic button creation here
+            // as the button is already part of the 'content' passed in.
             document.getElementById('modal').classList.add('active');
         }
     }
@@ -2131,6 +2127,9 @@ footer .footer-column a:hover {
           if (accordionId) {
             const title = this.querySelector('.accordion-header').textContent;
             const content = this.querySelector('.accordion-content').innerHTML; // Use this for content
+            // The 'learnMoreLink' parameter is no longer used for dynamic button creation in openModal
+            // for non-calendar modals, so it's fine to pass null or the actual link.
+            // I'm keeping it for consistency if other parts of the code might use it in the future.
             const learnMoreBtnInAccordion = this.querySelector('.accordion-content .learn-more-btn');
             let learnMoreLink = learnMoreBtnInAccordion ? learnMoreBtnInAccordion.href : null;
             openModal(title, content, false, learnMoreLink);
