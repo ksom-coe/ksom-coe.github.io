@@ -1462,7 +1462,7 @@ footer .footer-column a:hover {
   .main-layout-wrapper {
     grid-template-columns: 1fr; /* Single column on mobile */
     gap: 2rem; /* Consistent gap for stacked sections on mobile */
-    width: 95%; /* Adjust width for mobile */
+    width: 95%;
     padding-top: 1.5rem; /* Reintroduce some padding for mobile stacking */
     margin-bottom: 2rem; /* Adjusted for mobile footer */
 
@@ -2078,23 +2078,77 @@ footer .footer-column a:hover {
                 nowIndicator: true,
                 dayMaxEvents: true,
                 events: [
-                    { title: 'SWIM Workshop', date: '2025-06-15', url: 'https://ksom.res.in/events/swim-workshop', color: '#005c97' },
-                    { title: 'Mathematics Colloquium', date: '2025-06-20', url: 'https://ksom.res.in/events/math-colloquium', color: '#002b45' },
-                    { title: 'Outreach Day', date: '2025-06-25', url: 'https://ksom.res.in/events/outreach-day', color: '#005c97' },
-                    { title: 'Algebra Seminar', date: '2025-06-05', url: 'https://ksom.res.in/events/algebra-seminar', color: '#002b45' },
-                    { title: 'Geometry Talk', date: '2025-06-10', url: 'https://ksom.res.in/events/geometry-talk', color: '#005c97' },
-                    { title: 'Analysis Lecture', date: '2025-06-22', url: 'https://ksom.res.in/events/analysis-lecture', color: '#002b45' },
-                    { title: 'Faculty Meeting', date: '2025-06-01', url: 'https://ksom.res.in/events/faculty-meeting', color: '#002b45' },
-                    { title: 'Student Orientation', date: '2025-07-01', url: 'https://ksom.res.in/events/student-orientation', color: '#005c97' },
-                    { title: 'Research Presentation', date: '2025-07-15', url: 'https://ksom.res.in/events/research-presentation', color: '#002b45' },
-                    { title: 'PhD Viva Voce', date: '2025-07-28', url: 'https://ksom.res.in/events/phd-viva', color: '#005c97' },
-                    // Course Events - Added with distinct color code (#4CAF50 - a shade of green)
-                    { title: 'Course: Introduction to Algebra', date: '2025-09-05', url: 'https://ksom.res.in/courses/algebra101', color: '#4CAF50' },
-                    { title: 'Course: Real Analysis I', date: '2025-09-08', url: 'https://ksom.res.in/courses/realanalysis1', color: '#4CAF50' },
-                    { title: 'Course: Complex Analysis', date: '2025-09-12', url: 'https://ksom.res.in/courses/complexanalysis', color: '#4CAF50' },
-                    { title: 'Course: Topology', date: '2025-09-15', url: 'https://ksom.res.in/courses/topology', color: '#4CAF50' },
-                    { title: 'Course: Number Theory', date: '2025-09-18', url: 'https://ksom.res.in/courses/numbertheory', color: '#4CAF50' },
-                    { title: 'Course: Differential Geometry', date: '2025-09-22', url: 'https://ksom.res.in/courses/differentialgeometry', color: '#4CAF50' },
+                    // 🟦 Workshops
+                    { title: 'SWIM Workshop', date: '2025-06-15', url: 'https://ksom.res.in/events/swim-workshop', color: '#0077cc' },
+
+                    // 🟪 Conferences
+                    // (Add conferences here if available)
+
+                    // 🟫 Colloquium & Seminar Talks
+                    { title: 'Mathematics Colloquium', date: '2025-06-20', url: 'https://ksom.res.in/events/math-colloquium', color: '#2c3e50' },
+                    { title: 'Algebra Seminar', date: '2025-06-05', url: 'https://ksom.res.in/events/algebra-seminar', color: '#2c3e50' },
+                    { title: 'Geometry Talk', date: '2025-06-10', url: 'https://ksom.res.in/events/geometry-talk', color: '#2c3e50' },
+                    { title: 'Analysis Lecture', date: '2025-06-22', url: 'https://ksom.res.in/events/analysis-lecture', color: '#2c3e50' },
+
+                    // 🟥 Holidays
+                    { title: 'Republic Day', date: '2025-01-26', color: '#c0392b' },
+                    { title: 'May Day', date: '2025-05-01', color: '#c0392b' },
+                    { title: 'Vishu / Ambedkar Jayanti', date: '2025-04-14', color: '#c0392b' },
+                    { title: 'Easter Sunday', date: '2025-04-20', color: '#c0392b' },
+                    { title: 'Good Friday', date: '2025-04-18', color: '#c0392b' },
+                    { title: 'Maundy Thursday', date: '2025-04-17', color: '#c0392b' },
+                    { title: 'Bakrid / Eid al-Adha', date: '2025-06-06', color: '#c0392b' },
+                    { title: 'Muharram', date: '2025-06-29', color: '#c0392b' },
+                    { title: 'Independence Day', date: '2025-08-15', color: '#c0392b' },
+                    { title: 'Sri Krishna Jayanthi', date: '2025-08-14', color: '#c0392b' },
+                    { title: 'Gandhi Jayanthi', date: '2025-10-02', color: '#c0392b' },
+                    { title: 'Mahanavami', date: '2025-10-01', color: '#c0392b' },
+                    { title: 'Vijaya Dashami', date: '2025-10-02', color: '#c0392b' },
+                    { title: 'Milad-i-Sharif', date: '2025-09-05', color: '#c0392b' },
+                    { title: 'Deepavali', date: '2025-10-20', color: '#c0392b' },
+                    { title: 'Christmas', date: '2025-12-25', color: '#c0392b' },
+
+                    // 🟩 Academic Calendar Events
+                    { title: 'Spring Semester Begins', date: '2025-01-13', color: '#4CAF50' },
+                    { title: 'MSc Thesis Submission Deadline', date: '2025-07-26', color: '#4CAF50' },
+                    { title: 'Fall Semester Begins', date: '2025-09-11', color: '#4CAF50' },
+                    { title: 'Declaration of Results', date: '2025-05-17', color: '#4CAF50' },
+                    { title: 'Last Instructional Day', date: '2025-05-22', color: '#4CAF50' },
+                    { title: 'Vacation Begins', date: '2025-06-06', color: '#4CAF50' },
+                    { title: 'Integrated MSc-PhD Admission Test/Interviews', date: '2025-08-13', color: '#4CAF50' },
+                    { title: 'KSoM Integrated MSc-PhD Examination', date: '2025-12-25', color: '#4CAF50' },
+
+                    // Multi-day 🟩 Academic Events
+                    {
+                        title: 'Mid Semester Exam Week',
+                        start: '2025-03-03',
+                        end: '2025-03-08',
+                        color: '#4CAF50'
+                    },
+                    {
+                        title: 'Final Examination Week',
+                        start: '2025-05-05',
+                        end: '2025-05-10',
+                        color: '#4CAF50'
+                    },
+                    {
+                        title: 'MSc Thesis Colloquia Week',
+                        start: '2025-07-07',
+                        end: '2025-07-12',
+                        color: '#4CAF50'
+                    },
+                    {
+                        title: 'Bridge Courses (MSc-PhD 1st Year)',
+                        start: '2025-08-28',
+                        end: '2025-09-02',
+                        color: '#4CAF50'
+                    },
+
+                    // Admin
+                    { title: 'Faculty Meeting', date: '2025-06-01', url: 'https://ksom.res.in/events/faculty-meeting', color: '#2c3e50' },
+                    { title: 'Student Orientation', date: '2025-07-01', url: 'https://ksom.res.in/events/student-orientation', color: '#4CAF50' },
+                    { title: 'Research Presentation', date: '2025-07-15', url: 'https://ksom.res.in/events/research-presentation', color: '#2c3e50' },
+                    { title: 'PhD Viva Voce', date: '2025-07-28', url: 'https://ksom.res.in/events/phd-viva', color: '#4CAF50' },
                 ],
                 eventClick: function(info) {
                     if (info.event.url) {
