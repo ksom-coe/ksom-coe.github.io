@@ -1,1 +1,45 @@
+[
+  {
+      "id": "recruitment",
+      "title": "KSoM Recruitment Drive",
+      "date": "June 3, 2025",
+      "description": "Applications are now open for key administrative positions including Accounts Officer and Registrar. We invite dynamic and experienced professionals to join our esteemed institution and contribute to its continued growth and success. This is a unique opportunity to be part of a leading research institute dedicated to mathematical excellence. Detailed job descriptions and application procedures are available on our careers page.",
+      "link": "https://ksom.res.in/news/recruitment-drive"
+  },
+  {
+      "id": "phd-admissions",
+      "title": "PhD Admissions 2025",
+      "date": "May 7, 2025",
+      "description": "Applications are invited for our prestigious doctoral programmes in Pure and Applied Mathematics for the academic year 2025. KSoM offers comprehensive financial support, including monthly scholarships and hostel accommodation, to all selected candidates. Our PhD program provides an immersive research environment with access to state-of-the-art facilities and mentorship from world-renowned faculty. Prospective candidates with a strong academic record in mathematics or a related field are encouraged to apply. The admission process involves a rigorous entrance examination and an interview.",
+      "link": "https://ksom.res.in/admissions/phd"
+  },
+  {
+      "id": "visiting-faculty",
+      "title": "Visiting Faculty Position",
+      "date": "March 4, 2025",
+      "description": "KSoM is seeking highly qualified candidates for Visiting Assistant Professor positions across all mathematical disciplines. We offer a vibrant and collaborative research environment with opportunities to engage in cutting-edge research and interact with leading mathematicians. The ideal candidate will have a strong research profile and a commitment to teaching and mentoring. We welcome applications from both experienced faculty and promising early-career researchers. Positions are available for periods ranging from three months to a full academic year.",
+      "link": "https://ksom.res.in/careers/visiting-faculty"
+  },
+  {
+      "id": "research-symposium",
+      "title": "Annual Research Symposium",
+      "date": "February 15, 2025",
+      "description": "The Annual Research Symposium held last week was a resounding success, featuring keynote speakers and groundbreaking research presentations from our faculty, postdocs, and research scholars. The symposium facilitated vibrant discussions and fostered new collaborations across various mathematical fields. Highlights included sessions on quantum algorithms, geometric group theory, and advancements in analytic number theory. We extend our gratitude to all participants and look forward to building on this momentum in the coming year.",
+      "link": "https://ksom.res.in/activities/research-symposium"
+  },
+  {
+      "id": "new-faculty",
+      "title": "New Faculty Announcement",
+      "date": "January 20, 2025",
+      "description": "We are thrilled to announce the appointment of Dr. Alok Kumar as our newest faculty member, specializing in Algebraic Geometry. Dr. Kumar brings a wealth of expertise and a promising research agenda that will significantly enhance our department's capabilities. His work focuses on the intersection of algebraic geometry and number theory, and we are confident that his contributions will greatly enrich our academic community and foster innovative research collaborations. Please join us in extending a warm welcome to Dr. Kumar.",
+      "link": "https://ksom.res.in/people/faculty/alok-kumar"
+  },
+  {
+      "id": "winter-school",
+      "title": "Winter School on Number Theory",
+      "date": "December 1, 2024",
+      "description": "Registration is now open for our intensive Winter School on Number Theory, scheduled for January 10-20, 2025. This school is designed for advanced undergraduate students, graduate students, and young researchers interested in modern developments in analytic number theory. The curriculum will cover topics such as sieve methods, automorphic forms, and L-functions, delivered through a series of lectures and problem-solving sessions by leading experts in the field. Early registration is encouraged due to limited seats.",
+      "link": "https://ksom.res.in/activities/winter-school"
+  }
+]
 
