@@ -1,3 +1,5 @@
+layout: base.html
+title: Kerala School of Mathematics - Official website
 <!-- About KSoM Section -->
 <section id="about-ksom-section" class="accordion-item" data-accordion-id="aboutKSoM" data-learn-more-url="https://ksom.res.in/about">
     <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about About KSoM" aria-expanded="false" aria-controls="accordion-content-aboutKSoM">About KSoM</div>
