@@ -4,7 +4,6 @@ title: Kerala School of Mathematics - Official Website
 ---
 
 <div class="main-layout-wrapper" id="main-content-start" role="main">
-    <!-- Campus photos Section -->
     <div id="campus-photos-section" class="top-image slideshow-container" data-slideshow-id="mainCampus">
         <div class="mySlides fade">
             <img src="/Images/Main/Image-1.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+1';" alt="KSoM Campus Image 1" />
@@ -27,7 +26,6 @@ title: Kerala School of Mathematics - Official Website
         </div>
     </div>
 
-    <!-- About KSoM Section -->
     <section id="about-ksom-section" class="accordion-item" data-accordion-id="aboutKSoM" data-learn-more-url="https://ksom.res.in/about">
         <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about About KSoM" aria-expanded="false" aria-controls="accordion-content-aboutKSoM">About KSoM</div>
         <div class="accordion-snippet">
@@ -42,9 +40,7 @@ title: Kerala School of Mathematics - Official Website
         </div>
     </section>
 
-    <!-- Left Main Content Column (60% width) -->
     <div class="left-accordion-col-wrapper">
-        <!-- Research Areas Section -->
         <section id="research-areas-section" class="accordion-item" data-accordion-id="researchAreas" data-learn-more-url="https://ksom.res.in/research">
             <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Research Areas at KSoM" aria-expanded="false" aria-controls="accordion-content-researchAreas">Research Areas at KSoM</div>
             <div class="accordion-snippet">
@@ -79,11 +75,9 @@ title: Kerala School of Mathematics - Official Website
                 </div>
         </section>
 
-        <!-- Academic & Research Activities Section -->
         <section id="academic-activities-section" class="accordion-item" data-accordion-id="academicResearchActivities" data-learn-more-url="https://ksom.res.in/activities">
                 <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Academic & Research Activities at KSoM" aria-expanded="false" aria-controls="accordion-content-academicResearchActivities">Academic & Research Activities at KSoM</div>
                 <div class="accordion-snippet">
-                <!-- Slideshow container -->
                 <div class="slideshow-container" data-slideshow-id="academicActivities">
                     <div class="mySlides fade">
                         <img src="/Images/Activities/Image-1.jpg" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/F0F8FF/333333?text=Activity+Image+1';" alt="Academic & Research Activities 1">
@@ -128,9 +122,7 @@ title: Kerala School of Mathematics - Official Website
     </section>
 </div>
 
-<!-- Right Main Content Column (40% width) -->
 <div class="right-accordion-col-wrapper">
-    <!-- Academic Programmes Section -->
     <section id="academic-programmes-section" class="accordion-item" data-accordion-id="academicProgrammes" data-learn-more-url="https://ksom.res.in/programmes">
         <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Academic Programmes at KSoM" aria-expanded="false" aria-controls="accordion-content-academicProgrammes">Academic Programmes at KSoM</div>
         <div class="accordion-snippet">
@@ -157,7 +149,6 @@ title: Kerala School of Mathematics - Official Website
             </div>
     </section>
 
-    <!-- Outreach Section -->
     <section id="outreach-section" class="accordion-item" data-accordion-id="outreachActivities" data-learn-more-url="https://ksom.res.in/outreach">
         <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Outreach Activities" aria-expanded="false" aria-controls="accordion-content-outreachActivities">Outreach Activities</div>
         <div class="accordion-snippet">
@@ -184,25 +175,20 @@ title: Kerala School of Mathematics - Official Website
     </section>
 </div>
 
-<!-- Sidebar Content (holds Latest News, Calendar, Upcoming Events for vertical stacking) -->
 <div class="sidebar-container">
-    <!-- Calendar Section - MOVED TO THE TOP OF SIDEBAR-CONTAINER FOR MOBILE ORDERING -->
     <section id="calendar-section" class="fancy-calendar-button-container">
         <button id="events-calendar-button" class="fancy-calendar-button" aria-label="Open Events Calendar" aria-haspopup="dialog">
             <span class="button-text">Events Calendar</span>
         </button>
     </section>
 
-    <!-- Latest News Section -->
     <section id="latest-news-section" class="accordion-item">
         <h3>Latest News at KSoM</h3>
         <div class="timeline-container">
         <div class="timeline">
-            <!-- Each timeline-item is now a clickable card -->
             <a href="#" class="timeline-item" data-news-id="recruitment" role="button" aria-haspopup="dialog">
             <div class="timeline-content">
                 <p class="timeline-date">June 3, 2025</p>
-                <!-- news-title-link class removed from <a> tag as entire card is clickable -->
                 <span class="news-title-link">KSoM Recruitment Drive</span>
                 <p class="timeline-description">Applications now open for key administrative positions: Accounts Officer and Registrar. Join our growing team supporting mathematical excellence.</p>
             </div>
@@ -249,7 +235,6 @@ title: Kerala School of Mathematics - Official Website
         </div>
     </section>
 
-    <!-- Upcoming Events Section -->
     <section id="upcoming-events-section" class="accordion-item">
         <h3>Upcoming Events at KSoM</h3>
         <div class="timeline-container">
