@@ -1139,6 +1139,18 @@ body.dark-mode #latest-news-section .archive-btn {
 
 #upcoming-events-section .timeline-marker {
     display: block; /* Re-add the markers */
+    width: 8px; /* Size of the bullet */
+    height: 8px;
+    background-color: var(--accent-light); /* Bullet color */
+    border-radius: 50%;
+    position: absolute; /* Position it relative to timeline-item */
+    left: 0; /* Align to the line */
+    top: 0.75rem; /* Adjust vertically to be centered with content */
+    transform: translateY(-50%); /* Fine-tune vertical alignment */
+    z-index: 2; /* Above the line */
+}
+body.dark-mode #upcoming-events-section .timeline-marker {
+    background-color: var(--accent-hover); /* Dark mode bullet color */
 }
 
 #upcoming-events-section .timeline-item {
@@ -1511,7 +1523,13 @@ footer .footer-column a:hover {
               <a href="https://ksom.res.in/research-council">Research Council</a>
             </div>
           </div>
-          <a href="https://ksom.res.in/research">Research</a>
+          <div class="dropdown">
+            <a href="https://ksom.res.in/research">Research</a>
+            <div class="dropdown-content">
+              <a href="https://ksom.res.in/research/areas">Research Areas</a>
+              <a href="https://ksom.res.in/research/publications">Publications</a>
+            </div>
+          </div>
           <div class="dropdown">
             <a href="https://ksom.res.in/programmes">Programmes</a>
             <div class="dropdown-content">
@@ -1725,6 +1743,10 @@ footer .footer-column a:hover {
                     <h3>Ph.D. Programme</h3>
                     <p>Offers intensive research immersion in Pure or Applied Mathematics under close faculty mentorship. Spanning approximately five years, scholars transition from specialized coursework to original dissertation work on frontier mathematical problems, supported by fellowships, travel grants for conferences, and teaching opportunities. This programme cultivates independent research capabilities while fostering academic networking through seminars and collaborations with international experts.</p>
                     </a>
+                <a href="https://ksom.res.in/programmes/postdoc" class="modal-research-card">
+                    <h3>Postdoctoral Fellowships</h3>
+                    <p>Provides opportunities for recent PhD graduates to pursue independent research in a collaborative environment. Fellows receive competitive stipends, research grants, and access to all institute resources, preparing them for leadership roles in academia and industry.</p>
+                </a>
                 </div>
                 <p>Scholarly Environment<br/>All programmes emphasize collaborative learning through weekly research seminars, specialized workshops, and annual conferences that connect students with global mathematical leaders. Our selective admission process identifies exceptional talent while maintaining small cohort sizes that ensure personalized guidance. This supportive ecosystem enables scholars to contribute meaningfully to mathematical knowledge while developing as versatile researchers equipped to address complex scientific challenges.</p>
                 <a class="modal-learn-more-btn" href="https://ksom.res.in/programmes">Learn more about Academic Programmes &rarr;</a>
@@ -1940,7 +1962,12 @@ footer .footer-column a:hover {
         document.getElementById('modal-title').innerText = title;
         const modalBody = document.getElementById('modal-body');
         modalBody.innerHTML = ''; // Clear previous content
-        modalBody.scrollTop = 0; // Scroll to top
+        
+        // This is crucial: Set scroll to top *after* content is potentially loaded, or as part of openModal logic
+        // For simple HTML content, setting it immediately after clearing innerHTML is often enough.
+        // For more complex content or async loads, a setTimeout (even 0ms) might be needed,
+        // or a callback after content is fully rendered.
+        // However, the existing `modalBody.scrollTop = 0;` should work for this case as new content is appended immediately.
 
         const modalLearnMoreBtn = document.createElement('a');
         modalLearnMoreBtn.classList.add('modal-learn-more-btn');
@@ -1960,6 +1987,7 @@ footer .footer-column a:hover {
             
             // Show modal first, then render calendar
             document.getElementById('modal').classList.add('active');
+            modalBody.scrollTop = 0; // Reset scroll position for calendar modal
 
             // Define common calendar options for aesthetics (needs to be available here)
             const commonCalendarOptions = {
@@ -2035,6 +2063,7 @@ footer .footer-column a:hover {
                 modalBody.appendChild(modalLearnMoreBtn);
             }
             document.getElementById('modal').classList.add('active');
+            modalBody.scrollTop = 0; // Reset scroll position for content modals
         }
     }
 
