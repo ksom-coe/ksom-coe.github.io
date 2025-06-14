@@ -740,7 +740,7 @@ body.dark-mode .modal-research-card p {
   role: dialog;
   aria-labelledby: modal-title;
   /* Add aria-modal to ensure proper accessibility for modal dialogs */
-  /* This comment is a reminder for self-correction. aria-modal="true" should be added via JS */
+  aria-modal="true"
 }
 .modal-overlay.active {
   display: flex;
@@ -1126,7 +1126,7 @@ body.dark-mode #latest-news-section .timeline-content .news-title-link {
   color: var(--accent-light);
 }
 body.dark-mode #latest-news-section .timeline-content .news-title-link:hover {
-  color: var(--accent-hover);
+  color: var(--accent-light);
 }
 
 
@@ -1227,7 +1227,7 @@ body.dark-mode .event-title {
 
 
 /* Apply specific style for event links to remove underline on hover */
-.event-link:hover {
+#upcoming-events-section .timeline-content .event-link:hover {
     text-decoration: none;
     color: var(--accent-hover);
 }
