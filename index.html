@@ -27,13 +27,6 @@
           checkLoading: [0, '', '']
         }
       },
-      startup: {
-        pageReady() {
-          return MathJax.startup.defaultPageReady().then(function () {
-            document.body.classList.add('mathjax-loaded');
-          });
-        }
-      },
       loader: { load: ['[tex]/ams'] }
     };
   </script>
@@ -83,6 +76,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding-top: 70px; /* Space for fixed header */
+  min-height: 100vh; /* Ensure body takes full viewport height */
 }
 body.dark-mode {
   background: var(--dark-primary-bg);
@@ -382,6 +376,8 @@ nav a:hover {
   margin: 0 auto;
   padding-top: 1rem; /* Reduced from 2rem */
   margin-bottom: 3rem;
+  flex-grow: 1; /* Allow main content to grow and push footer down */
+
 
   /* Desktop Grid Areas Definition:
      - 'campus' and 'about' span the first two columns.
@@ -415,18 +411,23 @@ nav a:hover {
 }
 
 /* Common styling for all major content sections (accordion-items, etc.) */
-.accordion-item,
-.top-image, /* Top image is now a direct grid child with its own padding/background removed */
-.fancy-calendar-button-container /* Calendar button container is also a direct grid child */
-{
+.accordion-item {
     padding: 1.5rem; /* Default padding for all content sections */
     background: var(--card-bg);
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     box-sizing: border-box;
+    cursor: pointer; /* Make the entire item clickable */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
     /* Removed margin-bottom here. Spacing is now handled by the 'gap' of their parent flex/grid container. */
     break-inside: avoid-column; /* Still relevant for print/column-flow scenarios if any */
     page-break-inside: avoid;
+}
+
+/* Hover effect for accordion items */
+.accordion-item:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-2px); /* Slight lift on hover */
 }
 
 /* Overrides for sections that should not have the default card styling */
@@ -434,6 +435,11 @@ nav a:hover {
     padding: 0 !important;
     background: transparent !important;
     box-shadow: none !important;
+    cursor: default; /* Not clickable for modal */
+    transform: none; /* No transform on hover */
+}
+#campus-photos-section:hover {
+    box-shadow: none !important; /* No shadow on hover */
 }
 .fancy-calendar-button-container {
     padding: 0 !important;
@@ -444,13 +450,22 @@ nav a:hover {
     align-items: center;
     margin-top: 0.5rem; /* Added margin for calendar section */
     margin-bottom: 0.5rem; /* Added margin for calendar section */
+    cursor: default; /* Not clickable for modal */
+    transform: none; /* No transform on hover */
 }
+.fancy-calendar-button-container:hover {
+    box-shadow: none !important; /* No shadow on hover */
+}
+
 
 body.dark-mode .accordion-item,
 body.dark-mode .modal-research-card { /* Include modal cards for dark mode */
     background: var(--dark-card-bg);
     border: 1px solid var(--dark-border);
     color: var(--dark-primary-text);
+}
+body.dark-mode .accordion-item:hover {
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3); /* Dark mode hover shadow */
 }
 
 
@@ -507,7 +522,7 @@ body.dark-mode .modal-research-card { /* Include modal cards for dark mode */
   font-weight: 600;
   color: var(--accent-blue);
   margin-bottom: 0.4rem;
-  cursor: pointer; /* Indicate it's clickable */
+  /* Removed cursor: pointer; from here as the whole accordion-item is clickable */
 }
 .accordion-snippet {
   font-size: 1rem;
@@ -553,6 +568,64 @@ body.dark-mode .modal-research-card { /* Include modal cards for dark mode */
   font-family: var(--font-sans); /* Use Inter for strong text in cards for differentiation */
 }
 
+/* Styling for modal research cards - now "camouflaged" like upcoming events */
+.modal-research-card {
+  display: block;
+  padding: 0.8rem 1rem; /* Slightly reduced padding */
+  background: none; /* No background */
+  border: none; /* No border */
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.05); /* Subtle dashed border */
+  text-decoration: none;
+  color: var(--primary-text); /* Inherit primary text color */
+  font-size: 0.95rem;
+  transition: box-shadow var(--transition-fast), background var(--transition-fast);
+  cursor: pointer;
+  border-radius: 0; /* No border-radius */
+  box-shadow: none; /* No initial shadow */
+}
+
+.modal-research-card:last-child {
+    border-bottom: none; /* No border on the last item */
+}
+
+.modal-research-card:hover {
+  background: rgba(0, 0, 0, 0.02); /* Very subtle background change on hover */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Subtle shadow on hover */
+}
+
+body.dark-mode .modal-research-card {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+    color: var(--dark-primary-text);
+}
+
+body.dark-mode .modal-research-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.modal-research-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1rem; /* Slightly smaller for card titles */
+    font-weight: 600;
+    color: var(--accent-blue); /* Distinct color for title */
+    margin-bottom: 0.3rem; /* Space below title */
+}
+
+body.dark-mode .modal-research-card h3 {
+    color: var(--accent-light);
+}
+
+.modal-research-card p {
+    font-size: 0.85rem; /* Smaller font for description */
+    line-height: 1.5;
+    color: #555; /* Softer color for description */
+}
+
+body.dark-mode .modal-research-card p {
+    color: var(--dark-primary-text);
+}
+
+
 /* === Learn More Buttons & Expand Link === */
 .learn-more-btn {
   display: inline-block;
@@ -577,7 +650,7 @@ body.dark-mode .modal-research-card { /* Include modal cards for dark mode */
   padding: 0.7rem 1.2rem; /* Slightly larger padding for prominence */
   background-color: var(--accent-blue);
   color: white;
-  border-radius: 5px; /* Fixed typo */
+  border-radius: 5px;
   text-decoration: none;
   font-size: 0.95rem; /* Slightly larger font */
   font-weight: 600; /* Slightly bolder */
@@ -593,20 +666,7 @@ body.dark-mode .modal-research-card { /* Include modal cards for dark mode */
 }
 
 .expand-link {
-  display: block; /* Make it take its own line */
-  margin-top: 0.5rem; /* Space from the snippet above */
-  text-align: right; /* Align the text of the link to the right */
-  color: var(--accent-blue);
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 500;
-  font-family: var(--font-body); /* Changed font to Lora for consistency with body text */
-  transition: color var(--transition-fast), text-decoration var(--transition-fast);
-  padding: 0.75rem 0; /* Added vertical padding for better click area */
-}
-.expand-link:hover {
-  color: var(--accent-hover);
-  text-decoration: underline;
+  display: none; /* Removed as per user request */
 }
 
 /* Specific style for news/events archive buttons */
@@ -711,7 +771,7 @@ body.dark-mode .modal-research-card { /* Include modal cards for dark mode */
 
 .fancy-calendar-button:active {
     transform: translateY(0) scale(1);
-    box-shadow: 0 5px 10px rgba(0, 43, 69, 0.2), inset 0 2px 4px rgba(0,0,0,0.3); /* Pressed effect */
+    box-shadow: 0 5px 10px rgba(0, 43, 69, 0.2), inset 0 2px 4px (0,0,0,0.3); /* Pressed effect */
 }
 
 /* Full calendar for modal */
@@ -875,15 +935,12 @@ body.dark-mode .fc-daygrid-day.fc-day-valid {
 /* === Timeline UI === */
 .timeline-container {
   max-height: 450px; /* Show ~3 items */
-  overflow-y: hidden; /* Hide scrollbar by default */
+  overflow-y: auto; /* Always show scrollbar if content overflows */
   padding-right: 2px; /* Push scrollbar a little to the right */
   margin-top: 1rem; /* Added margin to separate from heading */
   padding-top: 0.5rem; /* Padding at the top of the scrollable area */
 }
-/* Show scrollbar on hover */
-.timeline-container:hover {
-  overflow-y: auto;
-}
+/* Removed :hover { overflow-y: auto; } since it's now applied above */
 .timeline-container::-webkit-scrollbar {
   width: 6px;
 }
@@ -894,7 +951,6 @@ body.dark-mode .fc-daygrid-day.fc-day-valid {
 body.dark-mode .timeline-container::-webkit-scrollbar-thumb {
   background-color: #666;
 }
-/* Removed :hover { overflow-y: auto; } since it's now applied above */
 
 
 .timeline {
@@ -1140,32 +1196,10 @@ body.dark-mode #upcoming-events-section .timeline-content a:hover {
   color: var(--accent-hover);
 }
 
-/* New button style for event details */
-/* This style is now removed as the button is removed */
-/*
+/* Remove .event-details-btn styles as the button is removed */
 .event-details-btn {
-  display: inline-block;
-  margin-top: 0.8rem;
-  padding: 0.5rem 1rem;
-  background-color: var(--accent-light);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 500;
-  transition: background var(--transition-fast), transform 0.2s ease;
-  cursor: pointer;
-  font-family: var(--font-sans);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: none;
 }
-
-.event-details-btn:hover {
-  background-color: var(--accent-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-}
-*/
 
 /* --- Footer styles based on IAS image --- */
 footer {
@@ -1175,6 +1209,9 @@ footer {
   width: 100%;
   font-family: var(--font-sans); /* Use sans-serif font for footer */
   font-size: 0.9rem;
+  display: flex; /* Make footer a flex container */
+  flex-direction: column; /* Stack container and bottom content vertically */
+  align-items: center; /* Center content horizontally */
 }
 
 .footer-container {
@@ -1182,20 +1219,34 @@ footer {
   justify-content: space-between; /* Distribute columns */
   flex-wrap: wrap; /* Allow wrapping on smaller screens */
   max-width: var(--max-content-width); /* Restrict to usable screen width */
-  margin: 0 auto;
-  width: 90%; /* Added width to match header */
-  padding: 0; /* Removed horizontal padding */
+  width: 90%; /* Added width to match header and main content */
+  margin: 0 auto; /* Center the footer content */
+  padding: 0; /* Removed horizontal padding as width is explicitly set */
+  gap: 20px; /* Introduce gap for consistent spacing between columns */
 }
 
 .footer-column {
-  flex: 1; /* Each column takes equal space */
+  flex: 1 1 calc(25% - 15px); /* Adjusted flex-basis to account for gap, aiming for 4 columns */
   min-width: 200px; /* Minimum width for columns before wrapping */
   margin-bottom: 20px; /* Space between columns on wrap */
-  padding-right: 20px; /* Space between columns */
+  padding-right: 20px; /* Space within the column */
+  border-right: 1px solid rgba(255, 255, 255, 0.1); /* Add a subtle vertical separator */
 }
 
+.footer-column:nth-child(4n) { /* Target every 4th column to remove right border in a row */
+  border-right: none;
+  padding-right: 0;
+}
+
+/* When wrapping, ensure last column of a row also has border, then remove on true last child */
 .footer-column:last-child {
-  padding-right: 0; /* No right padding on last column */
+  border-right: none; /* Remove border from the very last column */
+  padding-right: 0;
+}
+
+
+body.dark-mode .footer-column {
+    border-right-color: rgba(255, 255, 255, 0.05); /* Lighter border for dark mode */
 }
 
 .footer-logo {
@@ -1229,7 +1280,7 @@ footer .footer-column a { /* Specificity for footer links */
 
 footer .footer-column a:hover {
   color: var(--accent-hover); /* Match nav bar hover color */
-  text-decoration: underline;
+  text-decoration: none; /* Ensure no underline on hover for footer links */
 }
 
 .footer-map-container {
@@ -1314,6 +1365,9 @@ footer .footer-column a:hover {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.7);
+  width: 90%; /* Ensure footer-bottom also matches content width */
+  max-width: var(--max-content-width); /* Align with max-content-width */
+  margin: 0 auto; /* Center footer-bottom */
 }
 
 
@@ -1376,6 +1430,10 @@ footer .footer-column a:hover {
   }
 
   /* Footer responsive adjustments */
+  footer {
+      padding-left: 0;
+      padding-right: 0;
+  }
   .footer-container {
     flex-direction: column; /* Stack footer columns vertically */
     gap: 1rem; /* Reduced gap for mobile footer columns */
@@ -1386,10 +1444,16 @@ footer .footer-column a:hover {
     min-width: unset; /* Remove min-width on mobile for better stacking */
     text-align: center; /* Center align text in columns */
     padding-right: 0; /* Remove right padding on mobile */
+    border-right: none; /* Remove border-right on mobile when columns stack */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add a bottom border for stacking */
+    padding-bottom: 20px; /* Add padding at bottom for separation */
   }
-  .footer-column p, .footer-column a {
-    text-align: center; /* Center align text for links and paragraphs */
-    margin-bottom: 0.3rem; /* Reduce spacing for stacked items */
+  .footer-column:last-child {
+    border-bottom: none; /* No bottom border on the last column */
+    padding-bottom: 0;
+  }
+  body.dark-mode .footer-column {
+      border-bottom-color: rgba(255, 255, 255, 0.05);
   }
   .footer-logo {
       margin-left: auto;
@@ -1538,11 +1602,10 @@ footer .footer-column a:hover {
     </div>
 
     <!-- About KSoM Section -->
-    <section id="about-ksom-section" class="accordion-item">
+    <section id="about-ksom-section" class="accordion-item" data-accordion-id="aboutKSoM">
         <div class="accordion-header">About KSoM</div>
         <div class="accordion-snippet">
           Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.
-          <a class="expand-link" href="#" data-accordion-id="aboutKSoM">Expand</a>
         </div>
         <div class="accordion-content" style="display: none;">
           <p><strong>Kerala School of Mathematics (KSoM)</strong> is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.</p>
@@ -1557,11 +1620,10 @@ footer .footer-column a:hover {
     <!-- Left Main Content Column (60% width) -->
     <div class="left-accordion-col-wrapper">
         <!-- Research Areas Section -->
-        <section id="research-areas-section" class="accordion-item">
+        <section id="research-areas-section" class="accordion-item" data-accordion-id="researchAreas">
             <div class="accordion-header">Research Areas at KSoM</div>
             <div class="accordion-snippet">
             Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.
-            <a class="expand-link" href="#" data-accordion-id="researchAreas">Expand</a>
             </div>
             <div class="accordion-content" style="display: none;">
             <p>Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.</p>
@@ -1594,7 +1656,7 @@ footer .footer-column a:hover {
         </section>
 
         <!-- Academic & Research Activities Section -->
-        <section id="academic-activities-section" class="accordion-item">
+        <section id="academic-activities-section" class="accordion-item" data-accordion-id="academicResearchActivities">
                 <div class="accordion-header">Academic & Research Activities at KSoM</div>
                 <div class="accordion-snippet">
                 <!-- Slideshow container -->
@@ -1616,7 +1678,6 @@ footer .footer-column a:hover {
                     </div>
                 </div>
                 <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.</p>
-                <a class="expand-link" href="#" data-accordion-id="academicResearchActivities">Expand</a>
                 </div>
                 <div class="accordion-content" style="display: none;">
                 <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with mathematical networks.</p>
@@ -1647,11 +1708,10 @@ footer .footer-column a:hover {
     <!-- Right Main Content Column (40% width) -->
     <div class="right-accordion-col-wrapper">
         <!-- Academic Programmes Section -->
-        <section id="academic-programmes-section" class="accordion-item">
+        <section id="academic-programmes-section" class="accordion-item" data-accordion-id="academicProgrammes">
             <div class="accordion-header">Academic Programmes at KSoM</div>
             <div class="accordion-snippet">
             Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.
-            <a class="expand-link" href="#" data-accordion-id="academicProgrammes">Expand</a>
             </div>
             <div class="accordion-content" style="display: none;">
             <p>Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.</p>
@@ -1672,11 +1732,10 @@ footer .footer-column a:hover {
         </section>
 
         <!-- Outreach Section -->
-        <section id="outreach-section" class="accordion-item">
+        <section id="outreach-section" class="accordion-item" data-accordion-id="outreachActivities">
             <div class="accordion-header">Outreach Activities</div>
             <div class="accordion-snippet">
                 Kerala School of Mathematics is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.
-                <a class="expand-link" href="#" data-accordion-id="outreachActivities">Expand</a>
             </div>
             <div class="accordion-content" style="display: none;">
                 <p>Kerala School of Mathematics is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.</p>
@@ -1776,7 +1835,6 @@ footer .footer-column a:hover {
                     <p class="timeline-date">July 10, 2025</p>
                     <span class="event-title">Guest Lecture Series: Dr. Anya Sharma</span>
                     <p class="timeline-description">Exploring advancements in Quantum Topology. Open to all researchers and students.</p>
-                    <!-- <button class="event-details-btn" data-event-id="guest-lecture-sharma">View Details</button> -->
                 </div>
                 </a>
                 <a href="#" class="timeline-item" data-event-id="discrete-math-conference">
@@ -1785,7 +1843,6 @@ footer .footer-column a:hover {
                     <p class="timeline-date">August 5, 2025</p>
                     <span class="event-title">International Conference on Discrete Mathematics</span>
                     <p class="timeline-description">Leading experts convene to discuss new theories and applications in discrete mathematics.</p>
-                    <!-- <button class="event-details-btn" data-event-id="discrete-math-conference">View Details</button> -->
                 </div>
                 </a>
                 <a href="#" class="timeline-item" data-event-id="freshers-orientation">
@@ -1794,7 +1851,6 @@ footer .footer-column a:hover {
                     <p class="timeline-date">September 1, 2025</p>
                     <span class="event-title">Freshers' Orientation Program</span>
                     <p class="timeline-description">Welcome session for new M.Sc. and Ph.D. students joining KSoM.</p>
-                    <!-- <button class="event-details-btn" data-event-id="freshers-orientation">View Details</button> -->
                 </div>
                 </a>
                 <a href="#" class="timeline-item" data-event-id="ml-math-workshop">
@@ -1803,7 +1859,6 @@ footer .footer-column a:hover {
                     <p class="timeline-date">October 20, 2025</p>
                     <span class="event-title">Workshop on Machine Learning in Mathematics</span>
                     <p class="timeline-description">A practical workshop on the intersection of machine learning and mathematical research.</p>
-                    <!-- <button class="event-details-btn" data-event-id="ml-math-workshop">View Details</button> -->
                 </div>
                 </a>
                 <a href="#" class="timeline-item" data-event-id="alumni-meet">
@@ -1812,7 +1867,6 @@ footer .footer-column a:hover {
                     <p class="timeline-date">November 12, 2025</p>
                     <span class="event-title">Annual Alumni Meet</span>
                     <p class="timeline-description">Connect with fellow KSoM alumni and faculty. Networking and dinner included.</p>
-                    <!-- <button class="event-details-btn" data-event-id="alumni-meet">View Details</button> -->
                 </div>
                 </a>
                 <a href="#" class="timeline-item" data-event-id="christmas-lecture">
@@ -1821,7 +1875,6 @@ footer .footer-column a:hover {
                     <p class="timeline-date">December 8, 2025</p>
                     <span class="event-title">Christmas Lecture: The Beauty of Fractals</span>
                     <p class="timeline-description">A public lecture showcasing the visual and mathematical elegance of fractals.</p>
-                    <!-- <button class="event-details-btn" data-event-id="christmas-lecture">View Details</button> -->
                 </div>
                 </a>
             </div>
@@ -1836,8 +1889,8 @@ footer .footer-column a:hover {
   <footer>
     <div class="footer-container">
         <div class="footer-column footer-logo-column">
-            <!-- Using the circle logo as image here for consistency, assuming it's available or can be generated -->
-            <img src="/Images/Main/circle-logo.jpg" onerror="this.onerror=null;this.src='https://placehold.co/80x80/white/002b45?text=KSoM';" alt="KSoM Logo" class="footer-logo">
+            <!-- Using a proper placeholder image URL for robustness -->
+            <img src="https://placehold.co/80x80/white/002b45?text=KSoM" onerror="this.onerror=null;this.src='https://placehold.co/80x80/white/002b45?text=KSoM';" alt="KSoM Logo" class="footer-logo">
             <!-- Fallback for the logo if image not available -->
             <noscript>
                 <div class="circle-logo footer-logo">KSoM</div>
@@ -1857,15 +1910,8 @@ footer .footer-column a:hover {
         </div>
         <div class="footer-column footer-links-column">
             <h3>Quick Links</h3>
-            <a href="https://ksom.res.in/about">About Us</a>
-            <a href="https://ksom.res.in/research">Research</a>
-            <a href="https://ksom.res.in/programmes">Programmes</a>
-            <a href="https://ksom.res.in/activities">Events</a>
-            <a href="https://ksom.res.in/news">News</a>
-            <a href="https://ksom.res.in/careers">Careers</a>
-            <a href="https://ksom.res.in/resources">Resources</a>
-            <a href="https://ksom.res.in/contact">Contact Us</a>
-            <a href="https://ksom.res.in/sitemap">Sitemap</a>
+            <a href="https://www.ksom.res.in/programmes/student-handbook">Student Handbook</a>
+            <a href="https://www.ksom.res.in/rti">RTI</a>
         </div>
         <div class="footer-column footer-connect-column">
             <h3>Connect</h3>
@@ -2040,18 +2086,25 @@ footer .footer-column a:hover {
       // Initialize slideshow for Main Campus with 7-second interval (changed from 5000ms)
       initSlideshow('mainCampus', 7000);
 
-      // Attach expand-link handlers for accordions (excluding calendar)
-      const expandLinks = document.querySelectorAll('.accordion-item .expand-link');
-      expandLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
+      // Attach accordion item click handlers to open modals
+      const accordionItems = document.querySelectorAll('.accordion-item[data-accordion-id]'); // Select accordion-item directly
+      accordionItems.forEach(item => {
+        item.addEventListener('click', function (e) {
+          // Prevent opening modal if a link or button inside was clicked directly
+          if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('.learn-more-btn')) {
+              return;
+          }
+
           e.preventDefault();
-          const accordionItem = this.closest('.accordion-item');
-          const title = accordionItem.querySelector('.accordion-header').textContent;
-          const content = accordionItem.querySelector('.accordion-content').innerHTML;
-          // Extract the direct learn more button if it exists within the accordion content
-          const learnMoreBtnInAccordion = accordionItem.querySelector('.accordion-content .learn-more-btn');
-          let learnMoreLink = learnMoreBtnInAccordion ? learnMoreBtnInAccordion.href : null;
-          openModal(title, content, false, learnMoreLink);
+          const accordionId = this.dataset.accordionId; // Get data-accordion-id from the accordion-item
+
+          if (accordionId) {
+            const title = this.querySelector('.accordion-header').textContent;
+            const content = this.querySelector('.accordion-content').innerHTML; // Use this for content
+            const learnMoreBtnInAccordion = this.querySelector('.accordion-content .learn-more-btn');
+            let learnMoreLink = learnMoreBtnInAccordion ? learnMoreBtnInAccordion.href : null;
+            openModal(title, content, false, learnMoreLink);
+          }
         });
       });
 
@@ -2265,9 +2318,9 @@ footer .footer-column a:hover {
           });
       });
 
-      // Add event listeners for upcoming events to open modal (now targets the specific button)
-      const eventItems = document.querySelectorAll('#upcoming-events-section .timeline-item'); // Changed to target the <a> tag
-      eventItems.forEach(item => { // Changed variable name to 'item'
+      // Add event listeners for upcoming events to open modal (now targets the <a> tag)
+      const eventItems = document.querySelectorAll('#upcoming-events-section .timeline-item');
+      eventItems.forEach(item => {
           item.addEventListener('click', function(e) {
               e.preventDefault();
               const eventId = this.dataset.eventId;
