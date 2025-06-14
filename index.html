@@ -204,6 +204,7 @@ nav a:hover {
   box-shadow: 0 6px 14px rgba(0,0,0,0.2);
   border-radius: 8px;
   z-index: 1000;
+  padding: 0.5rem 0; /* Add padding to dropdown content */
 }
 .dropdown-content a {
   display: block;
@@ -463,7 +464,7 @@ body.dark-mode .modal-research-card { /* Include modal cards for dark mode */
 /* Image specific styling for size and fit */
 .top-image img {
   width: 100%;
-  height: 300px; /* Increased from 220px */
+  height: 350px; /* Changed from 300px to 350px */
   object-fit: cover;
   border-radius: 8px;
 }
@@ -898,337 +899,52 @@ body.dark-mode .timeline-container::-webkit-scrollbar-thumb {
 
 .timeline {
   position: relative;
-  /* Removed padding-left to allow cards to occupy more space */
   font-family: var(--font-body); /* Apply Lora to timeline content */
 }
 
-/* Removed the timeline vertical line */
+/* Re-add the timeline vertical line for general .timeline, but override for #latest-news-section below */
 .timeline::before {
-  content: none;
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 6px; /* Position the line slightly to the right of the left edge */
+  width: 2px; /* Thin line */
+  background-color: #ddd; /* Light grey for subtle line */
+  z-index: 1; /* Ensure it's behind content */
 }
 
 body.dark-mode .timeline::before {
-  content: none;
+  background-color: #555;
 }
 
 /* Base style for timeline items, now functioning as clickable cards */
 .timeline-item {
   position: relative;
-  /* Wrap the whole card in <a> tag and remove its default flex behavior */
-  display: block; /* Change to block for full card clickability */
-  padding: 1rem 1.2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  margin-bottom: 0.75rem; /* Reduced margin between items for less breathing space */
+  display: flex; /* Changed to flex for original timeline layout */
+  align-items: flex-start; /* Align items to the top */
+  padding-left: 25px; /* Space for the marker and line */
+  padding-bottom: 0.6rem; /* Reduced padding between items */
+  margin-bottom: 0.6rem; /* Reduced margin between items */
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.05); /* Lighter, more subtle separator */
   cursor: pointer;
   transition: all 0.2s ease;
   text-decoration: none; /* Remove underline from the anchor */
   color: inherit; /* Inherit color from parent for text elements */
 }
 
+.timeline-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
 body.dark-mode .timeline-item {
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-bottom-color: rgba(255, 255, 255, 0.05);
 }
 
-/* Specific styling for the news cards */
+/* Specific styling for the news cards - retain previous values */
 #latest-news-section .timeline-item {
-  /* Matte bamboo paper background */
-  background-color: #f2ede1; /* Desaturated light cream/tan */
-  background-image:
-    linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 50%),
-    linear-gradient(-45deg, rgba(0,0,0,0.05) 0%, transparent 60%);
-  border-bottom: none; /* No dashed line for individual items */
-}
-
-body.dark-mode #latest-news-section .timeline-item {
-    background-color: #3a322b; /* Darker base for dark mode matte bamboo */
-    background-image:
-        linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%),
-        linear-gradient(-45deg, rgba(0,0,0,0.1) 0%, transparent 60%);
-}
-
-/* Alternating tilts for cards */
-#latest-news-section .timeline-item:nth-child(odd) {
-    transform: rotate(0.5deg); /* Slight clockwise tilt */
-}
-#latest-news-section .timeline-item:nth-child(even) {
-    transform: rotate(-0.5deg); /* Slight anti-clockwise tilt */
-}
-#latest-news-section .timeline-item:hover {
-    transform: scale(1.01) rotate(0deg); /* Straighten and lift on hover */
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-}
-
-/* Pin for each timeline item */
-#latest-news-section .timeline-item::before {
-  content: '';
-  position: absolute;
-  top: -6px; /* Adjust pin position above the card */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%);
-  width: 10px; /* Smaller pin */
-  height: 10px;
-  background-color: #8b0000; /* Dark red for a classic pushpin */
-  border-radius: 50%;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3), 0 0.5px 1px rgba(0,0,0,0.2);
-  z-index: 3;
-}
-body.dark-mode #latest-news-section .timeline-item::before {
-    background-color: #b30000; /* Brighter red for dark mode pin */
-}
-
-/* Removed the timeline marker (bullet) */
-.timeline-marker {
-  display: none;
-}
-
-
-.timeline-content { /* Wrapper for date, title, description */
-  flex-grow: 1; /* Allow content to take remaining space */
-  margin-left: 0; /* Remove previous margin-left */
-}
-
-.timeline-date {
-  font-size: 0.7rem; /* Smaller date font */
-  color: #888; /* Softer color */
-  font-weight: 500;
-  margin-bottom: 0.1rem; /* Reduced margin */
-  font-family: var(--font-sans); /* Inter for dates */
-}
-body.dark-mode .timeline-date {
-  color: #bbb;
-}
-
-/* No change needed for .timeline-content a as the entire card is now the link */
-.timeline-content a {
-  /* This specific selector for news titles inside timeline-content is no longer strictly needed as the parent .timeline-item is the link,
-     but keeping it to maintain visual styles for the title itself.
-     The `text-decoration: none;` is handled by the parent `.timeline-item` now.
-  */
-  color: var(--accent-blue); /* Link color */
-  font-weight: 600;
-  font-family: var(--font-serif); /* Changed to Merriweather for news titles */
-  font-size: 0.95rem; /* Adjusted size to be slightly smaller */
-  transition: color var(--transition-fast);
-  line-height: 1.3; /* Tighter line height for links */
-  display: block; /* Make it a block for better spacing */
-}
-/* Remove hover effect from internal link as the whole card has a hover effect now */
-.timeline-content a:hover {
-  text-decoration: none; /* Prevent underline on hover of internal link */
-}
-body.dark-mode .timeline-content a {
-  color: var(--accent-light);
-}
-
-.timeline-description {
-  font-size: 0.8rem; /* Smaller description font */
-  color: #666; /* Softer description color */
-  margin-top: 0; /* Remove default margin */
-  line-height: 1.4; /* Adjusted line height */
-  font-family: var(--font-body); /* Lora for news descriptions */
-}
-body.dark-mode .timeline-description {
-  color: var(--dark-primary-text);
-}
-
-/* Footer as per request */
-footer {
-  background: linear-gradient(to right, var(--accent-blue), var(--accent-light));
-  color: white;
-  padding: 2rem;
-  width: 100%; /* Span full width */
-  box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.2); /* Shadow for separation from content */
-}
-
-.footer-content {
-  width: 90%; /* Constrain content width */
-  max-width: var(--max-content-width);
-  margin: 0 auto; /* Center the content */
-  display: flex; /* Changed back to flex for horizontal layout of columns */
-  justify-content: space-between;
-  gap: 2rem; /* Gap between footer columns */
-  flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
-  margin-bottom: 1.5rem; /* Space before copyright */
-}
-
-.footer-column {
-  flex: 1; /* Distribute space equally */
-  min-width: 200px; /* Minimum width before wrapping */
-  margin-bottom: 0; /* Remove margin-bottom as they are horizontal now */
-}
-
-.footer-column h3 {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  color: white; /* Ensure heading is white */
-  font-family: var(--font-serif); /* Apply Merriweather to footer headings */
-}
-
-.footer-column p, .footer-column a {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.8); /* Lighter text for readability */
-  text-decoration: none;
-  display: block; /* Make links block level for better spacing */
-  margin-bottom: 0.5rem;
-  font-family: var(--font-body); /* Apply Lora to footer body text/links */
-}
-
-.footer-column a:hover {
-  color: white;
-  text-decoration: underline;
-}
-
-.footer-bottom {
-  width: 90%; /* Constrain content width */
-  max-width: var(--max-content-width);
-  margin: 0 auto; /* Center within the footer */
-  text-align: center;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.7);
-  padding-top: 1rem; /* Space from columns above */
-  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Separator line */
-  font-family: var(--font-sans); /* Apply Inter to footer bottom */
-}
-
-/* Styles for modal research cards - now a column layout (stacked) */
-.modal-research-cards-container {
-    display: flex; /* Changed to flex */
-    flex-direction: column; /* Stack vertically */
-    gap: 1rem; /* Space between cards */
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.modal-research-card {
-    position: relative; /* For positioning the "Learn more" link */
-    display: block; /* Changed from flex to block */
-    background: #fdfdfd;
-    border: 1px solid #dcdcdc;
-    border-radius: 10px;
-    padding: 1.5rem;
-    /* Removed padding-bottom to allow margin to handle spacing */
-    text-decoration: none;
-    color: var(--primary-text); /* Use primary text color */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    margin-bottom: 1rem; /* Added margin-bottom for spacing between cards */
-}
-
-
-.modal-research-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
-
-.modal-research-card h3 {
-    font-family: var(--font-serif);
-    font-size: 1.15rem;
-    color: var(--accent-blue);
-    margin-bottom: 0.75rem;
-}
-
-body.dark-mode .modal-research-card h3 {
-    color: var(--accent-light);
-}
-
-.modal-research-card p {
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: #555;
-    /* Removed flex-grow: 1 */
-}
-
-body.dark-mode .modal-research-card p {
-    color: #ccc;
-}
-
-/* Slideshow styles (general, applies to all .slideshow-container) */
-.slideshow-container {
-  max-width: 100%;
-  position: relative;
-  margin: 0; /* Changed from auto */
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  background-color: #f0f0f0; /* Light background for images */
-}
-body.dark-mode .slideshow-container {
-  background-color: #333;
-}
-
-.mySlides {
-  display: none;
-}
-
-.mySlides img {
-  width: 100%;
-  height: 300px; /* Increased from 220px */
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-/* No dots or arrows for this slideshow as per request */
-
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-/* === Notice Board Effect for Latest News === */
-#latest-news-section {
-  position: relative;
-  background-color: var(--card-bg); /* Revert to white/card background */
-  background-image: none; /* Remove bamboo paper effect from main board */
-  border: 1px solid var(--card-border); /* Subtle border */
-  border-radius: 12px; /* Slightly less rounded than before */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Subtle shadow like other accordions */
-  transform: none; /* Ensure no tilt */
-  overflow: hidden;
-  padding: 1rem; /* Reduced padding for less breathing space */
-  z-index: 10;
-}
-
-body.dark-mode #latest-news-section {
-  background-color: var(--dark-card-bg);
-  border-color: var(--dark-border);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Slightly more prominent shadow in dark mode */
-}
-
-#latest-news-section h3 {
-    color: var(--accent-blue); /* Standard heading color */
-    text-align: left; /* Align left as in other accordions */
-    font-size: 1.3rem; /* Standard heading size */
-    margin-bottom: 0.4rem; /* Standard heading margin */
-    text-shadow: none; /* Remove text shadow */
-}
-body.dark-mode #latest-news-section h3 {
-    color: var(--accent-light);
-}
-
-/* Specific timeline container within the news section */
-#latest-news-section .timeline-container {
-    border-top: none; /* Remove separator */
-    padding-top: 0; /* Remove extra padding */
-}
-
-/* Removed vertical line and marker from the news timeline */
-#latest-news-section .timeline::before,
-#latest-news-section .timeline-marker {
-  content: none;
-  display: none;
-}
-
-/* Styles for individual news items as clickable cards */
-#latest-news-section .timeline-item {
-  /* Matte bamboo paper background */
   background-color: #f2ede1; /* Desaturated light cream/tan */
   background-image:
     linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 50%),
@@ -1240,7 +956,7 @@ body.dark-mode #latest-news-section h3 {
   position: relative;
   cursor: pointer;
   transition: all 0.2s ease;
-  display: block;
+  display: block; /* Keep as block for card layout */
   border-bottom: none; /* No dashed line for individual items */
 }
 
@@ -1280,6 +996,11 @@ body.dark-mode #latest-news-section .timeline-item {
 }
 body.dark-mode #latest-news-section .timeline-item::before {
     background-color: #b30000; /* Brighter red for dark mode pin */
+}
+
+/* Override removed timeline marker for #latest-news-section */
+#latest-news-section .timeline-marker {
+  display: none; /* Ensure no marker on news cards */
 }
 
 /* Adjust timeline content for new card layout */
@@ -1299,11 +1020,7 @@ body.dark-mode #latest-news-section .timeline-date {
     color: #bbb;
 }
 
-#latest-news-section .timeline-content a { /* News title link */
-    /* This specific selector for news titles inside timeline-content is no longer strictly needed as the parent .timeline-item is the link,
-       but keeping it to maintain visual styles for the title itself.
-       The `text-decoration: none;` is handled by the parent `.timeline-item` now.
-    */
+#latest-news-section .timeline-content .news-title-link { /* News title link */
     color: var(--accent-blue); /* Stronger blue for title */
     font-weight: 600;
     font-family: var(--font-serif); /* Changed to Merriweather for news titles */
@@ -1311,17 +1028,18 @@ body.dark-mode #latest-news-section .timeline-date {
     transition: color var(--transition-fast);
     line-height: 1.3; /* Tighter line height for links */
     display: block; /* Make it a block for better spacing */
+    text-decoration: none; /* Ensure no underline */
 }
 /* Remove hover effect from internal link as the whole card has a hover effect now */
-#latest-news-section .timeline-content a:hover {
+#latest-news-section .timeline-content .news-title-link:hover {
   text-decoration: none; /* Prevent underline on hover of internal link */
   color: var(--accent-blue); /* Keep color consistent with non-hover state */
 }
 
-body.dark-mode #latest-news-section .timeline-content a {
+body.dark-mode #latest-news-section .timeline-content .news-title-link {
   color: var(--accent-light);
 }
-body.dark-mode #latest-news-section .timeline-content a:hover {
+body.dark-mode #latest-news-section .timeline-content .news-title-link:hover {
   color: var(--accent-light); /* Keep color consistent in dark mode */
 }
 
@@ -1348,9 +1066,203 @@ body.dark-mode #latest-news-section .archive-btn {
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
+/* Remove timeline line for latest news section */
+#latest-news-section .timeline::before {
+    content: none;
+}
+
 /* Space after slideshow in Academic & Research Activities */
 #academic-activities-section .slideshow-container {
     margin-bottom: 1.5rem; /* Add space below the slideshow */
+}
+
+/* Specific styling for the upcoming events timeline */
+#upcoming-events-section .timeline::before {
+    content: ''; /* Re-add the vertical line */
+}
+
+#upcoming-events-section .timeline-marker {
+    display: block; /* Re-add the markers */
+}
+
+#upcoming-events-section .timeline-item {
+    background: none; /* No special background for upcoming events */
+    padding: 0 0 0.6rem 25px; /* Revert padding for timeline items */
+    margin-bottom: 0.6rem;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.05); /* Re-add dashed border */
+    display: flex; /* Keep as flex for alignment */
+    align-items: flex-start;
+    box-shadow: none; /* Remove box shadow */
+    transform: none; /* Remove tilt */
+}
+#upcoming-events-section .timeline-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+body.dark-mode #upcoming-events-section .timeline-item {
+  border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+#upcoming-events-section .timeline-item::before {
+  content: none; /* Remove news card pin */
+}
+
+#upcoming-events-section .timeline-content {
+    margin-left: 0; /* Keep margin-left at 0 */
+}
+
+#upcoming-events-section .timeline-content a {
+    text-decoration: none; /* Remove underline */
+    color: var(--accent-blue); /* Ensure link color */
+}
+
+#upcoming-events-section .timeline-content a:hover {
+    text-decoration: underline; /* Add underline on hover */
+    color: var(--accent-hover); /* Change color on hover */
+}
+body.dark-mode #upcoming-events-section .timeline-content a {
+  color: var(--accent-light);
+}
+body.dark-mode #upcoming-events-section .timeline-content a:hover {
+  color: var(--accent-hover);
+}
+
+/* --- Footer styles based on IAS image --- */
+footer {
+  background-color: #333; /* Dark background */
+  color: #fff; /* Light text */
+  padding: 30px 0; /* Vertical padding */
+  width: 100%;
+  font-family: var(--font-sans); /* Use sans-serif font for footer */
+  font-size: 0.9rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between; /* Distribute columns */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 20px; /* Horizontal padding */
+}
+
+.footer-column {
+  flex: 1; /* Each column takes equal space */
+  min-width: 200px; /* Minimum width for columns before wrapping */
+  margin-bottom: 20px; /* Space between columns on wrap */
+  padding-right: 20px; /* Space between columns */
+}
+
+.footer-column:last-child {
+  padding-right: 0; /* No right padding on last column */
+}
+
+.footer-logo {
+    max-width: 80px; /* Adjust logo size */
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.footer-column h3 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.footer-column p {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.footer-column a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+  transition: color 0.2s ease;
+}
+
+.footer-column a:hover {
+  color: var(--accent-light);
+  text-decoration: underline;
+}
+
+.footer-map-container {
+    margin-top: 15px;
+    width: 100%;
+    max-width: 200px; /* Constrain map width */
+    height: 150px; /* Fixed height for the map */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.footer-map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.give-now-btn,
+.enews-signup-btn {
+  background-color: var(--accent-light);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.give-now-btn:hover,
+.enews-signup-btn:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.social-icons a {
+  display: block; /* Ensure links take up space for hover */
+  width: 30px; /* Size of social icons */
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.social-icons a:hover {
+  background-color: var(--accent-light);
+}
+
+.social-icons img {
+  width: 16px; /* Icon size within circle */
+  height: 16px;
+  filter: invert(100%); /* Make placeholder icons white */
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 
@@ -1413,7 +1325,7 @@ body.dark-mode #latest-news-section .archive-btn {
   }
 
   /* Footer responsive adjustments */
-  .footer-content {
+  .footer-container {
     flex-direction: column; /* Stack footer columns vertically */
     gap: 1rem; /* Reduced gap for mobile footer columns */
     width: 100%; /* Ensure consistent width with other mobile elements */
@@ -1422,15 +1334,30 @@ body.dark-mode #latest-news-section .archive-btn {
   .footer-column {
     min-width: unset; /* Remove min-width on mobile for better stacking */
     text-align: center; /* Center align text in columns */
-    margin-bottom: 0.75rem; /* Adjust spacing for stacked mobile columns */
-  }
-  .footer-column:last-child {
-    margin-bottom: 0;
+    padding-right: 0; /* Remove right padding on mobile */
   }
   .footer-column p, .footer-column a {
     text-align: center; /* Center align text for links and paragraphs */
     margin-bottom: 0.3rem; /* Reduce spacing for stacked items */
   }
+  .footer-logo {
+      margin-left: auto;
+      margin-right: auto;
+  }
+  .footer-map-container {
+      margin-left: auto;
+      margin-right: auto;
+  }
+  .give-now-btn,
+  .enews-signup-btn {
+      margin-left: auto;
+      margin-right: auto;
+      display: block; /* Ensure buttons take full width if needed */
+  }
+  .social-icons {
+      justify-content: center; /* Center social icons */
+  }
+
   .footer-bottom {
     width: 100%; /* Ensure consistent width with other mobile elements */
     padding: 1rem; /* Add padding to footer bottom on mobile */
@@ -1459,7 +1386,16 @@ body.dark-mode #latest-news-section .archive-btn {
       </div>
       <div class="header-right-group">
         <nav id="desktop-nav">
-          <a href="https://ksom.res.in/">Home</a>
+          <div class="dropdown">
+            <a href="https://ksom.res.in/">Home</a>
+            <div class="dropdown-content">
+              <a href="https://ksom.res.in/about">About us</a>
+              <a href="https://ksom.res.in/history">History</a>
+              <a href="https://ksom.res.in/governing-board">Governing Board</a>
+              <a href="https://ksom.res.in/executive-council">Executive Council</a>
+              <a href="https://ksom.res.in/research-council">Research Council</a>
+            </div>
+          </div>
           <a href="https://ksom.res.in/research">Research</a>
           <div class="dropdown">
             <a href="https://ksom.res.in/programmes">Programmes</a>
@@ -1498,7 +1434,16 @@ body.dark-mode #latest-news-section .archive-btn {
             </div>
           </div>
           <a href="https://ksom.res.in/careers">Careers</a>
-          <a href="https://ksom.res.in/resources">Resources</a>
+          <div class="dropdown">
+            <a href="https://ksom.res.in/resources">Resources</a>
+            <div class="dropdown-content">
+              <a href="https://webmail.ksom.res.in/">Webmail</a>
+              <a href="https://library.ksom.res.in/">Library</a>
+              <a href="https://webopac.ksom.res.in/">WebOPAC</a>
+              <a href="https://ksom.res.in/department-forms">Department forms</a>
+              <a href="https://ksom.res.in/guest-house">Guest house</a>
+            </div>
+          </div>
           <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
         </nav>
         <button class="hamburger-menu-icon" id="hamburger-icon" aria-label="Open mobile menu">&#9776;</button>
@@ -1521,19 +1466,19 @@ body.dark-mode #latest-news-section .archive-btn {
     <!-- Campus photos Section -->
     <div id="campus-photos-section" class="top-image slideshow-container" data-slideshow-id="mainCampus">
         <div class="mySlides fade">
-            <img src="/Images/Main/Image-1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x300/ADAFC8/ffffff?text=KSoM+Campus+1';" alt="KSoM Campus Image 1" />
+            <img src="/Images/Main/Image-1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+1';" alt="KSoM Campus Image 1" />
         </div>
         <div class="mySlides fade">
-            <img src="/Images/Main/Image-2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x300/ADAFC8/ffffff?text=KSoM+Campus+2';" alt="KSoM Campus Image 2" />
+            <img src="/Images/Main/Image-2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+2';" alt="KSoM Campus Image 2" />
         </div>
         <div class="mySlides fade">
-            <img src="/Images/Main/Image-3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x300/ADAFC8/ffffff?text=KSoM+Campus+3';" alt="KSoM Campus Image 3" />
+            <img src="/Images/Main/Image-3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+3';" alt="KSoM Campus Image 3" />
         </div>
         <div class="mySlides fade">
-            <img src="/Images/Main/Image-4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x300/ADAFC8/ffffff?text=KSoM+Campus+4';" alt="KSoM Campus Image 4" />
+            <img src="/Images/Main/Image-4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+4';" alt="KSoM Campus Image 4" />
         </div>
         <div class="mySlides fade">
-            <img src="/Images/Main/Image-5.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x300/ADAFC8/ffffff?text=KSoM+Campus+5';" alt="KSoM Campus Image 5" />
+            <img src="/Images/Main/Image-5.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+5';" alt="KSoM Campus Image 5" />
         </div>
         <div class="overlay-text">
             <div class="main-title">Kerala School of Mathematics</div>
@@ -1604,19 +1549,19 @@ body.dark-mode #latest-news-section .archive-btn {
                 <!-- Slideshow container -->
                 <div class="slideshow-container" data-slideshow-id="academicActivities">
                     <div class="mySlides fade">
-                        <img src="/Images/Activities/Image-1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x300/F0F8FF/333333?text=Activity+Image+1';" alt="Academic & Research Activities 1">
+                        <img src="/Images/Activities/Image-1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x350/F0F8FF/333333?text=Activity+Image+1';" alt="Academic & Research Activities 1">
                     </div>
                     <div class="mySlides fade">
-                        <img src="/Images/Activities/Image-2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x300/E6E6FA/333333?text=Activity+Image+2';" alt="Academic & Research Activities 2">
+                        <img src="/Images/Activities/Image-2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x350/E6E6FA/333333?text=Activity+Image+2';" alt="Academic & Research Activities 2">
                     </div>
                     <div class="mySlides fade">
-                        <img src="/Images/Activities/Image-3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x300/F5F5DC/333333?text=Activity+Image+3';" alt="Academic & Research Activities 3">
+                        <img src="/Images/Activities/Image-3.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x350/F5F5DC/333333?text=Activity+Image+3';" alt="Academic & Research Activities 3">
                     </div>
                     <div class="mySlides fade">
-                        <img src="/Images/Activities/Image-4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x300/FFE4E1/333333?text=Activity+Image+4';" alt="Academic & Research Activities 4">
+                        <img src="/Images/Activities/Image-4.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x350/FFE4E1/333333?text=Activity+Image+4';" alt="Academic & Research Activities 4">
                     </div>
                     <div class="mySlides fade">
-                        <img src="/Images/Activities/Image-5.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x300/AFEEEE/333333?text=Activity+Image+5';" alt="Academic & Research Activities 5">
+                        <img src="/Images/Activities/Image-5.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x350/AFEEEE/333333?text=Activity+Image+5';" alt="Academic & Research Activities 5">
                     </div>
                 </div>
                 <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.</p>
@@ -1832,27 +1777,51 @@ body.dark-mode #latest-news-section .archive-btn {
   </div>
 
   <footer>
-    <div class="footer-content">
-      <div class="footer-column">
-        <h3>Kerala School of Mathematics</h3>
-        <p>Kunnamangalam PO,<br>Kozhikode, Kerala, India - 673571</p>
-        <p>Email: info@ksom.res.in</p>
-        <p>Phone: 04952809000</p>
-      </div>
-      <div class="footer-column">
-        <h3>Quick Links</h3>
-        <a href="https://ksom.res.in/about">About Us</a>
-        <a href="https://ksom.res.in/research">Research</a>
-        <a href="https://ksom.res.in/programmes">Programmes</a>
-        <a href="https://ksom.res.in/activities">Events</a>
-        <a href="https://ksom.res.in/news">News</a>
-      </div>
-      <div class="footer-column">
-        <h3>Connect</h3>
-        <a href="https://ksom.res.in/contact">Contact Us</a>
-        <a href="https://ksom.res.in/careers">Careers</a>
-        <a href="https://ksom.res.in/sitemap">Sitemap</a>
-      </div>
+    <div class="footer-container">
+        <div class="footer-column footer-logo-column">
+            <!-- Using the circle logo as image here for consistency, assuming it's available or can be generated -->
+            <img src="/Images/Main/circle-logo.jpg" alt="KSoM Logo" class="footer-logo">
+            <!-- Fallback for the logo if image not available -->
+            <noscript>
+                <div class="circle-logo footer-logo">KSoM</div>
+            </noscript>
+        </div>
+        <div class="footer-column footer-contact-column">
+            <h3>Contact</h3>
+            <p>Kerala School of Mathematics</p>
+            <p>Kunnamangalam PO,</p>
+            <p>Kozhikode, Kerala, India - 673571</p>
+            <p>Email: info@ksom.res.in</p>
+            <p>Phone: 04952809000</p>
+            <div class="footer-map-container">
+                <iframe src="https://maps.google.com/maps?q=Kerala%20School%20of%20Mathematics%2C%20Kozhikode&t=&z=14&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <a href="https://maps.app.goo.gl/3VFmButB7W3QyB7NA" target="_blank" style="color:white; text-decoration: underline; margin-top: 10px; display: block;">View on Google Maps</a>
+        </div>
+        <div class="footer-column footer-links-column">
+            <h3>Quick Links</h3>
+            <a href="https://ksom.res.in/about">About Us</a>
+            <a href="https://ksom.res.in/research">Research</a>
+            <a href="https://ksom.res.in/programmes">Programmes</a>
+            <a href="https://ksom.res.in/activities">Events</a>
+            <a href="https://ksom.res.in/news">News</a>
+            <a href="https://ksom.res.in/careers">Careers</a>
+            <a href="https://ksom.res.in/resources">Resources</a>
+            <a href="https://ksom.res.in/contact">Contact Us</a>
+            <a href="https://ksom.res.in/sitemap">Sitemap</a>
+        </div>
+        <div class="footer-column footer-connect-column">
+            <h3>Connect</h3>
+            <p>Stay updated with our latest news and events.</p>
+            <button class="enews-signup-btn">E-Newsletter Signup</button>
+            <div class="social-icons">
+              <a href="#"><img src="https://placehold.co/24x24/white/black?text=X" alt="X"></a>
+              <a href="#"><img src="https://placehold.co/24x24/white/black?text=F" alt="Facebook"></a>
+              <a href="#"><img src="https://placehold.co/24x24/white/black?text=Y" alt="YouTube"></a>
+              <a href="#"><img src="https://placehold.co/24x24/white/black?text=I" alt="Instagram"></a>
+              <a href="#"><img src="https://placehold.co/24x24/white/black?text=L" alt="LinkedIn"></a>
+            </div>
+        </div>
     </div>
     <div class="footer-bottom">
       <p>© 2025 Kerala School of Mathematics. All rights reserved.</p>
@@ -2179,7 +2148,7 @@ body.dark-mode #latest-news-section .archive-btn {
         "research-symposium": {
             title: "Annual Research Symposium",
             date: "February 15, 2025",
-            description: "The Annual Research Symposium held last week was a resounding success, featuring inspiring keynote speakers and groundbreaking research presentations from our faculty, postdocs, and research scholars. The symposium facilitated vibrant discussions and fostered new collaborations across various mathematical fields. Highlights included sessions on quantum algorithms, geometric group theory, and advancements in analytic number theory. We extend our gratitude to all participants and look forward to building on this momentum in the coming year."
+            description: "The Annual Research Symposium held last week was a resounding success, featuring keynote speakers and groundbreaking research presentations from our faculty, postdocs, and research scholars. The symposium facilitated vibrant discussions and fostered new collaborations across various mathematical fields. Highlights included sessions on quantum algorithms, geometric group theory, and advancements in analytic number theory. We extend our gratitude to all participants and look forward to building on this momentum in the coming year."
         },
         "new-faculty": {
             title: "New Faculty Announcement",
