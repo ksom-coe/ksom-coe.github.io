@@ -297,6 +297,83 @@ nav a:hover {
     padding: 0 1rem; /* Added horizontal padding for efficiency */
 }
 
+/* New/Modified CSS for mobile menu structure */
+.mobile-dropdown-container {
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Separator for the whole dropdown block */
+}
+
+.mobile-dropdown-container:last-of-type {
+    border-bottom: none; /* No border on the last one */
+}
+
+.mobile-dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0; /* Match existing mobile-menu-content a padding */
+}
+
+.mobile-dropdown-header a {
+    flex-grow: 1; /* Allow link to take available space */
+    text-align: center; /* Center the link text */
+    padding: 0; /* Remove internal padding, handled by parent flex item */
+    border-bottom: none; /* Remove border from the link itself */
+    color: white; /* Ensure link color is white */
+    text-decoration: none; /* Remove underline */
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    transition: background 0.2s ease;
+}
+.mobile-dropdown-header a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-dropdown-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.1rem; /* Slightly smaller than 1.8rem hamburger */
+    cursor: pointer;
+    padding: 0.5rem; /* Make it easily tappable */
+    margin-left: 0.5rem; /* Space from the link */
+    transition: transform 0.2s ease;
+    outline: none;
+}
+
+.mobile-dropdown-toggle.expanded {
+    transform: rotate(180deg);
+}
+
+.mobile-submenu {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0.5rem 0; /* Add some padding for the submenu content */
+    width: 100%; /* Ensure submenu takes full width */
+}
+
+.mobile-submenu.expanded {
+    display: flex;
+}
+
+.mobile-submenu a {
+    font-size: 0.95rem;
+    padding: 0.8rem 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: white; /* Ensure link color is white */
+    text-decoration: none; /* Remove underline */
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    transition: background 0.2s ease;
+}
+.mobile-submenu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Existing mobile-menu-content a styles */
 .mobile-menu-content a {
     color: white;
     text-decoration: none;
@@ -317,48 +394,12 @@ nav a:hover {
     background: rgba(255, 255, 255, 0.1);
 }
 
-.mobile-dropdown-header {
-    color: white;
-    padding: 1rem 0;
-    font-family: var(--font-sans);
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    text-align: center;
-    cursor: pointer;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    position: relative;
-}
-
+/* Old: mobile-dropdown-header::after */
 .mobile-dropdown-header::after {
-    content: '▼'; /* Dropdown arrow */
-    font-size: 0.7em;
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: transform 0.2s ease;
+    /* Remove this, as we'll use a button for the arrow */
+    content: none;
 }
 
-.mobile-dropdown-header.expanded::after {
-    transform: translateY(-50%) rotate(180deg); /* Rotate arrow when expanded */
-}
-
-.mobile-submenu {
-    display: none; /* Hidden by default */
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.2); /* Slightly darker for submenu */
-}
-
-.mobile-submenu.expanded {
-    display: flex;
-}
-
-.mobile-submenu a {
-    font-size: 0.95rem; /* Smaller for submenu items */
-    padding: 0.8rem 0;
-    text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.05); /* Lighter separator */
-}
 
 /* === Main Layout Wrapper (Primary CSS Grid) === */
 .main-layout-wrapper {
@@ -2203,32 +2244,64 @@ footer .footer-column a:hover {
       function populateMobileMenu() {
           mobileMenuContent.innerHTML = '';
 
+          // Get the direct links and dropdowns from desktop nav
           Array.from(desktopNav.children).forEach(item => {
-              if (item.tagName === 'A') {
-                  const clonedLink = item.cloneNode(true);
-                  mobileMenuContent.appendChild(clonedLink);
+              if (item.tagName === 'A') { // This is a direct link like "Careers"
+                  if (!item.classList.contains('dark-toggle')) { // Exclude dark mode toggle from main menu links
+                    const clonedLink = item.cloneNode(true);
+                    mobileMenuContent.appendChild(clonedLink);
+                  }
               } else if (item.classList.contains('dropdown')) {
+                  const originalLink = item.querySelector('a'); // The main link like "Home" or "Research"
+                  const dropdownContent = item.querySelector('.dropdown-content');
+
+                  const dropdownContainer = document.createElement('div');
+                  dropdownContainer.classList.add('mobile-dropdown-container');
+
                   const dropdownHeader = document.createElement('div');
                   dropdownHeader.classList.add('mobile-dropdown-header');
-                  dropdownHeader.textContent = item.querySelector('a').textContent;
-                  
+
+                  const linkElement = originalLink.cloneNode(true); // Clone the actual link (Home, Research, etc.)
+                  linkElement.classList.remove('dropdown-link'); // Remove any desktop-specific classes
+                  linkElement.classList.add('mobile-main-nav-link'); // Add a specific class for mobile main nav links
+                  linkElement.textContent = originalLink.textContent; // Ensure text content
+                  linkElement.href = originalLink.href; // Ensure href
+
+                  const toggleButton = document.createElement('button');
+                  toggleButton.classList.add('mobile-dropdown-toggle');
+                  toggleButton.innerHTML = '&#9660;'; // Down arrow
+                  toggleButton.setAttribute('aria-label', `Toggle submenu for ${originalLink.textContent}`);
+                  toggleButton.setAttribute('aria-expanded', 'false');
+
                   const submenu = document.createElement('div');
                   submenu.classList.add('mobile-submenu');
 
-                  Array.from(item.querySelector('.dropdown-content').children).forEach(subItem => {
+                  Array.from(dropdownContent.children).forEach(subItem => {
                       const clonedSubLink = subItem.cloneNode(true);
                       submenu.appendChild(clonedSubLink);
                   });
 
-                  mobileMenuContent.appendChild(dropdownHeader);
-                  mobileMenuContent.appendChild(submenu);
+                  dropdownHeader.appendChild(linkElement);
+                  dropdownHeader.appendChild(toggleButton);
+                  dropdownContainer.appendChild(dropdownHeader);
+                  dropdownContainer.appendChild(submenu);
+                  mobileMenuContent.appendChild(dropdownContainer);
 
-                  dropdownHeader.addEventListener('click', () => {
-                      dropdownHeader.classList.toggle('expanded');
+                  // Event listener for the toggle button (arrow)
+                  toggleButton.addEventListener('click', (e) => {
+                      e.stopPropagation(); // Prevent click from bubbling up to any parent handlers
+                      toggleButton.classList.toggle('expanded');
                       submenu.classList.toggle('expanded');
+                      toggleButton.setAttribute('aria-expanded', submenu.classList.contains('expanded'));
                   });
               }
           });
+
+          // Append dark mode toggle at the very end if it's a direct child of desktopNav
+          const darkToggle = desktopNav.querySelector('.dark-toggle');
+          if (darkToggle) {
+              mobileMenuContent.appendChild(darkToggle.cloneNode(true));
+          }
       }
 
       hamburgerIcon.addEventListener('click', () => {
@@ -2239,15 +2312,12 @@ footer .footer-column a:hover {
       });
 
       mobileMenuCloseBtn.addEventListener('click', () => {
-          mobileMenuOverlay.classList.remove('active');
-          mobileMenuOverlay.querySelector('.mobile-menu-panel').classList.remove('active');
-          hamburgerIcon.classList.remove('active');
-          document.querySelectorAll('.mobile-dropdown-header').forEach(header => header.classList.remove('expanded'));
-          document.querySelectorAll('.mobile-submenu').forEach(submenu => submenu.classList.remove('expanded'));
+          closeMobileMenu();
       });
 
       mobileMenuOverlay.addEventListener('click', (e) => {
           const mobileMenuPanel = mobileMenuOverlay.querySelector('.mobile-menu-panel');
+          // If clicked directly on the overlay OR on a link inside the panel
           if (e.target === mobileMenuOverlay || (e.target.tagName === 'A' && mobileMenuPanel.contains(e.target))) {
               closeMobileMenu();
           }
@@ -2257,8 +2327,14 @@ footer .footer-column a:hover {
         mobileMenuOverlay.classList.remove('active');
         mobileMenuOverlay.querySelector('.mobile-menu-panel').classList.remove('active');
         hamburgerIcon.classList.remove('active');
-        document.querySelectorAll('.mobile-dropdown-header').forEach(header => header.classList.remove('expanded'));
-        document.querySelectorAll('.mobile-submenu').forEach(submenu => submenu.classList.remove('expanded'));
+        // Reset dropdown states
+        document.querySelectorAll('.mobile-dropdown-toggle').forEach(btn => {
+            btn.classList.remove('expanded');
+            btn.setAttribute('aria-expanded', 'false');
+        });
+        document.querySelectorAll('.mobile-submenu').forEach(submenu => {
+            submenu.classList.remove('expanded');
+        });
       }
 
       // News data for modal display
