@@ -1470,7 +1470,7 @@ footer .footer-column a:hover {
     grid-template-areas:
       "campus"
       "about"
-      "sidebar-col" /* Now the entire sidebar column takes one area */
+      "sidebar-col" /* This maps to .sidebar-container which now has calendar first */
       "left-main-col"
       "right-main-col";
   }
@@ -1484,10 +1484,25 @@ footer .footer-column a:hover {
     gap: 2rem; /* Adjusted gap for mobile stacking */
   }
 
-  /* Hide calendar section on mobile */
+  /* No longer hide calendar section on mobile */
   #calendar-section {
-    display: none !important;
+    /* Re-enable display for mobile, remove previous `display: none !important;` */
+    display: flex !important; /* Ensure it's displayed as a flex container */
+    justify-content: center; /* Center the button within it */
+    align-items: center;
+    margin-top: 0.5rem; /* Maintain existing margin */
+    margin-bottom: 0.5rem; /* Maintain existing margin */
+    /* Remove any specific hidden styles if they exist for mobile only */
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    cursor: default;
+    transform: none;
   }
+  #calendar-section:hover {
+      box-shadow: none !important;
+  }
+
 
   /* Footer responsive adjustments */
   footer {
@@ -1842,6 +1857,13 @@ footer .footer-column a:hover {
 
     <!-- Sidebar Content (holds Latest News, Calendar, Upcoming Events for vertical stacking) -->
     <div class="sidebar-container">
+        <!-- Calendar Section - MOVED TO THE TOP OF SIDEBAR-CONTAINER FOR MOBILE ORDERING -->
+        <section id="calendar-section" class="fancy-calendar-button-container">
+            <button id="events-calendar-button" class="fancy-calendar-button" aria-label="Open Events Calendar">
+                <span class="button-text">Events Calendar</span>
+            </button>
+        </section>
+
         <!-- Latest News Section -->
         <section id="latest-news-section" class="accordion-item">
             <h3>Latest News at KSoM</h3>
@@ -1896,13 +1918,6 @@ footer .footer-column a:hover {
             <div class="archive-btn-container">
                 <a class="archive-btn" href="https://ksom.res.in/news-archive">News archive</a>
             </div>
-        </section>
-
-        <!-- Calendar Section -->
-        <section id="calendar-section" class="fancy-calendar-button-container">
-            <button id="events-calendar-button" class="fancy-calendar-button" aria-label="Open Events Calendar">
-                <span class="button-text">Events Calendar</span>
-            </button>
         </section>
 
         <!-- Upcoming Events Section -->
@@ -2073,6 +2088,13 @@ footer .footer-column a:hover {
                     { title: 'Student Orientation', date: '2025-07-01', url: 'https://ksom.res.in/events/student-orientation', color: '#005c97' },
                     { title: 'Research Presentation', date: '2025-07-15', url: 'https://ksom.res.in/events/research-presentation', color: '#002b45' },
                     { title: 'PhD Viva Voce', date: '2025-07-28', url: 'https://ksom.res.in/events/phd-viva', color: '#005c97' },
+                    // Course Events - Added with distinct color code (#4CAF50 - a shade of green)
+                    { title: 'Course: Introduction to Algebra', date: '2025-09-05', url: 'https://ksom.res.in/courses/algebra101', color: '#4CAF50' },
+                    { title: 'Course: Real Analysis I', date: '2025-09-08', url: 'https://ksom.res.in/courses/realanalysis1', color: '#4CAF50' },
+                    { title: 'Course: Complex Analysis', date: '2025-09-12', url: 'https://ksom.res.in/courses/complexanalysis', color: '#4CAF50' },
+                    { title: 'Course: Topology', date: '2025-09-15', url: 'https://ksom.res.in/courses/topology', color: '#4CAF50' },
+                    { title: 'Course: Number Theory', date: '2025-09-18', url: 'https://ksom.res.in/courses/numbertheory', color: '#4CAF50' },
+                    { title: 'Course: Differential Geometry', date: '2025-09-22', url: 'https://ksom.res.in/courses/differentialgeometry', color: '#4CAF50' },
                 ],
                 eventClick: function(info) {
                     if (info.event.url) {
@@ -2082,7 +2104,7 @@ footer .footer-column a:hover {
                 },
                 eventTextColor: '#ffffff',
                 eventBorderColor: 'transparent',
-                eventBackgroundColor: 'var(--accent-light)',
+                // Removed global eventBackgroundColor to allow individual event colors to take precedence
                 dayHeaderContent: function(arg) {
                     return arg.text;
                 },
