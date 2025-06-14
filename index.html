@@ -868,6 +868,8 @@ body.dark-mode .modal-research-card p {
   z-index: 9999;
   role: dialog;
   aria-labelledby: modal-title;
+  /* Add aria-modal to ensure proper accessibility for modal dialogs */
+  aria-modal="true"
 }
 .modal-overlay.active {
   display: flex;
@@ -1811,7 +1813,7 @@ footer .footer-column a:hover {
 
     <!-- About KSoM Section -->
     <section id="about-ksom-section" class="accordion-item" data-accordion-id="aboutKSoM" data-learn-more-url="https://ksom.res.in/about">
-        <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about About KSoM">About KSoM</div>
+        <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about About KSoM" aria-expanded="false" aria-controls="accordion-content-aboutKSoM">About KSoM</div>
         <div class="accordion-snippet">
           Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.<span class="snippet-more-indicator"> ...more</span>
         </div>
@@ -1828,7 +1830,7 @@ footer .footer-column a:hover {
     <div class="left-accordion-col-wrapper">
         <!-- Research Areas Section -->
         <section id="research-areas-section" class="accordion-item" data-accordion-id="researchAreas" data-learn-more-url="https://ksom.res.in/research">
-            <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Research Areas at KSoM">Research Areas at KSoM</div>
+            <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Research Areas at KSoM" aria-expanded="false" aria-controls="accordion-content-researchAreas">Research Areas at KSoM</div>
             <div class="accordion-snippet">
             Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.<span class="snippet-more-indicator"> ...more</span>
             </div>
@@ -1863,7 +1865,7 @@ footer .footer-column a:hover {
 
         <!-- Academic & Research Activities Section -->
         <section id="academic-activities-section" class="accordion-item" data-accordion-id="academicResearchActivities" data-learn-more-url="https://ksom.res.in/activities">
-                <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Academic & Research Activities at KSoM">Academic & Research Activities at KSoM</div>
+                <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Academic & Research Activities at KSoM" aria-expanded="false" aria-controls="accordion-content-academicResearchActivities">Academic & Research Activities at KSoM</div>
                 <div class="accordion-snippet">
                 <!-- Slideshow container -->
                 <div class="slideshow-container" data-slideshow-id="academicActivities">
@@ -1914,7 +1916,7 @@ footer .footer-column a:hover {
     <div class="right-accordion-col-wrapper">
         <!-- Academic Programmes Section -->
         <section id="academic-programmes-section" class="accordion-item" data-accordion-id="academicProgrammes" data-learn-more-url="https://ksom.res.in/programmes">
-            <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Academic Programmes at KSoM">Academic Programmes at KSoM</div>
+            <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Academic Programmes at KSoM" aria-expanded="false" aria-controls="accordion-content-academicProgrammes">Academic Programmes at KSoM</div>
             <div class="accordion-snippet">
             Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.<span class="snippet-more-indicator"> ...more</span>
             </div>
@@ -1941,7 +1943,7 @@ footer .footer-column a:hover {
 
         <!-- Outreach Section -->
         <section id="outreach-section" class="accordion-item" data-accordion-id="outreachActivities" data-learn-more-url="https://ksom.res.in/outreach">
-            <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Outreach Activities">Outreach Activities</div>
+            <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Outreach Activities" aria-expanded="false" aria-controls="accordion-content-outreachActivities">Outreach Activities</div>
             <div class="accordion-snippet">
                 Kerala School of Mathematics is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.<span class="snippet-more-indicator"> ...more</span>
             </div>
@@ -2119,6 +2121,7 @@ footer .footer-column a:hover {
             <h3>Quick Links</h3>
             <a href="https://www.ksom.res.in/programmes/student-handbook">Student Handbook</a>
             <a href="https://www.ksom.res.in/rti">RTI</a>
+            <a href="https://www.ksom.res.in/security-privacy">Security & Privacy</a> <!-- Added Security & Privacy Link -->
         </div>
         <div class="footer-column footer-connect-column">
             <h3>Connect</h3>
@@ -2134,7 +2137,11 @@ footer .footer-column a:hover {
         </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Kerala School of Mathematics. All rights reserved.</p>
+      <p>© 2025 Kerala School of Mathematics. All rights reserved. Last Updated: June 14, 2025</p>
+      <!-- Note for data collection declaration -->
+      <p style="font-size: 0.7em; color: rgba(255, 255, 255, 0.6); margin-top: 5px;">
+        For details on data collection (e.g., analytics, contact forms), please refer to our <a href="https://www.ksom.res.in/security-privacy" style="color: rgba(255, 255, 255, 0.8); text-decoration: underline;">Security & Privacy Policy</a>.
+      </p>
     </div>
   </footer>
 
@@ -2170,6 +2177,7 @@ footer .footer-column a:hover {
             
             // Show modal first, then render calendar
             document.getElementById('modal').classList.add('active');
+            document.getElementById('modal').setAttribute('aria-modal', 'true'); // Set aria-modal
 
             // Define common calendar options for aesthetics (needs to be available here)
             const commonCalendarOptions = {
@@ -2313,12 +2321,14 @@ footer .footer-column a:hover {
             }
 
             document.getElementById('modal').classList.add('active');
+            document.getElementById('modal').setAttribute('aria-modal', 'true'); // Set aria-modal
         }
     }
 
     // Function to close modal (moved to global scope)
     function closeModal() {
         document.getElementById('modal').classList.remove('active');
+        document.getElementById('modal').setAttribute('aria-modal', 'false'); // Reset aria-modal
         // Destroy the calendar instance when modal is closed
         if (fullCalendarInstance) {
             fullCalendarInstance.destroy();
@@ -2380,6 +2390,9 @@ footer .footer-column a:hover {
       // Attach accordion item click and keydown handlers to open modals
       const accordionItems = document.querySelectorAll('.accordion-item[data-accordion-id]');
       accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        const content = item.querySelector('.accordion-content');
+
         item.addEventListener('click', function (e) {
           // Prevent opening modal if a link INSIDE the accordion item was clicked
           if (e.target.tagName === 'A' || e.target.closest('a')) {
@@ -2389,10 +2402,13 @@ footer .footer-column a:hover {
           const accordionId = this.dataset.accordionId;
 
           if (accordionId) {
-            const title = this.querySelector('.accordion-header').textContent.trim();
-            const content = this.querySelector('.accordion-content').innerHTML;
+            const title = header.textContent.trim();
+            const contentHTML = content.innerHTML;
             let learnMoreLink = this.dataset.learnMoreUrl || null;
-            openModal(title, content, false, learnMoreLink);
+            openModal(title, contentHTML, false, learnMoreLink);
+
+            // Set aria-expanded for the clicked accordion header
+            header.setAttribute('aria-expanded', 'true');
           }
         });
 
@@ -2706,7 +2722,7 @@ footer .footer-column a:hover {
     });
   </script>
   <!-- Modal Template -->
-  <div id="modal" class="modal-overlay" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+  <div id="modal" class="modal-overlay" role="dialog" aria-labelledby="modal-title">
     <div class="modal-content">
       <button class="modal-close" aria-label="Close modal" onclick="closeModal()">&times;</button>
       <h2 id="modal-title"></h2>
