@@ -172,7 +172,7 @@ nav a:hover {
   transition: background var(--transition-fast);
   font-family: var(--font-sans); /* Ensure dropdown links use Inter font */
   font-size: 0.8rem; /* Reduced font size for submenu items */
-  text-transform: uppercase; /* Make uppercase */
+  text-transform: uppercase;
 }
 .dropdown-content a:hover {
   background: #f0f4f8;
@@ -464,8 +464,7 @@ nav a:hover {
 }
 
 /* Override cursor for non-clickable accordion items */
-#research-overview,
-#research-environment {
+#research-overview { /* Only research-overview is non-clickable on research.md */
     cursor: default;
 }
 
@@ -569,6 +568,21 @@ body.dark-mode .accordion-item:hover {
   color: var(--accent-blue);
   margin-bottom: 0.4rem;
   cursor: inherit; /* Inherit cursor from parent (.accordion-item) */
+  display: flex; /* Needed for arrow alignment */
+  justify-content: space-between; /* Pushes arrow to the right */
+  align-items: center;
+}
+
+/* Arrow indicator for collapsible accordions */
+.accordion-item:not([data-direct-link="true"]) .accordion-header::after {
+    content: '\25BC'; /* Down arrow */
+    font-size: 0.9em;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.accordion-item:not([data-direct-link="true"]) .accordion-header.expanded::after {
+    transform: rotate(180deg); /* Rotate up when expanded */
 }
 
 /* Larger heading for the "Overview of Research" and "KSoM Publications" */
@@ -583,17 +597,27 @@ a[href="/publications"].accordion-item .accordion-header {
   font-weight: normal; /* Ensure snippets are not bold */
   cursor: inherit; /* Inherit cursor from parent (.accordion-item) */
 }
+
+/* Base style for accordion content (visible by default) */
 .accordion-content {
   font-size: 0.975rem;
   line-height: 1.7;
   color: #333;
-  padding-bottom: 0; /* No extra padding at the bottom from this class */
+  padding-bottom: 1.5rem; /* Default padding at the bottom of content */
 }
-/* Ensure the accordion-content is always visible */
-.accordion-content {
-  max-height: none; /* Content is always visible, no collapse */
-  display: block; /* Ensure it's displayed */
+
+/* Styles for *collapsible* accordion content */
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  padding-bottom: 0; /* No padding when collapsed */
 }
+.collapsible-content.expanded {
+  max-height: 1000px; /* Large enough to accommodate content */
+  padding-bottom: 1.5rem; /* Add padding when expanded */
+}
+
 
 .accordion-content p {
   font-weight: normal; /* Ensure paragraphs inside accordion content are not bold by default */
@@ -1325,6 +1349,7 @@ footer {
   justify-content: center; /* Changed to center for central alignment */
   flex-wrap: wrap;
   max-width: var(--max-content-width);
+  width: 90%;
   margin: 0 auto;
   padding: 0;
   gap: 20px; /* Provides consistent spacing between columns and rows */
