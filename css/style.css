@@ -568,11 +568,13 @@ body.dark-mode .accordion-item:hover {
   font-weight: 600;
   color: var(--accent-blue);
   margin-bottom: 0.4rem;
+  cursor: inherit; /* Inherit cursor from parent (.accordion-item) */
 }
 
-/* Larger heading for the "Overview of Research" */
-#research-overview .accordion-header {
-    font-size: 1.5rem; /* Larger size for the main overview heading */
+/* Larger heading for the "Overview of Research" and "KSoM Publications" */
+#research-overview .accordion-header,
+a[href="/publications"].accordion-item .accordion-header {
+    font-size: 1.5rem; /* Larger size for these specific headings */
 }
 
 .accordion-snippet {
@@ -604,7 +606,7 @@ body.dark-mode .accordion-item:hover {
 /* Bullet point alignment fix */
 .accordion-content ul {
     list-style-type: disc; /* Ensure disc style */
-    padding-left: 1.5em; /* Indent the list */
+    padding-left: 1.2em; /* Reduced indent to bring bullets closer */
     margin-top: 0.5em; /* Space above the list */
     margin-bottom: 0.8em; /* Space below the list */
 }
@@ -1185,7 +1187,7 @@ body.dark-mode #latest-news-section .timeline-content .news-title-link {
   color: var(--accent-light);
 }
 body.dark-mode #latest-news-section .timeline-content .news-title-link:hover {
-  color: var(--accent-hover);
+  color: var(--accent-light);
 }
 
 
