@@ -16,7 +16,7 @@ eleventyNavigation:
             At KSoM, we believe in the power of curiosity-driven research combined with a collaborative spirit. Our work spans pure and applied mathematics, contributing to both theoretical advancements and solving complex real-world problems. We encourage interdisciplinary collaboration and provide state-of-the-art resources to support our research endeavors.
         </p>
         <p>
-            This page provides an in-depth look into our core research areas, highlighting the specific problems we tackle and the methodologies we employ. We aim to inspire future mathematicians and provide a clear insight into the intellectual vibrancy that defines KSoM.
+            This page provides an in-depth look into our core research areas, highlighting the specific problems we tackle and the methodologies we employ. We aim to inspire future mathematicians and provide a clear insight into the intellectual vibrancy that defines KSoM. Our research is broadly categorized into the following groups:
         </p>
     </div>
 </section>
@@ -154,3 +154,21 @@ eleventyNavigation:
         </p>
     </div>
 </section>
+
+<a href="/publications" class="accordion-item research-group-card">
+    <h2 class="accordion-header">KSoM Publications</h2>
+    <p>
+        Explore the extensive body of research published by our faculty and scholars. Our publications represent the cutting-edge of mathematical thought across various disciplines.
+    </p>
+    <div>
+        <p>
+            The Kerala School of Mathematics is proud of its vibrant research output. This section provides an overview and links to the diverse range of academic papers, books, and preprints authored by our talented researchers. From theoretical breakthroughs to applied innovations, our work contributes significantly to the global mathematical community.
+        </p>
+        <p>
+            We encourage you to delve into our scholarly contributions to gain a deeper understanding of the impactful research being conducted at KSoM. The publications are categorized by research group and year for easy navigation.
+        </p>
+        <p>
+            Visit our dedicated publications page for detailed lists and access to our research repository.
+        </p>
+    </div>
+</a>
