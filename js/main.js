@@ -244,42 +244,45 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialize slideshow for Main Campus with 7-second interval (changed from 5000ms)
   initSlideshow('mainCampus', 7000);
 
-  // Attach accordion item click and keydown handlers to open modals or redirect
-  const accordionItems = document.querySelectorAll('.accordion-item[data-accordion-id], .accordion-item[data-direct-link="true"]');
+  // Attach accordion item click and keydown handlers
+  const accordionItems = document.querySelectorAll('.accordion-item'); // Select all accordion items
+
   accordionItems.forEach(item => {
     const header = item.querySelector('.accordion-header');
-    const content = item.querySelector('.accordion-content'); // Might be null for direct links
+    const content = item.querySelector('.collapsible-content'); // Target collapsible content specifically
     const learnMoreLink = item.dataset.learnMoreUrl || null;
-    const isDirectLink = item.dataset.directLink === 'true'; // New data attribute
+    const isDirectLink = item.dataset.directLink === 'true'; // Check for data-direct-link
 
-    item.addEventListener('click', function (e) {
-      // Prevent opening modal/redirect if a link INSIDE the accordion item was clicked
-      if (e.target.tagName === 'A' || e.target.closest('a')) {
-          return;
-      }
-      e.preventDefault(); // Prevent default link behavior if any
+    // Only add click listener if it's meant to be interactive
+    if (isDirectLink || (item.dataset.accordionId && content)) { // Either direct link OR collapsible
+        item.addEventListener('click', function (e) {
+            // Prevent default behavior if an internal link was clicked within the item
+            if (e.target.tagName === 'A' || e.target.closest('a')) {
+                return;
+            }
+            e.preventDefault(); // Prevent default link behavior if any
 
-      if (isDirectLink && learnMoreLink) {
-        window.location.href = learnMoreLink; // Direct navigation
-      } else if (accordionId) { // Only attempt to open modal if it's a regular accordion with an ID
-        const title = header.textContent.trim();
-        const contentHTML = content ? content.innerHTML : ''; // Handle cases where content might be missing for direct links
-        openModal(title, contentHTML, false, learnMoreLink);
-        if (header) { // Check if header exists before setting attribute
-            header.setAttribute('aria-expanded', 'true');
-        }
-      }
-    });
+            if (isDirectLink && learnMoreLink) {
+                // Direct navigation for items with data-direct-link="true"
+                window.location.href = learnMoreLink;
+            } else if (item.dataset.accordionId && content) {
+                // Collapsible accordion behavior for items with data-accordion-id and actual collapsible content
+                const isExpanded = content.classList.toggle('expanded');
+                header.classList.toggle('expanded', isExpanded); // Toggle expanded class on header for arrow rotation
+                header.setAttribute('aria-expanded', isExpanded);
+            }
+        });
 
-    item.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        if (e.target.tagName === 'A' || e.target.closest('a')) {
-            return;
-        }
-        e.preventDefault();
-        this.click(); // Trigger click event for consistency
-      }
-    });
+        item.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                if (e.target.tagName === 'A' || e.target.closest('a')) {
+                    return;
+                }
+                e.preventDefault();
+                this.click(); // Trigger click event for consistency
+            }
+        });
+    }
   });
 
 
@@ -306,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault();
       const section = this.closest('.accordion-item'); // Assuming it's still part of an accordion item or similar structure
       const title = section.querySelector('.accordion-header').textContent;
-      const content = section.querySelector('.accordion-content').innerHTML;
+      const content = section.querySelector('.collapsible-content').innerHTML; // Changed to .collapsible-content
       openModal(title, content, false, this.href); // Pass the button's href as learnMoreLink
     });
   });
