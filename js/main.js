@@ -50,16 +50,16 @@ function openModal(title, content, isCalendarModal = false, learnMoreLink = null
             dayMaxEvents: true,
             events: [
                 // 🟦 Workshops
-                { title: 'SWIM Workshop', date: '2025-06-15', url: '[https://ksom.res.in/events/swim-workshop](https://ksom.res.in/events/swim-workshop)', color: '#0077cc' },
+                { title: 'SWIM Workshop', date: '2025-06-15', url: 'https://ksom.res.in/events/swim-workshop', color: '#0077cc' },
 
                 // 🟪 Conferences
                 // (Add conferences here if available)
 
                 // 🟫 Colloquium & Seminar Talks
-                { title: 'Mathematics Colloquium', date: '2025-06-20', url: '[https://ksom.res.in/events/math-colloquium](https://ksom.res.in/events/math-colloquium)', color: '#2c3e50' },
-                { title: 'Algebra Seminar', date: '2025-06-05', url: '[https://ksom.res.in/events/algebra-seminar](https://ksom.res.in/events/algebra-seminar)', color: '#2c3e50' },
-                { title: 'Geometry Talk', date: '2025-06-10', url: '[https://ksom.res.in/events/geometry-talk](https://ksom.res.in/events/geometry-talk)', color: '#2c3e50' },
-                { title: 'Analysis Lecture', date: '2025-06-22', url: '[https://ksom.res.in/events/analysis-lecture](https://ksom.res.in/events/analysis-lecture)', color: '#2c3e50' },
+                { title: 'Mathematics Colloquium', date: '2025-06-20', url: 'https://ksom.res.in/events/math-colloquium', color: '#2c3e50' },
+                { title: 'Algebra Seminar', date: '2025-06-05', url: 'https://ksom.res.in/events/algebra-seminar', color: '#2c3e50' },
+                { title: 'Geometry Talk', date: '2025-06-10', url: 'https://ksom.res.in/events/geometry-talk', color: '#2c3e50' },
+                { title: 'Analysis Lecture', date: '2025-06-22', url: 'https://ksom.res.in/events/analysis-lecture', color: '#2c3e50' },
 
                 // 🟥 Holidays
                 { title: 'Republic Day', date: '2025-01-26', color: '#c0392b' },
@@ -116,10 +116,10 @@ function openModal(title, content, isCalendarModal = false, learnMoreLink = null
                 },
 
                 // Admin
-                { title: 'Faculty Meeting', date: '2025-06-01', url: '[https://ksom.res.in/events/faculty-meeting](https://ksom.res.in/events/faculty-meeting)', color: '#2c3e50' },
-                { title: 'Student Orientation', date: '2025-07-01', url: '[https://ksom.res.in/events/student-orientation](https://ksom.res.in/events/student-orientation)', color: '#4CAF50' },
-                { title: 'Research Presentation', date: '2025-07-15', url: '[https://ksom.res.in/events/research-presentation](https://ksom.res.in/events/research-presentation)', color: '#2c3e50' },
-                { title: 'PhD Viva Voce', date: '2025-07-28', url: '[https://ksom.res.in/events/phd-viva](https://ksom.res.in/events/phd-viva)', color: '#4CAF50' },
+                { title: 'Faculty Meeting', date: '2025-06-01', url: 'https://ksom.res.in/events/faculty-meeting', color: '#2c3e50' },
+                { title: 'Student Orientation', date: '2025-07-01', url: 'https://ksom.res.in/events/student-orientation', color: '#4CAF50' },
+                { title: 'Research Presentation', date: '2025-07-15', url: 'https://ksom.res.in/events/research-presentation', color: '#2c3e50' },
+                { title: 'PhD Viva Voce', date: '2025-07-28', url: 'https://ksom.res.in/events/phd-viva', color: '#4CAF50' },
             ],
             eventClick: function(info) {
                 if (info.event.url) {
@@ -197,7 +197,7 @@ function toggleDarkMode() {
 const slideshowIntervals = {};
 // Function to manage individual slideshows
 function initSlideshow(slideshowId, intervalTime = 3000) {
-    let currentSlideIndex = 0;
+    let currentSlideIndex = 0; // Initialize to 0 for 0-based array access
     let slides = document.querySelectorAll(`[data-slideshow-id="${slideshowId}"] .mySlides`);
 
     if (slides.length === 0) {
@@ -210,20 +210,22 @@ function initSlideshow(slideshowId, intervalTime = 3000) {
             slides[i].style.display = "none";
         }
         currentSlideIndex++;
-        if (currentSlideIndex > slides.length) { currentSlideIndex = 1 }
-        slides[currentSlideIndex - 1].style.display = "block";
+        if (currentSlideIndex > slides.length) { currentSlideIndex = 1; } // Loop back to 1st slide
+        slides[currentSlideIndex - 1].style.display = "block"; // Show the current slide
     }
 
     function startSlideshow() {
         if (slideshowIntervals[slideshowId]) {
             clearInterval(slideshowIntervals[slideshowId]);
         }
+        // Show the first slide immediately upon starting
+        currentSlideIndex = 0; // Reset index to ensure first slide is shown first
+        showSlides(); // Show the very first slide
         slideshowIntervals[slideshowId] = setInterval(showSlides, intervalTime);
     }
 
-    // Initial display and start
-    showSlides();
-    startSlideshow(); // Start auto-play by default
+    // Call startSlideshow immediately to kick things off
+    startSlideshow();
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -272,7 +274,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const snippet = item.querySelector('.accordion-snippet'); // Get the snippet for its content
     const learnMoreLink = item.dataset.learnMoreUrl || null; // Link for the "Learn More" button inside modal
 
-    if (header && content) { // Ensure both exist for modal functionality
+    // Check if this accordion item is meant to open a modal based on the new data attribute
+    const isModalOpener = item.dataset.modalOpener === 'true';
+
+    if (header && content && isModalOpener) { // Ensure it's explicitly a modal opener
         item.addEventListener('click', function (e) {
             // Prevent default behavior if an internal link was clicked within the item
             if (e.target.tagName === 'A' || e.target.closest('a')) {
@@ -469,37 +474,37 @@ document.addEventListener('DOMContentLoaded', function () {
           title: "KSoM Recruitment Drive",
           date: "June 3, 2025",
           description: "Applications are now open for key administrative positions including Accounts Officer and Registrar. We invite dynamic and experienced professionals to join our esteemed institution and contribute to its continued growth and success. This is a unique opportunity to be part of a leading research institute dedicated to mathematical excellence. Detailed job descriptions and application procedures are available on our careers page.",
-          link: "[https://ksom.res.in/news/recruitment-drive](https://ksom.res.in/news/recruitment-drive)"
+          link: "https://ksom.res.in/news/recruitment-drive"
       },
       "phd-admissions": {
           title: "PhD Admissions 2025",
           date: "May 7, 2025",
           description: "Applications are invited for our prestigious doctoral programmes in Pure and Applied Mathematics for the academic year 2025. KSoM offers comprehensive financial support, including monthly scholarships and hostel accommodation, to all selected candidates. Our PhD program provides an immersive research environment with access to state-of-the-art facilities and mentorship from world-renowned faculty. Prospective candidates with a strong academic record in mathematics or a related field are encouraged to apply. The admission process involves a rigorous entrance examination and an interview.",
-          link: "[https://ksom.res.in/admissions/phd](https://ksom.res.in/admissions/phd)"
+          link: "https://ksom.res.in/admissions/phd"
       },
       "visiting-faculty": {
           title: "Visiting Faculty Position",
           date: "March 4, 2025",
           description: "KSoM is seeking highly qualified candidates for Visiting Assistant Professor positions across all mathematical disciplines. We offer a vibrant and collaborative research environment with opportunities to engage in cutting-edge research and interact with leading mathematicians. The ideal candidate will have a strong research profile and a commitment to teaching and mentoring. We welcome applications from both experienced faculty and promising early-career researchers. Positions are available for periods ranging from three months to a full academic year.",
-          link: "[https://ksom.res.in/careers/visiting-faculty](https://ksom.res.in/careers/visiting-faculty)"
+          link: "https://ksom.res.in/careers/visiting-faculty"
       },
       "research-symposium": {
           title: "Annual Research Symposium",
           date: "February 15, 2025",
           description: "The Annual Research Symposium held last week was a resounding success, featuring keynote speakers and groundbreaking research presentations from our faculty, postdocs, and research scholars. The symposium facilitated vibrant discussions and fostered new collaborations across various mathematical fields. Highlights included sessions on quantum algorithms, geometric group theory, and advancements in analytic number theory. We extend our gratitude to all participants and look forward to building on this momentum in the coming year.",
-          link: "[https://ksom.res.in/activities/research-symposium](https://ksom.res.in/activities/research-symposium)"
+          link: "https://ksom.res.in/activities/research-symposium"
       },
       "new-faculty": {
           title: "New Faculty Announcement",
           date: "January 20, 2025",
           description: "We are thrilled to announce the appointment of Dr. Alok Kumar as our newest faculty member, specializing in Algebraic Geometry. Dr. Kumar brings a wealth of expertise and a promising research agenda that will significantly enhance our department's capabilities. His work focuses on the intersection of algebraic geometry and number theory, and we are confident that his contributions will greatly enrich our academic community and foster innovative research collaborations. Please join us in extending a warm welcome to Dr. Kumar.",
-          link: "[https://ksom.res.in/people/faculty/alok-kumar](https://ksom.res.in/people/faculty/alok-kumar)"
+          link: "https://ksom.res.in/people/faculty/alok-kumar"
       },
       "winter-school": {
           title: "Winter School on Number Theory",
           date: "December 1, 2024",
           description: "Registration is now open for our intensive Winter School on Number Theory, scheduled for January 10-20, 2025. This school is designed for advanced undergraduate students, graduate students, and young researchers interested in modern developments in analytic number theory. The curriculum will cover topics such as sieve methods, automorphic forms, and L-functions, delivered through a series of lectures and problem-solving sessions by leading experts in the field. Early registration is encouraged due to limited seats.",
-          link: "[https://ksom.res.in/activities/winter-school](https://ksom.res.in/activities/winter-school)"
+          link: "https://ksom.res.in/activities/winter-school"
       }
   };
 
@@ -509,37 +514,37 @@ document.addEventListener('DOMContentLoaded', function () {
           title: "Guest Lecture Series: Dr. Anya Sharma",
           date: "July 10, 2025",
           description: "Exploring advancements in Quantum Topology. Open to all researchers and students. Dr. Sharma is a distinguished mathematician known for her groundbreaking work in algebraic topology and its applications. This lecture promises to be a deep dive into the latest theories and unsolved problems in the field, offering valuable insights for both seasoned researchers and aspiring mathematicians.",
-          link: "[https://ksom.res.in/events/guest-lecture-sharma](https://ksom.res.in/events/guest-lecture-sharma)"
+          link: "https://ksom.res.in/events/guest-lecture-sharma"
       },
       "discrete-math-conference": {
           title: "International Conference on Discrete Mathematics",
           date: "August 5, 2025",
           description: "Leading experts convene to discuss new theories and applications in discrete mathematics. This annual conference brings together top researchers from around the globe to present their latest findings, collaborate on new projects, and discuss the future directions of discrete mathematics. Topics include graph theory, combinatorics, cryptography, and theoretical computer science.",
-          link: "[https://ksom.res.in/events/discrete-math-conference](https://ksom.res.in/events/discrete-math-conference)"
+          link: "https://ksom.res.in/events/discrete-math-conference"
       },
       "freshers-orientation": {
           title: "Freshers' Orientation Program",
           date: "September 1, 2025",
           description: "Welcome session for new M.Sc. and Ph.D. students joining KSoM. This comprehensive orientation will introduce new students to KSoM's academic environment, research facilities, faculty members, and campus life. It's an excellent opportunity to meet fellow students, get acquainted with the institute's resources, and prepare for a successful academic journey.",
-          link: "[https://ksom.res.in/events/freshers-orientation](https://ksom.res.in/events/freshers-orientation)"
+          link: "https://ksom.res.in/events/freshers-orientation"
       },
       "ml-math-workshop": {
           title: "Workshop on Machine Learning in Mathematics",
           date: "October 20, 2025",
           description: "A practical workshop on the intersection of machine learning and mathematical research. This workshop will cover fundamental concepts of machine learning and demonstrate how mathematical principles underpin various ML algorithms. Participants will engage in hands-on sessions exploring topics like neural networks, optimization, and data analysis, with a focus on their mathematical foundations.",
-          link: "[https://ksom.res.in/events/ml-math-workshop](https://ksom.res.in/events/ml-math-workshop)"
+          link: "https://ksom.res.in/events/ml-math-workshop"
       },
       "alumni-meet": {
           title: "Annual Alumni Meet",
           date: "November 12, 2025",
           description: "Connect with fellow KSoM alumni and faculty. Networking and dinner included. Our annual alumni meet is a cherished tradition, providing a platform for former students to reconnect, share their professional journeys, and foster a strong KSoM community. This event includes a keynote address from a prominent alumnus, a networking reception, and opportunities to reminisce about your time at KSoM.",
-          link: "[https://ksom.res.in/events/alumni-meet](https://ksom.res.in/events/alumni-meet)"
+          link: "https://ksom.res.in/events/alumni-meet"
       },
       "christmas-lecture": {
           title: "Christmas Lecture: The Beauty of Fractals",
           date: "December 8, 2025",
           description: "A public lecture showcasing the visual and mathematical elegance of fractals. This captivating lecture is designed for a general audience, exploring the fascinating world of fractals found in nature, art, and mathematics. Through stunning visuals and accessible explanations, Professor Emily Davis will reveal the intricate patterns and profound mathematical concepts behind these infinitely complex shapes.",
-          link: "[https://ksom.res.in/events/christmas-lecture](https://ksom.res.in/events/christmas-lecture)"
+          link: "https://ksom.res.in/events/christmas-lecture"
       }
   };
 
