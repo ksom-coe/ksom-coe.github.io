@@ -530,10 +530,10 @@ body.dark-mode #research-overview .accordion-content.static-content, body.dark-m
     margin-top: 0.25rem; /* Reduced from 0.5rem */
     margin-bottom: 0.25rem; /* Reduced from 0.5rem */
     cursor: default;
-    transform: none; /* No transform on hover */
+    transform: none;
 }
 .fancy-calendar-button-container:hover {
-    box-shadow: none !important; /* No shadow on hover */
+    box-shadow: none !important;
 }
 
 
@@ -608,16 +608,22 @@ body.dark-mode .accordion-item:hover {
 }
 
 /* Arrow indicator for collapsible accordions */
-.accordion-item:not([data-direct-link="true"]) .accordion-header::after {
+/* This rule will only apply to accordions that are *not* direct links AND *not* modal openers.
+   This effectively leaves no accordions on index.md with an arrow, and leaves direct links without an arrow (correct).
+   If we introduce a a truly collapsible accordion later, it would *not* have these data attributes and would get an arrow.
+*/
+.accordion-item:not([data-direct-link="true"]):not([data-modal-opener="true"]) .accordion-header::after {
     content: '\25BC'; /* Down arrow */
     font-size: 0.9em;
     margin-left: 10px;
     transition: transform 0.3s ease;
 }
 
-.accordion-item:not([data-direct-link="true"]) .accordion-header.expanded::after {
-    transform: rotate(180deg); /* Rotate up when expanded */
+/* For accordions that open modals, explicitly remove any arrow */
+.accordion-item[data-modal-opener="true"] .accordion-header::after {
+    content: none !important;
 }
+
 
 /* Larger heading for the "Overview of Research" and "KSoM Publications" */
 /* Removed this specific style for research-overview as it's no longer accordion-item */
