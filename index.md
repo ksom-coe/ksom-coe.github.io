@@ -3,7 +3,7 @@ layout: base.html
 title: Kerala School of Mathematics - Official Website
 ---
 <!-- About KSoM Section -->
-<section id="about-ksom-section" class="accordion-item" data-accordion-id="aboutKSoM" data-learn-more-url="[https://ksom.res.in/about](https://ksom.res.in/about)">
+<section id="about-ksom-section" class="accordion-item" data-accordion-id="aboutKSoM" data-learn-more-url="[https://ksom.res.in/about](https://ksom.res.in/about)" data-modal-opener="true">
     <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about About KSoM" aria-expanded="false" aria-controls="accordion-content-aboutKSoM">About KSoM</div>
     <div class="accordion-snippet">
       Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.<span class="snippet-more-indicator"> ...more</span>
@@ -20,7 +20,7 @@ title: Kerala School of Mathematics - Official Website
 <!-- Left Main Content Column (60% width) -->
 <div class="left-accordion-col-wrapper">
     <!-- Research Areas Section -->
-    <section id="research-areas-section" class="accordion-item" data-accordion-id="researchAreas" data-learn-more-url="[https://ksom.res.in/research](https://ksom.res.in/research)">
+    <section id="research-areas-section" class="accordion-item" data-accordion-id="researchAreas" data-learn-more-url="[https://ksom.res.in/research](https://ksom.res.in/research)" data-modal-opener="true">
         <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Research Areas at KSoM" aria-expanded="false" aria-controls="accordion-content-researchAreas">Research Areas at KSoM</div>
         <div class="accordion-snippet">
         Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.<span class="snippet-more-indicator"> ...more</span>
@@ -55,7 +55,7 @@ title: Kerala School of Mathematics - Official Website
     </section>
 
     <!-- Academic & Research Activities Section -->
-    <section id="academic-activities-section" class="accordion-item" data-accordion-id="academicResearchActivities" data-learn-more-url="[https://ksom.res.in/activities](https://ksom.res.in/activities)">
+    <section id="academic-activities-section" class="accordion-item" data-accordion-id="academicResearchActivities" data-learn-more-url="[https://ksom.res.in/activities](https://ksom.res.in/activities)" data-modal-opener="true">
             <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Academic & Research Activities at KSoM" aria-expanded="false" aria-controls="accordion-content-academicResearchActivities">Academic & Research Activities at KSoM</div>
             <div class="accordion-snippet">
             <!-- Slideshow container -->
@@ -106,7 +106,7 @@ title: Kerala School of Mathematics - Official Website
 <!-- Right Main Content Column (40% width) -->
 <div class="right-accordion-col-wrapper">
     <!-- Academic Programmes Section -->
-    <section id="academic-programmes-section" class="accordion-item" data-accordion-id="academicProgrammes" data-learn-more-url="[https://ksom.res.in/programmes](https://ksom.res.in/programmes)">
+    <section id="academic-programmes-section" class="accordion-item" data-accordion-id="academicProgrammes" data-learn-more-url="[https://ksom.res.in/programmes](https://ksom.res.in/programmes)" data-modal-opener="true">
         <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Academic Programmes at KSoM" aria-expanded="false" aria-controls="accordion-content-academicProgrammes">Academic Programmes at KSoM</div>
         <div class="accordion-snippet">
         Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.<span class="snippet-more-indicator"> ...more</span>
@@ -133,7 +133,7 @@ title: Kerala School of Mathematics - Official Website
     </section>
 
     <!-- Outreach Section -->
-    <section id="outreach-section" class="accordion-item" data-accordion-id="outreachActivities" data-learn-more-url="[https://ksom.res.in/outreach](https://ksom.res.in/outreach)">
+    <section id="outreach-section" class="accordion-item" data-accordion-id="outreachActivities" data-learn-more-url="[https://ksom.res.in/outreach](https://ksom.res.in/outreach)" data-modal-opener="true">
         <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Outreach Activities" aria-expanded="false" aria-controls="accordion-content-outreachActivities">Outreach Activities</div>
         <div class="accordion-snippet">
             Kerala School of Mathematics is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.<span class="snippet-more-indicator"> ...more</span>
@@ -169,7 +169,7 @@ title: Kerala School of Mathematics - Official Website
     </section>
 
     <!-- Latest News Section -->
-    <section id="latest-news-section" class="accordion-item">
+    <section id="latest-news-section" class="accordion-item" data-modal-opener="true">
         <h3>Latest News at KSoM</h3>
         <div class="timeline-container">
         <div class="timeline">
@@ -225,7 +225,7 @@ title: Kerala School of Mathematics - Official Website
     </section>
 
     <!-- Upcoming Events Section -->
-    <section id="upcoming-events-section" class="accordion-item">
+    <section id="upcoming-events-section" class="accordion-item" data-modal-opener="true">
         <h3>Upcoming Events at KSoM</h3>
         <div class="timeline-container">
         <div class="timeline">
