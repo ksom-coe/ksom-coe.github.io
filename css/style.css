@@ -444,7 +444,7 @@ nav a:hover {
 
 /* Common styling for all major content sections (accordion-items, etc.) */
 .accordion-item {
-    padding: 1rem; /* Default padding for all content sections */
+    padding: 1.5rem; /* Default padding for all content sections */
     background: var(--card-bg);
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
