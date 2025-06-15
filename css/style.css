@@ -413,7 +413,7 @@ nav a:hover {
     grid-template-areas: none; /* No specific grid areas */
     width: 90%; /* Maintain overall content width from base */
     max-width: var(--max-content-width); /* Maintain overall max-width */
-    gap: 1rem; /* Adjust gap for stacked content */
+    gap: 1.5rem; /* Adjust gap for stacked content */
 
     /* Ensure children inside this wrapper also take full width */
     & > * {
@@ -525,7 +525,7 @@ body.dark-mode .accordion-item:hover {
 /* Image specific styling for size and fit */
 .top-image img {
   width: 100%;
-  height: 350px; /* Changed from 300px to 350px */
+  height: 350px; /* Default height for larger screens */
   object-fit: cover;
   border-radius: 8px;
 }
@@ -1528,6 +1528,13 @@ footer .footer-column a:hover {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+  }
+
+  /* Adjust campus image height for better responsiveness on mobile */
+  #campus-photos-section .top-image img {
+    height: auto; /* Allow height to adjust based on aspect ratio */
+    min-height: 200px; /* Minimum height for visibility */
+    max-height: 40vh; /* Max height relative to viewport for smaller screens */
   }
 
   /* No longer hide calendar section on mobile */
