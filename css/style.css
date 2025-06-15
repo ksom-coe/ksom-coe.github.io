@@ -246,7 +246,7 @@ nav a:hover {
     right: 0.8rem; /* Adjusted slightly */
     background: none;
     border: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
     cursor: pointer;
     z-index: 2001;
     color: white;
@@ -449,26 +449,25 @@ nav a:hover {
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     box-sizing: border-box;
-    cursor: pointer; /* Now the entire item is clickable */
+    cursor: pointer; /* Default cursor for clickable items */
     transition: all 0.3s ease; /* Smooth transition for hover effects */
-    /* Removed margin-bottom here. Spacing is now handled by the 'gap' of their parent flex/grid container. */
     break-inside: avoid-column; /* Still relevant for print/column-flow scenarios if any */
     page-break-inside: avoid;
-    text-decoration: none; /* Ensure no underline for accordion items */
-    color: inherit; /* Ensure text color is inherited */
+    text-decoration: none; /* Ensure no underline for accordion items used as links */
+    color: inherit; /* Ensure text color is inherited for links */
+    margin-bottom: 1.5rem; /* Add margin between cards */
 }
 
-/* Style for research group cards (now direct links) */
-.research-group-card {
-    text-decoration: none; /* Explicitly remove underline */
-    color: inherit; /* Inherit text color */
-    display: block; /* Make the anchor tag block-level */
+/* Specific styling for the very last accordion-item */
+.accordion-item:last-of-type {
+    margin-bottom: 0; /* Remove margin from the very last item */
 }
 
-.research-group-card:hover {
-    text-decoration: none; /* Ensure no underline on hover */
+/* Override cursor for non-clickable accordion items */
+#research-overview,
+#research-environment {
+    cursor: default;
 }
-
 
 /* Hover effect for accordion items */
 .accordion-item:hover {
@@ -565,15 +564,17 @@ body.dark-mode .accordion-item:hover {
 /* === Accordion === */
 .accordion-header {
   font-family: var(--font-serif); /* Apply Merriweather to accordion headers */
-  font-size: 1.3rem;
+  font-size: 1.3rem; /* Default size for research groups and other headers */
   font-weight: 600;
   color: var(--accent-blue);
   margin-bottom: 0.4rem;
-  cursor: pointer; /* Ensure the header visually indicates clickability */
 }
-.accordion-item:not([data-accordion-id]) .accordion-header {
-  cursor: default; /* For the research overview and any other non-interactive accordions */
+
+/* Larger heading for the "Overview of Research" */
+#research-overview .accordion-header {
+    font-size: 1.5rem; /* Larger size for the main overview heading */
 }
+
 .accordion-snippet {
   font-size: 1rem;
   color: #444;
@@ -584,18 +585,36 @@ body.dark-mode .accordion-item:hover {
   font-size: 0.975rem;
   line-height: 1.7;
   color: #333;
-  padding-bottom: 1.5rem; /* Added padding to create more space */
-  /* Remove max-height and transition for always-visible content */
+  padding-bottom: 0; /* No extra padding at the bottom from this class */
 }
-/* Ensure the accordion-content is not hidden if there's no data-accordion-id */
-.accordion-item:not([data-accordion-id]) .accordion-content.hidden {
-  max-height: none; /* Override hidden for non-expanding accordions */
+/* Ensure the accordion-content is always visible */
+.accordion-content {
+  max-height: none; /* Content is always visible, no collapse */
   display: block; /* Ensure it's displayed */
 }
 
 .accordion-content p {
   font-weight: normal; /* Ensure paragraphs inside accordion content are not bold by default */
+  margin-bottom: 0.8em; /* Add spacing between paragraphs inside content */
 }
+.accordion-content p:last-child {
+  margin-bottom: 0; /* No margin after the last paragraph */
+}
+
+/* Bullet point alignment fix */
+.accordion-content ul {
+    list-style-type: disc; /* Ensure disc style */
+    padding-left: 1.5em; /* Indent the list */
+    margin-top: 0.5em; /* Space above the list */
+    margin-bottom: 0.8em; /* Space below the list */
+}
+.accordion-content li {
+    margin-bottom: 0.3em; /* Space between list items */
+}
+.accordion-content li:last-child {
+    margin-bottom: 0; /* No margin after the last list item */
+}
+
 
 /* Style for the "more" indicator within snippets */
 .snippet-more-indicator {
