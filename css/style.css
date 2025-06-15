@@ -455,12 +455,12 @@ nav a:hover {
     page-break-inside: avoid;
     text-decoration: none; /* Ensure no underline for accordion items used as links */
     color: inherit; /* Ensure text color is inherited for links */
-    margin-bottom: 1.5rem; /* Add margin between cards */
+    /* Removed margin-bottom to ensure 0 gap for accordions */
 }
 
 /* Specific styling for the very last accordion-item */
 .accordion-item:last-of-type {
-    margin-bottom: 0; /* Remove margin from the very last item */
+    margin-bottom: 0; /* Ensure no margin after the last item in a sequence */
 }
 
 /* Override cursor for non-clickable accordion items */
@@ -597,21 +597,23 @@ a[href="/publications"].accordion-item .accordion-header {
 
 .accordion-content p {
   font-weight: normal; /* Ensure paragraphs inside accordion content are not bold by default */
-  margin-bottom: 0.8em; /* Add spacing between paragraphs inside content */
+  margin-bottom: 1em; /* Increased spacing between paragraphs */
 }
 .accordion-content p:last-child {
   margin-bottom: 0; /* No margin after the last paragraph */
 }
 
-/* Bullet point alignment fix */
+/* Bullet point alignment fix (hanging indent) */
 .accordion-content ul {
     list-style-type: disc; /* Ensure disc style */
-    padding-left: 1.2em; /* Reduced indent to bring bullets closer */
+    padding-left: 0; /* Remove default padding to control indentation via li */
     margin-top: 0.5em; /* Space above the list */
-    margin-bottom: 0.8em; /* Space below the list */
+    margin-bottom: 1em; /* Space below the list, consistent with paragraphs */
 }
 .accordion-content li {
     margin-bottom: 0.3em; /* Space between list items */
+    padding-left: 1.5em; /* Indent the text of the list item */
+    text-indent: -1.5em; /* Pull the bullet point back into the padding area */
 }
 .accordion-content li:last-child {
     margin-bottom: 0; /* No margin after the last list item */
