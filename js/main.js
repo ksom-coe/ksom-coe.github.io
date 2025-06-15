@@ -244,52 +244,68 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialize slideshow for Main Campus with 7-second interval (changed from 5000ms)
   initSlideshow('mainCampus', 7000);
 
-  // Attach accordion item click and keydown handlers
-  const accordionItems = document.querySelectorAll('.accordion-item');
-  accordionItems.forEach(item => {
-    // Check if the item is a direct link on the research page (new behavior)
-    const isResearchPageLink = item.classList.contains('research-group-link') && window.location.pathname.startsWith('/research');
+  // Attach event listener for accordion items on the index.md page (which open modals)
+  // These are identified by having data-accordion-id AND not being a direct link.
+  const indexPageAccordionItems = document.querySelectorAll('.accordion-item[data-accordion-id]');
+  indexPageAccordionItems.forEach(item => {
+    const header = item.querySelector('.accordion-header');
+    const content = item.querySelector('.accordion-content');
 
-    item.addEventListener('click', function (e) {
-      // Prevent opening modal if a link INSIDE the accordion item was clicked
-      if (e.target.tagName === 'A' || e.target.closest('a')) {
-          return;
-      }
-      
-      // If it's a research page link, navigate directly
-      if (isResearchPageLink) {
-        const href = item.getAttribute('href');
-        if (href) {
-          e.preventDefault(); // Prevent default if it's a programmatic navigation
-          window.location.href = href;
+    // Ensure it's not a direct link (like the research group cards)
+    if (header && content && !item.classList.contains('research-group-card')) {
+      item.addEventListener('click', function (e) {
+        // Prevent opening modal if a link INSIDE the accordion item was clicked
+        if (e.target.tagName === 'A' || e.target.closest('a')) {
+            return;
         }
-      } else {
-        // Existing modal logic for other pages
-        const header = item.querySelector('.accordion-header');
-        const content = item.querySelector('.accordion-content');
-        const accordionId = this.dataset.accordionId;
+        e.preventDefault(); // Prevent default behavior for the accordion item itself
 
-        if (accordionId && content) { // Ensure content exists for modal
+        const accordionId = this.dataset.accordionId;
+        if (accordionId) {
             const title = header.textContent.trim();
             const contentHTML = content.innerHTML;
             let learnMoreLink = this.dataset.learnMoreUrl || null;
             openModal(title, contentHTML, false, learnMoreLink);
-
-            // Set aria-expanded for the clicked accordion header
             header.setAttribute('aria-expanded', 'true');
         }
-      }
-    });
+      });
 
-    item.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        // Prevent default if it's a link inside or a programmatic navigation
-        if (e.target.tagName === 'A' || e.target.closest('a') || isResearchPageLink) {
-            e.preventDefault();
-            this.click(); // Trigger click event for consistency
+      item.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          // Prevent default if a link inside was activated
+          if (e.target.tagName === 'A' || e.target.closest('a')) {
+              return;
+          }
+          e.preventDefault();
+          this.click(); // Simulate click
         }
-      }
-    });
+      });
+    }
+  });
+
+
+  // Attach click handlers for clickable research group cards on research.md page
+  // These are identified by having the 'research-group-card' class.
+  const researchGroupCards = document.querySelectorAll('.research-group-card');
+  researchGroupCards.forEach(card => {
+    // Check if the card is indeed an anchor tag with an href
+    if (card.tagName === 'A' && card.href) {
+      card.addEventListener('click', function (e) {
+        // If an internal link *within* the card was clicked, let it behave normally
+        if (e.target.tagName === 'A' && e.target !== this) {
+            return;
+        }
+        // Otherwise, navigate the entire card's href
+        // The default link behavior will handle the navigation, no need for window.location.href
+      });
+
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault(); // Prevent default space/enter behavior
+          this.click(); // Trigger the click event, which will follow the href
+        }
+      });
+    }
   });
 
 
@@ -341,6 +357,11 @@ document.addEventListener('DOMContentLoaded', function () {
         window.netlifyIdentity.on("login", () => {
           document.location.href = "/admin/";
         });
+      }
+      // Ensure the dark mode toggle is available if Netlify Identity loads later
+      const darkToggleOnPage = document.querySelector('.dark-toggle');
+      if (darkToggleOnPage && !darkToggleOnPage.onclick) { // Check if onclick is not already set
+        darkToggleOnPage.onclick = toggleDarkMode;
       }
     });
   }
