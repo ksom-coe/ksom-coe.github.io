@@ -201,31 +201,42 @@ function initSlideshow(slideshowId, intervalTime = 3000) {
     let slides = document.querySelectorAll(`[data-slideshow-id="${slideshowId}"] .mySlides`);
 
     if (slides.length === 0) {
-        console.warn(`No slides found for slideshow-id: ${slideshowId}`);
+        console.error(`Slideshow Error: No slides found for slideshow-id: ${slideshowId}. Check HTML structure.`);
         return;
     }
 
-    function showSlides() {
+    // Function to display a specific slide
+    function displaySlide(n) {
+        // Hide all slides
         for (let i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
         }
-        currentSlideIndex++;
-        if (currentSlideIndex > slides.length) { currentSlideIndex = 1; } // Loop back to 1st slide
-        slides[currentSlideIndex - 1].style.display = "block"; // Show the current slide
+        // Show the specified slide
+        slides[n].style.display = "block";
+        // console.log(`Slideshow ${slideshowId}: Displaying slide index ${n}`); // For debugging
     }
 
     function startSlideshow() {
+        // Clear any existing interval for this slideshow
         if (slideshowIntervals[slideshowId]) {
             clearInterval(slideshowIntervals[slideshowId]);
         }
-        // Show the first slide immediately upon starting
-        currentSlideIndex = 0; // Reset index to ensure first slide is shown first
-        showSlides(); // Show the very first slide
-        slideshowIntervals[slideshowId] = setInterval(showSlides, intervalTime);
+        
+        // Ensure the very first slide (index 0) is shown immediately
+        currentSlideIndex = 0; 
+        displaySlide(currentSlideIndex);
+
+        // Set the interval for subsequent slides
+        slideshowIntervals[slideshowId] = setInterval(() => {
+            currentSlideIndex++;
+            if (currentSlideIndex >= slides.length) { // If beyond last slide, loop back to the first (index 0)
+                currentSlideIndex = 0; 
+            }
+            displaySlide(currentSlideIndex);
+        }, intervalTime);
     }
 
-    // Call startSlideshow immediately to kick things off
-    startSlideshow();
+    startSlideshow(); // Start the slideshow when initSlideshow is called
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -268,16 +279,12 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Handler for accordion items that open modals (used in index.html main sections)
-  document.querySelectorAll('.accordion-item[data-accordion-id]:not([data-direct-link="true"])').forEach(item => {
+  document.querySelectorAll('.accordion-item[data-accordion-id][data-modal-opener="true"]').forEach(item => {
     const header = item.querySelector('.accordion-header');
     const content = item.querySelector('.accordion-content'); // Get the content div for the modal
-    const snippet = item.querySelector('.accordion-snippet'); // Get the snippet for its content
     const learnMoreLink = item.dataset.learnMoreUrl || null; // Link for the "Learn More" button inside modal
 
-    // Check if this accordion item is meant to open a modal based on the new data attribute
-    const isModalOpener = item.dataset.modalOpener === 'true';
-
-    if (header && content && isModalOpener) { // Ensure it's explicitly a modal opener
+    if (header && content) { // Ensure both exist for modal functionality
         item.addEventListener('click', function (e) {
             // Prevent default behavior if an internal link was clicked within the item
             if (e.target.tagName === 'A' || e.target.closest('a')) {
