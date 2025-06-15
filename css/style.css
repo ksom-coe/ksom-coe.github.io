@@ -242,8 +242,8 @@ nav a:hover {
 
 .mobile-menu-overlay .close-btn {
     position: absolute;
-    top: 0.8rem; /* Adjusted slightly */
-    right: 0.8rem; /* Adjusted slightly */
+    top: 1rem;
+    right: 1rem;
     background: none;
     border: none;
     font-size: 1.5rem;
@@ -469,14 +469,14 @@ nav a:hover {
 }
 
 /* Override cursor for non-clickable sections which are NOT accordion-item */
-#research-overview { /* No accordion-item class, so style it as a static block */
+#research-overview, #areas-overview-intro { /* No accordion-item class, so style it as a static block */
     cursor: default;
     transform: none;
     box-shadow: none;
     padding: 0 !important; /* Remove any padding from .accordion-item */
     background: transparent !important; /* No card background */
 }
-#research-overview .accordion-header {
+#research-overview .accordion-header, #areas-overview-intro .accordion-header {
     font-size: 1.5rem; /* Larger size for the intro heading */
     margin-bottom: 1rem; /* More space below intro title */
     color: var(--accent-blue); /* Ensure header color */
@@ -485,18 +485,18 @@ nav a:hover {
     display: block; /* Make it a block element to take full width */
     cursor: default;
 }
-body.dark-mode #research-overview .accordion-header {
+body.dark-mode #research-overview .accordion-header, body.dark-mode #areas-overview-intro .accordion-header {
     color: var(--accent-light);
 }
 
-#research-overview .accordion-content.static-content {
+#research-overview .accordion-content.static-content, #areas-overview-intro .accordion-content.static-content {
     padding: 1.5rem; /* Add consistent padding for text content */
     background: var(--card-bg); /* Give it a card background */
     border-radius: 12px; /* Rounded corners */
     box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Subtle shadow */
     margin-bottom: 1.5rem; /* Space below the static intro section */
 }
-body.dark-mode #research-overview .accordion-content.static-content {
+body.dark-mode #research-overview .accordion-content.static-content, body.dark-mode #areas-overview-intro .accordion-content.static-content {
     background: var(--dark-card-bg);
     border: 1px solid var(--dark-border);
 }
@@ -678,7 +678,18 @@ a[href="/publications"].accordion-item .accordion-header {
 }
 
 
-/* Removed .snippet-more-indicator as it's no longer used */
+/* Style for the "more" indicator within snippets */
+.snippet-more-indicator {
+    color: var(--accent-blue); /* Blue color */
+    font-weight: 500; /* Slightly bolder than regular text */
+    margin-left: 0.5em; /* Space from snippet text */
+    white-space: nowrap; /* Keep "more" on one line */
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+}
+body.dark-mode .snippet-more-indicator {
+    color: var(--accent-light);
+}
 
 
 /* === Cards & Research Links === */
