@@ -1325,7 +1325,6 @@ footer {
   justify-content: center; /* Changed to center for central alignment */
   flex-wrap: wrap;
   max-width: var(--max-content-width);
-  width: 90%;
   margin: 0 auto;
   padding: 0;
   gap: 20px; /* Provides consistent spacing between columns and rows */
