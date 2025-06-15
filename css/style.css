@@ -454,12 +454,27 @@ nav a:hover {
     /* Removed margin-bottom here. Spacing is now handled by the 'gap' of their parent flex/grid container. */
     break-inside: avoid-column; /* Still relevant for print/column-flow scenarios if any */
     page-break-inside: avoid;
+    text-decoration: none; /* Ensure no underline for accordion items */
+    color: inherit; /* Ensure text color is inherited */
 }
+
+/* Style for research group cards (now direct links) */
+.research-group-card {
+    text-decoration: none; /* Explicitly remove underline */
+    color: inherit; /* Inherit text color */
+    display: block; /* Make the anchor tag block-level */
+}
+
+.research-group-card:hover {
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
 
 /* Hover effect for accordion items */
 .accordion-item:hover {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transform: translateY(-2px); /* Slight lift on hover */
+    text-decoration: none; /* Ensure no underline on hover */
 }
 
 /* Overrides for sections that should not have the default card styling */
@@ -482,7 +497,7 @@ nav a:hover {
     align-items: center;
     margin-top: 0.25rem; /* Reduced from 0.5rem */
     margin-bottom: 0.25rem; /* Reduced from 0.5rem */
-    cursor: default; /* Not clickable for modal */
+    cursor: default;
     transform: none; /* No transform on hover */
 }
 .fancy-calendar-button-container:hover {
@@ -554,7 +569,10 @@ body.dark-mode .accordion-item:hover {
   font-weight: 600;
   color: var(--accent-blue);
   margin-bottom: 0.4rem;
-  cursor: inherit; /* Inherit cursor from parent (.accordion-item) */
+  cursor: pointer; /* Ensure the header visually indicates clickability */
+}
+.accordion-item:not([data-accordion-id]) .accordion-header {
+  cursor: default; /* For the research overview and any other non-interactive accordions */
 }
 .accordion-snippet {
   font-size: 1rem;
@@ -567,7 +585,14 @@ body.dark-mode .accordion-item:hover {
   line-height: 1.7;
   color: #333;
   padding-bottom: 1.5rem; /* Added padding to create more space */
+  /* Remove max-height and transition for always-visible content */
 }
+/* Ensure the accordion-content is not hidden if there's no data-accordion-id */
+.accordion-item:not([data-accordion-id]) .accordion-content.hidden {
+  max-height: none; /* Override hidden for non-expanding accordions */
+  display: block; /* Ensure it's displayed */
+}
+
 .accordion-content p {
   font-weight: normal; /* Ensure paragraphs inside accordion content are not bold by default */
 }
@@ -1141,7 +1166,7 @@ body.dark-mode #latest-news-section .timeline-content .news-title-link {
   color: var(--accent-light);
 }
 body.dark-mode #latest-news-section .timeline-content .news-title-link:hover {
-  color: var(--accent-light);
+  color: var(--accent-hover);
 }
 
 
