@@ -9,7 +9,7 @@ title: Kerala School of Mathematics - Official Website
       Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.<span class="snippet-more-indicator"> ...more</span>
     </div>
     <div class="accordion-content" style="display: none;" id="accordion-content-aboutKSoM">
-      <p><strong>Kerala School of Mathematics (KSoM)</strong> is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.</p>
+      <p><strong>Kerala School of Mathematics (KSoM)</strong> is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which which flourished between the fourteenth and sixteenth century in Kerala.</p>
       <p>The main objective of Kerala School of Mathematics is conduct of high quality Mathematical Research. Our mission is to create a vibrant academic environment that promotes cutting-edge research, nurtures young mathematicians, and contributes significantly to the global mathematical community.</p>
       <p>Our faculty members actively engage in diverse fields of mathematics, pushing the boundaries of knowledge and inspiring the next generation of scholars. We offer various academic programs including Integrated M.Sc.-Ph.D., Ph.D. Programme, and Postdoctoral Fellowships, designed to provide comprehensive theoretical knowledge and and practical research experience.</p>
       <p>KSoM also hosts numerous research activities such as the Mathematics Colloquium, specialized seminar series, international conferences, and intensive workshops, fostering a dynamic and collaborative research environment.</p>
@@ -284,3 +284,4 @@ title: Kerala School of Mathematics - Official Website
         </div>
     </section>
 </div>
+
