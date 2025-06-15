@@ -4,6 +4,7 @@ title: Research at KSoM
 eleventyNavigation:
   key: Research
   order: 2
+bodyClass: research-page # NEW: Adds a class to the body for specific styling
 ---
 
 <section id="research-overview" class="accordion-item">
@@ -22,7 +23,6 @@ eleventyNavigation:
     </div>
 </section>
 
-<!-- Removed left-accordion-col-wrapper to ensure full width stacking of research areas -->
 <section id="complex-analysis" class="accordion-item" data-accordion-id="complexAnalysisDetails">
     <h2 class="accordion-header">Complex Analysis and Geometry</h2>
     <p class="accordion-snippet">
@@ -95,7 +95,6 @@ eleventyNavigation:
     </div>
 </section>
 
-<!-- Removed right-accordion-col-wrapper to ensure full width stacking of research areas -->
 <section id="non-commutative-functional-analysis" class="accordion-item" data-accordion-id="nonCommutativeAnalysisDetails">
     <h2 class="accordion-header">Non-commutative Functional Analysis</h2>
     <p class="accordion-snippet">
