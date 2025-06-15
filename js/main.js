@@ -244,39 +244,50 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialize slideshow for Main Campus with 7-second interval (changed from 5000ms)
   initSlideshow('mainCampus', 7000);
 
-  // Attach accordion item click and keydown handlers to open modals
-  const accordionItems = document.querySelectorAll('.accordion-item[data-accordion-id]');
+  // Attach accordion item click and keydown handlers
+  const accordionItems = document.querySelectorAll('.accordion-item');
   accordionItems.forEach(item => {
-    const header = item.querySelector('.accordion-header');
-    const content = item.querySelector('.accordion-content');
+    // Check if the item is a direct link on the research page (new behavior)
+    const isResearchPageLink = item.classList.contains('research-group-link') && window.location.pathname.startsWith('/research');
 
     item.addEventListener('click', function (e) {
       // Prevent opening modal if a link INSIDE the accordion item was clicked
       if (e.target.tagName === 'A' || e.target.closest('a')) {
           return;
       }
-      e.preventDefault();
-      const accordionId = this.dataset.accordionId;
+      
+      // If it's a research page link, navigate directly
+      if (isResearchPageLink) {
+        const href = item.getAttribute('href');
+        if (href) {
+          e.preventDefault(); // Prevent default if it's a programmatic navigation
+          window.location.href = href;
+        }
+      } else {
+        // Existing modal logic for other pages
+        const header = item.querySelector('.accordion-header');
+        const content = item.querySelector('.accordion-content');
+        const accordionId = this.dataset.accordionId;
 
-      if (accordionId) {
-        const title = header.textContent.trim();
-        const contentHTML = content.innerHTML;
-        let learnMoreLink = this.dataset.learnMoreUrl || null;
-        openModal(title, contentHTML, false, learnMoreLink);
+        if (accordionId && content) { // Ensure content exists for modal
+            const title = header.textContent.trim();
+            const contentHTML = content.innerHTML;
+            let learnMoreLink = this.dataset.learnMoreUrl || null;
+            openModal(title, contentHTML, false, learnMoreLink);
 
-        // Set aria-expanded for the clicked accordion header
-        header.setAttribute('aria-expanded', 'true');
+            // Set aria-expanded for the clicked accordion header
+            header.setAttribute('aria-expanded', 'true');
+        }
       }
     });
 
     item.addEventListener('keydown', function(e) {
       if (e.key === 'Enter' || e.key === ' ') {
-        // Prevent opening modal if a link INSIDE the accordion item was activated
-        if (e.target.tagName === 'A' || e.target.closest('a')) {
-            return;
+        // Prevent default if it's a link inside or a programmatic navigation
+        if (e.target.tagName === 'A' || e.target.closest('a') || isResearchPageLink) {
+            e.preventDefault();
+            this.click(); // Trigger click event for consistency
         }
-        e.preventDefault();
-        this.click(); // Trigger click event for consistency
       }
     });
   });
