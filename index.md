@@ -2,6 +2,29 @@
 layout: base.html
 title: Kerala School of Mathematics - Official Website
 ---
+<!-- Slideshow -->
+<div id="campus-photos-section" class="top-image slideshow-container" data-slideshow-id="mainCampus">
+    <div class="mySlides fade">
+        <img src="/Images/Main/Image-1.webp"  onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+1';" alt="KSoM Campus Image 1" />
+    </div>
+    <div class="mySlides fade">
+        <img src="/Images/Main/Image-2.webp"  onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+2';" alt="KSoM Campus Image 2" />
+    </div>
+    <div class="mySlides fade">
+        <img src="/Images/Main/Image-3.webp"  onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+3';" alt="KSoM Campus Image 3" />
+    </div>
+    <div class="mySlides fade">
+        <img src="/Images/Main/Image-4.webp"  onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+4';" alt="KSoM Campus Image 4" />
+    </div>
+    <div class="mySlides fade">
+        <img src="/Images/Main/Image-5.webp"  onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+5';" alt="KSoM Campus Image 5" />
+    </div>
+    <div class="overlay-text">
+        <div class="main-title">Kerala School of Mathematics</div>
+        <div class="sub-title">An autonomous institution jointly established by the Science & Technology Department, Government of Kerala, and the Department of Atomic Energy, Government of India.</div>
+    </div>
+</div>
+
 <!-- About KSoM Section -->
 <section id="about-ksom-section" class="accordion-item" data-accordion-id="aboutKSoM" data-learn-more-url="[https://ksom.res.in/about](https://ksom.res.in/about)" data-modal-opener="true">
     <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about About KSoM" aria-expanded="false" aria-controls="accordion-content-aboutKSoM">About KSoM</div>
