@@ -413,7 +413,7 @@ nav a:hover {
     grid-template-areas: none; /* No specific grid areas */
     width: 90%; /* Maintain overall content width from base */
     max-width: var(--max-content-width); /* Maintain overall max-width */
-    gap: 1.5rem; /* Adjust gap for stacked content */
+    gap: 1rem; /* Adjust gap for stacked content */
 
     /* Ensure children inside this wrapper also take full width */
     & > * {
