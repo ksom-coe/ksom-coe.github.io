@@ -4,7 +4,6 @@ title: Research at KSoM
 eleventyNavigation:
   key: Research
   order: 2
-bodyClass: research-page # NEW: Adds a class to the body for specific styling
 ---
 
 <section id="research-overview" class="accordion-item">
@@ -23,6 +22,7 @@ bodyClass: research-page # NEW: Adds a class to the body for specific styling
     </div>
 </section>
 
+<!-- Research Areas (Now full width, no columns) -->
 <section id="complex-analysis" class="accordion-item" data-accordion-id="complexAnalysisDetails">
     <h2 class="accordion-header">Complex Analysis and Geometry</h2>
     <p class="accordion-snippet">
@@ -82,7 +82,7 @@ bodyClass: research-page # NEW: Adds a class to the body for specific styling
             The Harmonic Analysis group at KSoM conducts research at the interface of classical Fourier analysis, operator theory, and the geometry of Lie groups. Our primary investigations revolve around harmonic analysis on nilpotent Lie groups, which provide a rich non-commutative setting for generalizing classical Fourier analysis. We also explore modern time-frequency methods, which are crucial for analyzing signals and functions across both time and frequency domains.
         </p>
         <p>
-            Specific areas of interest include the study of modulation spaces, Fourier multipliers, and twisted convolution operators, along with their $L^p$-$L^q$ boundedness properties. We analyze nonlinear Schrödinger equations involving twisted Laplacians, investigating the regularity and behavior of solutions. Furthermore, our group develops techniques for studying maximal functions along hypersurfaces and establishes Hardy-Sobolev inequalities in these non-commutative settings, advancing oscillatory integral techniques for dispersive partial differential equations.
+            Specific areas of interest include the study of modulation spaces, Fourier multipliers, twisted convolution operators, and their $L^p$-$L^q$ boundedness properties. We analyze nonlinear Schrödinger equations involving twisted Laplacians, maximal functions along hypersurfaces, and develops Hardy-Sobolev inequalities in non-commutative settings, advancing oscillatory integral techniques for dispersive partial differential equations.
         </p>
         <p>
             Current research topics include:
