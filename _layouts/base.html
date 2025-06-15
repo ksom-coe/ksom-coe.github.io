@@ -127,24 +127,24 @@
     }
   </script>
   <link rel="stylesheet" href="/css/style.css">
-  <!-- PRELOAD LCP IMAGE: This tells the browser to fetch the main campus image with high priority -->
+  <!-- PRELOAD LCP IMAGES: These tell the browser to fetch critical images with high priority -->
   <link rel="preload" as="image" href="/Images/Main/Image-1.webp">
   <link rel="preload" as="image" href="/Images/Main/Image-2.webp">
   <link rel="preload" as="image" href="/Images/Main/Image-3.webp">
   <link rel="preload" as="image" href="/Images/Main/Image-4.webp">
   <link rel="preload" as="image" href="/Images/Main/Image-5.webp">
-  <link rel="preload" as="image" href="/Activities/Main/Image-1.webp">
-  <link rel="preload" as="image" href="/Activities/Main/Image-2.webp">
-  <link rel="preload" as="image" href="/Activities/Main/Image-3.webp">
-  <link rel="preload" as="image" href="/Activities/Main/Image-4.webp">
-  <link rel="preload" as="image" href="/Activities/Main/Image-5.webp">
+  <link rel="preload" as="image" href="/Images/Activities/Image-1.webp">
+  <link rel="preload" as="image" href="/Images/Activities/Image-2.webp">
+  <link rel="preload" as="image" href="/Images/Activities/Image-3.webp">
+  <link rel="preload" as="image" href="/Images/Activities/Image-4.webp">
+  <link rel="preload" as="image" href="/Images/Activities/Image-5.webp">
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js" defer></script>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
 </head>
 <body>
   {% include "header.html" %}
 
-  <main class="main-layout-wrapper">
+  <main class="main-layout-wrapper{% if page.url == '/research/' %} main-full-width{% endif %}">
     {{ content | safe }}
   </main>
 
