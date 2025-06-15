@@ -5,19 +5,19 @@ title: Kerala School of Mathematics - Official Website
 
 <div id="campus-photos-section" class="top-image slideshow-container" data-slideshow-id="mainCampus">
     <div class="mySlides fade">
-        <img src="/Images/Main/Image-1.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+1';" alt="KSoM Campus Image 1" />
+        <img src="/Images/Main/Image-1.webp"  onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+1';" alt="KSoM Campus Image 1" />
     </div>
     <div class="mySlides fade">
-        <img src="/Images/Main/Image-2.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+2';" alt="KSoM Campus Image 2" />
+        <img src="/Images/Main/Image-2.webp"  onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+2';" alt="KSoM Campus Image 2" />
     </div>
     <div class="mySlides fade">
-        <img src="/Images/Main/Image-3.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+3';" alt="KSoM Campus Image 3" />
+        <img src="/Images/Main/Image-3.webp"  onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+3';" alt="KSoM Campus Image 3" />
     </div>
     <div class="mySlides fade">
-        <img src="/Images/Main/Image-4.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+4';" alt="KSoM Campus Image 4" />
+        <img src="/Images/Main/Image-4.webp"  onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+4';" alt="KSoM Campus Image 4" />
     </div>
     <div class="mySlides fade">
-        <img src="/Images/Main/Image-5.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+5';" alt="KSoM Campus Image 5" />
+        <img src="/Images/Main/Image-5.webp"  onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+5';" alt="KSoM Campus Image 5" />
     </div>
     <div class="overlay-text">
         <div class="main-title">Kerala School of Mathematics</div>
@@ -79,19 +79,19 @@ title: Kerala School of Mathematics - Official Website
             <div class="accordion-snippet">
             <div class="slideshow-container" data-slideshow-id="academicActivities">
                 <div class="mySlides fade">
-                    <img src="/Images/Activities/Image-1.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/F0F8FF/333333?text=Activity+Image+1';" alt="Academic & Research Activities 1">
+                    <img src="/Images/Activities/Image-1.webp"  onerror="this.onerror=null;this.src='https://placehold.co/600x350/F0F8FF/333333?text=Activity+Image+1';" alt="Academic & Research Activities 1">
                 </div>
                 <div class="mySlides fade">
-                    <img src="/Images/Activities/Image-2.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/E6E6FA/333333?text=Activity+Image+2';" alt="Academic & Research Activities 2">
+                    <img src="/Images/Activities/Image-2.webp"  onerror="this.onerror=null;this.src='https://placehold.co/600x350/E6E6FA/333333?text=Activity+Image+2';" alt="Academic & Research Activities 2">
                 </div>
                 <div class="mySlides fade">
-                    <img src="/Images/Activities/Image-3.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/F5F5DC/333333?text=Activity+Image+3';" alt="Academic & Research Activities 3">
+                    <img src="/Images/Activities/Image-3.webp"  onerror="this.onerror=null;this.src='https://placehold.co/600x350/F5F5DC/333333?text=Activity+Image+3';" alt="Academic & Research Activities 3">
                 </div>
                 <div class="mySlides fade">
-                    <img src="/Images/Activities/Image-4.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/FFE4E1/333333?text=Activity+Image+4';" alt="Academic & Research Activities 4">
+                    <img src="/Images/Activities/Image-4.webp"  onerror="this.onerror=null;this.src='https://placehold.co/600x350/FFE4E1/333333?text=Activity+Image+4';" alt="Academic & Research Activities 4">
                 </div>
                 <div class="mySlides fade">
-                    <img src="/Images/Activities/Image-5.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/AFEEEE/333333?text=Activity+Image+5';" alt="Academic & Research Activities 5">
+                    <img src="/Images/Activities/Image-5.webp"  onerror="this.onerror=null;this.src='https://placehold.co/600x350/AFEEEE/333333?text=Activity+Image+5';" alt="Academic & Research Activities 5">
                 </div>
             </div>
             <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.<span class="snippet-more-indicator"> ...more</span></p>
