@@ -518,7 +518,7 @@ body.dark-mode #research-overview .accordion-content.static-content, body.dark-m
     transform: none; /* No transform on hover */
 }
 #campus-photos-section:hover {
-    box-shadow: none !important; /* No shadow on hover */
+    box-shadow: none !important;
 }
 .fancy-calendar-button-container {
     padding: 0 !important;
