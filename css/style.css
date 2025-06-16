@@ -668,7 +668,7 @@ body.dark-mode .accordion-item:hover {
 /* Larger heading for the "Overview of Research" and "KSoM Publications" */
 /* Removed this specific style for research-overview as it's no longer accordion-item */
 a[href="/publications"].accordion-item .accordion-header {
-    font-size: 0.5rem; /* Larger size for these specific headings */
+    font-size: 1.5rem; /* Larger size for these specific headings */
 }
 
 .accordion-snippet {
