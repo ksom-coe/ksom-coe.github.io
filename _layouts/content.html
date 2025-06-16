@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+  <meta name="description" content="Kerala School of Mathematics - A premier research institute in Mathematics established by DAE and Government of Kerala." />
+  <meta property="og:title" content="{{ title or 'Kerala School of Mathematics - Official Website' }}" />
+  <meta property="og:image" content="https://ksom.res.in/Images/Main/Image-1.jpg" />
+  <link rel="canonical" href="https://ksom.res.in/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#002b45" />
+  <title>{{ title or 'Kerala School of Mathematics - Official Website' }}</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- MathJax -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        packages: ['base', 'ams']
+      },
+      options: {
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+      },
+      loader: { load: ['[tex]/ams'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- FullCalendar -->
+  <script defer src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+
+  <!-- Netlify Identity -->
+  <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  {% include "header.html" %}
+
+  <main class="full-width-wrapper">
+    {{ content | safe }}
+  </main>
+
+  {% include "footer.html" %}
+  {% include "modal.html" %}
+
+  <script defer src="/js/main.js"></script>
+</body>
+</html>
