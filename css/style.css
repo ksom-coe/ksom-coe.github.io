@@ -483,6 +483,7 @@ nav a:hover {
     padding: 0 !important; /* Remove any padding from .accordion-item */
     background: transparent !important; /* No card background */
     margin-bottom: 0rem;
+    gap: 0.5rem; /* Adjust gap for stacked content */
 }
 #research-overview .accordion-header, #areas-overview-intro .accordion-header {
     font-size: 1.5rem; /* Larger size for the intro heading */
