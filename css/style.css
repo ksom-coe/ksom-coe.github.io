@@ -485,7 +485,7 @@ nav a:hover {
 }
 
 /* Override cursor for non-clickable sections which are NOT accordion-item */
-#research-overview, #areas-overview-intro { /* No accordion-item class, so style it as a static block */
+#research-overview, #areas-overview-intro, #research-areas-introduction,  { /* No accordion-item class, so style it as a static block */
     cursor: default;
     transform: none;
     box-shadow: none;
