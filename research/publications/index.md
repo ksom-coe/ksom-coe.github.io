@@ -1,3 +1,18 @@
+---
+layout: content.html
+title: Publications at KSoM
+---
+
+<div class="main-full-width" id="main-content-start">
+
+<section class="static-section" id="publications-intro">
+  <div class="accordion-header">Research Publications from KSoM</div>
+  <div class="accordion-content static-content">
+    <p>The Kerala School of Mathematics is actively engaged in producing high-quality research publications in various fields of mathematics. Below is a list of selected publications by faculty and researchers at KSoM. Each entry links directly to its listing in MathSciNet.</p>
+  </div>
+</section>
+
+
 <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4864900">
   <div class="accordion-header">The space of multipliers between model spaces: complete or incomplete?</div>
   <div class="accordion-snippet">
