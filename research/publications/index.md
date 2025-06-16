@@ -12,7 +12,6 @@ title: Publications at KSoM
   </div>
 </section>
 
-
 <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4864900">
   <div class="accordion-header">The space of multipliers between model spaces: complete or incomplete?</div>
   <div class="accordion-snippet">
@@ -37,23 +36,6 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4676131">
-  <div class="accordion-header">From Abel continuity theorem to Paley-Wiener theorem</div>
-  <div class="accordion-snippet">
-    <strong>Yu, S.; Agarwal, P.; Kanemitsu, S.</strong><br/>
-    <em>Bentham Science Publishers, Ltd., Oak Park, IL, 2023, 112–120.</em><br/>
-    <em>ISBN: 978-981-5079-33-3; 978-981-5079-34-0; 978-981-5079-35-7</em>
-  </div>
-</section>
-
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4665179">
-  <div class="accordion-header">Determinant expression for the class number of an abelian number field</div>
-  <div class="accordion-snippet">
-    <strong>Yang, Quan; Wang, Nianliang; Kanemitsu, Shigeru</strong><br/>
-    <em>Kyushu J. Math. 77 (2023), no. 2, 237–254.</em>
-  </div>
-</section>
-
 <section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4565132">
   <div class="accordion-header">Lehmer sequence approach to the divisibility of class numbers of imaginary quadratic fields</div>
   <div class="accordion-snippet">
@@ -63,7 +45,7 @@ title: Publications at KSoM
 </section>
 
 <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4558996">
-  <div class="accordion-header">Proper holomorphic mappings of quasi-balanced domains in $\tesxtbf{C}^3$</div>
+  <div class="accordion-header">Proper holomorphic mappings of quasi-balanced domains in C3</div>
   <div class="accordion-snippet">
     <strong>Haridas, Pranav; Janardhanan, Jaikrishnan</strong><br/>
     <em>Complex Anal. Synerg. 9 (2023), no. 2, Paper No. 7, 7 pp.</em>
@@ -127,7 +109,7 @@ title: Publications at KSoM
 </section>
 
 <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4475673">
-  <div class="accordion-header">On some symmetries of the base $n$ expansion of $1/m$: the class number connection</div>
+  <div class="accordion-header">On some symmetries of the base n expansion of 1/m: the class number connection</div>
   <div class="accordion-snippet">
     <strong>Chakraborty, Kalyan; Krishnamoorthy, Krishnarjun</strong><br/>
     <em>Pacific J. Math. 319 (2022), no. 1, 39–53.</em>
@@ -151,7 +133,7 @@ title: Publications at KSoM
 </section>
 
 <section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4448940">
-  <div class="accordion-header">Counting Hecke eigenforms with nonvanishing $L$-value</div>
+  <div class="accordion-header">Counting Hecke eigenforms with nonvanishing L-value</div>
   <div class="accordion-snippet">
     <strong>Manickam, M.; Murty, V. Kumar; Sandeep, E. M.</strong><br/>
     <em>Bull. Aust. Math. Soc. 106 (2022), no. 1, 28–47.</em>
@@ -159,7 +141,7 @@ title: Publications at KSoM
 </section>
 
 <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4441454">
-  <div class="accordion-header">Local boundary representations of locally $C^*$-algebras</div>
+  <div class="accordion-header">Local boundary representations of locally C∗-algebras</div>
   <div class="accordion-snippet">
     <strong>Arunkumar, C. S.</strong><br/>
     <em>J. Math. Anal. Appl. 515 (2022), no. 2, Paper No. 126416, 14 pp.</em>
@@ -175,7 +157,7 @@ title: Publications at KSoM
 </section>
 
 <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4344843">
-  <div class="accordion-header">On the Diophantine equation $dx^2+p^{2a}q^{2b}=4y^p$</div>
+  <div class="accordion-header">On the Diophantine equation dx2+p2aq2b=4yp</div>
   <div class="accordion-snippet">
     <strong>Chakraborty, Kalyan; Hoque, Azizul</strong><br/>
     <em>Results Math. 77 (2022), no. 1, Paper No. 18, 11 pp.</em>
@@ -223,7 +205,7 @@ title: Publications at KSoM
 </section>
 
 <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4259511">
-  <div class="accordion-header">A weighted average of $L$-functions of modular forms</div>
+  <div class="accordion-header">A weighted average of L-functions of modular forms</div>
   <div class="accordion-snippet">
     <strong>Manickam, M.; Murty, V. Kumar; Sandeep, E. M.</strong><br/>
     <em>C. R. Math. Acad. Sci. Soc. R. Can. 43 (2021), no. 2, 63–77.</em>
@@ -239,7 +221,7 @@ title: Publications at KSoM
 </section>
 
 <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4228926">
-  <div class="accordion-header">On the Diophantine equation $cx^2+p^{2m}=4y^n$</div>
+  <div class="accordion-header">On the Diophantine equation cx2+p2m=4yn</div>
   <div class="accordion-snippet">
     <strong>Chakraborty, K.; Hoque, A.; Srinivas, K.</strong><br/>
     <em>Results Math. 76 (2021), no. 2, Paper No. 57, 12 pp.</em>
@@ -303,7 +285,7 @@ title: Publications at KSoM
 </section>
 
 <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4179377">
-  <div class="accordion-header">A certain kernel function for $L$-values of half-integral weight Hecke eigenforms</div>
+  <div class="accordion-header">A certain kernel function for L-values of half-integral weight Hecke eigenforms</div>
   <div class="accordion-snippet">
     <strong>Sreejith, M. M.</strong><br/>
     <em>Springer Proc. Math. Stat., 340<br/>Springer, Singapore, 2020, 213–225.</em><br/>
@@ -337,7 +319,7 @@ title: Publications at KSoM
 </section>
 
 <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=3860478">
-  <div class="accordion-header">An Eichler-Zagier map for Jacobi cusp forms on $H \times C(g,1)$</div>
+  <div class="accordion-header">An Eichler-Zagier map for Jacobi cusp forms on H×C(g,1)</div>
   <div class="accordion-snippet">
     <strong>Manickam, M.; Shankhadhar, Karam Deo</strong><br/>
     <em>J. Number Theory 194 (2019), 319–334.</em>
@@ -376,3 +358,5 @@ title: Publications at KSoM
     <em>Ann. Funct. Anal. 9 (2018), no. 3, 369–375.</em>
   </div>
 </section>
+
+</div>
