@@ -19,7 +19,7 @@
   <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css" />
 
-  <!-- MathJax -->
+  <!-- MathJax Configuration -->
   <script>
     MathJax = {
       tex: {
@@ -31,46 +31,22 @@
       options: {
         ignoreHtmlClass: 'tex2jax_ignore',
         processHtmlClass: 'tex2jax_process',
-        // START OF MATHJAX SPACING FIX
-        styles: {
-          'mjx-container[jax="CHTML"][display="false"]': {
-            'margin-left': '0.05em !important',
-            'margin-right': '0.05em !important',
-            'padding-left': '0 !important',
-            'padding-right': '0 !important',
-            'vertical-align': 'baseline !important'
-          },
-          'mjx-container[jax="CHTML"][display="false"] .mjx-char': {
-              'padding-left': '0 !important',
-              'padding-right': '0 !important',
-              'margin-left': '0 !important',
-              'margin-right': '0 !important',
-          },
-          'mjx-container[jax="CHTML"][display="false"] mjx-i': {
-              'padding-left': '0 !important',
-              'padding-right': '0 !important',
-              'margin-left': '0 !important',
-              'margin-right': '0 !important',
-          },
-          'mjx-container[jax="CHTML"][display="false"] mjx-op': {
-              'padding-left': '0 !important',
-              'padding-right': '0 !important',
-              'margin-left': '0 !important',
-              'margin-right': '0 !important',
-          },
-          'mjx-container[jax="CHTML"][display="false"] mjx-sup, mjx-container[jax="CHTML"][display="false"] mjx-sub': {
-              'margin-left': '0 !important',
-              'margin-right': '0 !important',
-              'padding-left': '0 !important',
-              'padding-right': '0 !important',
-          }
+        renderActions: {
+          addMenu: [0, '', ''],
+          checkLoading: [0, '', '']
         }
-        // END OF MATHJAX SPACING FIX
+      },
+      startup: {
+        pageReady() {
+          return MathJax.startup.defaultPageReady().then(function () {
+            document.body.classList.add('mathjax-loaded');
+          });
+        }
       },
       loader: { load: ['[tex]/ams'] }
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <!-- FullCalendar -->
   <script defer src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
