@@ -461,7 +461,7 @@ nav a:hover {
     text-decoration: none; /* Ensure no underline for accordion items used as links */
     color: inherit; /* Ensure text color is inherited for links */
     /* Removed margin-bottom to ensure 0 gap for accordions */
-    margin-bottom: 2rem; /* Adds space below each accordion section */
+    margin-bottom: 0rem; /* Adds space below each accordion section */
     background-color: var(--card-bg); /* Use your defined card background for consistency */
 }
 .main-full-width > .accordion-item:last-child {
