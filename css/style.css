@@ -1719,3 +1719,11 @@ footer .footer-column a:hover {
       align-items: flex-start;
   }
 }
+
+/* Custom CSS to fix MathJax inline spacing issues */
+mjx-container[jax="CHTML"][display="false"] {
+    display: inline-block !important; /* Ensure it stays inline-block */
+    margin-left: 0.1em !important;   /* Reduce left margin */
+    margin-right: 0.1em !important;  /* Reduce right margin */
+    vertical-align: middle !important; /* Adjust vertical alignment if needed */
+}
