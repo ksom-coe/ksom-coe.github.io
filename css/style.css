@@ -410,27 +410,27 @@ nav a:hover {
 /* NEW: Full-width layout for specific pages (e.g., research.md) */
 
 .main-full-width {
-    /* Flexbox properties for vertical stacking and gap control */
-    display: flex;          /* Make it a flex container */
-    flex-direction: column; /* Stack items vertically */
-    gap: 0.4rem;            /* <<< Adjust gap for stacked content (e.g., between overview and accordions) */
+    /* Grid properties for layout, similar to main-layout-wrapper */
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 1.5rem; /* Gap between grid items */
 
-    /* Width and centering */
-    width: 90%;             /* Maintain overall content width from base */
-    max-width: var(--max-content-width); /* Ensure it respects your defined max width */
-    margin-left: auto;      /* Center the content */
-    margin-right: auto;     /* Center the content */
-    margin-bottom: 1rem;    /* Space at the bottom of the main content block */
+    /* Width and centering, similar to main-layout-wrapper */
+    width: 95%; /* Take 95% of available width */
+    max-width: var(--max-content-width); /* Respect overall max content width */
+    margin-left: auto; /* Center the content horizontally */
+    margin-right: auto; /* Center the content horizontally */
+    margin-bottom: 1.5rem; /* Space at the bottom of the main content block */
 
-    /* Internal padding */
-    padding-top: 1rem;      /* Space at the top of the main content inside the container */
-    padding-bottom: 0.5rem; /* Space at the bottom of the main content inside the container */
-    padding-left: 0.5rem;     /* Padding on sides for smaller screens */
-    padding-right: 0.5rem;    /* Padding on sides for smaller screens */
-    box-sizing: border-box;
+    /* Internal padding, aligning with main-layout-wrapper and previous structure */
+    padding-top: 1rem; /* Space at the top of the main content inside the container */
+    padding-bottom: 0.5rem; /* Keeping existing bottom padding as it wasn't specified for removal */
+    padding-left: 0; /* Removing explicit side padding to align with 95% width from wrapper */
+    padding-right: 0; /* Removing explicit side padding to align with 95% width from wrapper */
+    box-sizing: border-box; /* Ensure padding is included in the width */
+
     /* Other layout properties (if any were already present and you want to keep them) */
-    flex-grow: 1; /* Allows main content to take up available vertical space */    
-    /* Remove any old grid-template-columns, grid-template-areas if they were here */
+    flex-grow: 1; /* Keep this if the parent container is flex and it needs to grow */
 }
 
 
