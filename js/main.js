@@ -1,5 +1,149 @@
 // Global variable to hold the FullCalendar instance for the modal
 let fullCalendarInstance = null;
+// Global variable to track if FullCalendar script is loaded
+let isFullCalendarScriptLoaded = false;
+
+// Function to load a script dynamically
+function loadScript(src, id) {
+    return new Promise((resolve, reject) => {
+        if (document.getElementById(id)) { // Script already exists
+            resolve();
+            return;
+        }
+        const script = document.createElement('script');
+        script.src = src;
+        script.id = id;
+        script.async = true; // Mark as async to not block rendering
+        script.onload = () => resolve();
+        script.onerror = () => reject(new Error(`Script load error for ${src}`));
+        document.head.appendChild(script); // Append to head or body
+    });
+}
+
+// Function to initialize FullCalendar
+function initializeFullCalendar(calendarElement) {
+    // Define common calendar options for aesthetics (needs to be available here)
+    const commonCalendarOptions = {
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        buttonText: {
+            today: 'Today',
+            month: 'Month',
+            week: 'Week',
+            day: 'Day'
+        },
+        editable: false,
+        selectable: false,
+        nowIndicator: true,
+        dayMaxEvents: true,
+        events: [
+            // 🟦 Workshops
+            { title: 'SWIM Workshop', date: '2025-06-15', url: 'https://ksom.res.in/events/swim-workshop', color: '#0077cc' },
+
+            // 🟪 Conferences
+            // (Add conferences here if available)
+
+            // 🟫 Colloquium & Seminar Talks
+            { title: 'Mathematics Colloquium', date: '2025-06-20', url: 'https://ksom.res.in/events/math-colloquium', color: '#2c3e50' },
+            { title: 'Algebra Seminar', date: '2025-06-05', url: 'https://ksom.res.in/events/algebra-seminar', color: '#2c3e50' },
+            { title: 'Geometry Talk', date: '2025-06-10', url: 'https://ksom.res.in/events/geometry-talk', color: '#2c3e50' },
+            { title: 'Analysis Lecture', date: '2025-06-22', url: 'https://ksom.res.in/events/analysis-lecture', color: '#2c3e50' },
+
+            // 🟥 Holidays
+            { title: 'Republic Day', date: '2025-01-26', color: '#c0392b' },
+            { title: 'May Day', date: '2025-05-01', color: '#c0392b' },
+            { title: 'Vishu / Ambedkar Jayanti', date: '2025-04-14', color: '#c0392b' },
+            { title: 'Easter Sunday', date: '2025-04-20', color: '#c0392b' },
+            { title: 'Good Friday', date: '2025-04-18', color: '#c0392b' },
+            { title: 'Maundy Thursday', date: '2025-04-17', color: '#c0392b' },
+            { title: 'Bakrid / Eid al-Adha', date: '2025-06-06', color: '#c0392b' },
+            { title: 'Muharram', date: '2025-06-29', color: '#c0392b' },
+            { title: 'Independence Day', date: '2025-08-15', color: '#c0392b' },
+            { title: 'Sri Krishna Jayanthi', date: '2025-08-14', color: '#c0392b' },
+            { title: 'Gandhi Jayanthi', date: '2025-10-02', color: '#c0392b' },
+            { title: 'Mahanavami', date: '2025-10-01', color: '#c0392b' },
+            { title: 'Vijaya Dashami', date: '2025-10-02', color: '#c0392b' },
+            { title: 'Milad-i-Sharif', date: '2025-09-05', color: '#c0392b' },
+            { title: 'Deepavali', date: '2025-10-20', color: '#c0392b' },
+            { title: 'Christmas', date: '2025-12-25', color: '#c0392b' },
+
+            // 🟩 Academic Calendar Events
+            { title: 'Spring Semester Begins', date: '2025-01-13', color: '#4CAF50' },
+            { title: 'MSc Thesis Submission Deadline', date: '2025-07-26', color: '#4CAF50' },
+            { title: 'Fall Semester Begins', date: '2025-09-11', color: '#4CAF50' },
+            { title: 'Declaration of Results', date: '2025-05-17', color: '#4CAF50' },
+            { title: 'Last Instructional Day', date: '2025-05-22', color: '#4CAF50' },
+            { title: 'Vacation Begins', date: '2025-06-06', color: '#4CAF50' },
+            { title: 'Integrated MSc-PhD Admission Test/Interviews', date: '2025-08-13', color: '#4CAF50' },
+            { title: 'KSoM Integrated MSc-PhD Examination', date: '2025-12-25', color: '#4CAF50' },
+
+            // Multi-day 🟩 Academic Events
+            {
+                title: 'Mid Semester Exam Week',
+                start: '2025-03-03',
+                end: '2025-03-08',
+                color: '#4CAF50'
+            },
+            {
+                title: 'Final Examination Week',
+                start: '2025-05-05',
+                end: '2025-05-10',
+                color: '#4CAF50'
+            },
+            {
+                title: 'MSc Thesis Colloquia Week',
+                start: '2025-07-07',
+                end: '2025-07-12',
+                color: '#4CAF50'
+            },
+            {
+                title: 'Bridge Courses (MSc-PhD 1st Year)',
+                start: '2025-08-28',
+                end: '2025-09-02',
+                color: '#4CAF50'
+            },
+
+            // Admin
+            { title: 'Faculty Meeting', date: '2025-06-01', url: 'https://ksom.res.in/events/faculty-meeting', color: '#2c3e50' },
+            { title: 'Student Orientation', date: '2025-07-01', url: 'https://ksom.res.in/events/student-orientation', color: '#4CAF50' },
+            { title: 'Research Presentation', date: '2025-07-15', url: 'https://ksom.res.in/events/research-presentation', color: '#2c3e50' },
+            { title: 'PhD Viva Voce', date: '2025-07-28', url: 'https://ksom.res.in/events/phd-viva', color: '#4CAF50' },
+        ],
+        eventClick: function(info) {
+            if (info.event.url) {
+                window.open(info.event.url);
+                info.jsEvent.preventDefault();
+            }
+        },
+        eventTextColor: '#ffffff',
+        eventBorderColor: 'transparent',
+        dayHeaderContent: function(arg) {
+            return arg.text;
+        },
+        dayCellDidMount: function(info) {
+            if (info.isToday) {
+                info.el.style.backgroundColor = 'rgba(0, 92, 151, 0.08)';
+                info.el.style.borderRadius = '6px';
+            }
+        }
+    };
+
+    fullCalendarInstance = new FullCalendar.Calendar(calendarElement, {
+        ...commonCalendarOptions,
+        height: 'auto',
+        aspectRatio: 1.8
+    });
+    fullCalendarInstance.render();
+    setTimeout(() => {
+        if (fullCalendarInstance) {
+            fullCalendarInstance.updateSize();
+        }
+    }, 10);
+}
+
 
 // Function to open modal (moved to global scope)
 function openModal(title, content, isCalendarModal = false, learnMoreLink = null) {
@@ -27,132 +171,32 @@ function openModal(title, content, isCalendarModal = false, learnMoreLink = null
         fullCalendarDiv.id = 'full-calendar';
         modalBody.appendChild(fullCalendarDiv);
         
-        // Show modal first, then render calendar
+        // Display a loading message
+        const loadingMessage = document.createElement('p');
+        loadingMessage.textContent = 'Loading calendar...';
+        loadingMessage.style.textAlign = 'center';
+        loadingMessage.style.marginTop = '20px';
+        modalBody.appendChild(loadingMessage);
+
+
         document.getElementById('modal').classList.add('active');
         document.getElementById('modal').setAttribute('aria-modal', 'true'); // Set aria-modal
 
-        // Define common calendar options for aesthetics (needs to be available here)
-        const commonCalendarOptions = {
-            headerToolbar: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'dayGridMonth,timeGridWeek,timeGridDay'
-            },
-            buttonText: {
-                today: 'Today',
-                month: 'Month',
-                week: 'Week',
-                day: 'Day'
-            },
-            editable: false,
-            selectable: false,
-            nowIndicator: true,
-            dayMaxEvents: true,
-            events: [
-                // 🟦 Workshops
-                { title: 'SWIM Workshop', date: '2025-06-15', url: 'https://ksom.res.in/events/swim-workshop', color: '#0077cc' },
-
-                // 🟪 Conferences
-                // (Add conferences here if available)
-
-                // 🟫 Colloquium & Seminar Talks
-                { title: 'Mathematics Colloquium', date: '2025-06-20', url: 'https://ksom.res.in/events/math-colloquium', color: '#2c3e50' },
-                { title: 'Algebra Seminar', date: '2025-06-05', url: 'https://ksom.res.in/events/algebra-seminar', color: '#2c3e50' },
-                { title: 'Geometry Talk', date: '2025-06-10', url: 'https://ksom.res.in/events/geometry-talk', color: '#2c3e50' },
-                { title: 'Analysis Lecture', date: '2025-06-22', url: 'https://ksom.res.in/events/analysis-lecture', color: '#2c3e50' },
-
-                // 🟥 Holidays
-                { title: 'Republic Day', date: '2025-01-26', color: '#c0392b' },
-                { title: 'May Day', date: '2025-05-01', color: '#c0392b' },
-                { title: 'Vishu / Ambedkar Jayanti', date: '2025-04-14', color: '#c0392b' },
-                { title: 'Easter Sunday', date: '2025-04-20', color: '#c0392b' },
-                { title: 'Good Friday', date: '2025-04-18', color: '#c0392b' },
-                { title: 'Maundy Thursday', date: '2025-04-17', color: '#c0392b' },
-                { title: 'Bakrid / Eid al-Adha', date: '2025-06-06', color: '#c0392b' },
-                { title: 'Muharram', date: '2025-06-29', color: '#c0392b' },
-                { title: 'Independence Day', date: '2025-08-15', color: '#c0392b' },
-                { title: 'Sri Krishna Jayanthi', date: '2025-08-14', color: '#c0392b' },
-                { title: 'Gandhi Jayanthi', date: '2025-10-02', color: '#c0392b' },
-                { title: 'Mahanavami', date: '2025-10-01', color: '#c0392b' },
-                { title: 'Vijaya Dashami', date: '2025-10-02', color: '#c0392b' },
-                { title: 'Milad-i-Sharif', date: '2025-09-05', color: '#c0392b' },
-                { title: 'Deepavali', date: '2025-10-20', color: '#c0392b' },
-                { title: 'Christmas', date: '2025-12-25', color: '#c0392b' },
-
-                // 🟩 Academic Calendar Events
-                { title: 'Spring Semester Begins', date: '2025-01-13', color: '#4CAF50' },
-                { title: 'MSc Thesis Submission Deadline', date: '2025-07-26', color: '#4CAF50' },
-                { title: 'Fall Semester Begins', date: '2025-09-11', color: '#4CAF50' },
-                { title: 'Declaration of Results', date: '2025-05-17', color: '#4CAF50' },
-                { title: 'Last Instructional Day', date: '2025-05-22', color: '#4CAF50' },
-                { title: 'Vacation Begins', date: '2025-06-06', color: '#4CAF50' },
-                { title: 'Integrated MSc-PhD Admission Test/Interviews', date: '2025-08-13', color: '#4CAF50' },
-                { title: 'KSoM Integrated MSc-PhD Examination', date: '2025-12-25', color: '#4CAF50' },
-
-                // Multi-day 🟩 Academic Events
-                {
-                    title: 'Mid Semester Exam Week',
-                    start: '2025-03-03',
-                    end: '2025-03-08',
-                    color: '#4CAF50'
-                },
-                {
-                    title: 'Final Examination Week',
-                    start: '2025-05-05',
-                    end: '2025-05-10',
-                    color: '#4CAF50'
-                },
-                {
-                    title: 'MSc Thesis Colloquia Week',
-                    start: '2025-07-07',
-                    end: '2025-07-12',
-                    color: '#4CAF50'
-                },
-                {
-                    title: 'Bridge Courses (MSc-PhD 1st Year)',
-                    start: '2025-08-28',
-                    end: '2025-09-02',
-                    color: '#4CAF50'
-                },
-
-                // Admin
-                { title: 'Faculty Meeting', date: '2025-06-01', url: 'https://ksom.res.in/events/faculty-meeting', color: '#2c3e50' },
-                { title: 'Student Orientation', date: '2025-07-01', url: 'https://ksom.res.in/events/student-orientation', color: '#4CAF50' },
-                { title: 'Research Presentation', date: '2025-07-15', url: 'https://ksom.res.in/events/research-presentation', color: '#2c3e50' },
-                { title: 'PhD Viva Voce', date: '2025-07-28', url: 'https://ksom.res.in/events/phd-viva', color: '#4CAF50' },
-            ],
-            eventClick: function(info) {
-                if (info.event.url) {
-                    window.open(info.event.url);
-                    info.jsEvent.preventDefault();
-                }
-            },
-            eventTextColor: '#ffffff',
-            eventBorderColor: 'transparent',
-            // Removed global eventBackgroundColor to allow individual event colors to take precedence
-            dayHeaderContent: function(arg) {
-                return arg.text;
-            },
-            dayCellDidMount: function(info) {
-                if (info.isToday) {
-                    info.el.style.backgroundColor = 'rgba(0, 92, 151, 0.08)';
-                    info.el.style.borderRadius = '6px';
-                }
-            }
-        };
-
-        fullCalendarInstance = new FullCalendar.Calendar(fullCalendarDiv, {
-            ...commonCalendarOptions,
-            height: 'auto',
-            aspectRatio: 1.8
-        });
-        fullCalendarInstance.render();
-        
-        setTimeout(() => {
-            if (fullCalendarInstance) {
-                fullCalendarInstance.updateSize();
-            }
-        }, 10);
+        if (!isFullCalendarScriptLoaded && typeof FullCalendar === 'undefined') {
+            loadScript('https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js', 'fullcalendar-script')
+                .then(() => {
+                    isFullCalendarScriptLoaded = true;
+                    loadingMessage.remove(); // Remove loading message
+                    initializeFullCalendar(fullCalendarDiv);
+                })
+                .catch(error => {
+                    console.error("Failed to load FullCalendar script:", error);
+                    loadingMessage.textContent = 'Failed to load calendar. Please try again.';
+                });
+        } else {
+            loadingMessage.remove(); // Remove loading message if already loaded
+            initializeFullCalendar(fullCalendarDiv);
+        }
         
     } else {
         // Destroy existing calendar instance if it exists when opening a non-calendar modal
@@ -213,7 +257,6 @@ function initSlideshow(slideshowId, intervalTime = 3000) {
         }
         // Show the specified slide
         slides[n].style.display = "block";
-        // console.log(`Slideshow ${slideshowId}: Displaying slide index ${n}`); // For debugging
     }
 
     function startSlideshow() {
@@ -228,10 +271,7 @@ function initSlideshow(slideshowId, intervalTime = 3000) {
 
         // Set the interval for subsequent slides
         slideshowIntervals[slideshowId] = setInterval(() => {
-            currentSlideIndex++;
-            if (currentSlideIndex >= slides.length) { // If beyond last slide, loop back to the first (index 0)
-                currentSlideIndex = 0; 
-            }
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length; // Correct way to loop
             displaySlide(currentSlideIndex);
         }, intervalTime);
     }
@@ -355,7 +395,7 @@ document.addEventListener('DOMContentLoaded', function () {
           document.location.href = "/admin/";
         });
       }
-    });
+      });
   }
 
   // --- Hamburger Menu Logic ---
