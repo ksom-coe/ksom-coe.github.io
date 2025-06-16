@@ -482,6 +482,7 @@ nav a:hover {
     box-shadow: none;
     padding: 0 !important; /* Remove any padding from .accordion-item */
     background: transparent !important; /* No card background */
+    margin-bottom: 0.5rem;
 }
 #research-overview .accordion-header, #areas-overview-intro .accordion-header {
     font-size: 1.5rem; /* Larger size for the intro heading */
