@@ -455,6 +455,19 @@ nav a:hover {
     box-shadow: none; /* Remove shadow, handled by child elements */
 }
 
+/* --- Accordion Item Background Styles --- */
+
+/* Default background for accordion items */
+.accordion-item.default-bg {
+    background-color: var(--card-bg); /* Use your primary card background color */
+}
+
+/* Alternate background for accordion items */
+.accordion-item.alt-bg {
+    background-color: var(--primary-bg); /* Use a slightly different background, like your primary page background */
+    /* You might want a slightly darker/lighter shade for better contrast depending on your theme */
+}
+
 /* Common styling for all major content sections (accordion-items, etc.) */
 .accordion-item {
     padding: 1.5rem; /* Default padding for all content sections */
