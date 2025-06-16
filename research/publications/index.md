@@ -1,5 +1,5 @@
 ---
-layout: layouts/content.html
+layout: content.html
 title: Publications at KSoM
 ---
 
