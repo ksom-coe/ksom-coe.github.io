@@ -1,20 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
-  <meta name="description" content="Kerala School of Mathematics - A premier research institute in Mathematics established by DAE and Government of Kerala.">
-  <meta property="og:title" content="{{ title or 'Kerala School of Mathematics - Official Website' }}">
-  <meta property="og:image" content="https://ksom.res.in/Images/Main/Image-1.jpg">
-  <link rel="canonical" href="https://ksom.res.in/">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#002b45">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+  <meta name="description" content="Kerala School of Mathematics - A premier research institute in Mathematics established by DAE and Government of Kerala." />
+  <meta property="og:title" content="{{ title or 'Kerala School of Mathematics - Official Website' }}" />
+  <meta property="og:image" content="https://ksom.res.in/Images/Main/Image-1.jpg" />
+  <link rel="canonical" href="https://ksom.res.in/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#002b45" />
   <title>{{ title or 'Kerala School of Mathematics - Official Website' }}</title>
-  <!-- Google Fonts for Lora, Merriweather, and Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- MathJax Configuration -->
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Preload homepage images -->
+  <link rel="preload" as="image" href="/Images/Main/Image-1.webp" />
+  <link rel="preload" as="image" href="/Images/Main/Image-2.webp" />
+  <link rel="preload" as="image" href="/Images/Main/Image-3.webp" />
+  <link rel="preload" as="image" href="/Images/Main/Image-4.webp" />
+  <link rel="preload" as="image" href="/Images/Main/Image-5.webp" />
+  <link rel="preload" as="image" href="/Images/Activities/Image-1.webp" />
+  <link rel="preload" as="image" href="/Images/Activities/Image-2.webp" />
+  <link rel="preload" as="image" href="/Images/Activities/Image-3.webp" />
+  <link rel="preload" as="image" href="/Images/Activities/Image-4.webp" />
+  <link rel="preload" as="image" href="/Images/Activities/Image-5.webp" />
+
+  <!-- MathJax -->
   <script>
     MathJax = {
       tex: {
@@ -25,132 +42,29 @@
       },
       options: {
         ignoreHtmlClass: 'tex2jax_ignore',
-        processHtmlClass: 'tex2jax_process',
-        renderActions: {
-          addMenu: [0, '', ''],
-          checkLoading: [0, '', '']
-        }
+        processHtmlClass: 'tex2jax_process'
       },
       loader: { load: ['[tex]/ams'] }
     };
   </script>
-  <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <!-- Structured Data for SEO -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Kerala School of Mathematics",
-      "url": "https://ksom.res.in/",
-      "logo": "https://ksom.res.in/Images/Main/ksom-logo.png",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+91-4952809000",
-        "contactType": "general inquiry",
-        "email": "info@ksom.res.in"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Kunnamangalam PO",
-        "addressLocality": "Kozhikode",
-        "addressRegion": "Kerala",
-        "postalCode": "673571",
-        "addressCountry": "IN"
-      },
-      "sameAs": [
-        "https://www.facebook.com/KeralaSchoolofMathematics",
-        "https://twitter.com/ksom_math",
-        "https://www.linkedin.com/company/kerala-school-of-mathematics"
-      ]
-    }
-  </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Event",
-      "name": "Guest Lecture Series: Dr. Anya Sharma",
-      "startDate": "2025-07-10T10:00:00+05:30",
-      "endDate": "2025-07-10T12:00:00+05:30",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "location": {
-        "@type": "Place",
-        "name": "KSoM Auditorium",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Kunnamangalam PO",
-          "addressLocality": "Kozhikode",
-          "addressRegion": "Kerala",
-          "postalCode": "673571",
-          "addressCountry": "IN"
-        }
-      },
-      "description": "Exploring advancements in Quantum Topology. Open to all researchers and students.",
-      "performer": {
-        "@type": "Person",
-        "name": "Dr. Anya Sharma"
-      },
-      "organizer": {
-        "@type": "Organization",
-        "name": "Kerala School of Mathematics",
-        "url": "https://ksom.res.in"
-      }
-    }
-  </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Event",
-      "name": "International Conference on Discrete Mathematics",
-      "startDate": "2025-08-05T09:00:00+05:30",
-      "endDate": "2025-08-07T17:00:00+05:30",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "location": {
-        "@type": "Place",
-        "name": "KSoM Conference Hall",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Kunnamangalam PO",
-          "addressLocality": "Kozhikode",
-          "addressRegion": "Kerala",
-          "postalCode": "673571",
-          "addressCountry": "IN"
-        }
-      },
-      "description": "Leading experts convene to discuss new theories and applications in discrete mathematics.",
-      "organizer": {
-        "@type": "Organization",
-        "name": "Kerala School of Mathematics",
-        "url": "https://ksom.res.in"
-      }
-    }
-  </script>
-  <link rel="stylesheet" href="/css/style.css">
-  <!-- PRELOAD LCP IMAGES: These tell the browser to fetch critical images with high priority -->
-  <link rel="preload" as="image" href="/Images/Main/Image-1.webp">
-  <link rel="preload" as="image" href="/Images/Main/Image-2.webp">
-  <link rel="preload" as="image" href="/Images/Main/Image-3.webp">
-  <link rel="preload" as="image" href="/Images/Main/Image-4.webp">
-  <link rel="preload" as="image" href="/Images/Main/Image-5.webp">
-  <link rel="preload" as="image" href="/Images/Activities/Image-1.webp">
-  <link rel="preload" as="image" href="/Images/Activities/Image-2.webp">
-  <link rel="preload" as="image" href="/Images/Activities/Image-3.webp">
-  <link rel="preload" as="image" href="/Images/Activities/Image-4.webp">
-  <link rel="preload" as="image" href="/Images/Activities/Image-5.webp">
-  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js" defer></script>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- FullCalendar -->
+  <script defer src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+
+  <!-- Netlify Identity -->
+  <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
   {% include "header.html" %}
 
-  <main class="{% if page.full_width %}main-full-width{% else %}main-layout-wrapper{% endif %}">
+  <main class="main-layout-wrapper">
     {{ content | safe }}
   </main>
 
   {% include "footer.html" %}
   {% include "modal.html" %}
 
-  <script src="/js/main.js" defer></script>
+  <script defer src="/js/main.js"></script>
 </body>
 </html>
