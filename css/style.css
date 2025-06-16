@@ -425,11 +425,11 @@ nav a:hover {
     /* Internal padding */
     padding-top: 1rem;      /* Space at the top of the main content inside the container */
     padding-bottom: 0.5rem; /* Space at the bottom of the main content inside the container */
-    padding-left: 1rem;     /* Padding on sides for smaller screens */
-    padding-right: 1rem;    /* Padding on sides for smaller screens */
-
+    padding-left: 0.5rem;     /* Padding on sides for smaller screens */
+    padding-right: 0.5rem;    /* Padding on sides for smaller screens */
+    box-sizing: border-box;
     /* Other layout properties (if any were already present and you want to keep them) */
-    flex-grow: 1; /* Allows main content to take up available vertical space */
+    flex-grow: 1; /* Allows main content to take up available vertical space */    
     /* Remove any old grid-template-columns, grid-template-areas if they were here */
 }
 
