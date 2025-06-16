@@ -78,52 +78,52 @@ title: Kerala School of Mathematics - Official Website
     </section>
 
     <!-- Academic & Research Activities Section -->
-    <section id="academic-activities-section" class="accordion-item" data-accordion-id="academicResearchActivities" data-learn-more-url="[https://ksom.res.in/activities](https://ksom.res.in/activities)" data-modal-opener="true">
-            <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Academic & Research Activities at KSoM" aria-expanded="false" aria-controls="accordion-content-academicResearchActivities">Academic & Research Activities at KSoM</div>
-            <div class="accordion-snippet">
-            <!-- Slideshow container -->
-            <div class="slideshow-container" data-slideshow-id="academicActivities">
-                <div class="mySlides fade">
-                    <img src="/Images/Activities/Image-1.jpg" width="600" height="350" onerror="this.onerror=null;this.src='[https://placehold.co/600x350/F0F8FF/333333?text=Activity+Image+1](https://placehold.co/600x350/F0F8FF/333333?text=Activity+Image+1)';" alt="Academic & Research Activities 1">
-                </div>
-                <div class="mySlides fade">
-                    <img src="/Images/Activities/Image-2.jpg" width="600" height="350" loading="lazy" onerror="this.onerror=null;this.src='[https://placehold.co/600x350/E6E6FA/333333?text=Activity+Image+2](https://placehold.co/600x350/E6E6FA/333333?text=Activity+Image+2)';" alt="Academic & Research Activities 2">
-                </div>
-                <div class="mySlides fade">
-                    <img src="/Images/Activities/Image-3.jpg" width="600" height="350" loading="lazy" onerror="this.onerror=null;this.src='[https://placehold.co/600x350/F5F5DC/333333?text=Activity+Image+3](https://placehold.co/600x350/F5F5DC/333333?text=Activity+Image+3)';" alt="Academic & Research Activities 3">
-                </div>
-                <div class="mySlides fade">
-                    <img src="/Images/Activities/Image-4.jpg" width="600" height="350" loading="lazy" onerror="this.onerror=null;this.src='[https://placehold.co/600x350/FFE4E1/333333?text=Activity+Image+4](https://placehold.co/600x350/FFE4E1/333333?text=Activity+Image+4)';" alt="Academic & Research Activities 4">
-                </div>
-                <div class="mySlides fade">
-                    <img src="/Images/Activities/Image-5.jpg" width="600" height="350" loading="lazy" onerror="this.onerror=null;this.src='[https://placehold.co/600x350/AFEEEE/333333?text=Activity+Image+5](https://placehold.co/600x350/AFEEEE/333333?text=Activity+Image+5)';" alt="Academic & Research Activities 5">
-                </div>
-            </div>
-            <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.<span class="snippet-more-indicator"> ...more</span></p>
-            </div>
-            <div class="accordion-content" style="display: none;" id="accordion-content-academicResearchActivities">
-            <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with mathematical networks.</p>
-            <div class="modal-research-cards-container">
-                <a href="[https://ksom.res.in/activities/colloquium](https://ksom.res.in/activities/colloquium)" class="modal-research-card">
-                    <h3>Mathematics Colloquium</h3>
-                    <p>Features regular presentations by distinguished visiting mathematicians, showcasing frontier research across pure and applied mathematics. These talks provide comprehensive overviews of emerging fields while stimulating interdisciplinary dialogue among researchers at all career stages.</p>
-                </a>
-                <a href="[https://ksom.res.in/activities/seminar-series](https://ksom.res.in/activities/seminar-series)" class="modal-research-card">
-                    <h3>Specialized Seminar Series</h3>
-                    <p>Offers focused forums for deep exploration of specific mathematical disciplines. Organized by research groups, these sessions include graduate student presentations, paper discussions, and technical workshops that advance collaborative projects and methodological development.</p>
-                </a>
-                <a href="[https://ksom.res.in/activities/conferences](https://ksom.res.in/activities/conferences)" class="modal-research-card">
-                    <h3>International Conferences</h3>
-                    <p>Host annual gatherings convening global experts on specialized mathematical themes. These multi-day events feature invited lectures, contributed talks, and poster sessions that disseminate cutting-edge research while fostering new collaborations across institutions.</p>
-                </a>
-                <a href="[https://ksom.res.in/activities/workshops](https://ksom.res.in/activities/workshops)" class="modal-research-card">
-                    <h3>Research Workshops</h3>
-                    <p>Conduct intensive focused meetings for collaborative problem-solving and skill development. These shorter, topic-specific gatherings feature working sessions, tutorial lectures, and hands-on training in emerging methodologies, often leading to joint publications and research initiatives.</p>
-                </a>
-            </div>
-            <p>Community Impact<br/>These activities form the intellectual backbone of our research ecosystem, providing crucial platforms for knowledge exchange and professional growth. By integrating undergraduate students through senior faculty in shared learning experiences, we cultivate an inclusive environment that advances both individual scholarship and collective mathematical progress.</p>
-            </div>
-    </section>
+<section id="academic-activities-section" class="accordion-item" data-accordion-id="academicResearchActivities" data-learn-more-url="https://ksom.res.in/activities" data-modal-opener="true">
+    <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Academic & Research Activities at KSoM" aria-expanded="false" aria-controls="accordion-content-academicResearchActivities">Academic & Research Activities at KSoM</div>
+    <div class="accordion-snippet">
+    <!-- Slideshow container -->
+    <div class="slideshow-container" data-slideshow-id="academicActivities">
+        <div class="mySlides fade">
+            <img src="/Images/Activities/Image-1.jpg" width="600" height="350" onerror="this.onerror=null;this.src='https://placehold.co/600x350/F0F8FF/333333?text=Activity+Image+1';" alt="Academic & Research Activities 1">
+        </div>
+        <div class="mySlides fade">
+            <img src="/Images/Activities/Image-2.jpg" width="600" height="350" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/E6E6FA/333333?text=Activity+Image+2';" alt="Academic & Research Activities 2">
+        </div>
+        <div class="mySlides fade">
+            <img src="/Images/Activities/Image-3.jpg" width="600" height="350" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/F5F5DC/333333?text=Activity+Image+3';" alt="Academic & Research Activities 3">
+        </div>
+        <div class="mySlides fade">
+            <img src="/Images/Activities/Image-4.jpg" width="600" height="350" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/FFE4E1/333333?text=Activity+Image+4';" alt="Academic & Research Activities 4">
+        </div>
+        <div class="mySlides fade">
+            <img src="/Images/Activities/Image-5.jpg" width="600" height="350" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/AFEEEE/333333?text=Activity+Image+5';" alt="Academic & Research Activities 5">
+        </div>
+    </div>
+    <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.<span class="snippet-more-indicator"> ...more</span></p>
+    </div>
+    <div class="accordion-content" style="display: none;" id="accordion-content-academicResearchActivities">
+    <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with mathematical networks.</p>
+    <div class="modal-research-cards-container">
+        <a href="https://ksom.res.in/activities/colloquium" class="modal-research-card">
+            <h3>Mathematics Colloquium</h3>
+            <p>Features regular presentations by distinguished visiting mathematicians, showcasing frontier research across pure and applied mathematics. These talks provide comprehensive overviews of emerging fields while stimulating interdisciplinary dialogue among researchers at all career stages.</p>
+        </a>
+        <a href="https://ksom.res.in/activities/seminar-series" class="modal-research-card">
+            <h3>Specialized Seminar Series</h3>
+            <p>Offers focused forums for deep exploration of specific mathematical disciplines. Organized by research groups, these sessions include graduate student presentations, paper discussions, and technical workshops that advance collaborative projects and methodological development.</p>
+        </a>
+        <a href="https://ksom.res.in/activities/conferences" class="modal-research-card">
+            <h3>International Conferences</h3>
+            <p>Host annual gatherings convening global experts on specialized mathematical themes. These multi-day events feature invited lectures, contributed talks, and poster sessions that disseminate cutting-edge research while fostering new collaborations across institutions.</p>
+        </a>
+        <a href="https://ksom.res.in/activities/workshops" class="modal-research-card">
+            <h3>Research Workshops</h3>
+            <p>Conduct intensive focused meetings for collaborative problem-solving and skill development. These shorter, topic-specific gatherings feature working sessions, tutorial lectures, and hands-on training in emerging methodologies, often leading to joint publications and research initiatives.</p>
+        </a>
+    </div>
+    <p>Community Impact<br/>These activities form the intellectual backbone of our research ecosystem, providing crucial platforms for knowledge exchange and professional growth. By integrating undergraduate students through senior faculty in shared learning experiences, we cultivate an inclusive environment that advances both individual scholarship and collective mathematical progress.</p>
+    </div>
+</section>
 </div>
 
 <!-- Right Main Content Column (40% width) -->
