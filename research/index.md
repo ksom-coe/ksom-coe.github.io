@@ -4,8 +4,8 @@ title: Research at KSoM
 ---
 
 <div class="main-full-width" id="main-content-start">
-    <!-- 1. Overview of Research at KSoM (Static, non-clickable section) -->
-    <section id="research-overview">
+    <!-- 1. Overview of Research at KSoM (Reusable static-section class) -->
+    <section class="static-section" id="research-overview">
         <div class="accordion-header">Overview of Research at KSoM</div>
         <div class="accordion-content static-content">
             <p>At the Kerala School of Mathematics (KSoM), research forms the cornerstone of our academic mission. We are committed to fostering a vibrant and innovative environment where groundbreaking discoveries are made, and mathematical frontiers are expanded. Our research initiatives span a broad spectrum of pure and applied mathematics, driven by a distinguished faculty and a community of passionate researchers.</p>
