@@ -1721,9 +1721,41 @@ footer .footer-column a:hover {
 }
 
 /* Custom CSS to fix MathJax inline spacing issues */
+/* Target specific internal elements of MathJax to reduce spacing */
 mjx-container[jax="CHTML"][display="false"] {
-    display: inline-block !important; /* Ensure it stays inline-block */
-    margin-left: 0.1em !important;   /* Reduce left margin */
-    margin-right: 0.1em !important;  /* Reduce right margin */
-    vertical-align: middle !important; /* Adjust vertical alignment if needed */
+    /* Ensure it behaves inline for text flow */
+    display: inline-block !important;
+    vertical-align: middle !important;
+}
+
+mjx-container[jax="CHTML"][display="false"] mjx-assistive-mml {
+    /* Hide assistive MML without affecting visual layout */
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    overflow: hidden !important;
+    height: 1px !important;
+    width: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+/* Target MathJax internal elements for tighter spacing */
+mjx-container[jax="CHTML"][display="false"] > span > span {
+    margin-left: 0.05em !important; /* Reduce space between characters/elements */
+    margin-right: 0.05em !important;
+}
+
+/* Specific adjustments for identifiers and operators if they are too wide */
+mjx-i, mjx-op {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* For specific cases like superscripts/subscripts if they cause width issues */
+mjx-sup, mjx-sub {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
