@@ -1,5 +1,5 @@
 ---
-layout: base.html
+layout: content.html
 title: Research at KSoM
 full_width: true
 ---
