@@ -144,7 +144,7 @@
 <body>
   {% include "header.html" %}
 
-  <main class="main-layout-wrapper{% if page.url == '/research/' %} main-full-width{% endif %}">
+  <main class="{% if page.full_width %}main-full-width{% else %}main-layout-wrapper{% endif %}">
     {{ content | safe }}
   </main>
 
