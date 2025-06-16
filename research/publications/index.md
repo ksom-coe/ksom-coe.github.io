@@ -12,7 +12,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4864900">
+<section class="accordion-item  default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4864900">
   <div class="accordion-header">The space of multipliers between model spaces: complete or incomplete?</div>
   <div class="accordion-snippet">
     <strong>Bhardwaj, Arun Kumar</strong><br/>
@@ -20,7 +20,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4704787">
+<section class="accordion-item  alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4704787">
   <div class="accordion-header">Generalized fruit diophantine equation and hyperelliptic curves</div>
   <div class="accordion-snippet">
     <strong>Prakash, Om; Chakraborty, Kalyan</strong><br/>
@@ -28,7 +28,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4692620">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4692620">
   <div class="accordion-header">Extreme states and boundary representations of operator spaces in ternary rings of operators</div>
   <div class="accordion-snippet">
     <strong>Shabna, A. M.; Vijayarajan, A. K.; Arunkumar, C. S.; Syamkrishnan, M. S.</strong><br/>
@@ -36,7 +36,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4565132">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4565132">
   <div class="accordion-header">Lehmer sequence approach to the divisibility of class numbers of imaginary quadratic fields</div>
   <div class="accordion-snippet">
     <strong>Chakraborty, Kalyan; Hoque, Azizul</strong><br/>
@@ -44,7 +44,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4558996">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4558996">
   <div class="accordion-header">Proper holomorphic mappings of quasi-balanced domains in $C^3$</div>
   <div class="accordion-snippet">
     <strong>Haridas, Pranav; Janardhanan, Jaikrishnan</strong><br/>
@@ -52,7 +52,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4556156">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4556156">
   <div class="accordion-header">On newforms and Saito-Kurokawa lifts</div>
   <div class="accordion-snippet">
     <strong>Adersh, V. K.; Manickam, M.; Sreejith, M. M.</strong><br/>
@@ -60,7 +60,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4520283">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4520283">
   <div class="accordion-header">Diophantine triples with the property D(n) for distinct n's</div>
   <div class="accordion-snippet">
     <strong>Chakraborty, Kalyan; Gupta, Shubham; Hoque, Azizul</strong><br/>
@@ -68,7 +68,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4512671">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4512671">
   <div class="accordion-header">On a conjecture of Franušić and Jadrijević: counter-examples</div>
   <div class="accordion-snippet">
     <strong>Chakraborty, Kalyan; Gupta, Shubham; Hoque, Azizul</strong><br/>
@@ -76,7 +76,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4507208">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4507208">
   <div class="accordion-header">Sign changes in restricted coefficients of Hilbert modular forms</div>
   <div class="accordion-snippet">
     <strong>Agnihotri, Rishabh; Chakraborty, Kalyan; Krishnamoorthy, Krishnarjun</strong><br/>
@@ -84,7 +84,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4497174">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4497174">
   <div class="accordion-header">A class of fruit Diophantine equations</div>
   <div class="accordion-snippet">
     <strong>Vaishya, Lalit; Sharma, Richa</strong><br/>
@@ -92,7 +92,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4487617">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4487617">
   <div class="accordion-header">A note on holomorphic generalized eta quotient</div>
   <div class="accordion-snippet">
     <strong>Agnihotri, R.; Vaishya, L.</strong><br/>
@@ -100,7 +100,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4476931">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4476931">
   <div class="accordion-header">Bi-extremity of embeddings of operator spaces into their injective envelopes</div>
   <div class="accordion-snippet">
     <strong>Syamkrishnan, M. S.; Vijayarajan, A. K.</strong><br/>
@@ -108,7 +108,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4475673">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4475673">
   <div class="accordion-header">On some symmetries of the base $n$ expansion of $1/m$: the class number connection</div>
   <div class="accordion-snippet">
     <strong>Chakraborty, Kalyan; Krishnamoorthy, Krishnarjun</strong><br/>
@@ -116,7 +116,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4467987">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4467987">
   <div class="accordion-header">On weak boundary representations and quasi hyperrigidity for operator systems</div>
   <div class="accordion-snippet">
     <strong>Arunkumar, C. S.; Vijayarajan, A. K.</strong><br/>
@@ -124,7 +124,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4467935">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4467935">
   <div class="accordion-header">On a family of elliptic curves of rank at least 2</div>
   <div class="accordion-snippet">
     <strong>Chakraborty, Kalyan; Sharma, Richa</strong><br/>
@@ -132,7 +132,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4448940">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4448940">
   <div class="accordion-header">Counting Hecke eigenforms with nonvanishing $L$-value</div>
   <div class="accordion-snippet">
     <strong>Manickam, M.; Murty, V. Kumar; Sandeep, E. M.</strong><br/>
@@ -140,7 +140,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4441454">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4441454">
   <div class="accordion-header">Local boundary representations of locally $C^*$-algebras</div>
   <div class="accordion-snippet">
     <strong>Arunkumar, C. S.</strong><br/>
@@ -148,7 +148,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4430097">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4430097">
   <div class="accordion-header">On moments of non-normal number fields</div>
   <div class="accordion-snippet">
     <strong>Chakraborty, Kalyan; Krishnamoorthy, Krishnarjun</strong><br/>
@@ -156,7 +156,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4344843">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4344843">
   <div class="accordion-header">On the Diophantine equation $dx^2+p^{2a}q^{2b}=4y^p$</div>
   <div class="accordion-snippet">
     <strong>Chakraborty, Kalyan; Hoque, Azizul</strong><br/>
@@ -164,7 +164,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4363224">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4363224">
   <div class="accordion-header">Boundary representations and hyperrigidity for spaces of operations</div>
   <div class="accordion-snippet">
     <strong>Arunkumar, C. S.</strong><br/>
@@ -172,7 +172,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4339124">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4339124">
   <div class="accordion-header">Sign changes of certain arithmetical function at prime powers</div>
   <div class="accordion-snippet">
     <strong>Agnihotri, Rishabh; Chakraborty, Kalyan</strong><br/>
@@ -180,7 +180,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4338047">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4338047">
   <div class="accordion-header">Extreme states on operator spaces in ternary rings of operators</div>
   <div class="accordion-snippet">
     <strong>Arunkumar, C. S.; Shabna, A. M.; Syamkrishnan, M. S.; Vijayarajan, A. K.</strong><br/>
@@ -188,7 +188,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4278721">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4278721">
   <div class="accordion-header">On the solutions of certain Lebesgue-Ramanujan-Nagell equations</div>
   <div class="accordion-snippet">
     <strong>Chakraborty, Kalyan; Hoque, Azizul; Sharma, Richa</strong><br/>
@@ -196,7 +196,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4224759">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4224759">
   <div class="accordion-header">A note on the smoothness of the Minkowski function</div>
   <div class="accordion-snippet">
     <strong>Haridas, Pranav; Janardhanan, Jaikrishnan</strong><br/>
@@ -204,7 +204,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4259511">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4259511">
   <div class="accordion-header">A weighted average of $L$-functions of modular forms</div>
   <div class="accordion-snippet">
     <strong>Manickam, M.; Murty, V. Kumar; Sandeep, E. M.</strong><br/>
@@ -212,7 +212,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4239717">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4239717">
   <div class="accordion-header">Multiple zeta values and multiple Apéry-like sums</div>
   <div class="accordion-snippet">
     <strong>Akhilesh, P.</strong><br/>
@@ -220,7 +220,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4228926">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4228926">
   <div class="accordion-header">On the Diophantine equation $cx^2+p^{2m}=4y^n$</div>
   <div class="accordion-snippet">
     <strong>Chakraborty, K.; Hoque, A.; Srinivas, K.</strong><br/>
@@ -228,7 +228,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4227156">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4227156">
   <div class="accordion-header">Boundary representations and rectangular hyperrigidity</div>
   <div class="accordion-snippet">
     <strong>Arunkumar, C. S.; Shankar, P.; Vijayarajan, A. K.</strong><br/>
@@ -236,7 +236,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4177527">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4177527">
   <div class="accordion-header">On the first Fourier-Jacobi coefficient of Siegel modular forms of degree two</div>
   <div class="accordion-snippet">
     <strong>Manickam, M.</strong><br/>
@@ -244,7 +244,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4172840">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4172840">
   <div class="accordion-header">An analogue of Wilton's formula and values of Dedekind zeta functions</div>
   <div class="accordion-snippet">
     <strong>Banerjee, Soumyarup; Chakraborty, Kalyan; Hoque, Azizul</strong><br/>
@@ -252,7 +252,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4298491">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4298491">
   <div class="accordion-header">Distribution of generalized mex-related integer partitions</div>
   <div class="accordion-snippet">
     <strong>Chakraborty, Kalyan; Ray, Chiranjit</strong><br/>
@@ -260,7 +260,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4199699">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4199699">
   <div class="accordion-header">On normalisation of half-integral weight modular forms</div>
   <div class="accordion-snippet">
     <strong>Manickam, M.; Tamil Selvi, M. K.</strong><br/>
@@ -268,7 +268,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4194065">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4194065">
   <div class="accordion-header">Complete solutions of certain Lebesgue-Ramanujan-Nagell type equations</div>
   <div class="accordion-snippet">
     <strong>Chakraborty, Kalyan; Hoque, Azizul; Sharma, Richa</strong><br/>
@@ -276,7 +276,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4181904">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4181904">
   <div class="accordion-header">Hilbert modules characterization for weak hyperrigid operator systems</div>
   <div class="accordion-snippet">
     <strong>Shankar, P.; Vijayarajan, A. K.</strong><br/>
@@ -284,7 +284,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4179377">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4179377">
   <div class="accordion-header">A certain kernel function for $L$-values of half-integral weight Hecke eigenforms</div>
   <div class="accordion-snippet">
     <strong>Sreejith, M. M.</strong><br/>
@@ -293,7 +293,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4179364">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4179364">
   <div class="accordion-header">On vanishing of Hecke operators</div>
   <div class="accordion-snippet">
     <strong>Adersh, V. K.</strong><br/>
@@ -302,7 +302,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4146238">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4146238">
   <div class="accordion-header">Note on certain operators of Jacobi forms of half integral weight</div>
   <div class="accordion-snippet">
     <strong>Manickam, M.; Tamil Selvi, M. K.</strong><br/>
@@ -310,7 +310,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=3911789">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=3911789">
   <div class="accordion-header">On Doi-Naganuma and Shimura liftings</div>
   <div class="accordion-snippet">
     <strong>Kumar, Balesh; Manickam, Murugesan</strong><br/>
@@ -318,7 +318,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=3860478">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=3860478">
   <div class="accordion-header">An Eichler-Zagier map for Jacobi cusp forms on $H \times C(g,1)$</div>
   <div class="accordion-snippet">
     <strong>Manickam, M.; Shankhadhar, Karam Deo</strong><br/>
@@ -326,7 +326,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=3880391">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=3880391">
   <div class="accordion-header">On zeros of certain cusp forms of integral weight for full modular group</div>
   <div class="accordion-snippet">
     <strong>Manickam, Murugesan; Sandeep, E. M.</strong><br/>
@@ -335,7 +335,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=3869539">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=3869539">
   <div class="accordion-header">Quasi hyperrigidity and weak peak points for non-commutative operator systems</div>
   <div class="accordion-snippet">
     <strong>Namboodiri, M. N. N.; Pramod, S.; Shankar, P.; Vijayarajan, A. K.</strong><br/>
@@ -343,7 +343,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=3846804">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=3846804">
   <div class="accordion-header">On newforms of half-integral weight and Jacobi forms</div>
   <div class="accordion-snippet">
     <strong>Kumar, Balesh; Manickam, Murugesan</strong><br/>
@@ -351,7 +351,7 @@ title: Publications at KSoM
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=3835224">
+<section class="accordion-item" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=3835224">
   <div class="accordion-header">Tensor products of hyperrigid operator systems</div>
   <div class="accordion-snippet">
     <strong>Shankar, P.; Vijayarajan, A. K.</strong><br/>
