@@ -31,7 +31,7 @@
   <link rel="preload" as="image" href="/Images/Activities/Image-4.webp" />
   <link rel="preload" as="image" href="/Images/Activities/Image-5.webp" />
 
-  <!-- MathJax -->
+  <!-- MathJax Configuration -->
   <script>
     MathJax = {
       tex: {
@@ -42,12 +42,23 @@
       },
       options: {
         ignoreHtmlClass: 'tex2jax_ignore',
-        processHtmlClass: 'tex2jax_process'
+        processHtmlClass: 'tex2jax_process',
+        renderActions: {
+          addMenu: [0, '', ''],
+          checkLoading: [0, '', '']
+        }
+      },
+      startup: {
+        pageReady() {
+          return MathJax.startup.defaultPageReady().then(function () {
+            document.body.classList.add('mathjax-loaded');
+          });
+        }
       },
       loader: { load: ['[tex]/ams'] }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <!-- FullCalendar -->
   <script defer src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
