@@ -1,6 +1,7 @@
 ---
 layout: base.html
 title: Research at KSoM
+full_width: true
 ---
 
 <div class="main-full-width" id="main-content-start">
