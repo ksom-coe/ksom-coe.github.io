@@ -27,363 +27,397 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-html {
   scroll-behavior: smooth;
 }
-
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-body); /* Apply Lora as the primary body font */
+  background: var(--primary-bg);
   color: var(--primary-text);
-  background-color: var(--primary-bg);
-  line-height: 1.6;
+  line-height: 1.65;
+  font-size: 16px;
+  transition: background 0.3s ease, color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 70px; /* Space for fixed header */
   min-height: 100vh; /* Ensure body takes full viewport height */
-  display: flex; /* Make body a flex container */
-  flex-direction: column; /* Stack header, main, footer vertically */
-  position: relative; /* For scroll-to-top button positioning */
 }
-
-a {
-  color: var(--accent-blue);
-  text-decoration: none;
-  transition: color var(--transition-fast);
+body.dark-mode {
+  background: var(--dark-primary-bg);
+  color: var(--dark-primary-text);
 }
-
-a:hover {
-  color: var(--accent-hover);
-  text-decoration: underline;
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif); /* Apply Merriweather to headings */
+    font-weight: 700;
 }
-
 img {
   max-width: 100%;
   height: auto;
-  display: block; /* Remove extra space below images */
+  display: block;
+  border: 0;
 }
 
-/* Accessible hidden content */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+/* === Container Layout === */
+.container {
+  width: 90%;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
 }
 
-/* === Typography === */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
-  color: var(--accent-blue);
-  margin-bottom: 0.8em;
-  line-height: 1.2;
-}
-
-h1 { font-size: 2.5em; }
-h2 { font-size: 2em; }
-h3 { font-size: 1.75em; }
-h4 { font-size: 1.5em; }
-h5 { font-size: 1.25em; }
-h6 { font-size: 1em; }
-
-p {
-  margin-bottom: 1em;
-}
-
-/* === Buttons === */
-.btn {
-  display: inline-block;
-  padding: 0.8em 1.5em;
-  background-color: var(--accent-blue);
-  color: #fff;
-  border-radius: var(--border-radius);
-  transition: background-color var(--transition-fast);
-  text-align: center;
-  font-family: var(--font-sans);
-  font-weight: 500;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: var(--accent-hover);
-  text-decoration: none;
-}
-
-.secondary-btn {
-  background-color: var(--card-bg);
-  color: var(--accent-blue);
-  border: 1px solid var(--accent-blue);
-}
-
-.secondary-btn:hover {
-  background-color: var(--accent-blue);
-  color: var(--card-bg);
-}
-
-/* === Header === */
+/* === Header & Navigation === */
 header {
-  background-color: var(--accent-blue);
-  color: #fff;
-  padding: 1rem 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: sticky;
+  background: linear-gradient(to right, var(--accent-blue), var(--accent-light));
+  color: white;
+  padding: 0; /* Padding will be on header-content */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  width: 100%; /* Span full width */
+  position: fixed; /* Fixed position */
   top: 0;
-  z-index: 1000;
-  width: 100%;
+  left: 0;
+  z-index: 1000; /* Stay on top */
+  display: flex; /* Keep flex to align content inside header */
+  justify-content: center; /* Center the inner content */
+  align-items: center;
+  height: 70px; /* Fixed height for header */
 }
 
-.header-content {
+.header-content { /* Content inside the header */
+  width: 90%; /* Constrain content width */
+  max-width: var(--max-content-width); /* Constrain max-width */
+  padding: 1rem 0; /* Vertical padding only, horizontal handled by width */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: var(--max-content-width);
-  margin: 0 auto;
-  padding: 0 1.5rem; /* Padding for the sides */
 }
 
 .logo-title {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
 }
-
 .circle-logo {
-  width: 40px;
-  height: 40px;
-  background-color: #fff;
-  color: var(--accent-blue);
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
+  background: white;
+  color: var(--accent-blue);
+  font-weight: 600;
+  font-size: 0.9rem;
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-weight: bold;
-  font-family: var(--font-sans);
+  justify-content: center;
+  margin-right: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
-
 .logo-title a {
-  color: #fff;
-  font-family: var(--font-serif);
-  font-size: 1.4em;
-  font-weight: bold;
+  color: white;
+  font-family: var(--font-serif); /* Changed to Merriweather (serif) for title as requested */
+  font-size: 1.0rem; /* Slightly reduced font size as requested */
+  font-weight: 700;
   text-decoration: none;
-  white-space: nowrap; /* Prevent title from wrapping */
+  letter-spacing: 0.3px;
+  text-transform: uppercase; /* Make uppercase */
 }
-
-/* Desktop Navigation */
-#desktop-nav ul {
-  list-style: none;
+/* Container for navigation, dark mode toggle, and hamburger icon */
+.header-right-group {
   display: flex;
-  gap: 1.5rem;
+  align-items: center;
+  gap: 1.5rem; /* Space between desktop nav and hamburger icon */
 }
 
-#desktop-nav a {
-  color: #fff;
-  font-family: var(--font-sans);
-  font-weight: 500;
+nav {
+  display: flex;
+  gap: 0.6rem; /* Reduced gap further */
+  align-items: center;
+  flex-wrap: nowrap; /* Ensure menu items stay on one line by default */
+}
+nav a {
+  color: white;
   text-decoration: none;
-  padding: 0.5rem 0;
-  transition: color var(--transition-fast), border-bottom var(--transition-fast);
-  position: relative; /* For dropdown arrow */
+  padding: 0.3rem 0.5rem; /* Slightly reduced padding */
+  font-weight: 400; /* Adjusted font weight */
+  border-radius: 5px;
+  transition: background var(--transition-fast);
+  outline: none;
+  font-family: var(--font-sans); /* Ensure navigation links use Inter font */
+  font-size: 0.85rem; /* Reduced font size for menu items */
+  text-transform: uppercase; /* Make uppercase */
 }
-
-#desktop-nav a:hover {
-  color: var(--accent-light);
-  text-decoration: none;
+nav a:focus-visible {
+  outline: 2px dashed #fff;
+  outline-offset: 2px;
 }
-
-/* Dropdown styling */
+nav a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
 .dropdown {
   position: relative;
-  display: inline-block; /* Ensure dropdowns align horizontally */
 }
-
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: var(--accent-blue);
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  border-top: 2px solid var(--accent-light); /* Accent line for dropdown */
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
-  overflow: hidden; /* Ensures border-radius applies to children */
+  background-color: white;
+  color: var(--accent-blue);
+  top: 100%;
+  min-width: 200px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  z-index: 1000;
+  padding: 0.5rem 0; /* Add padding to dropdown content */
 }
-
 .dropdown-content a {
-  color: #fff;
-  padding: 12px 16px;
-  text-decoration: none;
   display: block;
-  text-align: left;
-  white-space: nowrap; /* Prevent items from wrapping */
-  transition: background-color var(--transition-fast);
+  padding: 0.75rem 1rem;
+  color: var(--accent-blue);
+  text-decoration: none;
+  transition: background var(--transition-fast);
+  font-family: var(--font-sans); /* Ensure dropdown links use Inter font */
+  font-size: 0.8rem; /* Reduced font size for submenu items */
+  text-transform: uppercase;
 }
-
 .dropdown-content a:hover {
-  background-color: var(--accent-hover);
-  color: #fff; /* Maintain white text on hover */
+  background: #f0f4f8;
 }
-
 .dropdown:hover .dropdown-content {
-  display: block; /* Show dropdown on hover */
+  display: block;
 }
-
-/* Dark mode toggle */
 .dark-toggle {
   background: none;
   border: none;
-  font-size: 1.5rem;
+  color: white;
+  font-size: 1.2rem;
   cursor: pointer;
-  color: #fff;
-  margin-left: 1rem;
-  transition: transform 0.3s ease;
 }
 
-.dark-toggle:hover {
-  transform: rotate(30deg);
-}
-
-/* Hamburger menu for mobile */
+/* Hamburger menu styles */
 .hamburger-menu-icon {
-  display: none; /* Hidden by default on desktop */
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: #fff;
-  cursor: pointer;
+    display: none; /* Hidden by default on desktop */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem; /* Larger icon */
+    cursor: pointer;
+    margin-left: 1rem; /* Space from other header elements */
+    z-index: 1001; /* Ensure it's above other elements */
+    transition: transform 0.3s ease;
 }
 
-/* === Mobile Menu Overlay === */
+.hamburger-menu-icon.active {
+    transform: rotate(90deg); /* Rotate when active for visual feedback */
+}
+
 .mobile-menu-overlay {
+    display: none; /* Hidden by default */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
-    z-index: 1001; /* Above header */
-    display: none; /* Hidden by default */
-    justify-content: flex-end; /* Align panel to the right */
-    align-items: flex-start; /* Align close button to top-right */
+    background-color: var(--modal-bg); /* Semi-transparent overlay */
+    z-index: 2000; /* Above everything */
+    justify-content: flex-end; /* Push the menu panel to the right */
+    align-items: flex-start; /* Align content to the top within the panel */
+    transition: background-color 0.3s ease;
 }
 
-.mobile-menu-overlay.open {
+.mobile-menu-overlay.active {
     display: flex;
 }
 
 .mobile-menu-panel {
-    background-color: var(--primary-bg); /* Use theme background */
-    width: 80%; /* Adjust as needed */
-    max-width: 300px; /* Max width for larger mobiles */
+    background-color: var(--accent-blue); /* Actual menu background */
+    color: white;
+    width: 60%; /* Reduced from 66.6% for more efficiency */
     height: 100%;
-    padding: 1.5rem;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: -5px 0 15px rgba(0,0,0,0.3); /* Shadow for depth */
     transform: translateX(100%); /* Start off-screen to the right */
-    transition: transform 0.3s ease-out;
-    display: flex;
-    flex-direction: column; /* Stack menu items */
-    position: relative; /* For close button positioning */
+    transition: transform 0.3s ease-out; /* Slide animation */
+    padding-top: 70px; /* Space for fixed close button */
     overflow-y: auto; /* Enable scrolling for long menus */
 }
 
-.mobile-menu-overlay.open .mobile-menu-panel {
+.mobile-menu-overlay.active .mobile-menu-panel {
     transform: translateX(0); /* Slide in */
 }
 
-.mobile-menu-panel .close-btn {
+
+.mobile-menu-overlay .close-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 1rem;
+    right: 1rem;
     background: none;
     border: none;
-    font-size: 2rem;
-    color: var(--primary-text); /* Use theme text color */
+    font-size: 1.5rem;
     cursor: pointer;
-    z-index: 10; /* Ensure it's above content */
+    z-index: 2001;
+    color: white;
+    display: flex; /* Added for centering 'x' */
+    align-items: center; /* Added for centering 'x' */
+    justify-content: center; /* Added for centering 'x' */
+    width: 2.5rem; /* Ensure clickable area */
+    height: 2.5rem; /* Ensure clickable area */
 }
 
 .mobile-menu-content {
     display: flex;
     flex-direction: column;
-    margin-top: 3rem; /* Space below close button */
+    width: 100%;
+    max-width: 300px; /* Constrain width for menu items */
+    margin: 1.5rem auto 0; /* Adjusted margin for more efficiency */
+    padding: 0 1rem; /* Added horizontal padding for efficiency */
 }
 
-.mobile-menu-content a {
-    color: var(--primary-text);
-    padding: 1rem 0;
-    font-family: var(--font-sans);
-    font-weight: 500;
-    text-decoration: none;
-    border-bottom: 1px solid var(--card-border); /* Separator */
-    transition: background-color var(--transition-fast);
+/* New/Modified CSS for mobile menu structure */
+.mobile-dropdown-container {
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Separator for the whole dropdown block */
 }
 
-.mobile-menu-content a:hover {
-    background-color: var(--card-border);
+.mobile-dropdown-container:last-of-type {
+    border-bottom: none; /* No border on the last one */
 }
 
-.mobile-menu-content .dropdown-toggle {
+.mobile-dropdown-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--primary-text);
-    padding: 1rem 0;
+    padding: 0.8rem 0; /* Slightly reduced padding */
+}
+
+.mobile-dropdown-header a {
+    flex-grow: 1; /* Allow link to take available space */
+    text-align: center; /* Center the link text */
+    padding: 0; /* Remove internal padding, handled by parent flex item */
+    border-bottom: none; /* Remove border from the link itself */
+    color: white; /* Ensure link color is white */
+    text-decoration: none; /* Remove underline */
     font-family: var(--font-sans);
-    font-weight: 500;
+    font-size: 1rem; /* Adjusted font size */
+    text-transform: uppercase;
+    transition: background 0.2s ease;
+}
+.mobile-dropdown-header a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-dropdown-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem; /* Slightly smaller */
     cursor: pointer;
-    border-bottom: 1px solid var(--card-border);
-    transition: background-color var(--transition-fast);
+    padding: 0.5rem; /* Make it easily tappable */
+    margin-left: 0.5rem; /* Space from the link */
+    transition: transform 0.2s ease;
+    outline: none;
 }
 
-.mobile-menu-content .dropdown-toggle:hover {
-    background-color: var(--card-border);
-}
-
-.mobile-menu-content .dropdown-toggle::after {
-    content: '▼'; /* Down arrow */
-    font-size: 0.8em;
-    transition: transform 0.3s ease;
-}
-
-.mobile-menu-content .dropdown-toggle.active::after {
-    content: '▲'; /* Up arrow when active */
+.mobile-dropdown-toggle.expanded {
     transform: rotate(180deg);
 }
 
-.mobile-menu-content .mobile-dropdown-list {
+.mobile-submenu {
     display: none; /* Hidden by default */
     flex-direction: column;
-    padding-left: 1rem;
-    border-bottom: 1px solid var(--card-border); /* Separator after the list */
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0.3rem 0; /* Reduced padding for sleeker look */
+    width: 100%; /* Ensure submenu takes full width */
 }
 
-.mobile-menu-content .mobile-dropdown-list.open {
-    display: flex; /* Show when open */
+.mobile-submenu.expanded {
+    display: flex;
 }
 
-.mobile-menu-content .mobile-dropdown-list a {
-    border-bottom: none; /* No individual borders for list items */
-    padding: 0.8rem 0;
-    font-size: 0.9em;
+.mobile-submenu a {
+    font-size: 0.9rem; /* Adjusted font size */
+    padding: 0.6rem 0; /* Reduced padding */
+    text-align: center;
+    border-bottom: none; /* Removed border */
+    color: white; /* Ensure link color is white */
+    text-decoration: none; /* Remove underline */
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    transition: background 0.2s ease;
+}
+.mobile-submenu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Existing mobile-menu-content a styles */
+.mobile-menu-content > a { /* Target direct children anchor tags */
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 0; /* Consistent padding */
+    font-family: var(--font-sans);
+    font-size: 1rem; /* Consistent font size */
+    text-transform: uppercase;
+    text-align: center;
+    transition: background 0.2s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Separator */
+}
+
+.mobile-menu-content > a:last-child {
+    border-bottom: none;
+}
+
+.mobile-menu-content > a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark mode toggle in mobile menu */
+.mobile-menu-content .dark-toggle {
+    padding: 0.8rem 0; /* Align with other menu items */
+    border-bottom: none; /* No border for the last item */
 }
 
 
-/* === Layout === */
-/* UPDATED: Main content container for full-width pages (e.g., research, research areas) */
-#main-content-start {
+/* Old: mobile-dropdown-header::after */
+.mobile-dropdown-header::after {
+    /* Remove this, as we'll use a button for the arrow */
+    content: none;
+}
+
+
+/* === Main Layout Wrapper (Primary CSS Grid) === */
+.main-layout-wrapper {
+  display: grid;
+  /* Define three primary columns:
+     - col1: 60% of main content width (0.6 * 0.72 = 0.432 total width)
+     - col2: 40% of main content width (0.4 * 0.72 = 0.288 total width)
+     - col3: 28% for the sidebar
+  */
+  grid-template-columns: 43.2fr 28.8fr 28fr;
+  /* Changed gap to explicitly define row-gap and column-gap */
+  gap: 1rem 1.5rem; /* row-gap: 1rem, column-gap: 1.5rem */
+  width: 90%;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding-top: 1rem; /* Reduced from 2rem */
+  margin-bottom: 3rem;
+  flex-grow: 1; /* Allow main content to grow and push footer down */
+
+
+  /* Desktop Grid Areas Definition:
+     - 'campus' and 'about' span the first two columns.
+     - 'sidebar-col' spans all rows in the third column.
+     - 'left-main-col' and 'right-main-col' fill the lower main content area.
+  */
+  grid-template-areas:
+    "campus          campus           sidebar-col"
+    "about           about            sidebar-col"
+    "left-main-col   right-main-col   sidebar-col";
+}
+
+/* NEW: Full-width layout for specific pages (e.g., research.md) */
+
+.main-full-width {
     /* Flexbox properties for vertical stacking and gap control */
-    display: flex;          /* CRITICAL: Make it a flex container */
-    flex-direction: column; /* CRITICAL: Stack items vertically */
-    gap: 0.4rem;            /* Adjust gap for stacked content (e.g., between overview and accordions) */
+    display: flex;          /* Make it a flex container */
+    flex-direction: column; /* Stack items vertically */
+    gap: 0.4rem;            /* <<< Adjust gap for stacked content (e.g., between overview and accordions) */
 
     /* Width and centering */
-    width: 100% !important; /* CRITICAL: Force to 100% to override unwanted .content-main width */
-    max-width: var(--max-content-width); /* Ensures content respects your defined max width */
+    width: 90%;             /* Maintain overall content width from base */
+    max-width: var(--max-content-width); /* Ensure it respects your defined max width */
     margin-left: auto;      /* Center the content */
     margin-right: auto;     /* Center the content */
     margin-bottom: 1rem;    /* Space at the bottom of the main content block */
@@ -394,854 +428,1221 @@ header {
     padding-left: 1rem;     /* Padding on sides for smaller screens */
     padding-right: 1rem;    /* Padding on sides for smaller screens */
 
-    /* Other layout properties */
+    /* Other layout properties (if any were already present and you want to keep them) */
     flex-grow: 1; /* Allows main content to take up available vertical space */
+    /* Remove any old grid-template-columns, grid-template-areas if they were here */
+}
+
+
+
+/* Assign grid areas to direct children of main-layout-wrapper */
+#campus-photos-section { grid-area: campus; }
+#about-ksom-section { grid-area: about; }
+.left-accordion-col-wrapper { grid-area: left-main-col; }
+.right-accordion-col-wrapper { grid-area: right-main-col; }
+.sidebar-container { grid-area: sidebar-col; } /* New container for all sidebar items */
+
+
+/* Flexbox for stacking elements within main content columns and sidebar */
+.left-accordion-col-wrapper,
+.right-accordion-col-wrapper,
+.sidebar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem; /* Consistent spacing between sections within these flex containers */
+    padding: 0; /* Remove internal padding, handled by child elements */
+    background: transparent; /* Remove background, handled by child elements */
+    box-shadow: none; /* Remove shadow, handled by child elements */
+}
+
+/* Common styling for all major content sections (accordion-items, etc.) */
+.accordion-item {
+    padding: 1.5rem; /* Default padding for all content sections */
+    background: var(--card-bg);
+    border: 1px solid var(--card-border); /* Add a subtle border */
+    border-radius: 8px; /* Slightly rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+    box-sizing: border-box;
+    cursor: pointer; /* Default cursor for clickable items */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition for hover effects */
+    break-inside: avoid-column; /* Still relevant for print/column-flow scenarios if any */
+    page-break-inside: avoid;
+    text-decoration: none; /* Ensure no underline for accordion items used as links */
+    color: inherit; /* Ensure text color is inherited for links */
+    /* Removed margin-bottom to ensure 0 gap for accordions */
+    margin-bottom: 0rem; /* Adds space below each accordion section */
+    background-color: var(--card-bg); /* Use your defined card background for consistency */
+}
+.main-full-width > .accordion-item:last-child {
+    margin-bottom: 0; /* No margin for the last item in a full-width container */
+}
+
+
+/* Specific styling for the very last accordion-item */
+/* This now mainly applies to items within flex columns, not the main-full-width */
+.accordion-item:last-of-type {
+    margin-bottom: 0; /* Ensure no margin after the last item in a sequence */
+}
+
+/* Override cursor for non-clickable sections which are NOT accordion-item */
+#research-overview, #areas-overview-intro { /* No accordion-item class, so style it as a static block */
+    cursor: default;
+    transform: none;
+    box-shadow: none;
+    padding: 0 !important; /* Remove any padding from .accordion-item */
+    background: transparent !important; /* No card background */
+    margin-bottom: 0.2rem;
+    gap: 0rem; /* Adjust gap for stacked content */
+}
+#research-overview .accordion-header, #areas-overview-intro .accordion-header {
+    font-size: 1.5rem; /* Larger size for the intro heading */
+    margin-bottom: 1rem; /* More space below intro title */
+    color: var(--accent-blue); /* Ensure header color */
+    font-weight: 700;
+    font-family: var(--font-serif);
+    display: block; /* Make it a block element to take full width */
+    cursor: default;
+}
+body.dark-mode #research-overview .accordion-header, body.dark-mode #areas-overview-intro .accordion-header {
+    color: var(--accent-light);
+}
+
+#research-overview .accordion-content.static-content, #areas-overview-intro .accordion-content.static-content {
+    padding: 1.5rem; /* Add consistent padding for text content */
+    background: var(--card-bg); /* Give it a card background */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Subtle shadow */
+    margin-bottom: 1.5rem; /* Space below the static intro section */
+}
+body.dark-mode #research-overview .accordion-content.static-content, body.dark-mode #areas-overview-intro .accordion-content.static-content {
+    background: var(--dark-card-bg);
+    border: 1px solid var(--dark-border);
+}
+
+
+/* Hover effect for accordion items */
+.accordion-item:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-2px); /* Slight lift on hover */
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+/* Overrides for sections that should not have the default card styling */
+#campus-photos-section {
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    cursor: default; /* Not clickable for modal */
+    transform: none; /* No transform on hover */
+}
+#campus-photos-section:hover {
+    box-shadow: none !important;
+}
+.fancy-calendar-button-container {
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    display: flex; /* Ensure button is centered */
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.25rem; /* Reduced from 0.5rem */
+    margin-bottom: 0.25rem; /* Reduced from 0.5rem */
+    cursor: default;
+    transform: none;
+}
+.fancy-calendar-button-container:hover {
+    box-shadow: none !important;
+}
+
+
+body.dark-mode .accordion-item,
+body.dark-mode .modal-research-card { /* Include modal cards for dark mode */
+    background: var(--dark-card-bg);
+    border: 1px solid var(--dark-border);
+    color: var(--dark-primary-text);
+}
+body.dark-mode .accordion-item:hover {
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3); /* Dark mode hover shadow */
 }
 
 
 .top-image {
-  width: 100%;
-  height: 350px; /* Fixed height for slideshow */
+  width: 100%; /* Takes full width of its container */
+  position: relative; /* For overlay text positioning */
+  border-radius: 8px; /* Match slideshow container border-radius */
   overflow: hidden;
 }
 
-/* Generic content main */
-/* THIS IS THE RULE THAT WAS CAUSING THE WIDTH CONFLICT.
-   The #main-content-start rule above now explicitly overrides its width. */
-.content-main {
-  width: calc( ( ( 100% - var(--desktop-nav-width) - 2 * var(--padding-body) - var(--two-column-gap) ) / 2 ) ) !important;
-  max-width: var(--max-content-width);
-  padding: 1rem;
-  /* Additional styling for content within two-column layout */
-}
-
-
-/* === Home Page Sections === */
-/* About KSoM Section */
-#about-ksom-section {
-  display: flex;
-  flex-direction: column; /* Stack content vertically */
-  gap: 1.5rem; /* Space between flex items */
-  max-width: var(--max-content-width);
-  margin: 2rem auto;
-  padding: 0 1.5rem;
-}
-
-#about-ksom-section h2 {
-  text-align: center;
-  color: var(--accent-blue);
-  margin-bottom: 1rem;
-}
-
-.about-content {
-  display: flex;
-  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-  gap: 2rem;
-  align-items: flex-start;
-}
-
-.about-text {
-  flex: 2; /* Takes more space */
-  min-width: 300px; /* Minimum width before wrapping */
-}
-
-.about-image {
-  flex: 1; /* Takes less space */
-  min-width: 250px;
-  max-width: 400px;
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.about-image img {
+/* Image specific styling for size and fit */
+.top-image img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 350px; /* Default height for larger screens */
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-.about-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 1.5rem;
-}
-
-
-/* News & Events Section */
-#news-events-section {
-  max-width: var(--max-content-width);
-  margin: 2rem auto;
-  padding: 0 1.5rem;
-}
-
-#news-events-section h2 {
-  text-align: center;
-  color: var(--accent-blue);
-  margin-bottom: 1.5rem;
-}
-
-.news-events-grid {
-  display: grid;
-  grid-template-columns: 1fr; /* Single column by default */
-  gap: 2rem; /* Space between news and events sections */
-}
-
-.news-section,
-.events-section {
-  background-color: var(--card-bg);
-  border-radius: var(--border-radius);
-  box-shadow: var(--card-shadow);
-  padding: 2rem;
-}
-
-.news-section h3,
-.events-section h3 {
-  color: var(--accent-blue);
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.news-list,
-.events-list {
-  list-style: none;
-  padding: 0;
-}
-
-.news-item,
-.event-item {
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--card-border);
-}
-
-.news-item:last-child,
-.event-item:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.news-item h4,
-.event-item h4 {
-  font-family: var(--font-sans);
-  font-size: 1.1em;
-  color: var(--primary-text);
-  margin-bottom: 0.2rem;
-}
-
-.news-item p,
-.event-item p {
-  font-size: 0.9em;
-  color: #666;
-  margin-bottom: 0.5rem;
-}
-
-.news-item a,
-.event-item a {
-  font-size: 0.9em;
-  font-weight: 500;
-}
-
-
-/* === Timeline Styling (for Upcoming Events on Home) === */
-.timeline-container {
-    position: relative;
-    padding: 20px 0;
-    max-width: 600px; /* Constrain timeline width for readability */
-    margin: 0 auto;
-}
-
-.timeline-container::before {
-    content: '';
+/* Overlay text for top-image slideshow */
+.top-image .overlay-text {
     position: absolute;
-    top: 0;
     bottom: 0;
-    left: 50%;
-    width: 2px;
-    background-color: var(--card-border);
-    transform: translateX(-50%);
-}
-
-.timeline-item {
-    position: relative;
-    padding: 10px 0;
+    left: 0;
     width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0)); /* Gradient for better text readability */
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
     display: flex;
-    align-items: center;
-    text-decoration: none; /* Remove underline from anchor */
-    color: inherit; /* Inherit color from parent */
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-    padding-left: 25px; /* Space for marker on left-aligned items */
-    padding-right: 25px; /* Space for marker on right-aligned items */
-    margin-bottom: 1rem; /* Space between timeline items */
-    cursor: pointer; /* Indicate clickability */
+    flex-direction: column;
+    justify-content: flex-end; /* Align text to the bottom */
 }
 
-.timeline-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.top-image .overlay-text .main-title {
+    font-family: var(--font-serif);
+    font-size: 1.8rem; /* Larger font for main title */
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Stronger shadow for visibility */
+    margin-bottom: 5px; /* Space between lines */
 }
 
-.timeline-item:nth-child(odd) {
-    text-align: right;
-    justify-content: flex-end;
-    padding-right: calc(50% + 25px); /* Push content to the right of the line */
-    padding-left: 0;
-}
-
-.timeline-item:nth-child(even) {
-    text-align: left;
-    justify-content: flex-start;
-    padding-left: calc(50% + 25px); /* Push content to the left of the line */
-    padding-right: 0;
+.top-image .overlay-text .sub-title {
+    font-family: var(--font-body);
+    font-size: 0.95rem; /* Smaller font for sub-title */
+    line-height: 1.4;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6); /* Subtle shadow for sub-title */
 }
 
 
-.timeline-marker {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 16px;
-    height: 16px;
-    background-color: var(--accent-blue);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1; /* Ensure marker is above the line */
-}
-
-.timeline-content {
-    background-color: var(--card-bg);
-    padding: 1rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
-    max-width: calc(50% - 30px); /* Content takes up to half the container width minus marker space */
-    position: relative; /* For the triangle pointer */
-}
-
-.timeline-item:nth-child(odd) .timeline-content {
-    margin-right: 20px; /* Space between content and marker */
-}
-
-.timeline-item:nth-child(even) .timeline-content {
-    margin-left: 20px; /* Space between content and marker */
-}
-
-.timeline-item .timeline-content p,
-.timeline-item .timeline-content span {
-    margin-bottom: 0.5rem; /* Spacing within content */
-}
-
-.timeline-item .timeline-content p:last-child,
-.timeline-item .timeline-content span:last-child {
-    margin-bottom: 0;
-}
-
-.timeline-date {
-    font-size: 0.9em;
-    color: #888;
-    font-weight: 600;
-}
-
-.event-title {
-    font-family: var(--font-sans);
-    font-weight: bold;
-    color: var(--accent-blue);
-    display: block; /* Ensure it takes full width */
-    margin-top: 0.2rem;
-}
-
-.timeline-description {
-    font-size: 0.9em;
-    color: var(--primary-text);
-}
-
-.archive-btn-container {
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.archive-btn {
-    display: inline-block;
-    padding: 0.8em 1.5em;
-    background-color: var(--accent-blue);
-    color: #fff;
-    border-radius: var(--border-radius);
-    transition: background-color var(--transition-fast);
-    text-align: center;
-    font-family: var(--font-sans);
-    font-weight: 500;
-    text-decoration: none;
-}
-
-.archive-btn:hover {
-    background-color: var(--accent-hover);
-    text-decoration: none;
-}
-
-
-/* === Accordion Sections (Research, Admissions etc.) === */
-#research-overview {
-  background-color: var(--card-bg);
-  padding: 1.5rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--card-shadow);
-  color: var(--primary-text);
-  line-height: 1.6;
-  margin-bottom: 0; /* Changed to 0, parent gap manages spacing */
-}
-
+/* === Accordion === */
 .accordion-header {
-  background-color: var(--accent-blue);
-  color: white;
-  padding: 1rem 1.5rem;
-  cursor: pointer;
-  border-radius: var(--border-radius);
-  font-family: var(--font-sans);
-  font-weight: bold;
-  display: flex; /* For possible icon or arrow */
-  justify-content: space-between;
+  font-family: var(--font-serif); /* Apply Merriweather to accordion headers */
+  font-size: 1.3rem; /* Default size for research groups and other headers */
+  font-weight: 600;
+  color: var(--accent-blue);
+  margin-bottom: 0.4rem;
+  cursor: inherit; /* Inherit cursor from parent (.accordion-item) */
+  display: flex; /* Needed for arrow alignment */
+  justify-content: space-between; /* Pushes arrow to the right */
   align-items: center;
-  transition: background-color var(--transition-fast);
-  font-size: 1.1em;
 }
 
-.accordion-header:hover {
-  background-color: var(--accent-hover);
+/* Arrow indicator for collapsible accordions */
+/* This rule will only apply to accordions that are *not* direct links AND *not* modal openers.
+   This effectively leaves no accordions on index.md with an arrow, and leaves direct links without an arrow (correct).
+   If we introduce a a truly collapsible accordion later, it would *not* have these data attributes and would get an arrow.
+*/
+.accordion-item:not([data-direct-link="true"]):not([data-modal-opener="true"]) .accordion-header::after {
+    content: '\25BC'; /* Down arrow */
+    font-size: 0.9em;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
 }
 
+/* For accordions that open modals, explicitly remove any arrow */
+.accordion-item[data-modal-opener="true"] .accordion-header::after {
+    content: none !important;
+}
+
+/* Add a subtle hover effect to clickable accordion items */
+.accordion-item[data-direct-link="true"]:hover {
+    transform: translateY(-3px); /* Lifts the card slightly */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Increases shadow on hover */
+}
+
+
+/* Larger heading for the "Overview of Research" and "KSoM Publications" */
+/* Removed this specific style for research-overview as it's no longer accordion-item */
+a[href="/publications"].accordion-item .accordion-header {
+    font-size: 1.5rem; /* Larger size for these specific headings */
+}
+
+.accordion-snippet {
+  font-size: 1rem;
+  color: #444;
+  font-weight: normal; /* Ensure snippets are not bold */
+  cursor: inherit; /* Inherit cursor from parent (.accordion-item) */
+}
+
+/* Base style for accordion content (visible by default) */
 .accordion-content {
+  font-size: 0.975rem;
+  line-height: 1.7;
+  color: #333;
+  padding-bottom: 1.5rem; /* Default padding at the bottom of content */
+}
+
+/* Styles for *collapsible* accordion content */
+.collapsible-content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-  padding: 0 1.5rem; /* Horizontal padding, vertical will be added when open */
-  background-color: var(--card-bg);
-  border-bottom-left-radius: var(--border-radius);
-  border-bottom-right-radius: var(--border-radius);
-  color: var(--primary-text);
+  padding-bottom: 0; /* No padding when collapsed */
 }
-
-.accordion-content.open {
-  max-height: 500px; /* Or a sufficiently large number */
-  padding: 1.5rem; /* Apply vertical padding when open */
-}
-
-.accordion-item {
-  background-color: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  box-shadow: var(--card-shadow);
-  color: var(--primary-text);
-  transition: all var(--transition-fast);
-  margin: 0; /* Changed to 0, parent gap manages spacing */
-}
-
-.accordion-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
-
-/* Accordion Snippet (for non-expandable cards) */
-.accordion-snippet {
-    background-color: var(--card-bg);
-    padding: 1.5rem;
-    border-bottom-left-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
-    color: var(--primary-text);
-    line-height: 1.6;
-    font-size: 0.95em;
-    /* This content is always visible, so no max-height needed */
-}
-
-/* Specific styling for static content (like research overview description) */
-.accordion-content.static-content {
-    max-height: none; /* Always visible */
-    padding: 1.5rem; /* Always apply padding */
-    transition: none; /* No transition needed */
+.collapsible-content.expanded {
+  max-height: 1000px; /* Large enough to accommodate content */
+  padding-bottom: 1.5rem; /* Add padding when expanded */
 }
 
 
-/* === Two-Column Accordion Layout === */
-.two-column-accordion-layout {
-  display: grid;
-  grid-template-columns: 1fr; /* Default to single column */
-  gap: var(--accordion-column-gap); /* Space between columns/rows */
-  margin-top: var(--accordion-column-gap); /* Space below the first section */
+.accordion-content p {
+  font-weight: normal; /* Ensure paragraphs inside accordion content are not bold by default */
+  margin-bottom: 1em; /* Increased spacing between paragraphs */
+}
+.accordion-content p:last-child {
+  margin-bottom: 0; /* No margin after the last paragraph */
 }
 
-/* For desktops, make it two columns */
-@media (min-width: 768px) {
-  .two-column-accordion-layout {
-    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
-  }
+/* Bullet point alignment fix (hanging indent) */
+.accordion-content ul {
+    list-style-type: disc; /* Ensure disc style */
+    padding-left: 0; /* Remove default padding to control indentation via li */
+    margin-top: 0.5em; /* Space above the list */
+    margin-bottom: 1em; /* Space below the list, consistent with paragraphs */
 }
-
-/* Apply this if specific accordion items need to span full width */
-.accordion-item.full-width {
-  grid-column: 1 / -1; /* Spans all columns */
+.accordion-content li {
+    margin-bottom: 0.3em; /* Space between list items */
+    padding-left: 1.5em; /* Indent the text of the list item */
+    text-indent: -1.5em; /* Pull the bullet point back into the padding area */
 }
-
-
-/* === Carousel/Slideshow === */
-.slideshow-container {
-  max-width: 100%;
-  position: relative;
-  margin: auto;
-  overflow: hidden; /* Hide parts of images outside bounds */
-}
-
-.mySlides {
-  display: none; /* Hidden by default */
-}
-
-.mySlides img {
-  width: 100%; /* Ensure images fill their container */
-  height: 350px; /* Maintain fixed height */
-  object-fit: cover; /* Cover the area, crop if necessary */
-}
-
-/* Fade animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-/* === Modals === */
-.modal-overlay {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 2000; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: var(--modal-bg); /* Black w/ opacity */
-  align-items: center; /* Center content vertically */
-  justify-content: center; /* Center content horizontally */
-}
-
-.modal-content {
-  background-color: var(--modal-content-bg);
-  margin: auto;
-  padding: 20px;
-  border-radius: var(--border-radius);
-  max-width: 80%; /* Max width for modal content */
-  position: relative;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  max-height: 90vh; /* Limit modal height */
-  overflow-y: auto; /* Enable scrolling within modal if content is long */
-  transform: scale(0.9); /* Start slightly smaller for animation */
-  opacity: 0; /* Start invisible for animation */
-  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
-}
-
-.modal-overlay.open .modal-content {
-  transform: scale(1); /* Scale up to normal size */
-  opacity: 1; /* Fade in */
+.accordion-content li:last-child {
+    margin-bottom: 0; /* No margin after the last list item */
 }
 
 
-.modal-close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
+/* Style for the "more" indicator within snippets */
+.snippet-more-indicator {
+    color: var(--accent-blue); /* Blue color */
+    font-weight: 500; /* Slightly bolder than regular text */
+    margin-left: 0.5em; /* Space from snippet text */
+    white-space: nowrap; /* Keep "more" on one line */
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
 }
-
-.modal-close:hover,
-.modal-close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.modal-overlay.open {
-  display: flex; /* Show the modal */
-}
-
-/* === Dark Mode Styles === */
-body.dark-mode {
-  background-color: var(--dark-primary-bg);
-  color: var(--dark-primary-text);
-}
-
-body.dark-mode header {
-  background-color: var(--accent-blue); /* Can remain same or a darker accent */
-}
-
-body.dark-mode #desktop-nav a {
-  color: var(--dark-primary-text);
-}
-
-body.dark-mode #desktop-nav a:hover {
-  color: var(--accent-light);
-}
-
-body.dark-mode .dropdown-content {
-  background-color: var(--accent-blue);
-}
-
-body.dark-mode .dropdown-content a {
-  color: var(--dark-primary-text);
-}
-
-body.dark-mode .dropdown-content a:hover {
-  background-color: var(--accent-hover);
-}
-
-body.dark-mode .circle-logo {
-  background-color: var(--dark-primary-text);
-  color: var(--accent-blue);
-}
-
-body.dark-mode .logo-title a {
-  color: var(--dark-primary-text);
-}
-
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h4,
-body.dark-mode h5,
-body.dark-mode h6 {
-  color: var(--dark-primary-text);
-}
-
-body.dark-mode .accordion-header {
-  background-color: var(--accent-blue); /* Darker header for accordions */
-  color: var(--dark-primary-text);
-}
-
-body.dark-mode .accordion-header:hover {
-  background-color: var(--accent-hover);
-}
-
-body.dark-mode .accordion-content,
-body.dark-mode .accordion-snippet,
-body.dark-mode .accordion-item {
-  background-color: var(--dark-card-bg);
-  border-color: var(--dark-border);
-}
-
-body.dark-mode .accordion-item:hover {
-  box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Darker shadow for dark mode */
-}
-
-body.dark-mode #research-overview {
-  background-color: var(--dark-card-bg);
-}
-
-body.dark-mode .modal-content {
-  background-color: var(--dark-card-bg);
-  color: var(--dark-primary-text);
-}
-
-body.dark-mode .modal-close {
-  color: var(--dark-primary-text);
-}
-
-body.dark-mode .modal-close:hover,
-body.dark-mode .modal-close:focus {
-  color: #eee;
-}
-
-body.dark-mode .news-section,
-body.dark-mode .events-section {
-  background-color: var(--dark-card-bg);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-body.dark-mode .news-item,
-body.dark-mode .event-item {
-  border-bottom-color: var(--dark-border);
-}
-
-body.dark-mode .news-item p,
-body.dark-mode .event-item p {
-  color: #ccc;
-}
-
-body.dark-mode .timeline-item {
-    color: var(--dark-primary-text); /* Ensure timeline text is visible */
-}
-
-body.dark-mode .timeline-container::before {
-    background-color: var(--dark-border); /* Darker line */
-}
-
-body.dark-mode .timeline-marker {
-    background-color: var(--accent-light); /* Highlight marker */
-}
-
-body.dark-mode .timeline-content {
-    background-color: var(--dark-card-bg);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-body.dark-mode .timeline-date {
-    color: #bbb;
-}
-
-body.dark-mode .event-title {
+body.dark-mode .snippet-more-indicator {
     color: var(--accent-light);
 }
 
-body.dark-mode .timeline-description {
+
+/* === Cards & Research Links === */
+.research-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.2rem;
+}
+.research-card {
+  display: block;
+  padding: 1rem 1.2rem;
+  background: #f9f9f9;
+  border-radius: 6px;
+  border: 1px solid var(--card-border);
+  text-decoration: none;
+  color: var(--accent-blue);
+  font-size: 0.95rem;
+  transition: background var(--transition-fast);
+  font-weight: normal; /* Ensure the main text of the card is normal weight */
+  font-family: var(--font-body); /* Apply Lora to research card text */
+}
+.research-card:hover {
+  background: #edf2f7;
+}
+.research-card strong {
+  font-weight: 700; /* Keep the explicitly strong text bold */
+  font-family: var(--font-sans); /* Use Inter for strong text in cards for differentiation */
+}
+
+/* Styling for modal research cards - now "camouflaged" like upcoming events */
+.modal-research-card {
+  display: block;
+  padding: 0.8rem 1rem; /* Slightly reduced padding */
+  background: none; /* No background */
+  border: none; /* No border */
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.05); /* Subtle dashed border */
+  text-decoration: none;
+  color: var(--primary-text); /* Inherit primary text color */
+  font-size: 0.95rem;
+  transition: box-shadow var(--transition-fast), background var(--transition-fast);
+  cursor: pointer;
+  border-radius: 0; /* No border-radius */
+  box-shadow: none; /* No initial shadow */
+}
+
+.modal-research-card:last-child {
+    border-bottom: none; /* No border on the last item */
+}
+
+.modal-research-card:hover {
+  background: rgba(0, 0, 0, 0.02); /* Very subtle background change on hover */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Subtle shadow on hover */
+}
+
+body.dark-mode .modal-research-card {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+    color: var(--dark-primary-text);
+}
+
+body.dark-mode .modal-research-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.modal-research-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1rem; /* Slightly smaller for card titles */
+    font-weight: 600;
+    color: var(--accent-blue); /* Distinct color for title */
+    margin-bottom: 0.3rem; /* Space below title */
+}
+
+body.dark-mode .modal-research-card h3 {
+    color: var(--accent-light);
+}
+
+.modal-research-card p {
+    font-size: 0.85rem; /* Smaller font for description */
+    line-height: 1.5;
+    color: #555; /* Softer color for description */
+}
+
+body.dark-mode .modal-research-card p {
     color: var(--dark-primary-text);
 }
 
 
-/* === Footer === */
-footer {
+/* === Learn More Buttons & Expand Link === */
+.learn-more-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
   background-color: var(--accent-blue);
-  color: #fff;
-  padding: 2rem 1.5rem;
-  margin-top: auto; /* Pushes footer to the bottom */
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background var(--transition-fast);
+  cursor: pointer;
+  font-family: var(--font-sans); /* Apply Inter to buttons */
+}
+.learn-more-btn:hover {
+  background-color: var(--accent-hover);
+}
+
+.modal-learn-more-btn { /* New class for buttons inside modals */
+  display: inline-block;
+  margin-top: 1.5rem; /* Increased margin to separate from cards/text */
+  padding: 0.7rem 1.2rem; /* Slightly larger padding for prominence */
+  background-color: var(--accent-blue);
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.95rem; /* Slightly larger font */
+  font-weight: 600; /* Slightly bolder */
+  transition: background var(--transition-fast), transform 0.2s ease;
+  cursor: pointer;
+  font-family: var(--font-body); /* Using Lora for modal buttons */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+.modal-learn-more-btn:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.expand-link {
+  display: none; /* Removed as per user request */
+}
+
+/* Specific style for news/events archive buttons */
+.archive-btn-container {
+    text-align: right;
+    margin-top: 1rem;
+}
+.archive-btn {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  background: linear-gradient(45deg, var(--accent-light), var(--accent-blue));
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  cursor: pointer;
   font-family: var(--font-sans);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.archive-btn:hover {
+  background: linear-gradient(45deg, var(--accent-blue), var(--accent-hover));
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* === Modal === */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--modal-bg);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  role: dialog;
+  aria-labelledby: modal-title;
+  /* Add aria-modal to ensure proper accessibility for modal dialogs */
+  aria-modal="true"
+}
+.modal-overlay.active {
+  display: flex;
+}
+.modal-content {
+  background: var(--modal-content-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 700px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  color: var(--primary-text);
+  font-family: var(--font-body);
+}
+.modal-content p + p {
+  margin-top: 1em;
+}
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* === Calendar === */
+/* Styling for the fancy calendar button */
+.fancy-calendar-button {
+    background: radial-gradient(circle at top left, var(--accent-light) 0%, var(--accent-blue) 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 15px;
+    font-family: var(--font-sans);
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 43, 69, 0.2), 0 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+}
+
+.fancy-calendar-button:hover {
+    background: radial-gradient(circle at bottom right, var(--accent-hover) 0%, var(--accent-blue) 100%);
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 43, 69, 0.5), 0 8px 15px rgba(0,0,0,0.4);
+}
+
+.fancy-calendar-button:active {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 5px 10px rgba(0, 43, 69, 0.2), inset 0 2px 4px (0,0,0,0.3);
+}
+
+/* Full calendar for modal */
+#full-calendar {
+  font-family: var(--font-sans);
+  border: none;
+  background-color: transparent;
+  border-radius: 0;
+  overflow: hidden;
+  width: 100% !important;
+  padding: 0;
+  box-shadow: none;
+}
+
+body.dark-mode #full-calendar {
+  background-color: transparent;
+}
+
+
+/* FullCalendar Toolbar (Header) */
+.fc .fc-toolbar {
+  background-color: var(--accent-blue);
+  color: white;
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.fc .fc-toolbar-title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* FullCalendar Buttons */
+.fc .fc-button {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 0.4em 0.8em;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 0.8em;
+  transition: background-color var(--transition-fast), transform 0.1s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  cursor: pointer;
+  outline: none;
+  font-family: var(--font-sans);
+}
+.fc .fc-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.fc .fc-button:active {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(0);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+.fc .fc-button-primary:not(:disabled).fc-button-active {
+  background-color: rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+
+/* Day Grid Cells */
+.fc-theme-standard td,
+.fc-theme-standard th {
+  border-color: var(--card-border);
+}
+body.dark-mode .fc-theme-standard td,
+body.dark-mode .fc-theme-standard th {
+  border-color: var(--dark-border);
+}
+
+.fc-daygrid-day-top {
+  padding: 0.35em;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--primary-text);
+}
+body.dark-mode .fc-daygrid-day-top {
+  color: var(--dark-primary-text);
+}
+
+/* Days of the week (headers) */
+.fc-col-header-cell-cushion {
+    font-size: 0.7rem;
+    color: #555;
+    font-weight: 600;
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+}
+body.dark-mode .fc-col-header-cell-cushion {
+    color: #ccc;
+}
+
+
+/* Events */
+.fc-event {
+  background-color: var(--accent-light);
+  color: white;
+  border-radius: 4px;
+  padding: 0.2em 0.4em;
+  margin-bottom: 3px;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  white-space: normal;
+  font-family: var(--font-sans);
+}
+body.dark-mode .fc-event {
+  background-color: #0072b1;
+}
+
+.fc-event-title {
+  font-size: 0.75em;
+  font-weight: 500;
+  white-space: normal;
+}
+
+/* Today's highlighting */
+.fc-day-today {
+  background-color: rgba(0, 92, 151, 0.08);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 92, 151, 0.2);
+}
+body.dark-mode .fc-day-today {
+  background-color: rgba(0, 114, 177, 0.12);
+  border-color: rgba(0, 114, 177, 0.25);
+}
+
+/* Day numbers for current month */
+.fc-daygrid-day.fc-day-valid {
+  color: var(--primary-text);
+}
+body.dark-mode .fc-daygrid-day.fc-day-valid {
+  color: var(--dark-primary-text);
+}
+
+/* Day numbers for other months */
+.fc-day-other .fc-daygrid-day-top {
+  opacity: 0.4;
+}
+
+/* General improvements */
+.fc-scrollgrid-sync-table {
+  border-collapse: separate;
+}
+.fc-daygrid-day-frame {
+  min-height: 40px;
+}
+
+/* === Timeline UI === */
+.timeline-container {
+  max-height: 450px;
+  overflow-y: auto;
+  padding-right: 2px;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+}
+/* Removed :hover { overflow-y: auto; } since it's now applied above */
+.timeline-container::-webkit-scrollbar {
+  width: 6px;
+}
+.timeline-container::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 3px;
+}
+body.dark-mode .timeline-container::-webkit-scrollbar-thumb {
+  background-color: #666;
+}
+
+
+.timeline {
+  position: relative;
+  font-family: var(--font-body);
+}
+
+/* Re-add the timeline vertical line for general .timeline, but override for #latest-news-section below */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 6px;
+  width: 2px;
+  background-color: #ddd;
+  z-index: 1;
+}
+
+body.dark-mode .timeline::before {
+  background-color: #555;
+}
+
+/* Base style for timeline items, now functioning as clickable cards */
+.timeline-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding-left: 25px;
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+  cursor: pointer; /* Ensure news items are clickable */
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+body.dark-mode .timeline-item {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Specific styling for the news cards - retain previous values */
+#latest-news-section .timeline-item {
+  background-color: #f2ede1;
+  background-image:
+    linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 50%),
+    linear-gradient(-45deg, rgba(0,0,0,0.05) 0%, transparent 60%);
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-bottom: 0.75rem;
+  position: relative;
+  transition: all 0.2s ease;
+  display: block;
+  border-bottom: none;
+}
+
+body.dark-mode #latest-news-section .timeline-item {
+    background-color: #3a322b;
+    background-image:
+        linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%),
+        linear-gradient(-45deg, rgba(0,0,0,0.1) 0%, transparent 60%);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Alternating tilts for cards */
+#latest-news-section .timeline-item:nth-child(odd) {
+    transform: rotate(0.5deg);
+}
+#latest-news-section .timeline-item:nth-child(even) {
+    transform: rotate(-0.5deg);
+}
+#latest-news-section .timeline-item:hover {
+    transform: scale(1.01) rotate(0deg);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+/* Pin for each timeline item */
+#latest-news-section .timeline-item::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background-color: #8b0000;
+  border-radius: 50%;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3), 0 0.5px 1px rgba(0,0,0,0.2);
+  z-index: 3;
+}
+body.dark-mode #latest-news-section .timeline-item::before {
+    background-color: #b30000;
+}
+
+/* Override removed timeline marker for #latest-news-section */
+#latest-news-section .timeline-marker {
+  display: none;
+}
+
+/* Adjust timeline content for new card layout */
+#latest-news-section .timeline-content {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* Specific text styling within news cards for readability */
+#latest-news-section .timeline-date {
+    font-size: 0.7rem;
+    color: #888;
+    font-family: var(--font-sans);
+    margin-bottom: 0.1rem;
+}
+body.dark-mode #latest-news-section .timeline-date {
+    color: #bbb;
+}
+
+#latest-news-section .timeline-content .news-title-link {
+    color: var(--accent-blue);
+    font-weight: 600;
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    transition: color var(--transition-fast);
+    line-height: 1.3;
+    display: block;
+    text-decoration: none;
+}
+/* Remove hover effect from internal link as the whole card has a hover effect now */
+#latest-news-section .timeline-content .news-title-link:hover {
+  text-decoration: none;
+  color: var(--accent-blue);
+}
+
+body.dark-mode #latest-news-section .timeline-content .news-title-link {
+  color: var(--accent-light);
+}
+body.dark-mode #latest-news-section .timeline-content .news-title-link:hover {
+  color: var(--accent-light);
+}
+
+
+#latest-news-section .timeline-description {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0;
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
+}
+body.dark-mode #latest-news-section .timeline-description {
+    color: var(--dark-primary-text);
+}
+
+/* Ensure archive button within news section is readable on light background */
+#latest-news-section .archive-btn {
+    background: linear-gradient(45deg, var(--accent-light), var(--accent-blue));
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+body.dark-mode #latest-news-section .archive-btn {
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-hover));
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Remove timeline line for latest news section */
+#latest-news-section .timeline::before {
+    content: none;
+}
+
+/* Space after slideshow in Academic & Research Activities */
+#academic-activities-section .slideshow-container {
+    margin-bottom: 1.5rem;
+}
+
+/* Specific styling for the upcoming events timeline */
+#upcoming-events-section .timeline::before {
+    content: '';
+}
+
+#upcoming-events-section .timeline-marker {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-light);
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+body.dark-mode #upcoming-events-section .timeline-marker {
+    background-color: var(--accent-hover);
+}
+
+#upcoming-events-section .timeline-item {
+    background: none;
+    padding: 0 0 0.6rem 25px;
+    margin-bottom: 0.6rem;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: flex-start;
+    box-shadow: none;
+    transform: none;
+    cursor: pointer; /* Ensure upcoming event items are clickable */
+}
+#upcoming-events-section .timeline-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+body.dark-mode #upcoming-events-section .timeline-item {
+  border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+#upcoming-events-section .timeline-item::before {
+  content: none;
+}
+
+#upcoming-events-section .timeline-content {
+    margin-left: 0;
+}
+
+/* Styling for event titles (now spans) */
+.event-title {
+    color: var(--accent-blue);
+    font-weight: 600;
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    line-height: 1.3;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+body.dark-mode .event-title {
+    color: var(--accent-light);
+}
+
+
+/* Apply specific style for event links to remove underline on hover */
+#upcoming-events-section .timeline-content .event-link:hover {
+    text-decoration: none;
+    color: var(--accent-hover);
+}
+
+body.dark-mode #upcoming-events-section .timeline-content a {
+  color: var(--accent-light);
+}
+body.dark-mode #upcoming-events-section .timeline-content a:hover {
+  color: var(--accent-hover);
+}
+
+/* Remove .event-details-btn styles as the button is removed */
+.event-details-btn {
+    display: none;
+}
+
+/* --- Footer styles based on IAS image --- */
+footer {
+  background: linear-gradient(to right, var(--accent-blue), var(--accent-light));
+  color: white;
+  padding: 30px 0;
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .footer-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Changed to center for central alignment */
+  flex-wrap: wrap;
   max-width: var(--max-content-width);
+  width: 90%;
   margin: 0 auto;
-  flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
-  gap: 1.5rem; /* Space between columns */
+  padding: 0;
+  gap: 20px; /* Provides consistent spacing between columns and rows */
 }
 
 .footer-column {
-  flex: 1; /* Equal width columns */
-  min-width: 250px; /* Minimum width before wrapping */
-  padding-right: 1.5rem; /* Space between columns */
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  flex: 0 0 220px; /* Fixed width to prevent stretching, allows wrapping */
+  min-width: 200px; /* Ensures content doesn't get too narrow */
+  /* Removed padding-right and border-right as gap handles spacing */
+  /* Removed margin-bottom here, as gap handles vertical spacing */
 }
 
-.footer-column:last-child {
-  border-right: none; /* No border on the last column */
+/* Remove specific border-right rules no longer needed with flex gap */
+/*
+.footer-column:nth-child(4n) {
+  border-right: none;
   padding-right: 0;
 }
 
-.footer-column h3 {
-  color: #fff;
-  margin-bottom: 1rem;
-  font-size: 1.2em;
+.footer-column:last-child {
+  border-right: none;
+  padding-right: 0;
 }
+*/
 
-.footer-column p {
-  font-size: 0.9em;
-  line-height: 1.5;
-  margin-bottom: 0.5rem;
-}
-
-.footer-column a {
-  color: #fff;
-  display: block;
-  font-size: 0.9em;
-  margin-bottom: 0.5rem;
-}
-
-.footer-column a:hover {
-  color: var(--accent-light);
+body.dark-mode .footer-column {
+    border-right-color: rgba(255, 255, 255, 0.05);
 }
 
 .footer-logo {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 1rem;
+    max-width: 80px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.footer-column h3 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.footer-column p {
+  margin-bottom: 8px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+footer .footer-column a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+  transition: color 0.2s ease;
+}
+
+footer .footer-column a:hover {
+  color: var(--accent-hover);
+  text-decoration: none;
 }
 
 .footer-map-container {
-  position: relative;
-  width: 100%;
-  padding-bottom: 75%; /* 4:3 Aspect Ratio */
-  height: 0;
-  overflow: hidden;
-  margin-top: 1rem;
-  border-radius: var(--border-radius);
+    margin-top: 15px;
+    width: 100%;
+    max-width: 200px;
+    height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
 .footer-map-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  border-radius: var(--border-radius);
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
+.footer-map-link {
+    color: white;
+    text-decoration: underline;
+    margin-top: 10px;
+    display: block;
+}
+.footer-map-link:hover {
+    color: var(--accent-hover);
+}
+
+.give-now-btn,
 .enews-signup-btn {
   background-color: var(--accent-light);
-  color: #fff;
-  padding: 0.6em 1.2em;
-  border-radius: var(--border-radius);
-  font-size: 0.9em;
-  cursor: pointer;
+  color: white;
   border: none;
-  transition: background-color var(--transition-fast);
-  margin-top: 1rem;
-  display: inline-block; /* Ensure it stays inline with text for larger screens */
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
+.give-now-btn:hover,
 .enews-signup-btn:hover {
   background-color: var(--accent-hover);
+  transform: translateY(-2px);
 }
 
 .social-icons {
   display: flex;
-  gap: 0.8rem;
-  margin-top: 1rem;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.social-icons a {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.social-icons a:hover {
+  background-color: var(--accent-light);
 }
 
 .social-icons img {
-  width: 24px;
-  height: 24px;
-  filter: brightness(0) invert(1); /* Make icons white */
+  width: 16px;
+  height: 16px;
+  filter: invert(100%);
 }
 
 .footer-bottom {
   text-align: center;
-  margin-top: 2rem;
-  padding-top: 1rem;
+  padding-top: 20px;
+  margin-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.8em;
+  font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.7);
+  width: 90%;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
 }
 
-/* === Scroll to Top Button === */
-#scroll-to-top-btn {
-  display: none; /* Hidden by default */
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: var(--accent-blue);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: background-color var(--transition-fast), opacity 0.3s ease;
-  z-index: 999; /* Ensure it's above other content */
-  opacity: 0.8;
-}
 
-#scroll-to-top-btn:hover {
-  background-color: var(--accent-hover);
-  opacity: 1;
-}
-
-/* === Responsive Design === */
-@media (max-width: 1024px) {
-  /* Adjust header padding for smaller screens */
-  .header-content {
-    padding: 0 1rem;
+/* === Responsive === */
+@media (max-width: 768px) {
+  body {
+    padding-top: 80px;
   }
 
-  /* Adjust navigation gap or stack if necessary */
-  #desktop-nav ul {
+  .header-content {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 1rem;
+      width: 100%;
+  }
+
+  /* Hide desktop navigation and show hamburger */
+  nav {
+    display: none;
+  }
+
+  .hamburger-menu-icon {
+    display: block;
+  }
+  /* Ensure header-right-group does not interfere on mobile */
+  .header-right-group {
+    display: contents;
+  }
+
+
+  /* Main content layout on mobile */
+  .main-layout-wrapper {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    width: 95%;
+    padding-top: 1rem;
+    margin-bottom: 1.5rem;
+
+    /* Mobile grid areas definition for desired stacking order */
+    grid-template-areas:
+      "campus"
+      "about"
+      "sidebar-col"
+      "left-main-col"
+      "right-main-col";
+  }
+
+  /* Reset flexbox for containers on mobile if needed to ensure stacking */
+  .left-accordion-col-wrapper,
+  .right-accordion-col-wrapper,
+  .sidebar-container {
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
   }
 
-  /* Adjust main content padding */
-  #main-content-start {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  /* Adjust campus image height for better responsiveness on mobile */
+  #campus-photos-section .top-image img {
+    height: auto; /* Allow height to adjust based on aspect ratio */
+    min-height: 200px; /* Minimum height for visibility */
+    max-height: 40vh; /* Max height relative to viewport for smaller screens */
   }
 
-  /* Adjust general section padding for smaller screens */
-  #about-ksom-section,
-  #news-events-section {
-    padding: 0 1rem;
-  }
-
-  /* About section layout adjustments */
-  .about-content {
-    flex-direction: column;
+  /* No longer hide calendar section on mobile */
+  #calendar-section {
+    display: flex !important;
+    justify-content: center;
     align-items: center;
+    margin-top: 0.25rem; /* Reduced from 0.5rem */
+    margin-bottom: 0.25rem; /* Reduced from 0.5rem */
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    cursor: default;
+    transform: none;
+  }
+  #calendar-section:hover {
+      box-shadow: none !important;
   }
 
-  .about-image {
-    max-width: 100%; /* Image takes full width in column layout */
-  }
-}
-
-@media (max-width: 768px) {
-  /* Header */
-  #desktop-nav {
-    display: none; /* Hide desktop nav on smaller screens */
-  }
-  .hamburger-menu-icon {
-    display: block; /* Show hamburger icon */
-  }
-  .header-right-group {
-    display: flex;
-    align-items: center;
-    gap: 1rem; /* Space between hamburger and dark mode toggle */
-  }
-
-  /* Main content padding on smaller mobile screens */
-  #main-content-start {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-
-  /* Home page sections */
-  #about-ksom-section,
-  #news-events-section {
-    padding: 0 0.5rem;
-  }
-
-  .news-events-grid {
-    grid-template-columns: 1fr; /* Stack news and events vertically */
-  }
-
-  .news-section,
-  .events-section {
-    padding: 1.5rem; /* Slightly reduced padding for mobile cards */
-  }
-
-  /* Timeline adjustments for smaller screens */
-  .timeline-container::before {
-      left: 20px; /* Move line to the left for mobile */
-      transform: none; /* Remove transform */
-  }
-  .timeline-item {
-      text-align: left !important; /* Force all items to left-align */
-      justify-content: flex-start !important; /* Force all items to left-align */
-      padding-left: 50px !important; /* Adjust padding for new line position */
-      padding-right: 0 !important;
-  }
-  .timeline-item .timeline-marker {
-      left: 20px; /* Position marker on the left line */
-      transform: translateY(-50%) !important; /* Only vertical centering */
-  }
-  .timeline-content {
-      max-width: calc(100% - 70px) !important; /* Adjust content width */
-      margin-left: 0 !important;
-      margin-right: 0 !important;
-  }
-  .timeline-date,
-  .event-title,
-  .timeline-description {
-      text-align: left !important; /* Ensure text aligns left */
-  }
 
   /* Footer responsive adjustments */
   footer {
@@ -1262,7 +1663,7 @@ footer {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 20px;
     margin-bottom: 20px; /* Keep for vertical spacing between stacked columns */
-  }\
+  }
   .footer-column:last-child {
     border-bottom: none;
     padding-bottom: 0;
@@ -1288,18 +1689,30 @@ footer {
   .social-icons {
       justify-content: center;
   }
-}
 
-@media (max-width: 480px) {
-  h1 { font-size: 2em; }
-  h2 { font-size: 1.75em; }
-  h3 { font-size: 1.5em; }
-  /* Further reduce padding for very small screens if needed */
-  #main-content-start {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+  .footer-bottom {
+    width: 100%;
+    padding: 1rem;
   }
-  .accordion-content.open {
-    padding: 1rem; /* Slightly less padding on small screens */
+
+  /* Calendar Responsive adjustments */
+  .fc .fc-toolbar {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+  }
+  .fc .fc-toolbar-title {
+    font-size: 1.2rem;
+  }
+  
+  /* Modal adjustments for smaller screens */
+  .modal-content {
+      max-height: 75vh;
+      margin-top: 50px;
+      width: 95%;
+  }
+
+  .modal-overlay {
+      align-items: flex-start;
   }
 }
