@@ -1,49 +1,32 @@
 ---
 layout: base.html
-title: Research Areas at KSoM
+title: Research at KSoM
 ---
 
 <div class="main-full-width" id="main-content-start">
-    <section id="research-areas-introduction">
-        <div class="accordion-header">Explore Our Key Research Areas</div>
+    <!-- 1. Overview of Research at KSoM (Static, non-clickable section) -->
+    <section id="research-overview">
+        <div class="accordion-header">Overview of Research at KSoM</div>
         <div class="accordion-content static-content">
-            <p>At the Kerala School of Mathematics (KSoM), our research initiatives delve deep into diverse and cutting-edge areas of mathematics. Our distinguished faculty and dedicated researchers are at the forefront of exploring fundamental theories and their applications, fostering an environment of discovery and innovation.</p>
-            <p>Below, you will find an overview of our primary research domains. Each area represents a dynamic field where we contribute to global mathematical knowledge through rigorous inquiry, collaborative projects, and the development of new methodologies. Click on each area to learn more about the specific focus, ongoing projects, and key researchers involved.</p>
+            <p>At the Kerala School of Mathematics (KSoM), research forms the cornerstone of our academic mission. We are committed to fostering a vibrant and innovative environment where groundbreaking discoveries are made, and mathematical frontiers are expanded. Our research initiatives span a broad spectrum of pure and applied mathematics, driven by a distinguished faculty and a community of passionate researchers.</p>
+            <p>Our work not only deepens fundamental understanding but also seeks to address complex challenges through interdisciplinary approaches. We believe in nurturing critical thinking, encouraging collaborative projects, and providing state-of-the-art resources to support our researchers in their pursuit of excellence.</p>
+            <p>This commitment extends to our academic programs, where students are integrated into research from an early stage, benefiting from direct mentorship and participation in ongoing projects. KSoM is a place where mathematical curiosity is transformed into significant contributions to the global scientific community. Our research thrives through synergistic partnerships between faculty, postdoctoral researchers, and doctoral students. This collaborative ecosystem combines rigorous theoretical inquiry and computational approaches, positioning KSoM at the forefront of mathematical discovery while training next-generation mathematicians.</p>
         </div>
     </section>
 
-    <section class="accordion-item" data-direct-link="true" data-learn-more-url="/research/complex-analysis">
-        <div class="accordion-header" role="button" tabindex="0" aria-label="Learn more about Complex Analysis Research">Complex Analysis Research</div>
+    <!-- 2. Research Areas at KSoM (Clickable card, direct link to /research/areas, no modal, no 'more') -->
+    <section id="research-areas-section-link" class="accordion-item" data-direct-link="true" data-learn-more-url="/research/areas">
+        <div class="accordion-header" role="button" tabindex="0" aria-label="Explore our detailed Research Areas">Research Areas at KSoM</div>
         <div class="accordion-snippet">
-            Our group explores several complex variables as a dynamic area of modern mathematics, focusing on Hörmander's estimates and their impact on the Bers domain (Teichmüller space). We investigate the profound geometric implications of the Kobayashi metric being isometric to the Teichmüller metric. This research bridges complex analysis, Teichmüller theory, and differential geometry, advancing our understanding of intrinsic metrics on complex spaces through interdisciplinary connections with algebra, PDEs, and algebraic geometry.
+            Explore the cutting-edge research conducted by our faculty and scholars across various domains of mathematics, including Complex Analysis, Braid Groups, Harmonic Analysis, Non-commutative Functional Analysis, and Analytic Number Theory. Our dedicated research groups are at the forefront of discovery.
         </div>
     </section>
 
-    <section class="accordion-item" data-direct-link="true" data-learn-more-url="/research/braid-&-mapping-class-groups">
-        <div class="accordion-header" role="button" tabindex="0" aria-label="Learn more about Braid Groups & Mapping Class Groups Research">Braid Groups & Mapping Class Groups Research</div>
+    <!-- 3. KSoM Publications Section (Clickable card, direct link to /research/publications, no modal, no 'more') -->
+    <section id="publications-section" class="accordion-item" data-direct-link="true" data-learn-more-url="https://ksom.res.in/research/publications">
+        <div class="accordion-header" role="button" tabindex="0" aria-label="View KSoM Publications">KSoM Publications</div>
         <div class="accordion-snippet">
-            We study fundamental structures at the intersection of algebraic topology and geometric group theory, examining relationships between braid groups and mapping class groups. Our work centers on liftability problems and the Birman-Hilden property, which determine when surface homeomorphisms extend to handlebodies. A key focus involves classifying unitary representations of braid groups and analyzing their connections to quantum invariants, linking geometric group theory with representation theory and quantum topology.
-        </div>
-    </section>
-
-    <section class="accordion-item" data-direct-link="true" data-learn-more-url="/research/harmonic-analysis">
-        <div class="accordion-header" role="button" tabindex="0" aria-label="Learn more about Harmonic Analysis Research">Harmonic Analysis Research</div>
-        <div class="accordion-snippet">
-            Our investigations center on harmonic analysis in nilpotent Lie groups and time-frequency methods, connecting classical Fourier analysis with modern operator theory. We explore modulation spaces, Fourier multipliers, twisted convolution operators, and their Lp-Lq boundedness properties. The group also analyzes nonlinear Schrödinger equations with twisted Laplacians, maximal functions along hypersurfaces, and develops Hardy-Sobolev inequalities in non-commutative settings, advancing oscillatory integral techniques for dispersive PDEs.
-        </div>
-    </section>
-
-    <section class="accordion-item" data-direct-link="true" data-learn-more-url="/research/non-commutative-functional-analysis">
-        <div class="accordion-header" role="button" tabindex="0" aria-label="Learn more about Non-commutative Functional Analysis Research">Non-commutative Functional Analysis Research</div>
-        <div class="accordion-snippet">
-            We extend functional analysis to quantum realms through operator algebras and operator spaces, investigating quantum approximation properties and convexity in C*-algebras. Our work focuses on completely bounded approximation, quantum convexity, matricial ranges, and operator system structures. This research bridges abstract functional analysis with quantum information theory, with applications in quantum error correction, quantum channel classification, and geometric analysis of quantum states.
-        </div>
-    </section>
-
-    <section class="accordion-item" data-direct-link="true" data-learn-more-url="/research/analytic-number-theory">
-        <div class="accordion-header" role="button" tabindex="0" aria-label="Learn more about Analytic Number Theory Research">Analytic Number Theory Research</div>
-        <div class="accordion-snippet">
-            Our group employs advanced analytic techniques to study prime distributions, multiplicative functions, and L-function special values. We investigate multiple zeta values and their generalizations (including multiple Apéry-like sums), explicit averages beyond classical estimates, Möbius sums with coprimality conditions, and additive number theory extensions. Key work involves the Beurling-Selberg function's applications to prime number theory and developing new methods for bounding multiple zeta value tails, connecting analytic techniques with combinatorial structures.
+            Faculty members, postdoctoral fellows, and research scholars at KSoM regularly contribute to leading journals and present at international conferences, significantly advancing mathematical knowledge. Our publications reflect the breadth and depth of research conducted at the institute, covering diverse areas from pure mathematics to its applications.
         </div>
     </section>
 </div>
