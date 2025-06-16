@@ -484,37 +484,40 @@ nav a:hover {
     margin-bottom: 0; /* Ensure no margin after the last item in a sequence */
 }
 
-/* Override cursor for non-clickable sections which are NOT accordion-item */
-#research-overview, #areas-overview-intro, #research-areas-introduction,  { /* No accordion-item class, so style it as a static block */
+/* === Static Block Sections (Reusable Class) === */
+.static-section {
     cursor: default;
     transform: none;
     box-shadow: none;
-    padding: 0 !important; /* Remove any padding from .accordion-item */
-    background: transparent !important; /* No card background */
+    padding: 0 !important;
+    background: transparent !important;
     margin-bottom: 0.2rem;
-    gap: 0rem; /* Adjust gap for stacked content */
+    gap: 0rem;
 }
-#research-overview .accordion-header, #areas-overview-intro .accordion-header {
-    font-size: 1.5rem; /* Larger size for the intro heading */
-    margin-bottom: 1rem; /* More space below intro title */
-    color: var(--accent-blue); /* Ensure header color */
+
+.static-section .accordion-header {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-blue);
     font-weight: 700;
     font-family: var(--font-serif);
-    display: block; /* Make it a block element to take full width */
+    display: block;
     cursor: default;
 }
-body.dark-mode #research-overview .accordion-header, body.dark-mode #areas-overview-intro .accordion-header {
+
+body.dark-mode .static-section .accordion-header {
     color: var(--accent-light);
 }
 
-#research-overview .accordion-content.static-content, #areas-overview-intro .accordion-content.static-content {
-    padding: 1.5rem; /* Add consistent padding for text content */
-    background: var(--card-bg); /* Give it a card background */
-    border-radius: 12px; /* Rounded corners */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Subtle shadow */
-    margin-bottom: 1.5rem; /* Space below the static intro section */
+.static-section .accordion-content.static-content {
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 1.5rem;
 }
-body.dark-mode #research-overview .accordion-content.static-content, body.dark-mode #areas-overview-intro .accordion-content.static-content {
+
+body.dark-mode .static-section .accordion-content.static-content {
     background: var(--dark-card-bg);
     border: 1px solid var(--dark-border);
 }
