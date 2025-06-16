@@ -417,7 +417,7 @@ nav a:hover {
     display: flex; /* Changed to flex for vertical stacking without grid areas */
     flex-direction: column; /* Stack items vertically */
     margin-bottom: 1rem;
-    padding-top: 1.5rem; /* Space at the top of the main content */
+    padding-top: 0.5rem; /* Space at the top of the main content */
     padding-bottom: 0.5rem; /* More space at the bottom of the main content before the footer */
     margin-left: auto;
     margin-right: auto; /* Center the content */
