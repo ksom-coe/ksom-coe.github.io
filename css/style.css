@@ -408,22 +408,31 @@ nav a:hover {
 }
 
 /* NEW: Full-width layout for specific pages (e.g., research.md) */
+
 .main-full-width {
-    grid-template-columns: 1fr; /* Single column, full width */
-    grid-template-areas: none; /* No specific grid areas */
-    width: 90%; /* Maintain overall content width from base */
-    max-width: var(--max-content-width); /* Ensure it respects your defined max width */
-    gap: 0.4rem; /* Adjust gap for stacked content */
-    display: flex; /* Changed to flex for vertical stacking without grid areas */
+    /* Flexbox properties for vertical stacking and gap control */
+    display: flex;          /* Make it a flex container */
     flex-direction: column; /* Stack items vertically */
-    margin-bottom: 1rem;
-    padding-top: 1rem; /* Space at the top of the main content */
-    padding-bottom: 0.5rem; /* More space at the bottom of the main content before the footer */
-    margin-left: auto;
-    margin-right: auto; /* Center the content */
-    padding-left: 1rem; /* Padding on sides for smaller screens */
-    padding-right: 1rem; /* Padding on sides for smaller screens */
+    gap: 0.4rem;            /* <<< Adjust gap for stacked content (e.g., between overview and accordions) */
+
+    /* Width and centering */
+    width: 90%;             /* Maintain overall content width from base */
+    max-width: var(--max-content-width); /* Ensure it respects your defined max width */
+    margin-left: auto;      /* Center the content */
+    margin-right: auto;     /* Center the content */
+    margin-bottom: 1rem;    /* Space at the bottom of the main content block */
+
+    /* Internal padding */
+    padding-top: 1rem;      /* Space at the top of the main content inside the container */
+    padding-bottom: 0.5rem; /* Space at the bottom of the main content inside the container */
+    padding-left: 1rem;     /* Padding on sides for smaller screens */
+    padding-right: 1rem;    /* Padding on sides for smaller screens */
+
+    /* Other layout properties (if any were already present and you want to keep them) */
+    flex-grow: 1; /* Allows main content to take up available vertical space */
+    /* Remove any old grid-template-columns, grid-template-areas if they were here */
 }
+
 
 
 /* Assign grid areas to direct children of main-layout-wrapper */
