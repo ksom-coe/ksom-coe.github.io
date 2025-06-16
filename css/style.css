@@ -413,7 +413,7 @@ nav a:hover {
     /* Grid properties for layout, similar to main-layout-wrapper */
     display: grid;
     grid-template-columns: 1fr; /* Single column layout */
-    gap: 1.5rem; /* Gap between grid items */
+    gap: 0rem; /* Gap between grid items */
 
     /* Width and centering, similar to main-layout-wrapper */
     width: 95%; /* Take 95% of available width */
