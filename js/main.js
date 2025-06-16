@@ -245,38 +245,39 @@ function initSlideshow(slideshowId, intervalTime = 3000) {
     let slides = document.querySelectorAll(`[data-slideshow-id="${slideshowId}"] .mySlides`);
 
     if (slides.length === 0) {
-        console.error(`Slideshow Error: No slides found for slideshow-id: ${slideshowId}. Check HTML structure.`);
+        console.warn(`Slideshow Error: No slides found for slideshow-id: ${slideshowId}. Check HTML structure.`);
         return;
     }
 
-    // Function to display a specific slide
-    function displaySlide(n) {
-        // Hide all slides
-        for (let i = 0; i < slides.length; i++) {
+    // Immediately show the first slide and hide others (if not already handled by CSS)
+    // This ensures that the first slide is visible as soon as JS runs.
+    for (let i = 0; i < slides.length; i++) {
+        if (i === 0) {
+            slides[i].style.display = "block";
+        } else {
             slides[i].style.display = "none";
         }
-        // Show the specified slide
-        slides[n].style.display = "block";
     }
 
-    function startSlideshow() {
-        // Clear any existing interval for this slideshow
-        if (slideshowIntervals[slideshowId]) {
-            clearInterval(slideshowIntervals[slideshowId]);
-        }
-        
-        // Ensure the very first slide (index 0) is shown immediately
-        currentSlideIndex = 0; 
-        displaySlide(currentSlideIndex);
+    // Function to display the next slide in the sequence
+    function showNextSlide() {
+        // Hide the current slide before advancing
+        slides[currentSlideIndex].style.display = "none";
 
-        // Set the interval for subsequent slides
-        slideshowIntervals[slideshowId] = setInterval(() => {
-            currentSlideIndex = (currentSlideIndex + 1) % slides.length; // Correct way to loop
-            displaySlide(currentSlideIndex);
-        }, intervalTime);
+        // Advance to the next slide, looping back to the beginning if at the end
+        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+
+        // Show the new current slide
+        slides[currentSlideIndex].style.display = "block";
     }
 
-    startSlideshow(); // Start the slideshow when initSlideshow is called
+    // Clear any existing interval for this slideshow
+    if (slideshowIntervals[slideshowId]) {
+        clearInterval(slideshowIntervals[slideshowId]);
+    }
+    
+    // Set the interval for subsequent slides
+    slideshowIntervals[slideshowId] = setInterval(showNextSlide, intervalTime);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
