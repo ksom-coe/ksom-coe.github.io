@@ -61,9 +61,9 @@ full_width: true
 
     <section class="static-section" id="student-life-static">
         <div class="accordion-header">Student Life at KSoM</div>
-        <div class="accordion-content static-content">
+
             <p>Beyond academics, KSoM offers a vibrant and supportive environment for students. Our campus facilities, residential options, and a variety of extracurricular activities contribute to a well-rounded and enriching experience. Students benefit from a close-knit community, opportunities for social engagement, and a setting conducive to both intellectual growth and personal development.</p>
-        </div>
+
     </section>
 
 </div>
