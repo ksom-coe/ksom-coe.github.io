@@ -1810,3 +1810,32 @@ p > .mjx-chtml {
   line-height: 1.6;
   vertical-align: middle;
 }
+
+/* === MathJax Inline Math Cleanup for Accordions === */
+
+/* Fix inline math spacing in headers/snippets */
+.accordion-header .mjx-chtml,
+.accordion-snippet .mjx-chtml {
+  display: inline !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  vertical-align: middle !important;
+  font-size: 1em !important;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* Remove block-like spacing around inline math in headers */
+.accordion-header mjx-container {
+  display: inline !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: middle !important;
+}
+
+/* If math wraps, make sure it doesn't break layout */
+.accordion-header mjx-container mjx-math {
+  overflow-x: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
