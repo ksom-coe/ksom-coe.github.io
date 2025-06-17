@@ -20,13 +20,9 @@ full_width: true
             <img src="/images/programmes/Image-4.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Programme+Image+4';this.alt='KSoM Programme Image 4 not available';" alt="Research group discussion" />
         </div>
         <div class="mySlides fade">
-            <img src="/images/programmes/Image-5.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Programme+Image+5';this.alt='KSoM Programme Image 5 not available';" alt="KSoM campus exterior" />
+            <img src="/images/programmes/Image-5.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Programme+Image+5';this.alt='KSoM Programme Image 5 not available';" alt="KSoM Campus Exterior" />
         </div>
-        <div class="overlay-text">
-            <div class="main-title">Academic Programmes at KSoM</div>
-            <div class="sub-title">Cultivating Mathematical Excellence through Research and Training</div>
         </div>
-    </div>
     <section class="static-section" id="programmes-introduction">
         <div class="accordion-header">Academic programmes at KSoM</div>
         <div class="accordion-content static-content">
