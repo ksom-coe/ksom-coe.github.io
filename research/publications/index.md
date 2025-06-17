@@ -6,6 +6,8 @@ compact_headings: true
 
 <div class="main-full-width" id="main-content-start">
 
+<div class="accordion-header">Mappings in $\mathbb{C}^3$ and $\mathbb{R}^3$</div>
+
 <section class="static-section" id="publications-intro">
   <div class="accordion-header">Research Publications from KSoM</div>
   <div class="accordion-content static-content">
