@@ -41,517 +41,244 @@ function initializeFullCalendar(calendarElement) {
         dayMaxEvents: true,
         events: [
             // 🟦 Workshops
-            { title: 'Workshop on Algebraic Geometry', start: '2025-09-15', end: '2025-09-17', url: '/events/workshops#algebraic-geometry', color: '#005c97', textColor: '#ffffff' },
-            { title: 'Workshop on Number Theory', start: '2025-11-10', end: '2025-11-12', url: '/events/workshops#number-theory', color: '#005c97', textColor: '#ffffff' },
-            { title: 'Advanced Topics in Topology', start: '2025-07-20', end: '2025-07-22', url: '/events/workshops#topology', color: '#005c97', textColor: '#ffffff' },
-            { title: 'Modern Trends in Analysis', start: '2025-10-05', end: '2025-10-07', url: '/events/workshops#analysis', color: '#005c97', textColor: '#ffffff' },
-
-            // 🟨 Conferences
-            { title: 'Annual Mathematics Conference', start: '2025-08-25', end: '2025-08-29', url: '/events/conferences#annual-conference', color: '#f39c12', textColor: '#1a1a1a' },
-            { title: 'International Conference on Discrete Mathematics', start: '2025-12-01', end: '2025-12-05', url: '/events/conferences#discrete-math', color: '#f39c12', textColor: '#1a1a1a' },
-            { title: 'Symposium on Applied Mathematics', start: '2025-06-18', end: '2025-06-20', url: '/events/conferences#applied-math', color: '#f39c12', textColor: '#1a1a1a' },
-
-            // 🟩 Seminars
-            { title: 'Weekly Colloquium', start: '2025-07-02T15:00:00', end: '2025-07-02T17:00:00', url: '/events/seminars#weekly-colloquium', color: '#27ae60', textColor: '#ffffff' },
-            { title: 'Research Seminar Series', start: '2025-09-10T10:00:00', end: '2025-09-10T12:00:00', url: '/events/seminars#research-series', color: '#27ae60', textColor: '#ffffff' },
-            { title: 'Guest Lecture: Dr. A. Sharma', start: '2025-10-25T14:00:00', end: '2025-10-25T16:00:00', url: '/events/seminars#guest-lecture', color: '#27ae60', textColor: '#ffffff' },
-        ],
-        // Event click handler for modals
-        eventClick: function(info) {
-            info.jsEvent.preventDefault(); // Prevent default browser action
-
-            // Check if the event has a specific link, otherwise use a generic modal content
-            const eventUrl = info.event.url;
-            if (eventUrl) {
-                // If it's an internal link, navigate
-                if (eventUrl.startsWith('/') || eventUrl.startsWith(window.location.origin)) {
-                    window.location.href = eventUrl;
-                } else {
-                    // If it's an external link, open in new tab
-                    window.open(eventUrl, '_blank');
-                }
-            } else {
-                // Fallback for events without a specific URL
-                const eventTitle = info.event.title;
-                const eventStart = info.event.start.toLocaleDateString();
-                const eventEnd = info.event.end ? info.event.end.toLocaleDateString() : '';
-                const eventDescription = info.event.extendedProps.description || 'No detailed description available.';
-
-                const modalContentHtml = `
-                    <p><strong>Date:</strong> ${eventStart} ${eventEnd ? ' - ' + eventEnd : ''}</p>
-                    <p>${eventDescription}</p>
-                `;
-                openModal(eventTitle, modalContentHtml);
-            }
-        },
+            // Example event structure (replace with your actual data)
+            // {
+            //     title: 'Algebraic Geometry Workshop',
+            //     start: '2025-07-20',
+            //     end: '2025-07-22',
+            //     description: 'An intensive workshop on modern algebraic geometry.',
+            //     link: 'https://example.com/workshop-details'
+            // },
+            // {
+            //     title: 'Number Theory Seminar',
+            //     start: '2025-08-15T14:00:00',
+            //     description: 'Weekly seminar on recent advances in number theory.',
+            //     link: 'https://example.com/seminar-details'
+            // },
+            // Add more events here as needed
+        ]
     };
 
-    // Apply common options and then render
-    const calendar = new FullCalendar.Calendar(calendarElement, commonCalendarOptions);
-    calendar.render();
-    return calendar; // Return instance for potential later use
-}
-
-
-// Function to open the modal (using 'mainModal' as per previous HTML/CSS discussions)
-function openModal(title, content, isCalendar = false, link = null) {
-    const modal = document.getElementById('mainModal'); // Corrected ID
-    const modalTitle = document.getElementById('modalTitle');
-    const modalBody = document.getElementById('modalBody');
-    const modalFooter = document.getElementById('modalFooter'); // Corrected ID
-
-    modalTitle.innerHTML = title; // Use innerHTML to allow for MathJax rendering in title
-    modalBody.innerHTML = content; // Use innerHTML for content as well
-
-    modalFooter.innerHTML = ''; // Clear previous footer content
-
-    if (link) {
-        const linkBtn = document.createElement('a');
-        linkBtn.href = link;
-        linkBtn.textContent = 'Learn More';
-        linkBtn.target = '_blank';
-        linkBtn.rel = 'noopener noreferrer';
-        linkBtn.classList.add('button', 'primary-button');
-        modalFooter.appendChild(linkBtn);
-    }
-
-    modal.classList.add('active'); // Use classList.add/remove for modal visibility
-    document.body.classList.add('modal-open'); // Prevent background scrolling
-
-    if (isCalendar) {
-        // Load FullCalendar script if not already loaded
-        if (!isFullCalendarScriptLoaded) {
-            loadScript('https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js', 'fullcalendar-script')
-                .then(() => {
-                    isFullCalendarScriptLoaded = true;
-                    // Initialize FullCalendar after script loads
-                    fullCalendarInstance = initializeFullCalendar(modalBody.querySelector('#modal-calendar'));
-                })
-                .catch(error => {
-                    console.error('Failed to load FullCalendar script:', error);
-                });
-        } else {
-            // If script is already loaded, just initialize/re-render
-            fullCalendarInstance = initializeFullCalendar(modalBody.querySelector('#modal-calendar'));
-        }
-    } else {
-        // If it's not a calendar, ensure fullCalendarInstance is null and render actions are reset
-        if (fullCalendarInstance) {
-            fullCalendarInstance.destroy();
-            fullCalendarInstance = null;
-        }
-    }
-
-    // Re-render MathJax in the modal content if it's loaded
-    if (typeof MathJax !== 'undefined' && MathJax.startup && MathJax.startup.document) {
-        MathJax.startup.document.clear();
-        MathJax.startup.document.handleMath(document.getElementById('modalBody'));
-        MathJax.startup.document.updateDocument();
-    }
-}
-
-// Function to close the modal (using 'mainModal')
-function closeModal() {
-    const modal = document.getElementById('mainModal'); // Corrected ID
-    modal.classList.remove('active');
-    document.body.classList.remove('modal-open'); // Re-enable background scrolling
-
-    // Destroy FullCalendar instance if it exists when modal closes
+    // If fullCalendarInstance exists, destroy it before re-initializing
     if (fullCalendarInstance) {
         fullCalendarInstance.destroy();
-        fullCalendarInstance = null;
     }
+
+    fullCalendarInstance = new FullCalendar.Calendar(calendarElement, commonCalendarOptions);
+    fullCalendarInstance.render();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM fully loaded and parsed");
+// Global variables for modal state
+let currentModalOptions = {
+    allowMultipleResearchCards: false,
+    directLink: null
+};
 
-    // Fix: Ensure modal and navigation toggle binding works
-    const modal = document.getElementById('mainModal');
-    const closeButton = document.querySelector('.modal-close-button');
-    if (modal && closeButton) {
-        closeButton.addEventListener('click', () => {
-            console.log("Closing modal");
-            closeModal();
-        });
+// --- Modal Functions ---
+function openModal(title, content, allowMultipleCards = false, directLink = null) {
+    const modal = document.getElementById('researchModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    const modalDirectLink = document.getElementById('modalDirectLink');
 
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                console.log("Clicked outside modal content");
-                closeModal();
-            }
-        });
+    modalTitle.innerHTML = title;
+    modalBody.innerHTML = content;
+
+    currentModalOptions.allowMultipleResearchCards = allowMultipleCards;
+    currentModalOptions.directLink = directLink;
+
+    if (directLink) {
+        modalDirectLink.href = directLink;
+        modalDirectLink.style.display = 'block'; // Show the button
+        modalDirectLink.textContent = allowMultipleCards ? 'Learn More' : 'View Details';
     } else {
-        console.warn("Modal or close button missing.");
+        modalDirectLink.style.display = 'none'; // Hide the button
     }
 
-    const mobileNavToggle = document.getElementById('mobile-nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    if (mobileNavToggle && navMenu) {
-        mobileNavToggle.addEventListener('click', () => {
-            console.log("Toggling mobile navigation");
-            navMenu.classList.toggle('active');
-            mobileNavToggle.classList.toggle('active');
-            document.body.classList.toggle('no-scroll');
-        });
+    modal.style.display = 'block';
+    document.body.classList.add('modal-open');
+}
 
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                console.log("Mobile nav link clicked, closing nav");
-                navMenu.classList.remove('active');
-                mobileNavToggle.classList.remove('active');
-                document.body.classList.remove('no-scroll');
-            });
-        });
-    } else {
-        console.warn("Mobile navigation toggle or menu not found.");
-    }
+function closeModal() {
+    const modal = document.getElementById('researchModal');
+    modal.style.display = 'none';
+    document.body.classList.remove('modal-open');
+    // Reset modal options
+    currentModalOptions = {
+        allowMultipleResearchCards: false,
+        directLink: null
+    };
+}
 
-    // Light/Dark Mode Toggle
+
+// --- Accordion Logic (existing) ---
+document.addEventListener('DOMContentLoaded', () => {
+    // Light/Dark mode toggle logic (existing)
     const themeToggle = document.getElementById('theme-toggle');
-    const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-
-    if (currentTheme === 'dark') {
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+        document.body.classList.add(currentTheme);
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.classList.add('dark-mode');
-        if (themeToggle) themeToggle.checked = true;
     }
 
     if (themeToggle) {
-        themeToggle.addEventListener('change', () => {
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            let theme = 'light-mode';
             if (document.body.classList.contains('dark-mode')) {
-                document.body.classList.remove('dark-mode');
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.body.classList.add('dark-mode');
-                localStorage.setItem('theme', 'dark');
+                theme = 'dark-mode';
             }
+            localStorage.setItem('theme', theme);
         });
     }
 
-    // Smooth Scrolling for Anchor Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-                // Update URL hash without jumping
-                history.pushState(null, '', `#${targetId}`);
-            }
-        });
-    });
-
-    // Mobile Navigation Toggle
-    const mobileNavToggle = document.getElementById('mobile-nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-
-    if (mobileNavToggle && navMenu) {
-        mobileNavToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileNavToggle.classList.toggle('active'); // Toggle class for hamburger animation
-            document.body.classList.toggle('no-scroll'); // Prevent scroll when nav is open
-        });
-
-        // Close nav when a link is clicked
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                mobileNavToggle.classList.remove('active');
-                document.body.classList.remove('no-scroll');
-            });
-        });
-    }
-
-    // Sub-menu Toggle for Desktop Navigation
-    document.querySelectorAll('.has-submenu > a').forEach(link => {
-        link.addEventListener('click', function(e) {
-            const parentLi = this.closest('.has-submenu');
-            const subMenu = parentLi.querySelector('.submenu');
-
-            // Toggle active class on parent LI
-            parentLi.classList.toggle('active');
-
-            // If a submenu is opened, close other active submenus at the same level
-            document.querySelectorAll('.has-submenu').forEach(otherParentLi => {
-                if (otherParentLi !== parentLi && otherParentLi.classList.contains('active')) {
-                    otherParentLi.classList.remove('active');
-                    otherParentLi.querySelector('.submenu').style.maxHeight = null;
-                }
-            });
-
-            // Handle submenu height for smooth transition
-            if (subMenu) {
-                if (parentLi.classList.contains('active')) {
-                    subMenu.style.maxHeight = subMenu.scrollHeight + "px";
-                } else {
-                    subMenu.style.maxHeight = null;
-                }
-            }
-            e.preventDefault(); // Prevent default link behavior if it's just a toggle
-        });
-    });
-
-    // Close submenus when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!event.target.closest('.has-submenu') && !event.target.closest('#mobile-nav-toggle')) {
-            document.querySelectorAll('.has-submenu.active').forEach(parentLi => {
-                parentLi.classList.remove('active');
-                const subMenu = parentLi.querySelector('.submenu');
-                if (subMenu) {
-                    subMenu.style.maxHeight = null;
-                }
-            });
-        }
-    });
-
-    // Modal Close functionality (using 'mainModal')
-    const modal = document.getElementById('mainModal'); // Corrected ID
-    const closeButton = document.querySelector('.modal-close-button'); // Corrected class
-
+    // Modal close button event listener
+    const closeButton = document.querySelector('.close-button');
     if (closeButton) {
         closeButton.addEventListener('click', closeModal);
     }
-    if (modal) {
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) { // Only close if clicking on the overlay, not the content
+
+    // Close modal if overlay is clicked
+    const modalOverlay = document.getElementById('researchModal');
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', function(event) {
+            if (event.target === modalOverlay) {
                 closeModal();
             }
         });
     }
 
-    // Add event listeners to accordion headers for expand/collapse or direct linking
-    const accordionItems = document.querySelectorAll('.accordion-item');
-    accordionItems.forEach(item => {
-        // Get the header for the current item (moved this line up for universal access)
+    // Event listeners for accordions to open modals or navigate directly
+    document.querySelectorAll('.accordion-item').forEach(item => {
         const header = item.querySelector('.accordion-header');
+        const modalOpener = item.dataset.modalOpener === 'true';
+        const directLink = item.dataset.directLink === 'true';
+        const learnMoreUrl = item.dataset.learnMoreUrl;
 
-        // Check if data-direct-link="true" exists
-        if (item.dataset.directLink === 'true') {
-            const directLinkUrl = item.dataset.learnMoreUrl;
-            if (directLinkUrl) {
-                // Listener on the *entire item* (section) for direct links
-                item.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    window.location.href = directLinkUrl;
-                });
-                item.addEventListener('keydown', function(e) {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    this.click(); // 'this' refers to 'item' (the section)
-                  }
-                });
-            }
-        } else { // If it's a regular collapsible accordion (or one that opens a modal from its *content*)
-            if (header) { // Ensure header exists
-                header.addEventListener('click', function() {
-                    item.classList.toggle('active');
+        if (header) {
+            header.addEventListener('click', function() {
+                if (directLink && learnMoreUrl) {
+                    window.location.href = learnMoreUrl; // Navigate directly if direct-link is true
+                } else if (modalOpener && learnMoreUrl) {
+                    // Open modal, fetch content from learnMoreUrl (if it's a separate HTML, otherwise use static)
+                    const contentElement = item.querySelector('.accordion-content');
+                    if (contentElement) {
+                        const title = header.textContent.trim();
+                        openModal(title, contentElement.innerHTML, true, learnMoreUrl);
+                    }
+                } else {
+                    // Default accordion behavior (toggle local content) if neither direct link nor modal opener
                     const content = item.querySelector('.accordion-content');
                     if (content) {
-                        if (item.classList.contains('active')) {
-                            content.style.maxHeight = content.scrollHeight + "px";
-                        } else {
-                            content.style.maxHeight = null;
-                        }
+                        const isExpanded = header.getAttribute('aria-expanded') === 'true';
+                        content.style.display = isExpanded ? 'none' : 'block';
+                        header.setAttribute('aria-expanded', !isExpanded);
                     }
-                });
-                header.addEventListener('keydown', function(e) {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    item.classList.toggle('active');
-                    const content = item.querySelector('.accordion-content');
-                    if (content) {
-                        if (item.classList.contains('active')) {
-                            content.style.maxHeight = content.scrollHeight + "px";
-                        } else {
-                            content.style.maxHeight = null;
-                        }
-                    }
-                  }
-                });
-            }
+                }
+            });
+
+            // Accessibility: allow opening with Enter/Space key
+            header.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    header.click(); // Simulate a click
+                }
+            });
         }
     });
 
-
-    // Data for news items (RESTORED)
-    const newsData = {
-        'news1': {
-            title: 'KSoM Announces New Research Grant Opportunities',
-            date: 'June 15, 2025',
-            description: 'The Kerala School of Mathematics is pleased to announce new research grant opportunities for both faculty and visiting scholars, aimed at fostering innovative research in pure and applied mathematics. Applications are now open for the 2026 funding cycle. Details regarding eligibility criteria, application procedures, and research priorities are available on the grants section of our website.',
-            link: '/news-events/news-announcements#news1' // Link to the full news page
-        },
-        'news2': {
-            title: 'International Workshop on Harmonic Analysis Concludes Successfully',
-            date: 'May 28, 2025',
-            description: 'The International Workshop on Harmonic Analysis, held at KSoM from May 25-28, 2025, concluded with resounding success. The event brought together leading experts and young researchers from around the globe to discuss recent advancements and open problems in the field. Keynote speeches and parallel sessions facilitated vibrant discussions and fostered new collaborations.',
-            link: '/news-events/news-announcements#news2'
-        },
-        'news3': {
-            title: 'Prof. Ananda Rao Honored with National Science Award',
-            date: 'April 10, 2025',
-            description: 'Prof. Ananda Rao of the Kerala School of Mathematics has been awarded the prestigious National Science Award for his groundbreaking contributions to Non-commutative Functional Analysis. The award recognizes his pioneering work and its significant impact on the field. The KSoM community extends its hearty congratulations to Prof. Rao.',
-            link: '/news-events/news-announcements#news3'
-        },
-        'news4': {
-            title: 'Admissions Open for Integrated MSc-PhD Program 2026',
-            date: 'March 1, 2025',
-            description: 'KSoM is now accepting applications for its Integrated MSc-PhD Program for the academic year 2026. The program offers a unique blend of rigorous coursework and cutting-edge research opportunities for aspiring mathematicians. Prospective students are encouraged to review the eligibility criteria and application process on our admissions page.',
-            link: '/programmes/integrated-msc-phd/admissions'
-        }
-        // Add more news items as needed
-    };
-
-    // Data for upcoming events (RESTORED)
-    const eventData = {
-        'event1': {
-            title: 'International Conference on Algebraic Geometry',
-            date: 'September 15-17, 2025',
-            description: 'A major international conference focusing on recent developments in Algebraic Geometry. Featuring plenary talks by world-renowned mathematicians and parallel sessions for contributed papers. Registration open.',
-            link: '/events/conferences#algebraic-geometry-conf'
-        },
-        'event2': {
-            title: 'Special Lecture Series: Introduction to Quantum Computing',
-            date: 'October 1-5, 2025',
-            description: 'A series of introductory lectures on the fundamentals of Quantum Computing, aimed at postgraduate students and researchers with a basic understanding of linear algebra. Led by Dr. Vikram Singh from IIT Delhi.',
-            link: '/events/seminars#quantum-computing-series'
-        },
-        'event3': {
-            title: 'KSoM Annual Research Symposium',
-            date: 'November 20, 2025',
-            description: 'The annual symposium showcasing research by KSoM faculty and research scholars. Open to all students and faculty from academic institutions.',
-            link: '/events/symposium#annual-research-symposium'
-        }
-        // Add more event items as needed
-    };
-
-    // Populate and add event listeners for news items
-    const newsItemsContainer = document.getElementById('latest-news-items');
-    if (newsItemsContainer) {
-        Object.keys(newsData).slice(0, 3).forEach(key => { // Show top 3 news items
-            const item = newsData[key];
-            const div = document.createElement('div');
-            div.classList.add('news-item');
-            div.dataset.newsId = key;
-            div.innerHTML = `
-                <span class="news-date">${item.date}</span>
-                <span class="news-title">${item.title}</span>
-            `;
-            newsItemsContainer.appendChild(div);
+    // Add event listeners for news items to open modal
+    const newsItems = document.querySelectorAll('#latest-news-section .news-item');
+    if (typeof newsData !== 'undefined') { // Check if newsData is defined
+        newsItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const newsId = this.dataset.newsId;
+                if (newsData[newsId]) {
+                    const newsItem = newsData[newsId];
+                    const fullContent = `
+                        <p><strong>Date:</strong> ${newsItem.date}</p>
+                        <p>${newsItem.description}</p>
+                    `;
+                    openModal(newsItem.title, fullContent, false, newsItem.link);
+                }
+            });
+            item.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
         });
     }
 
-    const newsElements = document.querySelectorAll('#latest-news-items .news-item');
-    newsElements.forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            const newsId = this.dataset.newsId;
-            if (newsData[newsId]) {
-                const newsItem = newsData[newsId];
-                const fullContent = `
-                    <p><strong>Date:</strong> ${newsItem.date}</p>
-                    <p>${newsItem.description}</p>
-                `;
-                openModal(newsItem.title, fullContent, false, newsItem.link);
-            }
-        });
-        item.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            this.click();
-          }
-        });
-    });
 
-    // Populate and add event listeners for upcoming events
-    const upcomingEventsContainer = document.getElementById('upcoming-events-items');
-    if (upcomingEventsContainer) {
-        Object.keys(eventData).slice(0, 3).forEach(key => { // Show top 3 events
-            const item = eventData[key];
-            const div = document.createElement('div');
-            div.classList.add('timeline-item');
-            div.dataset.eventId = key;
-            div.innerHTML = `
-                <div class="timeline-date">${item.date}</div>
-                <div class="timeline-content">${item.title}</div>
-            `;
-            upcomingEventsContainer.appendChild(div);
+    // Add event listeners for upcoming events to open modal (now targets the <a> tag)
+    const eventItems = document.querySelectorAll('#upcoming-events-section .timeline-item');
+    if (typeof eventData !== 'undefined') { // Check if eventData is defined
+        eventItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const eventId = this.dataset.eventId;
+                if (eventData[eventId]) {
+                    const eventItem = eventData[eventId];
+                    const fullContent = `
+                        <p><strong>Date:</strong> ${eventItem.date}</p>
+                        <p>${eventItem.description}</p>
+                    `;
+                    openModal(eventItem.title, fullContent, false, eventItem.link);
+                }
+            });
+            item.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
         });
     }
 
-    const eventItems = document.querySelectorAll('#upcoming-events-items .timeline-item');
-    eventItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            const eventId = this.dataset.eventId;
-            if (eventData[eventId]) {
-                const eventItem = eventData[eventId];
-                const fullContent = `
-                    <p><strong>Date:</strong> ${eventItem.date}</p>
-                    <p>${eventItem.description}</p>
-                `;
-                openModal(eventItem.title, fullContent, false, eventItem.link);
-            }
-        });
-        item.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            this.click();
-          }
-        });
-    });
-
-    // Functionality for slideshows (if present)
-    const slideshows = {}; // Store slideshow states by ID
+    // --- Slideshow Logic (NEWLY ADDED / CORRECTED) ---
+    const slideshows = {}; // To store state for multiple slideshows
 
     function showSlides(slideshowId, n) {
         let slideshow = slideshows[slideshowId];
-        if (!slideshow) return;
+        if (!slideshow) {
+            // console.error(`Slideshow with ID ${slideshowId} not found.`);
+            return;
+        }
 
-        // CORRECTED: Use '.mySlides' selector, as per typical HTML structure
         let slides = slideshow.container.querySelectorAll('.mySlides');
-        let dots = slideshow.container.querySelectorAll('.dot');
+        if (slides.length === 0) {
+            // console.warn(`No slides found for slideshow ID ${slideshowId}.`);
+            return;
+        }
 
-        if (n > slides.length) { slideshow.slideIndex = 1 }
-        if (n < 1) { slideshow.slideIndex = slides.length }
+        // Ensure n is within bounds
+        if (n > slides.length) {
+            slideshow.slideIndex = 1; // Loop back to the first slide
+        } else if (n < 1) {
+            slideshow.slideIndex = slides.length; // Loop to the last slide
+        } else {
+            slideshow.slideIndex = n;
+        }
 
-        slides.forEach(slide => slide.style.display = 'none');
-        dots.forEach(dot => dot.classList.remove('active'));
+        // Hide all slides
+        slides.forEach(slide => {
+            slide.style.display = 'none';
+        });
 
-        slides[slideshow.slideIndex - 1].style.display = 'block';
-        if (dots.length > 0) { // Check if dots exist before trying to activate
-            dots[slideshow.slideIndex - 1].classList.add('active');
+        // Display the current slide
+        if (slideshow.slideIndex > 0 && slideshow.slideIndex <= slides.length) {
+            slides[slideshow.slideIndex - 1].style.display = 'block';
         }
     }
 
-    // Next/previous controls
-    slideshows.plusSlides = function(slideshowId, n) { // Attach to the slideshows object
+    function plusSlides(slideshowId, n) {
         let slideshow = slideshows[slideshowId];
         if (slideshow) {
             showSlides(slideshowId, slideshow.slideIndex + n);
-            stopSlideshow(slideshowId); // Stop auto-play on manual navigation
-            startSlideshow(slideshowId); // Restart auto-play after a delay
-        }
-    };
-
-    // Thumbnail image controls
-    slideshows.currentSlide = function(slideshowId, n) { // Attach to the slideshows object
-        let slideshow = slideshows[slideshowId];
-        if (slideshow) {
-            showSlides(slideshowId, n);
-            stopSlideshow(slideshowId); // Stop auto-play on manual navigation
-            startSlideshow(slideshowId); // Restart auto-play after a delay
-        }
-    };
-
-    function stopSlideshow(slideshowId) {
-        let slideshow = slideshows[slideshowId];
-        if (slideshow && slideshow.timer) {
-            clearInterval(slideshow.timer);
-            slideshow.timer = null;
         }
     }
 
@@ -565,7 +292,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         slideshow.timer = setInterval(() => {
-            slideshows.plusSlides(slideshowId, 1); // Use the method on the slideshows object
+            plusSlides(slideshowId, 1); // Advance to the next slide
         }, interval);
     }
 
@@ -585,11 +312,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             showSlides(slideshowId, 1); // Show the first slide initially
             startSlideshow(slideshowId); // Start auto-play for this slideshow
-
-            // Add event listeners for arrows and dots using delegation or direct attachment
-            container.querySelectorAll('.prev').forEach(btn => btn.addEventListener('click', () => slideshows.plusSlides(slideshowId, -1)));
-            container.querySelectorAll('.next').forEach(btn => btn.addEventListener('click', () => slideshows.plusSlides(slideshowId, 1)));
-            container.querySelectorAll('.dot').forEach((dot, index) => dot.addEventListener('click', () => slideshows.currentSlide(slideshowId, index + 1)));
         });
     }
 
