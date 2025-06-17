@@ -754,6 +754,32 @@ body.dark-mode .snippet-more-indicator {
     color: var(--accent-light);
 }
 
+/* === Admissions Highlight Card === */
+#admissions-highlight-card {
+    background-color: #e6f7ff; /* A very light blue to stand out */
+    border: 1px solid var(--accent-light); /* Subtle border using your existing accent light color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gentle shadow to make it pop */
+    margin-bottom: 2rem; /* Adds space below the highlighted card */
+    transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+/* Ensure header text is clearly visible on the highlight background */
+#admissions-highlight-card .accordion-header {
+    color: var(--accent-blue); /* Darker blue for light mode text */
+    font-weight: 700; /* Make the header bold */
+}
+
+/* Dark mode adjustments for the highlight card */
+body.dark-mode #admissions-highlight-card {
+    background-color: #1f3a4e; /* Darker blue for dark mode background */
+    border-color: #004066; /* Slightly lighter border for dark mode */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Darker shadow for dark mode */
+}
+
+body.dark-mode #admissions-highlight-card .accordion-header {
+    color: var(--dark-primary-text); /* Lighter text for dark mode header */
+}
+
 
 /* === Cards & Research Links === */
 .research-links {
