@@ -54,7 +54,7 @@
   <!-- Netlify Identity -->
   <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
-<body>
+<body{% if compact_headings %} class="compact-headings-style"{% endif %}>
   {% include "header.html" %}
 
   <main class="full-width-wrapper">
