@@ -78,8 +78,8 @@ function initializeFullCalendar(calendarElement) {
                 const eventDescription = info.event.extendedProps.description || 'No detailed description available.';
 
                 const modalContentHtml = `
-                    <p><strong>Date:</strong> ${eventStart} <span class="math-inline">\{eventEnd ? ' \- ' \+ eventEnd \: ''\}</p\>
-<p\></span>{eventDescription}</p>
+                    <p><strong>Date:</strong> ${eventStart} ${eventEnd ? ' - ' + eventEnd : ''}</p>
+                    <p>${eventDescription}</p>
                 `;
                 openModal(eventTitle, modalContentHtml);
             }
@@ -301,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   }
                 });
             }
-        } else { // If it's a regular collapsible accordion (modalOpener or just toggle)
+        } else { // If it's a regular collapsible accordion (or one that opens a modal from its *content*)
             if (header) { // Ensure header exists
                 header.addEventListener('click', function() {
                     item.classList.toggle('active');
@@ -394,8 +394,8 @@ document.addEventListener('DOMContentLoaded', function() {
             div.classList.add('news-item');
             div.dataset.newsId = key;
             div.innerHTML = `
-                <span class="news-date"><span class="math-inline">\{item\.date\}</span\>
-<span class\="news\-title"\></span>{item.title}</span>
+                <span class="news-date">${item.date}</span>
+                <span class="news-title">${item.title}</span>
             `;
             newsItemsContainer.appendChild(div);
         });
@@ -409,8 +409,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (newsData[newsId]) {
                 const newsItem = newsData[newsId];
                 const fullContent = `
-                    <p><strong>Date:</strong> <span class="math-inline">\{newsItem\.date\}</p\>
-<p\></span>{newsItem.description}</p>
+                    <p><strong>Date:</strong> ${newsItem.date}</p>
+                    <p>${newsItem.description}</p>
                 `;
                 openModal(newsItem.title, fullContent, false, newsItem.link);
             }
@@ -432,8 +432,8 @@ document.addEventListener('DOMContentLoaded', function() {
             div.classList.add('timeline-item');
             div.dataset.eventId = key;
             div.innerHTML = `
-                <div class="timeline-date"><span class="math-inline">\{item\.date\}</div\>
-<div class\="timeline\-content"\></span>{item.title}</div>
+                <div class="timeline-date">${item.date}</div>
+                <div class="timeline-content">${item.title}</div>
             `;
             upcomingEventsContainer.appendChild(div);
         });
@@ -447,8 +447,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (eventData[eventId]) {
                 const eventItem = eventData[eventId];
                 const fullContent = `
-                    <p><strong>Date:</strong> <span class="math-inline">\{eventItem\.date\}</p\>
-<p\></span>{eventItem.description}</p>
+                    <p><strong>Date:</strong> ${eventItem.date}</p>
+                    <p>${eventItem.description}</p>
                 `;
                 openModal(eventItem.title, fullContent, false, eventItem.link);
             }
@@ -466,3 +466,91 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function showSlides(slideshowId, n) {
         let slideshow = slideshows[slideshowId];
+        if (!slideshow) return;
+
+        // CORRECTED: Use '.mySlides' selector, as per typical HTML structure
+        let slides = slideshow.container.querySelectorAll('.mySlides');
+        let dots = slideshow.container.querySelectorAll('.dot');
+
+        if (n > slides.length) { slideshow.slideIndex = 1 }
+        if (n < 1) { slideshow.slideIndex = slides.length }
+
+        slides.forEach(slide => slide.style.display = 'none');
+        dots.forEach(dot => dot.classList.remove('active'));
+
+        slides[slideshow.slideIndex - 1].style.display = 'block';
+        if (dots.length > 0) { // Check if dots exist before trying to activate
+            dots[slideshow.slideIndex - 1].classList.add('active');
+        }
+    }
+
+    // Next/previous controls
+    slideshows.plusSlides = function(slideshowId, n) { // Attach to the slideshows object
+        let slideshow = slideshows[slideshowId];
+        if (slideshow) {
+            showSlides(slideshowId, slideshow.slideIndex + n);
+            stopSlideshow(slideshowId); // Stop auto-play on manual navigation
+            startSlideshow(slideshowId); // Restart auto-play after a delay
+        }
+    };
+
+    // Thumbnail image controls
+    slideshows.currentSlide = function(slideshowId, n) { // Attach to the slideshows object
+        let slideshow = slideshows[slideshowId];
+        if (slideshow) {
+            showSlides(slideshowId, n);
+            stopSlideshow(slideshowId); // Stop auto-play on manual navigation
+            startSlideshow(slideshowId); // Restart auto-play after a delay
+        }
+    };
+
+    function stopSlideshow(slideshowId) {
+        let slideshow = slideshows[slideshowId];
+        if (slideshow && slideshow.timer) {
+            clearInterval(slideshow.timer);
+            slideshow.timer = null;
+        }
+    }
+
+    function startSlideshow(slideshowId, interval = 5000) { // Default 5 seconds
+        let slideshow = slideshows[slideshowId];
+        if (!slideshow) return;
+
+        // Clear any existing interval to prevent multiple timers
+        if (slideshow.timer) {
+            clearInterval(slideshow.timer);
+        }
+
+        slideshow.timer = setInterval(() => {
+            slideshows.plusSlides(slideshowId, 1); // Use the method on the slideshows object
+        }, interval);
+    }
+
+    function initializeSlideshows() {
+        document.querySelectorAll('.slideshow-container').forEach(container => {
+            const slideshowId = container.dataset.slideshowId;
+            if (!slideshowId) {
+                console.warn('Slideshow container missing data-slideshow-id:', container);
+                return;
+            }
+
+            slideshows[slideshowId] = {
+                container: container,
+                slideIndex: 1, // Start at the first slide
+                timer: null // To hold the interval ID for auto-play
+            };
+
+            showSlides(slideshowId, 1); // Show the first slide initially
+            startSlideshow(slideshowId); // Start auto-play for this slideshow
+
+            // Add event listeners for arrows and dots using delegation or direct attachment
+            container.querySelectorAll('.prev').forEach(btn => btn.addEventListener('click', () => slideshows.plusSlides(slideshowId, -1)));
+            container.querySelectorAll('.next').forEach(btn => btn.addEventListener('click', () => slideshows.plusSlides(slideshowId, 1)));
+            container.querySelectorAll('.dot').forEach((dot, index) => dot.addEventListener('click', () => slideshows.currentSlide(slideshowId, index + 1)));
+        });
+    }
+
+    // Call initializeSlideshows when the DOM is ready
+    initializeSlideshows();
+
+}); // End of DOMContentLoaded
