@@ -1746,50 +1746,74 @@ body.dark-mode.compact-headings-style .accordion-item .accordion-header {
     color: #f1f1f1; /* Lighter color for dark mode to maintain readability */
 }
 
-/* === MathJax Overrides === */
+/* === Advanced MathJax Spacing Fix === */
 /* Base container reset */
 mjx-container {
-  line-height: normal !important;
+  line-height: 1 !important;
   margin: 0 !important;
   padding: 0 !important;
   font-size: 1em !important;
-}
-
-/* Inline math */
-mjx-container[jax="CHTML"][display="false"] {
-  display: inline !important;
+  display: inline-block !important;
   vertical-align: middle !important;
-  white-space: normal !important;
-  max-width: 100% !important;
-  overflow-wrap: break-word !important;
-  letter-spacing: -0.5px !important; /* Compensate for spacing issues */
+  text-align: left;
 }
 
-/* Display math */
-mjx-container[jax="CHTML"][display="true"] {
+/* Inline math elements */
+mjx-container[jax="CHTML"][display="false"] {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+  letter-spacing: -0.5px !important;
+  transform: scale(0.98) !important;
+  transform-origin: 0 50%;
+}
+
+/* Math content wrapper */
+.MathJax_CHTML {
+  display: inline !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  letter-spacing: -0.3px !important;
+  word-spacing: -0.2px !important;
+}
+
+/* Math operators - key spacing fix */
+.mjx-char {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: -0.1em !important;
+  margin-right: -0.1em !important;
+}
+
+/* Parentheses and brackets spacing */
+.mjx-paren, .mjx-fence {
+  padding: 0 0.05em !important;
+  margin: 0 -0.1em !important;
+}
+
+/* Variables and identifiers */
+.mjx-mi {
+  padding: 0 0.05em !important;
+  margin: 0 -0.05em !important;
+}
+
+/* Specific fix for accordion headers */
+.accordion-header mjx-container {
+  vertical-align: text-top !important;
+  line-height: 1.2 !important;
+  transform: scale(0.96) !important;
+  margin: 0 -0.1em !important;
+}
+
+/* Display math (block equations) */
+mjx-container[display="true"] {
   display: block !important;
   margin: 1rem 0 !important;
   overflow-x: auto !important;
   padding: 0.5rem 1rem !important;
   box-sizing: border-box !important;
-}
-
-/* Inner math element */
-mjx-container > mjx-math {
-  display: inline !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Operator spacing fix */
-mjx-mo {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-/* Specific for accordion headers */
-.accordion-header mjx-container {
-  white-space: normal !important;
-  word-break: break-word !important;
-  letter-spacing: -0.5px !important;
+  letter-spacing: normal !important;
+  transform: none !important;
 }
