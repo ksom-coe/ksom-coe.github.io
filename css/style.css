@@ -1746,56 +1746,32 @@ body.dark-mode.compact-headings-style .accordion-item .accordion-header {
     color: #f1f1f1; /* Lighter color for dark mode to maintain readability */
 }
 
-/* === Guaranteed MathJax Spacing Fix === */
-/* Container-level fixes */
-mjx-container {
-  display: inline-block !important;
-  line-height: 1 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  vertical-align: middle !important;
+/* === Solution: MathJax-Friendly Accordion Modifications === */
+/* Add these overrides after your existing accordion styles */
+
+/* Preserve mathematical integrity */
+.accordion-header mjx-container,
+.accordion-snippet mjx-container {
+  display: inline !important;
+  transform: none !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  font-family: inherit !important;
+  line-height: normal !important;
 }
 
-/* Inline math specific fixes */
-mjx-container[jax="CHTML"][display="false"] {
-  transform: scale(0.98) !important;
-  transform-origin: left bottom;
+/* Prevent layout shifts on hover */
+.accordion-item:hover mjx-container {
+  transform: none !important;
+}
+
+/* Maintain proper alignment */
+.accordion-header mjx-container {
+  vertical-align: middle !important;
   margin: 0 -0.1em !important;
 }
 
-/* Character-level spacing fixes */
-.mjx-char {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: -0.05em !important;
-  margin-right: -0.05em !important;
-}
-
-/* Operator-specific spacing */
-.mjx-mo {
-  margin-left: -0.1em !important;
-  margin-right: -0.1em !important;
-}
-
-/* Parentheses and brackets */
-.mjx-paren, .mjx-fence {
-  margin-left: -0.15em !important;
-  margin-right: -0.15em !important;
-}
-
-/* Accordion header specific fixes */
-.accordion-header mjx-container {
-  transform: scale(0.96) translateX(-0.03em) !important;
-  vertical-align: text-bottom !important;
-  line-height: 0.9 !important;
-}
-
-/* Display math (block equations) */
-mjx-container[display="true"] {
-  display: block !important;
-  margin: 1rem 0 !important;
-  overflow-x: auto !important;
-  padding: 0.5rem 1rem !important;
-  box-sizing: border-box !important;
-  transform: none !important;
+/* Fix for flex containers */
+.accordion-header {
+  align-items: baseline; /* Better for math alignment */
 }
