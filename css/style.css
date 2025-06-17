@@ -57,6 +57,21 @@ img {
   border: 0;
 }
 
+/* === Typography & Content Lists === */
+/* Ensures basic list styling is present within static and accordion content */
+.static-content ul,
+.accordion-content ul {
+    list-style: disc; /* This adds the bullet point marker */
+    padding-left: 20px; /* Adjust this value as needed for indentation */
+    margin-top: 1em; /* Adds space above the list */
+    margin-bottom: 1em; /* Adds space below the list */
+}
+
+.static-content ul li,
+.accordion-content ul li {
+    margin-bottom: 0.5em; /* Adds space between individual list items */
+}
+
 /* === Container Layout === */
 .container {
   width: 90%;
