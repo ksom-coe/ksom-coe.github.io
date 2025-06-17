@@ -31,21 +31,21 @@ full_width: true
         </div>
     </section>
 
-    <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://ksom.res.in/programmes/integrated-msc-phd">
+    <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="/programmes/integrated-msc-phd">
         <div class="accordion-header" role="button" tabindex="0" aria-label="Learn more about the Integrated M.Sc. - Ph.D. Programme">Integrated M.Sc. - Ph.D. Programme</div>
         <div class="accordion-snippet">
             Provides seamless progression from advanced coursework to doctoral research, specializing in Mathematics, Physics, or Theoretical Computer Science. Students receive monthly scholarships, hostel accommodation, and engage in research from the first year, developing strong theoretical foundations through a curriculum that bridges pure and applied mathematics. Admission requires a bachelor's degree with substantial mathematical background and performance in rigorous entrance examinations.<span class="snippet-more-indicator"> ...more</span>
         </div>
     </section>
 
-    <section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://ksom.res.in/programmes/phd">
+    <section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="/programmes/phd">
         <div class="accordion-header" role="button" tabindex="0" aria-label="Learn more about the Ph.D. Programme">Ph.D. Programme</div>
         <div class="accordion-snippet">
             Offers intensive research immersion in Pure or Applied Mathematics under close faculty mentorship. Spanning approximately five years, scholars transition from specialized coursework to original dissertation work on frontier mathematical problems, supported by fellowships, travel grants for conferences, and teaching opportunities. This programme cultivates independent research capabilities while fostering academic networking through seminars and collaborations with international experts.<span class="snippet-more-indicator"> ...more</span>
         </div>
     </section>
 
-    <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://ksom.res.in/programmes/postdoc">
+    <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="/programmes/postdoc">
         <div class="accordion-header" role="button" tabindex="0" aria-label="Learn more about Postdoctoral Fellowships">Postdoctoral Fellowships</div>
         <div class="accordion-snippet">
             Provides opportunities for recent PhD graduates to pursue independent research in a collaborative environment. Fellows receive competitive stipends, research grants, and access to all institute resources, preparing them for leadership roles in academia and industry.<span class="snippet-more-indicator"> ...more</span>
