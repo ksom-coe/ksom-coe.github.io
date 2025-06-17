@@ -8,9 +8,9 @@ compact_headings: true
 
 <section class="static-section" id="publications-intro">
   <div class="accordion-header">Research Publications from KSoM</div>
-  <div class="accordion-content static-content">
+
     <p>The Kerala School of Mathematics is actively engaged in producing high-quality research publications in various fields of mathematics. Below is a list of selected publications by faculty and researchers at KSoM. Each entry links directly to its listing in MathSciNet.</p>
-  </div>
+
 </section>
 
 <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4864900">
