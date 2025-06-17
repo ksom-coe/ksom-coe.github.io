@@ -8,26 +8,26 @@ full_width: true
 
     <div class="slideshow-container">
         <div class="mySlides fade">
-            <img src="/images/programmes/Image-1.jpg" alt="Students collaborating at KSoM">
+            <img src="/images/programmes/Image-1.jpg" alt="Students collaborating at KSoM" onerror="this.onerror=null;this.src='/images/placeholder.jpg';this.alt='Image not available';">
             <div class="text">Collaborative Learning Environment</div>
         </div>
         <div class="mySlides fade">
-            <img src="/images/programmes/Image-2.jpg" alt="Faculty mentoring a student">
+            <img src="/images/programmes/Image-2.jpg" alt="Faculty mentoring a student" onerror="this.onerror=null;this.src='/images/placeholder.jpg';this.alt='Image not available';">
             <div class="text">Dedicated Faculty Mentorship</div>
         </div>
         <div class="mySlides fade">
-            <img src="/images/programmes/Image-3.jpg" alt="Modern classroom at KSoM">
+            <img src="/images/programmes/Image-3.jpg" alt="Modern classroom at KSoM" onerror="this.onerror=null;this.src='/images/placeholder.jpg';this.alt='Image not available';">
             <div class="text">State-of-the-Art Facilities</div>
         </div>
         <div class="mySlides fade">
-            <img src="/images/programmes/Image-4.jpg" alt="Research group discussion">
+            <img src="/images/programmes/Image-4.jpg" alt="Research group discussion" onerror="this.onerror=null;this.src='/images/placeholder.jpg';this.alt='Image not available';">
             <div class="text">Cutting-Edge Research</div>
         </div>
         <div class="mySlides fade">
-            <img src="/images/programmes/Image-5.jpg" alt="KSoM campus exterior">
+            <img src="/images/programmes/Image-5.jpg" alt="KSoM campus exterior" onerror="this.onerror=null;this.src='/images/placeholder.jpg';this.alt='Image not available';">
             <div class="text">Inspiring Campus</div>
         </div>
-        </div>
+    </div>
     <section class="static-section" id="programmes-introduction">
         <div class="accordion-header">Introduction to Academic Programmes</div>
         <div class="accordion-content static-content">
@@ -39,21 +39,21 @@ full_width: true
     <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://ksom.res.in/programmes/integrated-msc-phd">
         <div class="accordion-header" role="button" tabindex="0" aria-label="Learn more about the Integrated M.Sc. - Ph.D. Programme">Integrated M.Sc. - Ph.D. Programme</div>
         <div class="accordion-snippet">
-            Provides seamless progression from advanced coursework to doctoral research, specializing in Mathematics, Physics, or Theoretical Computer Science. Students receive monthly scholarships, hostel accommodation, and engage in research from the first year, developing strong theoretical foundations through a curriculum that bridges pure and applied mathematics. Admission requires a bachelor's degree with substantial mathematical background and performance in rigorous entrance examinations.
+            Provides seamless progression from advanced coursework to doctoral research, specializing in Mathematics, Physics, or Theoretical Computer Science. Students receive monthly scholarships, hostel accommodation, and engage in research from the first year, developing strong theoretical foundations through a curriculum that bridges pure and applied mathematics. Admission requires a bachelor's degree with substantial mathematical background and performance in rigorous entrance examinations.<span class="snippet-more-indicator"> ...more</span>
         </div>
     </section>
 
     <section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://ksom.res.in/programmes/phd">
         <div class="accordion-header" role="button" tabindex="0" aria-label="Learn more about the Ph.D. Programme">Ph.D. Programme</div>
         <div class="accordion-snippet">
-            Offers intensive research immersion in Pure or Applied Mathematics under close faculty mentorship. Spanning approximately five years, scholars transition from specialized coursework to original dissertation work on frontier mathematical problems, supported by fellowships, travel grants for conferences, and teaching opportunities. This programme cultivates independent research capabilities while fostering academic networking through seminars and collaborations with international experts.
+            Offers intensive research immersion in Pure or Applied Mathematics under close faculty mentorship. Spanning approximately five years, scholars transition from specialized coursework to original dissertation work on frontier mathematical problems, supported by fellowships, travel grants for conferences, and teaching opportunities. This programme cultivates independent research capabilities while fostering academic networking through seminars and collaborations with international experts.<span class="snippet-more-indicator"> ...more</span>
         </div>
     </section>
 
     <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://ksom.res.in/programmes/postdoc">
         <div class="accordion-header" role="button" tabindex="0" aria-label="Learn more about Postdoctoral Fellowships">Postdoctoral Fellowships</div>
         <div class="accordion-snippet">
-            Provides opportunities for recent PhD graduates to pursue independent research in a collaborative environment. Fellows receive competitive stipends, research grants, and access to all institute resources, preparing them for leadership roles in academia and industry.
+            Provides opportunities for recent PhD graduates to pursue independent research in a collaborative environment. Fellows receive competitive stipends, research grants, and access to all institute resources, preparing them for leadership roles in academia and industry.<span class="snippet-more-indicator"> ...more</span>
         </div>
     </section>
 
