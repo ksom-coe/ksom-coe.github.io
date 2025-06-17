@@ -1780,29 +1780,48 @@ body.dark-mode.compact-headings-style .accordion-item .accordion-header {
     padding-right: 0.1em !important; /* Adjust this value (e.g., 0.05em, 0em) as needed */
 }
 
-/* Target the actual math content within the container */
-.MathJax_CHTML .mjx-math {
-    /* Ensure no extra margins/padding from within the math content itself */
+/* --- Aggressive MathJax Overrides for Inline Math Spacing --- */
+
+/* Target the main MathJax output container for inline expressions */
+.MathJax_CHTML {
+    /* Use inline-block for predictable layout, override if flex causes issues */
+    display: inline-block !important; 
+    
+    /* Absolute critical for removing intrinsic horizontal space */
     margin: 0 !important;
     padding: 0 !important;
-    display: inline-block !important; /* Maintain inline behavior */
+    
+    /* Fine-tune internal spacing if needed, but start at 0 */
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+
+    /* Adjust alignment to integrate smoothly with text */
+    vertical-align: baseline !important; /* Most common for inline math */
+    line-height: 1 !important; /* Prevent extra vertical space */
+
+    /* Further reduce any residual character spacing */
+    letter-spacing: normal !important; /* Ensure no extra letter spacing */
+    word-spacing: normal !important;   /* Ensure no extra word spacing */
+    white-space: nowrap !important;    /* Prevent wrapping within the math expression */
 }
 
-/* Targeting specific spans often used by MathJax for spacing */
-/* This can catch elements that might still introduce space */
-.mjx-chtml[tabindex="-1"],
-.mjx-chtml span {
+/* Target internal MathJax elements that might carry spacing */
+.MathJax_CHTML .mjx-math,
+.MathJax_CHTML .mjx-chtml,
+.MathJax_CHTML span,
+.MathJax_CHTML svg,
+.MathJax_CHTML path,
+.MathJax_CHTML rect,
+.MathJax_CHTML g {
     margin: 0 !important;
     padding: 0 !important;
+    line-height: 1 !important; /* Ensure no line-height issues internally */
+    vertical-align: baseline !important; /* Consistent vertical alignment */
 }
 
-/* Ensure that any MathJax containers do not affect line height or vertical positioning */
-.mjx-container {
-    line-height: normal !important; /* Prevent MathJax from dictating line height */
-    vertical-align: middle !important; /* Often helps with general vertical alignment */
-}
-
-/* Ensure assistive MathML (hidden content for screen readers) does not impact layout */
+/* Specific adjustments for assistive MathML (hidden, but good practice) */
 .MathJax_CHTML.MJX_Assistive_MathML {
     position: absolute !important;
     overflow: hidden !important;
@@ -1815,12 +1834,9 @@ body.dark-mode.compact-headings-style .accordion-item .accordion-header {
     white-space: nowrap !important;
 }
 
-/* Additional specificity for elements inside MathJax if previous rules don't work */
-.MathJax_CHTML svg,
-.MathJax_CHTML use,
-.MathJax_CHTML path,
-.MathJax_CHTML rect,
-.MathJax_CHTML g {
-    margin: 0 !important;
-    padding: 0 !important;
-}
+/* If you need a tiny amount of space, add it to the parent of the math block */
+/* Example: if your math is within a <p> tag */
+/* p .MathJax_CHTML {
+    padding-left: 0.05em !important;
+    padding-right: 0.05em !important;
+} */
