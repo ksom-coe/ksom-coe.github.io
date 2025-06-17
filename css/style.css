@@ -1780,62 +1780,35 @@ body.dark-mode.compact-headings-style .accordion-item .accordion-header {
     padding-right: 0.1em !important; /* Adjust this value (e.g., 0.05em, 0em) as needed */
 }
 
-/* === MathJax Rendering Fixes === */
+/* === MathJax Inline LaTeX Fix (especially for headings/accordions) === */
 
-/* Inline math ($...$): make it flow like normal text */
-.mathjax-loaded .mjx-chtml {
+/* Ensure MathJax inline elements behave like text */
+mjx-container[jax="CHTML"][display="false"] {
   display: inline !important;
-  padding: 0 !important;
   margin: 0 !important;
-  max-width: 100%;
-  white-space: normal;
-  vertical-align: middle;
-}
-
-/* Block math ($$...$$): prevent overflow on small screens */
-.mathjax-loaded .mjx-chtml[display="true"] {
-  display: block !important;
-  overflow-x: auto;
-  margin: 1rem 0;
-  padding: 0.5rem 1rem;
-  max-width: 100%;
-  box-sizing: border-box;
-  background-color: var(--card-bg, #f8f8f8); /* optional: styled background */
-  border-left: 4px solid var(--accent-blue, #2a5d9f); /* optional */
-  border-radius: 6px;
-}
-
-/* Paragraphs containing inline math: spacing adjustment */
-p > .mjx-chtml {
-  line-height: 1.6;
-  vertical-align: middle;
-}
-
-/* === MathJax Inline Math Cleanup for Accordions === */
-
-/* Fix inline math spacing in headers/snippets */
-.accordion-header .mjx-chtml,
-.accordion-snippet .mjx-chtml {
-  display: inline !important;
   padding: 0 !important;
-  margin: 0 !important;
   vertical-align: middle !important;
+  line-height: inherit !important;
   font-size: 1em !important;
-  white-space: normal;
-  word-break: break-word;
+  white-space: normal !important;
+  max-width: 100% !important;
+  overflow-wrap: break-word !important;
 }
 
-/* Remove block-like spacing around inline math in headers */
-.accordion-header mjx-container {
+/* Prevent <mjx-container> inside headings from blowing up layout */
+.accordion-header mjx-container[jax="CHTML"][display="false"] {
   display: inline !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  vertical-align: middle !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
 }
 
-/* If math wraps, make sure it doesn't break layout */
-.accordion-header mjx-container mjx-math {
-  overflow-x: auto;
-  max-width: 100%;
+/* Fix display-mode math ($$...$$) if ever used */
+mjx-container[display="true"] {
+  display: block !important;
+  overflow-x: auto !important;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  max-width: 100% !important;
   box-sizing: border-box;
 }
