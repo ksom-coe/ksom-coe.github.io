@@ -180,8 +180,6 @@ title: Kerala School of Mathematics - Official Website
             <p><strong>Impact and Reach</strong><br/>Our outreach annually engages a large number of participants through strategic partnerships with schools, universities, and scientific organizations. These efforts strengthen mathematical foundations across Kerala while creating inclusive pathways to advanced study, particularly through early interventions that inspire underrepresented groups to pursue mathematical careers.</p>
         </div>
     </section>
-    <div class="accordion-header">Mappings in $\mathbb{C}^3$ and $\mathbb{R}^3$</div>
-
 </div>
 
 <!-- Sidebar Content (holds Latest News, Calendar, Upcoming Events for vertical stacking) -->
