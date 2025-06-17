@@ -46,7 +46,7 @@ compact_headings: true
 </section>
 
 <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4558996">
-  <div class="accordion-header">Proper holomorphic mappings of quasibalanced domains in $\textbf{C}^3$</div>
+  <div class="accordion-header">Proper holomorphic mappings of quasi-balanced domains in $\textbf{C}^3$</div>
   <div class="accordion-snippet">
     <strong>Haridas, Pranav; Janardhanan, Jaikrishnan</strong><br/>
     <em>Complex Anal. Synerg. 9 (2023), no. 2, Paper No. 7, 7 pp.</em>
