@@ -287,24 +287,6 @@ compact_headings: true
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4179377">
-  <div class="accordion-header">A certain kernel function for L-values of half-integral weight Hecke eigenforms</div>
-  <div class="accordion-snippet">
-    <strong>Sreejith, M. M.</strong><br/>
-    <em>Springer Proc. Math. Stat., 340<br/>Springer, Singapore, 2020, 213–225.</em><br/>
-    <em>ISBN: 978-981-15-8719-1; 978-981-15-8718-4</em>
-  </div>
-</section>
-
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4179364">
-  <div class="accordion-header">On vanishing of Hecke operators</div>
-  <div class="accordion-snippet">
-    <strong>Adersh, V. K.</strong><br/>
-    <em>Springer Proc. Math. Stat., 340<br/>Springer, Singapore, 2020, 1–6.</em><br/>
-    <em>ISBN: 978-981-15-8719-1; 978-981-15-8718-4</em>
-  </div>
-</section>
-
 <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4146238">
   <div class="accordion-header">Note on certain operators of Jacobi forms of half integral weight</div>
   <div class="accordion-snippet">
@@ -326,15 +308,6 @@ compact_headings: true
   <div class="accordion-snippet">
     <strong>Manickam, M.; Shankhadhar, Karam Deo</strong><br/>
     <em>J. Number Theory 194 (2019), 319–334.</em>
-  </div>
-</section>
-
-<section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=3880391">
-  <div class="accordion-header">On zeros of certain cusp forms of integral weight for full modular group</div>
-  <div class="accordion-snippet">
-    <strong>Manickam, Murugesan; Sandeep, E. M.</strong><br/>
-    <em>Springer Proc. Math. Stat., 251<br/>Springer, Cham, 2018, 267–271.</em><br/>
-    <em>ISBN: 978-3-319-97379-1; 978-3-319-97378-4</em>
   </div>
 </section>
 
