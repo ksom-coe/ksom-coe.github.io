@@ -1635,6 +1635,8 @@ footer .footer-column a:hover {
     gap: 1rem;
   }
 
+  
+
   /* Adjust campus image height for better responsiveness on mobile */
   #campus-photos-section .top-image img {
     height: auto; /* Allow height to adjust based on aspect ratio */
@@ -1731,5 +1733,16 @@ footer .footer-column a:hover {
   .modal-overlay {
       align-items: flex-start;
   }
+}
+
+/* Specific styles for publication headings */
+body.publications-page .accordion-item .accordion-header {
+    font-size: 1rem; /* Adjust as needed, e.g., 0.9rem, 0.85em */
+    color: #000000; /* Black color */
+}
+
+/* Dark mode adjustments for publication headings */
+body.dark-mode.publications-page .accordion-item .accordion-header {
+    color: #f1f1f1; /* Lighter color for dark mode to maintain readability */
 }
 
