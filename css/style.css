@@ -57,18 +57,20 @@ img {
   border: 0;
 }
 
-/* === Typography & Content Lists === */
-/* Ensures basic list styling is present within static and accordion content */
+/* === Typography & Content Lists (UPDATED) === */
+/* Ensures proper list styling within static and accordion content */
 .static-content ul,
 .accordion-content ul {
-    list-style: disc; /* This adds the bullet point marker */
-    padding-left: 20px; /* Adjust this value as needed for indentation */
-    margin-top: 1em; /* Adds space above the list */
-    margin-bottom: 1em; /* Adds space below the list */
+    list-style: disc inside; /* CRITICAL: 'inside' positions the bullet within the list item's content */
+    padding-left: 25px; /* Adjust this value as needed to push the *entire* list block from the left edge */
+    margin-top: 1em;    /* Space above the list */
+    margin-bottom: 1em; /* Space below the list */
 }
 
 .static-content ul li,
 .accordion-content ul li {
+    /* With 'list-style-position: inside' on the ul, individual li padding is often not needed here. */
+    /* If you still need more space between the bullet and the text, you could try text-indent: -1em; and padding-left: 1em; on the li, but 'inside' is usually enough. */
     margin-bottom: 0.5em; /* Adds space between individual list items */
 }
 
