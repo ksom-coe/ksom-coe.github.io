@@ -8,9 +8,9 @@ title: Research Areas at KSoM
   <!-- Optional: Static Overview Section using reusable class -->
   <section class="static-section" id="areas-overview-intro">
     <div class="accordion-header">Research Areas at KSoM</div>
-    <div class="accordion-content static-content">
+
       <p>The Kerala School of Mathematics engages in a wide range of mathematical research domains. Below is a snapshot of key areas where our faculty and scholars contribute actively. Click each area to explore further.</p>
-    </div>
+
   </section>
 
   <!-- Accordion items (flat, no extra layout wrappers) -->
