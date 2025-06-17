@@ -24,7 +24,7 @@ full_width: true
     </section>
 
     <!-- 3. KSoM Publications Section (Clickable card, direct link to /research/publications, no modal, no 'more') -->
-    <section id="publications-section" class="accordion-item" data-direct-link="true" data-learn-more-url="https://ksom.res.in/research/publications">
+    <section id="publications-section" class="accordion-item" data-direct-link="true" data-learn-more-url="/research/publications">
         <div class="accordion-header" role="button" tabindex="0" aria-label="View KSoM Publications">KSoM Publications</div>
         <div class="accordion-snippet">
             Faculty members, postdoctoral fellows, and research scholars at KSoM regularly contribute to leading journals and present at international conferences, significantly advancing mathematical knowledge. Our publications reflect the breadth and depth of research conducted at the institute, covering diverse areas from pure mathematics to its applications.
