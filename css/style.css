@@ -1780,63 +1780,33 @@ body.dark-mode.compact-headings-style .accordion-item .accordion-header {
     padding-right: 0.1em !important; /* Adjust this value (e.g., 0.05em, 0em) as needed */
 }
 
-/* --- Aggressive MathJax Overrides for Inline Math Spacing --- */
+/* === MathJax Rendering Fixes === */
 
-/* Target the main MathJax output container for inline expressions */
-.MathJax_CHTML {
-    /* Use inline-block for predictable layout, override if flex causes issues */
-    display: inline-block !important; 
-    
-    /* Absolute critical for removing intrinsic horizontal space */
-    margin: 0 !important;
-    padding: 0 !important;
-    
-    /* Fine-tune internal spacing if needed, but start at 0 */
-    margin-left: 0px !important;
-    margin-right: 0px !important;
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-
-    /* Adjust alignment to integrate smoothly with text */
-    vertical-align: baseline !important; /* Most common for inline math */
-    line-height: 1 !important; /* Prevent extra vertical space */
-
-    /* Further reduce any residual character spacing */
-    letter-spacing: normal !important; /* Ensure no extra letter spacing */
-    word-spacing: normal !important;   /* Ensure no extra word spacing */
-    white-space: nowrap !important;    /* Prevent wrapping within the math expression */
+/* Inline math ($...$): make it flow like normal text */
+.mathjax-loaded .mjx-chtml {
+  display: inline !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: 100%;
+  white-space: normal;
+  vertical-align: middle;
 }
 
-/* Target internal MathJax elements that might carry spacing */
-.MathJax_CHTML .mjx-math,
-.MathJax_CHTML .mjx-chtml,
-.MathJax_CHTML span,
-.MathJax_CHTML svg,
-.MathJax_CHTML path,
-.MathJax_CHTML rect,
-.MathJax_CHTML g {
-    margin: 0 !important;
-    padding: 0 !important;
-    line-height: 1 !important; /* Ensure no line-height issues internally */
-    vertical-align: baseline !important; /* Consistent vertical alignment */
+/* Block math ($$...$$): prevent overflow on small screens */
+.mathjax-loaded .mjx-chtml[display="true"] {
+  display: block !important;
+  overflow-x: auto;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  max-width: 100%;
+  box-sizing: border-box;
+  background-color: var(--card-bg, #f8f8f8); /* optional: styled background */
+  border-left: 4px solid var(--accent-blue, #2a5d9f); /* optional */
+  border-radius: 6px;
 }
 
-/* Specific adjustments for assistive MathML (hidden, but good practice) */
-.MathJax_CHTML.MJX_Assistive_MathML {
-    position: absolute !important;
-    overflow: hidden !important;
-    height: 1px !important;
-    width: 1px !important;
-    padding: 0 !important;
-    border: 0 !important;
-    margin: -1px !important;
-    clip: rect(0 0 0 0) !important;
-    white-space: nowrap !important;
+/* Paragraphs containing inline math: spacing adjustment */
+p > .mjx-chtml {
+  line-height: 1.6;
+  vertical-align: middle;
 }
-
-/* If you need a tiny amount of space, add it to the parent of the math block */
-/* Example: if your math is within a <p> tag */
-/* p .MathJax_CHTML {
-    padding-left: 0.05em !important;
-    padding-right: 0.05em !important;
-} */
