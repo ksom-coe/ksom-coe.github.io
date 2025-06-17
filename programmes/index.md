@@ -25,10 +25,10 @@ full_width: true
         </div>
     <section class="static-section" id="programmes-introduction">
         <div class="accordion-header">Academic programmes at KSoM</div>
-        <div class="accordion-content static-content">
+        
             <p>Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.</p>
             <p>Our commitment to excellence is reflected in our student-centric approach. We cultivate a collaborative and intellectually stimulating environment where curiosity is nurtured, and mathematical talent is transformed into significant contributions to the global scientific community.</p>
-        </div>
+
     </section>
 
     <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="/programmes/integrated-msc-phd">
@@ -54,9 +54,9 @@ full_width: true
 
     <section class="static-section" id="scholarly-environment">
         <div class="accordion-header">Scholarly Environment</div>
-        <div class="accordion-content static-content">
+
             <p>All programmes emphasize collaborative learning through weekly research seminars, specialized workshops, and annual conferences that connect students with global mathematical leaders. Our selective admission process identifies exceptional talent while maintaining small cohort sizes that ensure personalized guidance. This supportive ecosystem enables scholars to contribute meaningfully to mathematical knowledge while developing as versatile researchers equipped to address complex scientific challenges.</p>
-        </div>
+
     </section>
 
     <section class="static-section" id="student-life-static">
