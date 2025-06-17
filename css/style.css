@@ -1746,22 +1746,33 @@ body.dark-mode.compact-headings-style .accordion-item .accordion-header {
     color: #f1f1f1; /* Lighter color for dark mode to maintain readability */
 }
 
-/* === MathJax Inline Rendering Fix === */
+/* === MathJax Inline Rendering Fix (Updated) === */
 mjx-container[jax="CHTML"][display="false"] {
   display: inline !important;
   margin: 0 !important;
   padding: 0 !important;
   vertical-align: middle !important;
-  white-space: normal !important;
-  overflow-wrap: break-word !important;
+  white-space: nowrap !important;
+  overflow-wrap: normal !important;
   line-height: inherit !important;
-  max-width: 100% !important;
+  max-width: none !important;
+  width: auto !important;
 }
 
-/* Prevent stretching inside flex layouts (e.g. accordion-header) */
+/* Prevent layout interference inside accordion headers */
+.accordion-header {
+  display: block !important; /* Prevent grid or flex influence */
+  text-align: left;
+  width: fit-content;
+  max-width: 100%;
+}
+
 .accordion-header mjx-container[jax="CHTML"][display="false"] {
-  flex: 0 0 auto !important;
-  align-self: center !important;
+  display: inline !important;
+  white-space: nowrap !important;
+  width: auto !important;
+  max-width: none !important;
+  margin-right: 0.25rem; /* Optional: spacing between multiple math expressions */
 }
 
 /* Display math ($$...$$) */
@@ -1777,11 +1788,8 @@ mjx-container[display="true"] {
   border-radius: 6px;
 }
 
-.accordion-header .MathJax,
-.accordion-header .mjx-chtml {
-  display: inline-block !important;
-  max-width: none !important;
-  width: auto !important;
-  white-space: nowrap;
-  vertical-align: middle;
+/* Optional: prevent assistive MML span from taking space */
+mjx-container mjx-assistive-mml {
+  display: none !important;
 }
+
