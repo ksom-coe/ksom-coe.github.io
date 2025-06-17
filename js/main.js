@@ -164,6 +164,49 @@ function closeModal() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM fully loaded and parsed");
+
+    // Fix: Ensure modal and navigation toggle binding works
+    const modal = document.getElementById('mainModal');
+    const closeButton = document.querySelector('.modal-close-button');
+    if (modal && closeButton) {
+        closeButton.addEventListener('click', () => {
+            console.log("Closing modal");
+            closeModal();
+        });
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                console.log("Clicked outside modal content");
+                closeModal();
+            }
+        });
+    } else {
+        console.warn("Modal or close button missing.");
+    }
+
+    const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    if (mobileNavToggle && navMenu) {
+        mobileNavToggle.addEventListener('click', () => {
+            console.log("Toggling mobile navigation");
+            navMenu.classList.toggle('active');
+            mobileNavToggle.classList.toggle('active');
+            document.body.classList.toggle('no-scroll');
+        });
+
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                console.log("Mobile nav link clicked, closing nav");
+                navMenu.classList.remove('active');
+                mobileNavToggle.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        });
+    } else {
+        console.warn("Mobile navigation toggle or menu not found.");
+    }
+
     // Light/Dark Mode Toggle
     const themeToggle = document.getElementById('theme-toggle');
     const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
