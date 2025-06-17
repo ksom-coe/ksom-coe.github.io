@@ -6,7 +6,7 @@ full_width: true
 
 <div class="main-full-width" id="main-content-start">
 
-    <div id="programmes-slideshow-section" class="top-image slideshow-container" data-slideshow-id="programmesSlideshow">
+    <div id="programmes-slideshow-section" class="slideshow-container" data-slideshow-id="programmesSlideshow">
         <div class="mySlides fade">
             <img src="/images/programmes/Image-1.webp" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Programme+Image+1';this.alt='KSoM Programme Image 1 not available';" alt="Students collaborating at KSoM" />
         </div>
