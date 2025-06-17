@@ -1,7 +1,7 @@
 ---
 layout: content.html
 title: Publications at KSoM
-body_class: publications-page
+compact_headings: true
 ---
 
 <div class="main-full-width" id="main-content-start">
