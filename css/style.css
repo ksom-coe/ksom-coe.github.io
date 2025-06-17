@@ -1776,3 +1776,12 @@ mjx-container[display="true"] {
   border-left: 4px solid var(--accent-blue, #005fa3); /* Optional */
   border-radius: 6px;
 }
+
+.accordion-header .MathJax,
+.accordion-header .mjx-chtml {
+  display: inline-block !important;
+  max-width: none !important;
+  width: auto !important;
+  white-space: nowrap;
+  vertical-align: middle;
+}
