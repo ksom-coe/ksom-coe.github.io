@@ -1746,69 +1746,50 @@ body.dark-mode.compact-headings-style .accordion-item .accordion-header {
     color: #f1f1f1; /* Lighter color for dark mode to maintain readability */
 }
 
-/* --- MathJax Overrides and Adjustments --- */
-/* Target the main CommonHTML output for inline math */
-.MathJax_CHTML {
-    display: inline-flex !important; /* Use flexbox for better control */
-    align-items: baseline !important; /* Align with the text baseline */
-    vertical-align: baseline !important; /* Crucial for aligning with surrounding text */
-    margin-left: 0.08em !important; /* Fine-tune horizontal spacing */
-    margin-right: 0.08em !important; /* Fine-tune horizontal spacing */
-    /* You can adjust 0.08em down to 0.05em or even 0em if you want very tight spacing */
-    /* Experiment with these values to find what looks best with your font */
+/* === MathJax Overrides === */
+/* Base container reset */
+mjx-container {
+  line-height: normal !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 1em !important;
 }
 
-/* Specific adjustments for inline MathJax spans that might have default margins */
-.mjx-chtml[tabindex="-1"] {
-    margin-left: 0.08em !important;
-    margin-right: 0.08em !important;
-}
-
-/* --- MathJax Overrides for Inline Math Spacing --- */
-
-/* This targets the main MathJax container for inline math expressions */
-.MathJax_CHTML {
-    /* Use flexbox for precise alignment and spacing control */
-    display: inline-flex !important;
-    align-items: baseline !important; /* Align with the text baseline */
-    vertical-align: baseline !important; /* Ensure vertical alignment with surrounding text */
-
-    /* Crucial for reducing horizontal space */
-    margin-left: 0px !important;   /* Explicitly set to 0 and use padding instead for fine-tuning */
-    margin-right: 0px !important;  /* Explicitly set to 0 */
-    padding-left: 0.1em !important; /* Add a small padding to control the space */
-    padding-right: 0.1em !important; /* Adjust this value (e.g., 0.05em, 0em) as needed */
-}
-
-/* === MathJax Inline LaTeX Fix (especially for headings/accordions) === */
-
-/* Ensure MathJax inline elements behave like text */
+/* Inline math */
 mjx-container[jax="CHTML"][display="false"] {
+  display: inline !important;
+  vertical-align: middle !important;
+  white-space: normal !important;
+  max-width: 100% !important;
+  overflow-wrap: break-word !important;
+  letter-spacing: -0.5px !important; /* Compensate for spacing issues */
+}
+
+/* Display math */
+mjx-container[jax="CHTML"][display="true"] {
+  display: block !important;
+  margin: 1rem 0 !important;
+  overflow-x: auto !important;
+  padding: 0.5rem 1rem !important;
+  box-sizing: border-box !important;
+}
+
+/* Inner math element */
+mjx-container > mjx-math {
   display: inline !important;
   margin: 0 !important;
   padding: 0 !important;
-  vertical-align: middle !important;
-  line-height: inherit !important;
-  font-size: 1em !important;
-  white-space: normal !important;
-  max-width: 100% !important;
-  overflow-wrap: break-word !important;
 }
 
-/* Prevent <mjx-container> inside headings from blowing up layout */
-.accordion-header mjx-container[jax="CHTML"][display="false"] {
-  display: inline !important;
+/* Operator spacing fix */
+mjx-mo {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Specific for accordion headers */
+.accordion-header mjx-container {
   white-space: normal !important;
   word-break: break-word !important;
-  overflow-wrap: break-word !important;
-}
-
-/* Fix display-mode math ($$...$$) if ever used */
-mjx-container[display="true"] {
-  display: block !important;
-  overflow-x: auto !important;
-  padding: 0.5rem 1rem;
-  margin: 1rem 0;
-  max-width: 100% !important;
-  box-sizing: border-box;
+  letter-spacing: -0.5px !important;
 }
