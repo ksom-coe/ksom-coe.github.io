@@ -6,8 +6,6 @@ compact_headings: true
 
 <div class="main-full-width" id="main-content-start">
 
-<div class="accordion-header">Mappings in $\mathbb{C}^3$ and $\mathbb{R}^3$</div>
-
 <section class="static-section" id="publications-intro">
   <div class="accordion-header">Research Publications from KSoM</div>
   <div class="accordion-content static-content">
@@ -64,7 +62,7 @@ compact_headings: true
 </section>
 
 <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4520283">
-  <div class="accordion-header">Diophantine triples with the property D(n) for distinct n's</div>
+  <div class="accordion-header">Diophantine triples with the property $D(n)$ for distinct $n$'s</div>
   <div class="accordion-snippet">
     <strong>Chakraborty, Kalyan; Gupta, Shubham; Hoque, Azizul</strong><br/>
     <em>Mediterr. J. Math. 20 (2023), no. 1, Paper No. 31, 13 pp.</em>
@@ -144,7 +142,7 @@ compact_headings: true
 </section>
 
 <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4441454">
-  <div class="accordion-header">Local boundary representations of locally C∗-algebras</div>
+  <div class="accordion-header">Local boundary representations of locally C$^*$-algebras</div>
   <div class="accordion-snippet">
     <strong>Arunkumar, C. S.</strong><br/>
     <em>J. Math. Anal. Appl. 515 (2022), no. 2, Paper No. 126416, 14 pp.</em>
@@ -160,7 +158,7 @@ compact_headings: true
 </section>
 
 <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4344843">
-  <div class="accordion-header">On the Diophantine equation dx2+p2aq2b=4yp</div>
+  <div class="accordion-header">On the Diophantine equation $dx^2+p^{2a}q^{2b}=4y^p$</div>
   <div class="accordion-snippet">
     <strong>Chakraborty, Kalyan; Hoque, Azizul</strong><br/>
     <em>Results Math. 77 (2022), no. 1, Paper No. 18, 11 pp.</em>
@@ -224,7 +222,7 @@ compact_headings: true
 </section>
 
 <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4228926">
-  <div class="accordion-header">On the Diophantine equation cx2+p2m=4yn</div>
+  <div class="accordion-header">On the Diophantine equation $cx^2+p^{2m}=4y^n$</div>
   <div class="accordion-snippet">
     <strong>Chakraborty, K.; Hoque, A.; Srinivas, K.</strong><br/>
     <em>Results Math. 76 (2021), no. 2, Paper No. 57, 12 pp.</em>
@@ -287,14 +285,6 @@ compact_headings: true
   </div>
 </section>
 
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4146238">
-  <div class="accordion-header">Note on certain operators of Jacobi forms of half integral weight</div>
-  <div class="accordion-snippet">
-    <strong>Manickam, M.; Tamil Selvi, M. K.</strong><br/>
-    <em>South East Asian J. Math. Math. Sci. 16 (2020), no. 1, 207–213.</em>
-  </div>
-</section>
-
 <section class="accordion-item alt-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=3911789">
   <div class="accordion-header">On Doi-Naganuma and Shimura liftings</div>
   <div class="accordion-snippet">
@@ -304,7 +294,7 @@ compact_headings: true
 </section>
 
 <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=3860478">
-  <div class="accordion-header">An Eichler-Zagier map for Jacobi cusp forms on H×C(g,1)</div>
+  <div class="accordion-header">An Eichler-Zagier map for Jacobi cusp forms on $H \times C(g,1)$</div>
   <div class="accordion-snippet">
     <strong>Manickam, M.; Shankhadhar, Karam Deo</strong><br/>
     <em>J. Number Theory 194 (2019), 319–334.</em>
@@ -324,14 +314,6 @@ compact_headings: true
   <div class="accordion-snippet">
     <strong>Kumar, Balesh; Manickam, Murugesan</strong><br/>
     <em>J. Number Theory 193 (2018), 128–153.</em>
-  </div>
-</section>
-
-<section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=3835224">
-  <div class="accordion-header">Tensor products of hyperrigid operator systems</div>
-  <div class="accordion-snippet">
-    <strong>Shankar, P.; Vijayarajan, A. K.</strong><br/>
-    <em>Ann. Funct. Anal. 9 (2018), no. 3, 369–375.</em>
   </div>
 </section>
 
