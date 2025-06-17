@@ -1735,14 +1735,14 @@ footer .footer-column a:hover {
   }
 }
 
-/* Specific styles for publication headings */
-body.publications-page .accordion-item .accordion-header {
+/* Specific styles for accordion headings on selected pages with compact style */
+body.compact-headings-style .accordion-item .accordion-header {
     font-size: 1rem; /* Adjust as needed, e.g., 0.9rem, 0.85em */
     color: #000000; /* Black color */
 }
 
-/* Dark mode adjustments for publication headings */
-body.dark-mode.publications-page .accordion-item .accordion-header {
+/* Dark mode adjustments for compact headings */
+body.dark-mode.compact-headings-style .accordion-item .accordion-header {
     color: #f1f1f1; /* Lighter color for dark mode to maintain readability */
 }
 
