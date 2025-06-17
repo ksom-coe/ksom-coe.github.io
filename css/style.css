@@ -1746,28 +1746,26 @@ body.dark-mode.compact-headings-style .accordion-item .accordion-header {
     color: #f1f1f1; /* Lighter color for dark mode to maintain readability */
 }
 
-/* === Advanced MathJax Spacing Fix === */
-/* Base container reset */
+/* === Ultra-Aggressive MathJax Spacing Fix === */
 mjx-container {
-  line-height: 1 !important;
+  display: inline !important;
   margin: 0 !important;
   padding: 0 !important;
+  line-height: 1 !important;
   font-size: 1em !important;
-  display: inline-block !important;
-  vertical-align: middle !important;
-  text-align: left;
+  vertical-align: baseline !important;
+  letter-spacing: -0.5px !important;
+  word-spacing: -0.3px !important;
 }
 
-/* Inline math elements */
+/* Inline math container */
 mjx-container[jax="CHTML"][display="false"] {
-  display: inline-block !important;
-  vertical-align: middle !important;
+  transform: scale(0.97) translateX(-0.05em) !important;
+  transform-origin: left center;
+  display: inline !important;
   white-space: nowrap !important;
   max-width: 100% !important;
   overflow: visible !important;
-  letter-spacing: -0.5px !important;
-  transform: scale(0.98) !important;
-  transform-origin: 0 50%;
 }
 
 /* Math content wrapper */
@@ -1775,36 +1773,43 @@ mjx-container[jax="CHTML"][display="false"] {
   display: inline !important;
   margin: 0 !important;
   padding: 0 !important;
-  letter-spacing: -0.3px !important;
-  word-spacing: -0.2px !important;
+  letter-spacing: -0.6px !important;
+  word-spacing: -0.4px !important;
 }
 
-/* Math operators - key spacing fix */
+/* Character-level spacing fixes */
 .mjx-char {
   padding-left: 0 !important;
   padding-right: 0 !important;
-  margin-left: -0.1em !important;
-  margin-right: -0.1em !important;
+  margin-left: -0.15em !important;
+  margin-right: -0.15em !important;
 }
 
-/* Parentheses and brackets spacing */
-.mjx-paren, .mjx-fence {
+/* Special handling for operators */
+.mjx-mo {
   padding: 0 0.05em !important;
-  margin: 0 -0.1em !important;
+  margin: 0 -0.15em !important;
 }
 
 /* Variables and identifiers */
 .mjx-mi {
   padding: 0 0.05em !important;
-  margin: 0 -0.05em !important;
+  margin: 0 -0.1em !important;
 }
 
-/* Specific fix for accordion headers */
+/* Parentheses and brackets */
+.mjx-paren, .mjx-fence {
+  padding: 0 0.05em !important;
+  margin: 0 -0.2em !important;
+}
+
+/* Fix for accordion headers */
 .accordion-header mjx-container {
-  vertical-align: text-top !important;
-  line-height: 1.2 !important;
-  transform: scale(0.96) !important;
+  vertical-align: text-bottom !important;
+  line-height: 0.95 !important;
+  transform: scale(0.95) translateX(-0.07em) !important;
   margin: 0 -0.1em !important;
+  letter-spacing: -0.7px !important;
 }
 
 /* Display math (block equations) */
@@ -1815,5 +1820,12 @@ mjx-container[display="true"] {
   padding: 0.5rem 1rem !important;
   box-sizing: border-box !important;
   letter-spacing: normal !important;
+  word-spacing: normal !important;
   transform: none !important;
+}
+
+/* Negative margin hack for immediate neighbors */
+mjx-container + :not(mjx-container),
+:not(mjx-container) + mjx-container {
+  margin-left: -0.1em !important;
 }
