@@ -1836,6 +1836,20 @@ mjx-container mjx-assistive-mml {
   display: none !important;
 }
 
+/* === General Slideshow Support === */
 .mySlides {
   display: none;
+}
+
+.slideshow-container {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.mySlides img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
