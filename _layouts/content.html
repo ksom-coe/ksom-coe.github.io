@@ -19,53 +19,46 @@
   <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css" />
 
-  /* === Revised MathJax Configuration === */
-<!-- Keep original script but add spacing controls -->
-<script>
-MathJax = {
-  tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']],
-    displayMath: [['$$', '$$'], ['\\[', '\\]']],
-    processEscapes: true,
-    packages: ['base', 'ams'],
-    // Add spacing control
-    inlineMathSpacing: {
-      math: 0,
-      text: 0
-    }
-  },
-  options: {
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process',
-    renderActions: {
-      addMenu: [0, '', ''],
-      checkLoading: [0, '', '']
-    }
-  },
-  startup: {
-    pageReady() {
-      return MathJax.startup.defaultPageReady().then(function() {
-        document.body.classList.add('mathjax-loaded');
-        // Post-render cleanup
-        document.querySelectorAll('.MathJax_CHTML').forEach(el => {
-          el.style.letterSpacing = '0';
-          el.style.wordSpacing = '0';
+  <!-- MathJax Configuration -->
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      packages: ['base', 'ams'],
+    },
+    options: {
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process',
+      renderActions: {
+        addMenu: [0, '', ''],
+        checkLoading: [0, '', '']
+      }
+    },
+    chtml: {
+      adaptiveCSS: false,      // Prevent auto layout spacing
+      matchFontHeight: false   // Better for visual alignment of inline math
+    },
+    loader: {
+      load: ['[tex]/ams', '[tex]/noundefined']
+    },
+    startup: {
+      pageReady() {
+        return MathJax.startup.defaultPageReady().then(() => {
+          document.body.classList.add('mathjax-loaded');
+          // Optional: Remove spacing artifacts globally
+          document.querySelectorAll('mjx-container').forEach(el => {
+            el.style.letterSpacing = '0';
+            el.style.wordSpacing = '0';
+          });
         });
-      });
+      }
     }
-  },
-  loader: { 
-    load: ['[tex]/ams'],
-    // Add spacing packages
-    require: ['[tex]/noundefined']
-  },
-  chtml: {
-    adaptiveCSS: false, // Prevent auto-spacing
-    matchFontHeight: false // Better for inline math
-  }
-};
-</script>
-<script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  };
+  </script>
+  <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 
   <!-- FullCalendar -->
   <script defer src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
