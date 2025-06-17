@@ -110,7 +110,7 @@ compact_headings: true
 </section>
 
 <section class="accordion-item default-bg" data-direct-link="true" data-learn-more-url="https://mathscinet.ams.org/mathscinet/article?mr=4475673">
-  <div class="accordion-header">On some symmetries of the base n expansion of 1/m: the class number connection</div>
+  <div class="accordion-header">On some symmetries of the base $n$ expansion of $1/m$: the class number connection</div>
   <div class="accordion-snippet">
     <strong>Chakraborty, Kalyan; Krishnamoorthy, Krishnarjun</strong><br/>
     <em>Pacific J. Math. 319 (2022), no. 1, 39–53.</em>
