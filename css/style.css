@@ -1836,3 +1836,6 @@ mjx-container mjx-assistive-mml {
   display: none !important;
 }
 
+.mySlides {
+  display: none;
+}
