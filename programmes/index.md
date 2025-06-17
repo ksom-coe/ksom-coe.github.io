@@ -26,8 +26,8 @@ full_width: true
     <section class="static-section" id="programmes-introduction">
         <div class="accordion-header">Academic programmes at KSoM</div>
         
-            <p>Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.</p>
-            <p>Our commitment to excellence is reflected in our student-centric approach. We cultivate a collaborative and intellectually stimulating environment where curiosity is nurtured, and mathematical talent is transformed into significant contributions to the global scientific community.</p>
+            <div style="margin-bottom: 1rem;">Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.</div>
+            <div>Our commitment to excellence is reflected in our student-centric approach. We cultivate a collaborative and intellectually stimulating environment where curiosity is nurtured, and mathematical talent is transformed into significant contributions to the global scientific community.</div>
 
     </section>
 
