@@ -6,7 +6,7 @@ full_width: true
 
 <div class="main-full-width" id="main-content-start">
 
-    <section class="accordion-item default-bg">
+    <section class="static-section default-bg">
         <div class="accordion-header">Integrated MSc-PhD Program in Mathematics</div>
         <div class="accordion-content static-content">
             <p>The Integrated MSc-PhD program in Mathematics at Kerala School of Mathematics is an advanced training program at the postgraduate level leading to doctoral studies. The coursework is very flexible with a focus on grooming students for a research career in Mathematics. Depending on the choice of the electives, a student also has the option to choose a research career in Physics or Theoretical Computer Science as well.</p>
