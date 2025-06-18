@@ -15,10 +15,10 @@ full_width: true
 
     <section class="static-section default-bg">
         <div class="accordion-header">The Integrated MSc-PhD Program in Mathematics</div>
+        <div class="accordion-content static-content">
+            <p>The Integrated MSc-PhD program at the Kerala School of Mathematics (KSoM) offers advanced postgraduate training designed to prepare students for a robust research career. While primarily focused on Mathematics, its flexible coursework allows students to explore research opportunities in Physics or Theoretical Computer Science through elective choices, providing a broad interdisciplinary foundation.</p>
 
-            <div style="margin-bottom: 1rem;">The Integrated MSc-PhD program at the Kerala School of Mathematics (KSoM) offers advanced postgraduate training designed to prepare students for a robust research career. While primarily focused on Mathematics, its flexible coursework allows students to explore research opportunities in Physics or Theoretical Computer Science through elective choices, providing a broad interdisciplinary foundation.</div>
-
-            <div style="margin-bottom: 1rem;"> Key features of the Integrated MSc-PhD program at KSoM include:</div>
+            <p>Key features of the Integrated MSc-PhD program at KSoM include:</p>
             <ul>
                 <li>A (current) scholarship amount of Rs. 6000/- per month will be given to all candidates during the MSc part (2 years) of the program.</li>
                 <li>A scholarship amount equivalent to other national scholarship schemes will be given to the qualifying candidates during the PhD part (from 3rd year onwards) of the program.</li>
@@ -28,8 +28,8 @@ full_width: true
                 <li>An academic environment with national and international level lectures, workshops, seminars, and conferences enriches the program.</li>
             </ul>
 
-            <div>For a detailed overview of the program, including curriculum specifics, please refer to the official brochure available <a href="https://drive.google.com/file/d/1KIoepNd0yT6myvkEIyz8YiD8dxboh--y/view" target="_blank" rel="noopener noreferrer">here</a>.</div>
-
+            <p>For a detailed overview of the program, including curriculum specifics, please refer to the official brochure available <a href="https://drive.google.com/file/d/1KIoepNd0yT6myvkEIyz8YiD8dxboh--y/view" target="_blank" rel="noopener noreferrer">here</a>.</p>
+        </div>
     </section>
 
 </div>
