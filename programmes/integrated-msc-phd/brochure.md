@@ -8,9 +8,7 @@ full_width: true
 
 
 
-<h1>Brochure of the Integrated MSc-PhD Programme</h1>
- <section class="static-section default-bg">
-  
+<h1>Brochure of the Integrated MSc-PhD Programme</h1>  
         
 <section class="static-section default-bg">
   <div class="accordion-content static-content">
