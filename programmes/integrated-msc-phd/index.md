@@ -6,7 +6,7 @@ full_width: true
 
 <div class="main-full-width" id="main-content-start">
 
-    <section class="accordion-item default-bg" id="admissions-highlight-card" data-direct-link="true" data-learn-more-url="/programmes/integrated-msc-phd/admissions">
+    <section class="accordion-item highlight-card" id="admissions-highlight-card" data-direct-link="true" data-learn-more-url="/programmes/integrated-msc-phd/admissions">
         <div class="accordion-header" role="button" tabindex="0" aria-label="Admissions to the Integrated MSc-PhD Program 2025">Admissions to the Integrated MSc-PhD Program 2025</div>
         <div class="accordion-snippet">
             Admissions for the Integrated MSc-PhD Program for 2025 are now open! Click here to view eligibility criteria, the two-tier selection process, application deadlines, and direct links to apply for the KSoM written examination and other qualifying tests.<span class="snippet-more-indicator"> ...more</span>
