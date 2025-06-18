@@ -61,106 +61,128 @@ img {
 
 
 
-/* === Typography & Content Lists (FINAL ALIGNMENT REFINEMENT) === */
+/* === Typography & Content Lists (FINAL ALIGNMENT REFINEMENT - STANDALONE BULLETS FIX) === */
+/* This version restores the specific indentation for standalone ULs,
+   while maintaining all previous nested and numbered list alignments. */
 
-
-/* === List Reset and Base Styling === */
+/* Reset top/bottom margins for all list types for consistency,
+   and remove default browser padding-left. */
 .static-content ul,
 .static-content ol,
 .accordion-content ul,
 .accordion-content ol {
-  margin: 1em 0;
-  padding-left: 0;
+    margin-left: 0;   /* Ensure no external margin pushing the list container */
+    margin-top: 1em;    /* Consistent space above the list block */
+    margin-bottom: 1em; /* Consistent space below the list block */
+    padding-left: 0; /* Crucial: All list containers start from parent edge by default */
 }
 
-/* --- Properly aligned TOP-LEVEL UL --- */
+/* Styling for top-level UNORDERED LISTS (standalone bulleted lists) */
+/* This is for ULs that are direct children of .static-content or .accordion-content */
 .static-content > ul,
 .accordion-content > ul {
-  list-style: none; /* Remove default bullets */
-  padding-left: 0;  /* We'll handle bullet placement manually */
+    list-style: disc inside; /* Bullet inside li content box */
+    /* RESTORED: This value (25px) was previously stated as "rendering well" for standalone bullets.
+       It will position the bullets at approx. 49px from the main content edge. */
+    padding-left: 25px; 
 }
 
-.static-content > ul > li,
-.accordion-content > ul > li {
-  position: relative;
-  padding-left: 1.5em; /* Indent for bullet + spacing */
-  margin-bottom: 0.5em;
-}
-
-.static-content > ul > li::before,
-.accordion-content > ul > li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  top: 0.3em;
-  font-size: 1em;
-  line-height: 1;
-  color: currentColor; /* Optional: match text color */
-}
-
-/* --- Top-level Ordered Lists --- */
+/* Styling for top-level ORDERED LISTS (standalone numbered lists) */
 .static-content > ol,
 .accordion-content > ol {
-  list-style-position: outside;
-  padding-left: 1.5rem;
+    list-style-position: outside; /* Number outside text flow */
+    padding-left: 1.5rem; /* Positions *numbers* at 1.5rem from the parent content's edge. */
 }
 
+/* Specific styling for list items within TOP-LEVEL ORDERED LISTS (ol > li) */
+/* This moves the content for numbered lists further to the left. */
 .static-content > ol > li,
 .accordion-content > ol > li {
-  list-style-position: outside;
-  padding-left: 0.8em;
-  text-indent: 0;
-  margin-bottom: 0.5em;
+    margin-bottom: 0.5em; /* Adds space between individual list items */
+    
+    /* Ensure subsequent lines align with the first line's content. */
+    text-indent: 0; 
+    
+    /* Adjusted padding-left: Reduced to 0.8em to move the text closer to the number.
+       (Approx. 13px gap between number and text start). */
+    padding-left: 0.8em; 
+    
+    /* Explicitly keep the number outside the text block. */
+    list-style-position: outside; 
 }
 
-/* --- Nested UL and OL --- */
+
+/* --- Styles for NESTED LISTS (within any <li>) --- */
+
+/* Reset padding/margin for nested UL/OL containers.
+   This is critical to make nested lists start exactly where their parent LI's content starts. */
 .static-content li > ul,
 .static-content li > ol,
 .accordion-content li > ul,
 .accordion-content li > ol {
-  margin: 0.5em 0;
-  padding-left: 0;
-  margin-left: 0;
+    margin-top: 0.5em;    /* Smaller vertical gap above nested list */
+    margin-bottom: 0.5em; /* Smaller vertical gap below nested list */
+    padding-left: 0;      /* Crucial: Nested list starts exactly where its parent LI's content starts */
+    margin-left: 0;       /* No extra inherited margin pushing it */
 }
 
+/* Styling for list items within NESTED UNORDERED LISTS (li > ul > li) */
+/* This ensures nested bullets align with the content of the parent numbered item. */
 .static-content li > ul > li,
 .accordion-content li > ul > li {
-  list-style: disc inside;
-  margin-bottom: 0.5em;
+    list-style: disc inside; /* Bullet is INSIDE the text flow.
+                                 Since the parent UL has padding-left:0, this bullet
+                                 will align with the parent LI's text content. */
+    margin-bottom: 0.5em;
+    /* No padding-left or text-indent needed here, as 'inside' handles it
+       and the nested UL's padding-left is already 0. */
 }
 
+/* Styling for list items within NESTED ORDERED LISTS (li > ol > li) */
+/* This creates a clean hanging indent for nested numbered lists. */
 .static-content li > ol > li,
 .accordion-content li > ol > li {
-  list-style-position: outside;
-  padding-left: 1.5em;
-  text-indent: -1.5em;
-  margin-bottom: 0.5em;
+    list-style-position: outside; /* Number outside the text block */
+    /* This creates a hanging indent for the nested number: */
+    padding-left: 1.5em; /* Space for number + gap (e.g., 24px) */
+    text-indent: -1.5em; /* Pulls the number back into that space */
+    margin-bottom: 0.5em;
 }
 
-/* --- Global LI Styling --- */
+
+/* --- Common/Global LI Styling (Ensure consistent line height and last child margins) --- */
+
+/* Ensure consistent line height for all list items */
 .static-content li,
 .accordion-content li {
-  line-height: 1.6;
+    line-height: 1.6; 
 }
 
+
+/* Ensure headings (e.g., h3) within list items have consistent spacing */
 .static-content li h3,
 .accordion-content li h3 {
-  margin: 0 0 0.5rem 0;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
 }
 
+/* Ensure paragraphs directly within list items don't add extra undesirable indentation */
 .static-content li p,
 .accordion-content li p {
-  margin-left: 0;
-  padding-left: 0;
+    margin-left: 0; 
+    padding-left: 0;
 }
 
+/* Remove bottom margin from the very last list item OR the very last element within any list item.
+   This prevents excess space at the end of lists. */
 .static-content li:last-child,
-.accordion-content li:last-child,
-.static-content li > *:last-child,
-.accordion-content li > *:last-child {
-  margin-bottom: 0;
+.accordion-content li:last-child {
+    margin-bottom: 0;
 }
-
+.static-content li > *:last-child, /* Target last direct child element within an LI */
+.accordion-content li > *:last-child {
+    margin-bottom: 0;
+}
 
 
 
