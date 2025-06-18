@@ -8,7 +8,7 @@ full_width: true
 
   <section class="static-section default-bg">
     <div class="accordion-content static-content">
-      <div class="accordion-header">INTEGRATED MSc-PhD PROGRAMME Brochure</div>
+      <div class="accordion-header">Integrated MSc-PhD Programme Brochure</div>
       <p><em>July 2023</em></p>
 
       <section class="accordion-item highlight-card">
