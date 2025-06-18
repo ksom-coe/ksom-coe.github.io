@@ -57,83 +57,64 @@ img {
   border: 0;
 }
 
-/* === Typography & Content Lists (FINAL REVISION - Consistent Indentation) === */
-/* This aims for consistent indentation where numbers/bullets and their text start tightly together,
-   and paragraphs within list items are not overly indented. */
+/* === Typography & Content Lists (REVERTED TO PREVIOUS WORKING VERSION) === */
+/* This version aligns ordered list numbers with the content baseline,
+   and unordered lists have bullets inside. Text within list items
+   will be slightly more indented than main paragraphs. */
 
 /* General list resets for common parent containers */
 .static-content ul,
 .static-content ol,
 .accordion-content ul,
 .accordion-content ol {
+    margin-left: 0;   /* Ensure no external margin pushing the list container */
     margin-top: 1em;    /* Consistent space above the list block */
     margin-bottom: 1em; /* Consistent space below the list block */
-    padding-left: 0;    /* Reset default padding on the list container itself */
-    margin-left: 0;     /* Reset default margin on the list container itself */
+    padding-left: 0; /* Reset default padding, will be set specifically for ul/ol */
 }
 
-/* Styling for UNORDERED LISTS (bullets) and ORDERED LISTS (numbers) */
-/* Apply a common indentation and list-style-position for consistency.
-   'list-style-position: inside;' makes the marker appear within the text flow,
-   ensuring the text (including nested paragraphs) starts immediately after the marker. */
+/* Styling specifically for UNORDERED LISTS (bullets) - maintains existing behavior */
 .static-content ul,
+.accordion-content ul {
+    list-style: disc inside; /* Bullet inside li content box */
+    padding-left: 25px; /* Indent entire ul block by 25px from container's content edge */
+}
+
+/* Styling specifically for ORDERED LISTS (numbers) - aligns numbers with parent content's left edge */
 .static-content ol,
-.accordion-content ul,
 .accordion-content ol {
-    list-style-position: inside; /* Bullet/number appears inside the LI's content box */
-    /* This padding-left indents the *entire list block* (marker + text) from the parent's content edge.
-       Using 1.8em provides enough space for the marker and a slight indent from the main content's baseline.
-       (You can adjust '1.8em' if you need more or less overall indentation for the entire list block.) */
-    padding-left: 1.8em; 
+    list-style-position: outside; /* Crucial for better vertical alignment of numbers */
+    /* Push the entire OL block to align its *start* with the parent's content's 1.5rem padding. */
+    padding-left: 1.5rem;
 }
 
 /* Common spacing for all list items (li) */
 .static-content li,
 .accordion-content li {
     margin-bottom: 0.5em; /* Adds space between individual list items */
-    /* No specific text-indent or padding-left needed on LI itself when list-style-position is inside,
-       as the marker and text are handled by the 'inside' positioning. */
 }
 
-/* Ensure headings (h3) and paragraphs (p) directly within list items don't add extra indentation */
-/* This is crucial to prevent the 'paragraph that follows' from being too far right. */
-.static-content li h3,
-.accordion-content li h3,
-.static-content li p,
-.accordion-content li p {
-    margin-left: 0; /* Reset any default margin-left on these nested elements */
-    padding-left: 0; /* Reset any default padding-left on these nested elements */
-    /* Adjust margin-top/bottom for spacing within list items if needed */
+/* Adjustments for nested lists (e.g., ul ul, ol ol) */
+/* These will be indented relative to their parent list's starting point */
+.static-content ul ul,
+.static-content ol ol,
+.accordion-content ul ul,
+.accordion-content ol ol {
+    margin-left: 1.5em; /* Additional visual indent for nested lists */
+    padding-left: 0; /* Reset padding-left for nested lists, using margin for indent */
 }
 
 /* Ensure headings (e.g., h3) within list items have consistent spacing */
 .static-content li h3,
 .accordion-content li h3 {
-    margin-top: 0; /* Remove default top margin for headings if they follow another element tightly */
-    margin-bottom: 0.5rem; /* Space below the heading within a list item */
-}
-
-/* Adjustments for nested lists (e.g., ul ul, ol ol) */
-/* Nested lists will have an additional indent. */
-.static-content ul ul,
-.static-content ol ol,
-.accordion-content ul ul,
-.accordion-content ol ol {
-    padding-left: 1.8em; /* Match outer list indent for consistency in nesting levels */
-    margin-left: 0;      /* Ensure no compounding of external margins */
+    margin-top: 0;
+    margin-bottom: 0.5rem;
 }
 
 /* Remove bottom margin from the very last list item in any list */
 .static-content li:last-child,
 .accordion-content li:last-child {
     margin-bottom: 0;
-}
-
-/* === Container Layout === */
-.container {
-  width: 90%;
-  max-width: var(--max-content-width);
-  margin: 0 auto;
 }
 
 /* === Header & Navigation === */
