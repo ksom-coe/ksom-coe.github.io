@@ -62,7 +62,9 @@ img {
 
 
 /* === Typography & Content Lists (FINAL ALIGNMENT REFINEMENT) === */
-/* === Unified List Styling for .static-content and .accordion-content === */
+
+
+/* === List Reset and Base Styling === */
 .static-content ul,
 .static-content ol,
 .accordion-content ul,
@@ -71,14 +73,32 @@ img {
   padding-left: 0;
 }
 
-/* Top-level unordered lists (standalone) */
+/* --- Properly aligned TOP-LEVEL UL --- */
 .static-content > ul,
 .accordion-content > ul {
-  list-style: disc inside;
-  padding-left: 25px; /* Position bullets ~49px from content edge */
+  list-style: none; /* Remove default bullets */
+  padding-left: 0;  /* We'll handle bullet placement manually */
 }
 
-/* Top-level ordered lists (standalone) */
+.static-content > ul > li,
+.accordion-content > ul > li {
+  position: relative;
+  padding-left: 1.5em; /* Indent for bullet + spacing */
+  margin-bottom: 0.5em;
+}
+
+.static-content > ul > li::before,
+.accordion-content > ul > li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0.3em;
+  font-size: 1em;
+  line-height: 1;
+  color: currentColor; /* Optional: match text color */
+}
+
+/* --- Top-level Ordered Lists --- */
 .static-content > ol,
 .accordion-content > ol {
   list-style-position: outside;
@@ -93,7 +113,7 @@ img {
   margin-bottom: 0.5em;
 }
 
-/* Nested lists within any list item */
+/* --- Nested UL and OL --- */
 .static-content li > ul,
 .static-content li > ol,
 .accordion-content li > ul,
@@ -117,7 +137,7 @@ img {
   margin-bottom: 0.5em;
 }
 
-/* Global LI styles */
+/* --- Global LI Styling --- */
 .static-content li,
 .accordion-content li {
   line-height: 1.6;
@@ -134,13 +154,13 @@ img {
   padding-left: 0;
 }
 
-/* Remove bottom spacing from last list items or nested elements */
 .static-content li:last-child,
 .accordion-content li:last-child,
 .static-content li > *:last-child,
 .accordion-content li > *:last-child {
   margin-bottom: 0;
 }
+
 
 
 
