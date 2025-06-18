@@ -72,70 +72,93 @@ full_width: true
 
         <h3>2.7. MSc Course Structure Summary</h3>
         <p>The course structure for the MSc is listed below. The detailed syllabi for the courses offered at KSoM are listed in subsections 4.2 and 4.3.</p>
+        <p><b>Bridge Courses</b></p>
         <table>
           <thead>
             <tr>
-              <th>Course Code</th>
-              <th>Course Name</th>
-              <th>Credits</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>MM101</td>
-              <td>Algebra I</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td>MM102</td>
-              <td>Real Analysis I</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td>MM103</td>
-              <td>Topology</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td>MM104</td>
-              <td>Complex Analysis</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td>MM105</td>
-              <td>Ordinary Differential Equations</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td>MM106</td>
               <td>Linear Algebra</td>
-              <td>4</td>
             </tr>
             <tr>
-              <td>MM201</td>
-              <td>Algebra II</td>
-              <td>4</td>
+              <td>Basic Analysis</td>
             </tr>
             <tr>
-              <td>MM202</td>
-              <td>Real Analysis II</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td>MM203</td>
-              <td>Functional Analysis</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td>MM204</td>
-              <td>Partial Differential Equations</td>
-              <td>4</td>
+              <td>Basic Algebra</td>
             </tr>
           </tbody>
         </table>
 
+        <p><b>Semester 1 & Semester 2</b></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Semester 1</th>
+              <th>Semester 2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Algebra-I</td>
+              <td>Algebra-II</td>
+            </tr>
+            <tr>
+              <td>Analysis-I</td>
+              <td>Analysis-II</td>
+            </tr>
+            <tr>
+              <td>Topology</td>
+              <td>Complex Analysis</td>
+            </tr>
+            <tr>
+              <td>Probability Theory</td>
+              <td>Differential Equations</td>
+            </tr>
+            <tr>
+              <td>Viva</td>
+              <td>Viva</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><b>Semester 3 & Semester 4</b></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Semester 3</th>
+              <th>Semester 4</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Elective-1A</td>
+              <td>Elective-2A</td>
+            </tr>
+            <tr>
+              <td>Elective-1B</td>
+              <td>Elective-2B</td>
+            </tr>
+            <tr>
+              <td>Elective-1C</td>
+              <td>Elective-3C*</td>
+            </tr>
+            <tr>
+              <td>Elective-1D</td>
+              <td>Reading course*</td>
+            </tr>
+            <tr>
+              <td>Viva</td>
+              <td>Project**</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Every student has to either select (*) or (**) in their final semester. The project carries 8 credits, and all other courses, including the Reading course carry 4 credits. Students continuing into the PhD component of the program should have completed Functional Analysis, Algebraic Topology - I, and Field and Galois Theory as electives in their third semester. Also such students should credit two courses out of Partial Differential Equations, Algebraic Topology-II, and Representation theory as electives in the fourth semester as part of their coursework.</p>
+
         <h3>2.8. First Year Course Structure</h3>
-        <p>The course structure for the first year of the programme is summarized below:</p>
+        <p>The course structure for the first year of the programme is summarized below.</p>
         <table>
           <thead>
             <tr>
