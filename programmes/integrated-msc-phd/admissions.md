@@ -66,11 +66,13 @@ full_width: true
 
 
 
-    <!-- Selected candidates (to be unchecked when the final results of the admission process is announced.) -->
+    <!-- Selected candidates (to be unchecked when the final results of the admission process is announced.) -->    
     <section class="static-section static-blue-section" id="final-selection-results">
-    <div class="accordion-header">Final Selection Results: Integrated MSc-PhD Program</div>
-    
-    <p>We are pleased to announce the final selection results for the Integrated MSc-PhD Program. Congratulations to all selected candidates!</p>
+        <div class="accordion-content static-content">
+        
+            <h1>Final Selection Results: Integrated MSc-PhD Program</h1>
+
+            <p>We are pleased to announce the final selection results for the Integrated MSc-PhD Program. Congratulations to all selected candidates!</p>
 
     <h3>Selected Candidates</h3>
     <table>
@@ -108,9 +110,9 @@ full_width: true
 
     <p>Selected candidates will be contacted by email for confirmation of their admission. The reporting date for all selected candidates is **July 28, 2025**.</p>
     <p>Candidates on the waiting list will be contacted by email only if vacancies arise after the initial confirmation period. Please ensure your registered email is regularly checked for any updates.</p>
-
-</section>
-
+        </div>    
+    </section>
+    
     
     <section class="static-section default-bg">
         <div class="accordion-content static-content">
