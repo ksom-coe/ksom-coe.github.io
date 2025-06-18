@@ -19,13 +19,6 @@ full_width: true
     
 
     <!-- Shortlisted candidates (to be unchecked when the results of the screening test held in May is announced) -->
-        <section class="static-section static-blue-section" id="programmes-introduction">
-            <div class="accordion-header">Academic programmes at KSoM</div>
-            
-                <div style="margin-bottom: 1rem;">Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.</div>
-                <div>Our commitment to excellence is reflected in our student-centric approach. We cultivate a collaborative and intellectually stimulating environment where curiosity is nurtured, and mathematical talent is transformed into significant contributions to the global scientific community.</div>
-    
-        </section>
     
     <section class="static-section static-blue-section" id="shortlist-updates-section">
         <div class="accordion-header">Latest Updates: Shortlisted Candidates for Final Selection</div>
@@ -71,7 +64,7 @@ full_width: true
 
 
     
-    <section class="static-section default-bg">
+    <section class="static-section static-blue-section">
         <div class="accordion-content static-content">
         
             <h1>Integrated MSc-PhD Program 2025 Admissions</h1>
