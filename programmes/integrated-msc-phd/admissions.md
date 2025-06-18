@@ -6,6 +6,12 @@ full_width: true
 
 <div class="main-full-width" id="main-content-start">
 
+    <section class="accordion-item default-bg" id="apply-now-card" data-direct-link="true" data-learn-more-url="https://docs.google.com/forms/d/e/1FAIpQLSe9cXjr73lveOy4CdZ1xFBRdSdohbxpSI9YM4U_JxLlhneNzQ/viewform?usp=sf_link">
+        <div class="accordion-header" role="button" tabindex="0" aria-label="Apply for KSoM Written Examination 2025">Apply for KSoM Written Examination 2025</div>
+        <div class="accordion-snippet">
+            Admissions are now open for the KSoM Written Examination, a key step for the Integrated MSc-PhD Program. Click here to begin your application.<span class="snippet-more-indicator"> ...more</span>
+        </div>
+    </section>
     <section class="static-section default-bg">
         <div class="accordion-content static-content">
             <h1>Integrated MSc-PhD Program 2025 Admissions</h1>
@@ -52,8 +58,7 @@ full_width: true
                         <li><strong>Last Date to Apply:</strong> April 15, 2025</li>
                         <li><strong>Examination Date:</strong> May 18, 2025</li>
                         <li><strong>Syllabus:</strong> The detailed syllabus for the KSoM written examination can be found <a href="[LINK_TO_KSOM_SYLLABUS]" target="_blank" rel="noopener noreferrer">here</a>.</li>
-                        <li><strong>Apply Now:</strong> <a href="[LINK_TO_KSOM_APPLICATION_PORTAL]" class="button primary-button" target="_blank" rel="noopener noreferrer">Apply for KSoM Written Examination</a></li>
-                    </ul>
+                        </ul>
                 </div>
                 <div class="card primary-bg-light">
                     <h3>Other Examination Details</h3>
