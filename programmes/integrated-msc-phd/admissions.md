@@ -12,21 +12,23 @@ full_width: true
             Admissions are now open for the KSoM Written Examination, a key step for the Integrated MSc-PhD Program. Click here to begin your application.
         </div>
     </section>
+
+
+    
     <section class="static-section default-bg">
         <div class="accordion-content static-content">
+        
             <h1>Integrated MSc-PhD Program 2025 Admissions</h1>
 
             <p>The Kerala School of Mathematics (KSoM) invites applications for its prestigious Integrated MSc-PhD Program for the academic year 2025. This rigorous program is meticulously designed for highly motivated students aspiring to pursue advanced studies and cutting-edge research in various fundamental and applied branches of mathematics.</p>
+            
 
-            <div class="card-section">
-                <div class="card default-bg">
-                    <h3>Eligibility Criteria</h3>
-                    <ul>
-                        <li><strong>Minimum Qualification:</strong> Candidates must hold a B.Sc., B.Math., B.Stat. or an equivalent degree with Mathematics as one of the subjects, OR a B.E./B.Tech. or an equivalent degree.</li>
-                        <li><strong>Intake:</strong> A maximum of 12 students will be selected for admission into the program annually.</li>
-                    </ul>
-                </div>
-            </div>
+            <h3>Eligibility Criteria</h3>
+            <ul>
+                <li><strong>Minimum Qualification:</strong> Candidates must hold a B.Sc., B.Math., B.Stat. or an equivalent degree with Mathematics as one of the subjects, OR a B.E./B.Tech. or an equivalent degree.</li>
+                <li><strong>Intake:</strong> A maximum of 12 students will be selected for admission into the program annually.</li>
+            </ul>
+
 
             <h2>Selection Process</h2>
             <p>Admission to the Integrated MSc-PhD program at KSoM follows a comprehensive two-tier selection process:</p>
