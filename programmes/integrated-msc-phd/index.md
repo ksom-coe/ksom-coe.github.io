@@ -7,6 +7,7 @@ full_width: true
 <div class="main-full-width" id="main-content-start">
 
 
+
     <!-- Admissions Open card. (To be unchecked only when the admission process is made active)
     <section class="accordion-item highlight-card" id="admissions-highlight-card" data-direct-link="true" data-learn-more-url="/programmes/integrated-msc-phd/admissions">
         <div class="accordion-header" role="button" tabindex="0" aria-label="Admissions to the Integrated MSc-PhD Program 2025">Admissions to the Integrated MSc-PhD Program 2025</div>
@@ -23,6 +24,9 @@ full_width: true
             Admissions are now closed. You can find updates on the ongoing admission process for the Integrated MSc-PhD Program by clicking this card.<span class="snippet-more-indicator"> ...more</span>
         </div>
     </section>
+
+
+
 
     <section class="static-section default-bg">
         
