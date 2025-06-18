@@ -61,9 +61,9 @@ img {
 
 
 
-/* === Typography & Content Lists (ADJUSTED FOR SPECIFIC OL LI ALIGNMENT) === */
-/* This version aligns the text content of OL list items precisely with
-   the bullets of nested ULs, based on user's exact requirements. */
+/* === Typography & Content Lists (ADJUSTED FOR OL LI ALIGNMENT - MOVED LEFT) === */
+/* This version moves the text content of OL list items slightly to the left,
+   to reduce the gap from the number, while maintaining other alignments. */
 
 /* General list resets for common parent containers */
 .static-content ul,
@@ -91,7 +91,7 @@ img {
     padding-left: 1.5rem; 
 }
 
-/* Specific styling for list items within ORDERED LISTS (ol li) to fix text wrap AND alignment */
+/* Specific styling for list items within ORDERED LISTS (ol li) to move text LEFT */
 .static-content ol li,
 .accordion-content ol li {
     margin-bottom: 0.5em; /* Adds space between individual list items */
@@ -99,11 +99,10 @@ img {
     /* 1. Reset text-indent: Ensures subsequent lines align with the first line's content. */
     text-indent: 0; 
     
-    /* 2. Adjusted padding-left: This value moves the OL LI text content
-          to align exactly with the bullets of nested ULs.
-          Calculation: (Target Nested Bullet Position) - (OL's Base Padding)
-          81px - 24px = 57px */
-    padding-left: 57px; 
+    /* 2. Adjusted padding-left: Reduced from 2em to 1em to move the text content of the OL LI
+          a bit to the left, closer to the number, creating a tighter gap.
+          (1em = 16px, so text will start at 24px + 16px = 40px from content edge). */
+    padding-left: 1em; 
     
     /* Ensure no other conflicting list-style properties are inherited */
     list-style-position: outside; /* Explicitly ensure marker is outside, though already on OL */
