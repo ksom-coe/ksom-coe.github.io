@@ -6,12 +6,10 @@ full_width: true
 
 <div class="main-full-width" id="main-content-start">
 
-  <section class="static-section default-bg">
-    <div class="accordion-content static-content">
       <div class="accordion-header">Integrated MSc-PhD Programme Brochure</div>
       <p><em>July 2023</em></p>
 
-      <section class="accordion-item highlight-card">
+      <section class="static-section default-bg">
         <div class="accordion-header" role="button" tabindex="0">1. General Information</div>
         <div class="accordion-content">
           <div class="card">
@@ -51,7 +49,7 @@ full_width: true
         </div>
       </section>
 
-      <section class="accordion-item highlight-card">
+      <section class="static-section default-bg">
         <div class="accordion-header" role="button" tabindex="0">2. Course structure</div>
         <div class="accordion-content">
           <div class="card">
@@ -148,7 +146,7 @@ full_width: true
         </div>
       </section>
 
-      <section class="accordion-item highlight-card">
+      <section class="static-section default-bg">
         <div class="accordion-header" role="button" tabindex="0">3. Evaluation and promotion</div>
         <div class="accordion-content">
           <div class="card">
@@ -178,7 +176,7 @@ full_width: true
         </div>
       </section>
 
-      <section class="accordion-item highlight-card">
+      <section class="static-section default-bg">
         <div class="accordion-header" role="button" tabindex="0">4. Syllabus</div>
         <div class="accordion-content">
           <div class="card">
@@ -274,7 +272,7 @@ full_width: true
         </div>
       </section>
 
-      <section class="accordion-item highlight-card">
+      <section class="static-section default-bg">
         <div class="accordion-header" role="button" tabindex="0">5. Oral General Comprehensive Examination</div>
         <div class="accordion-content">
           <div class="card">
@@ -292,7 +290,5 @@ full_width: true
         </div>
       </section>
 
-    </div>
-  </section>
 
 </div>
