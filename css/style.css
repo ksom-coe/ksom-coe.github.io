@@ -61,9 +61,9 @@ img {
 
 
 
-/* === Typography & Content Lists (REVISED FOR OL LI WRAP ALIGNMENT) === */
-/* This version aims to align all lines of text within an ordered list item
-   consistently after the number, based on the user's detailed description. */
+/* === Typography & Content Lists (ADJUSTED FOR SPECIFIC OL LI ALIGNMENT) === */
+/* This version aligns the text content of OL list items precisely with
+   the bullets of nested ULs, based on user's exact requirements. */
 
 /* General list resets for common parent containers */
 .static-content ul,
@@ -91,20 +91,19 @@ img {
     padding-left: 1.5rem; 
 }
 
-/* Specific styling for list items within ORDERED LISTS (ol li) to fix text wrap */
+/* Specific styling for list items within ORDERED LISTS (ol li) to fix text wrap AND alignment */
 .static-content ol li,
 .accordion-content ol li {
     margin-bottom: 0.5em; /* Adds space between individual list items */
     
-    /* These two properties are key to aligning wrapped text neatly: */
-    /* 1. Reset text-indent: Ensures subsequent lines are NOT further indented by default,
-          making them align with the first line's content. */
+    /* 1. Reset text-indent: Ensures subsequent lines align with the first line's content. */
     text-indent: 0; 
-    /* 2. Add padding-left to the LI: This pushes the entire content of the LI (including the first line's text)
-          to the right, creating the necessary space for the number and a clean visual gap.
-          You might need to fine-tune the '2em' value to perfectly match your desired visual gap
-          between the number and the start of the text content. */
-    padding-left: 2em; 
+    
+    /* 2. Adjusted padding-left: This value moves the OL LI text content
+          to align exactly with the bullets of nested ULs.
+          Calculation: (Target Nested Bullet Position) - (OL's Base Padding)
+          81px - 24px = 57px */
+    padding-left: 57px; 
     
     /* Ensure no other conflicting list-style properties are inherited */
     list-style-position: outside; /* Explicitly ensure marker is outside, though already on OL */
@@ -115,7 +114,6 @@ img {
 .accordion-content li {
     /* No specific padding-left or text-indent here for UL li, as handled above */
 }
-
 
 /* Adjustments for nested lists (e.g., ul ul, ol ol) */
 /* These will be indented relative to their parent list's starting point */
