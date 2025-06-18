@@ -873,113 +873,115 @@ body.dark-mode .snippet-more-indicator {
 
 
 
-/* === Global Component: Static Blue Highlight Card === */
+/* === Static Section Theming: Blue Background === */
 
-/* Base styling for the card */
-.static-blue-highlight-card {
-    background-color: var(--accent-blue); /* Sets the card's background to dark blue */
-    border-color: var(--accent-blue);    /* Makes the card's border match */
-    color: var(--dark-primary-text);     /* Base text color for the entire card (light) */
+/* Applies the blue background, padding, and base text color to a static section */
+.blue-background-section {
+    background-color: var(--accent-blue); /* Your dark blue background */
+    color: var(--dark-primary-text);     /* Text will be light/white for readability */
+    padding: 1.5rem;                     /* Padding inside the section */
+    border-radius: 8px;                  /* Optional: Add rounded corners like a card */
+    margin-bottom: var(--two-column-gap); /* Spacing below the section if used in layout */
 }
 
-/* --- Crucial: Preventing any clickable cues for the header --- */
-.static-blue-highlight-card .accordion-header {
-    cursor: default !important;     /* FORCED: Cursor will be the default arrow, never a pointer/hand */
-    pointer-events: none !important; /* FORCED: Disable ALL mouse events on the header itself */
-    color: var(--dark-primary-text) !important; /* FORCED: Ensure header text color is light */
+/* Style for the accordion-header specifically within a blue-background-section */
+.blue-background-section .accordion-header {
+    cursor: default !important;     /* Ensure cursor is default arrow, not a pointer */
+    pointer-events: none !important; /* Disable all mouse events on the header */
+    color: var(--dark-primary-text) !important; /* Header text color (light/white) */
+    background-color: transparent !important; /* Ensure header background is transparent over blue */
+    padding: 0;                     /* Remove default accordion header padding */
+    margin-bottom: 1rem;            /* Space below the header before content starts */
+    text-align: left;               /* Keep header text left-aligned */
+    width: auto;                    /* Allow header to take natural width */
+    max-width: none;                /* Remove max-width restriction if any */
 }
 
-/* Explicitly remove all visual changes (including cursor) on hover, active, and focus states */
-.static-blue-highlight-card .accordion-header:hover,
-.static-blue-highlight-card .accordion-header:active,
-.static-blue-highlight-card .accordion-header:focus {
-    background-color: var(--accent-blue) !important; /* FORCED: Keep background static, no change */
-    color: var(--dark-primary-text) !important;      /* FORCED: Keep text color static, no change */
-    outline: none !important;                        /* FORCED: Remove any focus outline */
-    box-shadow: none !important;                     /* FORCED: Remove any box shadow on focus/active */
-    cursor: default !important;                      /* FORCED: Reiterate cursor is default for these states */
+/* Remove the visual arrow from the header of this static section */
+.blue-background-section .accordion-header::after {
+    display: none !important;
 }
 
-/* Remove the arrow from the header of this static card */
-.static-blue-highlight-card .accordion-header::after {
-    display: none !important; /* FORCED: Hide the arrow icon */
+/* Ensure no visual changes on hover, active, or focus for the header in this section */
+.blue-background-section .accordion-header:hover,
+.blue-background-section .accordion-header:active,
+.blue-background-section .accordion-header:focus {
+    background-color: transparent !important; /* Keep background static on hover */
+    color: var(--dark-primary-text) !important; /* Keep text color static on hover */
+    outline: none !important;                   /* Remove focus outline */
+    box-shadow: none !important;                /* Remove box-shadow */
+    cursor: default !important;                 /* Reiterate cursor is default */
 }
 
-/* Ensure the content snippet of this static card is always visible */
-.static-blue-highlight-card .accordion-snippet {
-    display: block !important;   /* FORCED: Force content to be displayed */
-    height: auto !important;     /* FORCED: Allow it to take its natural height */
-    overflow: visible !important;/* FORCED: Ensure no content is hidden if it overflows */
-    padding-top: 1em;            /* Add vertical space between header and snippet */
-    border-top: 1px solid var(--accent-light); /* Subtle line to separate header/content */
-    margin-top: 0.5em;           /* Small margin to ensure border doesn't hug header */
-    color: var(--dark-primary-text); /* Ensure snippet text is light */
+/* Ensure general paragraph and note text color within this blue section */
+.blue-background-section p,
+.blue-background-section .table-note {
+    color: var(--dark-primary-text); /* Ensure light text for readability */
 }
 
-/* Adjust text color for general paragraphs within this card (for safety) */
-.static-blue-highlight-card .accordion-snippet p,
-.static-blue-highlight-card .accordion-snippet .table-note {
-    color: var(--dark-primary-text);
+/* Table styling specifically for tables within a blue-background-section */
+.blue-background-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+    font-size: 0.95em;
+    color: var(--dark-primary-text); /* Table text color (light/white) */
 }
 
-/* Table specific styling within the static blue card */
-.static-blue-highlight-card .accordion-snippet table th,
-.static-blue-highlight-card .accordion-snippet table td {
-    text-align: center;          /* Center align table content */
-    border-color: var(--accent-light); /* Table cell borders (lighter blue) */
+.blue-background-section table th,
+.blue-background-section table td {
+    border: 1px solid var(--accent-light); /* Table borders use a lighter blue */
+    padding: 0.8em 0.5em;
+    text-align: center; /* Keep table content centered as desired */
+    color: var(--dark-primary-text); /* Table cell text color (light/white) */
 }
 
-.static-blue-highlight-card .accordion-snippet table th {
+.blue-background-section table th {
     background-color: var(--accent-light); /* Table header background (lighter blue) */
-    color: var(--dark-primary-text);      /* Table header text (light) */
+    font-weight: bold;
+    color: var(--dark-primary-text); /* Table header text (light/white) */
+    vertical-align: top;
 }
 
-/* Adjust alternate row colors for readability on a blue background */
-.static-blue-highlight-card .accordion-snippet table tbody tr:nth-child(even) {
+/* Alternate row colors for readability on the blue background */
+.blue-background-section table tbody tr:nth-child(even) {
     background-color: rgba(0, 0, 0, 0.2); /* Subtle dark transparency for stripes */
 }
 
-/* Adjust hover effect for rows on a blue background */
-.static-blue-highlight-card .accordion-snippet table tbody tr:hover {
+/* Hover effect for table rows */
+.blue-background-section table tbody tr:hover {
     background-color: rgba(0, 0, 0, 0.3); /* Slightly darker transparency on hover */
 }
 
-/* Dark mode adjustments (ensure it remains consistent) */
-[data-theme='dark'] .static-blue-highlight-card {
-    background-color: var(--accent-blue);
-    border-color: var(--accent-blue);
+/* Dark mode adjustments for .blue-background-section */
+[data-theme='dark'] .blue-background-section {
+    background-color: var(--accent-blue); /* Remains blue in dark mode */
     color: var(--dark-primary-text);
 }
-[data-theme='dark'] .static-blue-highlight-card .accordion-header,
-[data-theme='dark'] .static-blue-highlight-card .accordion-snippet p,
-[data-theme='dark'] .static-blue-highlight-card .accordion-snippet table,
-[data-theme='dark'] .static-blue-highlight-card .accordion-snippet .table-note {
-    color: var(--dark-primary-text);
+[data-theme='dark'] .blue-background-section .accordion-header,
+[data-theme='dark'] .blue-background-section p,
+[data-theme='dark'] .blue-background-section .table-note,
+[data-theme='dark'] .blue-background-section table,
+[data-theme='dark'] .blue-background-section table th,
+[data-theme='dark'] .blue-background-section table td {
+    color: var(--dark-primary-text); /* Text remains light in dark mode */
 }
-[data-theme='dark'] .static-blue-highlight-card .accordion-header:hover,
-[data-theme='dark'] .static-blue-highlight-card .accordion-header:active,
-[data-theme='dark'] .static-blue-highlight-card .accordion-header:focus {
-    background-color: var(--accent-blue) !important;
+[data-theme='dark'] .blue-background-section .accordion-header:hover,
+[data-theme='dark'] .blue-background-section .accordion-header:active,
+[data-theme='dark'] .blue-background-section .accordion-header:focus {
+    background-color: transparent !important;
     color: var(--dark-primary-text) !important;
-    outline: none !important;
-    box-shadow: none !important;
-    cursor: default !important; /* FORCED: Reiterate cursor is default for these states in dark mode */
 }
-[data-theme='dark'] .static-blue-highlight-card .accordion-snippet table th {
+[data-theme='dark'] .blue-background-section table th {
     background-color: var(--accent-light);
     border-color: var(--accent-light);
-    color: var(--dark-primary-text);
 }
-[data-theme='dark'] .static-blue-highlight-card .accordion-snippet table td {
-     border-color: var(--accent-light);
-}
-[data-theme='dark'] .static-blue-highlight-card .accordion-snippet table tbody tr:nth-child(even) {
+[data-theme='dark'] .blue-background-section table tbody tr:nth-child(even) {
     background-color: rgba(255, 255, 255, 0.1);
 }
-[data-theme='dark'] .static-blue-highlight-card .accordion-snippet table tbody tr:hover {
+[data-theme='dark'] .blue-background-section table tbody tr:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
-
 
 
 
