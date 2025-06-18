@@ -6,10 +6,10 @@ full_width: true
 
 <div class="main-full-width" id="main-content-start">
 
-    <section class="accordion-item primary-bg-light" id="apply-now-card" data-direct-link="true" data-learn-more-url="https://docs.google.com/forms/d/e/1FAIpQLSe9cXjr73lveOy4CdZ1xFBRdSdohbxpSI9YM4U_JxLlhneNzQ/viewform?usp=sf_link">
+    <section class="accordion-item highlight-card-bg" id="apply-now-card" data-direct-link="true" data-learn-more-url="https://docs.google.com/forms/d/e/1FAIpQLSe9cXjr73lveOy4CdZ1xFBRdSdohbxpSI9YM4U_JxLlhneNzQ/viewform?usp=sf_link">
         <div class="accordion-header" role="button" tabindex="0" aria-label="Apply for KSoM Written Examination 2025">Apply for KSoM Written Examination 2025</div>
         <div class="accordion-snippet">
-            Admissions are now open for the KSoM Written Examination, a key step for the Integrated MSc-PhD Program. Click here to begin your application.<span class="snippet-more-indicator"> ...more</span>
+            Admissions are now open for the KSoM Written Examination, a key step for the Integrated MSc-PhD Program. Click here to begin your application.
         </div>
     </section>
     <section class="static-section default-bg">
@@ -68,7 +68,7 @@ full_width: true
                     </ul>
                 </div>
             </div>
-            
+
             <h2>Recent Updates (2025 Admission Cycle)</h2>
             <ul>
                 <li><strong>New Examination Centres:</strong> We are pleased to announce the addition of new examination centres in Bangalore and Guwahati.</li>
@@ -80,7 +80,7 @@ full_width: true
 
             <h2>Contact Information</h2>
             <p>For any further queries regarding the Integrated MSc-PhD Program admissions, please do not hesitate to contact us at: <a href="mailto:admissions@ksom.res.in">admissions@ksom.res.in</a>.</p>
-            
+
             <p class="note"><em>Note: All dates mentioned are for the 2025 admission cycle. Please check this page regularly for any updates or changes related to future admission cycles.</em></p>
         </div>
     </section>
