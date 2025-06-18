@@ -873,40 +873,88 @@ body.dark-mode .snippet-more-indicator {
 
 
 
-/* === Static Blue Block Section (Themed like Highlight Card, but spacing matches static-section) === */
-.static-blue-section {
-    cursor: default;
-    transform: none;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Matches static-section */
-    padding: 1.5rem;                           /* Same inner padding */
-    background-color: #e6f7ff;                /* Light blue like highlight card */
-    border: 1px solid var(--accent-light);    /* Same as highlight card */
+/* === Static Blue Section (Based on .static-section) === */
+
+.static-blue-section .accordion-content.static-content {
+    background-color: #e6f7ff; /* Light blue background */
+    padding: 1.5rem;
     border-radius: 12px;
-    margin-bottom: 1.5rem;                    /* Matches static-section */
-    gap: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 1.5rem;
+    color: var(--text-primary); /* Ensure proper content text color */
 }
 
-/* Header within static blue block */
-.static-blue-section .accordion-header {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;                      /* Same as .static-section */
-    color: var(--accent-blue);
-    font-weight: 700;
-    font-family: var(--font-serif);
-    display: block;
-    cursor: default;
+/* Header inherits from .static-section, no override needed unless desired */
+
+.static-blue-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: var(--text-primary);
 }
 
-/* Dark mode adjustments */
-body.dark-mode .static-blue-section {
-    background-color: #1f3a4e;    /* Dark blue tone */
-    border-color: #004066;        /* Slightly lighter for contrast */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);  /* Darker shadow in dark mode */
+.static-blue-section table th,
+.static-blue-section table td {
+    border: 1px solid var(--accent-light);
+    padding: 0.8em 0.5em;
+    text-align: center;
+    color: var(--text-primary);
 }
 
-body.dark-mode .static-blue-section .accordion-header {
-    color: var(--dark-primary-text); /* Light text in dark mode */
+.static-blue-section table th {
+    background-color: var(--accent-light);
+    font-weight: bold;
+    vertical-align: top;
 }
+
+/* Alternating row background */
+.static-blue-section table tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Hover effect */
+.static-blue-section table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Table note styling */
+.static-blue-section .table-note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* === Dark Mode === */
+body.dark-mode .static-blue-section .accordion-content.static-content {
+    background-color: #1f3a4e;
+    border: 1px solid #004066;
+    color: var(--dark-primary-text);
+}
+
+body.dark-mode .static-blue-section table,
+body.dark-mode .static-blue-section table th,
+body.dark-mode .static-blue-section table td {
+    color: var(--dark-primary-text);
+}
+
+body.dark-mode .static-blue-section table th {
+    background-color: #004066;
+    border-color: #004066;
+}
+
+body.dark-mode .static-blue-section table tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .static-blue-section table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .static-blue-section .table-note {
+    color: var(--dark-secondary-text);
+}
+
 
 
 
