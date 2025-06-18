@@ -7,13 +7,13 @@ full_width: true
 <div class="main-full-width" id="main-content-start">
 
 
-    <!-- Admission link card (to be unchecked when the applications are called for the screening test, typically held in May) 
+    <!-- Admission link card (to be unchecked when the applications are called for the screening test, typically held in May) -->
     <section class="accordion-item highlight-card" id="apply-now-card" data-direct-link="true" data-learn-more-url="https://docs.google.com/forms/d/e/1FAIpQLSe9cXjr73lveOy4CdZ1xFBRdSdohbxpSI9YM4U_JxLlhneNzQ/viewform?usp=sf_link">
         <div class="accordion-header" role="button" tabindex="0" aria-label="Apply for KSoM Written Examination 2025">Apply for KSoM Written Examination 2025</div>
         <div class="accordion-snippet">
             Admissions are now open for the KSoM Written Examination, a key step for the Integrated MSc-PhD Program. Click here to begin your application.
         </div>
-    </section> -->
+    </section> 
 
 
     
@@ -23,37 +23,37 @@ full_width: true
         <div class="accordion-content static-content">        
             <h1>Latest Updates: Shortlisted Candidates for Final Selection</h1>
             <p>Please find below the list of candidates shortlisted for the final selection **written examination** for the Integrated MSc-PhD Program. The examination is scheduled for **July 13, 2025, from 10:00 AM to 1:00 PM at Kerala School of Mathematics.**</p>        
-        <table>
-            <thead>
-                <tr>
-                    <th>Application ID</th>
-                    <th>Candidate Name (Partial)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>KSoM2025-001</td>
-                    <td>Aditya S.</td>
-                </tr>
-                <tr>
-                    <td>KSoM2025-005</td>
-                    <td>Bhavna R.</td>
-                </tr>
-                <tr>
-                    <td>KSoM2025-012</td>
-                    <td>Chirag P.</td>
-                </tr>
-                <tr>
-                    <td>KSoM2025-018</td>
-                    <td>Divya K.</td>
-                </tr>
-                <tr>
-                    <td>KSoM2025-023</td>
-                    <td>Esha M.</td>
-                </tr>
-                </tbody>
-        </table>
-        <p class="table-note">Shortlisted candidates will receive a detailed email with further instructions regarding the examination. Please check your registered email regularly for updates.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Application ID</th>
+                        <th>Candidate Name (Partial)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>KSoM2025-001</td>
+                        <td>Aditya S.</td>
+                    </tr>
+                    <tr>
+                        <td>KSoM2025-005</td>
+                        <td>Bhavna R.</td>
+                    </tr>
+                    <tr>
+                        <td>KSoM2025-012</td>
+                        <td>Chirag P.</td>
+                    </tr>
+                    <tr>
+                        <td>KSoM2025-018</td>
+                        <td>Divya K.</td>
+                    </tr>
+                    <tr>
+                        <td>KSoM2025-023</td>
+                        <td>Esha M.</td>
+                    </tr>
+                    </tbody>
+            </table>
+            <p class="table-note">Shortlisted candidates will receive a detailed email with further instructions regarding the examination. Please check your registered email regularly for updates.</p>
         </div>    
     </section> -->
 
@@ -61,7 +61,7 @@ full_width: true
 
 
 
-    <!-- Selected candidates (to be unchecked when the final results of the admission process is announced.) -->    
+    <!-- Selected candidates (to be unchecked when the final results of the admission process is announced.) 
     <section class="static-section static-blue-section" id="final-selection-results">
         <div class="accordion-content static-content">        
             <h1>Final Selection Results: Integrated MSc-PhD Program</h1>
@@ -101,7 +101,7 @@ full_width: true
             <p>Selected candidates will be contacted by email for confirmation of their admission. The reporting date for all selected candidates is **July 28, 2025**.</p>
             <p>Candidates on the waiting list will be contacted by email only if vacancies arise after the initial confirmation period. Please ensure your registered email is regularly checked for any updates.</p>
         </div>    
-    </section>
+    </section>-->    
     
     
     <section class="static-section default-bg">
