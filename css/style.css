@@ -61,9 +61,9 @@ img {
 
 
 
-/* === Typography & Content Lists (FURTHER REFINED ALIGNMENT) === */
-/* This version aims to provide precise alignment for both top-level and nested lists,
-   moving OL content left and aligning nested UL bullets with parent LI content. */
+/* === Typography & Content Lists (FINAL ALIGNMENT REFINEMENT) === */
+/* This version fine-tunes standalone ULs to align their bullets with the main content baseline,
+   while maintaining all previous nested and numbered list alignments. */
 
 /* Reset top/bottom margins for all list types for consistency,
    and remove default browser padding-left. */
@@ -82,7 +82,9 @@ img {
 .static-content > ul,
 .accordion-content > ul {
     list-style: disc inside; /* Bullet inside li content box */
-    padding-left: 25px; /* Indent entire ul block by 25px from container's content edge */
+    /* ADJUSTED: Align bullet directly with the main content baseline (1.5rem = 24px).
+       This should re-align them correctly with your other text content. */
+    padding-left: 1.5rem; 
 }
 
 /* Styling for top-level ORDERED LISTS (standalone numbered lists) */
@@ -110,7 +112,7 @@ img {
 }
 
 
-/* --- Styles for NESTED LISTS (any UL or OL that is a child of an <li>) --- */
+/* --- Styles for NESTED LISTS (within any <li>) --- */
 
 /* Reset padding/margin for nested UL/OL containers.
    This is critical to make nested lists start exactly where their parent LI's content starts. */
@@ -142,7 +144,7 @@ img {
 .accordion-content li > ol > li {
     list-style-position: outside; /* Number outside the text block */
     /* This creates a hanging indent for the nested number: */
-    padding-left: 1.5em; /* Space for number + a small text indent (e.g., 24px) */
+    padding-left: 1.5em; /* Space for number + gap (e.g., 24px) */
     text-indent: -1.5em; /* Pulls the number back into that space */
     margin-bottom: 0.5em;
 }
