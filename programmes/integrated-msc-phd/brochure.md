@@ -31,24 +31,27 @@ full_width: true
     <div class="accordion-content static-content">
       <div class="accordion-header" role="button" tabindex="0">2. Course structure</div>
       <div class="accordion-content">
-        <h3>2.1. Credits</h3>
+        <h3>2.1. Credits for MSc Degree</h3>
         <p>A total of 76 credits in two years is required to obtain the MSc. degree. Every student has to take the three bridge courses before the commencement of the first semester. The purpose of these bridge courses is to review the fundamentals from a typical undergraduate mathematics programme and to bridge any gaps in the foundations. The bridge course will be undertaken in the first month of the programme.</p>
-
-        <h3>2.2. Core Courses (MSc)</h3>
-        <p>There will be 8 core courses which contribute to 32 credits of the programme. The number of credits allocated to core and elective courses is equal to the number of contact hours every week including tutorial sessions in that particular course.</p>
-
-        <h3>2.3. Elective Courses (MSc)</h3>
-        <p>The elective courses for the third and fourth semesters offered at KSoM are listed in subsection 4.3. All the courses listed there may, however, not be offered in an academic year. The list of courses offered every year will be announced at the beginning of the third semester. Elective courses in the third semester will be categorized into blocks: Algebra block, Analysis block, and Geometry block. Every student is recommended to credit at least one course from each block. Elective-4 in the third semester is expected to be a first step towards the project/reading course in the final semester.</p>
-
-        <h3>2.4. Research Project (MSc)</h3>
+        
+        <h3>2.2. Core Course Credits</h3>
+        <p>There will be 11 core courses which contribute to 44 credits of the programme. The number of credits allocated to core and elective courses is equal to the number of contact hours every week including tutorial sessions in that particular course.</p>
+        
+        <h3>2.3. PhD Coursework Requirement</h3>
+        <p>The 36 credits obtained in the second year of the programme will be treated as the coursework requirement for students continuing into the PhD component of the programme.</p>
+        
+        <h3>2.4. Elective Courses</h3>
+        <p>The elective courses for the third and fourth semesters offered at KSoM are listed in subsection 2.3. All the courses listed there may, however, not be offered in an academic year. The list of courses offered every year will be announced at the beginning of the third semester.</p>
+        
+        <h3>2.5. Project and Reading Course Options</h3>
         <p>Every student has the option to work on a project or a reading course in the fourth semester. The project will comprise a dissertation and Viva at the end of the fourth semester. The project will carry 8 credits. Every student has the option of taking an elective and a reading course of 4 credits in the fourth semester, instead of a project. The reading course involves the study of an advanced topic or a research paper, along with a colloquium at the end of the programme.</p>
-
-        <h3>2.5. Promotion to PhD Component</h3>
-        <p>A student may continue into the PhD programme subject to the the following conditions:</p>
+        
+        <h3>2.6. PhD Promotion Criteria</h3>
+        <p>A student may continue into the PhD programme subject to the following conditions:</p>
         <ol>
           <li>The student has acquired 76 credits at the end the fourth semester.</li>
-          <li>The CGPA of the student is at least 8 (in case of SC/ST candidates the cut-off shall be 7).</li>
-          <li>The student has not obtained a grade of B or C in more than four courses during the MSc coursework.</li>
+          <li>The <em>CGPA</em> of the student is at least 8 (in case of SC/ST candidates the cut-off shall be 7).</li>
+          <li>The student has not obtained a grade of <b>B</b> or <b>C</b> in more than four courses during the MSc coursework.</li>
         </ol>
 
         <h3>2.6. PhD Admission Limitations</h3>
