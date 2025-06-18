@@ -21,10 +21,12 @@ full_width: true
             <div class="card-section">
                 <div class="card default-bg">
                     <h3>Eligibility Criteria</h3>
+                    <ol>
                     <ul>
                         <li><strong>Minimum Qualification:</strong> Candidates must hold a B.Sc., B.Math., B.Stat. or an equivalent degree with Mathematics as one of the subjects, OR a B.E./B.Tech. or an equivalent degree.</li>
                         <li><strong>Intake:</strong> A maximum of 12 students will be selected for admission into the program annually.</li>
                     </ul>
+                    </ol>
                 </div>
             </div>
 
