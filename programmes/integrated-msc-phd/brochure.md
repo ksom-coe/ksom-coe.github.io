@@ -8,10 +8,11 @@ full_width: true
 
   <h1>Brochure of the Integrated MSc-PhD Programme</h1>
 
+    
 <section class="static-section default-bg">
   <div class="accordion-content static-content">
     <div class="accordion-header" role="button" tabindex="0">1. General Information</div>
-      <div class="accordion-content">
+      
         <h3>1.1. The Programme</h3>
           <p>The Integrated MSc-PhD programme in Mathematics at KSoM is an advanced training program at the postgraduate level leading to doctoral studies. The coursework is very flexible with a focus on grooming students for a research career in Mathematics. Depending on the choice of the electives, a student also has the option to choose a research career in Physics or Theoretical Computer Science as well. The curriculum is among the best that is available in the country at the postgraduate level. The <em>Board of Studies for the Graduate School of KSoM</em> will supervise the Integrated MSc-PhD programme.</p>
           
@@ -23,14 +24,14 @@ full_width: true
           
           <h3>1.4. Scholarship</h3>
           <p>The students selected for the programme are entitled for a scholarship. The scholarship amount is currently Rs. 6000 during the MSc coursework for a maximum period of four semesters. However, a student who does not secure at least 24 credits (excluding Viva) in the first year forfeits her/his scholarship. The scholarship during PhD will be at par with NBHM PhD scholarship.</p>
-      </div>
+
     </div>
   </section>
 
   <section class="static-section default-bg">
     <div class="accordion-content static-content">
       <div class="accordion-header" role="button" tabindex="0">2. Course structure</div>
-      <div class="accordion-content">
+      
         <h3>2.1. Credits for MSc Degree</h3>
         <p>A total of 76 credits in two years is required to obtain the MSc. degree. Every student has to take the three bridge courses before the commencement of the first semester. The purpose of these bridge courses is to review the fundamentals from a typical undergraduate mathematics programme and to bridge any gaps in the foundations. The bridge course will be undertaken in the first month of the programme.</p>
         
@@ -144,14 +145,14 @@ full_width: true
         </table>
         <p>Every student has to either select (*) or (**) in their final semester. The project carries 8 credits, and all other courses, including the Reading course carry 4 credits. Students continuing into the PhD component of the program should have completed Functional Analysis, Algebraic Topology - I, and Field and Galois Theory as electives in their third semester. Also such students should credit two courses out of Partial Differential Equations, Algebraic Topology-II, and Representation theory as electives in the fourth semester as part of their coursework.</p>
 
-      </div>
+
     </div>
   </section>
 
   <section class="static-section default-bg">
     <div class="accordion-content static-content">
       <div class="accordion-header" role="button" tabindex="0">3. Evaluation and promotion</div>
-      <div class="accordion-content">
+      
         <h3>3.1. Evaluation</h3>
         <p>Evaluation scheme for the core and elective courses offered at KSoM will contain two components: Continuous Assessment and End-semester Examination. The weightage of continuous assessment and end-semester examination in any course offered at KSoM will be as given below.</p>
         <table>
@@ -294,14 +295,14 @@ full_width: true
         
         <h3>3.7. Time Limit for MSc Completion and Promotion</h3>
         <p>The maximum time for completion of the MSc is 4 years during which 76 credits should be acquired. A student needs to acquire a minimum of 20 credits (excluding Viva) to get promoted to the second year of the programme. Any student unable to do so in the first two years will be asked to discontinue the MSc. programme.</p>
-      </div>
+
     </div>
   </section>
 
   <section class="static-section default-bg">
     <div class="accordion-content static-content">
       <div class="accordion-header" role="button" tabindex="0">4. Syllabus</div>
-      <div class="accordion-content">
+      
         <h3>4.1. Bridge courses</h3>
         <p>Three bridge courses will be offered to the students enrolled in the Integrated MSc-PhD programme in the first month after admission. The bridge courses aim at covering the foundational material that will be assumed in all the courses to follow in the MSc programme.</p>
         
@@ -652,14 +653,14 @@ full_width: true
           <li>Evans, L. C., Partial Differential Equations, Univ. of California, Berkeley, 1998.</li>
           <li>Functional Analysis, Sobolev Spaces and Partial Differential Equations, by Haim Brezis</li>
         </ol>
-      </div>
+
     </div>
   </section>
 
   <section class="static-section default-bg">
     <div class="accordion-content static-content">
       <div class="accordion-header" role="button" tabindex="0">5. Oral General Comprehensive Examination</div>
-      <div class="accordion-content">
+      
         <h3>5.1. Eligibility and Constitution of Doctoral Committee</h3>
         <p>The promotion of a student to the PhD component is subject to satisfying all conditions listed in 2.5, and on joining a research supervisor at the end of the second year. A doctoral committee will be constituted for each student on promotion to the PhD component. The doctoral committee will conduct the Oral General Comprehensive Examination (OGCE) in the fourth year of the student. The syllabus for the OGCE (four advanced courses in the area of specialization) will be designed by the research supervisor and approved by the doctoral committee.</p>
 
@@ -668,7 +669,7 @@ full_width: true
 
         <h3>5.3. Progress Monitoring</h3>
         <p>The doctoral committee will monitor the yearly progress of the respective student at the end of each year thereafter.</p>
-      </div>
+
     </div>
   </section>
 
