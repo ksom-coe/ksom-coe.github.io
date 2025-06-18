@@ -44,7 +44,7 @@ full_width: true
                 <li>An academic environment with national and international level lectures, workshops, seminars, and conferences enriches the program.</li>
             </ul>
 
-            <p>For a detailed overview of the program, including curriculum specifics, please refer to the official brochure available <a href="/programmes/integrated-msc-phd/brochure/)">here</a>.</p>
+            <p>For a detailed overview of the program, including curriculum specifics, please refer to the official brochure available <a href="/programmes/integrated-msc-phd/brochure">here</a>.</p>
         </div>
     </section>
 
