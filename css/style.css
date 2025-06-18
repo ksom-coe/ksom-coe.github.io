@@ -628,6 +628,11 @@ nav a:hover {
     margin-bottom: 0; /* Ensure no margin after the last item in a sequence */
 }
 
+
+
+
+
+
 /* === Static Block Sections (Reusable Class) === */
 .static-section {
     cursor: default;
@@ -635,11 +640,10 @@ nav a:hover {
     box-shadow: none;
     padding: 0 !important;
     background: transparent !important;
-    margin-bottom: 0.2rem;
+    margin-bottom: 2rem;
     gap: 0rem;
 }
 
-/* Section header styling */
 .static-section .accordion-header {
     font-size: 1.5rem;
     margin-bottom: 1rem;
@@ -654,55 +658,54 @@ body.dark-mode .static-section .accordion-header {
     color: var(--accent-light);
 }
 
-/* Section content box */
 .static-section .accordion-content.static-content {
-    padding: 1.5rem;
+    padding: 2rem;
     background: var(--card-bg);
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     margin-bottom: 1.5rem;
 }
 
-/* Dark mode content */
 body.dark-mode .static-section .accordion-content.static-content {
     background: var(--dark-card-bg);
     border: 1px solid var(--dark-border);
 }
 
-/* === Tables inside static sections === */
-.static-section .accordion-content.static-content table {
+/* === Tables inside static sections (not full width) === */
+.static-section table {
+    max-width: 600px;
     width: 100%;
+    margin: 1.5rem auto;
     border-collapse: collapse;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
     background-color: transparent;
     font-size: 1rem;
 }
 
-.static-section .accordion-content.static-content table th,
-.static-section .accordion-content.static-content table td {
+.static-section table th,
+.static-section table td {
     border: 1px solid var(--border-light);
     padding: 0.75rem 1rem;
     text-align: left;
 }
 
-.static-section .accordion-content.static-content table th {
+.static-section table th {
     background-color: var(--table-header-bg, #f2f2f2);
     font-weight: 600;
     color: var(--accent-dark);
 }
 
-.static-section .accordion-content.static-content table tr:nth-child(even) {
+.static-section table tr:nth-child(even) {
     background-color: var(--table-row-alt-bg, #fafafa);
 }
 
-body.dark-mode .static-section .accordion-content.static-content table th {
+/* === Dark Mode Styles === */
+body.dark-mode .static-section table th {
     background-color: var(--dark-table-header-bg, #2c3e50);
     color: var(--dark-primary-text);
 }
 
-body.dark-mode .static-section .accordion-content.static-content table td,
-body.dark-mode .static-section .accordion-content.static-content table tr:nth-child(even) {
+body.dark-mode .static-section table td,
+body.dark-mode .static-section table tr:nth-child(even) {
     background-color: var(--dark-card-bg);
     color: var(--dark-secondary-text);
     border-color: var(--dark-border);
