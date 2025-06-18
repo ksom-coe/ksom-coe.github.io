@@ -7,10 +7,9 @@ full_width: true
 <div class="main-full-width" id="main-content-start">
 
   <div class="accordion-header">INTEGRATED MSc-PhD PROGRAMME Brochure</div>
-  <p><em>July 2023</em></p>
-
+ 
   <section class="static-section default-bg">
-    <div class="accordion-item highlight-card">
+    <div class="accordion-content static-content">
       <div class="accordion-header" role="button" tabindex="0">1. General Information</div>
       <div class="accordion-content">
         <div class="card">
@@ -52,7 +51,7 @@ full_width: true
   </section>
 
   <section class="static-section default-bg">
-    <div class="accordion-item highlight-card">
+    <div class="accordion-content static-content">
       <div class="accordion-header" role="button" tabindex="0">2. Course structure</div>
       <div class="accordion-content">
         <div class="card">
@@ -151,7 +150,7 @@ full_width: true
   </section>
 
   <section class="static-section default-bg">
-    <div class="accordion-item highlight-card">
+    <div class="accordion-content static-content">
       <div class="accordion-header" role="button" tabindex="0">3. Evaluation and promotion</div>
       <div class="accordion-content">
         <div class="card">
@@ -183,7 +182,7 @@ full_width: true
   </section>
 
   <section class="static-section default-bg">
-    <div class="accordion-item highlight-card">
+    <div class="accordion-content static-content">
       <div class="accordion-header" role="button" tabindex="0">4. Syllabus</div>
       <div class="accordion-content">
         <div class="card">
@@ -281,7 +280,7 @@ full_width: true
   </section>
 
   <section class="static-section default-bg">
-    <div class="accordion-item highlight-card">
+    <div class="accordion-content static-content">
       <div class="accordion-header" role="button" tabindex="0">5. Oral General Comprehensive Examination</div>
       <div class="accordion-content">
         <div class="card">
