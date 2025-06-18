@@ -57,10 +57,13 @@ img {
   border: 0;
 }
 
-/* === Typography & Content Lists (REVERTED TO PREVIOUS WORKING VERSION) === */
-/* This version aligns ordered list numbers with the content baseline,
-   and unordered lists have bullets inside. Text within list items
-   will be slightly more indented than main paragraphs. */
+
+
+
+
+/* === Typography & Content Lists (REVISED FOR OL LI WRAP ALIGNMENT) === */
+/* This version aims to align all lines of text within an ordered list item
+   consistently after the number, based on the user's detailed description. */
 
 /* General list resets for common parent containers */
 .static-content ul,
@@ -73,26 +76,46 @@ img {
     padding-left: 0; /* Reset default padding, will be set specifically for ul/ol */
 }
 
-/* Styling specifically for UNORDERED LISTS (bullets) - maintains existing behavior */
+/* Styling specifically for UNORDERED LISTS (bullets) - as previously preferred */
 .static-content ul,
 .accordion-content ul {
     list-style: disc inside; /* Bullet inside li content box */
     padding-left: 25px; /* Indent entire ul block by 25px from container's content edge */
 }
 
-/* Styling specifically for ORDERED LISTS (numbers) - aligns numbers with parent content's left edge */
+/* Styling specifically for ORDERED LISTS (numbers) - overall positioning as previously preferred */
 .static-content ol,
 .accordion-content ol {
     list-style-position: outside; /* Crucial for better vertical alignment of numbers */
-    /* Push the entire OL block to align its *start* with the parent's content's 1.5rem padding. */
-    padding-left: 1.5rem;
+    /* This padding-left positions the *numbers* at 1.5rem from the parent content's edge. */
+    padding-left: 1.5rem; 
 }
 
-/* Common spacing for all list items (li) */
+/* Specific styling for list items within ORDERED LISTS (ol li) to fix text wrap */
+.static-content ol li,
+.accordion-content ol li {
+    margin-bottom: 0.5em; /* Adds space between individual list items */
+    
+    /* These two properties are key to aligning wrapped text neatly: */
+    /* 1. Reset text-indent: Ensures subsequent lines are NOT further indented by default,
+          making them align with the first line's content. */
+    text-indent: 0; 
+    /* 2. Add padding-left to the LI: This pushes the entire content of the LI (including the first line's text)
+          to the right, creating the necessary space for the number and a clean visual gap.
+          You might need to fine-tune the '2em' value to perfectly match your desired visual gap
+          between the number and the start of the text content. */
+    padding-left: 2em; 
+    
+    /* Ensure no other conflicting list-style properties are inherited */
+    list-style-position: outside; /* Explicitly ensure marker is outside, though already on OL */
+}
+
+/* Common spacing for all list items (li) - applies to UL li too if not overridden */
 .static-content li,
 .accordion-content li {
-    margin-bottom: 0.5em; /* Adds space between individual list items */
+    /* No specific padding-left or text-indent here for UL li, as handled above */
 }
+
 
 /* Adjustments for nested lists (e.g., ul ul, ol ol) */
 /* These will be indented relative to their parent list's starting point */
@@ -111,11 +134,27 @@ img {
     margin-bottom: 0.5rem;
 }
 
+/* Ensure paragraphs directly within list items don't add extra undesirable indentation */
+/* This targets paragraphs inside any <li>, including those in OL and UL. */
+.static-content li p,
+.accordion-content li p {
+    margin-left: 0; /* Reset any default margin-left on nested paragraphs */
+    padding-left: 0; /* Reset any default padding-left on nested paragraphs */
+    /* You might want to adjust margin-top/bottom here for spacing between elements within an LI */
+}
+
+
 /* Remove bottom margin from the very last list item in any list */
 .static-content li:last-child,
 .accordion-content li:last-child {
     margin-bottom: 0;
 }
+
+
+
+
+
+
 
 /* === Header & Navigation === */
 header {
