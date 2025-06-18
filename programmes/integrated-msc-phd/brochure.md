@@ -6,38 +6,29 @@ full_width: true
 
 <div class="main-full-width" id="main-content-start">
 
-  <div class="accordion-header">INTEGRATED MSc-PhD PROGRAMME Brochure</div>
+  <h1>Brochure of the Integrated MSc-PhD Programme</h1>
 
   <section class="static-section default-bg">
     <div class="accordion-content static-content">
       <div class="accordion-header" role="button" tabindex="0">1. General Information</div>
       <div class="accordion-content">
-        <h3>1.1. Kerala School of Mathematics</h3>
-        <p>Kerala School of Mathematics (KSOM) - a joint initiative of the Kerala State Council for Science, Technology and Environment, Government of Kerala and the Department of Atomic Energy, Government of India - is a national institute for advanced research in Mathematics. KSOM was founded with the vision of establishing a centre of excellence for research in Mathematics. The institute is a meeting ground for leading mathematicians from across the world and a centre of advanced learning in Mathematics in the state of Kerala.</p>
-
-        <h3>1.2. The programme</h3>
-        <p>The Integrated MSc-PhD programme in Mathematics at KSOM is an advanced training program at the postgraduate level leading to doctoral studies. The coursework is very flexible with a focus on grooming students for a research career in Mathematics. Depending on the choice of the electives, a student also has the option to choose a research career in Physics or Theoretical Computer Science as well. The curriculum is among the best that is available in the country at the postgraduate level. The Board of Studies for the Integrated MSc-PhD programme of KSOM will supervise the programme.</p>
-
-        <h3>1.3. Duration of the programme</h3>
+        <h3>1.1. Introduction to the Integrated MSc-PhD Programme</h3>
+        <p>The Integrated MSc-PhD programme in Mathematics is an advanced training program at the postgraduate level leading to doctoral studies. The coursework is very flexible with a focus on grooming students for a research career in Mathematics. Depending on the choice of the electives, a student also has the option to choose a research career in Physics or Theoretical Computer Science as well. The curriculum is among the best that is available in the country at the postgraduate level. The Board of Studies for the Integrated MSc-PhD programme will supervise the programme.</p>
+  
+        <h3>1.2. Duration of the programme</h3>
         <p>The duration of the integrated programme will be 5 years. This includes 2 years of MSc coursework and 3 years of PhD coursework and research. The students are expected to complete the programme within 7 years.</p>
-
-        <h3>1.4. Intake</h3>
+  
+        <h3>1.3. Intake</h3>
         <p>The number of students admitted to the programme will be 10.</p>
-
-        <h3>1.5. Eligibility</h3>
-        <p>
-          Candidates with a Bachelor's degree in Mathematics or an allied subject with at least 60% marks or equivalent grade from a recognized university are eligible to apply.
-        </p>
-
-        <h3>1.6. Admission Procedure</h3>
-        <p>
-          Admission will be based on a written test followed by an interview.
-        </p>
-
-        <h3>1.7. Fellowships</h3>
-        <p>
-          All admitted students will receive a monthly fellowship of Rs. 16,000 for the first two years (MSc component) and Rs. 31,000 for the subsequent years (PhD component), subject to satisfactory academic performance.
-        </p>
+  
+        <h3>1.4. Eligibility</h3>
+        <p>Candidates with a Bachelor's degree in Mathematics or an allied subject with at least 60% marks or equivalent grade from a recognized university are eligible to apply.</p>
+  
+        <h3>1.5. Admission Procedure</h3>
+        <p>Admission will be based on a written test followed by an interview.</p>
+  
+        <h3>1.6. Fellowships</h3>
+        <p>All admitted students will receive a monthly fellowship of Rs. 16,000 for the first two years (MSc component) and Rs. 31,000 for the subsequent years (PhD component), subject to satisfactory academic performance.</p>
       </div>
     </div>
   </section>
