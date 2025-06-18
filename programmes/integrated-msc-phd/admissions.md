@@ -66,7 +66,7 @@ full_width: true
 
 
 
-    <!-- Selected candidates (to be unchecked when the final results of the admission process is announced.) 
+    <!-- Selected candidates (to be unchecked when the final results of the admission process is announced.) -->
     <section class="static-section static-blue-section" id="final-selection-results">
     <div class="accordion-header">Final Selection Results: Integrated MSc-PhD Program</div>
     
