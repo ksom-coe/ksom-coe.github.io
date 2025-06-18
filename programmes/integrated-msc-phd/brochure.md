@@ -7,7 +7,6 @@ full_width: true
 <div class="main-full-width" id="main-content-start">
 
   <div class="accordion-header">INTEGRATED MSc-PhD PROGRAMME Brochure</div>
-  <p><em>July 2023</em></p>
 
   <section class="static-section default-bg">
     <div class="accordion-content static-content">
