@@ -12,40 +12,35 @@ full_width: true
     <div class="accordion-content static-content">
       <div class="accordion-header" role="button" tabindex="0">1. General Information</div>
       <div class="accordion-content">
-        <div class="card">
+        
           <h3>1.1. Kerala School of Mathematics</h3>
           <p>Kerala School of Mathematics (KSOM) - a joint initiative of the Kerala State Council for Science, Technology and Environment, Government of Kerala and the Department of Atomic Energy, Government of India - is a national institute for advanced research in Mathematics. KSOM was founded with the vision of establishing a centre of excellence for research in Mathematics. The institute is a meeting ground for leading mathematicians from across the world and a centre of advanced learning in Mathematics in the state of Kerala.</p>
-        </div>
-        <div class="card">
+
           <h3>1.2. The programme</h3>
           <p>The Integrated MSc-PhD programme in Mathematics at KSOM is an advanced training program at the postgraduate level leading to doctoral studies. The coursework is very flexible with a focus on grooming students for a research career in Mathematics. Depending on the choice of the electives, a student also has the option to choose a research career in Physics or Theoretical Computer Science as well. The curriculum is among the best that is available in the country at the postgraduate level. The Board of Studies for the Integrated MSc-PhD programme of KSOM will supervise the programme.</p>
-        </div>
-        <div class="card">
+
           <h3>1.3. Duration of the programme</h3>
           <p>The duration of the integrated programme will be 5 years. This includes 2 years of MSc coursework and 3 years of PhD coursework and research. The students are expected to complete the programme within 7 years.</p>
         </div>
         <div class="card">
           <h3>1.4. Intake</h3>
           <p>The number of students admitted to the programme will be 10.</p>
-        </div>
-        <div class="card">
+
           <h3>1.5. Eligibility</h3>
           <p>
             Candidates with a Bachelor's degree in Mathematics or an allied subject with at least 60% marks or equivalent grade from a recognized university are eligible to apply.
           </p>
-        </div>
-        <div class="card">
+
           <h3>1.6. Admission Procedure</h3>
           <p>
             Admission will be based on a written test followed by an interview.
           </p>
-        </div>
-        <div class="card">
+
           <h3>1.7. Fellowships</h3>
           <p>
             All admitted students will receive a monthly fellowship of Rs. 16,000 for the first two years (MSc component) and Rs. 31,000 for the subsequent years (PhD component), subject to satisfactory academic performance.
           </p>
-        </div>
+   
       </div>
     </div>
   </section>
