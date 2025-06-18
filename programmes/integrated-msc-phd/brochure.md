@@ -185,7 +185,7 @@ full_width: true
     <div class="accordion-content static-content">
       <div class="accordion-header" role="button" tabindex="0">4. Syllabus</div>
       <div class="accordion-content">
-        <div>
+
           <h3>4.1. Algebra I</h3>
           <p>Groups: Homomorphisms, quotient groups, Sylow theorems, solvable groups, nilpotent groups. Rings: Ideals, quotient rings, prime and maximal ideals, unique factorization domains, principal ideal domains, Euclidean domains. Fields: Field extensions, finite fields, Galois theory.</p>
           <h4>Suggested texts :</h4>
@@ -194,7 +194,7 @@ full_width: true
             <li>(1) Dummit, D. S., & Foote, R. M. (2004). Abstract algebra. John Wiley & Sons.</li>
             <li>(2) Artin, M. (1991). Algebra. Prentice Hall.</li>
           </ul>
-        </div>
+
         <div class="card">
           <h3>4.2. Real Analysis I</h3>
           <p>Metric spaces: Completeness, compactness, connectedness. Sequences and series of functions: Uniform convergence, power series, Weierstrass approximation theorem. Riemann-Stieltjes integral. Functions of several variables: Differentiation, inverse and implicit function theorems.</p>
