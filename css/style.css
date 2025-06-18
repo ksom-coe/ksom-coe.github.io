@@ -874,41 +874,52 @@ body.dark-mode .snippet-more-indicator {
 
 
 /* === Global Component: Static Blue Highlight Card === */
-/* This class makes any 'accordion-item highlight-card' static (always open),
-   removes the arrow, sets a blue background, and adjusts text/table colors for readability. */
+
+/* Base styling for the card */
 .static-blue-highlight-card {
     background-color: var(--accent-blue); /* Sets the card's background to dark blue */
     border-color: var(--accent-blue);    /* Makes the card's border match */
-    color: var(--dark-primary-text);     /* Default text color for the entire card (light) */
+    color: var(--dark-primary-text);     /* Base text color for the entire card (light) */
 }
 
-/* Specific styling for the header of this static card */
+/* --- Crucial: Preventing any clickable cues for the header --- */
 .static-blue-highlight-card .accordion-header {
-    cursor: default;     /* Change cursor to default, indicating it's not clickable */
-    pointer-events: none; /* Prevent any JavaScript click events from being registered */
-    color: var(--dark-primary-text); /* Ensure header text is light */
+    cursor: default !important;     /* FORCED: Cursor will be the default arrow, never a pointer/hand */
+    pointer-events: none !important; /* FORCED: Disable ALL mouse events on the header itself */
+    color: var(--dark-primary-text) !important; /* FORCED: Ensure header text color is light */
+}
+
+/* Explicitly remove all visual changes (including cursor) on hover, active, and focus states */
+.static-blue-highlight-card .accordion-header:hover,
+.static-blue-highlight-card .accordion-header:active,
+.static-blue-highlight-card .accordion-header:focus {
+    background-color: var(--accent-blue) !important; /* FORCED: Keep background static, no change */
+    color: var(--dark-primary-text) !important;      /* FORCED: Keep text color static, no change */
+    outline: none !important;                        /* FORCED: Remove any focus outline */
+    box-shadow: none !important;                     /* FORCED: Remove any box shadow on focus/active */
+    cursor: default !important;                      /* FORCED: Reiterate cursor is default for these states */
 }
 
 /* Remove the arrow from the header of this static card */
 .static-blue-highlight-card .accordion-header::after {
-    display: none;
-}
-
-/* Ensure the header doesn't change appearance on hover for a static card */
-.static-blue-highlight-card .accordion-header:hover {
-    background-color: var(--accent-blue); /* Keep background consistent on hover */
-    color: var(--dark-primary-text);      /* Keep text color consistent on hover */
+    display: none !important; /* FORCED: Hide the arrow icon */
 }
 
 /* Ensure the content snippet of this static card is always visible */
 .static-blue-highlight-card .accordion-snippet {
-    display: block !important;   /* Force content to be displayed */
-    height: auto !important;     /* Allow it to take its natural height */
-    overflow: visible !important;/* Ensure no content is hidden if it overflows */
+    display: block !important;   /* FORCED: Force content to be displayed */
+    height: auto !important;     /* FORCED: Allow it to take its natural height */
+    overflow: visible !important;/* FORCED: Ensure no content is hidden if it overflows */
     padding-top: 1em;            /* Add vertical space between header and snippet */
     border-top: 1px solid var(--accent-light); /* Subtle line to separate header/content */
     margin-top: 0.5em;           /* Small margin to ensure border doesn't hug header */
     color: var(--dark-primary-text); /* Ensure snippet text is light */
+}
+
+/* Adjust text color for general paragraphs within this card (for safety) */
+.static-blue-highlight-card .accordion-snippet p,
+.static-blue-highlight-card .accordion-snippet .table-note {
+    color: var(--dark-primary-text);
 }
 
 /* Table specific styling within the static blue card */
@@ -933,7 +944,7 @@ body.dark-mode .snippet-more-indicator {
     background-color: rgba(0, 0, 0, 0.3); /* Slightly darker transparency on hover */
 }
 
-/* Dark mode adjustments for the static blue highlight card */
+/* Dark mode adjustments (ensure it remains consistent) */
 [data-theme='dark'] .static-blue-highlight-card {
     background-color: var(--accent-blue);
     border-color: var(--accent-blue);
@@ -945,9 +956,14 @@ body.dark-mode .snippet-more-indicator {
 [data-theme='dark'] .static-blue-highlight-card .accordion-snippet .table-note {
     color: var(--dark-primary-text);
 }
-[data-theme='dark'] .static-blue-highlight-card .accordion-header:hover {
-    background-color: var(--accent-blue);
-    color: var(--dark-primary-text);
+[data-theme='dark'] .static-blue-highlight-card .accordion-header:hover,
+[data-theme='dark'] .static-blue-highlight-card .accordion-header:active,
+[data-theme='dark'] .static-blue-highlight-card .accordion-header:focus {
+    background-color: var(--accent-blue) !important;
+    color: var(--dark-primary-text) !important;
+    outline: none !important;
+    box-shadow: none !important;
+    cursor: default !important; /* FORCED: Reiterate cursor is default for these states in dark mode */
 }
 [data-theme='dark'] .static-blue-highlight-card .accordion-snippet table th {
     background-color: var(--accent-light);
@@ -958,12 +974,11 @@ body.dark-mode .snippet-more-indicator {
      border-color: var(--accent-light);
 }
 [data-theme='dark'] .static-blue-highlight-card .accordion-snippet table tbody tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.1); /* Subtle light transparency for stripes */
+    background-color: rgba(255, 255, 255, 0.1);
 }
 [data-theme='dark'] .static-blue-highlight-card .accordion-snippet table tbody tr:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
-
 
 
 
