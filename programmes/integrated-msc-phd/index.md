@@ -14,8 +14,9 @@ full_width: true
         </section>
 
     <section class="static-section default-bg">
-        <div class="accordion-header">The Integrated MSc-PhD Program in Mathematics</div>
+        
         <div class="accordion-content static-content">
+        <div class="accordion-header">The Integrated MSc-PhD Program in Mathematics</div>
             <p>The Integrated MSc-PhD program at the Kerala School of Mathematics (KSoM) offers advanced postgraduate training designed to prepare students for a robust research career. While primarily focused on Mathematics, its flexible coursework allows students to explore research opportunities in Physics or Theoretical Computer Science through elective choices, providing a broad interdisciplinary foundation.</p>
 
             <p>Key features of the Integrated MSc-PhD program at KSoM include:</p>
