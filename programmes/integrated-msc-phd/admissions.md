@@ -21,12 +21,10 @@ full_width: true
             <div class="card-section">
                 <div class="card default-bg">
                     <h3>Eligibility Criteria</h3>
-                    <ol>
                     <ul>
                         <li><strong>Minimum Qualification:</strong> Candidates must hold a B.Sc., B.Math., B.Stat. or an equivalent degree with Mathematics as one of the subjects, OR a B.E./B.Tech. or an equivalent degree.</li>
                         <li><strong>Intake:</strong> A maximum of 12 students will be selected for admission into the program annually.</li>
                     </ul>
-                    </ol>
                 </div>
             </div>
 
@@ -53,7 +51,7 @@ full_width: true
 
             <h2>Important Dates & Application Resources (for 2025 Admissions)</h2>
             <div class="two-column-layout">
-                <div class="card primary-bg-light">
+
                     <h3>KSoM Written Examination</h3>
                     <ul>
                         <li><strong>Application Portal Open:</strong> The application portal for the KSoM written examination is currently open.</li>
@@ -61,7 +59,7 @@ full_width: true
                         <li><strong>Examination Date:</strong> May 18, 2025</li>
                         <li><strong>Syllabus:</strong> The detailed syllabus for the KSoM written examination can be found <a href="[LINK_TO_KSOM_SYLLABUS]" target="_blank" rel="noopener noreferrer">here</a>.</li>
                         </ul>
-                </div>
+      
                 <div class="card primary-bg-light">
                     <h3>Other Examination Details</h3>
                     <ul>
