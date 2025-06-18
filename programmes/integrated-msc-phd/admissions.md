@@ -52,24 +52,21 @@ full_width: true
             <p>A non-refundable application fee of <strong>Rs. 500/-</strong> is applicable for all candidates. A reduced fee of <strong>Rs. 300/-</strong> is offered to candidates belonging to SC/ST categories.</p>
 
             <h2>Important Dates & Application Resources (for 2025 Admissions)</h2>
-            <div class="two-column-layout">
 
-                    <h3>KSoM Written Examination</h3>
-                    <ul>
-                        <li><strong>Application Portal Open:</strong> The application portal for the KSoM written examination is currently open.</li>
-                        <li><strong>Last Date to Apply:</strong> April 15, 2025</li>
-                        <li><strong>Examination Date:</strong> May 18, 2025</li>
-                        <li><strong>Syllabus:</strong> The detailed syllabus for the KSoM written examination can be found <a href="[LINK_TO_KSOM_SYLLABUS]" target="_blank" rel="noopener noreferrer">here</a>.</li>
-                        </ul>
-      
-                <div class="card primary-bg-light">
-                    <h3>Other Examination Details</h3>
-                    <ul>
-                        <li><strong>NBHM Masters’/Doctoral Scholarship Test:</strong> This examination was conducted on January 25, 2025. For further details, please visit the official NBHM website: <a href="https://www.imsc.res.in/~nbhm/" target="_blank" rel="noopener noreferrer">www.imsc.res.in/~nbhm/</a>.</li>
-                        <li><strong>CMI Admissions 2025-26:</strong> Applications for CMI admissions opened on March 03, 2025. For complete details, refer to the CMI website: <a href="https://www.cmi.ac.in/admissions/" target="_blank" rel="noopener noreferrer">www.cmi.ac.in/admissions/</a>.</li>
-                    </ul>
-                </div>
-            </div>
+            <h3>KSoM Written Examination</h3>
+            <ul>
+                <li><strong>Application Portal Open:</strong> The application portal for the KSoM written examination is currently open.</li>
+                <li><strong>Last Date to Apply:</strong> April 15, 2025</li>
+                <li><strong>Examination Date:</strong> May 18, 2025</li>
+                <li><strong>Syllabus:</strong> The detailed syllabus for the KSoM written examination can be found <a href="[LINK_TO_KSOM_SYLLABUS]" target="_blank" rel="noopener noreferrer">here</a>.</li>
+                </ul>
+
+            <h3>Other Examination Details</h3>
+            <ul>
+                <li><strong>NBHM Masters’/Doctoral Scholarship Test:</strong> This examination was conducted on January 25, 2025. For further details, please visit the official NBHM website: <a href="https://www.imsc.res.in/~nbhm/" target="_blank" rel="noopener noreferrer">www.imsc.res.in/~nbhm/</a>.</li>
+                <li><strong>CMI Admissions 2025-26:</strong> Applications for CMI admissions opened on March 03, 2025. For complete details, refer to the CMI website: <a href="https://www.cmi.ac.in/admissions/" target="_blank" rel="noopener noreferrer">www.cmi.ac.in/admissions/</a>.</li>
+            </ul>
+
             
             <h2>Recent Updates (2025 Admission Cycle)</h2>
             <ul>
