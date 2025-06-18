@@ -1,6 +1,6 @@
 ---
 layout: content.html
-title: Integrated MSc-PhD Program
+title: KSoM - Integrated MSc-PhD Program
 full_width: true
 ---
 
