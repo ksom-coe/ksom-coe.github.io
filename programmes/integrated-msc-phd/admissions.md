@@ -6,7 +6,7 @@ full_width: true
 
 <div class="main-full-width" id="main-content-start">
 
-    <section class="accordion-item default-bg" id="apply-now-card" data-direct-link="true" data-learn-more-url="https://docs.google.com/forms/d/e/1FAIpQLSe9cXjr73lveOy4CdZ1xFBRdSdohbxpSI9YM4U_JxLlhneNzQ/viewform?usp=sf_link">
+    <section class="accordion-item primary-bg-light" id="apply-now-card" data-direct-link="true" data-learn-more-url="https://docs.google.com/forms/d/e/1FAIpQLSe9cXjr73lveOy4CdZ1xFBRdSdohbxpSI9YM4U_JxLlhneNzQ/viewform?usp=sf_link">
         <div class="accordion-header" role="button" tabindex="0" aria-label="Apply for KSoM Written Examination 2025">Apply for KSoM Written Examination 2025</div>
         <div class="accordion-snippet">
             Admissions are now open for the KSoM Written Examination, a key step for the Integrated MSc-PhD Program. Click here to begin your application.<span class="snippet-more-indicator"> ...more</span>
