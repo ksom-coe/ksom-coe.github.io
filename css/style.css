@@ -873,28 +873,32 @@ body.dark-mode .snippet-more-indicator {
 
 
 
-/* === Static Section Theming: Blue Background === */
+/* === Static Section Theming: Blue Accent Card (Borrowing Highlight Card Scheme) === */
+/* This class creates a card-like static section with a LIGHT background in light mode
+   and a DARKER blue background in dark mode, following the .highlight-card scheme. */
 
-/* Applies the blue background, padding, and base text color to a static section */
 .blue-background-section {
-    background-color: var(--accent-blue); /* Your dark blue background */
-    color: var(--dark-primary-text);     /* Text will be light/white for readability */
+    background-color: #e6f7ff; /* BORROWED: Very light blue for light mode background */
+    border: 1px solid var(--accent-light); /* BORROWED: Subtle border using your existing accent light color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* BORROWED: Gentle shadow to make it pop */
+    color: var(--primary-text);          /* Default text color for the section is black */
     padding: 1.5rem;                     /* Padding inside the section */
-    border-radius: 8px;                  /* Optional: Add rounded corners like a card */
-    margin-bottom: var(--two-column-gap); /* Spacing below the section if used in layout */
+    border-radius: 8px;                  /* Rounded corners for the card */
+    margin-bottom: var(--two-column-gap); /* Spacing below the section */
 }
 
-/* Style for the accordion-header specifically within a blue-background-section */
+/* Style for the accordion-header specifically within this light card */
 .blue-background-section .accordion-header {
     cursor: default !important;     /* Ensure cursor is default arrow, not a pointer */
     pointer-events: none !important; /* Disable all mouse events on the header */
-    color: var(--dark-primary-text) !important; /* Header text color (light/white) */
-    background-color: transparent !important; /* Ensure header background is transparent over blue */
+    color: var(--accent-blue) !important; /* BORROWED: Header text color is DARK BLUE */
+    background-color: transparent !important; /* Ensure header background is transparent */
     padding: 0;                     /* Remove default accordion header padding */
     margin-bottom: 1rem;            /* Space below the header before content starts */
-    text-align: left;               /* Keep header text left-aligned */
-    width: auto;                    /* Allow header to take natural width */
-    max-width: none;                /* Remove max-width restriction if any */
+    text-align: left;
+    width: auto;
+    max-width: none;
+    font-weight: 700;               /* BORROWED: Make the header bold */
 }
 
 /* Remove the visual arrow from the header of this static section */
@@ -905,58 +909,59 @@ body.dark-mode .snippet-more-indicator {
 /* Ensure no visual changes on hover, active, or focus for the header in this section */
 .blue-background-section .accordion-header:hover,
 .blue-background-section .accordion-header:active,
-.blue-background-section .accordion-header:focus {
-    background-color: transparent !important; /* Keep background static on hover */
-    color: var(--dark-primary-text) !important; /* Keep text color static on hover */
-    outline: none !important;                   /* Remove focus outline */
-    box-shadow: none !important;                /* Remove box-shadow */
-    cursor: default !important;                 /* Reiterate cursor is default */
+.blue-background-section .accordion-background-section .accordion-header:focus {
+    background-color: transparent !important; /* Background remains transparent */
+    color: var(--accent-blue) !important; /* Header text color on hover/focus is DARK BLUE */
+    outline: none !important;
+    box-shadow: none !important;
+    cursor: default !important;
 }
 
-/* Ensure general paragraph and note text color within this blue section */
+/* Ensure general paragraph and note text color within this section */
 .blue-background-section p,
 .blue-background-section .table-note {
-    color: var(--dark-primary-text); /* Ensure light text for readability */
+    color: var(--primary-text); /* Paragraph and note text color is BLACK */
 }
 
-/* Table styling specifically for tables within a blue-background-section */
+/* Table styling specifically for tables within this light card */
 .blue-background-section table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1em;
     font-size: 0.95em;
-    color: var(--dark-primary-text); /* Table text color (light/white) */
+    color: var(--primary-text); /* Table text color is BLACK */
 }
 
 .blue-background-section table th,
 .blue-background-section table td {
-    border: 1px solid var(--accent-light); /* Table borders use a lighter blue */
+    border: 1px solid var(--card-border); /* Table borders are light gray */
     padding: 0.8em 0.5em;
-    text-align: center; /* Keep table content centered as desired */
-    color: var(--dark-primary-text); /* Table cell text color (light/white) */
+    text-align: center;
+    color: var(--primary-text); /* Table cell text color is BLACK */
 }
 
 .blue-background-section table th {
-    background-color: var(--accent-light); /* Table header background (lighter blue) */
+    background-color: var(--primary-bg); /* Table header background is very light gray */
     font-weight: bold;
-    color: var(--dark-primary-text); /* Table header text (light/white) */
-    vertical-align: top;
+    color: var(--primary-text); /* Table header text is BLACK */
 }
 
-/* Alternate row colors for readability on the blue background */
+/* Alternate row colors for readability on the light background */
 .blue-background-section table tbody tr:nth-child(even) {
-    background-color: rgba(0, 0, 0, 0.2); /* Subtle dark transparency for stripes */
+    background-color: rgba(0, 0, 0, 0.03); /* Very subtle light transparency for stripes */
 }
 
 /* Hover effect for table rows */
 .blue-background-section table tbody tr:hover {
-    background-color: rgba(0, 0, 0, 0.3); /* Slightly darker transparency on hover */
+    background-color: rgba(0, 0, 0, 0.07); /* Slightly more visible transparency on hover */
 }
 
-/* Dark mode adjustments for .blue-background-section */
+/* Dark mode adjustments: This section will adapt to highlight card styles in dark mode */
 [data-theme='dark'] .blue-background-section {
-    background-color: var(--accent-blue); /* Remains blue in dark mode */
-    color: var(--dark-primary-text);
+    background-color: #1f3a4e; /* BORROWED: Darker blue for dark mode background */
+    border-color: #004066;     /* BORROWED: Slightly lighter border for dark mode */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* BORROWED: Darker shadow for dark mode */
+    color: var(--dark-primary-text);      /* Text will be light in dark mode */
 }
 [data-theme='dark'] .blue-background-section .accordion-header,
 [data-theme='dark'] .blue-background-section p,
@@ -964,7 +969,7 @@ body.dark-mode .snippet-more-indicator {
 [data-theme='dark'] .blue-background-section table,
 [data-theme='dark'] .blue-background-section table th,
 [data-theme='dark'] .blue-background-section table td {
-    color: var(--dark-primary-text); /* Text remains light in dark mode */
+    color: var(--dark-primary-text); /* Text will be light in dark mode */
 }
 [data-theme='dark'] .blue-background-section .accordion-header:hover,
 [data-theme='dark'] .blue-background-section .accordion-header:active,
@@ -973,15 +978,18 @@ body.dark-mode .snippet-more-indicator {
     color: var(--dark-primary-text) !important;
 }
 [data-theme='dark'] .blue-background-section table th {
-    background-color: var(--accent-light);
-    border-color: var(--accent-light);
+    background-color: var(--dark-primary-bg);
+    border-color: var(--dark-border);
 }
 [data-theme='dark'] .blue-background-section table tbody tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
 }
 [data-theme='dark'] .blue-background-section table tbody tr:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
 }
+
+
+
 
 
 
