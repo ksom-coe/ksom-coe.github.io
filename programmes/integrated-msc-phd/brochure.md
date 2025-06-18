@@ -6,11 +6,12 @@ full_width: true
 
 <div class="main-full-width" id="main-content-start">
 
-  <h1>Brochure of the Integrated MSc-PhD Programme</h1>
+
 
     
 <section class="static-section default-bg">
   <div class="accordion-content static-content">
+      <h1>Brochure of the Integrated MSc-PhD Programme</h1>
     <div class="accordion-header" role="button" tabindex="0">1. General Information</div>
       
         <h3>1.1. The Programme</h3>
