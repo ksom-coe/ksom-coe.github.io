@@ -10,7 +10,7 @@ full_width: true
   <p><em>July 2023</em></p>
 
   <section class="static-section default-bg">
-    <div class="accordion-item highlight-card">
+    <div class="accordion-content static-content">
       <div class="accordion-header" role="button" tabindex="0">1. General Information</div>
       <div class="accordion-content">
         <h3>1.1. Kerala School of Mathematics</h3>
@@ -44,7 +44,7 @@ full_width: true
   </section>
 
   <section class="static-section default-bg">
-    <div class="accordion-item highlight-card">
+    <div class="accordion-content static-content">
       <div class="accordion-header" role="button" tabindex="0">2. Course structure</div>
       <div class="accordion-content">
         <h3>2.1. Credits</h3>
@@ -168,7 +168,7 @@ full_width: true
   </section>
 
   <section class="static-section default-bg">
-    <div class="accordion-item highlight-card">
+    <div class="accordion-content static-content">
       <div class="accordion-header" role="button" tabindex="0">3. Evaluation and promotion</div>
       <div class="accordion-content">
         <h3>3.1. Evaluation</h3>
@@ -273,7 +273,7 @@ full_width: true
   </section>
 
   <section class="static-section default-bg">
-    <div class="accordion-item highlight-card">
+    <div class="accordion-content static-content">
       <div class="accordion-header" role="button" tabindex="0">4. Syllabus</div>
       <div class="accordion-content">
         <h3>4.1. Bridge courses</h3>
@@ -554,12 +554,91 @@ full_width: true
 
         <h4>4.4.7. KSM4E07: Differential Geometry</h4>
         <p>Vector Bundles, Local and Global Sections of Vector Bundles, Bundle Homomorphisms, Subbundles, Cotangent Bundle The Differential of a Function, Multilinear Algebra, Symmetric and Alternating Tensors, Tensors and Tensor Fields on Manifolds, Differential Forms, The Algebra of Alternating Tensors, Differential Forms on Manifolds, Orientations of Manifolds, Integration on Manifolds, Integration of Differential Forms, Stokes’s Theorem, De Rham Cohomology, The Mayer–Vietoris Theorem, The de Rham Theorem, Singular Cohomology, Smooth Singular Homology, The de Rham Theorem.</p>
+        <p><b>Suggested texts :</b></p>
+        <ol>
+          <li>Introduction to Smooth Manifolds, John M Lee, second edition.</li>
+          <li>Foundations of Differentiable Manifolds and Lie Groups, Frank W. Warner, Springer-Verlag New York 1983, first editio</li>
+        </ol>
+
+        <h4>4.4.8. KSM4E08: Algebraic Geometry</h4>
+        <p>Algebraic Sets, The Hilbert basis theorem, The Zariski topology, The Hilbert Nullstellensatz, Regular functions, Noether normalization theorem, Dimension, Affine Algebraic Varieties, Sheaves, Ringed spaces, Morphisms of ringed spaces, Affine algebraic varieties, Subvarieties, Birational equivalence, Noether Normalization Theorem, Local Study, Tangent spaces to plane curves, Tangent cones to plane curves, The local ring at a point on a curve, The differential of a regular map, Tangent spaces to affine algebraic varieties, Algebraic varieties, Products of varieties, Rational maps; birational equivalence, Local study, Smooth maps, Projective Varieties Algebraic subsets of $\mathbb{P}^n$, The homogeneous coordinate ring of a projective variety, Regular functions on a projective variety, Maps from projective varieties, Bezout’s theorem.</p>
+        <p><b>Suggested texts :</b></p>
+        <ol>
+          <li>Algebraic Geometry and Commutative Algebra by Siegfried Bosch</li>
+          <li>Basic Algebraic Geometry 1 by Igor R. Shafarevich</li>
+          <li>Algebraic Geometry by Hartshorne</li>
+        </ol>
+
+        <h4>4.4.9. KSM4E09: Algebraic Number Theory</h4>
+        <p>Algebraic Integers, The Theory of Valuations, Riemann-Roch Theory, Abstract Class Field Theory, Local Class Field Theory, Global Class Field Theory.</p>
+        <p><b>Suggested texts :</b></p>
+        <ol>
+          <li>Neukirch: Algebraic Number Theory</li>
+          <li>Lang: Algebraic Number Theory</li>
+          <li>Marcus: Number Fields</li>
+          <li>Fr{\" o}hlich: Algebraic Number Theory</li>
+        </ol>
+
+        <h4>4.4.10. KSM4E10: Modular Forms</h4>
+        <p>The modular group and congruence subgroups, definition of modular forms and first properties, Eisenstein series, theta series, valence formulas, Hecke operators, Atkin-Lehner-Li theory, L-functions, modular curves, modularity. In the final lecture(s) we will give a global outlook on the use of modular forms (and their associated Galois representations) in the solution of Diophantine equations, in particular Fermat's Last Theorem.</p>
+        <p><b>Suggested texts :</b></p>
+        <ol>
+          <li>F. Diamond and J. Shurman, A First Course in Modular Forms, Graduate Texts in Mathematics 228, Springer-Verlag, 2005.</li>
+          <li>Modular forms by Toshitsune Miyake</li>
+          <li>J.S. Milne, Modular Functions and Modular Forms, online course notes.</li>
+          <li>J.-P. Serre, A Course in Arithmetic, Graduate Texts in Mathematics 7, Springer-Verlag, 1973.</li>
+        </ol>
+
+        <h4>4.4.11. KSM4E11: Harmonic Analysis</h4>
+        <p>Topological groups, locally compact groups, Haar measure, Modular function, Convolutions, homogeneous spaces, unitary representations, Gelfand-Raikov Theorem. Functions of positive type, GNS construction, Potrjagin duality, Bochner's theorem, Induced representations, Mackey's impritivity theorem.</p>
+        <p><b>Suggested texts :</b></p>
+        <ol>
+          <li>Folland, G. B., A Course in Abstract Harmonic Analysis, Studies in Advanced Mathematics, CRC Press, 1995.</li>
+          <li>Hewitt, E and Ross, K., Abstract Harmonic Analysis, Vol. 1, Springer 1979.</li>
+          <li>Gaal, S.A., Linear Analysis and Representation Theory, Dover, 2010.</li>
+        </ol>
+
+        <h4>4.4.12. KSM4E12: Homological Algebra</h4>
+        <p>Complexes, Homology sequence, Euler characteristic and the Grothendieck group, Injective modules, Homotopies of morphisms of complexes, Derived functors, Delta-functors, Bifunctors, Spectral sequences, Special complexes, Finite free resolutions, Unimodular polynomial vectors, The Koszul complex</p>
+        <p><b>Suggested texts :</b></p>
+        <ol>
+          <li>Homological Algebra - Henri Cartan & Samuel Eilenberg</li>
+          <li>Introduction to Homological Algebra - Rotman</li>
+        </ol>
+
+        <h4>4.4.13. KSM4E13: Introduction to Hyperbolic Geometry</h4>
+        <p>Poincare metric on the upper half space and its geodesics, M\"{o}bius Transformations on $\mathbb{R}^n$, Complex M\"{o}bius Transformations, Discontinuous Groups, Riemann Surfaces, Hyperbolic Geometry, Fuchsian Groups, Fundamental Domains, Finitely Generated Groups, Universal Constraints On Fuchsian Groups</p>
+        <p><b>Suggested texts :</b></p>
+        <ol>
+          <li>The Geometry of Discrete Groups - Beardon, Alan F.</li>
+          <li>Fuchsian Groups, Svetlana Katok</li>
+        </ol>
+
+        <h4>4.4.14. KSM4E14: Measure Theoretic Probability</h4>
+        <p>Probability space, Lebesgue measure, Non-measurable sets, Random variables, Borel Probability measures on Euclidean spaces, Examples of probability measures on the line, A metric on the space of probability measures on $\mathbb{R}^d$, Compact subsets of $\mathcal{P}(\mathbb{R}^d)$, Absolute continuity and singularity, Expectation, Limit theorems for Expectation, Lebesgue integral versus Riemann integral Lebesgue spaces, Some inequalities for expectations, Change of variables, Distribution of the sum, product etc. Mean, variance, moments, Independent random variables, Product measures, Independence Independent sequences of random variables, Some probability estimates, Applications of first and second moment methods, Weak law of large numbers, Applications of weak law of large numbers, Modes of convergence Uniform integrability, Strong law of large numbers, Kolmogorov's zero-one law, The law of iterated logarithm Hoeffding's inequality, Random series with independent terms, Kolmogorov's maximal inequality, Central limit theorem - statement, heuristics and discussion, Central limit theorem - Proof using characteristic functions, CLT for triangular arrays, Limits of sums of random variables Poisson convergence for rare events, Brownian motion, Brownian motion and Winer measure, Some continuity properties of Brownian paths - Negative results, Some continuity properties of Brownian paths - Positive results, L\'{e}vy's construction of Brownian motion.</p>
+        <p><b>Suggested texts :</b></p>
+        <ol>
+          <li>Rick Durrett Probability: theory and examples.</li>
+          <li>Patrick Billingsley Probability and measure, 3rd ed. Wiley India.</li>
+          <li>Richard Dudley Real analysis and probability, Cambridge university press</li>
+          <li>Leo Breiman Probability, SIAM: Society for Industrial and Applied Mathematics</li>
+        </ol>
+
+        <h4>4.4.15. KSM4E15: Theory of distributions</h4>
+        <p>Theory of Distributions: Introduction, Topology of test functions, Convolutions, Schwartz Space, Tempered distributions, Paley-Wiener theorem, Fourier transform and Sobolev-spaces:Definitions, Extension operators, Continuum and Compact imbeddings, Trace results, Elliptic boundary value problems: Variational formulation, Weak solutions, Maximum Principle, Regularity results.</p>
+        <p><b>Suggested texts :</b></p>
+        <ol>
+          <li>Barros-Nato, An Introduction to the Theory of Distributions, Marcel Dekker Inc., New York, 1973.</li>
+          <li>Kesavan S., Topics in Functional Analysis and Applications, Wiley Eastern Ltd., 1989.</li>
+          <li>Evans, L. C., Partial Differential Equations, Univ. of California, Berkeley, 1998.</li>
+          <li>Functional Analysis, Sobolev Spaces and Partial Differential Equations, by Haim Brezis</li>
+        </ol>
       </div>
     </div>
   </section>
 
   <section class="static-section default-bg">
-    <div class="accordion-item highlight-card">
+    <div class="accordion-content static-content">
       <div class="accordion-header" role="button" tabindex="0">5. Oral General Comprehensive Examination</div>
       <div class="accordion-content">
         <h3>5.1. Eligibility and Constitution of Doctoral Committee</h3>
