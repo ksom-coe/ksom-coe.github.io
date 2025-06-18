@@ -19,7 +19,7 @@ full_width: true
     
 
     <!-- Shortlisted candidates (to be unchecked when the results of the screening test held in May is announced) -->
-    <section class="static-section blue-background-section" id="shortlist-updates-section">
+    <section class="static-section static-blue-section" id="shortlist-updates-section">
         <div class="accordion-header">Latest Updates: Shortlisted Candidates for Final Selection</div>
         
         <p>Please find below the list of candidates shortlisted for the final selection **written examination** for the Integrated MSc-PhD Program. The examination is scheduled for **July 13, 2025, from 10:00 AM to 1:00 PM at Kerala School of Mathematics.**</p>
