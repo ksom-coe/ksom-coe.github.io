@@ -21,9 +21,11 @@ full_width: true
     <!-- Shortlisted candidates (to be unchecked when the results of the screening test held in May is announced) -->
     
     <section class="static-section static-blue-section" id="shortlist-updates-section">
-        <div class="accordion-header">Latest Updates: Shortlisted Candidates for Final Selection</div>
+        <div class="accordion-content static-content">
         
-        <p>Please find below the list of candidates shortlisted for the final selection **written examination** for the Integrated MSc-PhD Program. The examination is scheduled for **July 13, 2025, from 10:00 AM to 1:00 PM at Kerala School of Mathematics.**</p>
+            <h1>Latest Updates: Shortlisted Candidates for Final Selection</h1>
+
+            <p>Please find below the list of candidates shortlisted for the final selection **written examination** for the Integrated MSc-PhD Program. The examination is scheduled for **July 13, 2025, from 10:00 AM to 1:00 PM at Kerala School of Mathematics.**</p>
         
         <table>
             <thead>
@@ -55,48 +57,6 @@ full_width: true
                 </tr>
                 </tbody>
         </table>
-        <p class="table-note">Shortlisted candidates will receive a detailed email with further instructions regarding the examination. Please check your registered email regularly for updates.</p>
-    
-    </section>
-
-    
-    <section class="static-section static-blue-section" id="shortlist-updates-section">
-        <div class="accordion-content static-content">
-        
-            <h1>Latest Updates: Shortlisted Candidates for Final Selection</h1>
-
-            <p>Please find below the list of candidates shortlisted for the final selection **written examination** for the Integrated MSc-PhD Program. The examination is scheduled for **July 13, 2025, from 10:00 AM to 1:00 PM at Kerala School of Mathematics.**</p>
-        
-        <--<table>
-            <thead>
-                <tr>
-                    <th>Application ID</th>
-                    <th>Candidate Name (Partial)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>KSoM2025-001</td>
-                    <td>Aditya S.</td>
-                </tr>
-                <tr>
-                    <td>KSoM2025-005</td>
-                    <td>Bhavna R.</td>
-                </tr>
-                <tr>
-                    <td>KSoM2025-012</td>
-                    <td>Chirag P.</td>
-                </tr>
-                <tr>
-                    <td>KSoM2025-018</td>
-                    <td>Divya K.</td>
-                </tr>
-                <tr>
-                    <td>KSoM2025-023</td>
-                    <td>Esha M.</td>
-                </tr>
-                </tbody>
-        </table>-->
         <p class="table-note">Shortlisted candidates will receive a detailed email with further instructions regarding the examination. Please check your registered email regularly for updates.</p>
 
         </div>    
