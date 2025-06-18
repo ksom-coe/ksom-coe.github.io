@@ -49,13 +49,12 @@ full_width: true
     <div class="accordion-content static-content">
       <div class="accordion-header" role="button" tabindex="0">2. Course structure</div>
       <div class="accordion-content">
-        <div class="card">
+
           <h3>2.1. Credits</h3>
           <p>
             The integrated MSc-PhD programme is a credit-based programme. The total credits required for the MSc component is 64 and for the PhD component is 24 (coursework) + 16 (research).
           </p>
-        </div>
-        <div class="card">
+
           <h3>2.2. Core Courses (MSc)</h3>
           <p>
             The core courses for the MSc component are:
@@ -121,25 +120,22 @@ full_width: true
               </tr>
             </tbody>
           </table>
-        </div>
-        <div class="card">
+   
           <h3>2.3. Elective Courses (MSc)</h3>
           <p>
             Students are required to choose 6 elective courses (4 credits each) from a list approved by the Board of Studies.
           </p>
-        </div>
-        <div class="card">
+
           <h3>2.4. PhD Coursework</h3>
           <p>
             Students are required to complete 4 advanced courses (6 credits each) in their area of specialization as part of their PhD coursework.
           </p>
-        </div>
-        <div class="card">
+
           <h3>2.5. Research Project (MSc)</h3>
           <p>
             Students are required to undertake a research project in their second year of the MSc component.
           </p>
-        </div>
+
       </div>
     </div>
   </section>
@@ -148,30 +144,27 @@ full_width: true
     <div class="accordion-content static-content">
       <div class="accordion-header" role="button" tabindex="0">3. Evaluation and promotion</div>
       <div class="accordion-content">
-        <div class="card">
+
           <h3>3.1. Evaluation</h3>
           <p>
             Each course will be evaluated based on continuous assessment, mid-semester examination, and end-semester examination. The weightage for each component will be decided by the course instructor.
           </p>
-        </div>
-        <div class="card">
+
           <h3>3.2. Grading</h3>
           <p>
             Grading will be on a 10-point scale.
           </p>
-        </div>
-        <div class="card">
+
           <h3>3.3. Promotion to PhD Component</h3>
           <p>
             Promotion to the PhD component is subject to satisfying all conditions listed in 2.5, and on joining a research supervisor at the end of the second year. Students must maintain a minimum CGPA of 7.0 (out of 10.0) in the MSc component to be eligible for promotion.
           </p>
-        </div>
-        <div class="card">
+
           <h3>3.4. Doctoral Committee</h3>
           <p>
             A doctoral committee will be constituted for each student on promotion to the PhD component. The doctoral committee will monitor the yearly progress of the respective student at the end of each year thereafter.
           </p>
-        </div>
+
       </div>
     </div>
   </section>
@@ -190,7 +183,6 @@ full_width: true
             <li>(2) Artin, M. (1991). Algebra. Prentice Hall.</li>
           </ul>
 
-        <div class="card">
           <h3>4.2. Real Analysis I</h3>
           <p>Metric spaces: Completeness, compactness, connectedness. Sequences and series of functions: Uniform convergence, power series, Weierstrass approximation theorem. Riemann-Stieltjes integral. Functions of several variables: Differentiation, inverse and implicit function theorems.</p>
           <h4>Suggested texts :</h4>
@@ -198,8 +190,7 @@ full_width: true
             <li>(1) Rudin, W. (1976). Principles of mathematical analysis (3rd ed.). McGraw-Hill.</li>
             <li>(2) Apostol, T. M. (1974). Mathematical analysis (2nd ed.). Addison-Wesley.</li>
           </ul>
-        </div>
-        <div class="card">
+
           <h3>4.3. Topology</h3>
           <p>Topological spaces: Open and closed sets, bases, subbases, continuous functions, homeomorphisms. Connectedness and compactness. Countability and separation axioms. Product spaces, quotient spaces. Metric spaces and metrizability. Fundamental group.</p>
           <h4>Suggested texts :</h4>
@@ -207,8 +198,7 @@ full_width: true
             <li>(1) Munkres, J. R. (2000). Topology (2nd ed.). Prentice Hall.</li>
             <li>(2) Armstrong, M. A. (1983). Basic topology. Springer-Verlag.</li>
           </ul>
-        </div>
-        <div class="card">
+
           <h3>4.4. Complex Analysis</h3>
           <p>Complex numbers, analytic functions, Cauchy-Riemann equations, elementary functions, complex integration, Cauchy's integral formula, Liouville's theorem, maximum modulus principle, Taylor and Laurent series, residues, conformal mappings.</p>
           <h4>Suggested texts :</h4>
@@ -216,8 +206,7 @@ full_width: true
             <li>(1) Ahlfors, L. V. (1979). Complex analysis (3rd ed.). McGraw-Hill.</li>
             <li>(2) Conway, J. B. (1978). Functions of one complex variable (2nd ed.). Springer-Verlag.</li>
           </ul>
-        </div>
-        <div class="card">
+
           <h3>4.5. Ordinary Differential Equations</h3>
           <p>First order equations, linear differential equations, existence and uniqueness theorems, systems of linear differential equations, stability theory, Sturm-Liouville theory, Green's functions.</p>
           <h4>Suggested texts :</h4>
@@ -225,8 +214,7 @@ full_width: true
             <li>(1) Coddington, E. A., & Levinson, N. (1955). Theory of ordinary differential equations. McGraw-Hill.</li>
             <li>(2) Perko, L. (2001). Differential equations and dynamical systems (3rd ed.). Springer-Verlag.</li>
           </ul>
-        </div>
-        <div class="card">
+
           <h3>4.6. Linear Algebra</h3>
           <p>Vector spaces, linear transformations, matrices, determinants, eigenvalues and eigenvectors, diagonalization, Jordan canonical form, inner product spaces, Gram-Schmidt orthogonalization, spectral theorem for normal operators.</p>
           <h4>Suggested texts :</h4>
@@ -234,8 +222,7 @@ full_width: true
             <li>(1) Hoffman, K., & Kunze, R. (1971). Linear algebra (2nd ed.). Prentice Hall.</li>
             <li>(2) Axler, S. (2015). Linear algebra done right (3rd ed.). Springer.</li>
           </ul>
-        </div>
-        <div class="card">
+
           <h3>4.7. Algebra II</h3>
           <p>Modules: Basic definitions and examples, submodules, quotient modules, homomorphisms, exact sequences, tensor products. Structure theory of modules over a PID. Noetherian and Artinian rings and modules. Introduction to homological algebra.</p>
           <h4>Suggested texts :</h4>
@@ -243,8 +230,7 @@ full_width: true
             <li>(1) Dummit, D. S., & Foote, R. M. (2004). Abstract algebra. John Wiley & Sons.</li>
             <li>(2) Rotman, J. J. (2009). An introduction to homological algebra (2nd ed.). Springer.</li>
           </ul>
-        </div>
-        <div class="card">
+
           <h3>4.8. Real Analysis II</h3>
           <p>Measure theory: Outer measure, Lebesgue measure, measurable functions, Lebesgue integral, convergence theorems. $L^p$ spaces, completeness. Product measures, Fubini's theorem. Differentiation of integrals.</p>
           <h4>Suggested texts :</h4>
@@ -252,8 +238,7 @@ full_width: true
             <li>(1) Royden, H. L., & Fitzpatrick, P. M. (2010). Real analysis (4th ed.). Prentice Hall.</li>
             <li>(2) Folland, G. B. (1999). Real analysis: Modern techniques and their applications (2nd ed.). John Wiley & Sons.</li>
           </ul>
-        </div>
-        <div class="card">
+
           <h3>4.9. Functional Analysis</h3>
           <p>Normed linear spaces, Banach spaces, Hilbert spaces, bounded linear operators, Hahn-Banach theorem, open mapping theorem, closed graph theorem, uniform boundedness principle. Dual spaces, weak topologies. Spectral theory for compact operators.</p>
           <h4>Suggested texts :</h4>
@@ -261,8 +246,7 @@ full_width: true
             <li>(1) Rudin, W. (1991). Functional analysis (2nd ed.). McGraw-Hill.</li>
             <li>(2) Conway, J. B. (1990). A course in functional analysis (2nd ed.). Springer-Verlag.</li>
           </ul>
-        </div>
-        <div class="card">
+
           <h3>4.10. Partial Differential Equations</h3>
           <p>First order equations, characteristics. Classification of second order equations. Wave equation, heat equation, Laplace equation: fundamental solutions, well-posedness. Green's functions. Sobolev spaces, weak solutions.</p>
           <h4>Suggested texts :</h4>
@@ -270,7 +254,7 @@ full_width: true
             <li>(1) Evans, L. C. (1998). Partial differential equations. American Mathematical Society.</li>
             <li>(2) Renardy, M., & Rogers, R. C. (2004). An introduction to partial differential equations (2nd ed.). Springer.</li>
           </ul>
-        </div>
+
       </div>
     </div>
   </section>
@@ -279,18 +263,16 @@ full_width: true
     <div class="accordion-content static-content">
       <div class="accordion-header" role="button" tabindex="0">5. Oral General Comprehensive Examination</div>
       <div class="accordion-content">
-        <div class="card">
+
           <h3>5.1. Eligibility and Constitution of Doctoral Committee</h3>
           <p>The promotion of a student to the PhD component is subject to satisfying all conditions listed in 2.5, and on joining a research supervisor at the end of the second year. A doctoral committee will be constituted for each student on promotion to the PhD component. The doctoral committee will conduct the Oral General Comprehensive Examination (OGCE) in the fourth year of the student. The syllabus for the OGCE (four advanced courses in the area of specialization) will be designed by the research supervisor and approved by the doctoral committee.</p>
-        </div>
-        <div class="card">
+
           <h3>5.2. Senior Research Fellowship</h3>
           <p>A student is promoted to Senior Research Fellowship on clearing the OGCE.</p>
-        </div>
-        <div class="card">
+
           <h3>5.3. Progress Monitoring</h3>
           <p>The doctoral committee will monitor the yearly progress of the respective student at the end of each year thereafter.</p>
-        </div>
+
       </div>
     </div>
   </section>
