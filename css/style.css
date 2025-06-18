@@ -873,60 +873,40 @@ body.dark-mode .snippet-more-indicator {
 
 
 
-
-
-/* === Static Blue Section (Styled like Highlight Card) === */
-/* === Static Blue Section (Styled like Highlight Card) === */
+/* === Static Blue Block Section (Themed like Highlight Card, but spacing matches static-section) === */
 .static-blue-section {
     cursor: default;
     transform: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    background-color: #e6f7ff; /* Light blue background */
-    border: 1px solid var(--accent-light); /* Subtle border */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Matches static-section */
+    padding: 1.5rem;                           /* Same inner padding */
+    background-color: #e6f7ff;                /* Light blue like highlight card */
+    border: 1px solid var(--accent-light);    /* Same as highlight card */
     border-radius: 12px;
-    margin-bottom: 2rem;
-    gap: 0rem;
+    margin-bottom: 1.5rem;                    /* Matches static-section */
+    gap: 0;
 }
 
-/* Header inside static blue section */
+/* Header within static blue block */
 .static-blue-section .accordion-header {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--accent-blue); /* Darker blue for header */
+    margin-bottom: 1rem;                      /* Same as .static-section */
+    color: var(--accent-blue);
     font-weight: 700;
     font-family: var(--font-serif);
     display: block;
     cursor: default;
 }
 
-/* Dark mode: blue theme adapted */
+/* Dark mode adjustments */
 body.dark-mode .static-blue-section {
-    background-color: #1f3a4e; /* Darker blue for background */
-    border-color: #004066;     /* Border contrast in dark mode */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background-color: #1f3a4e;    /* Dark blue tone */
+    border-color: #004066;        /* Slightly lighter for contrast */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);  /* Darker shadow in dark mode */
 }
 
-/* Dark mode header text */
 body.dark-mode .static-blue-section .accordion-header {
-    color: var(--dark-primary-text); /* Lighter text for contrast */
-}
-
-/* Optional: Adjust paragraph or table text if needed */
-.static-blue-section p,
-.static-blue-section li,
-.static-blue-section .table-note {
-    color: var(--dark-text); /* Default dark text in light mode */
-}
-
-body.dark-mode .static-blue-section p,
-body.dark-mode .static-blue-section li,
-body.dark-mode .static-blue-section .table-note {
     color: var(--dark-primary-text); /* Light text in dark mode */
 }
-
-
-
 
 
 
