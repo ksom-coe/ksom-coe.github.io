@@ -8,36 +8,21 @@ full_width: true
 
   <h1>Brochure of the Integrated MSc-PhD Programme</h1>
 
-  <section class="static-section default-bg">
-    <div class="accordion-content static-content">
-      <div class="accordion-header" role="button" tabindex="0">1. General Information</div>
-      <div class="accordion-content">
-        <h1>Brochure of the Integrated MSc-PhD Programme</h1>
-
 <section class="static-section default-bg">
   <div class="accordion-content static-content">
     <div class="accordion-header" role="button" tabindex="0">1. General Information</div>
-    <div class="accordion-content">
-      <h3>1.1. Introduction to the Integrated MSc-PhD Programme</h3>
-      <p>The Integrated MSc-PhD programme in Mathematics is an advanced training program at the postgraduate level leading to doctoral studies. The coursework is very flexible with a focus on grooming students for a research career in Mathematics. Depending on the choice of the electives, a student also has the option to choose a research career in Physics or Theoretical Computer Science as well. The curriculum is among the best that is available in the country at the postgraduate level. The Board of Studies for the Integrated MSc-PhD programme will supervise the programme.</p>
-
-      <h3>1.2. Duration of the programme</h3>
-      <p>The duration of the integrated programme will be 5 years. This includes 2 years of MSc coursework and 3 years of PhD coursework and research. The students are expected to complete the programme within 7 years.</p>
-
-      <h3>1.3. Intake</h3>
-      <p>The number of students admitted to the programme will be 10.</p>
-
-      <h3>1.4. Eligibility</h3>
-      <p>Candidates with a Bachelor's degree in Mathematics or an allied subject with at least 60% marks or equivalent grade from a recognized university are eligible to apply.</p>
-
-      <h3>1.5. Admission Procedure</h3>
-      <p>Admission will be based on a written test followed by an interview.</p>
-
-      <h3>1.6. Fellowships</h3>
-      <p>All admitted students will receive a monthly fellowship of Rs. 16,000 for the first two years (MSc component) and Rs. 31,000 for the subsequent years (PhD component), subject to satisfactory academic performance.</p>
-    </div>
-  </div>
-</section>
+      <div class="accordion-content">
+        <h3>1.1. The Programme</h3>
+          <p>The Integrated MSc-PhD programme in Mathematics at KSoM is an advanced training program at the postgraduate level leading to doctoral studies. The coursework is very flexible with a focus on grooming students for a research career in Mathematics. Depending on the choice of the electives, a student also has the option to choose a research career in Physics or Theoretical Computer Science as well. The curriculum is among the best that is available in the country at the postgraduate level. The <em>Board of Studies for the Graduate School of KSoM</em> will supervise the Integrated MSc-PhD programme.</p>
+          
+          <h3>1.2. Admission</h3>
+          <p>The admission for the Integrated MSc-PhD programme at KSoM will be based on the national level entrance examination conducted by CMI/NBHM/KSoM. Shortlisted candidates will be called for a test/interview thereafter at KSoM. The minimum qualification required for joining the Integrated MSc-PhD programme is B.Sc., B.Math., B.Stat., BE / B.Tech. or an equivalent degree with Mathematics as one of the subjects.</p>
+          
+          <h3>1.3. Duration</h3>
+          <p>The duration of the programme shall be a minimum of ten semesters and a maximum of sixteen semesters. The first four semesters are dedicated to the master's level coursework and the remaining towards doctoral studies leading to a PhD. An academic year has two semesters, one from July/August to November and the other from January to May. There will be a break between two semesters.</p>
+          
+          <h3>1.4. Scholarship</h3>
+          <p>The students selected for the programme are entitled for a scholarship. The scholarship amount is currently Rs. 6000 during the MSc coursework for a maximum period of four semesters. However, a student who does not secure at least 24 credits (excluding Viva) in the first year forfeits her/his scholarship. The scholarship during PhD will be at par with NBHM PhD scholarship.</p>
       </div>
     </div>
   </section>
