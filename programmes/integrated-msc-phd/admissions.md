@@ -18,7 +18,7 @@ full_width: true
 
     
 
-    <!-- Shortlisted candidates (to be unchecked when the results of the screening test held in May is announced) -->
+    <!-- Shortlisted candidates (to be unchecked when the results of the screening test held in May is announced) 
     
     <section class="static-section static-blue-section" id="shortlist-updates-section">
         <div class="accordion-content static-content">
@@ -60,9 +60,56 @@ full_width: true
         <p class="table-note">Shortlisted candidates will receive a detailed email with further instructions regarding the examination. Please check your registered email regularly for updates.</p>
 
         </div>    
-    </section>
+    </section> -->
 
 
+
+
+
+    <!-- Selected candidates (to be unchecked when the final results of the admission process is announced.) 
+    <section class="static-section static-blue-section" id="final-selection-results">
+    <div class="accordion-header">Final Selection Results: Integrated MSc-PhD Program</div>
+    
+    <p>We are pleased to announce the final selection results for the Integrated MSc-PhD Program. Congratulations to all selected candidates!</p>
+
+    <h3>Selected Candidates</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Application ID</th>
+                <th>Candidate Name (Partial)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>KSoM2025-003</td><td>Rahul A.</td></tr>
+            <tr><td>KSoM2025-007</td><td>Priya B.</td></tr>
+            <tr><td>KSoM2025-015</td><td>Sameer C.</td></tr>
+            <tr><td>KSoM2025-020</td><td>Neha D.</td></tr>
+            <tr><td>KSoM2025-025</td><td>Vivek E.</td></tr>
+            </tbody>
+    </table>
+
+    <h3>Waitlisted Candidates</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Application ID</th>
+                <th>Candidate Name (Partial)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>KSoM2025-002</td><td>Anjali F.</td></tr>
+            <tr><td>KSoM2025-009</td><td>Rohan G.</td></tr>
+            <tr><td>KSoM2025-010</td><td>Meera H.</td></tr>
+            <tr><td>KSoM2025-014</td><td>Kartik I.</td></tr>
+            <tr><td>KSoM2025-019</td><td>Sana J.</td></tr>
+            </tbody>
+    </table>
+
+    <p>Selected candidates will be contacted by email for confirmation of their admission. The reporting date for all selected candidates is **July 28, 2025**.</p>
+    <p>Candidates on the waiting list will be contacted by email only if vacancies arise after the initial confirmation period. Please ensure your registered email is regularly checked for any updates.</p>
+
+</section>
 
     
     <section class="static-section default-bg">
