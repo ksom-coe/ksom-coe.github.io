@@ -157,35 +157,6 @@ full_width: true
         </table>
         <p>Every student has to either select (*) or (**) in their final semester. The project carries 8 credits, and all other courses, including the Reading course carry 4 credits. Students continuing into the PhD component of the program should have completed Functional Analysis, Algebraic Topology - I, and Field and Galois Theory as electives in their third semester. Also such students should credit two courses out of Partial Differential Equations, Algebraic Topology-II, and Representation theory as electives in the fourth semester as part of their coursework.</p>
 
-        <h3>2.8. First Year Course Structure</h3>
-        <p>The course structure for the first year of the programme is summarized below.</p>
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-              <th>Course 1</th>
-              <th>Course 2</th>
-              <th>Course 3</th>
-              <th>Course 4</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>**Semester I**</td>
-              <td>Algebra I</td>
-              <td>Real Analysis I</td>
-              <td>Topology</td>
-              <td>Complex Analysis</td>
-            </tr>
-            <tr>
-              <td>**Semester II**</td>
-              <td>Linear Algebra</td>
-              <td>Ordinary Differential Equations</td>
-              <td>Algebra II</td>
-              <td>Real Analysis II</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </div>
   </section>
@@ -195,102 +166,147 @@ full_width: true
       <div class="accordion-header" role="button" tabindex="0">3. Evaluation and promotion</div>
       <div class="accordion-content">
         <h3>3.1. Evaluation</h3>
-        <p>Each course will be evaluated based on continuous assessment, mid-semester examination, and end-semester examination. The weightage for each component will be decided by the course instructor. The letter grades for the courses will be awarded on an absolute scale, as shown in the table below:</p>
+        <p>Evaluation scheme for the core and elective courses offered at KSoM will contain two components: Continuous Assessment and End-semester Examination. The weightage of continuous assessment and end-semester examination in any course offered at KSoM will be as given below.</p>
         <table>
-          <thead>
-            <tr>
-              <th>Marks Range</th>
-              <th>Grade</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>$[90, 100]$</td>
-              <td>A+</td>
-            </tr>
-            <tr>
-              <td>$[80, 90)$</td>
-              <td>A</td>
-            </tr>
-            <tr>
-              <td>$[70, 80)$</td>
-              <td>B+</td>
-            </tr>
-            <tr>
-              <td>$[60, 70)$</td>
-              <td>B</td>
-            </tr>
-            <tr>
-              <td>$[50, 60)$</td>
-              <td>C</td>
-            </tr>
-            <tr>
-              <td>$[40, 50)$</td>
-              <td>D</td>
-            </tr>
-            <tr>
-              <td>$[0, 40)$</td>
-              <td>F</td>
-            </tr>
-          </tbody>
+        <thead>
+        <tr>
+        <th></th>
+        <th>Core Course</th>
+        <th>Elective course</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Continuous Assessment</td>
+        <td>50%</td>
+        <td>40%-60%</td>
+        </tr>
+        <tr>
+        <td>End-Semester Examination</td>
+        <td>50%</td>
+        <td>40%-60%</td>
+        </tr>
+        </tbody>
         </table>
-
-        <h3>3.2. Grading</h3>
-        <p>The grade points corresponding to the letter grades are given below:</p>
+        <p>The weightage allotted to continuous assessment and end semester examination in an elective course will be declared at the beginning of the course by the instructor(s).</p>
+        
+        <h3>3.2. Grading System</h3>
+        <p>Evaluation will be based on seven letter grades (<b>O</b>, <b>A+</b>, <b>A</b>, <b>B+</b>, <b>B</b>, <b>C</b> and <b>F</b>) with numerical values (grade points) of 10, 9, 8, 7, 6, 5 and 0 respectively. In addition to the above, an incomplete grade given by <b>I</b> and an absent grade given by <b>Ab</b> will also be used. The grading scheme involved in any course at KSoM is absolute.</p>
+        
+        <h3>3.3. Continuous Assessment Components</h3>
+        <p>The continuous assessment for the courses offered at KSoM will be based on a predetermined transparent system involving the following components :</p>
         <table>
-          <thead>
-            <tr>
-              <th>Grade</th>
-              <th>Grade Point</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>A+</td>
-              <td>10</td>
-            </tr>
-            <tr>
-              <td>A</td>
-              <td>9</td>
-            </tr>
-            <tr>
-              <td>B+</td>
-              <td>8</td>
-            </tr>
-            <tr>
-              <td>B</td>
-              <td>7</td>
-            </tr>
-            <tr>
-              <td>C</td>
-              <td>6</td>
-            </tr>
-            <tr>
-              <td>D</td>
-              <td>5</td>
-            </tr>
-            <tr>
-              <td>F</td>
-              <td>0</td>
-            </tr>
-          </tbody>
+        <thead>
+        <tr>
+        <th></th>
+        <th>Core Course</th>
+        <th>Elective course</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Mid-semester examinations</td>
+        <td>20%-30%</td>
+        <td>20%-30%</td>
+        </tr>
+        <tr>
+        <td>Periodic written tests</td>
+        <td>0%-20%</td>
+        <td>0%-20%</td>
+        </tr>
+        <tr>
+        <td>Assignments</td>
+        <td>10%-30%</td>
+        <td>10%-30%</td>
+        </tr>
+        <tr>
+        <td>Seminars or other components</td>
+        <td></td>
+        <td>0%-20%</td>
+        </tr>
+        </tbody>
         </table>
-        <p>The semester grade point average (SGPA) and cumulative grade point average (CGPA) will be calculated based on the grade points. The conversion from CGPA to percentage will be as per the university norms.</p>
-
-        <h3>3.3. Promotion to PhD Component</h3>
-        <p>The promotion of a student to the PhD component is subject to satisfying all conditions listed in 2.5, and on joining a research supervisor at the end of the second year. Students must maintain a minimum CGPA of 7.0 (out of 10.0) in the MSc component to be eligible for promotion.</p>
-
-        <h3>3.4. Doctoral Committee</h3>
-        <p>A doctoral committee will be constituted for each student on promotion to the PhD component. The doctoral committee will consist of the supervisor, two faculty members from KSOM, and one external expert. The committee will meet at least once a year to review the student's progress.</p>
-
-        <h3>3.5. Withdrawal from the programme</h3>
-        <p>A student may opt for an MSc degree and exit the programme after successfully completing the MSc coursework and fulfilling the requirements for the MSc degree. A student who opts for an MSc degree and exits the programme cannot rejoin the PhD programme.</p>
-
-        <h3>3.6. Termination from the programme</h3>
-        <p>A student may be terminated from the programme if he/she fails to maintain the minimum CGPA criterion or if the doctoral committee finds the progress of the student unsatisfactory.</p>
-
-        <h3>3.7. Leave</h3>
-        <p>Leave rules will be as per the institute norms.</p>
+        <p>The transparent system will be declared at the beginning of the course by the instructor(s). The end-semester examinations for every course will be conducted and evaluated by the instructor(s) of the course.</p>
+        
+        <h3>3.4. Promotion policy</h3>
+        <p>The grades are divided in to the following categories.</p>
+        <table>
+        <thead>
+        <tr>
+        <th><em>Grade</em></th>
+        <th><em>Grade Points</em></th>
+        <th>Marks range</th>
+        <th>Merit</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>O</td>
+        <td>10</td>
+        <td>90-100</td>
+        <td>Outstanding</td>
+        </tr>
+        <tr>
+        <td>A+</td>
+        <td>9</td>
+        <td>80-89.99</td>
+        <td>Very good</td>
+        </tr>
+        <tr>
+        <td>A</td>
+        <td>8</td>
+        <td>70-79.99</td>
+        <td>Good</td>
+        </tr>
+        <tr>
+        <td>B+</td>
+        <td>7</td>
+        <td>60-69.99</td>
+        <td>Above average</td>
+        </tr>
+        <tr>
+        <td>B</td>
+        <td>6</td>
+        <td>55-59.99</td>
+        <td>Average</td>
+        </tr>
+        <tr>
+        <td>C</td>
+        <td>5</td>
+        <td>50-54.99</td>
+        <td>Pass</td>
+        </tr>
+        <tr>
+        <td>F</td>
+        <td>0</td>
+        <td>Below 50</td>
+        <td>Fail</td>
+        </tr>
+        <tr>
+        <td>I</td>
+        <td>0</td>
+        <td></td>
+        <td>Incomplete</td>
+        </tr>
+        <tr>
+        <td>Ab</td>
+        <td>0</td>
+        <td></td>
+        <td>Absent</td>
+        </tr>
+        </tbody>
+        </table>
+        
+        <h3>3.5. Make-up Examination and CGPA Calculation</h3>
+        <p>A student securing the grade 'F' in the respective course will be treated as having failed in the course. In such a scenario an option of a make-up examination will be provided. The make-up examination will be held in the week before the beginning of the next semester. The Cumulative Grade Point Average (CGPA) out of $10$ is calculated as per the following formula</p>
+        $$ \text{CGPA} = \frac{\sum_{\text{Courses taken in the programme}} \left(\text{No. of credits of the course} \times \text{Grade Points}\right)}{\text{Net total number of credits obtained in the core and elective courses}} $$
+        <p>Courses taken in the programme does not include bridge courses. A semester grade point average (SGPA) is calculated similarly every semester.</p>
+        
+        <h3>3.6. MSc Degree Requirement</h3>
+        <p>A student who has obtained 76 credits at the end of the second year, irrespective of satisfying the eligibility criterion for promotion into PhD, will be given an MSc degree.</p>
+        
+        <h3>3.7. Time Limit for MSc Completion and Promotion</h3>
+        <p>The maximum time for completion of the MSc is 4 years during which 76 credits should be acquired. A student needs to acquire a minimum of 20 credits (excluding Viva) to get promoted to the second year of the programme. Any student unable to do so in the first two years will be asked to discontinue the MSc. programme.</p>
       </div>
     </div>
   </section>
