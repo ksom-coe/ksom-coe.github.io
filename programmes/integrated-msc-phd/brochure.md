@@ -8,12 +8,15 @@ full_width: true
 
 
 
-    
+<h1>Brochure of the Integrated MSc-PhD Programme</h1>
+ <section class="static-section default-bg">
+        
+        <div class="accordion-content static-content">
+        
+        
 <section class="static-section default-bg">
   <div class="accordion-content static-content">
-      <h1>Brochure of the Integrated MSc-PhD Programme</h1>
-    <div class="accordion-header" role="button" tabindex="0">1. General Information</div>
-      
+          <div class="accordion-header">1. General Information</div>
         <h3>1.1. The Programme</h3>
           <p>The Integrated MSc-PhD programme in Mathematics at KSoM is an advanced training program at the postgraduate level leading to doctoral studies. The coursework is very flexible with a focus on grooming students for a research career in Mathematics. Depending on the choice of the electives, a student also has the option to choose a research career in Physics or Theoretical Computer Science as well. The curriculum is among the best that is available in the country at the postgraduate level. The <em>Board of Studies for the Graduate School of KSoM</em> will supervise the Integrated MSc-PhD programme.</p>
           
@@ -31,7 +34,7 @@ full_width: true
 
   <section class="static-section default-bg">
     <div class="accordion-content static-content">
-      <div class="accordion-header" role="button" tabindex="0">2. Course structure</div>
+      <div class="accordion-header">2. Course structure</div>
       
         <h3>2.1. Credits for MSc Degree</h3>
         <p>A total of 76 credits in two years is required to obtain the MSc. degree. Every student has to take the three bridge courses before the commencement of the first semester. The purpose of these bridge courses is to review the fundamentals from a typical undergraduate mathematics programme and to bridge any gaps in the foundations. The bridge course will be undertaken in the first month of the programme.</p>
@@ -152,7 +155,7 @@ full_width: true
 
   <section class="static-section default-bg">
     <div class="accordion-content static-content">
-      <div class="accordion-header" role="button" tabindex="0">3. Evaluation and promotion</div>
+      <div class="accordion-header">3. Evaluation and promotion</div>
       
         <h3>3.1. Evaluation</h3>
         <p>Evaluation scheme for the core and elective courses offered at KSoM will contain two components: Continuous Assessment and End-semester Examination. The weightage of continuous assessment and end-semester examination in any course offered at KSoM will be as given below.</p>
@@ -302,7 +305,7 @@ full_width: true
 
   <section class="static-section default-bg">
     <div class="accordion-content static-content">
-      <div class="accordion-header" role="button" tabindex="0">4. Syllabus</div>
+      <div class="accordion-header">4. Syllabus</div>
       
         <h3>4.1. Bridge courses</h3>
         <p>Three bridge courses will be offered to the students enrolled in the Integrated MSc-PhD programme in the first month after admission. The bridge courses aim at covering the foundational material that will be assumed in all the courses to follow in the MSc programme.</p>
@@ -660,7 +663,7 @@ full_width: true
 
   <section class="static-section default-bg">
     <div class="accordion-content static-content">
-      <div class="accordion-header" role="button" tabindex="0">5. Oral General Comprehensive Examination</div>
+      <div class="accordion-header">5. Oral General Comprehensive Examination</div>
       
         <h3>5.1. Eligibility and Constitution of Doctoral Committee</h3>
         <p>The promotion of a student to the PhD component is subject to satisfying all conditions listed in 2.5, and on joining a research supervisor at the end of the second year. A doctoral committee will be constituted for each student on promotion to the PhD component. The doctoral committee will conduct the Oral General Comprehensive Examination (OGCE) in the fourth year of the student. The syllabus for the OGCE (four advanced courses in the area of specialization) will be designed by the research supervisor and approved by the doctoral committee.</p>
