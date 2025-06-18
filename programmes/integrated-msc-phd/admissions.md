@@ -15,8 +15,11 @@ full_width: true
         </div>
     </section> -->
 
+
+    
+
     <!-- Shortlisted candidates (to be unchecked when the results of the screening test held in May is announced) -->
-    <section class="accordion-item highlight-card" id="shortlist-updates-card">
+    <section class="accordion-item highlight-card static-blue-highlight-card">
         <div class="accordion-header" aria-label="Latest Updates on KSoM Integrated MSc-PhD Examination Shortlist">
             Latest Updates: Shortlisted Candidates for Final Selection
         </div>
@@ -56,6 +59,9 @@ full_width: true
             <p class="table-note">Shortlisted candidates will receive a detailed email with further instructions regarding the examination. Please check your registered email regularly for updates.</p>
         </div>
     </section>
+
+
+
 
 
     
