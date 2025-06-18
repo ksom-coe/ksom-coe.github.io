@@ -7,7 +7,7 @@ full_width: true
 <div class="main-full-width" id="main-content-start">
 
 
-
+    <h1>The Integrated MSc-PhD Programme</h1>  
     <!-- Admissions Open card. (To be unchecked only when the admission process is made active)
     <section class="accordion-item highlight-card" id="admissions-highlight-card" data-direct-link="true" data-learn-more-url="/programmes/integrated-msc-phd/admissions">
         <div class="accordion-header" role="button" tabindex="0" aria-label="Admissions to the Integrated MSc-PhD Program 2025">Admissions to the Integrated MSc-PhD Program 2025</div>
