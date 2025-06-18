@@ -876,119 +876,55 @@ body.dark-mode .snippet-more-indicator {
 
 
 /* === Static Blue Section (Styled like Highlight Card) === */
-/* This class creates a card-like static section with a LIGHT background in light mode
-   and a DARKER blue background in dark mode, following the .highlight-card scheme. */
+/* === Static Blue Section (Styled like Highlight Card) === */
 .static-blue-section {
-    cursor: default; /* Ensures no pointer cursor, confirming non-clickable */
-    transform: none; /* Prevents any interactive transform effects if inherited */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gentle shadow as in highlight card */
-    padding: 1.5rem; /* Good internal spacing */
-    background-color: #e6f7ff; /* Light blue background as in highlight card */
-    border: 1px solid var(--accent-light); /* Subtle border using accent light color */
-    border-radius: 12px; /* Slightly more rounded corners */
-    margin-bottom: 2rem; /* Breathing space below the section */
-    /* 'gap: 0rem;' is usually for flex/grid containers, harmless but likely has no effect here */
+    cursor: default;
+    transform: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    background-color: #e6f7ff; /* Light blue background */
+    border: 1px solid var(--accent-light); /* Subtle border */
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    gap: 0rem;
 }
 
 /* Header inside static blue section */
 .static-blue-section .accordion-header {
-    font-size: 1.5rem; /* Explicit header font size */
-    margin-bottom: 1rem; /* Space between header and content */
-    color: var(--accent-blue); /* Darker blue for header text */
-    font-weight: 700; /* Bold header text */
-    font-family: var(--font-serif); /* Uses your serif font for headings */
-    display: block; /* Ensures it behaves as a block element */
-    cursor: default; /* No pointer cursor */
-    pointer-events: none; /* Crucial: Disables all click interactions on the header */
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-blue); /* Darker blue for header */
+    font-weight: 700;
+    font-family: var(--font-serif);
+    display: block;
+    cursor: default;
 }
 
-/* Ensure the arrow is removed from this static header */
-.static-blue-section .accordion-header::after {
-    display: none !important;
-}
-
-/* Ensure no visual changes on hover, active, or focus for this static header */
-.static-blue-section .accordion-header:hover,
-.static-blue-section .accordion-header:active,
-.static-blue-section .accordion-header:focus {
-    background-color: transparent !important; /* Keep background static */
-    color: var(--accent-blue) !important; /* Keep text color static */
-    outline: none !important; /* Remove focus outline */
-    box-shadow: none !important; /* Remove any box shadow on focus */
-    cursor: default !important; /* Reiterate default cursor */
-}
-
-/* Dark mode: blue theme adapted for the static section */
-[data-theme='dark'] .static-blue-section { /* Using data-theme for consistency */
-    background-color: #1f3a4e; /* Darker blue for background in dark mode */
-    border-color: #004066;      /* Border contrast in dark mode */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Darker shadow for dark mode */
+/* Dark mode: blue theme adapted */
+body.dark-mode .static-blue-section {
+    background-color: #1f3a4e; /* Darker blue for background */
+    border-color: #004066;     /* Border contrast in dark mode */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Dark mode header text */
-[data-theme='dark'] .static-blue-section .accordion-header {
-    color: var(--dark-primary-text) !important; /* Lighter text for contrast in dark mode */
+body.dark-mode .static-blue-section .accordion-header {
+    color: var(--dark-primary-text); /* Lighter text for contrast */
 }
 
-/* Adjust paragraph, list item, or table note text for light mode */
+/* Optional: Adjust paragraph or table text if needed */
 .static-blue-section p,
 .static-blue-section li,
 .static-blue-section .table-note {
-    color: var(--primary-text); /* CORRECTED: Use --primary-text (black) for default dark text */
+    color: var(--dark-text); /* Default dark text in light mode */
 }
 
-/* Table styling for the static blue section */
-.static-blue-section table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1em;
-    font-size: 0.95em;
-    color: var(--primary-text); /* Table text color is BLACK */
-}
-
-.static-blue-section table th,
-.static-blue-section table td {
-    border: 1px solid var(--card-border); /* Table borders are light gray */
-    padding: 0.8em 0.5em;
-    text-align: center;
-    color: var(--primary-text); /* Table cell text color is BLACK */
-}
-
-.static-blue-section table th {
-    background-color: var(--primary-bg); /* Table header background is very light gray */
-    font-weight: bold;
-    color: var(--primary-text); /* Table header text is BLACK */
-}
-
-/* Alternate row colors for readability on the light background */
-.static-blue-section table tbody tr:nth-child(even) {
-    background-color: rgba(0, 0, 0, 0.03); /* Very subtle light transparency for stripes */
-}
-
-/* Hover effect for table rows */
-.static-blue-section table tbody tr:hover {
-    background-color: rgba(0, 0, 0, 0.07); /* Slightly more visible transparency on hover */
-}
-
-/* Dark mode adjustments for general content and table within static blue section */
-[data-theme='dark'] .static-blue-section p,
-[data-theme='dark'] .static-blue-section li,
-[data-theme='dark'] .static-blue-section .table-note,
-[data-theme='dark'] .static-blue-section table,
-[data-theme='dark'] .static-blue-section table th,
-[data-theme='dark'] .static-blue-section table td {
+body.dark-mode .static-blue-section p,
+body.dark-mode .static-blue-section li,
+body.dark-mode .static-blue-section .table-note {
     color: var(--dark-primary-text); /* Light text in dark mode */
 }
-[data-theme='dark'] .static-blue-section table th {
-    background-color: var(--dark-primary-bg); /* Dark table header background */
-    border-color: var(--dark-border);
-}
-[data-theme='dark'] .static-blue-section table tbody tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.05);
-}
-[data-theme='dark'] .static-blue-section table tbody tr:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
+
 
 
 
