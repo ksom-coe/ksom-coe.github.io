@@ -5,19 +5,19 @@ title: Kerala School of Mathematics - Official Website
 <!-- KSoM Campus Slideshow -->
 <div id="campus-photos-section" class="top-image slideshow-container" data-slideshow-id="mainCampus">
     <div class="mySlides fade">
-        <img src="/Images/Main/Image-1.webp" width="1200" height="350" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+1';" alt="KSoM Campus Image 1" />
+        <img src="/Images/Main/Image-1.webp"  onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+1';" alt="KSoM Campus Image 1" />
     </div>
     <div class="mySlides fade">
-        <img src="/Images/Main/Image-2.webp" width="1200" height="350" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+2';" alt="KSoM Campus Image 2" />
+        <img src="/Images/Main/Image-2.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+2';" alt="KSoM Campus Image 2" />
     </div>
     <div class="mySlides fade">
-        <img src="/Images/Main/Image-3.webp" width="1200" height="350" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+3';" alt="KSoM Campus Image 3" />
+        <img src="/Images/Main/Image-3.webp"  loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+3';" alt="KSoM Campus Image 3" />
     </div>
     <div class="mySlides fade">
-        <img src="/Images/Main/Image-4.webp" width="1200" height="350" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+4';" alt="KSoM Campus Image 4" />
+        <img src="/Images/Main/Image-4.webp"  loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+4';" alt="KSoM Campus Image 4" />
     </div>
     <div class="mySlides fade">
-        <img src="/Images/Main/Image-5.webp" width="1200" height="350" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+5';" alt="KSoM Campus Image 5" />
+        <img src="/Images/Main/Image-5.webp"  loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+5';" alt="KSoM Campus Image 5" />
     </div>
     <div class="overlay-text">
         <div class="main-title">Kerala School of Mathematics</div>
