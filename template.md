@@ -8,12 +8,12 @@ full_width: true
   
 
     <!-- Accordions with no links attached. (static-section class) -->
-    <section class="static-section" id="research-overview">
-        <div class="accordion-header">Static Accordion (no background)</div>
-        
+    <section class="static-section" id="accordion-no-links">
+      <div class="accordion-content static-content">
+        <div class="accordion-header">Static Accordion (no background)</div>        
             <div style="margin-bottom: 1rem;">This paragraph has 1rem space below</div>
             <div>This is the paragraph with no space below. Usually the last paragraph in the static-accordion format.</div>
-    
+        </div>
     </section>
 
     <!-- Clickable accordion (Clickable card, direct link to /research/areas, no modal, no 'more') -->
