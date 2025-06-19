@@ -547,7 +547,7 @@ nav a:hover {
     display: flex; /* Changed from grid to flex for natural full-width flow */
     flex-direction: column; /* Stack children vertically */
     width: 95%; /* Use 95% of the screen width */
-    max-width: var(--max-content-width); /* Constrain max width */
+    max-width: 100%; /* Constrain max width */
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1.5rem;
