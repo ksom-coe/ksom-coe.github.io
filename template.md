@@ -24,6 +24,24 @@ full_width: true
         </div>
     </section>
 
+    <!-- While static accordion -->
+    <section class="static-section default-bg">        
+        <div class="accordion-content static-content">
+        <div class="accordion-header">White static content</div>
+            <p>This accordion allows you to place material in a white box without links.</p>
+
+            <p>Key features</p>
+            <ol>
+                <li>The accordions are not clickable</li>
+                <li>This has the following futher propoerties</li>
+                ul>
+                    <li>Nested listings taken care of</li>
+                    <li>Text alignment addressed</li>
+                </ul>
+            </ol>
+          </div>
+    </section>
+
     <!-- Blue Clickable Accordion. -->
 <section class="accordion-item highlight-card" id="admissions-highlight-card" data-direct-link="true" data-learn-more-url="www.google.com">
     <div class="accordion-header" role="button" tabindex="0" aria-label="Blue-clickable accordion">Blue clickable accordion</div>
