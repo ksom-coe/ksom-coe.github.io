@@ -9,7 +9,7 @@ full_width: true
 
     <!-- Accordions with no links attached. (static-section class) -->
     <section class="static-section" id="research-overview">
-        <div class="accordion-header">Static Accordion Format</div>
+        <div class="accordion-header">Static Accordion (no background)</div>
         
             <div style="margin-bottom: 1rem;">This paragraph has 1rem space below</div>
             <div>This is the paragraph with no space below. Usually the last paragraph in the static-accordion format.</div>
@@ -34,13 +34,25 @@ full_width: true
             <ol>
                 <li>The accordions are not clickable</li>
                 <li>This has the following futher propoerties</li>
-                ul>
+                <ul>
                     <li>Nested listings taken care of</li>
                     <li>Text alignment addressed</li>
                 </ul>
             </ol>
           </div>
     </section>
+
+
+    <!-- White accordion with modals -->
+    <section id="White-accordion-with-modals" class="accordion-item" data-accordion-id="aboutKSoM" data-learn-more-url="[www.google.com](https://ksom.res.in/)" data-modal-opener="true">
+      <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details in this accordion" aria-expanded="false" aria-controls="accordion-content-modalAccordion">Accodions which open modals</div>
+      <div class="accordion-snippet">
+        This portion is for the snippets. This will be visible in the accordion<span class="snippet-more-indicator"> ...more</span>
+      </div>
+      <div class="accordion-content" style="display: none;" id="accordion-content-modalAccordion">
+        <p>This is content which will go into the modal.</p>
+      </div>
+  </section>
 
     <!-- Blue Clickable Accordion. -->
 <section class="accordion-item highlight-card" id="admissions-highlight-card" data-direct-link="true" data-learn-more-url="www.google.com">
