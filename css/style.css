@@ -538,31 +538,40 @@ nav a:hover {
     "left-main-col   right-main-col   sidebar-col";
 }
 
+
+
+
+
 /* NEW: Full-width layout for specific pages (e.g., research.md) */
-
 .main-full-width {
-    /* Grid properties for layout, similar to main-layout-wrapper */
-    display: grid;
-    grid-template-columns: 1fr; /* Single column layout */
-    gap: 0.5rem; /* Gap between grid items */
+    display: flex; /* Changed from grid to flex for natural full-width flow */
+    flex-direction: column; /* Stack children vertically */
+    width: 95%; /* Use 95% of the screen width */
+    max-width: var(--max-content-width); /* Constrain max width */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
 
-    /* Width and centering, similar to main-layout-wrapper */
-    width: 95%; /* Take 95% of available width */
-    max-width: var(--max-content-width); /* Respect overall max content width */
-    margin-left: auto; /* Center the content horizontally */
-    margin-right: auto; /* Center the content horizontally */
-    margin-bottom: 1.5rem; /* Space at the bottom of the main content block */
-
-    /* Internal padding, aligning with main-layout-wrapper and previous structure */
-    padding-top: 1rem; /* Space at the top of the main content inside the container */
-    padding-bottom: 0.5rem; /* Keeping existing bottom padding as it wasn't specified for removal */
-    padding-left: 0; /* Removing explicit side padding to align with 95% width from wrapper */
-    padding-right: 0; /* Removing explicit side padding to align with 95% width from wrapper */
-    box-sizing: border-box; /* Ensure padding is included in the width */
-
-    /* Other layout properties (if any were already present and you want to keep them) */
-    flex-grow: 1; /* Keep this if the parent container is flex and it needs to grow */
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+    flex-grow: 1;
 }
+
+/* Ensure children expand to fill the available width */
+.main-full-width > .accordion-item,
+.main-full-width > .static-section {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+
+
+
+
 
 
 
