@@ -565,7 +565,7 @@ nav a:hover {
 .main-full-width > .static-section {
     display: block; /* 👈 FORCE block layout */
     width: 100%;
-    max-width: 100%;
+    max-width: none;
     box-sizing: border-box;
 }
 
