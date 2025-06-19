@@ -18,20 +18,19 @@ full_width: true
 
     
 
-    <!-- Clickable accordion (Clickable card, direct link to /research/areas, no modal, no 'more') -->
+    <!-- Clickable accordion (Clickable card no modal) -->
     <section id="research-areas-section-link" class="accordion-item" data-direct-link="true" data-learn-more-url="www.google.com">
-        <div class="accordion-header" role="button" tabindex="0" aria-label="Clickable white accordion">Clickable White accordion</div>
+        <div class="accordion-header" role="button" tabindex="0" aria-label="Clickable white accordion with no modals">Clickable White accordion</div>
         <div class="accordion-snippet">
             Provides the template for a clickable white card redirecting to Google.<span class="snippet-more-indicator"> ...more</span>
 
     </section>
-
     
 
     <!-- Static accordion with white background (Uses the static-content) -->
     <section class="static-section default-bg">        
         <div class="accordion-content static-content">
-          <div class="accordion-header">tatic accordion with white backgroun</div>
+          <div class="accordion-header">Static accordion with white background</div>
             <p>This accordion allows you to place material in a white box without links.</p>
 
             <p>Key features</p>
