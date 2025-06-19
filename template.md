@@ -7,9 +7,9 @@ full_width: true
 <div class="main-full-width" id="main-content-start">
   
 
-    <!-- Accordions with no links attached. (static-section class) -->
+    <!-- Accordions with no links attached and without accordion-content class. (static-section class) -->
     <section class="static-section" id="accordion-no-links">
-      <div class="accordion-content static-content">
+      
         <div class="accordion-header">Static Accordion (no background)</div>        
             <div style="margin-bottom: 1rem;">This paragraph has 1rem space below</div>
             <div>This is the paragraph with no space below. Usually the last paragraph in the static-accordion format.</div>
@@ -21,7 +21,7 @@ full_width: true
         <div class="accordion-header" role="button" tabindex="0" aria-label="Clickable white accordion">Clickable White accordion</div>
         <div class="accordion-snippet">
             Provides the template for a clickable white card redirecting to Google.<span class="snippet-more-indicator"> ...more</span>
-        </div>
+
     </section>
 
     
