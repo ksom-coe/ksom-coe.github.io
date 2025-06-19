@@ -24,6 +24,8 @@ full_width: true
         </div>
     </section>
 
+    
+
     <!-- While static accordion -->
     <section class="static-section default-bg">        
         <div class="accordion-content static-content">
@@ -60,6 +62,24 @@ full_width: true
     <div class="accordion-snippet">
         This blue accordion is clickable and redicts to www.google.com<span class="snippet-more-indicator"> ...more</span>
     </div>
+</section>
+
+
+<!-- Blue static Accordion -->
+<section class="static-section static-blue-section" id="blue-static-accordions">
+    <div class="accordion-header">Blue static content</div>
+            <p>This accordion allows you to place material in a Blue box without links.</p>
+
+            <p>Key features</p>
+            <ol>
+                <li>The accordions are not clickable</li>
+                <li>This has the following futher propoerties</li>
+                <ul>
+                    <li>Nested listings taken care of</li>
+                    <li>Text alignment addressed</li>
+                </ul>
+            </ol>
+          </div>
 </section>
     
 </div>
