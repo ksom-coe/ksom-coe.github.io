@@ -1,3 +1,9 @@
+---
+layout: content.html
+title: KSoM - Template
+full_width: true
+---
+  
 <div class="main-full-width" id="main-content-start">
   <!-- No accordion format -->
   <section class="static-section" id="programmes-introduction">
