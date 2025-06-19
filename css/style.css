@@ -1903,17 +1903,21 @@ footer .footer-column a:hover {
 }
 
 
-/* === Responsive === */
+
+
+
+
+/* === Responsive (≤768px) === */
 @media (max-width: 768px) {
   body {
     padding-top: 80px;
   }
 
   .header-content {
-      flex-direction: row;
-      justify-content: space-between;
-      padding: 0 1rem;
-      width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 1rem;
+    width: 100%;
   }
 
   /* Hide desktop navigation and show hamburger */
@@ -1924,30 +1928,27 @@ footer .footer-column a:hover {
   .hamburger-menu-icon {
     display: block;
   }
-  /* Ensure header-right-group does not interfere on mobile */
+
   .header-right-group {
     display: contents;
   }
 
-
-  /* Main content layout on mobile */
+  /* Main layout becomes single-column */
   .main-layout-wrapper {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    width: 95%;
-    padding-top: 1rem;
-    margin-bottom: 1.5rem;
-
-    /* Mobile grid areas definition for desired stacking order */
     grid-template-areas:
       "campus"
       "about"
       "sidebar-col"
       "left-main-col"
       "right-main-col";
+    gap: 1.5rem;
+    width: 95%;
+    padding-top: 1rem;
+    margin-bottom: 1.5rem;
   }
 
-  /* Reset flexbox for containers on mobile if needed to ensure stacking */
+  /* Stack content in columns */
   .left-accordion-col-wrapper,
   .right-accordion-col-wrapper,
   .sidebar-container {
@@ -1956,31 +1957,44 @@ footer .footer-column a:hover {
     gap: 1rem;
   }
 
-  
-
-  /* Adjust campus image height for better responsiveness on mobile */
-  #campus-photos-section .top-image img {
-    height: auto; /* Allow height to adjust based on aspect ratio */
-    min-height: 200px; /* Minimum height for visibility */
-    max-height: 40vh; /* Max height relative to viewport for smaller screens */
+  /* Make full-width layout readable on small screens */
+  .main-full-width {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
-  /* No longer hide calendar section on mobile */
+  /* Adjust slideshow image sizing */
+  #campus-photos-section .top-image img {
+    height: auto;
+    min-height: 200px;
+    max-height: 40vh;
+  }
+
+  /* Calendar section always visible */
   #calendar-section {
     display: flex !important;
     justify-content: center;
     align-items: center;
-    margin-top: 0.25rem; /* Reduced from 0.5rem */
-    margin-bottom: 0.25rem; /* Reduced from 0.5rem */
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
     padding: 0 !important;
     background: transparent !important;
     box-shadow: none !important;
     cursor: default;
     transform: none;
   }
+
   #calendar-section:hover {
-      box-shadow: none !important;
+    box-shadow: none !important;
   }
+}
+
+
+
+
+
+
+
 
 
   /* Footer responsive adjustments */
