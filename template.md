@@ -26,10 +26,10 @@ full_width: true
 
     
 
-    <!-- While static accordion -->
+    <!-- Static accordion with white background (Uses the static-content) -->
     <section class="static-section default-bg">        
         <div class="accordion-content static-content">
-        <div class="accordion-header">White static content</div>
+        <div class="accordion-header">tatic accordion with white backgroun</div>
             <p>This accordion allows you to place material in a white box without links.</p>
 
             <p>Key features</p>
