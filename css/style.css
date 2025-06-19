@@ -563,6 +563,7 @@ nav a:hover {
 /* Ensure children expand to fill the available width */
 .main-full-width > .accordion-item,
 .main-full-width > .static-section {
+    display: block; /* 👈 FORCE block layout */
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
