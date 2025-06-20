@@ -1939,44 +1939,61 @@ footer .footer-column a:hover {
   
 
 
-  /* Full-width wrapper: remove outer padding and apply inner spacing via children */
+ /* === Unified Full-Width Layout and Spacing Rules === */
 .main-full-width {
+  display: flex;                /* Use flex layout for vertical stacking */
+  flex-direction: column;
+  width: 90vw;                  /* Use 90% of viewport width */
+  max-width: none;              /* No constraint on max width */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
   padding-left: 0;
   padding-right: 0;
+  box-sizing: border-box;
+  flex-grow: 1;
 }
 
-/* Add breathing space inside accordion and static sections */
+/* Ensure direct children behave uniformly */
 .main-full-width > .accordion-item,
 .main-full-width > .static-section {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  display: block;
+  width: 100%;
+  max-width: none;
   box-sizing: border-box;
-  margin-bottom: 0.5rem; /* ✅ unified spacing between all sections */
+  overflow: hidden;          /* Prevents margin collapse */
+  padding-left: 1rem;        /* Breathing space for content */
+  padding-right: 1rem;
+  margin-bottom: 0.5rem;     /* Uniform spacing between all blocks */
 }
 
-/* Reset any conflicting internal spacing from static content */
+/* Remove unnecessary margin from static section container */
 .static-section {
-  margin-bottom: 0 !important; /* ✅ prevent double spacing */
+  margin-bottom: 0 !important;
 }
 
+/* Normalize padding and spacing inside static accordion content */
 .accordion-content.static-content {
   padding: 1rem;
-  margin-bottom: 0; /* ✅ let parent section control vertical spacing */
+  margin-bottom: 0;
 }
 
-/* Optional safety net: apply consistent spacing between all direct blocks */
+/* Optional: universal vertical rhythm (already handled above, redundant but safe) */
 .main-full-width > *:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
-/* Adjust slideshow image sizing */
+/* Slideshow image sizing on mobile */
 #campus-photos-section .top-image img {
   height: auto;
   min-height: 200px;
   max-height: 40vh;
 }
 
-/* Calendar section always visible */
+/* Calendar section styles */
 #calendar-section {
   display: flex !important;
   justify-content: center;
@@ -1993,6 +2010,7 @@ footer .footer-column a:hover {
 #calendar-section:hover {
   box-shadow: none !important;
 }
+
 
 
 
