@@ -20,9 +20,6 @@ title: Kerala School of Mathematics - Official Website
   <div class="mySlides fade">
     <img src="/Images/Main/Image-5.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+5';" alt="KSoM Campus Image 5" />
   </div>
-  <div class="overlay-text">
-    <!-- Optional overlay text -->
-  </div>
 </div>
 
 <!-- About Section -->
