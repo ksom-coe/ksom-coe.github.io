@@ -192,7 +192,6 @@ title: Kerala School of Mathematics - Official Website
   <section id="latest-news-section" class="accordion-item" data-modal-opener="true">
     <h3>Latest News at KSoM</h3>
     <div class="timeline-container">
-      $1
         <a href="#" class="timeline-item" data-news-id="research-symposium" role="button" aria-haspopup="dialog">
           <div class="timeline-content">
             <p class="timeline-date">February 15, 2025</p>
@@ -239,7 +238,6 @@ title: Kerala School of Mathematics - Official Website
   <section id="upcoming-events-section" class="accordion-item" data-modal-opener="true">
     <h3>Upcoming Events at KSoM</h3>
     <div class="timeline-container">
-      $1
         <a href="#" class="timeline-item" data-event-id="freshers-orientation" role="button" aria-haspopup="dialog">
           <div class="timeline-marker"></div>
           <div class="timeline-content">
