@@ -590,9 +590,9 @@ nav a:hover {
 
 
 
-/* === Standard Styling for Accordion Items (used across all layouts) === */
+/* === Standard Styling for Accordion Items (clickable, full-width, etc.) === */
 .accordion-item {
-  padding: 0; /* Let container (main-full-width) handle outer spacing and breathing */
+  padding: 1.5rem; /* ✅ Restore internal spacing inside accordion cards */
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 8px;
@@ -604,18 +604,19 @@ nav a:hover {
   page-break-inside: avoid;
   text-decoration: none;
   color: inherit;
-  margin-bottom: 0.5rem; /* Standard spacing between sections */
+  margin-bottom: 0.5rem; /* ✅ Standard spacing between sections */
 }
 
-/* Suppress spacing after last item in .main-full-width layout */
+/* ✅ Prevent margin-bottom on the last accordion item in main-full-width */
 .main-full-width > .accordion-item:last-child {
   margin-bottom: 0;
 }
 
-/* Optional: in case other non-main-full-width flex flows exist */
+/* Optional: Apply similar logic outside of main-full-width if needed */
 .accordion-item:last-of-type {
   margin-bottom: 0;
 }
+
 
 
 
