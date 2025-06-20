@@ -543,33 +543,6 @@ nav a:hover {
 
 
 /* NEW: Full-width layout for specific pages (e.g., research.md) */
-.main-full-width {
-    display: flex; /* Changed from grid to flex for natural full-width flow */
-    flex-direction: column; /* Stack children vertically */
-    width: 90vw; /* Use 95% of the screen width */
-    max-width: none; /* Constrain max width */
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1.5rem;
-
-    padding-top: 1rem;
-    padding-bottom: 0.5rem;
-    padding-left: 0;
-    padding-right: 0;
-    box-sizing: border-box;
-    flex-grow: 1;
-}
-
-/* Ensure children expand to fill the available width */
-.main-full-width > .accordion-item,
-.main-full-width > .static-section {
-    display: block; /* 👈 FORCE block layout */
-    width: 100%;
-    max-width: none;
-    box-sizing: border-box;
-    margin-bottom: 0.5rem;
-    overflow: hidden; /* ✅ Prevents margin collapse */
-}
 
 
 
@@ -1972,23 +1945,28 @@ footer .footer-column a:hover {
   padding-right: 0;
 }
 
-/* Add breathing space inside accordion sections */
+/* Add breathing space inside accordion and static sections */
 .main-full-width > .accordion-item,
 .main-full-width > .static-section {
   padding-left: 1rem;
   padding-right: 1rem;
   box-sizing: border-box;
+  margin-bottom: 0.5rem; /* ✅ unified spacing between all sections */
 }
 
-/* Universal vertical rhythm for all top-level blocks */
-.main-full-width > *:not(:last-child) {
-  margin-bottom: 0.5rem;
+/* Reset any conflicting internal spacing from static content */
+.static-section {
+  margin-bottom: 0 !important; /* ✅ prevent double spacing */
 }
 
-/* Reduce padding inside static accordion content */
 .accordion-content.static-content {
   padding: 1rem;
-  margin-bottom: 0; /* Let parent spacing handle layout */
+  margin-bottom: 0; /* ✅ let parent section control vertical spacing */
+}
+
+/* Optional safety net: apply consistent spacing between all direct blocks */
+.main-full-width > *:not(:last-child) {
+  margin-bottom: 0.5rem;
 }
 
 /* Adjust slideshow image sizing */
@@ -2015,6 +1993,7 @@ footer .footer-column a:hover {
 #calendar-section:hover {
   box-shadow: none !important;
 }
+
 
 
 
