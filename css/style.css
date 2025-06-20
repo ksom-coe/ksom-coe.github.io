@@ -567,7 +567,7 @@ nav a:hover {
     width: 100%;
     max-width: none;
     box-sizing: border-box;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     overflow: hidden; /* ✅ Prevents margin collapse */
 }
 
@@ -626,7 +626,7 @@ nav a:hover {
     text-decoration: none; /* Ensure no underline for accordion items used as links */
     color: inherit; /* Ensure text color is inherited for links */
     /* Removed margin-bottom to ensure 0 gap for accordions */
-    margin-bottom: 1rem; /* Adds space below each accordion section */
+    margin-bottom: 0.5rem; /* Adds space below each accordion section */
     background-color: var(--card-bg); /* Use your defined card background for consistency */
 }
 .main-full-width > .accordion-item:last-child {
@@ -652,13 +652,13 @@ nav a:hover {
     box-shadow: none;
     padding: 0 !important;
     background: transparent !important;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     gap: 0rem;
 }
 
 .static-section .accordion-header {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     color: var(--accent-blue);
     font-weight: 700;
     font-family: var(--font-serif);
@@ -1033,7 +1033,7 @@ body.dark-mode .static-section.static-blue-section .table-note {
     background-color: #e6f7ff; /* Consistent very light blue for all highlight cards */
     border: 1px solid var(--accent-light); /* Subtle border using your existing accent light color */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gentle shadow to make it pop */
-    margin-bottom: 1rem; /* Adds space below the highlighted card (adjust as needed for specific pages) */
+    margin-bottom: 0.5rem; /* Adds space below the highlighted card (adjust as needed for specific pages) */
     transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
@@ -1982,7 +1982,7 @@ footer .footer-column a:hover {
 
 /* Universal vertical rhythm for all top-level blocks */
 .main-full-width > *:not(:last-child) {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 /* Reduce padding inside static accordion content */
