@@ -1,0 +1,63 @@
+/* ===================
+   Slideshow / Hero Section
+   =================== */
+
+.top-image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.mySlides {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay text */
+.overlay-text {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  max-width: 80%;
+  line-height: 1.4;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+/* Slideshow navigation dots */
+.dot-container {
+  text-align: center;
+  position: absolute;
+  bottom: 0.5rem;
+  width: 100%;
+  z-index: 10;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: var(--accent-blue);
+}
