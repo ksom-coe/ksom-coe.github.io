@@ -1949,7 +1949,7 @@ footer .footer-column a:hover {
     margin-bottom: 1.5rem;
   }
 
-  /* Stack content in columns */
+  /* Stack columns vertically */
   .left-accordion-col-wrapper,
   .right-accordion-col-wrapper,
   .sidebar-container {
@@ -1958,10 +1958,23 @@ footer .footer-column a:hover {
     gap: 1rem;
   }
 
-  /* Make full-width layout readable on small screens */
+  /* Full-width wrapper: remove outer padding and apply inner spacing via children */
   .main-full-width {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Add breathing space inside accordion sections */
+  .main-full-width > .accordion-item,
+  .main-full-width > .static-section {
     padding-left: 1rem;
     padding-right: 1rem;
+    box-sizing: border-box;
+  }
+
+  /* Optional: reduce padding inside accordion-content if needed */
+  .accordion-content.static-content {
+    padding: 1rem;
   }
 
   /* Adjust slideshow image sizing */
@@ -1989,6 +2002,7 @@ footer .footer-column a:hover {
     box-shadow: none !important;
   }
 }
+
 
 
 
