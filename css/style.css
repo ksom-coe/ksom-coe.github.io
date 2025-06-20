@@ -648,18 +648,7 @@ body.dark-mode .static-section .accordion-header {
     color: var(--accent-light);
 }
 
-.static-section .accordion-content.static-content {
-    width: 100%;
-    max-width: none;
-    padding-left: 0;
-    padding-right: 0;
-    box-sizing: border-box;
-    padding: 0.75rem;
-    background: var(--card-bg);
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    margin-bottom: 1rem;
-}
+
 
 body.dark-mode .static-section .accordion-content.static-content {
     background: var(--dark-card-bg);
@@ -1968,17 +1957,43 @@ footer .footer-column a:hover {
 }
 
 /* Ensure direct children behave uniformly */
-.main-full-width > .accordion-item,
+/* Accordion item gets padding directly */
+.main-full-width > .accordion-item {
+  display: block;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Static section: no outer padding */
 .main-full-width > .static-section {
   display: block;
   width: 100%;
   max-width: none;
   box-sizing: border-box;
-  overflow: hidden;          /* Prevents margin collapse */
-  padding-left: 1rem;        /* Breathing space for content */
-  padding-right: 1rem;
-  margin-bottom: 0.5rem;     /* Uniform spacing between all blocks */
+  overflow: hidden;
+  padding-left: 0; /* ✅ remove side indent */
+  padding-right: 0;
+  margin-bottom: 0.5rem;
 }
+
+/* Inner content of static sections behaves like a card */
+.static-section .accordion-content.static-content {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  padding: 0.75rem;                     /* ✅ match .accordion-item */
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin: 0;                            /* ✅ no added vertical space */
+}
+
 
 /* Remove unnecessary margin from static section container */
 .static-section {
