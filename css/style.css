@@ -584,33 +584,37 @@ nav a:hover {
     /* You might want a slightly darker/lighter shade for better contrast depending on your theme */
 }
 
-/* Common styling for all major content sections (accordion-items, etc.) */
+
+
+
+
+
+
+/* === Standard Styling for Accordion Items (used across all layouts) === */
 .accordion-item {
-    padding: 1.5rem; /* Default padding for all content sections */
-    background: var(--card-bg);
-    border: 1px solid var(--card-border); /* Add a subtle border */
-    border-radius: 8px; /* Slightly rounded corners for a softer look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
-    box-sizing: border-box;
-    cursor: pointer; /* Default cursor for clickable items */
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition for hover effects */
-    break-inside: avoid-column; /* Still relevant for print/column-flow scenarios if any */
-    page-break-inside: avoid;
-    text-decoration: none; /* Ensure no underline for accordion items used as links */
-    color: inherit; /* Ensure text color is inherited for links */
-    /* Removed margin-bottom to ensure 0 gap for accordions */
-    margin-bottom: 0.5rem; /* Adds space below each accordion section */
-    background-color: var(--card-bg); /* Use your defined card background for consistency */
+  padding: 0; /* Let container (main-full-width) handle outer spacing and breathing */
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  break-inside: avoid-column;
+  page-break-inside: avoid;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 0.5rem; /* Standard spacing between sections */
 }
+
+/* Suppress spacing after last item in .main-full-width layout */
 .main-full-width > .accordion-item:last-child {
-    margin-bottom: 0; /* No margin for the last item in a full-width container */
+  margin-bottom: 0;
 }
 
-
-/* Specific styling for the very last accordion-item */
-/* This now mainly applies to items within flex columns, not the main-full-width */
+/* Optional: in case other non-main-full-width flex flows exist */
 .accordion-item:last-of-type {
-    margin-bottom: 0; /* Ensure no margin after the last item in a sequence */
+  margin-bottom: 0;
 }
 
 
