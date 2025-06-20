@@ -20,8 +20,6 @@ title: Kerala School of Mathematics - Official Website
         <img src="/Images/Main/Image-5.webp"  loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+5';" alt="KSoM Campus Image 5" />
     </div>
     <div class="overlay-text">
-        <div class="main-title">Kerala School of Mathematics</div>
-        <div class="sub-title">An autonomous institution jointly established by the Science & Technology Department, Government of Kerala, and the Department of Atomic Energy, Government of India.</div>
     </div>
 </div>
 
@@ -29,7 +27,7 @@ title: Kerala School of Mathematics - Official Website
 <section id="about-ksom-section" class="accordion-item" data-accordion-id="aboutKSoM" data-learn-more-url="[https://ksom.res.in/about](https://ksom.res.in/about)" data-modal-opener="true">
     <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about About KSoM" aria-expanded="false" aria-controls="accordion-content-aboutKSoM">About KSoM</div>
     <div class="accordion-snippet">
-      Kerala School of Mathematics (KSoM) is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.<span class="snippet-more-indicator"> ...more</span>
+      Kerala School of Mathematics (KSoM) is an automomous research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which flourished between the fourteenth and sixteenth century in Kerala.<span class="snippet-more-indicator"> ...more</span>
     </div>
     <div class="accordion-content" style="display: none;" id="accordion-content-aboutKSoM">
       <p><strong>Kerala School of Mathematics (KSoM)</strong> is an advanced research institute in Mathematics which started in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. KSoM was founded with the vision of establishing a centre of excellence for research in Mathematics and to revive the glory of a school by a similar name which which flourished between the fourteenth and sixteenth century in Kerala.</p>
