@@ -23,7 +23,7 @@ title: Kerala School of Mathematics - Official Website
     </div>
 </div>
 
-<!-- About KSoM Section -->
+<!-- About Kerala School of Mathematics Section -->
 <section id="about-ksom-section" class="accordion-item" data-accordion-id="aboutKSoM" data-learn-more-url="[https://ksom.res.in/about](https://ksom.res.in/about)" data-modal-opener="true">
     <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about About KSoM" aria-expanded="false" aria-controls="accordion-content-aboutKSoM">About KSoM</div>
     <div class="accordion-snippet">
