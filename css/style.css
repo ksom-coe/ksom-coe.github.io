@@ -568,6 +568,7 @@ nav a:hover {
     max-width: none;
     box-sizing: border-box;
     margin-bottom: 1rem;
+    overflow: hidden; /* ✅ Prevents margin collapse */
 }
 
 
