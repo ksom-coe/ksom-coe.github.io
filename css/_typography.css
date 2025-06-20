@@ -1,0 +1,100 @@
+/* =====================
+   Typography & List Styling
+   ===================== */
+
+/* Headings inside static and accordion content */
+.static-content li h3,
+.accordion-content li h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* Paragraphs inside list items */
+.static-content li p,
+.accordion-content li p {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* Paragraph spacing */
+.accordion-content p {
+  font-weight: normal;
+  margin-bottom: 1em;
+}
+
+.accordion-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Unordered and ordered lists reset */
+.static-content ul,
+.static-content ol,
+.accordion-content ul,
+.accordion-content ol {
+  margin-left: 0;
+  padding-left: 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+/* List items */
+.static-content li,
+.accordion-content li {
+  line-height: 1.6;
+  margin-bottom: 0.5em;
+}
+
+/* Top-level UL */
+.static-content > ul,
+.accordion-content > ul {
+  list-style: disc inside;
+  padding-left: 25px;
+}
+
+/* Top-level OL */
+.static-content > ol,
+.accordion-content > ol {
+  list-style-position: outside;
+  padding-left: 1.5rem;
+}
+
+/* Top-level OL list items */
+.static-content > ol > li,
+.accordion-content > ol > li {
+  text-indent: 0;
+  padding-left: 0.8em;
+  list-style-position: outside;
+}
+
+/* Nested lists */
+.static-content li > ul,
+.static-content li > ol,
+.accordion-content li > ul,
+.accordion-content li > ol {
+  margin-left: 0;
+  padding-left: 0;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Nested UL items */
+.static-content li > ul > li,
+.accordion-content li > ul > li {
+  list-style: disc inside;
+}
+
+/* Nested OL items */
+.static-content li > ol > li,
+.accordion-content li > ol > li {
+  list-style-position: outside;
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+}
+
+/* Remove bottom margin on final list elements */
+.static-content li:last-child,
+.accordion-content li:last-child,
+.static-content li > *:last-child,
+.accordion-content li > *:last-child {
+  margin-bottom: 0;
+}
