@@ -1,0 +1,111 @@
+/* ===================
+   Accordion Components
+   =================== */
+
+/* Base accordion item styling */
+.accordion-item {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-light);
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  break-inside: avoid-column;
+  page-break-inside: avoid;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 0.5rem;
+}
+
+.accordion-item:last-of-type,
+.main-full-width > .accordion-item:last-child {
+  margin-bottom: 0;
+}
+
+.accordion-item:hover {
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.accordion-item[data-direct-link="true"]:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Header within accordion */
+.accordion-header {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--accent-blue);
+  margin-bottom: 0.4rem;
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  cursor: inherit;
+  text-align: left;
+  width: fit-content;
+  max-width: 100%;
+}
+
+/* Arrow for collapsible accordions */
+.accordion-item:not([data-direct-link="true"]):not([data-modal-opener="true"]) .accordion-header::after {
+  content: '\25BC';
+  font-size: 0.9em;
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.accordion-item[data-modal-opener="true"] .accordion-header::after {
+  content: none !important;
+}
+
+/* Compact heading override */
+body.compact-headings-style .accordion-item .accordion-header {
+  font-size: 1rem;
+  color: #000;
+}
+body.dark-mode.compact-headings-style .accordion-item .accordion-header {
+  color: #f1f1f1;
+}
+
+/* Accordion snippet */
+.accordion-snippet {
+  font-size: 1rem;
+  color: #444;
+  font-weight: normal;
+  cursor: inherit;
+}
+
+/* Accordion content */
+.accordion-content {
+  font-size: 0.975rem;
+  line-height: 1.7;
+  color: #333;
+  padding-bottom: 1.5rem;
+}
+
+.accordion-content p {
+  font-weight: normal;
+  margin-bottom: 1em;
+}
+.accordion-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Collapsible content animation */
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  padding-bottom: 0;
+}
+.collapsible-content.expanded {
+  max-height: 1000px;
+  padding-bottom: 1.5rem;
+}
