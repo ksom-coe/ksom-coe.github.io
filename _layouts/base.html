@@ -3,13 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
   <meta name="description" content="Kerala School of Mathematics - A premier research institute in Mathematics established by DAE and Government of Kerala." />
   <meta property="og:title" content="{{ title or 'Kerala School of Mathematics - Official Website' }}" />
   <meta property="og:image" content="https://ksom.res.in/Images/Main/Image-1.jpg" />
   <link rel="canonical" href="https://ksom.res.in/" />
-  <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#002b45" />
   <title>{{ title or 'Kerala School of Mathematics - Official Website' }}</title>
 
@@ -19,18 +16,7 @@
   <!-- Consolidated CSS -->
   <link rel="stylesheet" href="/css/main.css" />
 
-  <!-- Preload key images (critical LCP/CLS images) -->
-  <link rel="preload" as="image" href="/Images/Main/Image-1.webp" />
-  <link rel="preload" as="image" href="/Images/Main/Image-2.webp" />
-  <link rel="preload" as="image" href="/Images/Main/Image-3.webp" />
-  <link rel="preload" as="image" href="/Images/Main/Image-4.webp" />
-  <link rel="preload" as="image" href="/Images/Main/Image-5.webp" />
-  <link rel="preload" as="image" href="/Images/Activities/Image-1.webp" />
-  <link rel="preload" as="image" href="/Images/Activities/Image-2.webp" />
-  <link rel="preload" as="image" href="/Images/Activities/Image-3.webp" />
-  <link rel="preload" as="image" href="/Images/Activities/Image-4.webp" />
-  <link rel="preload" as="image" href="/Images/Activities/Image-5.webp" />
-
+  
   <!-- MathJax Configuration -->
   <script>
     MathJax = {
@@ -40,13 +26,10 @@
         processEscapes: true,
         packages: ['base', 'ams']
       },
+      loader: { load: ['[tex]/ams'] },
       options: {
         ignoreHtmlClass: 'tex2jax_ignore',
-        processHtmlClass: 'tex2jax_process',
-        renderActions: {
-          addMenu: [0, '', ''],
-          checkLoading: [0, '', '']
-        }
+        processHtmlClass: 'tex2jax_process'
       },
       startup: {
         pageReady() {
@@ -54,11 +37,10 @@
             document.body.classList.add('mathjax-loaded');
           });
         }
-      },
-      loader: { load: ['[tex]/ams'] }
+      }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <!-- FullCalendar -->
   <script defer src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
@@ -68,14 +50,11 @@
 </head>
 <body>
   {% include "header.html" %}
-
   <main class="main-layout-wrapper">
     {{ content | safe }}
   </main>
-
   {% include "footer.html" %}
   {% include "modal.html" %}
-
   <script defer src="/js/main.js"></script>
 </body>
 </html>
