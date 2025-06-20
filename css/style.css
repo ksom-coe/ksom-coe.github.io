@@ -912,35 +912,7 @@ body.dark-mode .static-section table tr:nth-child(even) {
   border-radius: 8px;
 }
 
-/* Overlay text for top-image slideshow */
-.top-image .overlay-text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0)); /* Gradient for better text readability */
-    color: white;
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* Align text to the bottom */
-}
 
-.top-image .overlay-text .main-title {
-    font-family: var(--font-serif);
-    font-size: 1.8rem; /* Larger font for main title */
-    font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Stronger shadow for visibility */
-    margin-bottom: 5px; /* Space between lines */
-}
-
-.top-image .overlay-text .sub-title {
-    font-family: var(--font-body);
-    font-size: 0.95rem; /* Smaller font for sub-title */
-    line-height: 1.4;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.6); /* Subtle shadow for sub-title */
-}
 
 
 
