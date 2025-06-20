@@ -81,6 +81,7 @@ img {
   width: 95%;
   padding-top: 1rem;
   margin-bottom: 1.5rem;
+  row-gap: 0.2rem !important; /* even tighter */
 }
 
 .left-accordion-col-wrapper,
@@ -873,10 +874,15 @@ body.dark-mode .static-section table tr:nth-child(even) {
     cursor: default; /* Not clickable for modal */
     transform: none; /* No transform on hover */
     margin-top: 0rem;
-    margin-bottom: 0rem;
+    margin-bottom: 0rem !important;
+    padding-bottom: 0rem !important;
 }
 #campus-photos-section:hover {
     box-shadow: none !important;
+}
+#about-ksom-section {
+  margin-top: 0rem !important;
+  padding-top: 0rem !important;
 }
 .fancy-calendar-button-container {
     padding: 0 !important;
