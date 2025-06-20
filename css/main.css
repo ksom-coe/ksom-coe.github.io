@@ -1,0 +1,18 @@
+/* ========================
+   Main CSS Import File
+   ======================== */
+
+@import "./variables.css";
+@import "./reset.css";
+@import "./layout.css";
+@import "./accordion.css";
+@import "./static-sections.css";
+@import "./typography.css";
+@import "./header.css";
+@import "./footer.css";
+@import "./slideshow.css";
+@import "./calendar.css";
+@import "./timeline.css";
+@import "./modal.css";
+@import "./dark-mode.css";
+@import "./responsive.css";
