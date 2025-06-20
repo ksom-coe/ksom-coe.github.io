@@ -652,7 +652,7 @@ nav a:hover {
     box-shadow: none;
     padding: 0 !important;
     background: transparent !important;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     gap: 0rem;
 }
 
@@ -671,11 +671,11 @@ body.dark-mode .static-section .accordion-header {
 }
 
 .static-section .accordion-content.static-content {
-    padding: 2rem;
+    padding: 1rem;
     background: var(--card-bg);
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
 }
 
 body.dark-mode .static-section .accordion-content.static-content {
@@ -1959,50 +1959,63 @@ footer .footer-column a:hover {
     gap: 1rem;
   }
 
+ 
+  
+  
+  
+  
+
+
   /* Full-width wrapper: remove outer padding and apply inner spacing via children */
-  .main-full-width {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  /* Add breathing space inside accordion sections */
-  .main-full-width > .accordion-item,
-  .main-full-width > .static-section {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    box-sizing: border-box;
-  }
-
-  /* Optional: reduce padding inside accordion-content if needed */
-  .accordion-content.static-content {
-    padding: 1rem;
-  }
-
-  /* Adjust slideshow image sizing */
-  #campus-photos-section .top-image img {
-    height: auto;
-    min-height: 200px;
-    max-height: 40vh;
-  }
-
-  /* Calendar section always visible */
-  #calendar-section {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
-    padding: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    cursor: default;
-    transform: none;
-  }
-
-  #calendar-section:hover {
-    box-shadow: none !important;
-  }
+.main-full-width {
+  padding-left: 0;
+  padding-right: 0;
 }
+
+/* Add breathing space inside accordion sections */
+.main-full-width > .accordion-item,
+.main-full-width > .static-section {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+
+/* Universal vertical rhythm for all top-level blocks */
+.main-full-width > *:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+/* Reduce padding inside static accordion content */
+.accordion-content.static-content {
+  padding: 1rem;
+  margin-bottom: 0; /* Let parent spacing handle layout */
+}
+
+/* Adjust slideshow image sizing */
+#campus-photos-section .top-image img {
+  height: auto;
+  min-height: 200px;
+  max-height: 40vh;
+}
+
+/* Calendar section always visible */
+#calendar-section {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  cursor: default;
+  transform: none;
+}
+
+#calendar-section:hover {
+  box-shadow: none !important;
+}
+
 
 
 
