@@ -1,0 +1,44 @@
+/* ======================
+   CSS Custom Properties
+   ====================== */
+
+:root {
+  /* Fonts */
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Merriweather', serif;
+  --font-heading: 'Lora', serif;
+
+  /* Colors */
+  --accent-blue: #005fa3;
+  --accent-light: #b3d4fc;
+  --text-primary: #222;
+  --text-secondary: #666;
+  --card-bg: #fff;
+  --card-border: #ddd;
+  --primary-bg: #f9f9f9;
+  --header-bg: #ffffff;
+
+  /* Dark Mode */
+  --dark-card-bg: #1f3a4e;
+  --dark-border: #004066;
+  --dark-primary-text: #f1f1f1;
+  --dark-secondary-text: #cfcfcf;
+
+  /* Layout */
+  --max-content-width: 1440px;
+  --section-padding: 2rem;
+
+  /* Shadows */
+  --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-heavy: 0 6px 15px rgba(0, 0, 0, 0.3);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-medium: 0.3s ease-in-out;
+
+  /* Responsive Breakpoints */
+  --breakpoint-sm: 768px;
+  --breakpoint-md: 1024px;
+  --breakpoint-lg: 1440px;
+}
