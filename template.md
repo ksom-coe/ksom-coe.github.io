@@ -23,7 +23,7 @@ full_width: true
         <div class="accordion-header" role="button" tabindex="0" aria-label="Clickable white accordion with no modals">Clickable White accordion</div>
         <div class="accordion-snippet">
             Provides the template for a clickable white card redirecting to Google.<span class="snippet-more-indicator"> ...more</span>
-
+        </div>
     </section>
     
 
