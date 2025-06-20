@@ -1033,7 +1033,7 @@ body.dark-mode .static-section.static-blue-section .table-note {
     background-color: #e6f7ff; /* Consistent very light blue for all highlight cards */
     border: 1px solid var(--accent-light); /* Subtle border using your existing accent light color */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gentle shadow to make it pop */
-    margin-bottom: 2rem; /* Adds space below the highlighted card (adjust as needed for specific pages) */
+    margin-bottom: 1rem; /* Adds space below the highlighted card (adjust as needed for specific pages) */
     transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
