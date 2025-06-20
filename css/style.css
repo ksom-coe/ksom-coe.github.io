@@ -649,6 +649,11 @@ body.dark-mode .static-section .accordion-header {
 }
 
 .static-section .accordion-content.static-content {
+    width: 100%;
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
     padding: 1rem;
     background: var(--card-bg);
     border-radius: 12px;
