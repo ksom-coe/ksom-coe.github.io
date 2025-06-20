@@ -1,0 +1,90 @@
+/* ========================
+   Static & Highlight Sections
+   ======================== */
+
+.static-section {
+  cursor: default;
+  transform: none;
+  box-shadow: none;
+  padding: 1rem !important;
+  background: transparent !important;
+  margin-bottom: 0 !important;
+  gap: 0;
+}
+
+.static-section .accordion-header {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent-blue);
+  font-weight: 700;
+  font-family: var(--font-serif);
+  display: block;
+  cursor: default;
+}
+
+/* Highlight card variant */
+.accordion-item.highlight-card {
+  background-color: #e6f7ff;
+  border: 1px solid var(--accent-light);
+  box-shadow: var(--shadow-light);
+  margin-bottom: 0.5rem;
+  transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.accordion-item.highlight-card .accordion-header {
+  color: var(--accent-blue);
+  font-weight: 700;
+}
+
+/* Blue section variant */
+.static-section.static-blue-section .accordion-content.static-content {
+  background-color: #e6f7ff;
+  border: 1px solid var(--accent-light);
+  border-radius: 12px;
+  box-shadow: var(--shadow-light);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.static-section.static-blue-section .accordion-header {
+  color: var(--accent-blue);
+  font-weight: 700;
+}
+
+/* Table styles */
+.static-blue-section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.static-blue-section table th,
+.static-blue-section table td {
+  border: 1px solid var(--accent-light);
+  padding: 0.8em 0.5em;
+  text-align: center;
+}
+
+.static-blue-section table th {
+  background-color: var(--accent-light);
+  font-weight: bold;
+  vertical-align: top;
+}
+
+.static-blue-section table tbody tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.static-blue-section table tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Table note */
+.static-blue-section .table-note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
