@@ -16,10 +16,10 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Consolidated CSS -->
+  <link rel="stylesheet" href="/css/main.css" />
 
-  <!-- Preload homepage images -->
+  <!-- Preload key images (critical LCP/CLS images) -->
   <link rel="preload" as="image" href="/Images/Main/Image-1.webp" />
   <link rel="preload" as="image" href="/Images/Main/Image-2.webp" />
   <link rel="preload" as="image" href="/Images/Main/Image-3.webp" />
@@ -50,7 +50,7 @@
       },
       startup: {
         pageReady() {
-          return MathJax.startup.defaultPageReady().then(function () {
+          return MathJax.startup.defaultPageReady().then(() => {
             document.body.classList.add('mathjax-loaded');
           });
         }
@@ -58,7 +58,7 @@
       loader: { load: ['[tex]/ams'] }
     };
   </script>
-  <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
 
   <!-- FullCalendar -->
   <script defer src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
