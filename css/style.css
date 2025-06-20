@@ -592,7 +592,7 @@ nav a:hover {
 
 /* === Standard Styling for Accordion Items (clickable, full-width, etc.) === */
 .accordion-item {
-  padding: 1.5rem; /* ✅ Restore internal spacing inside accordion cards */
+  padding: 0.75rem; /* ✅ Restore internal spacing inside accordion cards */
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 8px;
@@ -628,7 +628,7 @@ nav a:hover {
     cursor: default;
     transform: none;
     box-shadow: none;
-    padding: 0 !important;
+    padding: 0.75rem !important;
     background: transparent !important;
     margin-bottom: 0.5rem;
     gap: 0rem;
@@ -1982,7 +1982,7 @@ footer .footer-column a:hover {
 
 /* Normalize padding and spacing inside static accordion content */
 .accordion-content.static-content {
-  padding: 1rem;
+  padding: 0.75rem;
   margin-bottom: 0;
 }
 
