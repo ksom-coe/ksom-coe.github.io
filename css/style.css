@@ -872,7 +872,7 @@ body.dark-mode .static-section table tr:nth-child(even) {
     box-shadow: none !important;
     cursor: default; /* Not clickable for modal */
     transform: none; /* No transform on hover */
-    margin-top: -1.25rem;
+    margin-top: -1rem;
 }
 #campus-photos-section:hover {
     box-shadow: none !important;
