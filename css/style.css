@@ -71,20 +71,39 @@ img {
 /* === 1. Accordion Layout and Wrapper Styles === */
 
 .main-layout-wrapper {
-  display: grid;
-  grid-template-columns: 43.2fr 28.8fr 28fr;
-  grid-template-areas:
-    "campus          campus           sidebar-col"
-    "about           about            sidebar-col"
-    "left-main-col   right-main-col   sidebar-col";
-  gap: 0rem 1.5rem; /* row-gap: 0rem, column-gap: 1.5rem */
   width: 90%;
   max-width: var(--max-content-width);
   margin: 0 auto;
   padding-top: 1rem;
   margin-bottom: 3rem;
-  flex-grow: 1;
+  display: block; /* default block layout for top sections */
 }
+
+/* Independent top sections */
+#campus-photos-section,
+#about-ksom-section {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Three-column layout below the top sections */
+.columns-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+/* Individual columns with independent heights */
+.left-accordion-col-wrapper,
+.right-accordion-col-wrapper,
+.sidebar-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 
 
 .left-accordion-col-wrapper,
