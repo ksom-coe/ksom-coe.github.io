@@ -41,7 +41,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%; /* Ensure body itself spans full viewport width */
-  padding-top: 70px;
+  padding-top: 50px;
   min-height: 100vh;
 }
 body.dark-mode {
