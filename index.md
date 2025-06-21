@@ -3,285 +3,307 @@ layout: base.html
 title: Kerala School of Mathematics - Official Website
 ---
 
-<!-- Campus Slideshow (above About section) -->
-<div id="campus-photos-section" class="top-image slideshow-container" data-slideshow-id="mainCampus">
-  <div class="mySlides fade">
-    <img src="/Images/Main/Image-1.webp" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+1';" alt="KSoM Campus Image 1" />
+
+<div class="main-layout-wrapper">
+
+
+  
+  <!-- Sidebar Section (Calendar + News + Upcoming Events) -->
+  <aside class="sidebar-container">
+    <!-- Calendar -->
+    <section id="calendar-section" class="fancy-calendar-button-container">
+      <button id="events-calendar-button" class="fancy-calendar-button" aria-label="Open Events Calendar" aria-haspopup="dialog">
+        <span class="button-text">Events Calendar</span>
+      </button>
+    </section>
+  
+    <!-- Latest News -->
+    <section id="latest-news-section" class="accordion-item" data-modal-opener="true">
+      <h3>Latest News at KSoM</h3>
+      <div class="timeline-container">
+          <a href="#" class="timeline-item" data-news-id="research-symposium" role="button" aria-haspopup="dialog">
+            <div class="timeline-content">
+              <p class="timeline-date">February 15, 2025</p>
+              <span class="news-title-link">Annual Research Symposium</span>
+              <p class="timeline-description">Highlights from our successful annual symposium, featuring keynote speakers and groundbreaking research presentations.</p>
+            </div>
+          </a>
+          <a href="#" class="timeline-item" data-news-id="new-faculty" role="button" aria-haspopup="dialog">
+            <div class="timeline-content">
+              <p class="timeline-date">January 20, 2025</p>
+              <span class="news-title-link">New Faculty Announcement</span>
+              <p class="timeline-description">Welcome our newest faculty member, Dr. Alok Kumar, specializing in Algebraic Geometry.</p>
+            </div>
+          </a>
+          <a href="#" class="timeline-item" data-news-id="winter-school" role="button" aria-haspopup="dialog">
+            <div class="timeline-content">
+              <p class="timeline-date">December 1, 2024</p>
+              <span class="news-title-link">Winter School on Number Theory</span>
+              <p class="timeline-description">Registration now open for the intensive winter school focused on advanced topics in analytic number theory.</p>
+            </div>
+          </a>
+          <a href="#" class="timeline-item" data-news-id="phd-admissions" role="button" aria-haspopup="dialog">
+            <div class="timeline-content">
+              <p class="timeline-date">May 7, 2025</p>
+              <span class="news-title-link">PhD Admissions 2025</span>
+              <p class="timeline-description">Applications invited for doctoral programmes in Pure and Applied Mathematics. Full financial support available for selected candidates.</p>
+            </div>
+          </a>
+          <a href="#" class="timeline-item" data-news-id="visiting-faculty" role="button" aria-haspopup="dialog">
+            <div class="timeline-content">
+              <p class="timeline-date">March 4, 2025</p>
+              <span class="news-title-link">Visiting Faculty Position</span>
+              <p class="timeline-description">Seeking highly qualified candidates for Visiting Assistant Professor positions across all mathematical disciplines. Join our vibrant research community.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="archive-btn-container">
+        <a class="archive-btn" href="https://ksom.res.in/news-archive">News archive</a>
+      </div>
+    </section>
+  
+    <!-- Upcoming Events -->
+    <section id="upcoming-events-section" class="accordion-item" data-modal-opener="true">
+      <h3>Upcoming Events at KSoM</h3>
+      <div class="timeline-container">
+          <a href="#" class="timeline-item" data-event-id="freshers-orientation" role="button" aria-haspopup="dialog">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-date">September 1, 2025</p>
+              <span class="event-title">Freshers' Orientation Program</span>
+              <p class="timeline-description">Welcome session for new M.Sc. and Ph.D. students joining KSoM.</p>
+            </div>
+          </a>
+          <a href="#" class="timeline-item" data-event-id="ml-math-workshop" role="button" aria-haspopup="dialog">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-date">October 20, 2025</p>
+              <span class="event-title">Workshop on Machine Learning in Mathematics</span>
+              <p class="timeline-description">A practical workshop on the intersection of machine learning and mathematical research.</p>
+            </div>
+          </a>
+          <a href="#" class="timeline-item" data-event-id="alumni-meet" role="button" aria-haspopup="dialog">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-date">November 12, 2025</p>
+              <span class="event-title">Annual Alumni Meet</span>
+              <p class="timeline-description">Connect with fellow KSoM alumni and faculty. Networking and dinner included.</p>
+            </div>
+          </a>
+          <a href="#" class="timeline-item" data-event-id="christmas-lecture" role="button" aria-haspopup="dialog">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-date">December 8, 2025</p>
+              <span class="event-title">Christmas Lecture: The Beauty of Fractals</span>
+              <p class="timeline-description">A public lecture showcasing the visual and mathematical elegance of fractals.</p>
+            </div>
+          </a>
+          <a href="#" class="timeline-item" data-event-id="discrete-math-conference" role="button" aria-haspopup="dialog">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-date">August 5, 2025</p>
+              <span class="event-title">International Conference on Discrete Mathematics</span>
+              <p class="timeline-description">Leading experts convene to discuss new theories and applications in discrete mathematics.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="archive-btn-container">
+        <a class="archive-btn" href="https://ksom.res.in/events-archive">Upcoming Events Archive</a>
+      </div>
+    </section>
+
+
+  <!-- Main content area (72% width) -->
+  <div class="main-content-area">
+    <!-- Campus Slideshow (above About section) -->
+    <div id="campus-photos-section" class="top-image slideshow-container" data-slideshow-id="mainCampus">
+      <div class="mySlides fade">
+        <img src="/Images/Main/Image-1.webp" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+1';" alt="KSoM Campus Image 1" />
+      </div>
+      <div class="mySlides fade">
+        <img src="/Images/Main/Image-2.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+2';" alt="KSoM Campus Image 2" />
+      </div>
+      <div class="mySlides fade">
+        <img src="/Images/Main/Image-3.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+3';" alt="KSoM Campus Image 3" />
+      </div>
+      <div class="mySlides fade">
+        <img src="/Images/Main/Image-4.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+4';" alt="KSoM Campus Image 4" />
+      </div>
+      <div class="mySlides fade">
+        <img src="/Images/Main/Image-5.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+5';" alt="KSoM Campus Image 5" />
+      </div>
+    </div>
+    
+    <!-- About Section -->
+    <section id="about-ksom-section" class="accordion-item" data-accordion-id="aboutKSoM" data-learn-more-url="https://ksom.res.in/about" data-modal-opener="true">
+      <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about About KSoM" aria-expanded="false" aria-controls="accordion-content-aboutKSoM">
+        About Kerala School of Mathematics
+      </div>
+      <div class="accordion-snippet">
+        Kerala School of Mathematics (KSoM) is an autonomous research institute in Mathematics founded in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. It aims to revive the legacy of the historical Kerala school of mathematics (14th–16th century).<span class="snippet-more-indicator"> ...more</span>
+      </div>
+      <div class="accordion-content" style="display: none;" id="accordion-content-aboutKSoM">
+        <p><strong>Kerala School of Mathematics (KSoM)</strong> is an advanced research institute in Mathematics founded as a joint initiative by DAE and the Kerala Government. It aims to be a center of excellence and to revive Kerala’s deep historical contributions to mathematics.</p>
+        <p>KSoM fosters a research-rich environment through its Integrated M.Sc.-Ph.D., Ph.D., and Postdoctoral programmes, coupled with a wide range of academic events.</p>
+        <p>Outreach initiatives like SWIM, Glimpses into Mathematics, and School Enrichment Day help bring mathematics to the wider community.</p>
+      </div>
+    </section>
   </div>
-  <div class="mySlides fade">
-    <img src="/Images/Main/Image-2.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+2';" alt="KSoM Campus Image 2" />
-  </div>
-  <div class="mySlides fade">
-    <img src="/Images/Main/Image-3.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+3';" alt="KSoM Campus Image 3" />
-  </div>
-  <div class="mySlides fade">
-    <img src="/Images/Main/Image-4.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+4';" alt="KSoM Campus Image 4" />
-  </div>
-  <div class="mySlides fade">
-    <img src="/Images/Main/Image-5.webp" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+5';" alt="KSoM Campus Image 5" />
-  </div>
+
+
+
+
+   <!-- Two-column accordion layout -->
+  <div class="columns-wrapper">
+    <!-- Research Section -->
+    <section id="research-section" class="accordion-item" data-accordion-id="research" data-learn-more-url="https://ksom.res.in/research" data-modal-opener="true">
+      <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Research at KSoM" aria-expanded="false" aria-controls="accordion-content-research">
+        Research at KSoM
+      </div>
+      <div class="accordion-snippet">
+        KSoM conducts pioneering research across core and interdisciplinary areas of mathematics, fostering collaborations and advancing fundamental knowledge.<span class="snippet-more-indicator"> ...more</span>
+      </div>
+      <div class="accordion-content" style="display: none;" id="accordion-content-research">
+      <p>Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.</p>
+      <div class="modal-research-cards-container">
+        <a href="https://ksom.res.in/research/complex-analysis" class="modal-research-card">
+          <h3>Complex Analysis Research</h3>
+          <p>Our group explores several complex variables as a dynamic area of modern mathematics, focusing on Hörmander's estimates and their impact on the Bers domain (Teichmüller space). We investigate the profound geometric implications of the Kobayashi metric being isometric to the Teichmüller metric. This research bridges complex analysis, Teichmüller theory, and differential geometry.</p>
+        </a>
+        <a href="https://ksom.res.in/research/braid-&-mapping-class-groups" class="modal-research-card">
+          <h3>Braid Groups & Mapping Class Groups Research</h3>
+          <p>We study fundamental structures at the intersection of algebraic topology and geometric group theory. Our work centers on liftability problems and the Birman-Hilden property. We also classify unitary representations of braid groups and analyze connections to quantum invariants and representation theory.</p>
+        </a>
+        <a href="https://ksom.res.in/research/harmonic-analysis" class="modal-research-card">
+          <h3>Harmonic Analysis Research</h3>
+          <p>We explore harmonic analysis in nilpotent Lie groups and time-frequency methods, including modulation spaces, Fourier multipliers, twisted convolution operators, and nonlinear Schrödinger equations. This connects Fourier analysis with modern operator theory and dispersive PDEs.</p>
+        </a>
+        <a href="https://ksom.res.in/research/non-commutative-functional-analysis" class="modal-research-card">
+          <h3>Non-commutative Functional Analysis Research</h3>
+          <p>This group investigates quantum approximation properties and convexity in C*-algebras and operator systems, including quantum error correction, channel classification, and geometric analysis of quantum states.</p>
+        </a>
+        <a href="https://ksom.res.in/research/analytic-number-theory" class="modal-research-card">
+          <h3>Analytic Number Theory Research</h3>
+          <p>Research includes prime distributions, L-function special values, multiple zeta values, Möbius sums, additive number theory, and new bounds using the Beurling-Selberg method and analytic combinatorics.</p>
+        </a>
+      </div>
+      <p>Collaborative Environment<br />Our research thrives through synergistic partnerships between faculty, postdoctoral researchers, and doctoral students. This ecosystem blends rigorous theoretical inquiry with computational approaches.</p>
+    </div>
+    </section>
+    
+    <!-- Activities Section -->
+    <section id="activities-section" class="accordion-item" data-accordion-id="academicResearchActivities" data-learn-more-url="https://ksom.res.in/activities" data-modal-opener="true">
+      <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Academic & Research Activities at KSoM" aria-expanded="false" aria-controls="accordion-content-academicResearchActivities">
+        Academic & Research Activities at KSoM
+      </div>
+      <div class="accordion-snippet">
+        <div class="slideshow-container" data-slideshow-id="academicActivities">
+          <div class="mySlides fade">
+            <img src="/Images/Activities/Image-1.jpg" width="600" height="350" onerror="this.onerror=null;this.src='https://placehold.co/600x350/F0F8FF/333333?text=Activity+Image+1';" alt="Academic & Research Activities 1">
+          </div>
+          <div class="mySlides fade">
+            <img src="/Images/Activities/Image-2.jpg" width="600" height="350" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/E6E6FA/333333?text=Activity+Image+2';" alt="Academic & Research Activities 2">
+          </div>
+          <div class="mySlides fade">
+            <img src="/Images/Activities/Image-3.jpg" width="600" height="350" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/F5F5DC/333333?text=Activity+Image+3';" alt="Academic & Research Activities 3">
+          </div>
+          <div class="mySlides fade">
+            <img src="/Images/Activities/Image-4.jpg" width="600" height="350" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/FFE4E1/333333?text=Activity+Image+4';" alt="Academic & Research Activities 4">
+          </div>
+          <div class="mySlides fade">
+            <img src="/Images/Activities/Image-5.jpg" width="600" height="350" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/AFEEEE/333333?text=Activity+Image+5';" alt="Academic & Research Activities 5">
+          </div>
+        </div>
+        <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.<span class="snippet-more-indicator"> ...more</span></p>
+      </div>
+      <div class="accordion-content" style="display: none;" id="accordion-content-academicResearchActivities">
+        <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with mathematical networks.</p>
+        <div class="modal-research-cards-container">
+          <a href="https://ksom.res.in/activities/colloquium" class="modal-research-card">
+            <h3>Mathematics Colloquium</h3>
+            <p>Features regular presentations by distinguished visiting mathematicians, showcasing frontier research across pure and applied mathematics. These talks provide comprehensive overviews of emerging fields while stimulating interdisciplinary dialogue among researchers at all career stages.</p>
+          </a>
+          <a href="https://ksom.res.in/activities/seminar-series" class="modal-research-card">
+            <h3>Specialized Seminar Series</h3>
+            <p>Offers focused forums for deep exploration of specific mathematical disciplines. Organized by research groups, these sessions include graduate student presentations, paper discussions, and technical workshops that advance collaborative projects and methodological development.</p>
+          </a>
+          <a href="https://ksom.res.in/activities/conferences" class="modal-research-card">
+            <h3>International Conferences</h3>
+            <p>Host annual gatherings convening global experts on specialized mathematical themes. These multi-day events feature invited lectures, contributed talks, and poster sessions that disseminate cutting-edge research while fostering new collaborations across institutions.</p>
+          </a>
+          <a href="https://ksom.res.in/activities/workshops" class="modal-research-card">
+            <h3>Research Workshops</h3>
+            <p>Conduct intensive focused meetings for collaborative problem-solving and skill development. These shorter, topic-specific gatherings feature working sessions, tutorial lectures, and hands-on training in emerging methodologies, often leading to joint publications and research initiatives.</p>
+          </a>
+        </div>
+        <p>Community Impact<br />These activities form the intellectual backbone of our research ecosystem, providing crucial platforms for knowledge exchange and professional growth. By integrating undergraduate students through senior faculty in shared learning experiences, we cultivate an inclusive environment that advances both individual scholarship and collective mathematical progress.</p>
+      </div>
+    </section>
+    
+    <!-- Programmes Section -->
+    <section id="programmes-section" class="accordion-item" data-accordion-id="academicProgrammes" data-learn-more-url="https://ksom.res.in/programmes" data-modal-opener="true">
+      <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Academic Programmes at KSoM" aria-expanded="false" aria-controls="accordion-content-academicProgrammes">
+        Academic Programmes at KSoM
+      </div>
+      <div class="accordion-snippet">
+        Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.<span class="snippet-more-indicator"> ...more</span>
+      </div>
+      <div class="accordion-content" style="display: none;" id="accordion-content-academicProgrammes">
+        <p>Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.</p>
+        <div class="modal-research-cards-container">
+          <a href="https://ksom.res.in/programmes/integrated-msc-phd" class="modal-research-card">
+            <h3>Integrated M.Sc. - Ph.D. Programme</h3>
+            <p>Provides seamless progression from advanced coursework to doctoral research, specializing in Mathematics, Physics, or Theoretical Computer Science. Students receive monthly scholarships, hostel accommodation, and engage in research from the first year, developing strong theoretical foundations through a curriculum that bridges pure and applied mathematics.</p>
+          </a>
+          <a href="https://ksom.res.in/programmes/phd" class="modal-research-card">
+            <h3>Ph.D. Programme</h3>
+            <p>Offers intensive research immersion in Pure or Applied Mathematics under close faculty mentorship. Spanning approximately five years, scholars transition from specialized coursework to original dissertation work on frontier mathematical problems, supported by fellowships, travel grants for conferences, and teaching opportunities.</p>
+          </a>
+          <a href="https://ksom.res.in/programmes/postdoc" class="modal-research-card">
+            <h3>Postdoctoral Fellowships</h3>
+            <p>Provides opportunities for recent PhD graduates to pursue independent research in a collaborative environment. Fellows receive competitive stipends, research grants, and access to all institute resources, preparing them for leadership roles in academia and industry.</p>
+          </a>
+        </div>
+        <p>Scholarly Environment<br/>All programmes emphasize collaborative learning through weekly research seminars, specialized workshops, and annual conferences that connect students with global mathematical leaders. Our selective admission process identifies exceptional talent while maintaining small cohort sizes that ensure personalized guidance. This supportive ecosystem enables scholars to contribute meaningfully to mathematical knowledge while developing as versatile researchers equipped to address complex scientific challenges.</p>
+      </div>
+    </section>
+    </section>
+    
+    <!-- Outreach Section -->
+    <section id="outreach-section" class="accordion-item" data-accordion-id="outreach" data-learn-more-url="https://ksom.res.in/outreach" data-modal-opener="true">
+      <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Outreach Activities" aria-expanded="false" aria-controls="accordion-content-outreachActivities">
+        Outreach Activities
+      </div>
+      <div class="accordion-snippet">
+        Kerala School of Mathematics is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.<span class="snippet-more-indicator"> ...more</span>
+      </div>
+      <div class="accordion-content" style="display: none;" id="accordion-content-outreachActivities">
+        <p>Kerala School of Mathematics is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.</p>
+        <div class="modal-research-cards-container">
+          <a href="https://ksom.res.in/outreach/swim" class="modal-research-card">
+            <h3>Summer Workshop in Mathematics (SWIM)</h3>
+            <p>An intensive program for undergraduate students, providing them with exposure to advanced mathematical topics and research methodologies, fostering a deeper understanding and interest in research.</p>
+          </a>
+          <a href="https://ksom.res.in/outreach/glimpses" class="modal-research-card">
+            <h3>Glimpses into Mathematics</h3>
+            <p>A series of public lectures and interactive sessions that showcase the beauty, power, and practical applications of mathematics to a broad audience, including students and the general public.</p>
+          </a>
+          <a href="https://ksom.res.in/outreach/enrichment-day" class="modal-research-card">
+            <h3>School Enrichment Day</h3>
+            <p>An engaging program designed for high school students, featuring hands-on activities, problem-solving challenges, and inspiring talks to spark their interest in pursuing higher education in mathematics and related fields.</p>
+          </a>
+        </div>
+        <p><strong>Impact and Reach</strong><br/>Our outreach annually engages a large number of participants through strategic partnerships with schools, universities, and scientific organizations. These efforts strengthen mathematical foundations across Kerala while creating inclusive pathways to advanced study, particularly through early interventions that inspire underrepresented groups to pursue mathematical careers.</p>
+      </div>
+    </section>
+  </div>    
 </div>
 
-<!-- About Section -->
-<section id="about-ksom-section" class="accordion-item" data-accordion-id="aboutKSoM" data-learn-more-url="https://ksom.res.in/about" data-modal-opener="true">
-  <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about About KSoM" aria-expanded="false" aria-controls="accordion-content-aboutKSoM">
-    About Kerala School of Mathematics
-  </div>
-  <div class="accordion-snippet">
-    Kerala School of Mathematics (KSoM) is an autonomous research institute in Mathematics founded in 2007 as a joint venture of the Department of Atomic Energy (DAE), Government of India and the Science and Technology Department, Government of Kerala. It aims to revive the legacy of the historical Kerala school of mathematics (14th–16th century).<span class="snippet-more-indicator"> ...more</span>
-  </div>
-  <div class="accordion-content" style="display: none;" id="accordion-content-aboutKSoM">
-    <p><strong>Kerala School of Mathematics (KSoM)</strong> is an advanced research institute in Mathematics founded as a joint initiative by DAE and the Kerala Government. It aims to be a center of excellence and to revive Kerala’s deep historical contributions to mathematics.</p>
-    <p>KSoM fosters a research-rich environment through its Integrated M.Sc.-Ph.D., Ph.D., and Postdoctoral programmes, coupled with a wide range of academic events.</p>
-    <p>Outreach initiatives like SWIM, Glimpses into Mathematics, and School Enrichment Day help bring mathematics to the wider community.</p>
-  </div>
-</section>
 
-<!-- Research Section -->
-<section id="research-section" class="accordion-item" data-accordion-id="research" data-learn-more-url="https://ksom.res.in/research" data-modal-opener="true">
-  <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Research at KSoM" aria-expanded="false" aria-controls="accordion-content-research">
-    Research at KSoM
-  </div>
-  <div class="accordion-snippet">
-    KSoM conducts pioneering research across core and interdisciplinary areas of mathematics, fostering collaborations and advancing fundamental knowledge.<span class="snippet-more-indicator"> ...more</span>
-  </div>
-  <div class="accordion-content" style="display: none;" id="accordion-content-research">
-  <p>Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.</p>
-  <div class="modal-research-cards-container">
-    <a href="https://ksom.res.in/research/complex-analysis" class="modal-research-card">
-      <h3>Complex Analysis Research</h3>
-      <p>Our group explores several complex variables as a dynamic area of modern mathematics, focusing on Hörmander's estimates and their impact on the Bers domain (Teichmüller space). We investigate the profound geometric implications of the Kobayashi metric being isometric to the Teichmüller metric. This research bridges complex analysis, Teichmüller theory, and differential geometry.</p>
-    </a>
-    <a href="https://ksom.res.in/research/braid-&-mapping-class-groups" class="modal-research-card">
-      <h3>Braid Groups & Mapping Class Groups Research</h3>
-      <p>We study fundamental structures at the intersection of algebraic topology and geometric group theory. Our work centers on liftability problems and the Birman-Hilden property. We also classify unitary representations of braid groups and analyze connections to quantum invariants and representation theory.</p>
-    </a>
-    <a href="https://ksom.res.in/research/harmonic-analysis" class="modal-research-card">
-      <h3>Harmonic Analysis Research</h3>
-      <p>We explore harmonic analysis in nilpotent Lie groups and time-frequency methods, including modulation spaces, Fourier multipliers, twisted convolution operators, and nonlinear Schrödinger equations. This connects Fourier analysis with modern operator theory and dispersive PDEs.</p>
-    </a>
-    <a href="https://ksom.res.in/research/non-commutative-functional-analysis" class="modal-research-card">
-      <h3>Non-commutative Functional Analysis Research</h3>
-      <p>This group investigates quantum approximation properties and convexity in C*-algebras and operator systems, including quantum error correction, channel classification, and geometric analysis of quantum states.</p>
-    </a>
-    <a href="https://ksom.res.in/research/analytic-number-theory" class="modal-research-card">
-      <h3>Analytic Number Theory Research</h3>
-      <p>Research includes prime distributions, L-function special values, multiple zeta values, Möbius sums, additive number theory, and new bounds using the Beurling-Selberg method and analytic combinatorics.</p>
-    </a>
-  </div>
-  <p>Collaborative Environment<br />Our research thrives through synergistic partnerships between faculty, postdoctoral researchers, and doctoral students. This ecosystem blends rigorous theoretical inquiry with computational approaches.</p>
-</div>
-</section>
 
-<!-- Activities Section -->
-<section id="activities-section" class="accordion-item" data-accordion-id="academicResearchActivities" data-learn-more-url="https://ksom.res.in/activities" data-modal-opener="true">
-  <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Academic & Research Activities at KSoM" aria-expanded="false" aria-controls="accordion-content-academicResearchActivities">
-    Academic & Research Activities at KSoM
-  </div>
-  <div class="accordion-snippet">
-    <div class="slideshow-container" data-slideshow-id="academicActivities">
-      <div class="mySlides fade">
-        <img src="/Images/Activities/Image-1.jpg" width="600" height="350" onerror="this.onerror=null;this.src='https://placehold.co/600x350/F0F8FF/333333?text=Activity+Image+1';" alt="Academic & Research Activities 1">
-      </div>
-      <div class="mySlides fade">
-        <img src="/Images/Activities/Image-2.jpg" width="600" height="350" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/E6E6FA/333333?text=Activity+Image+2';" alt="Academic & Research Activities 2">
-      </div>
-      <div class="mySlides fade">
-        <img src="/Images/Activities/Image-3.jpg" width="600" height="350" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/F5F5DC/333333?text=Activity+Image+3';" alt="Academic & Research Activities 3">
-      </div>
-      <div class="mySlides fade">
-        <img src="/Images/Activities/Image-4.jpg" width="600" height="350" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/FFE4E1/333333?text=Activity+Image+4';" alt="Academic & Research Activities 4">
-      </div>
-      <div class="mySlides fade">
-        <img src="/Images/Activities/Image-5.jpg" width="600" height="350" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x350/AFEEEE/333333?text=Activity+Image+5';" alt="Academic & Research Activities 5">
-      </div>
-    </div>
-    <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with global mathematical networks.<span class="snippet-more-indicator"> ...more</span></p>
-  </div>
-  <div class="accordion-content" style="display: none;" id="accordion-content-academicResearchActivities">
-    <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with mathematical networks.</p>
-    <div class="modal-research-cards-container">
-      <a href="https://ksom.res.in/activities/colloquium" class="modal-research-card">
-        <h3>Mathematics Colloquium</h3>
-        <p>Features regular presentations by distinguished visiting mathematicians, showcasing frontier research across pure and applied mathematics. These talks provide comprehensive overviews of emerging fields while stimulating interdisciplinary dialogue among researchers at all career stages.</p>
-      </a>
-      <a href="https://ksom.res.in/activities/seminar-series" class="modal-research-card">
-        <h3>Specialized Seminar Series</h3>
-        <p>Offers focused forums for deep exploration of specific mathematical disciplines. Organized by research groups, these sessions include graduate student presentations, paper discussions, and technical workshops that advance collaborative projects and methodological development.</p>
-      </a>
-      <a href="https://ksom.res.in/activities/conferences" class="modal-research-card">
-        <h3>International Conferences</h3>
-        <p>Host annual gatherings convening global experts on specialized mathematical themes. These multi-day events feature invited lectures, contributed talks, and poster sessions that disseminate cutting-edge research while fostering new collaborations across institutions.</p>
-      </a>
-      <a href="https://ksom.res.in/activities/workshops" class="modal-research-card">
-        <h3>Research Workshops</h3>
-        <p>Conduct intensive focused meetings for collaborative problem-solving and skill development. These shorter, topic-specific gatherings feature working sessions, tutorial lectures, and hands-on training in emerging methodologies, often leading to joint publications and research initiatives.</p>
-      </a>
-    </div>
-    <p>Community Impact<br />These activities form the intellectual backbone of our research ecosystem, providing crucial platforms for knowledge exchange and professional growth. By integrating undergraduate students through senior faculty in shared learning experiences, we cultivate an inclusive environment that advances both individual scholarship and collective mathematical progress.</p>
-  </div>
-</section>
 
-<!-- Programmes Section -->
-<section id="programmes-section" class="accordion-item" data-accordion-id="academicProgrammes" data-learn-more-url="https://ksom.res.in/programmes" data-modal-opener="true">
-  <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Academic Programmes at KSoM" aria-expanded="false" aria-controls="accordion-content-academicProgrammes">
-    Academic Programmes at KSoM
-  </div>
-  <div class="accordion-snippet">
-    Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.<span class="snippet-more-indicator"> ...more</span>
-  </div>
-  <div class="accordion-content" style="display: none;" id="accordion-content-academicProgrammes">
-    <p>Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.</p>
-    <div class="modal-research-cards-container">
-      <a href="https://ksom.res.in/programmes/integrated-msc-phd" class="modal-research-card">
-        <h3>Integrated M.Sc. - Ph.D. Programme</h3>
-        <p>Provides seamless progression from advanced coursework to doctoral research, specializing in Mathematics, Physics, or Theoretical Computer Science. Students receive monthly scholarships, hostel accommodation, and engage in research from the first year, developing strong theoretical foundations through a curriculum that bridges pure and applied mathematics.</p>
-      </a>
-      <a href="https://ksom.res.in/programmes/phd" class="modal-research-card">
-        <h3>Ph.D. Programme</h3>
-        <p>Offers intensive research immersion in Pure or Applied Mathematics under close faculty mentorship. Spanning approximately five years, scholars transition from specialized coursework to original dissertation work on frontier mathematical problems, supported by fellowships, travel grants for conferences, and teaching opportunities.</p>
-      </a>
-      <a href="https://ksom.res.in/programmes/postdoc" class="modal-research-card">
-        <h3>Postdoctoral Fellowships</h3>
-        <p>Provides opportunities for recent PhD graduates to pursue independent research in a collaborative environment. Fellows receive competitive stipends, research grants, and access to all institute resources, preparing them for leadership roles in academia and industry.</p>
-      </a>
-    </div>
-    <p>Scholarly Environment<br/>All programmes emphasize collaborative learning through weekly research seminars, specialized workshops, and annual conferences that connect students with global mathematical leaders. Our selective admission process identifies exceptional talent while maintaining small cohort sizes that ensure personalized guidance. This supportive ecosystem enables scholars to contribute meaningfully to mathematical knowledge while developing as versatile researchers equipped to address complex scientific challenges.</p>
-  </div>
-</section>
-</section>
 
-<!-- Outreach Section -->
-<section id="outreach-section" class="accordion-item" data-accordion-id="outreach" data-learn-more-url="https://ksom.res.in/outreach" data-modal-opener="true">
-  <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Outreach Activities" aria-expanded="false" aria-controls="accordion-content-outreachActivities">
-    Outreach Activities
-  </div>
-  <div class="accordion-snippet">
-    Kerala School of Mathematics is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.<span class="snippet-more-indicator"> ...more</span>
-  </div>
-  <div class="accordion-content" style="display: none;" id="accordion-content-outreachActivities">
-    <p>Kerala School of Mathematics is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.</p>
-    <div class="modal-research-cards-container">
-      <a href="https://ksom.res.in/outreach/swim" class="modal-research-card">
-        <h3>Summer Workshop in Mathematics (SWIM)</h3>
-        <p>An intensive program for undergraduate students, providing them with exposure to advanced mathematical topics and research methodologies, fostering a deeper understanding and interest in research.</p>
-      </a>
-      <a href="https://ksom.res.in/outreach/glimpses" class="modal-research-card">
-        <h3>Glimpses into Mathematics</h3>
-        <p>A series of public lectures and interactive sessions that showcase the beauty, power, and practical applications of mathematics to a broad audience, including students and the general public.</p>
-      </a>
-      <a href="https://ksom.res.in/outreach/enrichment-day" class="modal-research-card">
-        <h3>School Enrichment Day</h3>
-        <p>An engaging program designed for high school students, featuring hands-on activities, problem-solving challenges, and inspiring talks to spark their interest in pursuing higher education in mathematics and related fields.</p>
-      </a>
-    </div>
-    <p><strong>Impact and Reach</strong><br/>Our outreach annually engages a large number of participants through strategic partnerships with schools, universities, and scientific organizations. These efforts strengthen mathematical foundations across Kerala while creating inclusive pathways to advanced study, particularly through early interventions that inspire underrepresented groups to pursue mathematical careers.</p>
-  </div>
-</section>
 
-<!-- Sidebar Section (Calendar + News + Upcoming Events) -->
-<aside class="sidebar-container">
-  <!-- Calendar -->
-  <section id="calendar-section" class="fancy-calendar-button-container">
-    <button id="events-calendar-button" class="fancy-calendar-button" aria-label="Open Events Calendar" aria-haspopup="dialog">
-      <span class="button-text">Events Calendar</span>
-    </button>
-  </section>
-
-  <!-- Latest News -->
-  <section id="latest-news-section" class="accordion-item" data-modal-opener="true">
-    <h3>Latest News at KSoM</h3>
-    <div class="timeline-container">
-        <a href="#" class="timeline-item" data-news-id="research-symposium" role="button" aria-haspopup="dialog">
-          <div class="timeline-content">
-            <p class="timeline-date">February 15, 2025</p>
-            <span class="news-title-link">Annual Research Symposium</span>
-            <p class="timeline-description">Highlights from our successful annual symposium, featuring keynote speakers and groundbreaking research presentations.</p>
-          </div>
-        </a>
-        <a href="#" class="timeline-item" data-news-id="new-faculty" role="button" aria-haspopup="dialog">
-          <div class="timeline-content">
-            <p class="timeline-date">January 20, 2025</p>
-            <span class="news-title-link">New Faculty Announcement</span>
-            <p class="timeline-description">Welcome our newest faculty member, Dr. Alok Kumar, specializing in Algebraic Geometry.</p>
-          </div>
-        </a>
-        <a href="#" class="timeline-item" data-news-id="winter-school" role="button" aria-haspopup="dialog">
-          <div class="timeline-content">
-            <p class="timeline-date">December 1, 2024</p>
-            <span class="news-title-link">Winter School on Number Theory</span>
-            <p class="timeline-description">Registration now open for the intensive winter school focused on advanced topics in analytic number theory.</p>
-          </div>
-        </a>
-        <a href="#" class="timeline-item" data-news-id="phd-admissions" role="button" aria-haspopup="dialog">
-          <div class="timeline-content">
-            <p class="timeline-date">May 7, 2025</p>
-            <span class="news-title-link">PhD Admissions 2025</span>
-            <p class="timeline-description">Applications invited for doctoral programmes in Pure and Applied Mathematics. Full financial support available for selected candidates.</p>
-          </div>
-        </a>
-        <a href="#" class="timeline-item" data-news-id="visiting-faculty" role="button" aria-haspopup="dialog">
-          <div class="timeline-content">
-            <p class="timeline-date">March 4, 2025</p>
-            <span class="news-title-link">Visiting Faculty Position</span>
-            <p class="timeline-description">Seeking highly qualified candidates for Visiting Assistant Professor positions across all mathematical disciplines. Join our vibrant research community.</p>
-          </div>
-        </a>
-      </div>
-    </div>
-    <div class="archive-btn-container">
-      <a class="archive-btn" href="https://ksom.res.in/news-archive">News archive</a>
-    </div>
-  </section>
-
-  <!-- Upcoming Events -->
-  <section id="upcoming-events-section" class="accordion-item" data-modal-opener="true">
-    <h3>Upcoming Events at KSoM</h3>
-    <div class="timeline-container">
-        <a href="#" class="timeline-item" data-event-id="freshers-orientation" role="button" aria-haspopup="dialog">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <p class="timeline-date">September 1, 2025</p>
-            <span class="event-title">Freshers' Orientation Program</span>
-            <p class="timeline-description">Welcome session for new M.Sc. and Ph.D. students joining KSoM.</p>
-          </div>
-        </a>
-        <a href="#" class="timeline-item" data-event-id="ml-math-workshop" role="button" aria-haspopup="dialog">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <p class="timeline-date">October 20, 2025</p>
-            <span class="event-title">Workshop on Machine Learning in Mathematics</span>
-            <p class="timeline-description">A practical workshop on the intersection of machine learning and mathematical research.</p>
-          </div>
-        </a>
-        <a href="#" class="timeline-item" data-event-id="alumni-meet" role="button" aria-haspopup="dialog">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <p class="timeline-date">November 12, 2025</p>
-            <span class="event-title">Annual Alumni Meet</span>
-            <p class="timeline-description">Connect with fellow KSoM alumni and faculty. Networking and dinner included.</p>
-          </div>
-        </a>
-        <a href="#" class="timeline-item" data-event-id="christmas-lecture" role="button" aria-haspopup="dialog">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <p class="timeline-date">December 8, 2025</p>
-            <span class="event-title">Christmas Lecture: The Beauty of Fractals</span>
-            <p class="timeline-description">A public lecture showcasing the visual and mathematical elegance of fractals.</p>
-          </div>
-        </a>
-        <a href="#" class="timeline-item" data-event-id="discrete-math-conference" role="button" aria-haspopup="dialog">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <p class="timeline-date">August 5, 2025</p>
-            <span class="event-title">International Conference on Discrete Mathematics</span>
-            <p class="timeline-description">Leading experts convene to discuss new theories and applications in discrete mathematics.</p>
-          </div>
-        </a>
-      </div>
-    </div>
-    <div class="archive-btn-container">
-      <a class="archive-btn" href="https://ksom.res.in/events-archive">Upcoming Events Archive</a>
-    </div>
-  </section>
 </aside>
