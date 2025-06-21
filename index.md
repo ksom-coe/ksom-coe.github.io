@@ -40,7 +40,7 @@ title: Kerala School of Mathematics - Official Website
 <!-- Left Main Content Column (60% width) -->
 <div class="left-accordion-col-wrapper">
     <!-- Research Areas Section -->
-    <section id="research-areas-section" class="accordion-item" data-accordion-id="researchAreas" data-learn-more-url="[https://ksom.res.in/research](https://ksom.res.in/research)" data-modal-opener="true">
+    <section id="research-areas-section" class="accordion-item" data-accordion-id="researchAreas" data-learn-more-url="/research" data-modal-opener="true">
         <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Research Areas at KSoM" aria-expanded="false" aria-controls="accordion-content-researchAreas">Research Areas at KSoM</div>
         <div class="accordion-snippet">
         Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.<span class="snippet-more-indicator"> ...more</span>
