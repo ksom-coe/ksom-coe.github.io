@@ -49,23 +49,23 @@ title: Kerala School of Mathematics - Official Website
         <p>Kerala School of Mathematics conducts pioneering research across fundamental and applied mathematics, fostering interdisciplinary collaborations that advance mathematical frontiers. Our research groups explore deep structures in complex systems, geometric topologies, analytical frameworks, and number-theoretic phenomena, contributing to both theoretical foundations and emerging applications.</p>
 
         <div class="modal-research-cards-container">
-            <a href="[https://ksom.res.in/research/complex-analysis](https://ksom.res.in/research/complex-analysis)" class="modal-research-card">
+            <a href="/research/complex-analysis" class="modal-research-card">
                 <h3>Complex Analysis Research</h3>
                 <p>Our group explores several complex variables as a dynamic area of modern mathematics, focusing on Hörmander's estimates and their impact on the Bers domain (Teichmüller space). We investigate the profound geometric implications of the Kobayashi metric being isometric to the Teichmüller metric. This research bridges complex analysis, Teichmüller theory, and differential geometry, advancing our understanding of intrinsic metrics on complex spaces through interdisciplinary connections with algebra, PDEs, and algebraic geometry.</p>
             </a>
-            <a href="[https://ksom.res.in/research/braid-&-mapping-class-groups](https://ksom.res.in/research/braid-&-mapping-class-groups)" class="modal-research-card">
+            <a href="/research/braid-&-mapping-class-groups" class="modal-research-card">
                 <h3>Braid Groups & Mapping Class Groups Research</h3>
                 <p>We study fundamental structures at the intersection of algebraic topology and geometric group theory, examining relationships between braid groups and mapping class groups. Our work centers on liftability problems and the Birman-Hilden property, which determine when surface homeomorphisms extend to handlebodies. A key focus involves classifying unitary representations of braid groups and analyzing their connections to quantum invariants, linking geometric group theory with representation theory and quantum topology.</p>
             </a>
-            <a href="[https://ksom.res.in/research/harmonic-analysis](https://ksom.res.in/research/harmonic-analysis)" class="modal-research-card">
+            <a href="/research/harmonic-analysis" class="modal-research-card">
                 <h3>Harmonic Analysis Research</h3>
                 <p>Our investigations center on harmonic analysis in nilpotent Lie groups and time-frequency methods, connecting classical Fourier analysis with modern operator theory. We explore modulation spaces, Fourier multipliers, twisted convolution operators, and their Lp-Lq boundedness properties. The group also analyzes nonlinear Schrödinger equations with twisted Laplacians, maximal functions along hypersurfaces, and develops Hardy-Sobolev inequalities in non-commutative settings, advancing oscillatory integral techniques for dispersive PDEs.</p>
             </a>
-            <a href="[https://ksom.res.in/research/non-commutative-functional-analysis](https://ksom.res.in/research/non-commutative-functional-analysis)" class="modal-research-card">
+            <a href="/research/non-commutative-functional-analysis" class="modal-research-card">
                 <h3>Non-commutative Functional Analysis Research</h3>
                 <p>We extend functional analysis to quantum realms through operator algebras and operator spaces, investigating quantum approximation properties and convexity in C*-algebras. Our work focuses on completely bounded approximation, quantum convexity, matricial ranges, and operator system structures. This research bridges abstract functional analysis with quantum information theory, with applications in quantum error correction, quantum channel classification, and geometric analysis of quantum states.</p>
                 </a>
-                <a href="[https://ksom.res.in/research/analytic-number-theory](https://ksom.res.in/research/analytic-number-theory)" class="modal-research-card">
+                <a href="/research/analytic-number-theory" class="modal-research-card">
                     <h3>Analytic Number Theory Research</h3>
                     <p>Our group employs advanced analytic techniques to study prime distributions, multiplicative functions, and L-function special values. We investigate multiple zeta values and their generalizations (including multiple Apéry-like sums), explicit averages beyond classical estimates, Möbius sums with coprimality conditions, and additive number theory extensions. Key work involves the Beurling-Selberg function's applications to prime number theory and developing new methods for bounding multiple zeta value tails, connecting analytic techniques with combinatorial structures.</p>
                 </a>
@@ -101,19 +101,19 @@ title: Kerala School of Mathematics - Official Website
     <div class="accordion-content" style="display: none;" id="accordion-content-academicResearchActivities">
     <p>Kerala School of Mathematics fosters a vibrant intellectual ecosystem through diverse academic programming that complements formal curriculum and research. These activities facilitate knowledge exchange, professional development, and scholarly collaboration, enriching our academic community while connecting with mathematical networks.</p>
     <div class="modal-research-cards-container">
-        <a href="https://ksom.res.in/activities/colloquium" class="modal-research-card">
+        <a href="/activities/colloquium" class="modal-research-card">
             <h3>Mathematics Colloquium</h3>
             <p>Features regular presentations by distinguished visiting mathematicians, showcasing frontier research across pure and applied mathematics. These talks provide comprehensive overviews of emerging fields while stimulating interdisciplinary dialogue among researchers at all career stages.</p>
         </a>
-        <a href="https://ksom.res.in/activities/seminar-series" class="modal-research-card">
+        <a href="/activities/seminar-series" class="modal-research-card">
             <h3>Specialized Seminar Series</h3>
             <p>Offers focused forums for deep exploration of specific mathematical disciplines. Organized by research groups, these sessions include graduate student presentations, paper discussions, and technical workshops that advance collaborative projects and methodological development.</p>
         </a>
-        <a href="https://ksom.res.in/activities/conferences" class="modal-research-card">
+        <a href="/activities/conferences" class="modal-research-card">
             <h3>International Conferences</h3>
             <p>Host annual gatherings convening global experts on specialized mathematical themes. These multi-day events feature invited lectures, contributed talks, and poster sessions that disseminate cutting-edge research while fostering new collaborations across institutions.</p>
         </a>
-        <a href="https://ksom.res.in/activities/workshops" class="modal-research-card">
+        <a href="/activities/workshops" class="modal-research-card">
             <h3>Research Workshops</h3>
             <p>Conduct intensive focused meetings for collaborative problem-solving and skill development. These shorter, topic-specific gatherings feature working sessions, tutorial lectures, and hands-on training in emerging methodologies, often leading to joint publications and research initiatives.</p>
         </a>
@@ -135,15 +135,15 @@ title: Kerala School of Mathematics - Official Website
         <p>Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.</p>
 
         <div class="modal-research-cards-container">
-            <a href="[https://ksom.res.in/programmes/integrated-msc-phd](https://ksom.res.in/programmes/integrated-msc-phd)" class="modal-research-card">
+            <a href="/programmes/integrated-msc-phd" class="modal-research-card">
                 <h3>Integrated M.Sc. - Ph.D. Programme</h3>
                 <p>Provides seamless progression from advanced coursework to doctoral research, specializing in Mathematics, Physics, or Theoretical Computer Science. Students receive monthly scholarships, hostel accommodation, and engage in research from the first year, developing strong theoretical foundations through a curriculum that bridges pure and applied mathematics. Admission requires a bachelor's degree with substantial mathematical background and performance in rigorous entrance examinations.</p>
             </a>
-            <a href="[https://ksom.res.in/programmes/phd](https://ksom.res.in/programmes/phd)" class="modal-research-card">
+            <a href="/programmes/phd" class="modal-research-card">
                 <h3>Ph.D. Programme</h3>
                 <p>Offers intensive research immersion in Pure or Applied Mathematics under close faculty mentorship. Spanning approximately five years, scholars transition from specialized coursework to original dissertation work on frontier mathematical problems, supported by fellowships, travel grants for conferences, and teaching opportunities. This programme cultivates independent research capabilities while fostering academic networking through seminars and collaborations with international experts.</p>
                 </a>
-            <a href="[https://ksom.res.in/programmes/postdoc](https://ksom.res.in/programmes/postdoc)" class="modal-research-card">
+            <a href="/programmes/postdoc" class="modal-research-card">
                 <h3>Postdoctoral Fellowships</h3>
                 <p>Provides opportunities for recent PhD graduates to pursue independent research in a collaborative environment. Fellows receive competitive stipends, research grants, and access to all institute resources, preparing them for leadership roles in academia and industry.</p>
             </a>
@@ -161,15 +161,15 @@ title: Kerala School of Mathematics - Official Website
         <div class="accordion-content" style="display: none;" id="accordion-content-outreachActivities">
             <p>Kerala School of Mathematics is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.</p>
             <div class="modal-research-cards-container">
-                <a href="[https://ksom.res.in/outreach/swim](https://ksom.res.in/outreach/swim)" class="modal-research-card">
+                <a href="/outreach/swim" class="modal-research-card">
                     <h3>Summer Workshop in Mathematics (SWIM)</h3>
                     <p>An intensive program for undergraduate students, providing them with exposure to advanced mathematical topics and research methodologies, fostering a deeper understanding and interest in research.</p>
                 </a>
-                <a href="[https://ksom.res.in/outreach/glimpses](https://ksom.res.in/outreach/glimpses)" class="modal-research-card">
+                <a href="/outreach/glimpses-into-mathematics" class="modal-research-card">
                     <h3>Glimpses into Mathematics</h3>
                     <p>A series of public lectures and interactive sessions that showcase the beauty, power, and practical applications of mathematics to a broad audience, including students and and the general public.</p>
                 </a>
-                <a href="[https://ksom.res.in/outreach/enrichment-day](https://ksom.res.in/outreach/enrichment-day)" class="modal-research-card">
+                <a href="/outreach/enrichment-day" class="modal-research-card">
                     <h3>School Enrichment Day</h3>
                     <p>An engaging program designed for high school students, featuring hands-on activities, problem-solving challenges, and inspiring talks to spark their interest in pursuing higher education in mathematics and related fields.</p>
                 </a>
@@ -240,7 +240,7 @@ title: Kerala School of Mathematics - Official Website
         </div>
         </div>
         <div class="archive-btn-container">
-            <a class="archive-btn" href="[https://ksom.res.in/news-archive](https://ksom.res.in/news-archive)">News archive</a>
+            <a class="archive-btn" href="/news">News archive</a>
         </div>
     </section>
 
@@ -300,7 +300,7 @@ title: Kerala School of Mathematics - Official Website
         </div>
         </div>
         <div class="archive-btn-container">
-            <a class="archive-btn" href="[https://ksom.res.in/events-archive](https://ksom.res.in/events-archive)">Upcoming Events Archive</a>
+            <a class="archive-btn" href="/events">Upcoming Events Archive</a>
         </div>
     </section>
 </div>
