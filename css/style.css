@@ -541,40 +541,29 @@ nav a:hover {
 /* NEW: Full-width layout for specific pages (e.g., research.md) */
 
 .main-full-width {
-    /* Grid properties for layout, similar to main-layout-wrapper */
-    display: grid;
-    grid-template-columns: 1fr; /* Single column layout */
-    gap: 0.5rem; /* Gap between grid items */
+    /* Grid properties for layout */
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 0.5rem; /* Gap between grid items */
 
-    /* Width and centering, similar to main-layout-wrapper */
-    width: 95%; /* Take 95% of available width */
-    max-width: var(--max-content-width); /* Respect overall max content width */
-    margin-left: auto; /* Center the content horizontally */
-    margin-right: auto; /* Center the content horizontally */
-    margin-bottom: 1.5rem; /* Space at the bottom of the main content block */
+    /* Ensure it spans full width of its parent */
+    width: 100%; /* Changed from 95% to 100% for full width */
+    max-width: none; /* Removed max-width constraint */
+    margin-left: 0; /* Removed auto margins */
+    margin-right: 0; /* Removed auto margins */
+    margin-bottom: 1.5rem; /* Space at the bottom of the main content block */
 
-    /* Internal padding, aligning with main-layout-wrapper and previous structure */
-    padding-top: 1rem; /* Space at the top of the main content inside the container */
-    padding-bottom: 0.5rem; /* Keeping existing bottom padding as it wasn't specified for removal */
-    padding-left: 0; /* Removing explicit side padding to align with 95% width from wrapper */
-    padding-right: 0; /* Removing explicit side padding to align with 95% width from wrapper */
-    box-sizing: border-box; /* Ensure padding is included in the width */
+    /* Internal padding, now applied to the full-width container's content */
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    padding-left: var(--default-page-padding); /* Applying standard page padding internally */
+    padding-right: var(--default-page-padding); /* Applying standard page padding internally */
+    box-sizing: border-box; /* Ensure padding is included in the width */
 
-    /* Other layout properties (if any were already present and you want to keep them) */
-    flex-grow: 1; /* Keep this if the parent container is flex and it needs to grow */
+    /* Other layout properties */
+    flex-grow: 1; /* Keep this if the parent container is flex and it needs to grow */
 }
 
-.full-width-container {
-  width: 100%; /* Ensure it takes full width of its parent (main#main-content) */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  /*
-    Optional: If you want the *content* inside the full-width-container to still have some padding,
-    but the background/container itself spans full width, add padding here.
-    For example:
-    padding-left: var(--default-page-padding);
-    padding-right: var(--default-page-padding);
-  */
-}
 
 
 
