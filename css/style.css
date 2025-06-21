@@ -1909,11 +1909,19 @@ footer .footer-column a:hover {
   body {
     padding-top: 0px;
   }
-@media (max-width: 768px) { /* This media query targets screens up to 768px wide (typical for tablets and phones) */
-    main {
-        padding-left: 0.5rem; /* Minimal padding on the left for mobile */
-        padding-right: 0.5rem; /* Minimal padding on the right for mobile */
-    }
+@media (max-width: 768px) {
+  main {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-left: 0;   /* NEW: Override default auto margins for mobile */
+    margin-right: 0;  /* NEW: Override default auto margins for mobile */
+    max-width: 100%; /* NEW: Ensure main expands fully on small screens */
+  }
+
+  .main-layout-wrapper {
+    width: auto; /* Ensure it takes full width of main's content area */
+    margin: 0;   /* Ensure no centering margins are applied */
+  }
 }
 
   .header-content {
