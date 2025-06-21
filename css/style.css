@@ -534,9 +534,9 @@ main {
   grid-template-columns: 43.2fr 28.8fr 28fr;
   /* Changed gap to explicitly define row-gap and column-gap */
   gap: 1rem 1.5rem; /* row-gap: 1rem, column-gap: 1.5rem */
-  width: 90%;
+  width: auto;
   max-width: var(--max-content-width);
-  margin: 0 auto;
+  margin: 0;
   padding-top: 1rem; /* Reduced from 2rem */
   margin-bottom: 3rem;
   flex-grow: 1; /* Allow main content to grow and push footer down */
