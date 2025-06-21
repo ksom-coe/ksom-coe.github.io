@@ -19,10 +19,7 @@ title: Kerala School of Mathematics - Official Website
     <div class="mySlides fade">
         <img src="/Images/Main/Image-5.webp" width="1200" height="350" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/1200x350/ADAFC8/ffffff?text=KSoM+Campus+5';" alt="KSoM Campus Image 5" />
     </div>
-    <div class="overlay-text">
-        <div class="main-title">Kerala School of Mathematics</div>
-        <div class="sub-title">An autonomous institution jointly established by the Science & Technology Department, Government of Kerala, and the Department of Atomic Energy, Government of India.</div>
-    </div>
+    
 </div>
 
 <!-- About KSoM Section -->
