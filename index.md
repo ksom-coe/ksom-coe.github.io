@@ -75,7 +75,7 @@ title: Kerala School of Mathematics - Official Website
     </section>
 
     <!-- Academic & Research Activities Section -->
-<section id="academic-activities-section" class="accordion-item" data-accordion-id="academicResearchActivities" data-learn-more-url="https://ksom.res.in/activities" data-modal-opener="true">
+<section id="academic-activities-section" class="accordion-item" data-accordion-id="academicResearchActivities" data-learn-more-url="/activities" data-modal-opener="true">
     <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Academic & Research Activities at KSoM" aria-expanded="false" aria-controls="accordion-content-academicResearchActivities">Academic & Research Activities at KSoM</div>
     <div class="accordion-snippet">
     <!-- Slideshow container -->
@@ -126,7 +126,7 @@ title: Kerala School of Mathematics - Official Website
 <!-- Right Main Content Column (40% width) -->
 <div class="right-accordion-col-wrapper">
     <!-- Academic Programmes Section -->
-    <section id="academic-programmes-section" class="accordion-item" data-accordion-id="academicProgrammes" data-learn-more-url="[https://ksom.res.in/programmes](https://ksom.res.in/programmes)" data-modal-opener="true">
+    <section id="academic-programmes-section" class="accordion-item" data-accordion-id="academicProgrammes" data-learn-more-url="/programmes" data-modal-opener="true">
         <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Academic Programmes at KSoM" aria-expanded="false" aria-controls="accordion-content-academicProgrammes">Academic Programmes at KSoM</div>
         <div class="accordion-snippet">
         Kerala School of Mathematics offers rigorous academic pathways designed to cultivate exceptional mathematical talent through research-intensive training and mentorship. Our programmes integrate foundational coursework with cutting-edge investigation, preparing scholars for impactful careers in academia, research institutions, and quantitative industries. Each pathway features dedicated faculty supervision, comprehensive financial support, and access to world-class facilities within our collaborative mathematical community.<span class="snippet-more-indicator"> ...more</span>
@@ -153,7 +153,7 @@ title: Kerala School of Mathematics - Official Website
     </section>
 
     <!-- Outreach Section -->
-    <section id="outreach-section" class="accordion-item" data-accordion-id="outreachActivities" data-learn-more-url="[https://ksom.res.in/outreach](https://ksom.res.in/outreach)" data-modal-opener="true">
+    <section id="outreach-section" class="accordion-item" data-accordion-id="outreachActivities" data-learn-more-url="/outreach" data-modal-opener="true">
         <div class="accordion-header" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Open details about Outreach Activities" aria-expanded="false" aria-controls="accordion-content-outreachActivities">Outreach Activities</div>
         <div class="accordion-snippet">
             Kerala School of Mathematics is deeply committed to outreach, offering programs like the Summer Workshop in Mathematics (SWIM), Glimpses into Mathematics, and School Mathematics Enrichment Day, aimed at promoting mathematical literacy and passion among students at various levels across Kerala and India.<span class="snippet-more-indicator"> ...more</span>
