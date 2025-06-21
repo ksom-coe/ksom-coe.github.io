@@ -564,7 +564,6 @@ main {
     margin: 0; /* Reset margins */
     margin-bottom: 1.5rem; /* Keep existing bottom margin */
 
-    padding-top: 1rem;
     padding-bottom: 0.5rem;
     padding-left: 0; /* Remove explicit side padding, as 'main' provides it */
     padding-right: 0; /* Remove explicit side padding, as 'main' provides it */
