@@ -20,7 +20,6 @@
   --dark-border: #444;
   --two-column-gap: 2rem; /* Added variable for two-column gap */
   --accordion-column-gap: 1.5rem; /* Specific gap for columns of accordions */
-  --page-horizontal-padding: 1.5rem; /* Added variable for consistent page side padding */
 }
 
 /* === Base Reset === */
@@ -30,9 +29,8 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
-
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-body); /* Apply Lora as the primary body font */
   background: var(--primary-bg);
   color: var(--primary-text);
   line-height: 1.65;
@@ -40,9 +38,9 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
   display: flex;
   flex-direction: column;
-  width: 100%; /* Ensure body itself spans full viewport width */
-  padding-top: 0px;
-  min-height: 100vh;
+  align-items: center;
+  padding-top: 70px; /* Space for fixed header */
+  min-height: 100vh; /* Ensure body takes full viewport height */
 }
 body.dark-mode {
   background: var(--dark-primary-bg);
@@ -510,19 +508,6 @@ nav a:hover {
 }
 
 
-main {
-    width: 100%; /* Allow main to initially take full width of body */
-    max-width: var(--max-content-width); /* Cap the maximum width of the content area (e.g., 1400px) */
-    margin-left: auto; /* Center the main content area horizontally */
-    margin-right: auto; /* Center the main content area horizontally */
-    
-    /* Apply horizontal padding here to define the 'usable screen width' borders */
-    padding-left: var(--page-horizontal-padding); /* Use your defined horizontal page padding (e.g., 1.5rem) */
-    padding-right: var(--page-horizontal-padding); /* Use your defined horizontal page padding */
-    box-sizing: border-box; /* Ensure padding is included in the width */
-}
-
-
 /* === Main Layout Wrapper (Primary CSS Grid) === */
 .main-layout-wrapper {
   display: grid;
@@ -534,9 +519,9 @@ main {
   grid-template-columns: 43.2fr 28.8fr 28fr;
   /* Changed gap to explicitly define row-gap and column-gap */
   gap: 1rem 1.5rem; /* row-gap: 1rem, column-gap: 1.5rem */
-  width: auto;
+  width: 90%;
   max-width: var(--max-content-width);
-  margin: 0;
+  margin: 0 auto;
   padding-top: 1rem; /* Reduced from 2rem */
   margin-bottom: 3rem;
   flex-grow: 1; /* Allow main content to grow and push footer down */
@@ -554,24 +539,30 @@ main {
 }
 
 /* NEW: Full-width layout for specific pages (e.g., research.md) */
+
 .main-full-width {
+    /* Grid properties for layout, similar to main-layout-wrapper */
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.5rem; /* Still for internal gap between grid items */
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 0.5rem; /* Gap between grid items */
 
-    width: 100%; /* Takes full width of its parent (the <main> tag) */
-    /* Remove max-width, margin-left/right, padding-left/right as 'main' now handles these */
-    margin: 0; /* Reset margins */
-    margin-bottom: 1.5rem; /* Keep existing bottom margin */
+    /* Width and centering, similar to main-layout-wrapper */
+    width: 95%; /* Take 95% of available width */
+    max-width: var(--max-content-width); /* Respect overall max content width */
+    margin-left: auto; /* Center the content horizontally */
+    margin-right: auto; /* Center the content horizontally */
+    margin-bottom: 1.5rem; /* Space at the bottom of the main content block */
 
-    padding-bottom: 0.5rem;
-    padding-left: 0; /* Remove explicit side padding, as 'main' provides it */
-    padding-right: 0; /* Remove explicit side padding, as 'main' provides it */
-    box-sizing: border-box;
+    /* Internal padding, aligning with main-layout-wrapper and previous structure */
+    padding-top: 1rem; /* Space at the top of the main content inside the container */
+    padding-bottom: 0.5rem; /* Keeping existing bottom padding as it wasn't specified for removal */
+    padding-left: 0; /* Removing explicit side padding to align with 95% width from wrapper */
+    padding-right: 0; /* Removing explicit side padding to align with 95% width from wrapper */
+    box-sizing: border-box; /* Ensure padding is included in the width */
 
-    flex-grow: 1; /* Keep if its parent is flex and it needs to grow */
+    /* Other layout properties (if any were already present and you want to keep them) */
+    flex-grow: 1; /* Keep this if the parent container is flex and it needs to grow */
 }
-
 
 
 
@@ -739,8 +730,6 @@ body.dark-mode .static-section table tr:nth-child(even) {
     box-shadow: none !important;
     cursor: default; /* Not clickable for modal */
     transform: none; /* No transform on hover */
-    margin-top: 0.5rem !important;
-    padding-top: 0.5rem !important;
 }
 #campus-photos-section:hover {
     box-shadow: none !important;
@@ -1907,19 +1896,8 @@ footer .footer-column a:hover {
 /* === Responsive === */
 @media (max-width: 768px) {
   body {
-    padding-top: 0px;
+    padding-top: 80px;
   }
-@media (max-width: 768px) {
-  main {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-
-  .main-layout-wrapper {
-    width: 100%; /* Ensure it takes full width of main's content area */
-    margin: 0;   /* Ensure no centering margins are applied */
-  }
-}
 
   .header-content {
       flex-direction: row;
