@@ -564,6 +564,18 @@ nav a:hover {
     flex-grow: 1; /* Keep this if the parent container is flex and it needs to grow */
 }
 
+.full-width-container {
+  width: 100%; /* Ensure it takes full width of its parent (main#main-content) */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  /*
+    Optional: If you want the *content* inside the full-width-container to still have some padding,
+    but the background/container itself spans full width, add padding here.
+    For example:
+    padding-left: var(--default-page-padding);
+    padding-right: var(--default-page-padding);
+  */
+}
+
 
 
 /* Assign grid areas to direct children of main-layout-wrapper */
