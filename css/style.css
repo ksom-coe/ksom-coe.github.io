@@ -70,6 +70,7 @@ img {
 
 /* === 1. Accordion Layout and Wrapper Styles === */
 .main-layout-wrapper {
+  display: grid;
   grid-template-columns: 1fr;
   grid-template-areas:
     "campus"
@@ -77,11 +78,11 @@ img {
     "sidebar-col"
     "left-main-col"
     "right-main-col";
-  gap: 1.5rem;
+  row-gap: 0rem; /* Eliminates unwanted vertical gap */
+  column-gap: 1.5rem; /* Preserve horizontal spacing if needed */
   width: 95%;
   padding-top: 1rem;
   margin-bottom: 1.5rem;
-  row-gap: 0.3rem !important; /* even tighter */
 }
 
 .left-accordion-col-wrapper,
