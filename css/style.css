@@ -1919,7 +1919,7 @@ footer .footer-column a:hover {
   }
 
   .main-layout-wrapper {
-    width: auto; /* Ensure it takes full width of main's content area */
+    width: 100%; /* Ensure it takes full width of main's content area */
     margin: 0;   /* Ensure no centering margins are applied */
   }
 }
