@@ -541,27 +541,26 @@ nav a:hover {
 }
 
 /* NEW: Full-width layout for specific pages (e.g., research.md) */
-
 .main-full-width {
-    /* Grid properties for layout */
+    /* Grid properties for internal layout if desired */
     display: grid;
-    grid-template-columns: 1fr; /* Single column layout */
+    grid-template-columns: 1fr; /* Single column layout for primary content */
     gap: 0.5rem; /* Gap between grid items */
 
-    /* Ensure it spans full width of its parent */
-    width: 100%; /* Changed from 95% to 100% for true full width */
-    max-width: none; /* Removed max-width constraint */
-    margin: 0; /* Removed auto margins and set all margins to 0 */
-    margin-bottom: 1.5rem; /* Keep existing margin-bottom */
+    /* Constrained width and centering */
+    width: 90%; /* This width will make it less than 100% */
+    max-width: var(--max-content-width); /* Limits the maximum width (e.g., 1400px) */
+    margin: 0 auto; /* Centers the block horizontally on the page */
+    margin-bottom: 1.5rem; /* Keep existing bottom margin */
 
-    /* Internal padding, now applied to the full-width container's content */
+    /* Internal padding */
     padding-top: 1rem;
     padding-bottom: 0.5rem;
-    padding-left: var(--page-horizontal-padding); /* Use new variable for consistency */
-    padding-right: var(--page-horizontal-padding); /* Use new variable for consistency */
-    box-sizing: border-box; /* Ensure padding is included in the width */
+    padding-left: 0; /* No additional side padding, as width handles the constraint */
+    padding-right: 0; /* No additional side padding, as width handles the constraint */
+    box-sizing: border-box; /* Ensure padding is included in the width calculation */
 
-    flex-grow: 1; /* Keep if its parent is flex and it needs to grow */
+    flex-grow: 1; /* Keep this if the parent container is flex and it needs to grow */
 }
 
 
