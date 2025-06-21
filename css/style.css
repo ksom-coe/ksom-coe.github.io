@@ -20,6 +20,7 @@
   --dark-border: #444;
   --two-column-gap: 2rem; /* Added variable for two-column gap */
   --accordion-column-gap: 1.5rem; /* Specific gap for columns of accordions */
+  --page-horizontal-padding: 1.5rem; /* Added variable for consistent page side padding */
 }
 
 /* === Base Reset === */
@@ -29,8 +30,9 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+
 body {
-  font-family: var(--font-body); /* Apply Lora as the primary body font */
+  font-family: var(--font-body);
   background: var(--primary-bg);
   color: var(--primary-text);
   line-height: 1.65;
@@ -38,9 +40,9 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-top: 70px; /* Space for fixed header */
-  min-height: 100vh; /* Ensure body takes full viewport height */
+  width: 100%; /* Ensure body itself spans full viewport width */
+  padding-top: 70px;
+  min-height: 100vh;
 }
 body.dark-mode {
   background: var(--dark-primary-bg);
@@ -541,27 +543,25 @@ nav a:hover {
 /* NEW: Full-width layout for specific pages (e.g., research.md) */
 
 .main-full-width {
-    /* Grid properties for layout */
-    display: grid;
-    grid-template-columns: 1fr; /* Single column layout */
-    gap: 0.5rem; /* Gap between grid items */
+    /* Grid properties for layout */
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 0.5rem; /* Gap between grid items */
 
-    /* Ensure it spans full width of its parent */
-    width: 100%; /* Changed from 95% to 100% for full width */
-    max-width: none; /* Removed max-width constraint */
-    margin-left: 0; /* Removed auto margins */
-    margin-right: 0; /* Removed auto margins */
-    margin-bottom: 1.5rem; /* Space at the bottom of the main content block */
+    /* Ensure it spans full width of its parent */
+    width: 100%; /* Changed from 95% to 100% for true full width */
+    max-width: none; /* Removed max-width constraint */
+    margin: 0; /* Removed auto margins and set all margins to 0 */
+    margin-bottom: 1.5rem; /* Keep existing margin-bottom */
 
-    /* Internal padding, now applied to the full-width container's content */
-    padding-top: 1rem;
-    padding-bottom: 0.5rem;
-    padding-left: var(--default-page-padding); /* Applying standard page padding internally */
-    padding-right: var(--default-page-padding); /* Applying standard page padding internally */
-    box-sizing: border-box; /* Ensure padding is included in the width */
+    /* Internal padding, now applied to the full-width container's content */
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    padding-left: var(--page-horizontal-padding); /* Use new variable for consistency */
+    padding-right: var(--page-horizontal-padding); /* Use new variable for consistency */
+    box-sizing: border-box; /* Ensure padding is included in the width */
 
-    /* Other layout properties */
-    flex-grow: 1; /* Keep this if the parent container is flex and it needs to grow */
+    flex-grow: 1; /* Keep if its parent is flex and it needs to grow */
 }
 
 
