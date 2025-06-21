@@ -910,7 +910,8 @@ body.dark-mode .static-section table tr:nth-child(even) {
 
 #about-ksom-section {
   margin-top: 0rem !important;
-  
+  padding-top: 0 !important;
+  line-height: 1.4;
 }
 .fancy-calendar-button-container {
     padding: 0 !important;
