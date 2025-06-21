@@ -70,20 +70,29 @@ img {
 
 /* === 1. Accordion Layout and Wrapper Styles === */
 .main-layout-wrapper {
-  grid-template-columns: 1fr;
+  display: grid;
+  grid-template-columns: 43.2fr 28.8fr 28fr; /* Left, middle, sidebar */
   grid-template-areas:
-    "campus"
-    "about"
-    "sidebar-col"
-    "left-main-col"
-    "right-main-col";
+    "campus     campus     sidebar"
+    "about      about      sidebar"
+    "left-col   right-col  sidebar";
+  grid-auto-rows: auto;
   gap: 1.5rem;
   width: 95%;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
   padding-top: 1rem;
   margin-bottom: 1.5rem;
-  row-gap: 0.3rem !important; /* even tighter */
 }
 
+/* Assign grid areas */
+#campus-photos-section { grid-area: campus; }
+#about-ksom-section { grid-area: about; }
+.left-accordion-col-wrapper { grid-area: left-col; }
+.right-accordion-col-wrapper { grid-area: right-col; }
+.sidebar-container { grid-area: sidebar; }
+
+/* Ensure columns flow vertically and independently */
 .left-accordion-col-wrapper,
 .right-accordion-col-wrapper,
 .sidebar-container {
@@ -95,12 +104,36 @@ img {
   box-shadow: none;
 }
 
-/* Grid Area Assignments */
-#campus-photos-section { grid-area: campus; }
-#about-ksom-section { grid-area: about; }
-.left-accordion-col-wrapper { grid-area: left-main-col; }
-.right-accordion-col-wrapper { grid-area: right-main-col; }
-.sidebar-container { grid-area: sidebar-col; }
+/* === Section Overrides === */
+#campus-photos-section {
+  grid-area: campus;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  cursor: default;
+  transform: none;
+  line-height: 0; /* Prevent spacing under images */
+}
+
+#campus-photos-section:hover {
+  box-shadow: none !important;
+}
+
+#about-ksom-section {
+  grid-area: about;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+
+
+
+
+
+
+
+
 
 
 /* === 2. Accordion Item Base Styles === */
@@ -866,24 +899,7 @@ body.dark-mode .static-section table tr:nth-child(even) {
 
 
 
-/* Overrides for sections that should not have the default card styling */
-#campus-photos-section {
-    padding: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    cursor: default; /* Not clickable for modal */
-    transform: none; /* No transform on hover */
-    margin-top: 0rem;
-    margin-bottom: 0rem !important;
-    padding-bottom: 0rem !important;
-}
-#campus-photos-section:hover {
-    box-shadow: none !important;
-}
-#about-ksom-section {
-  margin-top: 0rem !important;
-  
-}
+
 .fancy-calendar-button-container {
     padding: 0 !important;
     background: transparent !important;
