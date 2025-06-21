@@ -1913,9 +1913,6 @@ footer .footer-column a:hover {
   main {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    margin-left: 0;   /* NEW: Override default auto margins for mobile */
-    margin-right: 0;  /* NEW: Override default auto margins for mobile */
-    max-width: 100%; /* NEW: Ensure main expands fully on small screens */
   }
 
   .main-layout-wrapper {
