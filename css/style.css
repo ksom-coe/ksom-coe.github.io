@@ -61,431 +61,133 @@ img {
 
 
 
+/* === Typography & Content Lists (Rewritten from Scratch) === */
 
-
-
-/* ==========================================
-   Consolidated Accordion & Static Section CSS
-   ========================================== */
-
-/* === 1. Accordion Layout and Wrapper Styles === */
-.main-layout-wrapper {
-  display: grid;
-  grid-template-columns: 43.2fr 28.8fr 28fr; /* Left, middle, sidebar */
-  grid-template-areas:
-    "campus     campus     sidebar"
-    "about      about      sidebar"
-    "left-col   right-col  sidebar";
-  grid-auto-rows: auto;
-  gap: 1.5rem;
-  width: 95%;
-  max-width: var(--max-content-width);
-  margin: 0 auto;
-  padding-top: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-/* Assign grid areas */
-#campus-photos-section { grid-area: campus; }
-#about-ksom-section { grid-area: about; }
-.left-accordion-col-wrapper { grid-area: left-col; }
-.right-accordion-col-wrapper { grid-area: right-col; }
-.sidebar-container { grid-area: sidebar; }
-
-/* Ensure columns flow vertically and independently */
-.left-accordion-col-wrapper,
-.right-accordion-col-wrapper,
-.sidebar-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
-/* === Section Overrides === */
-#campus-photos-section {
-  grid-area: campus;
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  cursor: default;
-  transform: none;
-  line-height: 0; /* Prevent spacing under images */
-}
-
-#campus-photos-section:hover {
-  box-shadow: none !important;
-}
-
-#about-ksom-section {
-  grid-area: about;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-
-
-
-
-
-
-
-
-
-
-/* === 2. Accordion Item Base Styles === */
-.accordion-item {
-  display: block;
-  width: 100%;
-  padding: 1rem;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  box-sizing: border-box;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  break-inside: avoid-column;
-  page-break-inside: avoid;
-  color: inherit;
-  text-decoration: none;
-  margin-bottom: 0.5rem;
-}
-
-.accordion-item:last-of-type,
-.main-full-width > .accordion-item:last-child {
-  margin-bottom: 0;
-}
-
-.accordion-item:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
-  text-decoration: none;
-}
-
-.accordion-item[data-direct-link="true"]:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Alternate Backgrounds */
-.accordion-item.default-bg { background-color: var(--card-bg); }
-.accordion-item.alt-bg { background-color: var(--primary-bg); }
-
-
-/* === 3. Accordion Header and Arrows === */
-.accordion-header {
-  font-family: var(--font-serif);
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--accent-blue);
-  margin-bottom: 0.4rem;
-  display: flex !important;
-  justify-content: space-between;
-  align-items: center;
-  cursor: inherit;
-  text-align: left;
-  width: fit-content;
-  max-width: 100%;
-}
-
-.accordion-item:not([data-direct-link="true"]):not([data-modal-opener="true"]) .accordion-header::after {
-  content: '\25BC';
-  font-size: 0.9em;
-  margin-left: 10px;
-  transition: transform 0.3s ease;
-}
-
-.accordion-item[data-modal-opener="true"] .accordion-header::after {
-  content: none !important;
-}
-
-/* Compact Headings Style */
-body.compact-headings-style .accordion-item .accordion-header {
-  font-size: 1rem;
-  color: #000;
-}
-body.dark-mode.compact-headings-style .accordion-item .accordion-header {
-  color: #f1f1f1;
-}
-
-
-/* === 4. Accordion Content === */
-.accordion-content {
-  font-size: 0.975rem;
-  line-height: 1.7;
-  color: #333;
-  padding-bottom: 1.5rem;
-}
-
-.accordion-content p {
-  font-weight: normal;
-  margin-bottom: 1em;
-}
-
-.accordion-content p:last-child {
-  margin-bottom: 0;
-}
-
-.accordion-snippet {
-  font-size: 1rem;
-  color: #444;
-  font-weight: normal;
-  cursor: inherit;
-}
-
-/* Collapsible Content */
-.collapsible-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-  padding-bottom: 0;
-}
-.collapsible-content.expanded {
-  max-height: 1000px;
-  padding-bottom: 1.5rem;
-}
-
-
-/* === 5. Static Sections === */
-.static-section {
-  cursor: default;
-  transform: none;
-  box-shadow: none;
-  padding: 1rem !important;
-  background: transparent !important;
-  margin-bottom: 0 !important;
-  gap: 0rem;
-}
-
-.static-section .accordion-header {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: var(--accent-blue);
-  font-weight: 700;
-  font-family: var(--font-serif);
-  display: block;
-  cursor: default;
-}
-
-/* Highlight and Blue Sections */
-.static-section.static-blue-section .accordion-content.static-content,
-.accordion-item.highlight-card {
-  background-color: #e6f7ff;
-  border: 1px solid var(--accent-light);
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  color: var(--text-primary);
-}
-
-.static-section.static-blue-section .accordion-header,
-.accordion-item.highlight-card .accordion-header {
-  color: var(--accent-blue);
-  font-weight: 700;
-}
-
-/* Tables Inside Blue Sections */
-.static-blue-section table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
-  font-size: 0.95rem;
-  color: var(--text-primary);
-}
-
-.static-blue-section th,
-.static-blue-section td {
-  border: 1px solid var(--accent-light);
-  padding: 0.8em 0.5em;
-  text-align: center;
-}
-
-.static-blue-section th {
-  background-color: var(--accent-light);
-  font-weight: bold;
-  vertical-align: top;
-}
-
-.static-blue-section tbody tr:nth-child(even) {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.static-blue-section tbody tr:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.static-blue-section .table-note {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-}
-
-
-/* === 6. Typography & Lists === */
+/* --- 1. Global List Resets --- */
+/* Apply a base reset to all unordered and ordered lists.
+   This ensures we start with no default browser margins/paddings on the UL/OL containers,
+   allowing our specific rules to define indentation precisely. */
 .static-content ul,
 .static-content ol,
 .accordion-content ul,
 .accordion-content ol {
-  margin: 1em 0;
-  padding-left: 0;
+    margin-left: 0;         /* Remove default left margin */
+    padding-left: 0;        /* Remove default left padding */
+    margin-top: 1em;        /* Consistent space above the list block */
+    margin-bottom: 1em;     /* Consistent space below the list block */
 }
 
+/* --- 2. General List Item (LI) Styling --- */
+/* Apply common styles to all list items (LI), regardless of list type or nesting level. */
 .static-content li,
 .accordion-content li {
-  line-height: 1.6;
-  margin-bottom: 0.5em;
+    line-height: 1.6;       /* Consistent line height for readability */
+    margin-bottom: 0.5em;   /* Space between individual list items */
+    /* Specific padding/indentation handled by more precise selectors below */
 }
 
+
+/* --- 3. Styling for TOP-LEVEL Lists (Direct children of .static-content or .accordion-content) --- */
+
+/* 3.1 Top-Level UNORDERED LISTS (Standalone Bullet Points) */
 .static-content > ul,
 .accordion-content > ul {
-  list-style: disc inside;
-  padding-left: 25px;
+    list-style: disc inside; /* Bullet is placed inside the LI's content flow */
+    /* This padding-left positions the entire UL block.
+       The bullets will start at (parent's 1.5rem padding + 25px) = ~49px from the content edge.
+       This value is restored to the previous "rendering well" state for standalone bullets. */
+    padding-left: 25px; 
 }
 
+/* 3.2 Top-Level ORDERED LISTS (Standalone Numbered Lists) */
 .static-content > ol,
 .accordion-content > ol {
-  list-style-position: outside;
-  padding-left: 1.5rem;
+    list-style-position: outside; /* Crucial: Numbers float outside the text block */
+    /* This padding-left positions the *numbers* to align with the main content baseline (1.5rem / 24px). */
+    padding-left: 1.5rem; 
 }
 
+/* 3.3 List Items within Top-Level ORDERED LISTS (`ol > li`) */
+/* This defines how the text content of numbered items aligns relative to their numbers. */
 .static-content > ol > li,
 .accordion-content > ol > li {
-  padding-left: 0.8em;
-  text-indent: 0;
-  list-style-position: outside;
+    text-indent: 0; /* Ensures all lines of text align consistently */
+    /* This padding-left creates a small gap between the number and the start of the text content.
+       Text will start at (parent OL's 1.5rem + LI's 0.8em) = ~37px from content edge. */
+    padding-left: 0.8em; 
+    list-style-position: outside; /* Explicitly ensure number remains outside */
 }
 
+
+/* --- 4. Styling for NESTED LISTS (UL or OL that is a direct child of an LI) --- */
+
+/* 4.1 Nested List Containers (`li > ul`, `li > ol`) */
+/* Crucial: Set padding-left to 0 on the nested list container itself.
+   This makes the nested list start exactly at the same horizontal position as its parent LI's text content. */
 .static-content li > ul,
 .static-content li > ol,
 .accordion-content li > ul,
 .accordion-content li > ol {
-  margin: 0.5em 0;
-  padding-left: 0;
+    margin-left: 0;        /* Ensure no inherited left margin */
+    padding-left: 0;       /* Align perfectly with parent LI's text start */
+    margin-top: 0.5em;     /* Smaller vertical gap above nested list */
+    margin-bottom: 0.5em;  /* Smaller vertical gap below nested list */
 }
 
+/* 4.2 List Items within NESTED UNORDERED LISTS (`li > ul > li`) */
+/* This ensures nested bullets align directly with the text content of the parent numbered item. */
 .static-content li > ul > li,
 .accordion-content li > ul > li {
-  list-style: disc inside;
+    list-style: disc inside; /* Bullet is INSIDE the text flow.
+                                 Because the parent UL has padding-left:0, this bullet
+                                 will naturally align with the parent LI's text content. */
+    /* No additional padding-left or text-indent needed here due to 'inside' and parent UL's padding. */
 }
 
+/* 4.3 List Items within NESTED ORDERED LISTS (`li > ol > li`) */
+/* This creates a clean hanging indent for nested numbered lists, aligned with parent LI's text. */
 .static-content li > ol > li,
 .accordion-content li > ol > li {
-  list-style-position: outside;
-  padding-left: 1.5em;
-  text-indent: -1.5em;
+    list-style-position: outside; /* Number floats outside the text block */
+    /* These two properties create the hanging indent effect:
+       padding-left pushes the text content right; negative text-indent pulls the number left into that space.
+       The values are relative to the parent LI's text starting point. */
+    padding-left: 1.5em; /* Space for the number + a small indent for text (e.g., 24px) */
+    text-indent: -1.5em; /* Pulls the number back by the same amount */
 }
 
+
+/* --- 5. General Content Spacing within List Items --- */
+
+/* Ensure headings (e.g., h3) within list items have consistent spacing and alignment */
 .static-content li h3,
 .accordion-content li h3 {
-  margin: 0 0 0.5rem 0;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
 }
 
+/* Ensure paragraphs directly within list items don't add extra undesirable indentation */
 .static-content li p,
 .accordion-content li p {
-  margin-left: 0;
-  padding-left: 0;
+    margin-left: 0; 
+    padding-left: 0;
 }
 
+
+/* --- 6. Final Clean-up --- */
+
+/* Remove bottom margin from the very last list item in any list to prevent excess space. */
 .static-content li:last-child,
-.accordion-content li:last-child,
+.accordion-content li:last-child {
+    margin-bottom: 0;
+}
+
+/* Also remove bottom margin from the very last direct child element within any list item.
+   This catches cases where the last item is not an LI, but a paragraph, div, nested list, etc. */
 .static-content li > *:last-child,
 .accordion-content li > *:last-child {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
-
-
-/* === 7. MathJax Fixes === */
-mjx-container[jax="CHTML"][display="false"] {
-  display: inline !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  vertical-align: middle !important;
-  white-space: nowrap !important;
-  overflow-wrap: normal !important;
-  line-height: inherit !important;
-  max-width: none !important;
-  width: auto !important;
-}
-
-.accordion-header mjx-container[jax="CHTML"][display="false"] {
-  display: inline !important;
-  white-space: nowrap !important;
-  width: auto !important;
-  max-width: none !important;
-  margin-right: 0.25rem;
-}
-
-mjx-container[display="true"] {
-  display: block !important;
-  margin: 1rem 0 !important;
-  padding: 0.5rem 1rem !important;
-  max-width: 100% !important;
-  overflow-x: auto !important;
-  box-sizing: border-box;
-  background: var(--card-bg, #f9f9f9);
-  border-left: 4px solid var(--accent-blue, #005fa3);
-  border-radius: 6px;
-}
-
-
-/* === 8. Dark Mode Support === */
-body.dark-mode .accordion-item,
-body.dark-mode .modal-research-card {
-  background: var(--dark-card-bg);
-  border: 1px solid var(--dark-border);
-  color: var(--dark-primary-text);
-}
-
-body.dark-mode .accordion-item:hover {
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
-body.dark-mode .static-section .accordion-content.static-content,
-body.dark-mode .static-section.static-blue-section .accordion-content.static-content {
-  background-color: #1f3a4e;
-  border-color: #004066;
-  color: var(--dark-primary-text);
-}
-
-body.dark-mode .static-section.static-blue-section .accordion-header,
-body.dark-mode .accordion-item.highlight-card .accordion-header {
-  color: var(--dark-primary-text);
-}
-
-body.dark-mode .static-section.static-blue-section table,
-body.dark-mode .static-section.static-blue-section th,
-body.dark-mode .static-section.static-blue-section td {
-  color: var(--dark-primary-text);
-}
-
-body.dark-mode .static-section.static-blue-section table th {
-  background-color: #004066;
-}
-
-body.dark-mode .static-section.static-blue-section tbody tr:nth-child(even) {
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-body.dark-mode .static-section.static-blue-section tbody tr:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .static-section.static-blue-section .table-note {
-  color: var(--dark-secondary-text);
-}
-
-body.dark-mode .accordion-item.highlight-card {
-  background-color: #1f3a4e;
-  border-color: #004066;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-
 
 
 
@@ -836,22 +538,138 @@ nav a:hover {
     "left-main-col   right-main-col   sidebar-col";
 }
 
-
-
-
-
 /* NEW: Full-width layout for specific pages (e.g., research.md) */
 
+.main-full-width {
+    /* Grid properties for layout, similar to main-layout-wrapper */
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 0.5rem; /* Gap between grid items */
+
+    /* Width and centering, similar to main-layout-wrapper */
+    width: 95%; /* Take 95% of available width */
+    max-width: var(--max-content-width); /* Respect overall max content width */
+    margin-left: auto; /* Center the content horizontally */
+    margin-right: auto; /* Center the content horizontally */
+    margin-bottom: 1.5rem; /* Space at the bottom of the main content block */
+
+    /* Internal padding, aligning with main-layout-wrapper and previous structure */
+    padding-top: 1rem; /* Space at the top of the main content inside the container */
+    padding-bottom: 0.5rem; /* Keeping existing bottom padding as it wasn't specified for removal */
+    padding-left: 0; /* Removing explicit side padding to align with 95% width from wrapper */
+    padding-right: 0; /* Removing explicit side padding to align with 95% width from wrapper */
+    box-sizing: border-box; /* Ensure padding is included in the width */
+
+    /* Other layout properties (if any were already present and you want to keep them) */
+    flex-grow: 1; /* Keep this if the parent container is flex and it needs to grow */
+}
+
+
+
+/* Assign grid areas to direct children of main-layout-wrapper */
+#campus-photos-section { grid-area: campus; }
+#about-ksom-section { grid-area: about; }
+.left-accordion-col-wrapper { grid-area: left-main-col; }
+.right-accordion-col-wrapper { grid-area: right-main-col; }
+.sidebar-container { grid-area: sidebar-col; } /* New container for all sidebar items */
+
+
+/* Flexbox for stacking elements within main content columns and sidebar */
+.left-accordion-col-wrapper,
+.right-accordion-col-wrapper,
+.sidebar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem; /* Consistent spacing between sections within these flex containers */
+    padding: 0; /* Remove internal padding, handled by child elements */
+    background: transparent; /* Remove background, handled by child elements */
+    box-shadow: none; /* Remove shadow, handled by child elements */
+}
+
+/* --- Accordion Item Background Styles --- */
+
+/* Default background for accordion items */
+.accordion-item.default-bg {
+    background-color: var(--card-bg); /* Use your primary card background color */
+}
+
+/* Alternate background for accordion items */
+.accordion-item.alt-bg {
+    background-color: var(--primary-bg); /* Use a slightly different background, like your primary page background */
+    /* You might want a slightly darker/lighter shade for better contrast depending on your theme */
+}
+
+/* Common styling for all major content sections (accordion-items, etc.) */
+.accordion-item {
+    padding: 1.5rem; /* Default padding for all content sections */
+    background: var(--card-bg);
+    border: 1px solid var(--card-border); /* Add a subtle border */
+    border-radius: 8px; /* Slightly rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+    box-sizing: border-box;
+    cursor: pointer; /* Default cursor for clickable items */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition for hover effects */
+    break-inside: avoid-column; /* Still relevant for print/column-flow scenarios if any */
+    page-break-inside: avoid;
+    text-decoration: none; /* Ensure no underline for accordion items used as links */
+    color: inherit; /* Ensure text color is inherited for links */
+    /* Removed margin-bottom to ensure 0 gap for accordions */
+    margin-bottom: 0rem; /* Adds space below each accordion section */
+    background-color: var(--card-bg); /* Use your defined card background for consistency */
+}
+.main-full-width > .accordion-item:last-child {
+    margin-bottom: 0; /* No margin for the last item in a full-width container */
+}
+
+
+/* Specific styling for the very last accordion-item */
+/* This now mainly applies to items within flex columns, not the main-full-width */
+.accordion-item:last-of-type {
+    margin-bottom: 0; /* Ensure no margin after the last item in a sequence */
+}
 
 
 
 
 
 
+/* === Static Block Sections (Reusable Class) === */
+.static-section {
+    cursor: default;
+    transform: none;
+    box-shadow: none;
+    padding: 0 !important;
+    background: transparent !important;
+    margin-bottom: 2rem;
+    gap: 0rem;
+}
 
+.static-section .accordion-header {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-blue);
+    font-weight: 700;
+    font-family: var(--font-serif);
+    display: block;
+    cursor: default;
+}
 
+body.dark-mode .static-section .accordion-header {
+    color: var(--accent-light);
+}
 
+.static-section .accordion-content.static-content {
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+}
 
+body.dark-mode .static-section .accordion-content.static-content {
+    background: var(--dark-card-bg);
+    border: 1px solid var(--dark-border);
+}
 
 /* === Tables inside static sections (expand as needed) === */
 .static-section table {
@@ -898,8 +716,24 @@ body.dark-mode .static-section table tr:nth-child(even) {
 
 
 
+/* Hover effect for accordion items */
+.accordion-item:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-2px); /* Slight lift on hover */
+    text-decoration: none; /* Ensure no underline on hover */
+}
 
-
+/* Overrides for sections that should not have the default card styling */
+#campus-photos-section {
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    cursor: default; /* Not clickable for modal */
+    transform: none; /* No transform on hover */
+}
+#campus-photos-section:hover {
+    box-shadow: none !important;
+}
 .fancy-calendar-button-container {
     padding: 0 !important;
     background: transparent !important;
@@ -917,6 +751,15 @@ body.dark-mode .static-section table tr:nth-child(even) {
 }
 
 
+body.dark-mode .accordion-item,
+body.dark-mode .modal-research-card { /* Include modal cards for dark mode */
+    background: var(--dark-card-bg);
+    border: 1px solid var(--dark-border);
+    color: var(--dark-primary-text);
+}
+body.dark-mode .accordion-item:hover {
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3); /* Dark mode hover shadow */
+}
 
 
 .top-image {
@@ -934,10 +777,131 @@ body.dark-mode .static-section table tr:nth-child(even) {
   border-radius: 8px;
 }
 
+/* Overlay text for top-image slideshow */
+.top-image .overlay-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0)); /* Gradient for better text readability */
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align text to the bottom */
+}
+
+.top-image .overlay-text .main-title {
+    font-family: var(--font-serif);
+    font-size: 1.8rem; /* Larger font for main title */
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Stronger shadow for visibility */
+    margin-bottom: 5px; /* Space between lines */
+}
+
+.top-image .overlay-text .sub-title {
+    font-family: var(--font-body);
+    font-size: 0.95rem; /* Smaller font for sub-title */
+    line-height: 1.4;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6); /* Subtle shadow for sub-title */
+}
 
 
+/* === Accordion === */
+.accordion-header {
+  font-family: var(--font-serif); /* Apply Merriweather to accordion headers */
+  font-size: 1.3rem; /* Default size for research groups and other headers */
+  font-weight: 600;
+  color: var(--accent-blue);
+  margin-bottom: 0.4rem;
+  cursor: inherit; /* Inherit cursor from parent (.accordion-item) */
+  display: flex; /* Needed for arrow alignment */
+  justify-content: space-between; /* Pushes arrow to the right */
+  align-items: center;
+}
+
+/* Arrow indicator for collapsible accordions */
+/* This rule will only apply to accordions that are *not* direct links AND *not* modal openers.
+   This effectively leaves no accordions on index.md with an arrow, and leaves direct links without an arrow (correct).
+   If we introduce a a truly collapsible accordion later, it would *not* have these data attributes and would get an arrow.
+*/
+.accordion-item:not([data-direct-link="true"]):not([data-modal-opener="true"]) .accordion-header::after {
+    content: '\25BC'; /* Down arrow */
+    font-size: 0.9em;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* For accordions that open modals, explicitly remove any arrow */
+.accordion-item[data-modal-opener="true"] .accordion-header::after {
+    content: none !important;
+}
+
+/* Add a subtle hover effect to clickable accordion items */
+.accordion-item[data-direct-link="true"]:hover {
+    transform: translateY(-3px); /* Lifts the card slightly */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Increases shadow on hover */
+}
 
 
+/* Larger heading for the "Overview of Research" and "KSoM Publications" */
+/* Removed this specific style for research-overview as it's no longer accordion-item */
+a[href="/publications"].accordion-item .accordion-header {
+    font-size: 1.5rem; /* Larger size for these specific headings */
+}
+
+.accordion-snippet {
+  font-size: 1rem;
+  color: #444;
+  font-weight: normal; /* Ensure snippets are not bold */
+  cursor: inherit; /* Inherit cursor from parent (.accordion-item) */
+}
+
+/* Base style for accordion content (visible by default) */
+.accordion-content {
+  font-size: 0.975rem;
+  line-height: 1.7;
+  color: #333;
+  padding-bottom: 1.5rem; /* Default padding at the bottom of content */
+}
+
+/* Styles for *collapsible* accordion content */
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  padding-bottom: 0; /* No padding when collapsed */
+}
+.collapsible-content.expanded {
+  max-height: 1000px; /* Large enough to accommodate content */
+  padding-bottom: 1.5rem; /* Add padding when expanded */
+}
+
+
+.accordion-content p {
+  font-weight: normal; /* Ensure paragraphs inside accordion content are not bold by default */
+  margin-bottom: 1em; /* Increased spacing between paragraphs */
+}
+.accordion-content p:last-child {
+  margin-bottom: 0; /* No margin after the last paragraph */
+}
+
+/* Bullet point alignment fix (hanging indent) */
+.accordion-content ul {
+    list-style-type: disc; /* Ensure disc style */
+    padding-left: 0; /* Remove default padding to control indentation via li */
+    margin-top: 0.5em; /* Space above the list */
+    margin-bottom: 1em; /* Space below the list, consistent with paragraphs */
+}
+.accordion-content li {
+    margin-bottom: 0.3em; /* Space between list items */
+    padding-left: 1.5em; /* Indent the text of the list item */
+    text-indent: -1.5em; /* Pull the bullet point back into the padding area */
+}
+.accordion-content li:last-child {
+    margin-bottom: 0; /* No margin after the last list item */
+}
 
 
 /* Style for the "more" indicator within snippets */
@@ -958,7 +922,125 @@ body.dark-mode .snippet-more-indicator {
 
 
 
+/* === Static Blue Section: Styled Like Highlight Card === */
 
+.static-section.static-blue-section .accordion-content.static-content {
+    background-color: #e6f7ff; /* Light blue card background */
+    border: 1px solid var(--accent-light);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+}
+
+/* Inherit header styling like highlight card */
+.static-section.static-blue-section .accordion-header {
+    color: var(--accent-blue);
+    font-weight: 700;
+}
+
+/* Table styles (within blue content) */
+.static-section.static-blue-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.static-section.static-blue-section table th,
+.static-section.static-blue-section table td {
+    border: 1px solid var(--accent-light);
+    padding: 0.8em 0.5em;
+    text-align: center;
+}
+
+.static-section.static-blue-section table th {
+    background-color: var(--accent-light);
+    font-weight: bold;
+    vertical-align: top;
+}
+
+.static-section.static-blue-section table tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.static-section.static-blue-section table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Additional text block styling */
+.static-section.static-blue-section .table-note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* === Dark Mode === */
+body.dark-mode .static-section.static-blue-section .accordion-content.static-content {
+    background-color: #1f3a4e;
+    border-color: #004066;
+    color: var(--dark-primary-text);
+}
+
+body.dark-mode .static-section.static-blue-section .accordion-header {
+    color: var(--dark-primary-text);
+}
+
+body.dark-mode .static-section.static-blue-section table,
+body.dark-mode .static-section.static-blue-section th,
+body.dark-mode .static-section.static-blue-section td {
+    color: var(--dark-primary-text);
+}
+
+body.dark-mode .static-section.static-blue-section table th {
+    background-color: #004066;
+}
+
+body.dark-mode .static-section.static-blue-section table tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .static-section.static-blue-section table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .static-section.static-blue-section .table-note {
+    color: var(--dark-secondary-text);
+}
+
+
+
+
+
+
+/* === Highlight Cards (Reusable) === */
+/* Reusable styles for prominent highlight cards across the site */
+.accordion-item.highlight-card { /* Target any accordion item with the .highlight-card class */
+    background-color: #e6f7ff; /* Consistent very light blue for all highlight cards */
+    border: 1px solid var(--accent-light); /* Subtle border using your existing accent light color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gentle shadow to make it pop */
+    margin-bottom: 2rem; /* Adds space below the highlighted card (adjust as needed for specific pages) */
+    transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+/* Ensure header text is clearly visible on the highlight background */
+.accordion-item.highlight-card .accordion-header {
+    color: var(--accent-blue); /* Darker blue for light mode text */
+    font-weight: 700; /* Make the header bold */
+}
+
+/* Dark mode adjustments for the highlight card */
+body.dark-mode .accordion-item.highlight-card {
+    background-color: #1f3a4e; /* Darker blue for dark mode background */
+    border-color: #004066; /* Slightly lighter border for dark mode */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Darker shadow for dark mode */
+}
+
+body.dark-mode .accordion-item.highlight-card .accordion-header {
+    color: var(--dark-primary-text); /* Lighter text for dark mode header */
+}
 
 
 
@@ -1811,21 +1893,17 @@ footer .footer-column a:hover {
 }
 
 
-
-
-
-
-/* === Responsive (≤768px) === */
+/* === Responsive === */
 @media (max-width: 768px) {
   body {
     padding-top: 80px;
   }
 
   .header-content {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 1rem;
-    width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 1rem;
+      width: 100%;
   }
 
   /* Hide desktop navigation and show hamburger */
@@ -1836,77 +1914,63 @@ footer .footer-column a:hover {
   .hamburger-menu-icon {
     display: block;
   }
-
+  /* Ensure header-right-group does not interfere on mobile */
   .header-right-group {
     display: contents;
   }
 
 
+  /* Main content layout on mobile */
+  .main-layout-wrapper {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    width: 95%;
+    padding-top: 1rem;
+    margin-bottom: 1.5rem;
+
+    /* Mobile grid areas definition for desired stacking order */
+    grid-template-areas:
+      "campus"
+      "about"
+      "sidebar-col"
+      "left-main-col"
+      "right-main-col";
+  }
+
+  /* Reset flexbox for containers on mobile if needed to ensure stacking */
+  .left-accordion-col-wrapper,
+  .right-accordion-col-wrapper,
+  .sidebar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
   
 
+  /* Adjust campus image height for better responsiveness on mobile */
+  #campus-photos-section .top-image img {
+    height: auto; /* Allow height to adjust based on aspect ratio */
+    min-height: 200px; /* Minimum height for visibility */
+    max-height: 40vh; /* Max height relative to viewport for smaller screens */
+  }
 
- /* === Unified Full-Width Layout and Spacing Rules === */
-.main-full-width {
-  display: flex;                /* Use flex layout for vertical stacking */
-  flex-direction: column;
-  width: 90vw;                  /* Use 90% of viewport width */
-  max-width: none;              /* No constraint on max width */
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1.5rem;
-
-  padding-top: 1rem;
-  padding-bottom: 0.5rem;
-  padding-left: 0;
-  padding-right: 0;
-  box-sizing: border-box;
-  flex-grow: 1;
-}
-
-
-
-
-
-
-
-
-
-
-/* Slideshow image sizing on mobile */
-#campus-photos-section .top-image img {
-  height: auto;
-  min-height: 200px;
-  max-height: 40vh;
-}
-
-/* Calendar section styles */
-#calendar-section {
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-  padding: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  cursor: default;
-  transform: none;
-}
-
-#calendar-section:hover {
-  box-shadow: none !important;
-}
-
-
-
-
-
-
-
-
-
-
-
+  /* No longer hide calendar section on mobile */
+  #calendar-section {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.25rem; /* Reduced from 0.5rem */
+    margin-bottom: 0.25rem; /* Reduced from 0.5rem */
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    cursor: default;
+    transform: none;
+  }
+  #calendar-section:hover {
+      box-shadow: none !important;
+  }
 
 
   /* Footer responsive adjustments */
@@ -1982,7 +2046,58 @@ footer .footer-column a:hover {
   }
 }
 
+/* Specific styles for accordion headings on selected pages with compact style */
+body.compact-headings-style .accordion-item .accordion-header {
+    font-size: 1rem; /* Adjust as needed, e.g., 0.9rem, 0.85em */
+    color: #000000; /* Black color */
+}
 
+/* Dark mode adjustments for compact headings */
+body.dark-mode.compact-headings-style .accordion-item .accordion-header {
+    color: #f1f1f1; /* Lighter color for dark mode to maintain readability */
+}
+
+/* === MathJax Inline Rendering Fix (Updated) === */
+mjx-container[jax="CHTML"][display="false"] {
+  display: inline !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  overflow-wrap: normal !important;
+  line-height: inherit !important;
+  max-width: none !important;
+  width: auto !important;
+}
+
+/* Prevent layout interference inside accordion headers */
+.accordion-header {
+  display: block !important; /* Prevent grid or flex influence */
+  text-align: left;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.accordion-header mjx-container[jax="CHTML"][display="false"] {
+  display: inline !important;
+  white-space: nowrap !important;
+  width: auto !important;
+  max-width: none !important;
+  margin-right: 0.25rem; /* Optional: spacing between multiple math expressions */
+}
+
+/* Display math ($$...$$) */
+mjx-container[display="true"] {
+  display: block !important;
+  margin: 1rem 0 !important;
+  padding: 0.5rem 1rem !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  box-sizing: border-box;
+  background: var(--card-bg, #f9f9f9); /* Optional */
+  border-left: 4px solid var(--accent-blue, #005fa3); /* Optional */
+  border-radius: 6px;
+}
 
 /* Optional: prevent assistive MML span from taking space */
 mjx-container mjx-assistive-mml {
