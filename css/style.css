@@ -1907,7 +1907,7 @@ footer .footer-column a:hover {
 /* === Responsive === */
 @media (max-width: 768px) {
   body {
-    padding-top: 80px;
+    padding-top: 0px;
   }
 @media (max-width: 768px) { /* This media query targets screens up to 768px wide (typical for tablets and phones) */
     main {
