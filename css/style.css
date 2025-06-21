@@ -734,11 +734,13 @@ body.dark-mode .static-section table tr:nth-child(even) {
 
 /* Overrides for sections that should not have the default card styling */
 #campus-photos-section {
-    padding: 0.5 !important;
+    padding: 0 !important;
     background: transparent !important;
     box-shadow: none !important;
     cursor: default; /* Not clickable for modal */
     transform: none; /* No transform on hover */
+    margin-top: 0.5rem !important;
+    padding-top: 0 !important;
 }
 #campus-photos-section:hover {
     box-shadow: none !important;
