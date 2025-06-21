@@ -1909,6 +1909,12 @@ footer .footer-column a:hover {
   body {
     padding-top: 80px;
   }
+@media (max-width: 768px) { /* This media query targets screens up to 768px wide (typical for tablets and phones) */
+    main {
+        padding-left: 0.5rem; /* Minimal padding on the left for mobile */
+        padding-right: 0.5rem; /* Minimal padding on the right for mobile */
+    }
+}
 
   .header-content {
       flex-direction: row;
